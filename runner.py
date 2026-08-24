@@ -18,7 +18,7 @@ DEEPSEEK_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 FORCE = os.environ.get("FORCE", "") == "1"
 
 STATE_FILE = "posted.json"
-MAX_PER_RUN = 3
+MAX_PER_RUN = 5
 FRESH_HOURS = 8
 CAIRO = ZoneInfo("Africa/Cairo")
 
@@ -66,9 +66,6 @@ def is_football(title, summary):
             return True
     return False
 
-# ============================================
-# منع تكرار العناوين (الحل الجديد)
-# ============================================
 def norm_title(t):
     t = t.lower()
     t = re.sub(r'[^\w\u0600-\u06FF]+', ' ', t)
@@ -89,6 +86,27 @@ LEAGUES = {
     "egy.1": "الدوري المصري", "uefa.champions": "دوري أبطال أوروبا",
 }
 BIG_LEAGUES = ["eng.1", "esp.1", "uefa.champions", "egy.1", "ksa.1"]
+
+# ============================================
+# منشورات التفاعل (استفتاءات + معلومات آمنة)
+# ============================================
+ENGAGEMENTS = [
+    {"type": "poll", "q": "مين أحسن مهاجم في العالم دلوقتي؟ 🔥",
+     "options": ["هالاند", "مبابي", "محمد صلاح", "فينيسيوس"]},
+    {"type": "poll", "q": "مين الأعظم في التاريخ؟ 🐐",
+     "options": ["ميسي", "رونالدو", "الاتنين في قلبي"]},
+    {"type": "text", "t": "💡 معلومة سريعة: البرازيل أكتر منتخب كسب كأس العالم.. 5 مرات! 🇧"},
+    {"type": "poll", "q": "لو انت المدرب، هتضم مين الأول؟ 💼",
+     "options": ["مبابي", "هالاند", "بيلينجهام", "صلاح"]},
+    {"type": "text", "t": "💡 معلومة سريعة: أول كأس عالم اتلعبت سنة 1930 في أوروجواي.. وصاحب الأرض كسبها! 🏆"},
+    {"type": "poll", "q": "أنهي مباراة بتستناها أكتر؟ ⏰",
+     "options": ["كلاسيكو الأرض", "ديربي البريميرليج", "ليلية الأبطال", "قمة الدوري المصري"]},
+    {"type": "text", "t": "💡 معلومة سريعة: ريال مدريد نادي القرن في أوروبا.. أكتر نادي كسب الشامبيونزليج 🏆"},
+    {"type": "poll", "q": "مين أحسن لاعب عربي محترف في التاريخ؟ 🌍",
+     "options": ["محمد صلاح", "رياض محرز", "أشرف حكيمي", "سعيد العويران"]},
+    {"type": "text", "t": "💡 معلومة مجنونة: أكبر نتيجة في تاريخ المونديال: أستراليا 31 - 0 ساموا الأمريكية 😱"},
+    {"type": "text", "t": "سؤال السهرة: مين أحسن مدرب في العالم دلوقتي؟ اكتبه في التعليقات 👇"},
+]
 
 SYSTEM_PROMPT = """أنت محرر رياضي في قناة Edge Football لكرة القدم فقط.
 أعد صياغة الخبر بالعربية بأسلوب Mix:
@@ -145,6 +163,19 @@ def send_tg(text):
         return r.ok
     except Exception as e:
         print("❌ Telegram exception:", e)
+        return False
+
+def send_poll(question, options):
+    try:
+        r = requests.post(
+            f"https://api.telegram.org/bot{TG_TOKEN}/sendPoll",
+            json={"chat_id": TG_CHANNEL, "question": question,
+                  "options": [{"text": o} for o in options]}, timeout=30)
+        if not r.ok:
+            print("❌ Poll error:", r.status_code, r.text[:200])
+        return r.ok
+    except Exception as e:
+        print("❌ Poll exception:", e)
         return False
 
 
@@ -251,7 +282,7 @@ def fetch_lineups(slug, event_id):
 
 
 # ============================================
-# 1) الأخبار (جديد: فلتر التاريخ + العناوين)
+# 1) الأخبار
 # ============================================
 def collect_news(state):
     posted = set(state["posted"])
@@ -268,12 +299,10 @@ def collect_news(state):
                 url = e.get("link", "")
                 if not title or not url: continue
 
-                # جديد: خبر بدون تاريخ = مرفوض
                 pp = e.get("published_parsed")
                 if not pp:
                     skipped_old += 1
                     continue
-                # جديد: أقدم من 8 ساعات = مرفوض
                 if time.time() - time.mktime(pp) > FRESH_HOURS * 3600:
                     skipped_old += 1
                     continue
@@ -284,7 +313,6 @@ def collect_news(state):
                 h = hash_id(title, url)
                 if h in posted: continue
 
-                # جديد: مقارنة العناوين
                 nt = norm_title(title)
                 if is_dup_title(nt, recent_titles):
                     skipped_dup += 1
@@ -301,7 +329,7 @@ def collect_news(state):
 
 
 # ============================================
-# 2) النتائج والبريفيو
+# 2) النتائج + اللايف (جديد)
 # ============================================
 def finish_text(home, hs, away, as_, name):
     hs, as_ = int(hs), int(as_)
@@ -336,6 +364,37 @@ def collect_finished(state):
             except Exception:
                 continue
     return found, reported
+
+def check_live(state):
+    """جديد: بداية مباراة + تنبيه أهداف"""
+    live = state.get("live_scores", {})
+    new_live = {}
+    alerts = []
+    for slug, name in LEAGUES.items():
+        data = fetch_scoreboard(slug)
+        if not data: continue
+        for ev in data.get("events", []):
+            try:
+                comp = ev["competitions"][0]
+                st = comp["status"]["type"]["state"]
+                eid = ev.get("id")
+                if st != "in": continue
+                comps = comp["competitors"]
+                home = [c for c in comps if c.get("homeAway") == "home"][0]
+                away = [c for c in comps if c.get("homeAway") == "away"][0]
+                hs, as_ = home["score"], away["score"]
+                hn, an = home["team"]["displayName"], away["team"]["displayName"]
+                key = f"{hs}-{as_}"
+                prev = live.get(eid)
+                new_live[eid] = key
+                if prev is None:
+                    alerts.append(f"🟢 انطلقت المباراة!\n{hn} × {an} ({name})\nياللا بينا.. الليلة ليلة 🔥\n\n⚽ Edge Football")
+                elif prev != key:
+                    alerts.append(f"⚠️ جوووول!\n{hn} {hs} - {as_} {an} ({name})\nالمباراة شغالة والجو نار 🔥\n\n⚽ Edge Football")
+            except Exception:
+                continue
+    state["live_scores"] = new_live
+    return alerts
 
 def collect_previews(state, now):
     previewed = set(state.get("previewed", []))
@@ -445,6 +504,21 @@ def build_schedule(today):
 
 
 # ============================================
+# 4) التفاعل (جديد)
+# ============================================
+def post_engagement(state):
+    idx = state.get("engagement_index", 0) % len(ENGAGEMENTS)
+    item = ENGAGEMENTS[idx]
+    if item["type"] == "poll":
+        ok = send_poll(item["q"], item["options"])
+    else:
+        ok = send_tg(item["t"] + "\n\n⚽ Edge Football")
+    if ok:
+        state["engagement_index"] = idx + 1
+        print("✅ نُشر منشور تفاعل")
+
+
+# ============================================
 # البرنامج الرئيسي
 # ============================================
 def main():
@@ -452,7 +526,7 @@ def main():
     now = datetime.now(CAIRO)
     today = now.strftime("%Y-%m-%d")
 
-    # ---------- الأخبار ----------
+    # ---------- الأخبار (5 في الجولة) ----------
     fresh, posted, recent_titles = collect_news(state)
     print(f"📥 أخبار كورة جديدة: {len(fresh)}")
     count = 0
@@ -480,6 +554,16 @@ def main():
             time.sleep(15)
     state["posted"] = list(posted)
     state["posted_titles"] = recent_titles[-500:]
+
+    # ---------- اللايف: انطلاق + أهداف ----------
+    alerts = check_live(state)
+    print(f"🟢 تنبيهات لايف: {len(alerts)}")
+    a_sent = 0
+    for text in alerts:
+        if a_sent >= 3: break
+        if send_tg(text):
+            a_sent += 1
+            time.sleep(5)
 
     # ---------- النتائج ----------
     found, reported = collect_finished(state)
@@ -526,6 +610,13 @@ def main():
                 print("✅ نُشرت نشرة الليل")
                 if not FORCE:
                     state["last_digest_date"] = today
+
+    # ---------- منشور تفاعل كل ساعتين (10ص - 11م) ----------
+    last_eng = state.get("last_engagement", 0)
+    if FORCE or (10 <= now.hour <= 23 and time.time() - last_eng >= 2 * 3600):
+        post_engagement(state)
+        if not FORCE:
+            state["last_engagement"] = time.time()
 
     state["daily_news"] = [x for x in state.get("daily_news", []) if x["d"] == today][-20:]
     state["daily_results"] = [x for x in state.get("daily_results", []) if x["d"] == today][-20:]
