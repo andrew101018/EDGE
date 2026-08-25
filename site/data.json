@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-25 10:44 PM",
+  "updated_at": "2026-08-25 11:08 PM",
   "news": [
     "‘He’s box office’: Gary Lineker admits wanting Roy Keane to join The Rest Is Football",
     "تعرض عرض Littler لاكتساح أسهم PDC التاريخية لضربة قوية",
@@ -9,6 +9,8 @@
     "فاز دالجليش وكارني بجوائز الجدارة من PFA"
   ],
   "results": [
+    "الشباب 3 - 3 Al Riyadh",
+    "الاتفاق 2 - 3 النصر",
     "التعاون 0 - 0 الفيحاء",
     "Abha 1 - 1 الخليج",
     "Spain 1 - 0 Argentina",
@@ -16,9 +18,7 @@
     "Botafogo 2 - 3 Athletico-PR",
     "Atlanta United FC 2 - 1 Sporting Kansas City",
     "New England Revolution 1 - 1 New York City FC",
-    "Panetolikos 3 - 1 Asteras Tripoli",
-    "PAOK 4 - 0 Levadiakos",
-    "Panathinaikos 0 - 0 Kifisia"
+    "Panetolikos 3 - 1 Asteras Tripoli"
   ],
   "schedule": [],
   "live": [
@@ -28,20 +28,6 @@
       "home_score": "0",
       "away_score": "0",
       "league": "الدوري الإسباني"
-    },
-    {
-      "home": "الاتفاق",
-      "away": "النصر",
-      "home_score": "2",
-      "away_score": "2",
-      "league": "الدوري السعودي"
-    },
-    {
-      "home": "الشباب",
-      "away": "Al Riyadh",
-      "home_score": "3",
-      "away_score": "3",
-      "league": "الدوري السعودي"
     }
   ],
   "tables": {
@@ -96,12 +82,12 @@
       "8. PSG — 1.0 نقطة (1.0 مباراة)"
     ],
     "الدوري السعودي": [
-      "1. الاتحاد — 7.0 نقطة (3.0 مباراة)",
-      "2. النصر — 6.0 نقطة (2.0 مباراة)",
+      "1. النصر — 9.0 نقطة (3.0 مباراة)",
+      "2. الاتحاد — 7.0 نقطة (3.0 مباراة)",
       "3. الهلال — 6.0 نقطة (2.0 مباراة)",
       "4. الأهلي السعودي — 6.0 نقطة (2.0 مباراة)",
       "5. القادسية — 6.0 نقطة (3.0 مباراة)",
-      "6. الاتفاق — 6.0 نقطة (2.0 مباراة)",
+      "6. الاتفاق — 6.0 نقطة (3.0 مباراة)",
       "7. Neom SC — 6.0 نقطة (3.0 مباراة)",
       "8. Al Kholood — 4.0 نقطة (2.0 مباراة)"
     ],
