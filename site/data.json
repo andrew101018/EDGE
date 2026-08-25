@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-25 09:21 PM",
+  "updated_at": "2026-08-25 10:06 PM",
   "news": [
     "‘He’s box office’: Gary Lineker admits wanting Roy Keane to join The Rest Is Football",
     "تعرض عرض Littler لاكتساح أسهم PDC التاريخية لضربة قوية",
@@ -20,27 +20,27 @@
     "PAOK 4 - 0 Levadiakos",
     "Panathinaikos 0 - 0 Kifisia"
   ],
-  "schedule": [
+  "schedule": [],
+  "live": [
     {
-      "time": "10:00 PM",
       "home": "فالنسيا",
       "away": "ريال بيتيس",
+      "home_score": "0",
+      "away_score": "0",
       "league": "الدوري الإسباني"
-    }
-  ],
-  "live": [
+    },
     {
       "home": "الاتفاق",
       "away": "النصر",
-      "home_score": "0",
+      "home_score": "2",
       "away_score": "0",
       "league": "الدوري السعودي"
     },
     {
       "home": "الشباب",
       "away": "Al Riyadh",
-      "home_score": "0",
-      "away_score": "0",
+      "home_score": "2",
+      "away_score": "2",
       "league": "الدوري السعودي"
     }
   ],
