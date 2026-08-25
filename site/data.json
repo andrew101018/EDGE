@@ -1,12 +1,16 @@
 {
-  "updated_at": "2026-08-25 08:49 PM",
+  "updated_at": "2026-08-25 09:21 PM",
   "news": [
+    "‘He’s box office’: Gary Lineker admits wanting Roy Keane to join The Rest Is Football",
+    "تعرض عرض Littler لاكتساح أسهم PDC التاريخية لضربة قوية",
     "جولة PGA: سيتم لعب بطولة الجولة بتنسيق مباراة اعتبارًا من عام 2028",
     "تعرض عرض Littler لاكتساح أسهم PDC الكبرى لضربة قوية مع خروج PC27",
     "'A glimmer of hope' | Could Alvarez still end up at Arsenal?",
     "فاز دالجليش وكارني بجوائز الجدارة من PFA"
   ],
   "results": [
+    "التعاون 0 - 0 الفيحاء",
+    "Abha 1 - 1 الخليج",
     "Spain 1 - 0 Argentina",
     "فرايبورج 0 - 3 أستون فيلا",
     "Botafogo 2 - 3 Athletico-PR",
@@ -14,9 +18,7 @@
     "New England Revolution 1 - 1 New York City FC",
     "Panetolikos 3 - 1 Asteras Tripoli",
     "PAOK 4 - 0 Levadiakos",
-    "Panathinaikos 0 - 0 Kifisia",
-    "OFI Crete 2 - 0 Volos NFC",
-    "Dundee United 0 - 2 Dundee"
+    "Panathinaikos 0 - 0 Kifisia"
   ],
   "schedule": [
     {
@@ -24,31 +26,19 @@
       "home": "فالنسيا",
       "away": "ريال بيتيس",
       "league": "الدوري الإسباني"
-    },
-    {
-      "time": "09:00 PM",
-      "home": "الاتفاق",
-      "away": "النصر",
-      "league": "الدوري السعودي"
-    },
-    {
-      "time": "09:00 PM",
-      "home": "الشباب",
-      "away": "Al Riyadh",
-      "league": "الدوري السعودي"
     }
   ],
   "live": [
     {
-      "home": "Abha",
-      "away": "الخليج",
-      "home_score": "1",
-      "away_score": "1",
+      "home": "الاتفاق",
+      "away": "النصر",
+      "home_score": "0",
+      "away_score": "0",
       "league": "الدوري السعودي"
     },
     {
-      "home": "التعاون",
-      "away": "الفيحاء",
+      "home": "الشباب",
+      "away": "Al Riyadh",
       "home_score": "0",
       "away_score": "0",
       "league": "الدوري السعودي"
