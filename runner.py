@@ -1,4 +1,4 @@
-import os, json, hashlib, time, re, random
+import os, json, hashlib, time, re, random, asyncio, subprocess
 import requests
 import feedparser
 from bs4 import BeautifulSoup
@@ -7,11 +7,8 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from difflib import SequenceMatcher
 
-# ============================================
-# الإعدادات
-# ============================================
 TG_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-TG_CHANNEL = os.environ.get("TELEGRAM_CHANNEL_ID", "@EdgeFootball")
+TG_CHANNEL = os.environ.get("TELEGRAM_CHANNEL_ID", "@edgefootballplatform")
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "")
 GROQ_KEY = os.environ.get("GROQ_KEY", "")
 DEEPSEEK_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
@@ -87,6 +84,52 @@ LEAGUES = {
 }
 BIG_LEAGUES = ["eng.1", "esp.1", "uefa.champions", "egy.1", "ksa.1"]
 
+# ============================================
+# ️ ترجمة أسماء الفرق (جديد v8)
+# ============================================
+TEAM_AR = {
+    "Real Madrid": "ريال مدريد", "Barcelona": "برشلونة", "Liverpool": "ليفربول",
+    "Manchester City": "مانشستر سيتي", "Manchester United": "مانشستر يونايتد",
+    "Chelsea": "تشيلسي", "Arsenal": "أرسنال", "Tottenham Hotspur": "توتنهام",
+    "Paris Saint-Germain": "باريس سان جيرمان", "Bayern Munich": "بايرن ميونخ",
+    "Juventus": "يوفنتوس", "Inter": "إنتر ميلان", "AC Milan": "ميلان",
+    "Atlético Madrid": "أتلتيكو مدريد", "Borussia Dortmund": "بوروسيا دورتموند",
+    "Napoli": "نابولي", "Aston Villa": "أستون فيلا", "Newcastle United": "نيوكاسل",
+    "Fulham": "فولهام", "Málaga": "مالاجا", "Deportivo La Coruña": "ديبورتيفو",
+    "Al Ahly": "الأهلي", "Zamalek": "الزمالك", "Pyramids FC": "بيراميدز",
+    "Al Hilal": "الهلال", "Al Nassr": "النصر", "Al Ittihad": "الاتحاد",
+    "Al Ahli": "الأهلي السعودي", "Al Shabab": "الشباب", "Al Ettifaq": "الاتفاق",
+    "Espérance de Tunis": "الترجي", "Wydad AC": "الوداد", "Raja Casablanca": "الرجاء",
+    "Villarreal": "فياريال", "Real Betis": "ريال بيتيس", "Sevilla": "إشبيلية",
+    "Valencia": "فالنسيا", "Athletic Club": "أتلتيك بلباو", "Real Sociedad": "ريال سوسيداد",
+    "Bayer Leverkusen": "باير ليفركوزن", "RB Leipzig": "لايبزيج", "Eintracht Frankfurt": "فرانكفورت",
+    "AS Roma": "روما", "Lazio": "لاتسيو", "Atalanta": "أتالانتا", "Fiorentina": "فيورنتينا",
+    "Olympique Marseille": "مارسيليا", "Olympique Lyon": "ليون", "AS Monaco": "موناكو",
+    "PSV Eindhoven": "آيندهوفن", "Ajax": "أياكس", "Benfica": "بنفيكا", "Porto": "بورتو",
+    "Sporting CP": "سبورتينج لشبونة", "Celtic": "سيلتيك", "Rangers": "رينجرز",
+    "Galatasaray": "جالاطا سراي", "Fenerbahçe": "فنربخشة", "Beşiktaş": "بشكتاش",
+    "West Ham United": "وست هام", "Everton": "إيفرتون", "Brighton & Hove Albion": "برايتون",
+    "Crystal Palace": "كريستال بالاس", "Wolverhampton Wanderers": "ولفرهامبتون",
+    "Leicester City": "ليستر سيتي", "Leeds United": "ليدز يونايتد", "Southampton": "ساوثهامبتون",
+    "Nottingham Forest": "نوتينجهام فورست", "Brentford": "برينتفورد", "Bournemouth": "بورنموث",
+    "Getafe": "خيتافي", "Osasuna": "أوساسونا", "Celta Vigo": "سيلتا فيجو", "Rayo Vallecano": "رايو فاييكانو",
+    "Girona": "جيرونا", "Las Palmas": "لاس بالماس", "Mallorca": "مايوركا", "Alavés": "ألافيس",
+    "VfB Stuttgart": "شتوتجارت", "Werder Bremen": "فيردر بريمن", "Borussia Mönchengladbach": "جلادباخ",
+    "VfL Wolfsburg": "فولفسبورج", "SC Freiburg": "فرايبورج", "TSG Hoffenheim": "هوفنهايم",
+    "Udinese": "أودينيزي", "Torino": "تورينو", "Bologna": "بولونيا", "Genoa": "جنوى", "Cagliari": "كالياري",
+    "Empoli": "إمبولي", "Hellas Verona": "فيرونا", "Lecce": "ليتشي", "Sassuolo": "ساسولو",
+    "Montreal": "مونتريال", "Columbus Crew": "كولومبوس كرو", "LA Galaxy": "لوس أنجلوس جالاكسي",
+    "Inter Miami": "إنتر ميامي", "Al Taawoun": "التعاون", "Al Fateh": "الفتح", "Damac FC": "ضمك",
+    "Al Raed": "الرائد", "Al Fayha": "الفيحاء", "Al Khaleej": "الخليج", "Al Wehda": "الوحدة",
+    "Al Qadsiah": "القادسية", "Al Okhdood": "الأخدود", "Al Riyad": "الرياض",
+    "Ismaily": "الإسماعيلي", "Al Masry": "المصري", "Smouha": "سموحة", "ENPPI": "إنبي",
+    "Ceramica Cleopatra": "سيراميكا كليوباترا", "Modern Sport": "مودرن سبورت",
+    "Málaga": "مالاجا", "Deportivo": "ديبورتيفو",
+}
+
+def ar_team(name):
+    return TEAM_AR.get(name, name)
+
 ENGAGEMENTS = [
     {"type": "poll", "q": "مين أحسن مهاجم في العالم دلوقتي؟ 🔥",
      "options": ["هالاند", "مبابي", "محمد صلاح", "فينيسيوس"]},
@@ -105,9 +148,6 @@ ENGAGEMENTS = [
     {"type": "text", "t": "سؤال السهرة: مين أحسن مدرب في العالم دلوقتي؟ اكتبه في التعليقات 👇"},
 ]
 
-# ============================================
-# 🎭 شخصيات الصياغة (جديد v7)
-# ============================================
 STYLES = [
     {"name": "المعلق الحماسي",
      "p": "اكتب بأسلوب معلق كرة قدم حماسي: تعجيب، طاقة عالية، عامية مصرية قوية."},
@@ -131,9 +171,6 @@ BASE_RULES = """قواعد ثابتة:
 - لو الخبر ليس عن كرة القدم اكتب كلمة واحدة: SKIP"""
 
 
-# ============================================
-# أدوات مساعدة
-# ============================================
 def hash_id(title, url):
     return hashlib.md5((title + url).encode()).hexdigest()
 
@@ -187,9 +224,6 @@ def send_poll(question, options):
         return False
 
 
-# ============================================
-# الذكاء الاصطناعي (جديد: ستايل عشوائي + حرارة عشوائية)
-# ============================================
 def call_gemini(prompt, temp):
     if not GEMINI_KEY: return None
     try:
@@ -254,9 +288,6 @@ def ai_process(title, content, is_english, forbidden=None):
     return result
 
 
-# ============================================
-# بيانات المباريات
-# ============================================
 def fetch_scoreboard(slug):
     try:
         r = requests.get(
@@ -306,9 +337,6 @@ def fetch_lineups(slug, event_id):
         return None
 
 
-# ============================================
-# 1) الأخبار
-# ============================================
 def collect_news(state):
     posted = set(state["posted"])
     recent_titles = state.get("posted_titles", [])
@@ -353,10 +381,8 @@ def collect_news(state):
     return fresh, posted, recent_titles
 
 
-# ============================================
-# 2) النتائج + اللايف
-# ============================================
 def finish_text(home, hs, away, as_, name):
+    home, away = ar_team(home), ar_team(away)
     hs, as_ = int(hs), int(as_)
     if hs > as_:
         line = f"{home} خطفها وخد التلات نقاط 💪"
@@ -407,7 +433,7 @@ def check_live(state):
                 home = [c for c in comps if c.get("homeAway") == "home"][0]
                 away = [c for c in comps if c.get("homeAway") == "away"][0]
                 hs, as_ = home["score"], away["score"]
-                hn, an = home["team"]["displayName"], away["team"]["displayName"]
+                hn, an = ar_team(home["team"]["displayName"]), ar_team(away["team"]["displayName"])
                 key = f"{hs}-{as_}"
                 prev = live.get(eid)
                 new_live[eid] = key
@@ -436,8 +462,8 @@ def collect_previews(state, now):
                 hours_left = (dt - now).total_seconds() / 3600
                 if not (0.5 <= hours_left <= 4): continue
                 comps = comp["competitors"]
-                home = [c for c in comps if c.get("homeAway") == "home"][0]["team"]["displayName"]
-                away = [c for c in comps if c.get("homeAway") == "away"][0]["team"]["displayName"]
+                home = ar_team([c for c in comps if c.get("homeAway") == "home"][0]["team"]["displayName"])
+                away = ar_team([c for c in comps if c.get("homeAway") == "away"][0]["team"]["displayName"])
                 found.append((eid, slug, home, away, dt))
             except Exception:
                 continue
@@ -449,7 +475,7 @@ def build_preview(slug, home, away, dt, event_id):
     lineups = fetch_lineups(slug, event_id)
     if lineups:
         for team, players in list(lineups.items())[:2]:
-            lines.append(f"🧤 تشكيل {team}:")
+            lines.append(f"🧤 تشكيل {ar_team(team)}:")
             lines.append("، ".join(players))
             lines.append("")
     else:
@@ -460,9 +486,6 @@ def build_preview(slug, home, away, dt, event_id):
     return "\n".join(lines)
 
 
-# ============================================
-# 3) الترتيب والنشرات
-# ============================================
 def top_table(slug, n=5):
     entries = fetch_standings(slug)
     if not entries: return None
@@ -471,7 +494,7 @@ def top_table(slug, n=5):
         try:
             stats = {s["name"]: s.get("value") for s in e.get("stats", [])}
             rank = int(float(stats.get("rank", 99)))
-            team = e.get("team", {}).get("shortDisplayName", "")
+            team = ar_team(e.get("team", {}).get("shortDisplayName", ""))
             pts = stats.get("points", "-")
             gp = stats.get("gamesPlayed", "")
             rows.append((rank, f"{rank}. {team} — {pts} نقطة ({gp} مباراة)"))
@@ -500,7 +523,7 @@ def build_digest(state, today):
             lines.append("")
     if len(lines) <= 3:
         return None
-    lines.append("تصبحوا على كورة 😴⚽ Edge Football")
+    lines.append("تصبحوا على كورة 😴 Edge Football")
     return "\n".join(lines)
 
 def build_schedule(today):
@@ -516,8 +539,8 @@ def build_schedule(today):
                 dt = datetime.fromisoformat(ev["date"].replace("Z", "+00:00")).astimezone(CAIRO)
                 if dt.strftime("%Y-%m-%d") != today: continue
                 comps = comp["competitors"]
-                home = [c for c in comps if c.get("homeAway") == "home"][0]["team"]["displayName"]
-                away = [c for c in comps if c.get("homeAway") == "away"][0]["team"]["displayName"]
+                home = ar_team([c for c in comps if c.get("homeAway") == "home"][0]["team"]["displayName"])
+                away = ar_team([c for c in comps if c.get("homeAway") == "away"][0]["team"]["displayName"])
                 lines.append(f"⏰ {dt.strftime('%I:%M %p')} | {home} × {away} ({name})")
                 total += 1
             except Exception:
@@ -527,9 +550,6 @@ def build_schedule(today):
     return "\n".join(lines) + "\n\n⚽ Edge Football"
 
 
-# ============================================
-# 4) التفاعل
-# ============================================
 def post_engagement(state):
     idx = state.get("engagement_index", 0) % len(ENGAGEMENTS)
     item = ENGAGEMENTS[idx]
@@ -540,6 +560,138 @@ def post_engagement(state):
     if ok:
         state["engagement_index"] = idx + 1
         print("✅ نُشر منشور تفاعل")
+
+
+# ============================================
+# 🎬 توليد فيديوهات Shorts
+# ============================================
+async def _tts(text, out):
+    import edge_tts
+    c = edge_tts.Communicate(text, "ar-EG-ShakirNeural")
+    await c.save(out)
+
+def send_video(path, caption):
+    try:
+        with open(path, "rb") as f:
+            r = requests.post(
+                f"https://api.telegram.org/bot{TG_TOKEN}/sendVideo",
+                data={"chat_id": TG_CHANNEL, "caption": caption},
+                files={"video": f}, timeout=180)
+        if not r.ok:
+            print("❌ Video error:", r.status_code, r.text[:200])
+        return r.ok
+    except Exception as e:
+        print("❌ Video exception:", e)
+        return False
+
+def make_short(text):
+    import urllib.parse
+    os.makedirs("videos", exist_ok=True)
+
+    body = text.split("📡")[0].strip()[:350]
+    voice_text = f"أهلاً بيكم في إيدج فوتبول! {body} تابعونا عشان كل جديد في عالم الكورة!"
+    mp3 = "videos/voice.mp3"
+    asyncio.run(_tts(voice_text, mp3))
+    print("🎙️ تم توليد الصوت")
+
+    prompt = urllib.parse.quote(
+        "dramatic football stadium at night, cinematic lighting, green pitch, epic atmosphere, no text")
+    r = requests.get(
+        f"https://image.pollinations.ai/prompt/{prompt}?width=1080&height=1920", timeout=120)
+    if not r.ok or len(r.content) < 1000:
+        print("⚠️ توليد الصورة فشل — هنكمل من غير فيديو")
+        return
+    with open("videos/bg.jpg", "wb") as f:
+        f.write(r.content)
+    print("🖼️ تم توليد الخلفية")
+
+    out = "videos/short.mp4"
+    cmd = ["ffmpeg", "-y", "-loop", "1", "-i", "videos/bg.jpg", "-i", mp3,
+           "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,format=yuv420p",
+           "-c:v", "libx264", "-r", "24", "-c:a", "aac", "-shortest", "-t", "60", out]
+    subprocess.run(cmd, check=True, capture_output=True)
+    print("🎬 تم تركيب الفيديو")
+
+    cap = body[:500] + "\n\n🎬 Edge Football Shorts"
+    if send_video(out, cap):
+        print("✅ نُشر فيديو Shorts في القناة")
+
+
+# ============================================
+# 🌐 توليد بيانات الموقع (محدّث v8)
+# ============================================
+def build_site_data(state, today):
+    now = datetime.now(CAIRO)
+
+    # آخر 10 أخبار دايماً (مش بس النهارده)
+    news_items = [x for x in state.get("site_news", [])][::-1]
+
+    results_items = []
+    for item in state.get("daily_results", [])[-10:][::-1]:
+        if item["d"] == today:
+            results_items.append(item["t"])
+
+    schedule_lines = []
+    for slug, name in LEAGUES.items():
+        data = fetch_scoreboard(slug)
+        if not data: continue
+        for ev in data.get("events", []):
+            try:
+                comp = ev["competitions"][0]
+                if comp["status"]["type"]["state"] != "pre": continue
+                dt = datetime.fromisoformat(ev["date"].replace("Z", "+00:00")).astimezone(CAIRO)
+                if dt.strftime("%Y-%m-%d") != today: continue
+                comps = comp["competitors"]
+                home = ar_team([c for c in comps if c.get("homeAway") == "home"][0]["team"]["displayName"])
+                away = ar_team([c for c in comps if c.get("homeAway") == "away"][0]["team"]["displayName"])
+                schedule_lines.append({
+                    "time": dt.strftime("%I:%M %p"),
+                    "home": home, "away": away, "league": name
+                })
+            except Exception:
+                continue
+
+    tables = {}
+    for slug, name in [("eng.1", "الدوري الإنجليزي"), ("esp.1", "الدوري الإسباني"),
+                        ("egy.1", "الدوري المصري"), ("ksa.1", "الدوري السعودي")]:
+        t = top_table(slug, 8)
+        if t:
+            tables[name] = t
+
+    live_matches = []
+    for slug, name in LEAGUES.items():
+        data = fetch_scoreboard(slug)
+        if not data: continue
+        for ev in data.get("events", []):
+            try:
+                comp = ev["competitions"][0]
+                if comp["status"]["type"]["state"] != "in": continue
+                comps = comp["competitors"]
+                home = [c for c in comps if c.get("homeAway") == "home"][0]
+                away = [c for c in comps if c.get("homeAway") == "away"][0]
+                live_matches.append({
+                    "home": ar_team(home["team"]["displayName"]),
+                    "away": ar_team(away["team"]["displayName"]),
+                    "home_score": home["score"],
+                    "away_score": away["score"],
+                    "league": name
+                })
+            except Exception:
+                continue
+
+    site_data = {
+        "updated_at": now.strftime("%Y-%m-%d %I:%M %p"),
+        "news": news_items,
+        "results": results_items,
+        "schedule": schedule_lines,
+        "live": live_matches,
+        "tables": tables,
+    }
+
+    os.makedirs("site", exist_ok=True)
+    with open("site/data.json", "w", encoding="utf-8") as f:
+        json.dump(site_data, f, ensure_ascii=False, indent=2)
+    print("🌐 تم تحديث بيانات الموقع")
 
 
 # ============================================
@@ -555,6 +707,7 @@ def main():
     fresh, posted, recent_titles = collect_news(state)
     print(f"📥 أخبار كورة جديدة: {len(fresh)}")
     count = 0
+    last_video_text = None
     for item in fresh:
         if count >= MAX_PER_RUN: break
         title, summary = item["title"], item["summary"]
@@ -574,13 +727,23 @@ def main():
             posted.add(item["hash"])
             recent_titles.append(item["nt"])
             openers.append(content.splitlines()[0][:80])
+            state.setdefault("site_news", []).append(content.splitlines()[0][:100])
             state.setdefault("daily_news", []).append(
                 {"d": today, "t": content.splitlines()[0][:80]})
             count += 1
+            last_video_text = content
             time.sleep(15)
     state["posted"] = list(posted)
     state["posted_titles"] = recent_titles[-500:]
     state["last_openers"] = openers[-5:]
+    state["site_news"] = state.get("site_news", [])[-10:]
+
+    # ---------- فيديو Shorts ----------
+    if last_video_text:
+        try:
+            make_short(last_video_text)
+        except Exception as e:
+            print("❌ video error:", e)
 
     # ---------- اللايف ----------
     alerts = check_live(state)
@@ -648,96 +811,11 @@ def main():
     state["daily_news"] = [x for x in state.get("daily_news", []) if x["d"] == today][-20:]
     state["daily_results"] = [x for x in state.get("daily_results", []) if x["d"] == today][-20:]
 
-    # ---------- موقع الويب ----------
+    # ---------- الموقع ----------
     build_site_data(state, today)
-    
+
     save_state(state)
     print("🏁 انتهت الجولة")
-# ============================================
-# 🌐 توليد بيانات الموقع
-# ============================================
-def build_site_data(state, today):
-    """يكتب ملف JSON فيه كل محتوى الموقع"""
-    now = datetime.now(CAIRO)
 
-    # آخر الأخبار المنشورة
-    news_items = []
-    for key in ["daily_news"]:
-        for item in state.get(key, [])[-10:][::-1]:
-            if item["d"] == today:
-                news_items.append(item["t"])
-
-    # آخر النتائج
-    results_items = []
-    for item in state.get("daily_results", [])[-10:][::-1]:
-        if item["d"] == today:
-            results_items.append(item["t"])
-
-    # جدول مباريات اليوم
-    schedule_lines = []
-    for slug, name in LEAGUES.items():
-        data = fetch_scoreboard(slug)
-        if not data: continue
-        for ev in data.get("events", []):
-            try:
-                comp = ev["competitions"][0]
-                if comp["status"]["type"]["state"] != "pre": continue
-                dt = datetime.fromisoformat(ev["date"].replace("Z", "+00:00")).astimezone(CAIRO)
-                if dt.strftime("%Y-%m-%d") != today: continue
-                comps = comp["competitors"]
-                home = [c for c in comps if c.get("homeAway") == "home"][0]
-                away = [c for c in comps if c.get("homeAway") == "away"][0]
-                schedule_lines.append({
-                    "time": dt.strftime("%I:%M %p"),
-                    "home": home["team"]["displayName"],
-                    "away": away["team"]["displayName"],
-                    "league": name
-                })
-            except Exception:
-                continue
-
-    # ترتيب الدوريات الكبرى
-    tables = {}
-    for slug, name in [("eng.1", "الدوري الإنجليزي"), ("esp.1", "الدوري الإسباني"),
-                        ("egy.1", "الدوري المصري"), ("ksa.1", "الدوري السعودي")]:
-        t = top_table(slug, 8)
-        if t:
-            tables[name] = t
-
-    # مباريات لايف دلوقتي
-    live_matches = []
-    for slug, name in LEAGUES.items():
-        data = fetch_scoreboard(slug)
-        if not data: continue
-        for ev in data.get("events", []):
-            try:
-                comp = ev["competitions"][0]
-                if comp["status"]["type"]["state"] != "in": continue
-                comps = comp["competitors"]
-                home = [c for c in comps if c.get("homeAway") == "home"][0]
-                away = [c for c in comps if c.get("homeAway") == "away"][0]
-                live_matches.append({
-                    "home": home["team"]["displayName"],
-                    "away": away["team"]["displayName"],
-                    "home_score": home["score"],
-                    "away_score": away["score"],
-                    "league": name
-                })
-            except Exception:
-                continue
-
-    site_data = {
-        "updated_at": now.strftime("%Y-%m-%d %I:%M %p"),
-        "news": news_items,
-        "results": results_items,
-        "schedule": schedule_lines,
-        "live": live_matches,
-        "tables": tables,
-    }
-
-    os.makedirs("site", exist_ok=True)
-    with open("site/data.json", "w", encoding="utf-8") as f:
-        json.dump(site_data, f, ensure_ascii=False, indent=2)
-    print("🌐 تم تحديث بيانات الموقع")
 if __name__ == "__main__":
     main()
