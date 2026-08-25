@@ -411,6 +411,7 @@ def finish_text(home, hs, away, as_, name):
 def collect_finished(state):
     reported = set(state.get("reported_matches", []))
     found = []
+    now = datetime.now(CAIRO)
     for slug, name in LEAGUES.items():
         data = fetch_scoreboard(slug)
         if not data: continue
@@ -420,6 +421,12 @@ def collect_finished(state):
             try:
                 comp = ev["competitions"][0]
                 if comp["status"]["type"]["state"] != "post": continue
+                # 🎯 الدقة: ننشر بس مباريات انتهت خلال آخر 12 ساعات
+                start = datetime.fromisoformat(
+                    ev["date"].replace("Z", "+00:00")).astimezone(CAIRO)
+                if (now - start).total_seconds() > 12 * 3600:
+                    reported.add(eid)
+                    continue
                 comps = comp["competitors"]
                 home = [c for c in comps if c.get("homeAway") == "home"][0]
                 away = [c for c in comps if c.get("homeAway") == "away"][0]
