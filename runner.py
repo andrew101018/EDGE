@@ -598,7 +598,34 @@ def send_video(path, caption):
         print("❌ Video exception:", e)
         return False
 
-def make_short(text):
+def upload_youtube(video_path, title, description):
+    try:
+        from google.oauth2.credentials import Credentials
+        build = importlib.import_module("googleapiclient.discovery").build
+        MediaFileUpload = importlib.import_module(
+            "googleapiclient.http").MediaFileUpload
+        info = json.loads(os.environ.get("YOUTUBE_TOKEN", ""))
+        if not info:
+            print("⚠️ مفيش YOUTUBE_TOKEN")
+            return False
+        creds = Credentials.from_authorized_file_info(
+            info, scopes=["https://www.googleapis.com/auth/youtube.upload"])
+        yt = build("youtube", "v3", credentials=creds)
+        body = {
+            "snippet": {"title": title[:100], "description": description[:4000],
+                        "tags": ["كرة_قدم", "اخبار_كورة", "Edge_Football", "Shorts"],
+                        "categoryId": "17"},
+            "status": {"privacyStatus": "public"}
+        }
+        media = MediaFileUpload(video_path, mimetype="video/mp4", resumable=True)
+        resp = yt.videos().insert(part="snippet,status", body=body, media_body=media).execute()
+        print("✅ اترفع على يوتيوب:", resp["id"])
+        return True
+    except Exception as e:
+        print("❌ YouTube error:", e)
+        return False
+
+def make_short(text, state):
     import urllib.parse
     os.makedirs("videos", exist_ok=True)
 
@@ -629,6 +656,18 @@ def make_short(text):
     cap = body[:500] + "\n\n🎬 Edge Football Shorts"
     if send_video(out, cap):
         print("✅ نُشر فيديو Shorts في القناة")
+        today = datetime.now(CAIRO).strftime("%Y-%m-%d")
+        if state.get("yt_date") != today:
+            state["yt_date"] = today
+            state["yt_count"] = 0
+        if state.get("yt_count", 0) < 4:
+            if upload_youtube(
+                out,
+                body[:90] + " ⚽ #Shorts",
+                cap + "\n\nتابعنا:\nhttps://t.me/edgefootballplatform\nhttps://andrew101018.github.io/EDGE/"):
+                state["yt_count"] = state.get("yt_count", 0) + 1
+        else:
+            print("⚠️ وصلنا حد يوتيوب اليومي (4 فيديوهات)")
 
 
 # ============================================
@@ -757,7 +796,7 @@ def main():
     # ---------- فيديو Shorts ----------
     if last_video_text:
         try:
-            make_short(last_video_text)
+            make_short(last_video_text, state)
         except Exception as e:
             print("❌ video error:", e)
 
