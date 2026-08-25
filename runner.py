@@ -648,8 +648,96 @@ def main():
     state["daily_news"] = [x for x in state.get("daily_news", []) if x["d"] == today][-20:]
     state["daily_results"] = [x for x in state.get("daily_results", []) if x["d"] == today][-20:]
 
+    # ---------- موقع الويب ----------
+    build_site_data(state, today)
+    
     save_state(state)
     print("🏁 انتهت الجولة")
+# ============================================
+# 🌐 توليد بيانات الموقع
+# ============================================
+def build_site_data(state, today):
+    """يكتب ملف JSON فيه كل محتوى الموقع"""
+    now = datetime.now(CAIRO)
 
+    # آخر الأخبار المنشورة
+    news_items = []
+    for key in ["daily_news"]:
+        for item in state.get(key, [])[-10:][::-1]:
+            if item["d"] == today:
+                news_items.append(item["t"])
+
+    # آخر النتائج
+    results_items = []
+    for item in state.get("daily_results", [])[-10:][::-1]:
+        if item["d"] == today:
+            results_items.append(item["t"])
+
+    # جدول مباريات اليوم
+    schedule_lines = []
+    for slug, name in LEAGUES.items():
+        data = fetch_scoreboard(slug)
+        if not data: continue
+        for ev in data.get("events", []):
+            try:
+                comp = ev["competitions"][0]
+                if comp["status"]["type"]["state"] != "pre": continue
+                dt = datetime.fromisoformat(ev["date"].replace("Z", "+00:00")).astimezone(CAIRO)
+                if dt.strftime("%Y-%m-%d") != today: continue
+                comps = comp["competitors"]
+                home = [c for c in comps if c.get("homeAway") == "home"][0]
+                away = [c for c in comps if c.get("homeAway") == "away"][0]
+                schedule_lines.append({
+                    "time": dt.strftime("%I:%M %p"),
+                    "home": home["team"]["displayName"],
+                    "away": away["team"]["displayName"],
+                    "league": name
+                })
+            except Exception:
+                continue
+
+    # ترتيب الدوريات الكبرى
+    tables = {}
+    for slug, name in [("eng.1", "الدوري الإنجليزي"), ("esp.1", "الدوري الإسباني"),
+                        ("egy.1", "الدوري المصري"), ("ksa.1", "الدوري السعودي")]:
+        t = top_table(slug, 8)
+        if t:
+            tables[name] = t
+
+    # مباريات لايف دلوقتي
+    live_matches = []
+    for slug, name in LEAGUES.items():
+        data = fetch_scoreboard(slug)
+        if not data: continue
+        for ev in data.get("events", []):
+            try:
+                comp = ev["competitions"][0]
+                if comp["status"]["type"]["state"] != "in": continue
+                comps = comp["competitors"]
+                home = [c for c in comps if c.get("homeAway") == "home"][0]
+                away = [c for c in comps if c.get("homeAway") == "away"][0]
+                live_matches.append({
+                    "home": home["team"]["displayName"],
+                    "away": away["team"]["displayName"],
+                    "home_score": home["score"],
+                    "away_score": away["score"],
+                    "league": name
+                })
+            except Exception:
+                continue
+
+    site_data = {
+        "updated_at": now.strftime("%Y-%m-%d %I:%M %p"),
+        "news": news_items,
+        "results": results_items,
+        "schedule": schedule_lines,
+        "live": live_matches,
+        "tables": tables,
+    }
+
+    os.makedirs("site", exist_ok=True)
+    with open("site/data.json", "w", encoding="utf-8") as f:
+        json.dump(site_data, f, ensure_ascii=False, indent=2)
+    print("🌐 تم تحديث بيانات الموقع")
 if __name__ == "__main__":
     main()
