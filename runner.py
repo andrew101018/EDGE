@@ -1,4 +1,4 @@
-import os, json, hashlib, time, re
+import os, json, hashlib, time, re, random
 import requests
 import feedparser
 from bs4 import BeautifulSoup
@@ -87,15 +87,12 @@ LEAGUES = {
 }
 BIG_LEAGUES = ["eng.1", "esp.1", "uefa.champions", "egy.1", "ksa.1"]
 
-# ============================================
-# منشورات التفاعل (استفتاءات + معلومات آمنة)
-# ============================================
 ENGAGEMENTS = [
     {"type": "poll", "q": "مين أحسن مهاجم في العالم دلوقتي؟ 🔥",
      "options": ["هالاند", "مبابي", "محمد صلاح", "فينيسيوس"]},
     {"type": "poll", "q": "مين الأعظم في التاريخ؟ 🐐",
      "options": ["ميسي", "رونالدو", "الاتنين في قلبي"]},
-    {"type": "text", "t": "💡 معلومة سريعة: البرازيل أكتر منتخب كسب كأس العالم.. 5 مرات! 🇧"},
+    {"type": "text", "t": "💡 معلومة سريعة: البرازيل أكتر منتخب كسب كأس العالم.. 5 مرات! 🇧🇷"},
     {"type": "poll", "q": "لو انت المدرب، هتضم مين الأول؟ 💼",
      "options": ["مبابي", "هالاند", "بيلينجهام", "صلاح"]},
     {"type": "text", "t": "💡 معلومة سريعة: أول كأس عالم اتلعبت سنة 1930 في أوروجواي.. وصاحب الأرض كسبها! 🏆"},
@@ -108,19 +105,30 @@ ENGAGEMENTS = [
     {"type": "text", "t": "سؤال السهرة: مين أحسن مدرب في العالم دلوقتي؟ اكتبه في التعليقات 👇"},
 ]
 
-SYSTEM_PROMPT = """أنت محرر رياضي في قناة Edge Football لكرة القدم فقط.
-أعد صياغة الخبر بالعربية بأسلوب Mix:
-- العنوان: فصحى قوية مع إيموجي
-- الشرح: عامية مصرية حماسية 3-4 أسطر
-- لا تنسخ النص الأصلي حرفياً
-- لا تضف معلومات غير موجودة
-- لو الخبر ليس عن كرة القدم، اكتب كلمة واحدة: SKIP
-النموذج:
-🔥 [عنوان]
+# ============================================
+# 🎭 شخصيات الصياغة (جديد v7)
+# ============================================
+STYLES = [
+    {"name": "المعلق الحماسي",
+     "p": "اكتب بأسلوب معلق كرة قدم حماسي: تعجيب، طاقة عالية، عامية مصرية قوية."},
+    {"name": "العاجل المختصر",
+     "p": "اكتب بأسلوب الخبر العاجل: سطرين فقط، معلومة مباشرة، بدون أي حشو."},
+    {"name": "المحلل الهادي",
+     "p": "اكتب بأسلوب محلل كورة رزين: لغة أقرب للفصحى، نظرة تحليلية، واختم بسؤال للجمهور."},
+    {"name": "الحكواتي",
+     "p": "اكتب بأسلوب الحكواتي: افتح بتصوير المشهد كأنه قصة، ثم الخبر، عامية مصرية."},
+    {"name": "الغرز الودود",
+     "p": "اكتب بأسلوب خفيف وظريف: غرزة ودود صغيرة متعلقة بالخبر بدون إهانة أحد، ثم المعلومة."},
+    {"name": "السؤال الأول",
+     "p": "افتح الخبر بسؤال استفهام يشد القارئ، ثم أجب بالخبر، عامية مصرية."},
+]
 
-[شرح بالعامية]
-
-👇 المصدر الأصلي:"""
+BASE_RULES = """قواعد ثابتة:
+- أنت تكتب عن كرة القدم فقط
+- لا تنسخ النص الأصلي حرفياً أبداً
+- لا تضف معلومات غير موجودة في النص
+- السطر الأول: عنوان جذاب مع إيموجي
+- لو الخبر ليس عن كرة القدم اكتب كلمة واحدة: SKIP"""
 
 
 # ============================================
@@ -180,26 +188,27 @@ def send_poll(question, options):
 
 
 # ============================================
-# الذكاء الاصطناعي
+# الذكاء الاصطناعي (جديد: ستايل عشوائي + حرارة عشوائية)
 # ============================================
-def call_gemini(prompt):
+def call_gemini(prompt, temp):
     if not GEMINI_KEY: return None
     try:
         r = requests.post(
             f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_KEY}",
-            json={"contents": [{"parts": [{"text": prompt}]}]}, timeout=60)
+            json={"contents": [{"parts": [{"text": prompt}]}],
+                  "generationConfig": {"temperature": temp}}, timeout=60)
         if r.ok:
             return r.json()["candidates"][0]["content"]["parts"][0]["text"]
     except Exception as e:
         print("Gemini:", e)
     return None
 
-def call_groq(prompt):
+def call_groq(prompt, temp):
     if not GROQ_KEY: return None
     try:
         r = requests.post("https://api.groq.com/openai/v1/chat/completions",
             headers={"Authorization": f"Bearer {GROQ_KEY}"},
-            json={"model": "llama-3.3-70b-versatile",
+            json={"model": "llama-3.3-70b-versatile", "temperature": temp,
                   "messages": [{"role": "user", "content": prompt}]}, timeout=60)
         if r.ok:
             return r.json()["choices"][0]["message"]["content"]
@@ -207,12 +216,12 @@ def call_groq(prompt):
         print("Groq:", e)
     return None
 
-def call_deepseek(prompt):
+def call_deepseek(prompt, temp):
     if not DEEPSEEK_KEY: return None
     try:
         r = requests.post("https://api.deepseek.com/chat/completions",
             headers={"Authorization": f"Bearer {DEEPSEEK_KEY}"},
-            json={"model": "deepseek-chat",
+            json={"model": "deepseek-chat", "temperature": temp,
                   "messages": [{"role": "user", "content": prompt}]}, timeout=60)
         if r.ok:
             return r.json()["choices"][0]["message"]["content"]
@@ -220,10 +229,26 @@ def call_deepseek(prompt):
         print("DeepSeek:", e)
     return None
 
-def ai_process(title, content, is_english):
+def ai_process(title, content, is_english, forbidden=None):
+    style = random.choice(STYLES)
+    temp = round(random.uniform(0.9, 1.3), 2)
+    print(f"🎭 ستايل: {style['name']} | حرارة: {temp}")
+
+    forbidden_block = ""
+    if forbidden:
+        forbidden_block = "\nممنوع تماماً تفتح الخبر بأي من الجمل دي (اتستخدمت قبل كده):\n"
+        forbidden_block += "\n".join(f"- {f}" for f in forbidden[-5:])
+
     task = "ترجم للعربية أولاً ثم" if is_english else ""
-    prompt = f"{SYSTEM_PROMPT}\n{task} أعد صياغة:\nالعنوان: {title}\nالمحتوى: {content[:1500]}"
-    result = call_gemini(prompt) or call_groq(prompt) or call_deepseek(prompt)
+    prompt = f"""أنت محرر رياضي في قناة Edge Football.
+{style['p']}
+{BASE_RULES}{forbidden_block}
+
+{task} أعد صياغة الخبر ده:
+العنوان: {title}
+المحتوى: {content[:1500]}"""
+
+    result = call_gemini(prompt, temp) or call_groq(prompt, temp) or call_deepseek(prompt, temp)
     if result and "SKIP" in result[:20]:
         return None
     return result
@@ -329,7 +354,7 @@ def collect_news(state):
 
 
 # ============================================
-# 2) النتائج + اللايف (جديد)
+# 2) النتائج + اللايف
 # ============================================
 def finish_text(home, hs, away, as_, name):
     hs, as_ = int(hs), int(as_)
@@ -366,7 +391,6 @@ def collect_finished(state):
     return found, reported
 
 def check_live(state):
-    """جديد: بداية مباراة + تنبيه أهداف"""
     live = state.get("live_scores", {})
     new_live = {}
     alerts = []
@@ -504,7 +528,7 @@ def build_schedule(today):
 
 
 # ============================================
-# 4) التفاعل (جديد)
+# 4) التفاعل
 # ============================================
 def post_engagement(state):
     idx = state.get("engagement_index", 0) % len(ENGAGEMENTS)
@@ -525,8 +549,9 @@ def main():
     state = load_state()
     now = datetime.now(CAIRO)
     today = now.strftime("%Y-%m-%d")
+    openers = state.get("last_openers", [])
 
-    # ---------- الأخبار (5 في الجولة) ----------
+    # ---------- الأخبار ----------
     fresh, posted, recent_titles = collect_news(state)
     print(f"📥 أخبار كورة جديدة: {len(fresh)}")
     count = 0
@@ -536,7 +561,7 @@ def main():
         if item["en"]:
             title = translate(title) or title
             summary = translate(summary) or summary
-        content = ai_process(title, summary, item["en"])
+        content = ai_process(title, summary, item["en"], openers)
         if not content and item["en"]:
             content = translate(f"{title}\n{summary[:300]}")
         if not content:
@@ -548,14 +573,16 @@ def main():
             print("✅ نُشر:", title[:40])
             posted.add(item["hash"])
             recent_titles.append(item["nt"])
+            openers.append(content.splitlines()[0][:80])
             state.setdefault("daily_news", []).append(
                 {"d": today, "t": content.splitlines()[0][:80]})
             count += 1
             time.sleep(15)
     state["posted"] = list(posted)
     state["posted_titles"] = recent_titles[-500:]
+    state["last_openers"] = openers[-5:]
 
-    # ---------- اللايف: انطلاق + أهداف ----------
+    # ---------- اللايف ----------
     alerts = check_live(state)
     print(f"🟢 تنبيهات لايف: {len(alerts)}")
     a_sent = 0
@@ -611,7 +638,7 @@ def main():
                 if not FORCE:
                     state["last_digest_date"] = today
 
-    # ---------- منشور تفاعل كل ساعتين (10ص - 11م) ----------
+    # ---------- تفاعل كل ساعتين ----------
     last_eng = state.get("last_engagement", 0)
     if FORCE or (10 <= now.hour <= 23 and time.time() - last_eng >= 2 * 3600):
         post_engagement(state)
