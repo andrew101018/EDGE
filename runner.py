@@ -1,4 +1,4 @@
-import os, json, hashlib, time, re, random, asyncio, subprocess
+import os, json, hashlib, time, re, random, asyncio, subprocess, importlib
 import requests
 import feedparser
 from bs4 import BeautifulSoup
@@ -40,7 +40,7 @@ EXCLUDE_KEYWORDS = [
     "nba", "كرة اليد", "handball", "السباحة", "swimming", "ألعاب القوى",
     "الشطرنج", "chess", "المصارعة", "wrestling", "الدراجات", "cycling",
     "الجولف", "golf", "super bowl", "nfl", "test match", "the ashes",
-    "grand slam", "olympic", "أولمبياد",
+    "grand slam",
 ]
 
 FOOTBALL_KEYWORDS = [
@@ -77,10 +77,18 @@ def is_dup_title(nt, recent):
     return False
 
 LEAGUES = {
-    "eng.1": "الدوري الإنجليزي", "esp.1": "الدوري الإسباني",
-    "ita.1": "الدوري الإيطالي", "ger.1": "الدوري الألماني",
-    "fra.1": "الدوري الفرنسي", "ksa.1": "الدوري السعودي",
-    "egy.1": "الدوري المصري", "uefa.champions": "دوري أبطال أوروبا",
+    "eng.1": "الدوري الإنجليزي", "eng.2": "تشامبيونشيب",
+    "esp.1": "الدوري الإسباني", "ita.1": "الدوري الإيطالي",
+    "ger.1": "الدوري الألماني", "fra.1": "الدوري الفرنسي",
+    "por.1": "الدوري البرتغالي", "ned.1": "الدوري الهولندي",
+    "tur.1": "الدوري التركي", "sco.1": "الدوري الاسكتلندي",
+    "bel.1": "الدوري البلجيكي", "gre.1": "الدوري اليوناني",
+    "ksa.1": "الدوري السعودي", "egy.1": "الدوري المصري",
+    "uae.1": "دوري الإمارات", "mar.1": "الدوري المغربي",
+    "tun.1": "الدوري التونسي", "usa.1": "الدوري الأمريكي",
+    "bra.1": "الدوري البرازيلي", "arg.1": "الدوري الأرجنتيني",
+    "uefa.champions": "دوري أبطال أوروبا", "uefa.europa": "الدوري الأوروبي",
+    "fifa.world": "كأس العالم",
 }
 BIG_LEAGUES = ["eng.1", "esp.1", "uefa.champions", "egy.1", "ksa.1"]
 
@@ -288,16 +296,22 @@ def ai_process(title, content, is_english, forbidden=None):
     return result
 
 
+_SCORE_CACHE = {}
+
 def fetch_scoreboard(slug):
+    if slug in _SCORE_CACHE:
+        return _SCORE_CACHE[slug]
+    data = None
     try:
         r = requests.get(
             f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard",
             timeout=20)
         if r.ok:
-            return r.json()
+            data = r.json()
     except Exception as e:
         print("scoreboard error:", slug, e)
-    return None
+    _SCORE_CACHE[slug] = data
+    return data
 
 def fetch_standings(slug):
     try:
@@ -566,7 +580,7 @@ def post_engagement(state):
 # 🎬 توليد فيديوهات Shorts
 # ============================================
 async def _tts(text, out):
-    import edge_tts
+    edge_tts = importlib.import_module("edge_tts")
     c = edge_tts.Communicate(text, "ar-EG-ShakirNeural")
     await c.save(out)
 
@@ -653,7 +667,9 @@ def build_site_data(state, today):
 
     tables = {}
     for slug, name in [("eng.1", "الدوري الإنجليزي"), ("esp.1", "الدوري الإسباني"),
-                        ("egy.1", "الدوري المصري"), ("ksa.1", "الدوري السعودي")]:
+                        ("ita.1", "الدوري الإيطالي"), ("ger.1", "الدوري الألماني"),
+                        ("fra.1", "الدوري الفرنسي"), ("ksa.1", "الدوري السعودي"),
+                        ("egy.1", "الدوري المصري"), ("por.1", "الدوري البرتغالي")]:
         t = top_table(slug, 8)
         if t:
             tables[name] = t
