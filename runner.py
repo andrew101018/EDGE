@@ -12,6 +12,9 @@ TG_CHANNEL = os.environ.get("TELEGRAM_CHANNEL_ID", "@edgefootballplatform")
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "")
 GROQ_KEY = os.environ.get("GROQ_KEY", "")
 DEEPSEEK_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
+OPENROUTER_KEY = os.environ.get("OPENROUTER_KEY", "")
+MISTRAL_KEY = os.environ.get("MISTRAL_KEY", "")
+CEREBRAS_KEY = os.environ.get("CEREBRAS_KEY", "")
 FORCE = os.environ.get("FORCE", "") == "1"
 
 STATE_FILE = "posted.json"
@@ -175,7 +178,7 @@ BASE_RULES = """قواعد ثابتة:
 - أنت تكتب عن كرة القدم فقط
 - لا تنسخ النص الأصلي حرفياً أبداً
 - لا تضف معلومات غير موجودة في النص
-- السطر الأول: عنوان جذاب مع إيموجي
+- الأرقام والأسماء والتواريخ تُنقل كما هي من النص الأصلي بدون أي تغيير- السطر الأول: عنوان جذاب مع إيموجي
 - لو الخبر ليس عن كرة القدم اكتب كلمة واحدة: SKIP"""
 
 
@@ -312,33 +315,40 @@ def make_shorts_script(news_text):
 def make_shorts_script(news_text):
     ...
 
+GEMINI_MODELS = ["gemini-2.5-flash-lite", "gemini-2.0-flash", "gemini-2.5-flash"]
+
 def call_gemini(prompt, temp):
     if not GEMINI_KEY: return None
-    try:
-        r = requests.post(
-            f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_KEY}",
-            json={"contents": [{"parts": [{"text": prompt}]}],
-                  "generationConfig": {"temperature": temp}}, timeout=60)
-        if r.ok:
-            return r.json()["candidates"][0]["content"]["parts"][0]["text"]
-        print("Gemini status:", r.status_code, r.text[:150])
-    except Exception as e:
-        print("Gemini:", e)
+    for model in GEMINI_MODELS:
+        try:
+            r = requests.post(
+                f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_KEY}",
+                json={"contents": [{"parts": [{"text": prompt}]}],
+                      "generationConfig": {"temperature": temp}}, timeout=60)
+            if r.ok:
+                print("✨ Gemini model:", model)
+                return r.json()["candidates"][0]["content"]["parts"][0]["text"]
+            print("Gemini status:", model, r.status_code)
+        except Exception as e:
+            print("Gemini:", e)
     return None
-    return None
+
+GROQ_MODELS = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "openai/gpt-oss-20b"]
 
 def call_groq(prompt, temp):
     if not GROQ_KEY: return None
-    try:
-        r = requests.post("https://api.groq.com/openai/v1/chat/completions",
-            headers={"Authorization": f"Bearer {GROQ_KEY}"},
-            json={"model": "llama-3.3-70b-versatile", "temperature": temp,
-                  "messages": [{"role": "user", "content": prompt}]}, timeout=60)
-        if r.ok:
-            return r.json()["choices"][0]["message"]["content"]
-        print("Groq status:", r.status_code, r.text[:150])
-    except Exception as e:
-        print("Groq:", e)
+    for model in GROQ_MODELS:
+        try:
+            r = requests.post("https://api.groq.com/openai/v1/chat/completions",
+                headers={"Authorization": f"Bearer {GROQ_KEY}"},
+                json={"model": model, "temperature": temp,
+                      "messages": [{"role": "user", "content": prompt}]}, timeout=60)
+            if r.ok:
+                print("✨ Groq model:", model)
+                return r.json()["choices"][0]["message"]["content"]
+            print("Groq status:", model, r.status_code)
+        except Exception as e:
+            print("Groq:", e)
     return None
 
 def call_deepseek(prompt, temp):
@@ -354,6 +364,38 @@ def call_deepseek(prompt, temp):
     except Exception as e:
         print("DeepSeek:", e)
     return None
+
+def call_openai_compat(base_url, key, models, prompt, temp, name):
+    if not key: return None
+    for model in models:
+        try:
+            r = requests.post(base_url,
+                headers={"Authorization": f"Bearer {key}"},
+                json={"model": model, "temperature": temp,
+                      "messages": [{"role": "user", "content": prompt}]}, timeout=60)
+            if r.ok:
+                print(f"✨ {name}:", model)
+                return r.json()["choices"][0]["message"]["content"]
+            print(f"{name} status:", model, r.status_code)
+        except Exception as e:
+            print(f"{name}:", e)
+    return None
+
+def call_openrouter(prompt, temp):
+    return call_openai_compat("https://openrouter.ai/api/v1/chat/completions",
+        OPENROUTER_KEY,
+        ["meta-llama/llama-3.3-70b-instruct:free", "google/gemma-3-27b-it:free"],
+        prompt, temp, "OpenRouter")
+
+def call_mistral(prompt, temp):
+    return call_openai_compat("https://api.mistral.ai/v1/chat/completions",
+        MISTRAL_KEY, ["mistral-small-latest", "open-mistral-nemo"],
+        prompt, temp, "Mistral")
+
+def call_cerebras(prompt, temp):
+    return call_openai_compat("https://api.cerebras.ai/v1/chat/completions",
+        CEREBRAS_KEY, ["llama3.1-8b", "llama-4-scout-17b-16e-instruct"],
+        prompt, temp, "Cerebras")
 
 def ai_process(title, content, is_english, forbidden=None):
     style = random.choice(STYLES)
@@ -374,7 +416,9 @@ def ai_process(title, content, is_english, forbidden=None):
 العنوان: {title}
 المحتوى: {content[:1500]}"""
 
-    result = call_gemini(prompt, temp) or call_groq(prompt, temp) or call_deepseek(prompt, temp)
+    result = (call_gemini(prompt, temp) or call_groq(prompt, temp) or
+              call_openrouter(prompt, temp) or call_mistral(prompt, temp) or
+              call_cerebras(prompt, temp))
     if result and "SKIP" in result[:20]:
         return None
     return result

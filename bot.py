@@ -26,7 +26,7 @@ class HealthHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
         self.end_headers()
-        self.wfile.write(b"Edge Football is alive! ⚽")
+        self.wfile.write("Edge Football is alive! ⚽".encode("utf-8"))
 
     def log_message(self, *args):
         pass
