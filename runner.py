@@ -231,6 +231,86 @@ def send_poll(question, options):
         print("❌ Poll exception:", e)
         return False
 
+OWNER_CHAT_ID = os.environ.get("OWNER_CHAT_ID", "")
+FB_PAGE_ID = os.environ.get("FB_PAGE_ID", "")
+FB_PAGE_TOKEN = os.environ.get("FB_PAGE_TOKEN", "")
+
+SCENE_PROMPTS = [
+    "photorealistic football stadium at night with floodlights, real photo",
+    "photorealistic football player kicking ball on green pitch, real photo",
+    "photorealistic happy football fans celebrating in stadium stands, real photo",
+    "photorealistic close up football ball on grass, stadium background, real photo",
+]
+
+def image_for(title):
+    import urllib.parse
+    seed = int(hashlib.md5(title.encode()).hexdigest()[:8], 16)
+    prompt = SCENE_PROMPTS[seed % len(SCENE_PROMPTS)]
+    return f"https://image.pollinations.ai/prompt/{urllib.parse.quote(prompt)}?width=1200&height=800&seed={seed}"
+
+def send_photo(url, caption):
+    try:
+        r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendPhoto",
+            json={"chat_id": TG_CHANNEL, "photo": url, "caption": caption[:1000]},
+            timeout=60)
+        if r.ok: return True
+        print("❌ Photo error:", r.status_code)
+    except Exception as e:
+        print("❌ Photo exception:", e)
+    return False
+
+def post_facebook(text, image_url):
+    if not (FB_PAGE_ID and FB_PAGE_TOKEN):
+        return False
+    try:
+        r = requests.post(
+            f"https://graph.facebook.com/v19.0/{FB_PAGE_ID}/photos",
+            data={"url": image_url, "caption": text, "access_token": FB_PAGE_TOKEN},
+            timeout=60)
+        if r.ok:
+            print("✅ نُشر على فيسبوك")
+            return True
+        print("❌ FB error:", r.status_code, r.text[:200])
+    except Exception as e:
+        print("❌ FB exception:", e)
+    return False
+
+def send_owner(text):
+    if not OWNER_CHAT_ID: return False
+    try:
+        r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage",
+            json={"chat_id": OWNER_CHAT_ID, "text": text}, timeout=30)
+        return r.ok
+    except Exception:
+        return False
+
+SHORTS_SCRIPT_PROMPT = """أنت كاتب سيناريوهات فيديوهات كرة قدم محترف.
+اكتب سكريبت فيديو Shorts مدته 45 ثانية بالعامية المصرية:
+- أول سطر: HOOK يخطف الانتباه
+- بعده 3 مشاهد، كل مشهد كده:
+[المشهد:] وصف بصري قصير
+[التعليق:] اللي هتقوله بصوتك
+- آخر سطر: دعوة لمتابعة قناة Edge Football
+موضوع الخبر:
+"""
+
+LONG_SCRIPT_PROMPT = """أنت كاتب سيناريوهات فيديوهات كرة قدم محترف.
+اكتب سكريبت فيديو طويل (3-4 دقائق) بالعامية المصرية يلخص أهم أخبار اليوم:
+- مقدمة حماسية 20 ثانية
+- 3-4 فقرات، كل فقرة:
+[المشهد:] وصف بصري (لقطات تصورها أو صور تعرضها)
+[التعليق:] كلامك بصوتك
+- خاتمة: دعوة للاشتراك + سؤال للجمهور
+أخبار اليوم:
+"""
+
+def make_shorts_script(news_text):
+    prompt = SHORTS_SCRIPT_PROMPT + news_text[:800]
+    script = call_gemini(prompt, 1.0) or call_groq(prompt, 1.0) or call_deepseek(prompt, 1.0)
+    if script and send_owner("🎬 سكريبت Shorts جاهز:\n\n" + script):
+        print("📩 اتبعت سكريبت Shorts")
+def make_shorts_script(news_text):
+    ...
 
 def call_gemini(prompt, temp):
     if not GEMINI_KEY: return None
@@ -684,8 +764,9 @@ def build_site_data(state, today):
     now = datetime.now(CAIRO)
 
     # آخر 10 أخبار دايماً (مش بس النهارده)
-    news_items = [x for x in state.get("site_news", [])][::-1]
-
+    news_items = []
+    for x in [x for x in state.get("site_news", [])][::-1]:
+        news_items.append(x if isinstance(x, dict) else {"t": x, "img": ""})
     results_items = []
     for item in state.get("daily_results", [])[-10:][::-1]:
         if item["d"] == today:
@@ -783,29 +864,36 @@ def main():
             print("⚠️ تجاوز:", item["title"][:40])
             posted.add(item["hash"])
             continue
+        img = image_for(item["title"])
         content += f"\n\n📡 المصدر: {item['source']}\n🔗 {item['url']}"
-        if send_tg(content):
+        if send_photo(img, content) or send_tg(content):
             print("✅ نُشر:", title[:40])
             posted.add(item["hash"])
             recent_titles.append(item["nt"])
             openers.append(content.splitlines()[0][:80])
-            state.setdefault("site_news", []).append(content.splitlines()[0][:100])
+            state.setdefault("site_news", []).append(
+                {"t": content.splitlines()[0][:100], "img": img})
             state.setdefault("daily_news", []).append(
                 {"d": today, "t": content.splitlines()[0][:80]})
+            post_facebook(content, img)
+            make_shorts_script(content)
             count += 1
-            last_video_text = content
             time.sleep(15)
     state["posted"] = list(posted)
     state["posted_titles"] = recent_titles[-500:]
     state["last_openers"] = openers[-5:]
     state["site_news"] = state.get("site_news", [])[-10:]
 
-    # ---------- فيديو Shorts ----------
-    if last_video_text:
-        try:
-            make_short(last_video_text, state)
-        except Exception as e:
-            print("❌ video error:", e)
+       # ---------- سكريبت فيديو طويل يومي (6م - 11م) ----------
+    if FORCE or (18 <= now.hour <= 23 and state.get("last_long_date") != today):
+        news_today = [x["t"] for x in state.get("daily_news", []) if x["d"] == today]
+        if news_today:
+            prompt = LONG_SCRIPT_PROMPT + "\n".join(f"- {t}" for t in news_today[:6])
+            script = call_gemini(prompt, 1.0) or call_groq(prompt, 1.0)
+            if script and send_owner("🎥 سكريبت فيديو اليوم الطويل:\n\n" + script):
+                print("📩 اتبعت سكريبت الفيديو الطويل")
+                if not FORCE:
+                    state["last_long_date"] = today
 
     # ---------- اللايف ----------
     alerts = check_live(state)

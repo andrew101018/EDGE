@@ -18,9 +18,9 @@ async function loadData() {
     }
 
     // الأخبار
-    const newsEl = document.getElementById('newsContainer');
+        const newsEl = document.getElementById('newsContainer');
     newsEl.innerHTML = data.news.length > 0
-      ? data.news.map(t => `<div class="news-item">${t}</div>`).join('')
+      ? data.news.map(n => `<div class="news-item">${n.img ? `<img src="${n.img}" style="width:100%;border-radius:8px;margin-bottom:10px;">` : ''}${n.t}</div>`).join('')
       : '<div class="card">لا توجد أخبار جديدة حالياً</div>';
 
     // النتائج
