@@ -316,13 +316,15 @@ def call_gemini(prompt, temp):
     if not GEMINI_KEY: return None
     try:
         r = requests.post(
-            f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_KEY}",
+            f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_KEY}",
             json={"contents": [{"parts": [{"text": prompt}]}],
                   "generationConfig": {"temperature": temp}}, timeout=60)
         if r.ok:
             return r.json()["candidates"][0]["content"]["parts"][0]["text"]
+        print("Gemini status:", r.status_code, r.text[:150])
     except Exception as e:
         print("Gemini:", e)
+    return None
     return None
 
 def call_groq(prompt, temp):
@@ -334,6 +336,7 @@ def call_groq(prompt, temp):
                   "messages": [{"role": "user", "content": prompt}]}, timeout=60)
         if r.ok:
             return r.json()["choices"][0]["message"]["content"]
+        print("Groq status:", r.status_code, r.text[:150])
     except Exception as e:
         print("Groq:", e)
     return None
@@ -347,6 +350,7 @@ def call_deepseek(prompt, temp):
                   "messages": [{"role": "user", "content": prompt}]}, timeout=60)
         if r.ok:
             return r.json()["choices"][0]["message"]["content"]
+        print("DeepSeek status:", r.status_code, r.text[:150])
     except Exception as e:
         print("DeepSeek:", e)
     return None
