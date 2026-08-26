@@ -1,6 +1,7 @@
 {
-  "updated_at": "2026-08-26 09:47 AM",
+  "updated_at": "2026-08-26 10:36 AM",
   "news": [
+    "ظهرت أوجه القصور في سلتيك في ليلة أخرى من آلام دوري أبطال أوروبا",
     "جولة كأس كاراباو: فاز ليدز على فورست مرة أخرى، وتغلب برينتفورد على برمنغهام بنتيجة ستة",
     "‘He’s box office’: Gary Lineker admits wanting Roy Keane to join The Rest Is Football",
     "تعرض عرض Littler لاكتساح أسهم PDC التاريخية لضربة قوية",
@@ -12,7 +13,26 @@
   "results": [
     "فالنسيا 0 - 1 ريال بيتيس"
   ],
-  "schedule": [],
+  "schedule": [
+    {
+      "time": "10:00 PM",
+      "home": "ريال مدريد",
+      "away": "ريال سوسيداد",
+      "league": "الدوري الإسباني"
+    },
+    {
+      "time": "07:00 PM",
+      "home": "Al-Faisaly",
+      "away": "الفتح",
+      "league": "الدوري السعودي"
+    },
+    {
+      "time": "09:00 PM",
+      "home": "Al Diriyah",
+      "away": "Al Kholood",
+      "league": "الدوري السعودي"
+    }
+  ],
   "live": [],
   "tables": {
     "الدوري الإنجليزي": [
