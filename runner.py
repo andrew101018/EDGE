@@ -324,14 +324,23 @@ def make_shorts_script(news_text):
 def make_shorts_script(news_text):
     ...
 
-GEMINI_MODELS = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-flash-latest"]
+GEMINI_MODELS = [
+    "gemini-2.5-flash-lite",    # الأسرع والأنسب للأخبار
+    "gemini-2.5-flash",         # الأقوى
+    "gemini-3.7-flash",         # الأحدث
+]
 def call_gemini(prompt, temp):
     if not GEMINI_KEY: return None
     for model in GEMINI_MODELS:
         try:
             r = requests.post(
-                f"https://generativelanguage.googleapis.com/v1/models/{model}:generateContent?key={GEMINI_KEY}",                json={"contents": [{"parts": [{"text": prompt}]}],
-                      "generationConfig": {"temperature": temp}}, timeout=60)
+                f"https://generativelanguage.googleapis.com/v1/models/{model}:generateContent?key={GEMINI_KEY}",
+                json={
+                    "contents": [{"parts": [{"text": prompt}]}],
+                    "generationConfig": {"temperature": temp},
+                },
+                timeout=60,
+            )
             if r.ok:
                 print("✨ Gemini model:", model)
                 return r.json()["candidates"][0]["content"]["parts"][0]["text"]
