@@ -950,15 +950,14 @@ def main():
             print("⚠️ تجاوز:", item["title"][:40])
             posted.add(item["hash"])
             continue
-        img = image_for(item["title"])
-        content += f"\n\n📡 المصدر: {item['source']}\n🔗 {item['url']}"
-        if send_photo(img, content) or send_tg(content):
+            content += f"\n\n📡 المصدر: {item['source']}\n🔗 {item['url']}"
+        if send_tg(content):
             print("✅ نُشر:", title[:40])
             posted.add(item["hash"])
             recent_titles.append(item["nt"])
             openers.append(content.splitlines()[0][:80])
             state.setdefault("site_news", []).append(
-                {"t": content.splitlines()[0][:100], "img": img})
+                {"t": content.splitlines()[0][:100], "img": ""})
             state.setdefault("daily_news", []).append(
                 {"d": today, "t": content.splitlines()[0][:80]})
             post_facebook(content, img)
