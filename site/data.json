@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-08-26 07:01 PM",
+  "updated_at": "2026-08-26 07:48 PM",
   "news": [
+    {
+      "t": "💥 BRAVO.. البنك الأهلي déploy! مين من الآخر هيخسروا النهاردة؟ 💥",
+      "img": "https://image.pollinations.ai/prompt/photorealistic%20football%20stadium%20at%20night%20with%20floodlights%2C%20real%20photo?width=1200&height=800&seed=2552934428"
+    },
+    {
+      "t": "📊 بداية الدوري.. شايل إيه قدامنا dis؟!",
+      "img": "https://image.pollinations.ai/prompt/photorealistic%20football%20stadium%20at%20night%20with%20floodlights%2C%20real%20photo?width=1200&height=800&seed=4287977244"
+    },
+    {
+      "t": "⚽ مباشر الآن.. مباراة الزمالك ضد البنك الأهلي (0-0) في الدوري المصري (لحظة بلحظة) - المصري اليوم",
+      "img": "https://image.pollinations.ai/prompt/photorealistic%20close%20up%20football%20ball%20on%20grass%2C%20stadium%20background%2C%20real%20photo?width=1200&height=800&seed=4052412379"
+    },
+    {
+      "t": "⚽ بعد أزمة الاستثمار: إنفانتينو يطرح \"مشروع كأس عالم\" يجمع اتحادات فيفا الـ211 - مونت كارلو الدولية",
+      "img": "https://image.pollinations.ai/prompt/photorealistic%20happy%20football%20fans%20celebrating%20in%20stadium%20stands%2C%20real%20photo?width=1200&height=800&seed=2780141074"
+    },
+    {
+      "t": "⚽ آخر تطورات موقف الاتحاد الأوروبي لكرة القدم من مقاطعة بطولات فيفا - صدى البلد",
+      "img": "https://image.pollinations.ai/prompt/photorealistic%20football%20stadium%20at%20night%20with%20floodlights%2C%20real%20photo?width=1200&height=800&seed=3830834628"
+    },
     {
       "t": "🤔 عصام عبد الفتاح…」شايف اللعبة من أعلاها.. returnedوفا أمر محتمل!",
       "img": "https://image.pollinations.ai/prompt/photorealistic%20football%20stadium%20at%20night%20with%20floodlights%2C%20real%20photo?width=1200&height=800&seed=247784492"
@@ -20,26 +40,6 @@
     {
       "t": "🏟️ **الجزائريون يوجهون مباراة بين عروبة وافريقيا: هل ستحسم بيراميدز النكسة؟**",
       "img": "https://image.pollinations.ai/prompt/photorealistic%20happy%20football%20fans%20celebrating%20in%20stadium%20stands%2C%20real%20photo?width=1200&height=800&seed=2856998458"
-    },
-    {
-      "t": "🔴 **بيزيرا يلف حباله في الزمالك: الانقطاع عن التدريبات يفتتح باب جديد من الضيق**",
-      "img": "https://image.pollinations.ai/prompt/photorealistic%20football%20player%20kicking%20ball%20on%20green%20pitch%2C%20real%20photo?width=1200&height=800&seed=3826278549"
-    },
-    {
-      "t": "⚽ شراكة عالمية جديدة.. مصر للطيران ونادي برشلونة الإسباني يوقعان اتفاقية شراكة - اليوم السابع",
-      "img": "https://image.pollinations.ai/prompt/photorealistic%20happy%20football%20fans%20celebrating%20in%20stadium%20stands%2C%20real%20photo?width=1200&height=800&seed=609807606"
-    },
-    {
-      "t": "💰 3 أندية إنجليز نافشين على رقم ميوناكو القياسي في جني الفلوس!",
-      "img": "https://image.pollinations.ai/prompt/photorealistic%20happy%20football%20fans%20celebrating%20in%20stadium%20stands%2C%20real%20photo?width=1200&height=800&seed=3394503174"
-    },
-    {
-      "t": "⚽ «يويفا» يتجه لإنهاء مقاطعة بطولات «فيفا» بعد ضمانات بشأن خطط كأس العالم - الشرق الأوسط",
-      "img": "https://image.pollinations.ai/prompt/photorealistic%20football%20player%20kicking%20ball%20on%20green%20pitch%2C%20real%20photo?width=1200&height=800&seed=1904104093"
-    },
-    {
-      "t": "⚽ طاقم تحكيم مصري يدير لقاء أهلي جدة وأوكلاند في كأس إنتركونتيننتال - filgoal.com",
-      "img": "https://image.pollinations.ai/prompt/photorealistic%20football%20player%20kicking%20ball%20on%20green%20pitch%2C%20real%20photo?width=1200&height=800&seed=3894097129"
     }
   ],
   "results": [
@@ -53,19 +53,21 @@
       "league": "الدوري الإسباني"
     },
     {
-      "time": "07:00 PM",
-      "home": "Al-Faisaly",
-      "away": "الفتح",
-      "league": "الدوري السعودي"
-    },
-    {
       "time": "09:00 PM",
       "home": "Al Diriyah",
       "away": "Al Kholood",
       "league": "الدوري السعودي"
     }
   ],
-  "live": [],
+  "live": [
+    {
+      "home": "Al-Faisaly",
+      "away": "الفتح",
+      "home_score": "1",
+      "away_score": "1",
+      "league": "الدوري السعودي"
+    }
+  ],
   "tables": {
     "الدوري الإنجليزي": [
       "1. Brighton — 3.0 نقطة (1.0 مباراة)",
