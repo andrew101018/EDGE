@@ -848,17 +848,19 @@ def make_short(text, state):
 def build_site_data(state, today):
     now = datetime.now(CAIRO)
 
-    # آخر 10 أخبار دايماً (مش بس النهارده)
+    # آخر 10 أخبار دايماً
     news_items = []
     for x in [x for x in state.get("site_news", [])][::-1]:
         news_items.append(x if isinstance(x, dict) else {"t": x, "img": ""})
+
     results_items = []
     for item in state.get("daily_results", [])[-10:][::-1]:
         if item["d"] == today:
             results_items.append(item["t"])
 
-        matches = []
-    order = {"in": 0, "pre": 1, "post": 2}
+    # المباريات (لايف + منتهية + قادمة) متجمعة حسب البطولة
+    matches = []
+    order = {"in": 0, "post": 1, "pre": 2}
     for slug, name in LEAGUES.items():
         data = fetch_scoreboard(slug)
         if not data: continue
@@ -884,6 +886,17 @@ def build_site_data(state, today):
         if group["items"]:
             group["items"].sort(key=lambda x: order.get(x["state"], 3))
             matches.append(group)
+
+    # ترتيب الدوريات
+    tables = {}
+    for slug, name in [("eng.1", "الدوري الإنجليزي"), ("esp.1", "الدوري الإسباني"),
+                        ("ita.1", "الدوري الإيطالي"), ("ger.1", "الدوري الألماني"),
+                        ("fra.1", "الدوري الفرنسي"), ("ksa.1", "الدوري السعودي"),
+                        ("egy.1", "الدوري المصري"), ("por.1", "الدوري البرتغالي")]:
+        t = top_table(slug, 8)
+        if t:
+            tables[name] = t
+
     site_data = {
         "updated_at": now.strftime("%Y-%m-%d %I:%M %p"),
         "news": news_items,
@@ -896,7 +909,6 @@ def build_site_data(state, today):
     with open("site/data.json", "w", encoding="utf-8") as f:
         json.dump(site_data, f, ensure_ascii=False, indent=2)
     print("🌐 تم تحديث بيانات الموقع")
-
 
 # ============================================
 # البرنامج الرئيسي
