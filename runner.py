@@ -94,6 +94,8 @@ LEAGUES = {
     "fifa.world": "كأس العالم",
 }
 BIG_LEAGUES = ["eng.1", "esp.1", "uefa.champions", "egy.1", "ksa.1"]
+IMPORTANT = ["eng.1", "esp.1", "ita.1", "ger.1", "fra.1",
+             "ksa.1", "egy.1", "uefa.champions", "uefa.europa"]
 
 # ============================================
 # ️ ترجمة أسماء الفرق (جديد v8)
@@ -138,8 +140,16 @@ TEAM_AR = {
     "Málaga": "مالاجا", "Deportivo": "ديبورتيفو",
 }
 
+_TEAM_TRANS_CACHE = {}
+
 def ar_team(name):
-    return TEAM_AR.get(name, name)
+    if name in TEAM_AR:
+        return TEAM_AR[name]
+    if name in _TEAM_TRANS_CACHE:
+        return _TEAM_TRANS_CACHE[name]
+    tr = translate(name) or name
+    _TEAM_TRANS_CACHE[name] = tr
+    return tr
 
 ENGAGEMENTS = [
     {"type": "poll", "q": "مين أحسن مهاجم في العالم دلوقتي؟ 🔥",
@@ -864,7 +874,7 @@ def build_site_data(state, today):
     for slug, name in LEAGUES.items():
         data = fetch_scoreboard(slug)
         if not data: continue
-        group = {"league": name, "items": []}
+        group = {"league": name, "items": [], "big": slug in IMPORTANT}
         for ev in data.get("events", []):
             try:
                 comp = ev["competitions"][0]

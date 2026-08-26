@@ -44,3 +44,9 @@ footer { background: #020617; text-align: center; padding: 25px; margin-top: 40p
 .m-score.live { color: #ef4444; }
 .m-score.pre { color: #94a3b8; }
 .m-status { display: block; font-size: 0.7em; font-weight: normal; opacity: 0.85; }
+.tabs { display: flex; gap: 8px; margin-bottom: 14px; }
+.tab { flex: 1; padding: 10px; background: #0f172a; color: #94a3b8; border: 1px solid #334155; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 0.95em; }
+.tab.active { background: #dc2626; color: #fff; border-color: #dc2626; }
+.socials { margin-top: 14px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.socials a { color: #fff; text-decoration: none; background: rgba(0,0,0,0.25); padding: 8px 14px; border-radius: 20px; font-size: 0.9em; }
+.socials a:hover { background: rgba(0,0,0,0.45); }
