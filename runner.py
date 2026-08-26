@@ -315,15 +315,13 @@ def make_shorts_script(news_text):
 def make_shorts_script(news_text):
     ...
 
-GEMINI_MODELS = ["gemini-2.5-flash-lite", "gemini-2.0-flash", "gemini-2.5-flash"]
-
+GEMINI_MODELS = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-flash-latest"]
 def call_gemini(prompt, temp):
     if not GEMINI_KEY: return None
     for model in GEMINI_MODELS:
         try:
             r = requests.post(
-                f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_KEY}",
-                json={"contents": [{"parts": [{"text": prompt}]}],
+                f"https://generativelanguage.googleapis.com/v1/models/{model}:generateContent?key={GEMINI_KEY}",                json={"contents": [{"parts": [{"text": prompt}]}],
                       "generationConfig": {"temperature": temp}}, timeout=60)
             if r.ok:
                 print("✨ Gemini model:", model)
@@ -384,8 +382,7 @@ def call_openai_compat(base_url, key, models, prompt, temp, name):
 def call_openrouter(prompt, temp):
     return call_openai_compat("https://openrouter.ai/api/v1/chat/completions",
         OPENROUTER_KEY,
-        ["meta-llama/llama-3.3-70b-instruct:free", "google/gemma-3-27b-it:free"],
-        prompt, temp, "OpenRouter")
+        ["meta-llama/llama-3.1-8b-instruct:free", "qwen/qwen-2.5-7b-instruct:free", "google/gemma-2-9b-it:free"],        prompt, temp, "OpenRouter")
 
 def call_mistral(prompt, temp):
     return call_openai_compat("https://api.mistral.ai/v1/chat/completions",
@@ -396,6 +393,18 @@ def call_cerebras(prompt, temp):
     return call_openai_compat("https://api.cerebras.ai/v1/chat/completions",
         CEREBRAS_KEY, ["llama3.1-8b", "llama-4-scout-17b-16e-instruct"],
         prompt, temp, "Cerebras")
+
+def quality_ok(text):
+    """يرفض أي رد مكسور أو مليان حروف عشوائية"""
+    if not text or len(text) < 80:
+        return False
+    arabic = len(re.findall(r'[؀-ۿ]', text))
+    latin = len(re.findall(r'[A-Za-z]', text))
+    if arabic < 30:
+        return False
+    if latin > arabic * 0.3:
+        return False
+    return True
 
 def ai_process(title, content, is_english, forbidden=None):
     style = random.choice(STYLES)
@@ -416,12 +425,16 @@ def ai_process(title, content, is_english, forbidden=None):
 العنوان: {title}
 المحتوى: {content[:1500]}"""
 
-    result = (call_gemini(prompt, temp) or call_groq(prompt, temp) or
-              call_openrouter(prompt, temp) or call_mistral(prompt, temp) or
-              call_cerebras(prompt, temp))
-    if result and "SKIP" in result[:20]:
-        return None
-    return result
+    for engine in [call_gemini, call_groq, call_openrouter, call_mistral, call_cerebras]:
+        result = engine(prompt, temp)
+        if not result:
+            continue
+        if "SKIP" in result[:20]:
+            return None
+        if quality_ok(result):
+            return result
+        print("⚠️ جودة منخفضة من", engine.__name__, "— بجرب المحرك اللي بعده")
+    return None
 
 
 _SCORE_CACHE = {}
