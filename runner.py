@@ -178,9 +178,18 @@ BASE_RULES = """قواعد ثابتة:
 - أنت تكتب عن كرة القدم فقط
 - لا تنسخ النص الأصلي حرفياً أبداً
 - لا تضف معلومات غير موجودة في النص
-- الأرقام والأسماء والتواريخ تُنقل كما هي من النص الأصلي بدون أي تغيير- السطر الأول: عنوان جذاب مع إيموجي
-- لو الخبر ليس عن كرة القدم اكتب كلمة واحدة: SKIP"""
+- الأرقام والأسماء والتواريخ تُنقل كما هي من النص الأصلي بدون أي تغيير
+- اكتب بعربية طبيعية سلسة، ممنوع نهائياً أسلوب الترجمة الحرفية الركيك
+- ممنوع أي حروف لاتينية داخل النص
+- السطر الأول: عنوان جذاب مع إيموجي
+- لو الخبر ليس عن كرة القدم اكتب كلمة واحدة: SKIP
 
+مثال للشكل والجودة المطلوبة:
+🔥 صلاح يفجرها: مش هسيب ليفربول كده!
+
+النجم المصري طلع في تصريحات نارية بعد مباراة أمس، وقال
+إنه لسه عنده الكتير يقدمه، والجمهور انفجر في الكومنتات 🔥
+الراجل مش بيهزر، والكلام واضح!"""
 
 def hash_id(title, url):
     return hashlib.md5((title + url).encode()).hexdigest()
@@ -402,7 +411,7 @@ def quality_ok(text):
     latin = len(re.findall(r'[A-Za-z]', text))
     if arabic < 30:
         return False
-    if latin > arabic * 0.3:
+    if latin > arabic * 0.15:
         return False
     return True
 
@@ -919,8 +928,9 @@ def main():
             title = translate(title) or title
             summary = translate(summary) or summary
         content = ai_process(title, summary, item["en"], openers)
-        if not content and item["en"]:
-            content = translate(f"{title}\n{summary[:300]}")
+        if not content and not item["en"]:
+            # مصدر عربي والمحركات وقعت: ننشر الأصل النضيف بدل ما نضيع الخبر
+            content = f"⚽ {title}\n\n{summary[:300]}"
         if not content:
             print("⚠️ تجاوز:", item["title"][:40])
             posted.add(item["hash"])
