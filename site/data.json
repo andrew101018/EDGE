@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-08-26 08:28 PM",
+  "updated_at": "2026-08-26 09:44 PM",
   "news": [
+    {
+      "t": "🦅 الأهلي يرفع وتيرة التحضير لموقعة زد.. ومشاركة داري ورضا سليم تشعل التدريبات!",
+      "img": ""
+    },
+    {
+      "t": "🇸🇦 الحسم الإداري يقترب.. الكشف الرسمي عن مرشحي الاتحاد السعودي!",
+      "img": ""
+    },
+    {
+      "t": "🔥 التحضيرات تتواصل.. كواليس مران الأهلي ومحاضرة عموتة قبل مواجهة زد!",
+      "img": ""
+    },
+    {
+      "t": "⚽️ بث مباشر.. الأهلي في مواجهة أوكلاند بملحق كأس القارات!",
+      "img": ""
+    },
+    {
+      "t": "🚫 قمة أنفيلد في ورطة.. اليويفا يرفع الكارت الأحمر في وش ليفربول والريال!",
+      "img": ""
+    },
     {
       "t": "🔥 معتمد جمال يثبت حسابه.. الزمالك يرفع شعار الاستقرار قدام البنك الأهلي!",
       "img": "https://source.unsplash.com/1200x800/?football+fans+stadium&sig=3784094759"
@@ -20,52 +40,458 @@
     {
       "t": "🔥 فرصة العمر.. الطريق مفروش بالورد لـ حمزة عبد الكريم في برشلونة!",
       "img": "https://source.unsplash.com/1200x800/?football+fans+stadium&sig=983362757"
-    },
-    {
-      "t": "⚽ تشكيل الزمالك لمواجهة البنك الأهلي في الدوري المصري - صدى البلد",
-      "img": "https://image.pollinations.ai/prompt/photorealistic%20football%20player%20kicking%20ball%20on%20green%20pitch%2C%20real%20photo?width=1200&height=800&seed=1204117405"
-    },
-    {
-      "t": "🧩 الزمالك: نفس التشكيل.. وحسام بين المتفرجين!",
-      "img": "https://image.pollinations.ai/prompt/photorealistic%20happy%20football%20fans%20celebrating%20in%20stadium%20stands%2C%20real%20photo?width=1200&height=800&seed=2690146618"
-    },
-    {
-      "t": "🔍 دقة التحضير أو ثمن المخالفة؟سبب غياب عبدالله السيد من ملعـب المباراة (2-5-2024)",
-      "img": "https://image.pollinations.ai/prompt/photorealistic%20close%20up%20football%20ball%20on%20grass%2C%20stadium%20background%2C%20real%20photo?width=1200&height=800&seed=2188165355"
-    },
-    {
-      "t": "📋 أوراق تكتيكية على الدكة.. حسابات الزمالك أمام البنك الأهلى",
-      "img": "https://image.pollinations.ai/prompt/photorealistic%20close%20up%20football%20ball%20on%20grass%2C%20stadium%20background%2C%20real%20photo?width=1200&height=800&seed=1560117387"
-    },
-    {
-      "t": "🎙️ 38 فريقًا في خطأこのため..وقت سحب قرعة كأس مصر!",
-      "img": "https://image.pollinations.ai/prompt/photorealistic%20happy%20football%20fans%20celebrating%20in%20stadium%20stands%2C%20real%20photo?width=1200&height=800&seed=853662978"
     }
   ],
   "results": [
+    "Al-Faisaly 1 - 1 الفتح",
     "فالنسيا 0 - 1 ريال بيتيس"
   ],
-  "schedule": [
+  "matches": [
     {
-      "time": "10:00 PM",
-      "home": "ريال مدريد",
-      "away": "ريال سوسيداد",
-      "league": "الدوري الإسباني"
+      "league": "الدوري الإنجليزي",
+      "items": [
+        {
+          "home": "كريستال بالاس",
+          "away": "مانشستر سيتي",
+          "hs": "0",
+          "as": "0",
+          "time": "10:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ]
     },
     {
-      "time": "09:00 PM",
-      "home": "Al Diriyah",
-      "away": "Al Kholood",
-      "league": "الدوري السعودي"
-    }
-  ],
-  "live": [
+      "league": "تشامبيونشيب",
+      "items": [
+        {
+          "home": "Wrexham",
+          "away": "Birmingham City",
+          "hs": "0",
+          "as": "0",
+          "time": "10:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ]
+    },
     {
-      "home": "Al-Faisaly",
-      "away": "الفتح",
-      "home_score": "1",
-      "away_score": "1",
-      "league": "الدوري السعودي"
+      "league": "الدوري الإسباني",
+      "items": [
+        {
+          "home": "ريال مدريد",
+          "away": "ريال سوسيداد",
+          "hs": "0",
+          "as": "0",
+          "time": "10:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ]
+    },
+    {
+      "league": "الدوري الإيطالي",
+      "items": [
+        {
+          "home": "ميلان",
+          "away": "Venezia",
+          "hs": "0",
+          "as": "0",
+          "time": "09:45 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ]
+    },
+    {
+      "league": "الدوري الألماني",
+      "items": [
+        {
+          "home": "بايرن ميونخ",
+          "away": "شتوتجارت",
+          "hs": "0",
+          "as": "0",
+          "time": "09:30 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ]
+    },
+    {
+      "league": "الدوري الفرنسي",
+      "items": [
+        {
+          "home": "Lille",
+          "away": "باريس سان جيرمان",
+          "hs": "0",
+          "as": "0",
+          "time": "09:45 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ]
+    },
+    {
+      "league": "الدوري البرتغالي",
+      "items": [
+        {
+          "home": "Rio Ave",
+          "away": "سبورتينج لشبونة",
+          "hs": "0",
+          "as": "0",
+          "time": "10:15 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ]
+    },
+    {
+      "league": "الدوري الهولندي",
+      "items": [
+        {
+          "home": "FC Groningen",
+          "away": "Fortuna Sittard",
+          "hs": "0",
+          "as": "0",
+          "time": "09:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ]
+    },
+    {
+      "league": "الدوري التركي",
+      "items": [
+        {
+          "home": "Genclerbirligi",
+          "away": "Erzurum BB",
+          "hs": "0",
+          "as": "0",
+          "time": "09:30 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ]
+    },
+    {
+      "league": "الدوري الاسكتلندي",
+      "items": [
+        {
+          "home": "سيلتيك",
+          "away": "Falkirk",
+          "hs": "0",
+          "as": "0",
+          "time": "05:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Heart of Midlothian",
+          "away": "St Johnstone",
+          "hs": "0",
+          "as": "0",
+          "time": "05:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Kilmarnock",
+          "away": "Dundee United",
+          "hs": "0",
+          "as": "0",
+          "time": "05:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ]
+    },
+    {
+      "league": "الدوري البلجيكي",
+      "items": [
+        {
+          "home": "Racing Genk",
+          "away": "Waasland-Beveren",
+          "hs": "0",
+          "as": "0",
+          "time": "09:45 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ]
+    },
+    {
+      "league": "الدوري اليوناني",
+      "items": [
+        {
+          "home": "Volos NFC",
+          "away": "Iraklis",
+          "hs": "0",
+          "as": "0",
+          "time": "07:30 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Panetolikos",
+          "away": "Kalamata",
+          "hs": "0",
+          "as": "0",
+          "time": "09:30 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ]
+    },
+    {
+      "league": "الدوري السعودي",
+      "items": [
+        {
+          "home": "Al Diriyah",
+          "away": "Al Kholood",
+          "hs": "0",
+          "as": "0",
+          "time": "09:00 PM",
+          "state": "in",
+          "detail": "44'"
+        },
+        {
+          "home": "Al-Faisaly",
+          "away": "الفتح",
+          "hs": "1",
+          "as": "1",
+          "time": "07:00 PM",
+          "state": "post",
+          "detail": "FT"
+        }
+      ]
+    },
+    {
+      "league": "الدوري الأمريكي",
+      "items": [
+        {
+          "home": "Seattle Sounders FC",
+          "away": "Chicago Fire FC",
+          "hs": "0",
+          "as": "0",
+          "time": "11:30 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Atlanta United FC",
+          "away": "Charlotte FC",
+          "hs": "0",
+          "as": "0",
+          "time": "02:30 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "كولومبوس كرو",
+          "away": "New England Revolution",
+          "hs": "0",
+          "as": "0",
+          "time": "02:30 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "D.C. United",
+          "away": "LAFC",
+          "hs": "0",
+          "as": "0",
+          "time": "02:30 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Inter Miami CF",
+          "away": "CF Montréal",
+          "hs": "0",
+          "as": "0",
+          "time": "02:30 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Red Bull New York",
+          "away": "Philadelphia Union",
+          "hs": "0",
+          "as": "0",
+          "time": "02:30 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Toronto FC",
+          "away": "New York City FC",
+          "hs": "0",
+          "as": "0",
+          "time": "02:30 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Houston Dynamo FC",
+          "away": "San Jose Earthquakes",
+          "hs": "0",
+          "as": "0",
+          "time": "03:30 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Minnesota United FC",
+          "away": "Orlando City SC",
+          "hs": "0",
+          "as": "0",
+          "time": "03:30 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Nashville SC",
+          "away": "FC Cincinnati",
+          "hs": "0",
+          "as": "0",
+          "time": "03:30 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Sporting Kansas City",
+          "away": "Vancouver Whitecaps",
+          "hs": "0",
+          "as": "0",
+          "time": "03:30 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Colorado Rapids",
+          "away": "Real Salt Lake",
+          "hs": "0",
+          "as": "0",
+          "time": "04:30 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Portland Timbers",
+          "away": "Austin FC",
+          "hs": "0",
+          "as": "0",
+          "time": "05:30 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "San Diego FC",
+          "away": "لوس أنجلوس جالاكسي",
+          "hs": "0",
+          "as": "0",
+          "time": "05:30 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ]
+    },
+    {
+      "league": "الدوري البرازيلي",
+      "items": [
+        {
+          "home": "Atlético-MG",
+          "away": "Vitória",
+          "hs": "0",
+          "as": "0",
+          "time": "12:30 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "São Paulo",
+          "away": "Red Bull Bragantino",
+          "hs": "0",
+          "as": "0",
+          "time": "02:00 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Vasco da Gama",
+          "away": "Cruzeiro",
+          "hs": "0",
+          "as": "0",
+          "time": "03:20 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ]
+    },
+    {
+      "league": "الدوري الأرجنتيني",
+      "items": [
+        {
+          "home": "Unión (Santa Fe)",
+          "away": "Sarmiento (Junín)",
+          "hs": "0",
+          "as": "0",
+          "time": "01:00 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Boca Juniors",
+          "away": "Lanús",
+          "hs": "0",
+          "as": "0",
+          "time": "03:30 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ]
+    },
+    {
+      "league": "دوري أبطال أوروبا",
+      "items": [
+        {
+          "home": "باريس سان جيرمان",
+          "away": "أرسنال",
+          "hs": "1",
+          "as": "1",
+          "time": "07:00 PM",
+          "state": "post",
+          "detail": "FT-Pens"
+        }
+      ]
+    },
+    {
+      "league": "الدوري الأوروبي",
+      "items": [
+        {
+          "home": "فرايبورج",
+          "away": "أستون فيلا",
+          "hs": "0",
+          "as": "3",
+          "time": "10:00 PM",
+          "state": "post",
+          "detail": "FT"
+        }
+      ]
+    },
+    {
+      "league": "كأس العالم",
+      "items": [
+        {
+          "home": "Spain",
+          "away": "Argentina",
+          "hs": "1",
+          "as": "0",
+          "time": "10:00 PM",
+          "state": "post",
+          "detail": "AET"
+        }
+      ]
     }
   ],
   "tables": {
