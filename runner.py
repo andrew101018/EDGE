@@ -857,62 +857,38 @@ def build_site_data(state, today):
         if item["d"] == today:
             results_items.append(item["t"])
 
-    schedule_lines = []
+        matches = []
+    order = {"in": 0, "pre": 1, "post": 2}
     for slug, name in LEAGUES.items():
         data = fetch_scoreboard(slug)
         if not data: continue
+        group = {"league": name, "items": []}
         for ev in data.get("events", []):
             try:
                 comp = ev["competitions"][0]
-                if comp["status"]["type"]["state"] != "pre": continue
+                st = comp["status"]["type"]["state"]
+                detail = comp["status"]["type"].get("shortDetail", "")
                 dt = datetime.fromisoformat(ev["date"].replace("Z", "+00:00")).astimezone(CAIRO)
-                if dt.strftime("%Y-%m-%d") != today: continue
-                comps = comp["competitors"]
-                home = ar_team([c for c in comps if c.get("homeAway") == "home"][0]["team"]["displayName"])
-                away = ar_team([c for c in comps if c.get("homeAway") == "away"][0]["team"]["displayName"])
-                schedule_lines.append({
-                    "time": dt.strftime("%I:%M %p"),
-                    "home": home, "away": away, "league": name
-                })
-            except Exception:
-                continue
-
-    tables = {}
-    for slug, name in [("eng.1", "الدوري الإنجليزي"), ("esp.1", "الدوري الإسباني"),
-                        ("ita.1", "الدوري الإيطالي"), ("ger.1", "الدوري الألماني"),
-                        ("fra.1", "الدوري الفرنسي"), ("ksa.1", "الدوري السعودي"),
-                        ("egy.1", "الدوري المصري"), ("por.1", "الدوري البرتغالي")]:
-        t = top_table(slug, 8)
-        if t:
-            tables[name] = t
-
-    live_matches = []
-    for slug, name in LEAGUES.items():
-        data = fetch_scoreboard(slug)
-        if not data: continue
-        for ev in data.get("events", []):
-            try:
-                comp = ev["competitions"][0]
-                if comp["status"]["type"]["state"] != "in": continue
                 comps = comp["competitors"]
                 home = [c for c in comps if c.get("homeAway") == "home"][0]
                 away = [c for c in comps if c.get("homeAway") == "away"][0]
-                live_matches.append({
+                group["items"].append({
                     "home": ar_team(home["team"]["displayName"]),
                     "away": ar_team(away["team"]["displayName"]),
-                    "home_score": home["score"],
-                    "away_score": away["score"],
-                    "league": name
+                    "hs": home["score"], "as": away["score"],
+                    "time": dt.strftime("%I:%M %p"),
+                    "state": st, "detail": detail,
                 })
             except Exception:
                 continue
-
+        if group["items"]:
+            group["items"].sort(key=lambda x: order.get(x["state"], 3))
+            matches.append(group)
     site_data = {
         "updated_at": now.strftime("%Y-%m-%d %I:%M %p"),
         "news": news_items,
         "results": results_items,
-        "schedule": schedule_lines,
-        "live": live_matches,
+        "matches": matches,
         "tables": tables,
     }
 
@@ -950,7 +926,7 @@ def main():
             print("⚠️ تجاوز:", item["title"][:40])
             posted.add(item["hash"])
             continue
-            content += f"\n\n📡 المصدر: {item['source']}\n🔗 {item['url']}"
+        content += f"\n\n📡 المصدر: {item['source']}"
         if send_tg(content):
             print("✅ نُشر:", title[:40])
             posted.add(item["hash"])

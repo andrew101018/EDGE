@@ -35,3 +35,12 @@ footer { background: #020617; text-align: center; padding: 25px; margin-top: 40p
   header h1 { font-size: 1.8em; }
   .schedule-item { flex-direction: column; align-items: flex-start; gap: 5px; }
 }
+.league-box { margin-bottom: 18px; }
+.league-title { color: #fbbf24; font-weight: bold; padding: 10px 14px; background: #0f172a; border-radius: 8px 8px 0 0; border-right: 4px solid #fbbf24; }
+.match-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; background: #16213a; border-bottom: 1px solid #24344f; }
+.match-row:last-child { border-bottom: none; border-radius: 0 0 8px 8px; }
+.m-team { flex: 1; font-weight: bold; font-size: 0.95em; }
+.m-score { min-width: 90px; text-align: center; font-size: 1.15em; font-weight: bold; color: #fbbf24; }
+.m-score.live { color: #ef4444; }
+.m-score.pre { color: #94a3b8; }
+.m-status { display: block; font-size: 0.7em; font-weight: normal; opacity: 0.85; }

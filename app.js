@@ -5,36 +5,32 @@ async function loadData() {
 
     document.getElementById('lastUpdate').textContent = 'آخر تحديث: ' + data.updated_at;
 
-    const liveEl = document.getElementById('liveContainer');
-    if (data.live && data.live.length > 0) {
-      document.getElementById('liveSection').style.display = 'block';
-      liveEl.innerHTML = data.live.map(m => `
-        <div class="card match-card">
-          <div class="teams">${m.home} × ${m.away}</div>
-          <div class="score">${m.home_score} - ${m.away_score}</div>
-          <div class="league">🔴 مباشر | ${m.league}</div>
+    const matchesEl = document.getElementById('matchesContainer');
+    if (data.matches && data.matches.length > 0) {
+      matchesEl.innerHTML = data.matches.map(g => `
+        <div class="league-box">
+          <div class="league-title">🏆 ${g.league}</div>
+          ${g.items.map(m => {
+            let score = '';
+            if (m.state === 'in') score = `<div class="m-score live">${m.hs} - ${m.as}<span class="m-status">🔴 ${m.detail}</span></div>`;
+            else if (m.state === 'post') score = `<div class="m-score post">${m.hs} - ${m.as}<span class="m-status">انتهت</span></div>`;
+            else score = `<div class="m-score pre">${m.time}<span class="m-status">لم تبدأ</span></div>`;
+            return `<div class="match-row"><div class="m-team">${m.home}</div>${score}<div class="m-team">${m.away}</div></div>`;
+          }).join('')}
         </div>`).join('');
+    } else {
+      matchesEl.innerHTML = '<div class="card">لا توجد مباريات حالياً</div>';
     }
 
     const newsEl = document.getElementById('newsContainer');
     newsEl.innerHTML = data.news.length > 0
-      ? data.news.map(t => `<div class="news-item">${t}</div>`).join('')
+      ? data.news.map(n => `<div class="news-item">${n.t}</div>`).join('')
       : '<div class="card">لا توجد أخبار جديدة حالياً</div>';
 
     const resultsEl = document.getElementById('resultsContainer');
     resultsEl.innerHTML = data.results.length > 0
       ? data.results.map(t => `<div class="result-item">🏁 ${t}</div>`).join('')
       : '<div class="card">لا توجد نتائج اليوم</div>';
-
-    const scheduleEl = document.getElementById('scheduleContainer');
-    scheduleEl.innerHTML = data.schedule.length > 0
-      ? data.schedule.map(m => `
-        <div class="schedule-item">
-          <span class="time">⏰ ${m.time}</span>
-          <span class="teams">${m.home} × ${m.away}</span>
-          <span class="league">${m.league}</span>
-        </div>`).join('')
-      : '<div class="card">لا توجد مباريات اليوم</div>';
 
     const tablesEl = document.getElementById('tablesContainer');
     tablesEl.innerHTML = Object.entries(data.tables || {}).map(([name, rows]) => `
