@@ -936,7 +936,8 @@ def main():
                 {"t": content.splitlines()[0][:100], "img": ""})
             state.setdefault("daily_news", []).append(
                 {"d": today, "t": content.splitlines()[0][:80]})
-            post_facebook(content, "")            make_shorts_script(content)
+            post_facebook(content, "")
+            make_shorts_script(content)
             count += 1
             time.sleep(15)
     state["posted"] = list(posted)
