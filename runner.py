@@ -257,8 +257,10 @@ SCENE_PROMPTS = [
 def image_for(title):
     import urllib.parse
     seed = int(hashlib.md5(title.encode()).hexdigest()[:8], 16)
-    prompt = SCENE_PROMPTS[seed % len(SCENE_PROMPTS)]
-    return f"https://image.pollinations.ai/prompt/{urllib.parse.quote(prompt)}?width=1200&height=800&seed={seed}"
+    # صور مجانية من Unsplash - أكثر استقراراً
+    queries = ["football+stadium+night", "soccer+ball+grass", "football+fans+stadium"]
+    q = queries[seed % len(queries)]
+    return f"https://source.unsplash.com/1200x800/?{q}&sig={seed}"
 
 def send_photo(url, caption):
     try:
@@ -272,6 +274,8 @@ def send_photo(url, caption):
     return False
 
 def post_facebook(text, image_url):
+    # فيسبوك مؤقتاً متعطل لحين عمل App Review
+    return False
     if not (FB_PAGE_ID and FB_PAGE_TOKEN):
         return False
     try:
@@ -325,10 +329,12 @@ def make_shorts_script(news_text):
     ...
 
 GEMINI_MODELS = [
-    "gemini-2.5-flash-lite",    # الأسرع والأنسب للأخبار
-    "gemini-2.5-flash",         # الأقوى
-    "gemini-3.7-flash",         # الأحدث
+    "gemini-3.7-flash",      # الأحدث والأقوى
+    "gemini-3.6-flash",
+    "gemini-3.5-flash",
+    "gemini-2.5-pro",        # أقوى موديل متاح
 ]
+
 def call_gemini(prompt, temp):
     if not GEMINI_KEY: return None
     for model in GEMINI_MODELS:
