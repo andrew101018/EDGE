@@ -205,28 +205,40 @@ async function showTeam(slug, teamId, teamName) {
                     (Array.isArray(dt.coaches) && dt.coaches[0] && (dt.coaches[0].displayName || dt.coaches[0].fullName)) || null;
       if (coach) html += `<div class="pos-box coach-box">🎯 المدير الفني: <b>${coach}</b></div>`;
     } catch (e) {}
-    const d = await rRoster.json();
+        const d = await rRoster.json();
+    const players = [];
     (d.athletes || []).forEach(g => {
       const pos = typeof g.position === 'string' ? g.position
                 : (g.position && (g.position.name || g.position.displayName)) || 'لاعبون';
-      const items = g.items || g.athletes || [];
-      const cards = items.map(i => {
+      (g.items || g.athletes || []).forEach(i => {
         const a = i.athlete || i;
-        const name = a.displayName || a.fullName || '';
-        if (!name) return '';
+        if (a.displayName || a.fullName) players.push({pos, a});
+      });
+    });
+    const flat = (d.roster && (d.roster.entries || d.roster.items)) || d.entries || [];
+    flat.forEach(e => {
+      const a = e.athlete || e;
+      if (a.displayName || a.fullName) {
+        const pos = (a.position && (a.position.name || a.position.displayName)) || 'لاعبون';
+        players.push({pos, a});
+      }
+    });
+    const byPos = {};
+    players.forEach(p => { (byPos[p.pos] = byPos[p.pos] || []).push(p.a); });
+    Object.entries(byPos).forEach(([pos, list]) => {
+      const cards = list.map(a => {
         const face = (a.headshot && (a.headshot.href || a.headshot.url)) || '';
         const s = a.statistics || {};
         const bits = [];
         if (s.goals) bits.push(`⚽ ${s.goals}`);
         if (s.assists) bits.push(`🅰️ ${s.assists}`);
-        if (s.appearances || s.gamesPlayed) bits.push(`📋 ${s.appearances || s.gamesPlayed}`);
-        return `<span class="p-card">${face ? `<img class="p-face" src="${face}" onerror="this.style.display='none'">` : '👤'} ${name}${a.jersey ? ` (${a.jersey})` : ''}${bits.length ? ` <small>${bits.join(' ')}</small>` : ''}</span>`;
-      }).filter(Boolean).join('');
+        return `<span class="p-card">${face ? `<img class="p-face" src="${face}" onerror="this.style.display='none'">` : '👤'} ${a.displayName || a.fullName}${a.jersey ? ` (${a.jersey})` : ''}${bits.length ? ` <small>${bits.join(' ')}</small>` : ''}</span>`;
+      }).join('');
       if (cards) html += `<div class="pos-box"><b>${pos}:</b><div class="p-grid">${cards}</div></div>`;
     });
-    document.getElementById('teamModalBody').innerHTML = html || 'لا توجد بيانات متاحة لهذا الفريق حالياً';
+    document.getElementById('teamModalBody').innerHTML = html || ('لا توجد بيانات — شكل البيانات: ' + Object.keys(d).join(', '));
   } catch (e) {
-    document.getElementById('teamModalBody').innerHTML = 'تعذر تحميل القائمة — جرب فريق تاني';
+    document.getElementById('teamModalBody').innerHTML = '❌ خطأ في تحميل البيانات: ' + e.message;
   }
 }
 
