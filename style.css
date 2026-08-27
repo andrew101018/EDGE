@@ -74,3 +74,9 @@ table.stand { width: 100%; border-collapse: collapse; font-size: 0.9em; }
 .live-teams { display: flex; justify-content: center; align-items: center; gap: 14px; font-weight: bold; flex-wrap: wrap; }
 .live-score { font-size: 1.4em; color: #fbbf24; font-weight: bold; min-width: 70px; }
 .live-meta { font-size: 0.8em; opacity: 0.9; margin-top: 6px; color: #fecaca; }
+.match-row { display: flex; justify-content: center; align-items: center; gap: 14px; padding: 12px; }
+.m-team { flex: 0 1 220px; text-align: center; font-weight: bold; font-size: 0.95em; }
+.p-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.p-card { background: #16213a; border: 1px solid #24344f; border-radius: 20px; padding: 6px 12px; font-size: 0.85em; display: inline-flex; align-items: center; gap: 6px; }
+.p-face { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; }
+.coach-box { border-right: 3px solid #fbbf24; }

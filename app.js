@@ -1,5 +1,4 @@
 let MATCHES = [];
-let CURRENT_TAB = 'big';
 
 function teamLogo(src) {
   if (!src) return '';
@@ -28,7 +27,7 @@ function matchRow(m) {
 
 function renderMatches() {
   const el = document.getElementById('matchesContainer');
-  const groups = CURRENT_TAB === 'big' ? MATCHES.filter(g => g.big) : MATCHES;
+  const groups = MATCHES;
 
   const liveItems = [];
   groups.forEach(g => g.items.forEach(m => {
@@ -59,20 +58,7 @@ function renderMatches() {
   }).join('');
 
   const finalHtml = liveHtml + restHtml;
-  if (finalHtml) {
-    el.innerHTML = finalHtml;
-  } else {
-    el.innerHTML = CURRENT_TAB === 'big'
-      ? '<div class="card">لا توجد مباريات مهمة قريباً — دوس على "كل المباريات" 🌍</div>'
-      : '<div class="card">لا توجد مباريات حالياً</div>';
-  }
-}
-
-function showTab(t) {
-  CURRENT_TAB = t;
-  document.getElementById('tabBig').classList.toggle('active', t === 'big');
-  document.getElementById('tabAll').classList.toggle('active', t === 'all');
-  renderMatches();
+  el.innerHTML = finalHtml || '<div class="card">لا توجد مباريات حالياً</div>';
 }
 
 async function showTeam(slug, teamId, teamName) {
@@ -81,15 +67,44 @@ async function showTeam(slug, teamId, teamName) {
   document.getElementById('teamModalTitle').textContent = '👥 ' + teamName;
   document.getElementById('teamModalBody').innerHTML = 'جاري تحميل القائمة...';
   try {
-    const r = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/teams/${teamId}/roster`);
-    const d = await r.json();
+    const [rRoster, rTeam] = await Promise.all([
+      fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/teams/${teamId}/roster`),
+      fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/teams/${teamId}`)
+    ]);
+
     let html = '';
+
+    // 🎯 المدرب
+    try {
+      const dt = await rTeam.json();
+      const coach = (dt.coach && (dt.coach.displayName || dt.coach.fullName)) ||
+                    (dt.team && dt.team.coach && (dt.team.coach.displayName || dt.team.coach.fullName)) ||
+                    (Array.isArray(dt.coaches) && dt.coaches[0] && (dt.coaches[0].displayName || dt.coaches[0].fullName)) || null;
+      if (coach) html += `<div class="pos-box coach-box">🎯 المدير الفني: <b>${coach}</b></div>`;
+    } catch (e) {}
+
+    // 👥 اللاعبين بالمراكز + الوجوه + الإحصائيات
+    const d = await rRoster.json();
     (d.athletes || []).forEach(g => {
-      const pos = g.position ? g.position.name : 'لاعبون';
-      const names = (g.items || []).map(i => (i.athlete.displayName || i.athlete.fullName || '') + (i.athlete.jersey ? ' (' + i.athlete.jersey + ')' : '')).filter(Boolean).join('، ');
-      if (names) html += `<div class="pos-box"><b>${pos}:</b> ${names}</div>`;
+      const pos = typeof g.position === 'string' ? g.position
+                : (g.position && (g.position.name || g.position.displayName)) || 'لاعبون';
+      const items = g.items || g.athletes || [];
+      const cards = items.map(i => {
+        const a = i.athlete || i;
+        const name = a.displayName || a.fullName || '';
+        if (!name) return '';
+        const face = (a.headshot && (a.headshot.href || a.headshot.url)) || '';
+        const s = a.statistics || {};
+        const bits = [];
+        if (s.goals) bits.push(`⚽ ${s.goals}`);
+        if (s.assists) bits.push(`🅰️ ${s.assists}`);
+        if (s.appearances || s.gamesPlayed) bits.push(`📋 ${s.appearances || s.gamesPlayed}`);
+        return `<span class="p-card">${face ? `<img class="p-face" src="${face}" onerror="this.style.display='none'">` : '👤'} ${name}${a.jersey ? ` (${a.jersey})` : ''}${bits.length ? ` <small>${bits.join(' ')}</small>` : ''}</span>`;
+      }).filter(Boolean).join('');
+      if (cards) html += `<div class="pos-box"><b>${pos}:</b><div class="p-grid">${cards}</div></div>`;
     });
-    document.getElementById('teamModalBody').innerHTML = html || 'لا توجد بيانات متاحة لهذا الفريق';
+
+    document.getElementById('teamModalBody').innerHTML = html || 'لا توجد بيانات متاحة لهذا الفريق حالياً';
   } catch (e) {
     document.getElementById('teamModalBody').innerHTML = 'تعذر تحميل القائمة — جرب فريق تاني';
   }
