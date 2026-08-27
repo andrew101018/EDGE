@@ -1124,7 +1124,7 @@ def main():
             openers.append(content.splitlines()[0][:80])
             state.setdefault("site_news", []).append(
                 {"t": content.splitlines()[0][:100], "img": ""})
-                        state["site_news"] = state["site_news"][-40:]
+            state["site_news"] = state["site_news"][-40:]
             state.setdefault("daily_news", []).append(
                 {"d": today, "t": content.splitlines()[0][:80]})
             post_facebook(content, "")
