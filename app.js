@@ -1,10 +1,10 @@
 let DATA = {};
 let MATCHES = [];
-let TEAMS = [];
 
 function go(page, btn) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('sec-' + page).classList.add('active');
+  const sec = document.getElementById('sec-' + page);
+  if (sec) sec.classList.add('active');
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   if (btn) btn.classList.add('active');
   window.scrollTo({top: 0});
@@ -15,23 +15,34 @@ function teamLogo(src) {
   return `<img class="t-logo" src="${src}" onerror="this.style.display='none'">`;
 }
 
+// 👆 فتح قائمة اللاعبين — بالضغط على أي فريق في أي مكان
+document.addEventListener('click', function (e) {
+  const el = e.target.closest('[data-team]');
+  if (!el) return;
+  const parts = el.getAttribute('data-team').split('|');
+  showTeam(parts[0], parts[1], parts[2] || '');
+});
+
 function matchRow(m) {
   let score = '';
   if (m.state === 'in') score = `<div class="m-score live">${m.hs} - ${m.as}<span class="m-status">🔴 ${m.detail}</span></div>`;
   else if (m.state === 'post') score = `<div class="m-score post">${m.hs} - ${m.as}<span class="m-status">انتهت</span></div>`;
   else score = `<div class="m-score pre">${m.time}<span class="m-status">لم تبدأ</span></div>`;
+
   let statsHtml = '';
   if (m.stats) {
     const labels = {possession:'استحواذ %', shotsOnTarget:'تسديدات على المرمى', cornerKicks:'ركنيات', totalShots:'تسديدات', foulsCommitted:'أخطاء'};
     statsHtml = '<div class="m-stats">' + Object.entries(m.stats).map(([k,v]) =>
       `<span>${v[0]} | ${labels[k]||k} | ${v[1]}</span>`).join('') + '</div>';
   }
-    const tvHtml = m.tv ? `<div class="tv-line">${m.tvUrl ? `<a href="${m.tvUrl}" target="_blank">📺 يُذاع عبر: ${m.tv}</a>` : `📺 ${m.tv}`}</div>` : '';
+
+  const tvHtml = m.tv ? `<div class="tv-line">${m.tvUrl ? `<a href="${m.tvUrl}" target="_blank">📺 يُذاع عبر: ${m.tv}</a>` : `📺 ${m.tv}`}</div>` : '';
+
   return `<div class="match-wrap">
     <div class="match-row">
-      <div class="m-team team-link" onclick="showTeam('${m.slug}','${m.homeId}','${m.home}')">${teamLogo(m.homeLogo)} ${m.home}</div>
+      <div class="m-team team-link" data-team="${m.slug}|${m.homeId}|${m.home}">${teamLogo(m.homeLogo)} ${m.home}</div>
       ${score}
-      <div class="m-team team-link" onclick="showTeam('${m.slug}','${m.awayId}','${m.away}')">${m.away} ${teamLogo(m.awayLogo)}</div>
+      <div class="m-team team-link" data-team="${m.slug}|${m.awayId}|${m.away}">${m.away} ${teamLogo(m.awayLogo)}</div>
     </div>${tvHtml}${statsHtml}
   </div>`;
 }
@@ -49,11 +60,11 @@ function renderMatches() {
       liveItems.map(m => `
         <div class="live-card">
           <div class="live-teams">
-            <span class="team-link" onclick="showTeam('${m.slug}','${m.homeId}','${m.home}')">${teamLogo(m.homeLogo)} ${m.home}</span>
+            <span class="team-link" data-team="${m.slug}|${m.homeId}|${m.home}">${teamLogo(m.homeLogo)} ${m.home}</span>
             <span class="live-score">${m.hs} - ${m.as}</span>
-            <span class="team-link" onclick="showTeam('${m.slug}','${m.awayId}','${m.away}')">${m.away} ${teamLogo(m.awayLogo)}</span>
+            <span class="team-link" data-team="${m.slug}|${m.awayId}|${m.away}">${m.away} ${teamLogo(m.awayLogo)}</span>
           </div>
-                    <div class="live-meta">⏱️ ${m.detail} | ${m.league}${m.tv ? ` | 📺 ${m.tv}` : ''}</div>
+          <div class="live-meta">⏱️ ${m.detail} | ${m.league}${m.tv ? ` | 📺 ${m.tv}` : ''}</div>
         </div>`).join('') + '</div>';
   }
   const restHtml = groups.map(g => {
@@ -78,42 +89,73 @@ function renderLeaders() {
     </div>`).join('');
 }
 
-function renderHighlights() {
-  const el = document.getElementById('highlightsContainer');
-  const H = DATA.highlights || [];
-  if (!H.length) { el.innerHTML = '<div class="card">لا توجد هايلايتس حالياً</div>'; return; }
-  el.innerHTML = H.map(h => `
-    <a class="hl-card" href="${h.url}" target="_blank">
-      <img src="${h.thumb}" onerror="this.style.display='none'">
-      <div class="hl-title">${h.title}</div>
-      <div class="hl-play">▶️ مشاهدة</div>
-    </a>`).join('');
-}
-
-function buildTeams() {
-  const map = {};
+function renderTv() {
+  const el = document.getElementById('tvContainer');
+  const rows = [];
   (DATA.matches || []).forEach(g => g.items.forEach(m => {
-    if (m.homeId) map[m.homeId] = {id: m.homeId, slug: m.slug, name: m.home, logo: m.homeLogo};
-    if (m.awayId) map[m.awayId] = {id: m.awayId, slug: m.slug, name: m.away, logo: m.awayLogo};
+    if (m.tv && m.state !== 'post') rows.push(m);
   }));
-  Object.values(DATA.tables || {}).forEach(rows => rows.forEach(r => {
-    if (r.id) map[r.id] = {id: r.id, slug: r.slug, name: r.team, logo: r.logo};
-  }));
-  TEAMS = Object.values(map);
+  el.innerHTML = rows.length ? rows.map(m => `
+    <div class="tv-card">
+      <div class="tv-teams">${teamLogo(m.homeLogo)} ${m.home} × ${m.away} ${teamLogo(m.awayLogo)}</div>
+      <div class="tv-info">${m.state === 'in' ? '🔴 الآن' : '🕐 ' + m.time} | ${m.league}</div>
+      ${m.tvUrl ? `<a class="btn" href="${m.tvUrl}" target="_blank">📺 ${m.tv}</a>` : `<span>📺 ${m.tv}</span>`}
+    </div>`).join('')
+    : '<div class="card">لا توجد مباريات مذاعة قريباً</div>';
 }
 
-function searchTeams() {
-  const q = document.getElementById('teamSearch').value.trim();
-  const el = document.getElementById('teamsContainer');
-  if (!q) { el.innerHTML = ''; return; }
-  const res = TEAMS.filter(t => t.name.includes(q)).slice(0, 15);
-  el.innerHTML = res.length ? res.map(t => `
-    <div class="team-result" onclick="showTeam('${t.slug}','${t.id}','${t.name}')">${teamLogo(t.logo)} ${t.name}</div>`).join('')
-    : '<div class="card">لا توجد نتائج</div>';
+function renderPredict() {
+  const saved = JSON.parse(localStorage.getItem('edgePredict') || '{}');
+  const scored = JSON.parse(localStorage.getItem('edgeScored') || '[]');
+  let points = parseInt(localStorage.getItem('edgePoints') || '0');
+
+  (DATA.matches || []).forEach(g => g.items.forEach(m => {
+    if (m.state === 'post' && saved[m.eid] && !scored.includes(m.eid)) {
+      const p = saved[m.eid];
+      const hh = parseInt(m.hs), aa = parseInt(m.as);
+      if (p[0] === hh && p[1] === aa) points += 3;
+      else if (Math.sign(p[0] - p[1]) === Math.sign(hh - aa)) points += 1;
+      scored.push(m.eid);
+    }
+  }));
+  localStorage.setItem('edgePoints', String(points));
+  localStorage.setItem('edgeScored', JSON.stringify(scored));
+
+  document.getElementById('predictPoints').innerHTML =
+    `⭐ نقاطك: <b>${points}</b> — النتيجة الصح بـ 3 نقاط والاتجاه الصح بنقطة`;
+
+  const upcoming = [];
+  (DATA.matches || []).forEach(g => g.items.forEach(m => { if (m.state === 'pre') upcoming.push(m); }));
+  const el = document.getElementById('predictContainer');
+  if (!upcoming.length) { el.innerHTML = '<div class="card">لا توجد مباريات قادمة للتوقع حالياً</div>'; return; }
+  el.innerHTML = upcoming.slice(0, 12).map(m => {
+    const v = saved[m.eid] || ['', ''];
+    return `<div class="pred-row" data-eid="${m.eid}">
+      <div class="pred-teams">${teamLogo(m.homeLogo)} ${m.home} × ${m.away} ${teamLogo(m.awayLogo)}</div>
+      <div class="pred-inputs">
+        <input type="number" min="0" class="pred-h" value="${v[0]}" placeholder="0">
+        <span>-</span>
+        <input type="number" min="0" class="pred-a" value="${v[1]}" placeholder="0">
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function savePredict() {
+  const saved = JSON.parse(localStorage.getItem('edgePredict') || '{}');
+  let count = 0;
+  document.querySelectorAll('.pred-row').forEach(row => {
+    const h = row.querySelector('.pred-h').value;
+    const a = row.querySelector('.pred-a').value;
+    if (h !== '' && a !== '') { saved[row.dataset.eid] = [parseInt(h), parseInt(a)]; count++; }
+  });
+  localStorage.setItem('edgePredict', JSON.stringify(saved));
+  alert(count ? `تم حفظ ${count} توقع ✅ النقاط بتتحسب لوحدها بعد المباريات` : 'اكتب نتيجة واحدة على الأقل الأول 😅');
 }
 
 async function showTeam(slug, teamId, teamName) {
   const box = document.getElementById('teamModal');
+  if (!box) return;
   box.style.display = 'block';
   document.getElementById('teamModalTitle').textContent = '👥 ' + teamName;
   document.getElementById('teamModalBody').innerHTML = 'جاري تحميل القائمة...';
@@ -165,30 +207,27 @@ async function loadData() {
     document.getElementById('lastUpdate').textContent = 'آخر تحديث: ' + DATA.updated_at;
 
     MATCHES = DATA.matches || [];
-    buildTeams();
     renderMatches();
     renderLeaders();
-    renderHighlights();
+    renderTv();
+    renderPredict();
 
-    const newsEl = document.getElementById('newsContainer');
-    newsEl.innerHTML = DATA.news.length > 0
+    document.getElementById('newsContainer').innerHTML = DATA.news.length > 0
       ? DATA.news.map(n => `<div class="news-item">${n.t}</div>`).join('')
       : '<div class="card">لا توجد أخبار جديدة حالياً</div>';
 
-    const resultsEl = document.getElementById('resultsContainer');
-    resultsEl.innerHTML = DATA.results.length > 0
+    document.getElementById('resultsContainer').innerHTML = DATA.results.length > 0
       ? DATA.results.map(t => `<div class="result-item">🏁 ${t}</div>`).join('')
       : '<div class="card">لا توجد نتائج اليوم</div>';
 
-    const tablesEl = document.getElementById('tablesContainer');
-    tablesEl.innerHTML = Object.entries(DATA.tables || {})
+    document.getElementById('tablesContainer').innerHTML = Object.entries(DATA.tables || {})
       .filter(([name, rows]) => rows && rows.length)
       .map(([name, rows]) => `
       <div class="table-box">
         <h3>🏆 ${name}</h3>
         <table class="stand">
           <tr><th>#</th><th>الفريق</th><th>لعب</th><th>ف</th><th>ت</th><th>خ</th><th>نقاط</th></tr>
-          ${rows.map(r => `<tr><td>${r.rank}</td><td class="team-link" onclick="showTeam('${r.slug}','${r.id}','${r.team}')">${teamLogo(r.logo)} ${r.team}</td><td>${r.gp}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td><td class="pts">${r.pts}</td></tr>`).join('')}
+          ${rows.map(r => `<tr><td>${r.rank}</td><td class="team-link" data-team="${r.slug}|${r.id}|${r.team}">${teamLogo(r.logo)} ${r.team}</td><td>${r.gp}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td><td class="pts">${r.pts}</td></tr>`).join('')}
         </table>
       </div>`).join('');
 

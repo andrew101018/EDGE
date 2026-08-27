@@ -1008,6 +1008,7 @@ def build_site_data(state, today):
                 item = {
                     "home": ar_team(home["team"]["displayName"]),
                     "away": ar_team(away["team"]["displayName"]),
+                    "eid": ev.get("id"),
                     "homeId": home["team"].get("id"),
                     "awayId": away["team"].get("id"),
                     "slug": slug,

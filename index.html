@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Edge Football ⚽ الكورة بتبدأ من هنا</title>
-<meta name="description" content="كل حاجة في الكورة قبل أي حد تاني — أخبار، نتائج، لايف، ترتيب، هدافين، هايلايتس">
+<meta name="description" content="كل حاجة في الكورة قبل أي حد تاني — أخبار، نتائج، لايف، ترتيب، هدافين، دليل مشاهدة، توقعات">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,10 +14,9 @@
     <p class="subtitle">الكورة بتبدأ من هنا 🔥 كل حاجة في الكورة.. قبل أي حد تاني ⚡</p>
     <div class="socials">
       <a href="https://t.me/edgefootballplatform" target="_blank" rel="noopener">📲 تيليجرام</a>
-      <a href="https://www.youtube.com/@andygmall" target="_blank" rel="noopener">▶️ يوتيوب</a>
-      <a href="https://www.facebook.com/share/1Gohnia7GU/" target="_blank" rel="noopener">📘 فيسبوك</a>
-      <a href="https://www.tiktok.com/@andr8w_10?_r=1&_t=ZS-99DBAk3ILae" target="_blank" rel="noopener">🎵 تيك توك</a>
-      <a href="https://www.instagram.com/edge_footballl?igsi=cHU5dGY0ZTZvdmN4" target="_blank" rel="noopener">📸 إنستغرام</a>
+      <a href="https://youtube.com/@EdgeFootballPlatform" target="_blank" rel="noopener">▶️ يوتيوب</a>
+      <a href="https://facebook.com/EdgeFootballPlatform" target="_blank" rel="noopener">📘 فيسبوك</a>
+      <a href="https://tiktok.com/@edgefootball" target="_blank" rel="noopener">🎵 تيك توك</a>
     </div>
     <div class="last-update" id="lastUpdate"></div>
   </div>
@@ -28,8 +27,8 @@
   <button class="nav-btn" onclick="go('matches', this)">⚽ المباريات</button>
   <button class="nav-btn" onclick="go('tables', this)">🏆 الترتيب</button>
   <button class="nav-btn" onclick="go('leaders', this)">👑 الهدافين</button>
-  <button class="nav-btn" onclick="go('highlights', this)">🎬 هايلايتس</button>
-  <button class="nav-btn" onclick="go('teams', this)">🔍 الفرق</button>
+  <button class="nav-btn" onclick="go('tv', this)">📺 شاهد</button>
+  <button class="nav-btn" onclick="go('predict', this)">🎮 توقعات</button>
 </nav>
 
 <main class="container">
@@ -37,7 +36,7 @@
   <section id="sec-home" class="page active">
     <h2>📰 آخر الأخبار</h2>
     <div id="newsContainer" class="list"></div>
-    <h2 style="margin-top:24px;">🏁 نتائج اليوم</h2>
+    <h2 class="results-heading">🏁 نتائج اليوم</h2>
     <div id="resultsContainer" class="list"></div>
   </section>
 
@@ -56,15 +55,17 @@
     <div id="leadersContainer"></div>
   </section>
 
-  <section id="sec-highlights" class="page">
-    <h2>🎬 هايلايتس المباريات</h2>
-    <div id="highlightsContainer" class="grid"></div>
+  <section id="sec-tv" class="page">
+    <h2>📺 دليل المشاهدة</h2>
+    <p class="tv-description">اعرف كل مباراة بتتذاع فين رسمياً</p>
+    <div id="tvContainer" class="grid"></div>
   </section>
 
-  <section id="sec-teams" class="page">
-    <h2>🔍 ابحث عن فريق</h2>
-    <input id="teamSearch" class="search-input" placeholder="اكتب اسم الفريق... مثال: ريال مدريد" oninput="searchTeams()">
-    <div id="teamsContainer"></div>
+  <section id="sec-predict" class="page">
+    <h2>🎮 توقع النتائج واكسب نقاط</h2>
+    <div id="predictPoints" class="points-banner"></div>
+    <div id="predictContainer"></div>
+    <button class="btn predict-save-btn" onclick="savePredict()">💾 حفظ التوقعات</button>
   </section>
 
   <section class="section telegram">
