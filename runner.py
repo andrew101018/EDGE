@@ -96,6 +96,18 @@ LEAGUES = {
 BIG_LEAGUES = ["eng.1", "esp.1", "uefa.champions", "egy.1", "ksa.1"]
 IMPORTANT = ["eng.1", "esp.1", "ita.1", "ger.1", "fra.1",
              "ksa.1", "egy.1", "uefa.champions", "uefa.europa"]
+BROADCASTERS = {
+    "eng.1": ("beIN Sports", "https://www.bein.com/ar/"),
+    "esp.1": ("beIN Sports", "https://www.bein.com/ar/"),
+    "ita.1": ("beIN Sports", "https://www.bein.com/ar/"),
+    "fra.1": ("beIN Sports", "https://www.bein.com/ar/"),
+    "ger.1": ("beIN Sports", "https://www.bein.com/ar/"),
+    "uefa.champions": ("beIN Sports", "https://www.bein.com/ar/"),
+    "uefa.europa": ("beIN Sports", "https://www.bein.com/ar/"),
+    "ksa.1": ("SSC / شاهد", "https://shahid.mbc.com/ar"),
+    "egy.1": ("أون تايم سبورتس", "https://www.facebook.com/ONTimesports"),
+    "por.1": ("Sport TV", "https://www.sporttv.pt"),
+}
 
 # ============================================
 # ️ ترجمة أسماء الفرق (جديد v8)
@@ -1001,6 +1013,8 @@ def build_site_data(state, today):
                     "slug": slug,
                     "homeLogo": home["team"].get("logo", ""),
                     "awayLogo": away["team"].get("logo", ""),
+                    "tv": BROADCASTERS.get(slug, ("", ""))[0],
+                    "tvUrl": BROADCASTERS.get(slug, ("", ""))[1],
                     "hs": home["score"], "as": away["score"],
                     "time": dt.strftime("%I:%M %p"),
                     "state": st, "detail": detail,

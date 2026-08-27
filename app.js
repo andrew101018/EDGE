@@ -26,12 +26,13 @@ function matchRow(m) {
     statsHtml = '<div class="m-stats">' + Object.entries(m.stats).map(([k,v]) =>
       `<span>${v[0]} | ${labels[k]||k} | ${v[1]}</span>`).join('') + '</div>';
   }
+    const tvHtml = m.tv ? `<div class="tv-line">${m.tvUrl ? `<a href="${m.tvUrl}" target="_blank">📺 يُذاع عبر: ${m.tv}</a>` : `📺 ${m.tv}`}</div>` : '';
   return `<div class="match-wrap">
     <div class="match-row">
       <div class="m-team team-link" onclick="showTeam('${m.slug}','${m.homeId}','${m.home}')">${teamLogo(m.homeLogo)} ${m.home}</div>
       ${score}
       <div class="m-team team-link" onclick="showTeam('${m.slug}','${m.awayId}','${m.away}')">${m.away} ${teamLogo(m.awayLogo)}</div>
-    </div>${statsHtml}
+    </div>${tvHtml}${statsHtml}
   </div>`;
 }
 
@@ -52,7 +53,7 @@ function renderMatches() {
             <span class="live-score">${m.hs} - ${m.as}</span>
             <span class="team-link" onclick="showTeam('${m.slug}','${m.awayId}','${m.away}')">${m.away} ${teamLogo(m.awayLogo)}</span>
           </div>
-          <div class="live-meta">⏱️ ${m.detail} | ${m.league}</div>
+                    <div class="live-meta">⏱️ ${m.detail} | ${m.league}${m.tv ? ` | 📺 ${m.tv}` : ''}</div>
         </div>`).join('') + '</div>';
   }
   const restHtml = groups.map(g => {
