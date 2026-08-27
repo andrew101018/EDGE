@@ -15,7 +15,34 @@ function teamLogo(src) {
   return `<img class="t-logo" src="${src}" onerror="this.style.display='none'">`;
 }
 
-// 👆 فتح قائمة اللاعبين — بالضغط على أي فريق في أي مكان
+// 👆 فتح قائمة اللاعبين — ربط مباشر + احتياطي
+function bindTeamLinks() {
+  document.querySelectorAll('[data-team]').forEach(el => {
+    el.onclick = function () {
+      const parts = el.getAttribute('data-team').split('|');
+      showTeam(parts[0], parts[1], parts[2] || '');
+    };
+  });
+}
+document.addEventListener('click', function (e) {
+  const el = e.target.closest('[data-team]');
+  if (!el) return;
+  const parts = el.getAttribute('data-team').split('|');
+  showTeam(parts[0], parts[1], parts[2] || '');
+});
+// 🛡️ شفاء ذاتي: ننشئ النافذة والاستايل لو مش موجودين
+(function () {
+  if (!document.getElementById('teamModal')) {
+    const b = document.createElement('div');
+    b.id = 'teamModal';
+    b.className = 'modal';
+    b.innerHTML = '<div class="modal-box"><div class="modal-head"><span id="teamModalTitle"></span><button onclick="closeTeam()">✖</button></div><div id="teamModalBody" class="modal-body"></div></div>';
+    document.body.appendChild(b);
+  }
+  const st = document.createElement('style');
+  st.textContent = '.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:999}.modal-box{max-width:640px;margin:6% auto;background:#1e293b;border-radius:12px;padding:20px;max-height:80vh;overflow-y:auto}.modal-head{display:flex;justify-content:space-between;align-items:center;font-weight:bold;color:#fbbf24;font-size:1.2em;margin-bottom:12px}.modal-head button{background:none;border:none;color:#ef4444;font-size:1.2em;cursor:pointer}';
+  document.head.appendChild(st);
+})();
 document.addEventListener('click', function (e) {
   const el = e.target.closest('[data-team]');
   if (!el) return;
@@ -232,6 +259,7 @@ async function loadData() {
       </div>`).join('');
 
   } catch (e) {
+    bindTeamLinks();
     console.error('خطأ:', e);
     document.getElementById('newsContainer').innerHTML = '<div class="card">جاري تحميل البيانات...</div>';
   }
