@@ -1,6 +1,10 @@
 {
-  "updated_at": "2026-08-27 03:08 PM",
+  "updated_at": "2026-08-27 03:18 PM",
   "news": [
+    {
+      "t": "⚽ فوز عكس اتجاه اللقاء؟ أضا يفجرها عن ماتش الزمالك والبنك الأهلي!",
+      "img": ""
+    },
     {
       "t": "👑 دقيقة واحدة يا صلاح؟.. الملك المصري على أعتاب التاريخ!",
       "img": ""
@@ -36,10 +40,6 @@
     {
       "t": "⚠️ درس قسوة التخطيط.. كيف تحول صيف 2021 في مانشستر يونايتد إلى تحذير للمستقبل؟",
       "img": ""
-    },
-    {
-      "t": "🩺 تطورات طبية جديدة لـ محمد إسماعيل في الزمالك!",
-      "img": ""
     }
   ],
   "results": [
@@ -58,6 +58,8 @@
           "slug": "eng.1",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/384.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
+          "tv": "beIN Sports",
+          "tvUrl": "https://www.bein.com/ar/",
           "hs": "0",
           "as": "0",
           "time": "10:00 PM",
@@ -78,6 +80,8 @@
           "slug": "esp.1",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/85.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/97.png",
+          "tv": "beIN Sports",
+          "tvUrl": "https://www.bein.com/ar/",
           "hs": "0",
           "as": "0",
           "time": "09:30 PM",
@@ -92,6 +96,8 @@
           "slug": "esp.1",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/93.png",
+          "tv": "beIN Sports",
+          "tvUrl": "https://www.bein.com/ar/",
           "hs": "0",
           "as": "0",
           "time": "10:00 PM",
@@ -112,6 +118,8 @@
           "slug": "ita.1",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/103.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17530.png",
+          "tv": "beIN Sports",
+          "tvUrl": "https://www.bein.com/ar/",
           "hs": "0",
           "as": "0",
           "time": "09:45 PM",
@@ -132,6 +140,8 @@
           "slug": "ger.1",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134.png",
+          "tv": "beIN Sports",
+          "tvUrl": "https://www.bein.com/ar/",
           "hs": "0",
           "as": "0",
           "time": "09:30 PM",
@@ -152,6 +162,8 @@
           "slug": "fra.1",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/166.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
+          "tv": "beIN Sports",
+          "tvUrl": "https://www.bein.com/ar/",
           "hs": "0",
           "as": "0",
           "time": "09:45 PM",
@@ -172,6 +184,8 @@
           "slug": "ksa.1",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21965.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/130899.png",
+          "tv": "SSC / شاهد",
+          "tvUrl": "https://shahid.mbc.com/ar",
           "hs": "0",
           "as": "0",
           "time": "06:50 PM",
@@ -186,6 +200,8 @@
           "slug": "ksa.1",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21827.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21833.png",
+          "tv": "SSC / شاهد",
+          "tvUrl": "https://shahid.mbc.com/ar",
           "hs": "0",
           "as": "0",
           "time": "07:00 PM",
@@ -200,6 +216,8 @@
           "slug": "ksa.1",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21829.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/929.png",
+          "tv": "SSC / شاهد",
+          "tvUrl": "https://shahid.mbc.com/ar",
           "hs": "0",
           "as": "0",
           "time": "09:00 PM",
@@ -214,6 +232,8 @@
           "slug": "ksa.1",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/817.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18459.png",
+          "tv": "SSC / شاهد",
+          "tvUrl": "https://shahid.mbc.com/ar",
           "hs": "0",
           "as": "0",
           "time": "09:00 PM",
