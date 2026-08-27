@@ -1,6 +1,18 @@
 {
-  "updated_at": "2026-08-27 01:49 PM",
+  "updated_at": "2026-08-27 02:14 PM",
   "news": [
+    {
+      "t": "⚡ أزمة خوان ألفينا بيزيرا.. إيه حكاية موقف الزمالك؟!",
+      "img": ""
+    },
+    {
+      "t": "🔥 قنبلة مدوية.. نهائي دوري الأبطال 2029 يقترب!",
+      "img": ""
+    },
+    {
+      "t": "🔵 زيكو بره الحسابات.. إزاي هيلعب بيراميدز قدام أبو قير للأسمدة؟",
+      "img": ""
+    },
     {
       "t": "🚨 صراع شرس بين كريستال بالاس وأستون فيلا على أوردونيز!",
       "img": ""
@@ -27,18 +39,6 @@
     },
     {
       "t": "🔥 أيمن يونس عن ثلاثية البنك الأهلي: شيكوبانزا ليس له وصف!",
-      "img": ""
-    },
-    {
-      "t": "🤖 على طريقة الدون.. روبوت يقلد احتفال كريستيانو رونالدو! 🔥",
-      "img": ""
-    },
-    {
-      "t": "⚡ زلزال من الغضب الجماهيري بسبب صفقة القادسية الجديدة!",
-      "img": ""
-    },
-    {
-      "t": "🔥 الزمالك يعزف أحلى ألحان: بيجيب المكسب ببلاش ويتحدى فيفا!",
       "img": ""
     }
   ],
@@ -911,5 +911,58 @@
         "pts": 4.0
       }
     ]
-  }
+  },
+  "leaders": {},
+  "highlights": [
+    {
+      "title": "Angers - PSG",
+      "thumb": "https://www.scorebat.com/og/m/og1730931.jpeg",
+      "url": ""
+    },
+    {
+      "title": "Koln - Bayer Leverkusen",
+      "thumb": "https://www.scorebat.com/og/m/og1727952.jpeg",
+      "url": ""
+    },
+    {
+      "title": "Atletico Madrid - Athletic Bilbao",
+      "thumb": "https://www.scorebat.com/og/m/og1730526.jpeg",
+      "url": ""
+    },
+    {
+      "title": "Getafe - Barcelona",
+      "thumb": "https://www.scorebat.com/og/m/og1730534.jpeg",
+      "url": ""
+    },
+    {
+      "title": "Liverpool - Crystal Palace",
+      "thumb": "https://www.scorebat.com/og/m/og1706149.jpeg",
+      "url": ""
+    },
+    {
+      "title": "Arsenal - Newcastle United",
+      "thumb": "https://www.scorebat.com/og/m/og1706150.jpeg",
+      "url": ""
+    },
+    {
+      "title": "Wolves - Tottenham Hotspur",
+      "thumb": "https://www.scorebat.com/og/m/og1706153.jpeg",
+      "url": ""
+    },
+    {
+      "title": "Bologna - Roma",
+      "thumb": "https://www.scorebat.com/og/m/og1752237.jpeg",
+      "url": ""
+    },
+    {
+      "title": "Manchester City - Southampton",
+      "thumb": "https://www.scorebat.com/og/m/og1877547.jpeg",
+      "url": ""
+    },
+    {
+      "title": "Mainz - Bayern Munich",
+      "thumb": "https://www.scorebat.com/og/m/og1727953.jpeg",
+      "url": ""
+    }
+  ]
 }
