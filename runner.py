@@ -693,6 +693,8 @@ def top_table(slug, n=8):
             team = ar_team(e.get("team", {}).get("shortDisplayName", ""))
             rows.append({
                 "rank": rank, "team": team,
+                "id": e.get("team", {}).get("id"),
+                "slug": slug,
                 "gp": stats.get("gamesPlayed", "-"),
                 "w": stats.get("wins", "-"),
                 "d": stats.get("ties", stats.get("draws", "-")),
@@ -889,7 +891,8 @@ def build_site_data(state, today):
                 hrs = (now - dt).total_seconds() / 3600
                 if st == "post" and hrs > 24:
                     continue
-                if st == "pre" and hrs < -24:
+                pre_window = 72 if slug in IMPORTANT else 24
+                if st == "pre" and hrs < -pre_window:
                     continue
                 comps = comp["competitors"]
                 home = [c for c in comps if c.get("homeAway") == "home"][0]

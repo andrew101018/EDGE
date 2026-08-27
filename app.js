@@ -29,8 +29,9 @@ function renderMatches() {
         }).join('')}
       </div>`).join('');
   } else {
-    el.innerHTML = '<div class="card">لا توجد مباريات في هذا التبويب حالياً</div>';
-  }
+    el.innerHTML = CURRENT_TAB === 'big'
+      ? '<div class="card">لا توجد مباريات مهمة قريباً — دوس على "كل المباريات" 🌍</div>'
+      : '<div class="card">لا توجد مباريات حالياً</div>';  }
 }
 
 function showTab(t) {
@@ -88,9 +89,7 @@ async function loadData() {
         <h3>🏆 ${name}</h3>
         <table class="stand">
           <tr><th>#</th><th>الفريق</th><th>لعب</th><th>ف</th><th>ت</th><th>خ</th><th>نقاط</th></tr>
-          ${rows.map(r => `<tr><td>${r.rank}</td><td>${r.team}</td><td>${r.gp}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td><td class="pts">${r.pts}</td></tr>`).join('')}
-        </table>
-      </div>`).join('');
+          ${rows.map(r => `<tr><td>${r.rank}</td><td class="team-link" onclick="showTeam('${r.slug}','${r.id}','${r.team}')">${r.team}</td><td>${r.gp}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td><td class="pts">${r.pts}</td></tr>`).join('')}      </div>`).join('');
 
   } catch (e) {
     console.error('خطأ:', e);
