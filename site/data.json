@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-08-27 09:03 PM",
+  "updated_at": "2026-08-28 01:52 AM",
   "news": [
+    {
+      "t": "🔥 توتنهام يعلن ضم عمر مرموش.. وتطورات ساخنة بالكرة المحلية والأوروبية!",
+      "img": ""
+    },
+    {
+      "t": "⚽️ هشام حنفي يحلل الكواليس: معتمد جمال بطل ليلة الزمالك.. وماتش \"زد\" فخ للأهلي!",
+      "img": ""
+    },
+    {
+      "t": "⚽ شاهد.. لحظة اعتقال مالك فريق لكرة القدم الأمريكية بتهمة \"ممارسة الدعارة\" - CNN Arabic",
+      "img": ""
+    },
+    {
+      "t": "🔥 قرعة نارية في دوري الأبطال.. باريس في مواجهة برشلونة ومانشستر سيتي!",
+      "img": ""
+    },
+    {
+      "t": "🔥 الوجبة اتجهزت وخلاص ولعت! قرعة دوري أبطال أوروبا 2026-2027! ⚽",
+      "img": ""
+    },
     {
       "t": "🎲 **هuyendo من القوارير: من سيحلم بالبطولة في 2026؟!**",
       "img": ""
@@ -20,31 +40,11 @@
     {
       "t": "⚽ يويفا يعترف بأحقية برشلونة في ركلة جزاء أمام أتلتيكو.. ويحسم موقفه من \"قانون فينيسيوس\" - Kooora",
       "img": ""
-    },
-    {
-      "t": "🏆 قرعة دوري الأبطال 2026-27: أرسنال ضد ريال ومانشستر سيتي في مواجهة باريس!",
-      "img": ""
-    },
-    {
-      "t": "🔥 تلات goals وفوز تاريخي.. إيه دة اللي حصل بين زمالك 2007 و البنك الأهلي؟",
-      "img": ""
-    },
-    {
-      "t": "⚖️ صراع النفوذ يشتعل.. دعم سعودي لـ إنفانتينو وملاحقة قضائية من يويفا!",
-      "img": ""
-    },
-    {
-      "t": "⚽ خطاب رسمي من اتحاد الكرة للزمالك بشأن زيزو - صدى البلد",
-      "img": ""
-    },
-    {
-      "t": "⚽ بسبب إمام عاشور.. أحمد فتوح يفجر غضبًا عارمًا في الزمالك - إرم نيوز",
-      "img": ""
     }
   ],
   "results": [
-    "Al Diriyah 1 - 1 Al Kholood",
-    "ريال مدريد 4 - 1 ريال سوسيداد"
+    "برشلونة 2 - 0 أتلتيك بلباو",
+    "سيلتا فيجو 1 - 2 أوساسونا"
   ],
   "matches": [
     {
@@ -71,6 +71,29 @@
       "big": true
     },
     {
+      "league": "تشامبيونشيب",
+      "items": [
+        {
+          "home": "Wrexham",
+          "away": "Birmingham City",
+          "eid": "401880305",
+          "homeId": "352",
+          "awayId": "392",
+          "slug": "eng.2",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/352.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/392.png",
+          "tv": "",
+          "tvUrl": "",
+          "hs": "0",
+          "as": "0",
+          "time": "10:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": false
+    },
+    {
       "league": "الدوري الإسباني",
       "items": [
         {
@@ -84,11 +107,11 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/97.png",
           "tv": "beIN Sports",
           "tvUrl": "https://www.bein.com/ar/",
-          "hs": "0",
-          "as": "0",
+          "hs": "1",
+          "as": "2",
           "time": "09:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "برشلونة",
@@ -101,11 +124,11 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/93.png",
           "tv": "beIN Sports",
           "tvUrl": "https://www.bein.com/ar/",
-          "hs": "0",
+          "hs": "2",
           "as": "0",
           "time": "10:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "post",
+          "detail": "FT"
         }
       ],
       "big": true
@@ -180,6 +203,29 @@
       "big": true
     },
     {
+      "league": "الدوري البرتغالي",
+      "items": [
+        {
+          "home": "Rio Ave",
+          "away": "سبورتينج لشبونة",
+          "eid": "401885458",
+          "homeId": "3822",
+          "awayId": "2250",
+          "slug": "por.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3822.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png",
+          "tv": "Sport TV",
+          "tvUrl": "https://www.sporttv.pt",
+          "hs": "0",
+          "as": "0",
+          "time": "10:15 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": false
+    },
+    {
       "league": "الدوري الهولندي",
       "items": [
         {
@@ -196,6 +242,52 @@
           "hs": "0",
           "as": "0",
           "time": "09:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": false
+    },
+    {
+      "league": "الدوري التركي",
+      "items": [
+        {
+          "home": "Genclerbirligi",
+          "away": "Erzurum BB",
+          "eid": "401888309",
+          "homeId": "996",
+          "awayId": "19267",
+          "slug": "tur.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/996.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/19267.png",
+          "tv": "",
+          "tvUrl": "",
+          "hs": "0",
+          "as": "0",
+          "time": "09:30 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": false
+    },
+    {
+      "league": "الدوري البلجيكي",
+      "items": [
+        {
+          "home": "Racing Genk",
+          "away": "Waasland-Beveren",
+          "eid": "401879015",
+          "homeId": "938",
+          "awayId": "13450",
+          "slug": "bel.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/938.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/13450.png",
+          "tv": "",
+          "tvUrl": "",
+          "hs": "0",
+          "as": "0",
+          "time": "09:45 PM",
           "state": "pre",
           "detail": "Scheduled"
         }
@@ -275,6 +367,29 @@
         }
       ],
       "big": true
+    },
+    {
+      "league": "الدوري الأرجنتيني",
+      "items": [
+        {
+          "home": "Unión (Santa Fe)",
+          "away": "Sarmiento (Junín)",
+          "eid": "401841525",
+          "homeId": "20",
+          "awayId": "10158",
+          "slug": "arg.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10158.png",
+          "tv": "",
+          "tvUrl": "",
+          "hs": "0",
+          "as": "0",
+          "time": "01:00 AM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": false
     }
   ],
   "tables": {
@@ -379,6 +494,18 @@
     "الدوري الإسباني": [
       {
         "rank": 1,
+        "team": "برشلونة",
+        "id": "83",
+        "slug": "esp.1",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 2,
         "team": "ريال مدريد",
         "id": "86",
         "slug": "esp.1",
@@ -390,7 +517,7 @@
         "pts": 6.0
       },
       {
-        "rank": 2,
+        "rank": 3,
         "team": "إشبيلية",
         "id": "243",
         "slug": "esp.1",
@@ -402,7 +529,7 @@
         "pts": 6.0
       },
       {
-        "rank": 3,
+        "rank": 4,
         "team": "Betis",
         "id": "244",
         "slug": "esp.1",
@@ -414,7 +541,7 @@
         "pts": 6.0
       },
       {
-        "rank": 4,
+        "rank": 5,
         "team": "ألافيس",
         "id": "96",
         "slug": "esp.1",
@@ -426,7 +553,7 @@
         "pts": 4.0
       },
       {
-        "rank": 5,
+        "rank": 6,
         "team": "Atlético",
         "id": "1068",
         "slug": "esp.1",
@@ -438,33 +565,21 @@
         "pts": 4.0
       },
       {
-        "rank": 6,
-        "team": "برشلونة",
-        "id": "83",
-        "slug": "esp.1",
-        "logo": "",
-        "gp": 1.0,
-        "w": 1.0,
-        "d": 0.0,
-        "l": 0.0,
-        "pts": 3.0
-      },
-      {
         "rank": 7,
-        "team": "Espanyol",
-        "id": "88",
+        "team": "أوساسونا",
+        "id": "97",
         "slug": "esp.1",
         "logo": "",
         "gp": 2.0,
         "w": 1.0,
-        "d": 0.0,
-        "l": 1.0,
-        "pts": 3.0
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 4.0
       },
       {
         "rank": 8,
-        "team": "خيتافي",
-        "id": "2922",
+        "team": "Espanyol",
+        "id": "88",
         "slug": "esp.1",
         "logo": "",
         "gp": 2.0,
