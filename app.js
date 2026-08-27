@@ -205,24 +205,33 @@ async function showTeam(slug, teamId, teamName) {
                     (Array.isArray(dt.coaches) && dt.coaches[0] && (dt.coaches[0].displayName || dt.coaches[0].fullName)) || null;
       if (coach) html += `<div class="pos-box coach-box">🎯 المدير الفني: <b>${coach}</b></div>`;
     } catch (e) {}
-        const d = await rRoster.json();
+          const d = await rRoster.json();
+
+    const coachName = d.coach && (d.coach.displayName || d.coach.fullName || d.coach.name);
+    if (coachName) html += `<div class="pos-box coach-box">🎯 المدير الفني: <b>${coachName}</b></div>`;
+
     const players = [];
-    (d.athletes || []).forEach(g => {
-      const pos = typeof g.position === 'string' ? g.position
-                : (g.position && (g.position.name || g.position.displayName)) || 'لاعبون';
-      (g.items || g.athletes || []).forEach(i => {
+    const addList = (pos, list) => {
+      (list || []).forEach(i => {
         const a = i.athlete || i;
-        if (a.displayName || a.fullName) players.push({pos, a});
+        if (a && (a.displayName || a.fullName)) players.push({pos, a});
       });
-    });
-    const flat = (d.roster && (d.roster.entries || d.roster.items)) || d.entries || [];
-    flat.forEach(e => {
-      const a = e.athlete || e;
-      if (a.displayName || a.fullName) {
-        const pos = (a.position && (a.position.name || a.position.displayName)) || 'لاعبون';
-        players.push({pos, a});
-      }
-    });
+    };
+    if (Array.isArray(d.athletes)) {
+      d.athletes.forEach(g => {
+        if (g && (g.items || g.athletes)) {
+          const pos = typeof g.position === 'string' ? g.position
+                    : (g.position && (g.position.name || g.position.displayName)) || 'لاعبون';
+          addList(pos, g.items || g.athletes);
+        } else if (g && (g.displayName || g.fullName)) {
+          const pos = (g.position && (g.position.name || g.position.displayName)) || 'لاعبون';
+          players.push({pos, a: g});
+        }
+      });
+    } else if (d.athletes && typeof d.athletes === 'object') {
+      Object.entries(d.athletes).forEach(([pos, list]) => addList(pos, list));
+    }
+
     const byPos = {};
     players.forEach(p => { (byPos[p.pos] = byPos[p.pos] || []).push(p.a); });
     Object.entries(byPos).forEach(([pos, list]) => {
@@ -236,7 +245,7 @@ async function showTeam(slug, teamId, teamName) {
       }).join('');
       if (cards) html += `<div class="pos-box"><b>${pos}:</b><div class="p-grid">${cards}</div></div>`;
     });
-    document.getElementById('teamModalBody').innerHTML = html || ('لا توجد بيانات — شكل البيانات: ' + Object.keys(d).join(', '));
+    document.getElementById('teamModalBody').innerHTML = html || ('لا توجد بيانات — عينة: ' + JSON.stringify(d).slice(0, 300));
   } catch (e) {
     document.getElementById('teamModalBody').innerHTML = '❌ خطأ في تحميل البيانات: ' + e.message;
   }
@@ -276,8 +285,8 @@ async function loadData() {
         </table>
       </div>`).join('');
 
-  } catch (e) {
     bindTeamLinks();
+  } catch (e) {
     console.error('خطأ:', e);
     document.getElementById('newsContainer').innerHTML = '<div class="card">جاري تحميل البيانات...</div>';
   }
