@@ -897,6 +897,54 @@ def make_short(text, state):
 # ============================================
 # 🌐 توليد بيانات الموقع (محدّث v8)
 # ============================================
+def fetch_leaders():
+    out = {}
+    labels = {"goals": "الهدافون", "assists": "صناعة الأهداف"}
+    for slug in ["eng.1", "esp.1", "ita.1", "ger.1", "fra.1", "ksa.1", "egy.1"]:
+        try:
+            r = requests.get(
+                f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/leaders",
+                timeout=20)
+            if not r.ok: continue
+            d = r.json()
+            cats = {}
+            for cat in d.get("leaders", []):
+                label = labels.get(cat.get("name", ""))
+                if not label: continue
+                items = []
+                for e in cat.get("leaders", [])[:5]:
+                    a = e.get("athlete", {}) or {}
+                    items.append({
+                        "name": ar_team(a.get("displayName", "")),
+                        "team": ar_team((a.get("team", {}) or {}).get("displayName", "")),
+                        "value": e.get("displayValue", e.get("value", "")),
+                        "face": (a.get("headshot", {}) or {}).get("href", ""),
+                    })
+                if items:
+                    cats[label] = items
+            if cats:
+                out[LEAGUES[slug]] = cats
+        except Exception as e:
+            print("leaders error:", slug, e)
+    return out
+
+def fetch_highlights():
+    try:
+        r = requests.get("https://www.scorebat.com/video-api/v3/", timeout=30)
+        if not r.ok: return []
+        d = r.json()
+        items = []
+        for v in (d.get("response", []) if isinstance(d, dict) else d)[:10]:
+            items.append({
+                "title": v.get("title", ""),
+                "thumb": v.get("thumbnail", ""),
+                "url": v.get("url", ""),
+            })
+        return items
+    except Exception as e:
+        print("scorebat error:", e)
+        return []
+    
 def build_site_data(state, today):
     now = datetime.now(CAIRO)
 
@@ -979,6 +1027,8 @@ def build_site_data(state, today):
         "results": results_items,
         "matches": matches,
         "tables": tables,
+        "leaders": fetch_leaders(),
+        "highlights": fetch_highlights(),
     }
 
     os.makedirs("site", exist_ok=True)
