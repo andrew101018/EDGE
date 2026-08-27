@@ -909,10 +909,11 @@ def fetch_leaders():
             d = r.json()
             cats = {}
             for cat in d.get("leaders", []):
-                label = labels.get(cat.get("name", ""))
-                if not label: continue
+                cname = (cat.get("name") or "").lower()
+                label = labels.get(cname) or cat.get("displayName") or cat.get("title") or "الأفضل"
                 items = []
-                for e in cat.get("leaders", [])[:5]:
+                entries = cat.get("leaders") or cat.get("entries") or cat.get("items") or []
+                for e in entries[:5]:
                     a = e.get("athlete", {}) or {}
                     items.append({
                         "name": ar_team(a.get("displayName", "")),
@@ -926,24 +927,36 @@ def fetch_leaders():
                 out[LEAGUES[slug]] = cats
         except Exception as e:
             print("leaders error:", slug, e)
+    print("👑 دوريات فيها هدافين:", len(out))
     return out
 
-def fetch_highlights():
+def fetch_highlights(matches):
+    items = []
     try:
         r = requests.get("https://www.scorebat.com/video-api/v3/", timeout=30)
-        if not r.ok: return []
-        d = r.json()
-        items = []
-        for v in (d.get("response", []) if isinstance(d, dict) else d)[:10]:
-            items.append({
-                "title": v.get("title", ""),
-                "thumb": v.get("thumbnail", ""),
-                "url": v.get("url", ""),
-            })
-        return items
+        if r.ok:
+            d = r.json()
+            resp = d.get("response", []) if isinstance(d, dict) else d
+            for v in resp[:10]:
+                items.append({"title": v.get("title", ""), "thumb": v.get("thumbnail", ""),
+                              "url": v.get("url", "")})
     except Exception as e:
         print("scorebat error:", e)
-        return []
+    if not items:
+        import urllib.parse
+        for g in matches:
+            for m in g["items"]:
+                if m["state"] == "post":
+                    q = urllib.parse.quote(f"أهداف مباراة {m['home']} و {m['away']}")
+                    items.append({
+                        "title": f"🎯 أهداف: {m['home']} {m['hs']} - {m['as']} {m['away']}",
+                        "thumb": m.get("homeLogo", ""),
+                        "url": f"https://www.youtube.com/results?search_query={q}",
+                    })
+                if len(items) >= 10: break
+            if len(items) >= 10: break
+    print("🎬 هايلايتس:", len(items))
+    return items
     
 def build_site_data(state, today):
     now = datetime.now(CAIRO)
@@ -1028,7 +1041,7 @@ def build_site_data(state, today):
         "matches": matches,
         "tables": tables,
         "leaders": fetch_leaders(),
-        "highlights": fetch_highlights(),
+        "highlights": fetch_highlights(matches),
     }
 
     os.makedirs("site", exist_ok=True)
