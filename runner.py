@@ -682,7 +682,7 @@ def build_preview(slug, home, away, dt, event_id):
     return "\n".join(lines)
 
 
-def top_table(slug, n=5):
+def top_table(slug, n=8):
     entries = fetch_standings(slug)
     if not entries: return None
     rows = []
@@ -691,13 +691,18 @@ def top_table(slug, n=5):
             stats = {s["name"]: s.get("value") for s in e.get("stats", [])}
             rank = int(float(stats.get("rank", 99)))
             team = ar_team(e.get("team", {}).get("shortDisplayName", ""))
-            pts = stats.get("points", "-")
-            gp = stats.get("gamesPlayed", "")
-            rows.append((rank, f"{rank}. {team} — {pts} نقطة ({gp} مباراة)"))
+            rows.append({
+                "rank": rank, "team": team,
+                "gp": stats.get("gamesPlayed", "-"),
+                "w": stats.get("wins", "-"),
+                "d": stats.get("ties", stats.get("draws", "-")),
+                "l": stats.get("losses", "-"),
+                "pts": stats.get("points", "-"),
+            })
         except Exception:
             continue
-    rows.sort(key=lambda x: x[0])
-    return [r[1] for r in rows[:n]]
+    rows.sort(key=lambda x: x["rank"])
+    return rows[:n]
 
 def build_digest(state, today):
     news = [x["t"] for x in state.get("daily_news", []) if x["d"] == today]
@@ -711,12 +716,12 @@ def build_digest(state, today):
         lines.append("🏁 النتائج:")
         lines += [f"• {t}" for t in results[:8]]
         lines.append("")
-    for slug in ["eng.1", "esp.1", "egy.1"]:
-        table = top_table(slug, 5)
-        if table:
-            lines.append(f"🏆 {LEAGUES[slug]}:")
-            lines += table
-            lines.append("")
+        for slug in ["eng.1", "esp.1", "egy.1"]:
+            table = top_table(slug, 5)
+            if table:
+                lines.append(f"🏆 {LEAGUES[slug]}:")
+                lines += [f"{r['rank']}. {r['team']} — {r['pts']} نقطة" for r in table]
+                lines.append("")
     if len(lines) <= 3:
         return None
     lines.append("تصبحوا على كورة 😴 Edge Football")
@@ -869,7 +874,7 @@ def build_site_data(state, today):
             results_items.append(item["t"])
 
     # المباريات (لايف + منتهية + قادمة) متجمعة حسب البطولة
-    matches = []
+        matches = []
     order = {"in": 0, "post": 1, "pre": 2}
     for slug, name in LEAGUES.items():
         data = fetch_scoreboard(slug)
@@ -881,16 +886,34 @@ def build_site_data(state, today):
                 st = comp["status"]["type"]["state"]
                 detail = comp["status"]["type"].get("shortDetail", "")
                 dt = datetime.fromisoformat(ev["date"].replace("Z", "+00:00")).astimezone(CAIRO)
+                hrs = (now - dt).total_seconds() / 3600
+                if st == "post" and hrs > 24:
+                    continue
+                if st == "pre" and hrs < -24:
+                    continue
                 comps = comp["competitors"]
                 home = [c for c in comps if c.get("homeAway") == "home"][0]
                 away = [c for c in comps if c.get("homeAway") == "away"][0]
-                group["items"].append({
+                item = {
                     "home": ar_team(home["team"]["displayName"]),
                     "away": ar_team(away["team"]["displayName"]),
+                    "homeId": home["team"].get("id"),
+                    "awayId": away["team"].get("id"),
+                    "slug": slug,
                     "hs": home["score"], "as": away["score"],
                     "time": dt.strftime("%I:%M %p"),
                     "state": st, "detail": detail,
-                })
+                }
+                if st == "post":
+                    stats = {}
+                    for s in comp.get("statistics", []) or []:
+                        nm = s.get("name", "")
+                        if nm in ("possession", "shotsOnTarget", "cornerKicks",
+                                  "totalShots", "foulsCommitted"):
+                            stats[nm] = [s.get("homeValue"), s.get("awayValue")]
+                    if stats:
+                        item["stats"] = stats
+                group["items"].append(item)
             except Exception:
                 continue
         if group["items"]:
