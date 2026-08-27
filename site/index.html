@@ -3,62 +3,89 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edge Football ⚽</title>
+<title>Edge Football ⚽ الكورة بتبدأ من هنا</title>
+<meta name="description" content="كل حاجة في الكورة قبل أي حد تاني — أخبار، نتائج، لايف، ترتيب، هدافين، دليل مشاهدة، توقعات">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
   <div class="container">
     <h1>⚽ Edge Football</h1>
-    <p class="subtitle">أخبار كورة عالمية بلمسة مصرية</p>
+    <p class="subtitle">الكورة بتبدأ من هنا 🔥 كل حاجة في الكورة.. قبل أي حد تاني ⚡</p>
+    <div class="socials">
+      <a href="https://t.me/edgefootballplatform" target="_blank" rel="noopener">📲 تيليجرام</a>
+      <a href="https://youtube.com/@EdgeFootballPlatform" target="_blank" rel="noopener">▶️ يوتيوب</a>
+      <a href="https://facebook.com/EdgeFootballPlatform" target="_blank" rel="noopener">📘 فيسبوك</a>
+      <a href="https://tiktok.com/@edgefootball" target="_blank" rel="noopener">🎵 تيك توك</a>
+    </div>
     <div class="last-update" id="lastUpdate"></div>
   </div>
 </header>
 
+<nav class="top-nav">
+  <button class="nav-btn active" onclick="go('home', this)">🏠 الرئيسية</button>
+  <button class="nav-btn" onclick="go('matches', this)">⚽ المباريات</button>
+  <button class="nav-btn" onclick="go('tables', this)">🏆 الترتيب</button>
+  <button class="nav-btn" onclick="go('leaders', this)">👑 الهدافين</button>
+  <button class="nav-btn" onclick="go('tv', this)">📺 شاهد</button>
+  <button class="nav-btn" onclick="go('predict', this)">🎮 توقعات</button>
+</nav>
+
 <main class="container">
 
-  <!-- مباريات لايف -->
-  <section id="liveSection" class="section live-section" style="display:none;">
-    <h2>🔴 مباريات لايف</h2>
-    <div id="liveContainer" class="grid"></div>
-  </section>
-
-  <!-- الأخبار -->
-  <section class="section">
+  <section id="sec-home" class="page active">
     <h2>📰 آخر الأخبار</h2>
     <div id="newsContainer" class="list"></div>
-  </section>
-
-  <!-- نتائج -->
-  <section class="section">
-    <h2>🏁 نتائج اليوم</h2>
+    <h2 class="results-heading">🏁 نتائج اليوم</h2>
     <div id="resultsContainer" class="list"></div>
   </section>
 
-  <!-- جدول -->
-  <section class="section">
-    <h2>📅 مباريات اليوم</h2>
-    <div id="scheduleContainer" class="list"></div>
+  <section id="sec-matches" class="page">
+    <h2>⚽ المباريات</h2>
+    <div id="matchesContainer"></div>
   </section>
 
-  <!-- ترتيب الدوريات -->
-  <section class="section">
+  <section id="sec-tables" class="page">
     <h2>🏆 ترتيب الدوريات</h2>
     <div id="tablesContainer" class="grid"></div>
   </section>
 
-  <!-- قناة تيليجرام -->
+  <section id="sec-leaders" class="page">
+    <h2>👑 الهدافون والأفضل</h2>
+    <div id="leadersContainer"></div>
+  </section>
+
+  <section id="sec-tv" class="page">
+    <h2>📺 دليل المشاهدة</h2>
+    <p class="tv-description">اعرف كل مباراة بتتذاع فين رسمياً</p>
+    <div id="tvContainer" class="grid"></div>
+  </section>
+
+  <section id="sec-predict" class="page">
+    <h2>🎮 توقع النتائج واكسب نقاط</h2>
+    <div id="predictPoints" class="points-banner"></div>
+    <div id="predictContainer"></div>
+    <button class="btn predict-save-btn" onclick="savePredict()">💾 حفظ التوقعات</button>
+  </section>
+
   <section class="section telegram">
-    <h2>📢 تابعنا على تيليجرام</h2>
-    <p>كل الأخبار والنتائج لحظياً على قناتنا</p>
-    <a href="https://t.me/EdgeFootball" target="_blank" rel="noopener" class="btn">انضم للقناة</a>
+    <h2>📢 تابعنا في كل مكان</h2>
+    <p>الأخبار والنتائج والفيديوهات لحظياً على كل منصاتنا</p>
+    <a href="https://t.me/edgefootballplatform" target="_blank" rel="noopener" class="btn">انضم للقناة الآن</a>
   </section>
 
 </main>
 
+<div id="teamModal" class="modal">
+  <div class="modal-box">
+    <div class="modal-head"><span id="teamModalTitle"></span><button onclick="closeTeam()">✖</button></div>
+    <div id="teamModalBody" class="modal-body"></div>
+  </div>
+</div>
+
 <footer>
   <div class="container">
-    <p>© 2026 Edge Football — بوت ذكي يعمل بالذكاء الاصطناعي</p>
+    <p>© 2026 Edge Football — الكورة بتبدأ من هنا 🔥 كل حاجة في الكورة.. قبل أي حد تاني ⚡</p>
   </div>
 </footer>
 
