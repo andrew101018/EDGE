@@ -181,9 +181,15 @@ function savePredict() {
 }
 
 async function showTeam(slug, teamId, teamName) {
-  const box = document.getElementById('teamModal');
-  if (!box) return;
-  box.style.display = 'block';
+  let box = document.getElementById('teamModal');
+  if (!box) {
+    box = document.createElement('div');
+    box.id = 'teamModal';
+    box.innerHTML = '<div><div style="display:flex;justify-content:space-between;align-items:center;font-weight:bold;color:#fbbf24;font-size:1.2em;margin-bottom:12px;"><span id="teamModalTitle"></span><button onclick="closeTeam()" style="background:none;border:none;color:#ef4444;font-size:1.3em;cursor:pointer;">✖</button></div><div id="teamModalBody"></div></div>';
+    document.body.appendChild(box);
+  }
+  box.style.cssText = 'display:block;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);z-index:9999;overflow:auto;';
+  box.firstElementChild.style.cssText = 'max-width:640px;margin:40px auto;background:#1e293b;border-radius:12px;padding:20px;';
   document.getElementById('teamModalTitle').textContent = '👥 ' + teamName;
   document.getElementById('teamModalBody').innerHTML = 'جاري تحميل القائمة...';
   try {
