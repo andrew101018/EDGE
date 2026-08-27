@@ -242,6 +242,7 @@ async function showTeam(slug, teamId, teamName) {
     Object.entries(byPos).forEach(([pos, list]) => {
       const cards = list.map(a => {
         const face = (a.headshot && (a.headshot.href || a.headshot.url)) || (a.id ? `https://a.espncdn.com/i/headshots/soccer/players/full/${a.id}.png` : '');
+        const s = a.statistics || {};
         const bits = [];
         if (s.goals) bits.push(`⚽ ${s.goals}`);
         if (s.assists) bits.push(`🅰️ ${s.assists}`);
