@@ -1,37 +1,71 @@
 let MATCHES = [];
 let CURRENT_TAB = 'big';
 
+function teamLogo(src) {
+  if (!src) return '';
+  return `<img class="t-logo" src="${src}" onerror="this.style.display='none'">`;
+}
+
+function matchRow(m) {
+  let score = '';
+  if (m.state === 'in') score = `<div class="m-score live">${m.hs} - ${m.as}<span class="m-status">🔴 ${m.detail}</span></div>`;
+  else if (m.state === 'post') score = `<div class="m-score post">${m.hs} - ${m.as}<span class="m-status">انتهت</span></div>`;
+  else score = `<div class="m-score pre">${m.time}<span class="m-status">لم تبدأ</span></div>`;
+  let statsHtml = '';
+  if (m.stats) {
+    const labels = {possession:'استحواذ %', shotsOnTarget:'تسديدات على المرمى', cornerKicks:'ركنيات', totalShots:'تسديدات', foulsCommitted:'أخطاء'};
+    statsHtml = '<div class="m-stats">' + Object.entries(m.stats).map(([k,v]) =>
+      `<span>${v[0]} | ${labels[k]||k} | ${v[1]}</span>`).join('') + '</div>';
+  }
+  return `<div class="match-wrap">
+    <div class="match-row">
+      <div class="m-team team-link" onclick="showTeam('${m.slug}','${m.homeId}','${m.home}')">${teamLogo(m.homeLogo)} ${m.home}</div>
+      ${score}
+      <div class="m-team team-link" onclick="showTeam('${m.slug}','${m.awayId}','${m.away}')">${m.away} ${teamLogo(m.awayLogo)}</div>
+    </div>${statsHtml}
+  </div>`;
+}
+
 function renderMatches() {
   const el = document.getElementById('matchesContainer');
   const groups = CURRENT_TAB === 'big' ? MATCHES.filter(g => g.big) : MATCHES;
-  if (groups.length > 0) {
-    el.innerHTML = groups.map(g => `
-      <div class="league-box">
-        <div class="league-title">🏆 ${g.league}</div>
-        ${g.items.map(m => {
-          let score = '';
-          if (m.state === 'in') score = `<div class="m-score live">${m.hs} - ${m.as}<span class="m-status">🔴 ${m.detail}</span></div>`;
-          else if (m.state === 'post') score = `<div class="m-score post">${m.hs} - ${m.as}<span class="m-status">انتهت</span></div>`;
-          else score = `<div class="m-score pre">${m.time}<span class="m-status">لم تبدأ</span></div>`;
-          let statsHtml = '';
-          if (m.stats) {
-            const labels = {possession:'استحواذ %', shotsOnTarget:'تسديدات على المرمى', cornerKicks:'ركنيات', totalShots:'تسديدات', foulsCommitted:'أخطاء'};
-            statsHtml = '<div class="m-stats">' + Object.entries(m.stats).map(([k,v]) =>
-              `<span>${v[0]} | ${labels[k]||k} | ${v[1]}</span>`).join('') + '</div>';
-          }
-          return `<div class="match-wrap">
-            <div class="match-row">
-              <div class="m-team team-link" onclick="showTeam('${m.slug}','${m.homeId}','${m.home}')">${m.home}</div>
-              ${score}
-              <div class="m-team team-link" onclick="showTeam('${m.slug}','${m.awayId}','${m.away}')">${m.away}</div>
-            </div>${statsHtml}
-          </div>`;
-        }).join('')}
-      </div>`).join('');
+
+  const liveItems = [];
+  groups.forEach(g => g.items.forEach(m => {
+    if (m.state === 'in') liveItems.push(Object.assign({}, m, {league: g.league}));
+  }));
+
+  let liveHtml = '';
+  if (liveItems.length) {
+    liveHtml = '<div class="live-block"><div class="live-title">🔴 مباشر الآن</div>' +
+      liveItems.map(m => `
+        <div class="live-card">
+          <div class="live-teams">
+            <span class="team-link" onclick="showTeam('${m.slug}','${m.homeId}','${m.home}')">${teamLogo(m.homeLogo)} ${m.home}</span>
+            <span class="live-score">${m.hs} - ${m.as}</span>
+            <span class="team-link" onclick="showTeam('${m.slug}','${m.awayId}','${m.away}')">${m.away} ${teamLogo(m.awayLogo)}</span>
+          </div>
+          <div class="live-meta">⏱️ ${m.detail} | ${m.league}</div>
+        </div>`).join('') + '</div>';
+  }
+
+  const restHtml = groups.map(g => {
+    const items = g.items.filter(m => m.state !== 'in');
+    if (!items.length) return '';
+    return `<div class="league-box">
+      <div class="league-title">🏆 ${g.league}</div>
+      ${items.map(matchRow).join('')}
+    </div>`;
+  }).join('');
+
+  const finalHtml = liveHtml + restHtml;
+  if (finalHtml) {
+    el.innerHTML = finalHtml;
   } else {
     el.innerHTML = CURRENT_TAB === 'big'
       ? '<div class="card">لا توجد مباريات مهمة قريباً — دوس على "كل المباريات" 🌍</div>'
-      : '<div class="card">لا توجد مباريات حالياً</div>';  }
+      : '<div class="card">لا توجد مباريات حالياً</div>';
+  }
 }
 
 function showTab(t) {
@@ -84,12 +118,16 @@ async function loadData() {
       : '<div class="card">لا توجد نتائج اليوم</div>';
 
     const tablesEl = document.getElementById('tablesContainer');
-    tablesEl.innerHTML = Object.entries(data.tables || {}).map(([name, rows]) => `
+    tablesEl.innerHTML = Object.entries(data.tables || {})
+      .filter(([name, rows]) => rows && rows.length)
+      .map(([name, rows]) => `
       <div class="table-box">
         <h3>🏆 ${name}</h3>
         <table class="stand">
           <tr><th>#</th><th>الفريق</th><th>لعب</th><th>ف</th><th>ت</th><th>خ</th><th>نقاط</th></tr>
-          ${rows.map(r => `<tr><td>${r.rank}</td><td class="team-link" onclick="showTeam('${r.slug}','${r.id}','${r.team}')">${r.team}</td><td>${r.gp}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td><td class="pts">${r.pts}</td></tr>`).join('')}      </div>`).join('');
+          ${rows.map(r => `<tr><td>${r.rank}</td><td class="team-link" onclick="showTeam('${r.slug}','${r.id}','${r.team}')">${teamLogo(r.logo)} ${r.team}</td><td>${r.gp}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td><td class="pts">${r.pts}</td></tr>`).join('')}
+        </table>
+      </div>`).join('');
 
   } catch (e) {
     console.error('خطأ:', e);

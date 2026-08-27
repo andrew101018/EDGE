@@ -330,6 +330,40 @@ LONG_SCRIPT_PROMPT = """أنت كاتب سيناريوهات فيديوهات ك
 أخبار اليوم:
 """
 
+BREAKING_WORDS = ["عاجل", "رسميا", "رسمياً", "إقالة", "استقالة", "إصابة",
+                  "تعاقد", "انتقال", "breaking", "official", "signed",
+                  "transfer", "injury", "sacked", "confirmed"]
+
+def is_breaking(title):
+    t = title.lower()
+    return any(w in t for w in BREAKING_WORDS)
+
+def verify_content(orig_title, orig_summary, draft):
+    prompt = f"""أنت مدقق أخبار رياضية صارم.
+النص الأصلي:
+{orig_title}
+{orig_summary[:600]}
+
+الخبر المكتوب:
+{draft}
+
+هل الخبر المكتوب أمين للنص الأصلي بدون إضافة أرقام أو أسماء أو نتائج غير موجودة؟
+لو أمين اكتب: OK
+لو فيه أي إضافة أو تغيير اكتب: FIX وبعدها الخبر المصحح كاملاً."""
+    res = (call_gemini(prompt, 0.3) or call_groq(prompt, 0.3) or
+           call_mistral(prompt, 0.3))
+    if not res:
+        return draft
+    res = res.strip()
+    if res.startswith("OK"):
+        return draft
+    if res.startswith("FIX"):
+        fixed = res[3:].strip()
+        if len(fixed) > 80:
+            print("🛡️ التحقق: تم تصحيح الخبر قبل النشر")
+            return fixed
+    return draft
+
 def make_shorts_script(news_text):
     prompt = SHORTS_SCRIPT_PROMPT + news_text[:800]
     script = call_gemini(prompt, 1.0) or call_groq(prompt, 1.0) or call_deepseek(prompt, 1.0)
@@ -695,6 +729,7 @@ def top_table(slug, n=8):
                 "rank": rank, "team": team,
                 "id": e.get("team", {}).get("id"),
                 "slug": slug,
+                "logo": e.get("team", {}).get("logo", ""),
                 "gp": stats.get("gamesPlayed", "-"),
                 "w": stats.get("wins", "-"),
                 "d": stats.get("ties", stats.get("draws", "-")),
@@ -903,6 +938,8 @@ def build_site_data(state, today):
                     "homeId": home["team"].get("id"),
                     "awayId": away["team"].get("id"),
                     "slug": slug,
+                    "homeLogo": home["team"].get("logo", ""),
+                    "awayLogo": away["team"].get("logo", ""),
                     "hs": home["score"], "as": away["score"],
                     "time": dt.strftime("%I:%M %p"),
                     "state": st, "detail": detail,
@@ -930,6 +967,9 @@ def build_site_data(state, today):
                         ("fra.1", "الدوري الفرنسي"), ("ksa.1", "الدوري السعودي"),
                         ("egy.1", "الدوري المصري"), ("por.1", "الدوري البرتغالي")]:
         t = top_table(slug, 8)
+        print(f"🏆 ترتيب {name}: {len(t) if t else 0} صفوف")
+        if t and len(t):
+            tables[name] = t
         if t:
             tables[name] = t
 
@@ -974,6 +1014,8 @@ def main():
             print("⚠️ تجاوز:", item["title"][:40])
             posted.add(item["hash"])
             continue
+        if is_breaking(item["title"]):
+            content = verify_content(item["title"], item["summary"], content)
         content += f"\n\n📡 المصدر: {item['source']}"
         if send_tg(content):
             print("✅ نُشر:", title[:40])

@@ -66,3 +66,11 @@ table.stand { width: 100%; border-collapse: collapse; font-size: 0.9em; }
 .modal-head { display: flex; justify-content: space-between; align-items: center; font-size: 1.2em; font-weight: bold; color: #fbbf24; margin-bottom: 12px; }
 .modal-head button { background: none; border: none; color: #ef4444; font-size: 1.1em; cursor: pointer; }
 .pos-box { background: #0f172a; padding: 10px 14px; border-radius: 8px; margin-bottom: 10px; line-height: 2; }
+.t-logo { width: 22px; height: 22px; object-fit: contain; vertical-align: middle; margin: 0 5px; display: inline-block; }
+.live-block { background: linear-gradient(135deg, #7f1d1d, #991b1b); border-radius: 12px; padding: 15px; margin-bottom: 18px; }
+.live-title { font-weight: bold; color: #fff; margin-bottom: 12px; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%,100% {opacity:1;} 50% {opacity:0.5;} }
+.live-card { background: rgba(0,0,0,0.35); border-radius: 10px; padding: 12px; margin-bottom: 10px; text-align: center; }
+.live-teams { display: flex; justify-content: center; align-items: center; gap: 14px; font-weight: bold; flex-wrap: wrap; }
+.live-score { font-size: 1.4em; color: #fbbf24; font-weight: bold; min-width: 70px; }
+.live-meta { font-size: 0.8em; opacity: 0.9; margin-top: 6px; color: #fecaca; }
