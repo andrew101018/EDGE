@@ -2,10 +2,31 @@ import os, json, hashlib, time, re, random, asyncio, subprocess, importlib
 import requests
 import feedparser
 from bs4 import BeautifulSoup
-from deep_translator import GoogleTranslator
 from datetime import datetime
 from zoneinfo import ZoneInfo
 from difflib import SequenceMatcher
+
+
+class GoogleTranslator:
+    """Small dependency-free replacement for deep_translator.GoogleTranslator."""
+    def __init__(self, source="auto", target="ar"):
+        self.source = source
+        self.target = target
+
+    def translate(self, text):
+        response = requests.get(
+            "https://translate.googleapis.com/translate_a/single",
+            params={
+                "client": "gtx",
+                "sl": self.source,
+                "tl": self.target,
+                "dt": "t",
+                "q": text,
+            },
+            timeout=30,
+        )
+        response.raise_for_status()
+        return "".join(part[0] for part in response.json()[0] if part[0])
 
 TG_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TG_CHANNEL = os.environ.get("TELEGRAM_CHANNEL_ID", "@edgefootballplatform")
@@ -977,6 +998,7 @@ def build_site_data(state, today):
     news_items = []
     for x in [x for x in state.get("site_news", [])][::-1]:
         news_items.append(x if isinstance(x, dict) else {"t": x, "img": ""})
+        news_items = news_items[:30]
 
     results_items = []
     for item in state.get("daily_results", [])[-10:][::-1]:
@@ -1102,6 +1124,7 @@ def main():
             openers.append(content.splitlines()[0][:80])
             state.setdefault("site_news", []).append(
                 {"t": content.splitlines()[0][:100], "img": ""})
+                        state["site_news"] = state["site_news"][-40:]
             state.setdefault("daily_news", []).append(
                 {"d": today, "t": content.splitlines()[0][:80]})
             post_facebook(content, "")

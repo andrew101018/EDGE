@@ -99,7 +99,12 @@ function renderMatches() {
     if (!items.length) return '';
     return `<div class="league-box"><div class="league-title">🏆 ${g.league}</div>${items.map(matchRow).join('')}</div>`;
   }).join('');
-  el.innerHTML = liveHtml + restHtml || '<div class="card">لا توجد مباريات حالياً</div>';
+    let resultsHtml = '';
+  if (DATA.results && DATA.results.length) {
+    resultsHtml = '<h2 style="margin-top:24px;">🏁 نتائج اليوم</h2><div class="list">' +
+      DATA.results.map(t => `<div class="result-item">🏁 ${t}</div>`).join('') + '</div>';
+  }
+  el.innerHTML = (liveHtml + restHtml + resultsHtml) || '<div class="card">لا توجد مباريات حالياً</div>';
 }
 
 function renderLeaders() {
@@ -236,8 +241,7 @@ async function showTeam(slug, teamId, teamName) {
     players.forEach(p => { (byPos[p.pos] = byPos[p.pos] || []).push(p.a); });
     Object.entries(byPos).forEach(([pos, list]) => {
       const cards = list.map(a => {
-        const face = (a.headshot && (a.headshot.href || a.headshot.url)) || '';
-        const s = a.statistics || {};
+        const face = (a.headshot && (a.headshot.href || a.headshot.url)) || (a.id ? `https://a.espncdn.com/i/headshots/soccer/players/full/${a.id}.png` : '');
         const bits = [];
         if (s.goals) bits.push(`⚽ ${s.goals}`);
         if (s.assists) bits.push(`🅰️ ${s.assists}`);
