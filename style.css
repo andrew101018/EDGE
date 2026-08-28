@@ -69,3 +69,4 @@ table.stand { width: 100%; border-collapse: collapse; font-size: 0.9em; }
 .telegram h2 { border: none; color: #fbbf24; }
 footer { text-align: center; padding: 20px; opacity: 0.7; font-size: 0.85em; }
 .goal-line { padding: 6px 4px; border-bottom: 1px dashed #24344f; font-size: 0.9em; }
+.share-wa { position: fixed; bottom: 18px; left: 18px; z-index: 70; background: #25d366; color: #fff; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5em; text-decoration: none; box-shadow: 0 4px 14px rgba(0,0,0,.4); }

@@ -1136,6 +1136,18 @@ def main():
     state["last_openers"] = openers[-5:]
     state["site_news"] = state.get("site_news", [])[-10:]
 
+def make_publish_package(news_lines):
+    prompt = f"""انت خبير سوشيال ميديا رياضي. اكتب باقة نشر جاهزة لفيديو كورة بيتكلم عن الأخبار دي:
+{news_lines}
+
+بالشكل ده بالظبط:
+🎬 عنوان يوتيوب: (عنوان عربي clickable فيه إيموجي ورقم)
+🎵 عنوان تيك توك: (جملة قصيرة استفزازية بتوقف السكرول)
+📝 وصف: سطرين + دعوة للاشتراك والمتابعة
+#️⃣ هاشتاجات: 12 هاشتاج عربي وإنجليزي مختلطين بينهم مسافات"""
+    return (call_gemini(prompt, 0.9) or call_groq(prompt, 0.9) or
+            call_mistral(prompt, 0.9))
+
        # ---------- سكريبت فيديو طويل يومي (6م - 11م) ----------
     if FORCE or (18 <= now.hour <= 23 and state.get("last_long_date") != today):
         news_today = [x["t"] for x in state.get("daily_news", []) if x["d"] == today]
@@ -1144,9 +1156,11 @@ def main():
             script = call_gemini(prompt, 1.0) or call_groq(prompt, 1.0)
             if script and send_owner("🎥 سكريبت فيديو اليوم الطويل:\n\n" + script):
                 print("📩 اتبعت سكريبت الفيديو الطويل")
+                pkg = make_publish_package("\n".join(f"- {t}" for t in news_today[:6]))
+                if pkg and send_owner("📦 باقة النشر الجاهزة (تيك توك + يوتيوب):\n\n" + pkg):
+                    print("📦 اتبعتت باقة النشر")
                 if not FORCE:
                     state["last_long_date"] = today
-
     # ---------- اللايف ----------
     alerts = check_live(state)
     print(f"🟢 تنبيهات لايف: {len(alerts)}")
