@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-08-28 04:23 PM",
+  "updated_at": "2026-08-28 05:00 PM",
   "news": [
+    {
+      "t": "😔 غموض المشهد.. ما السر وراء حزن لاعب الزمالك في لقاء البنك الأهلي؟",
+      "img": ""
+    },
+    {
+      "t": "🔥 يا نهار أبيض على المفاجأة.. كواليس نارية في صفقة من العيار الثقيل!",
+      "img": ""
+    },
+    {
+      "t": "📱 سر متابعة إنستجرام.. المعد البدني للأهلي يوضح القصة!",
+      "img": ""
+    },
+    {
+      "t": "💔 خيبة أمل ووداع حزين.. صلاح يوجه رسالة خاصة بعد خروج طرابزون!",
+      "img": ""
+    },
+    {
+      "t": "🔥 صلاح يكسر صمته بعد الصدمة الأوروبية: الكلام مش مجرد شعار!",
+      "img": ""
+    },
     {
       "t": "⚖️ انتهاء عقوبة «فيفا».. روبياليس يستعد للعودة إلى الساحة الكروية!",
       "img": ""
@@ -19,26 +39,6 @@
     },
     {
       "t": "🏆 قرعة دوري المؤتمر الأوروبي تضع صلاح وعادل في مواجهات مرتقبة!",
-      "img": ""
-    },
-    {
-      "t": "🚨 ليفربول ولاعب الوسط: أزمة متصاعدة وحل محتمل",
-      "img": ""
-    },
-    {
-      "t": "🧠 كبر دماغك الكروية وعيش أجواء التحدي!",
-      "img": ""
-    },
-    {
-      "t": "🔥 الغندور يفجرها: عقوبات قاسية في البنك الأهلي بعد السقوط أمام الزمالك!",
-      "img": ""
-    },
-    {
-      "t": "🔥 الأهلي يتخذ خطوات انضباطية ويجهز لائحة عقوبات جديدة!",
-      "img": ""
-    },
-    {
-      "t": "⚽ مواجهة منتظرة.. معاد ماتش الأهلي وزد والقنوات الناقلة!",
       "img": ""
     }
   ],
@@ -74,8 +74,8 @@
       "league": "تشامبيونشيب",
       "items": [
         {
-          "home": "Wrexham",
-          "away": "Birmingham City",
+          "home": "ريكسهام",
+          "away": "مدينة برمنغهام",
           "eid": "401880305",
           "homeId": "352",
           "awayId": "392",
@@ -97,8 +97,8 @@
       "league": "الدوري الإسباني",
       "items": [
         {
-          "home": "Racing Santander",
-          "away": "Elche",
+          "home": "راسينغ سانتاندير",
+          "away": "إلتشي",
           "eid": "401882900",
           "homeId": "87",
           "awayId": "3751",
@@ -138,7 +138,7 @@
       "items": [
         {
           "home": "ميلان",
-          "away": "Venezia",
+          "away": "فينيسيا",
           "eid": "401874758",
           "homeId": "103",
           "awayId": "17530",
@@ -183,7 +183,7 @@
       "league": "الدوري الفرنسي",
       "items": [
         {
-          "home": "Lille",
+          "home": "ليل",
           "away": "باريس سان جيرمان",
           "eid": "401876476",
           "homeId": "166",
@@ -206,7 +206,7 @@
       "league": "الدوري البرتغالي",
       "items": [
         {
-          "home": "Rio Ave",
+          "home": "شارع النهر",
           "away": "سبورتينج لشبونة",
           "eid": "401885458",
           "homeId": "3822",
@@ -229,8 +229,8 @@
       "league": "الدوري الهولندي",
       "items": [
         {
-          "home": "FC Groningen",
-          "away": "Fortuna Sittard",
+          "home": "إف سي جرونينجن",
+          "away": "فورتونا سيتارد",
           "eid": "401875630",
           "homeId": "145",
           "awayId": "143",
@@ -252,8 +252,8 @@
       "league": "الدوري التركي",
       "items": [
         {
-          "home": "Genclerbirligi",
-          "away": "Erzurum BB",
+          "home": "جينكليربيرليجي",
+          "away": "أرضروم بي بي",
           "eid": "401888309",
           "homeId": "996",
           "awayId": "19267",
@@ -272,11 +272,68 @@
       "big": false
     },
     {
+      "league": "الدوري الاسكتلندي",
+      "items": [
+        {
+          "home": "سيلتيك",
+          "away": "فالكيرك",
+          "eid": "401878397",
+          "homeId": "256",
+          "awayId": "254",
+          "slug": "sco.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/256.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/254.png",
+          "tv": "",
+          "tvUrl": "",
+          "hs": "0",
+          "as": "0",
+          "time": "05:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "في قلب ميدلوثيان",
+          "away": "سانت جونستون",
+          "eid": "401878395",
+          "homeId": "262",
+          "awayId": "267",
+          "slug": "sco.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/262.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/267.png",
+          "tv": "",
+          "tvUrl": "",
+          "hs": "0",
+          "as": "0",
+          "time": "05:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "كيلمارنوك",
+          "away": "دندي يونايتد",
+          "eid": "401878394",
+          "homeId": "260",
+          "awayId": "264",
+          "slug": "sco.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/260.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/264.png",
+          "tv": "",
+          "tvUrl": "",
+          "hs": "0",
+          "as": "0",
+          "time": "05:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": false
+    },
+    {
       "league": "الدوري البلجيكي",
       "items": [
         {
-          "home": "Racing Genk",
-          "away": "Waasland-Beveren",
+          "home": "راسينغ جينك",
+          "away": "واسلاند بيفيرين",
           "eid": "401879015",
           "homeId": "938",
           "awayId": "13450",
@@ -298,8 +355,8 @@
       "league": "الدوري السعودي",
       "items": [
         {
-          "home": "Al Riyadh",
-          "away": "Neom SC",
+          "home": "الرياض",
+          "away": "نيوم إس سي",
           "eid": "401900384",
           "homeId": "21965",
           "awayId": "130899",
@@ -316,7 +373,7 @@
         },
         {
           "home": "الفيحاء",
-          "away": "Abha",
+          "away": "أبها",
           "eid": "401900383",
           "homeId": "21827",
           "awayId": "21833",
@@ -372,8 +429,8 @@
       "league": "الدوري الأرجنتيني",
       "items": [
         {
-          "home": "Unión (Santa Fe)",
-          "away": "Sarmiento (Junín)",
+          "home": "يونيون (سانتا في)",
+          "away": "سارمينتو (جونين)",
           "eid": "401841525",
           "homeId": "20",
           "awayId": "10158",
@@ -389,8 +446,8 @@
           "detail": "Scheduled"
         },
         {
-          "home": "Boca Juniors",
-          "away": "Lanús",
+          "home": "بوكا جونيورز",
+          "away": "لانوس",
           "eid": "401841527",
           "homeId": "5",
           "awayId": "12",
@@ -413,7 +470,7 @@
     "الدوري الإنجليزي": [
       {
         "rank": 1,
-        "team": "Brighton",
+        "team": "برايتون",
         "id": "331",
         "slug": "eng.1",
         "logo": "",
@@ -461,7 +518,7 @@
       },
       {
         "rank": 5,
-        "team": "Hull",
+        "team": "هال",
         "id": "306",
         "slug": "eng.1",
         "logo": "",
@@ -485,7 +542,7 @@
       },
       {
         "rank": 7,
-        "team": "Ipswich",
+        "team": "إبسويتش",
         "id": "373",
         "slug": "eng.1",
         "logo": "",
@@ -497,7 +554,7 @@
       },
       {
         "rank": 8,
-        "team": "Man City",
+        "team": "مان سيتي",
         "id": "382",
         "slug": "eng.1",
         "logo": "",
@@ -547,7 +604,7 @@
       },
       {
         "rank": 4,
-        "team": "Betis",
+        "team": "بيتيس",
         "id": "244",
         "slug": "esp.1",
         "logo": "",
@@ -571,7 +628,7 @@
       },
       {
         "rank": 6,
-        "team": "Atlético",
+        "team": "أتلتيكو",
         "id": "1068",
         "slug": "esp.1",
         "logo": "",
@@ -595,7 +652,7 @@
       },
       {
         "rank": 8,
-        "team": "Espanyol",
+        "team": "اسبانيول",
         "id": "88",
         "slug": "esp.1",
         "logo": "",
@@ -621,7 +678,7 @@
       },
       {
         "rank": 2,
-        "team": "Inter Milan",
+        "team": "انتر ميلان",
         "id": "110",
         "slug": "ita.1",
         "logo": "",
@@ -657,7 +714,7 @@
       },
       {
         "rank": 5,
-        "team": "Milan",
+        "team": "ميلان",
         "id": "103",
         "slug": "ita.1",
         "logo": "",
@@ -707,7 +764,7 @@
     "الدوري الألماني": [
       {
         "rank": 1,
-        "team": "Augsburg",
+        "team": "اوغسبورغ",
         "id": "3841",
         "slug": "ger.1",
         "logo": "",
@@ -719,7 +776,7 @@
       },
       {
         "rank": 2,
-        "team": "Leverkusen",
+        "team": "ليفركوزن",
         "id": "131",
         "slug": "ger.1",
         "logo": "",
@@ -731,7 +788,7 @@
       },
       {
         "rank": 3,
-        "team": "Bayern",
+        "team": "بايرن",
         "id": "132",
         "slug": "ger.1",
         "logo": "",
@@ -743,7 +800,7 @@
       },
       {
         "rank": 4,
-        "team": "Dortmund",
+        "team": "دورتموند",
         "id": "124",
         "slug": "ger.1",
         "logo": "",
@@ -755,7 +812,7 @@
       },
       {
         "rank": 5,
-        "team": "Gladbach",
+        "team": "جلادباخ",
         "id": "268",
         "slug": "ger.1",
         "logo": "",
@@ -767,7 +824,7 @@
       },
       {
         "rank": 6,
-        "team": "Frankfurt",
+        "team": "فرانكفورت",
         "id": "125",
         "slug": "ger.1",
         "logo": "",
@@ -779,7 +836,7 @@
       },
       {
         "rank": 7,
-        "team": "ELVERSBERG",
+        "team": "إلفيرسبيرغ",
         "id": "10388",
         "slug": "ger.1",
         "logo": "",
@@ -791,7 +848,7 @@
       },
       {
         "rank": 8,
-        "team": "Cologne",
+        "team": "كولونيا",
         "id": "122",
         "slug": "ger.1",
         "logo": "",
@@ -805,7 +862,7 @@
     "الدوري الفرنسي": [
       {
         "rank": 1,
-        "team": "Marseille",
+        "team": "مرسيليا",
         "id": "176",
         "slug": "fra.1",
         "logo": "",
@@ -817,7 +874,7 @@
       },
       {
         "rank": 2,
-        "team": "Lens",
+        "team": "عدسة",
         "id": "175",
         "slug": "fra.1",
         "logo": "",
@@ -829,7 +886,7 @@
       },
       {
         "rank": 3,
-        "team": "Lille",
+        "team": "ليل",
         "id": "166",
         "slug": "fra.1",
         "logo": "",
@@ -841,7 +898,7 @@
       },
       {
         "rank": 4,
-        "team": "Lyon",
+        "team": "ليون",
         "id": "167",
         "slug": "fra.1",
         "logo": "",
@@ -853,7 +910,7 @@
       },
       {
         "rank": 5,
-        "team": "Monaco",
+        "team": "موناكو",
         "id": "174",
         "slug": "fra.1",
         "logo": "",
@@ -865,7 +922,7 @@
       },
       {
         "rank": 6,
-        "team": "Brest",
+        "team": "بريست",
         "id": "6997",
         "slug": "fra.1",
         "logo": "",
@@ -877,7 +934,7 @@
       },
       {
         "rank": 7,
-        "team": "Le Mans",
+        "team": "لومان",
         "id": "2697",
         "slug": "fra.1",
         "logo": "",
@@ -889,7 +946,7 @@
       },
       {
         "rank": 8,
-        "team": "PSG",
+        "team": "باريس سان جيرمان",
         "id": "160",
         "slug": "fra.1",
         "logo": "",
@@ -975,7 +1032,7 @@
       },
       {
         "rank": 7,
-        "team": "Neom SC",
+        "team": "نيوم إس سي",
         "id": "130899",
         "slug": "ksa.1",
         "logo": "",
@@ -987,7 +1044,7 @@
       },
       {
         "rank": 8,
-        "team": "Al Kholood",
+        "team": "الخلود",
         "id": "22028",
         "slug": "ksa.1",
         "logo": "",
@@ -1001,7 +1058,7 @@
     "الدوري البرتغالي": [
       {
         "rank": 1,
-        "team": "FC Porto",
+        "team": "نادي بورتو",
         "id": "437",
         "slug": "por.1",
         "logo": "",
@@ -1013,7 +1070,7 @@
       },
       {
         "rank": 2,
-        "team": "Sporting",
+        "team": "سبورتنج",
         "id": "2250",
         "slug": "por.1",
         "logo": "",
@@ -1025,7 +1082,7 @@
       },
       {
         "rank": 3,
-        "team": "Maritimo",
+        "team": "البحرية",
         "id": "552",
         "slug": "por.1",
         "logo": "",
@@ -1037,7 +1094,7 @@
       },
       {
         "rank": 4,
-        "team": "Santa Clara",
+        "team": "سانت كلير",
         "id": "12215",
         "slug": "por.1",
         "logo": "",
@@ -1049,7 +1106,7 @@
       },
       {
         "rank": 5,
-        "team": "Arouca",
+        "team": "اروكا",
         "id": "15784",
         "slug": "por.1",
         "logo": "",
@@ -1061,7 +1118,7 @@
       },
       {
         "rank": 6,
-        "team": "Gil Vicente",
+        "team": "جيل فيسنتي",
         "id": "3699",
         "slug": "por.1",
         "logo": "",
@@ -1085,7 +1142,7 @@
       },
       {
         "rank": 8,
-        "team": "Nacional",
+        "team": "وطني",
         "id": "3472",
         "slug": "por.1",
         "logo": "",
