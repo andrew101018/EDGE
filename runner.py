@@ -963,6 +963,25 @@ def fetch_leaders():
     print("👑 دوريات فيها هدافين:", len(out))
     return out
 
+def fetch_espn_news():
+    out = []
+    for slug in ["eng.1", "esp.1", "ita.1", "ger.1", "ksa.1", "egy.1", "uefa.champions"]:
+        try:
+            r = requests.get(
+                f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/news",
+                timeout=20)
+            if not r.ok: continue
+            d = r.json()
+            for a in d.get("articles", [])[:3]:
+                imgs = a.get("images") or []
+                out.append({
+                    "t": a.get("headline", ""),
+                    "img": imgs[0].get("url", "") if imgs else "",
+                })
+        except Exception as e:
+            print("espn news error:", slug, e)
+    return out
+
 def fetch_highlights(matches):
     items = []
     try:
@@ -1054,6 +1073,7 @@ def build_site_data(state, today):
                 group["items"].append(item)
             except Exception:
                 continue
+        print(f"⚽ {name}: {len(group['items'])} مباراة")
         if group["items"]:
             group["items"].sort(key=lambda x: order.get(x["state"], 3))
             matches.append(group)
@@ -1078,6 +1098,7 @@ def build_site_data(state, today):
         "matches": matches,
         "tables": tables,
         "leaders": fetch_leaders(),
+         "world": fetch_espn_news(),
         "highlights": fetch_highlights(matches),
     }
 

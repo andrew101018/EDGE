@@ -731,9 +731,10 @@ async function loadData() {
     renderLeaders();
     renderTv();
     renderPredict();
-   renderFantasy();
-   loadBoard();
+    renderFantasy();
+    loadBoard();
     renderShop();
+    renderWorld();
 
     document.getElementById('newsContainer').innerHTML = DATA.news.length > 0
       ? DATA.news.map(n => `<div class="news-item">${n.t}</div>`).join('')
@@ -759,6 +760,17 @@ async function loadData() {
     console.error('خطأ:', e);
     document.getElementById('newsContainer').innerHTML = '<div class="card">جاري تحميل البيانات...</div>';
   }
+}
+
+function renderWorld() {
+  const el = document.getElementById('worldContainer');
+  const W = DATA.world || [];
+  el.innerHTML = W.length ? W.map(w => `
+    <div class="tv-card" style="text-align:right;">
+      ${w.img ? `<img src="${w.img}" style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:8px;" onerror="this.style.display='none'">` : ''}
+      <div style="font-weight:bold;font-size:.9em;">${w.t}</div>
+    </div>`).join('')
+    : '<div class="card">لا توجد أخبار عالمية حالياً</div>';
 }
 
 loadData();
