@@ -68,3 +68,4 @@ table.stand { width: 100%; border-collapse: collapse; font-size: 0.9em; }
 .telegram { text-align: center; background: #16213a; border-radius: 12px; padding: 20px; margin-top: 30px; }
 .telegram h2 { border: none; color: #fbbf24; }
 footer { text-align: center; padding: 20px; opacity: 0.7; font-size: 0.85em; }
+.goal-line { padding: 6px 4px; border-bottom: 1px dashed #24344f; font-size: 0.9em; }

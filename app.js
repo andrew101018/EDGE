@@ -30,6 +30,12 @@ document.addEventListener('click', function (e) {
   const parts = el.getAttribute('data-team').split('|');
   showTeam(parts[0], parts[1], parts[2] || '');
 });
+document.addEventListener('click', function (e) {
+  const el = e.target.closest('[data-match]');
+  if (!el) return;
+  const parts = el.getAttribute('data-match').split('|');
+  if (parts[0] && parts[0] !== 'undefined') showMatch(parts[1], parts[0], parts[2] || 'مباراة');
+});
 // 🛡️ شفاء ذاتي: ننشئ النافذة والاستايل لو مش موجودين
 (function () {
   if (!document.getElementById('teamModal')) {
@@ -65,8 +71,8 @@ function matchRow(m) {
 
   const tvHtml = m.tv ? `<div class="tv-line">${m.tvUrl ? `<a href="${m.tvUrl}" target="_blank">📺 يُذاع عبر: ${m.tv}</a>` : `📺 ${m.tv}`}</div>` : '';
 
-  return `<div class="match-wrap">
-    <div class="match-row">
+    return `<div class="match-wrap">
+    <div class="match-row" style="cursor:pointer;" data-match="${m.eid}|${m.slug}|${m.home} × ${m.away}">
       <div class="m-team team-link" data-team="${m.slug}|${m.homeId}|${m.home}">${teamLogo(m.homeLogo)} ${m.home}</div>
       ${score}
       <div class="m-team team-link" data-team="${m.slug}|${m.awayId}|${m.away}">${m.away} ${teamLogo(m.awayLogo)}</div>
@@ -255,6 +261,49 @@ async function showTeam(slug, teamId, teamName) {
     document.getElementById('teamModalBody').innerHTML = '❌ خطأ في تحميل البيانات: ' + e.message;
   }
 }
+
+async function showMatch(slug, eid, title) {
+  let box = document.getElementById('matchModal');
+  if (!box) {
+    box = document.createElement('div');
+    box.id = 'matchModal';
+    box.innerHTML = '<div><div style="display:flex;justify-content:space-between;align-items:center;font-weight:bold;color:#fbbf24;font-size:1.2em;margin-bottom:12px;"><span id="matchModalTitle"></span><button onclick="closeMatch()" style="background:none;border:none;color:#ef4444;font-size:1.3em;cursor:pointer;">✖</button></div><div id="matchModalBody"></div></div>';
+    document.body.appendChild(box);
+  }
+  box.style.cssText = 'display:block;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);z-index:9999;overflow:auto;';
+  box.firstElementChild.style.cssText = 'max-width:640px;margin:40px auto;background:#1e293b;border-radius:12px;padding:20px;';
+  document.getElementById('matchModalTitle').textContent = '⚽ ' + title;
+  document.getElementById('matchModalBody').innerHTML = 'جاري تحميل التفاصيل...';
+  try {
+    const r = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/summary?event=${eid}`);
+    const d = await r.json();
+    let html = '';
+
+    const events = d.scoringPlays || d.keyEvents || [];
+    if (events.length) {
+      html += '<div class="pos-box"><b>⚽ الأهداف واللحظات:</b>' + events.map(ev => {
+        const clock = (ev.clock && ev.clock.displayValue) || (ev.period ? ev.period.number + "'" : '');
+        const team = ev.team ? ev.team.displayName : '';
+        const txt = ev.text || (ev.type && ev.type.text) || '';
+        return `<div class="goal-line">⚽ ${clock} — ${team} ${txt}</div>`;
+      }).join('') + '</div>';
+    }
+
+    const st = (d.competitions && d.competitions[0] && d.competitions[0].statistics) || [];
+    if (st.length) {
+      const labels = {possession:'استحواذ %', shotsOnTarget:'تسديدات على المرمى', cornerKicks:'ركنيات', totalShots:'تسديدات', foulsCommitted:'أخطاء', offsides:'تسلل', saves:'تصديات'};
+      html += '<div class="pos-box"><b>📊 الإحصائيات:</b><div class="p-grid">' + st.map(s => {
+        const l = labels[s.name] || s.name;
+        return `<span class="p-card">${s.homeValue} | ${l} | ${s.awayValue}</span>`;
+      }).join('') + '</div></div>';
+    }
+
+    document.getElementById('matchModalBody').innerHTML = html || 'التفاصيل مش متاحة للمباراة دي حالياً';
+  } catch (e) {
+    document.getElementById('matchModalBody').innerHTML = 'تعذر تحميل التفاصيل';
+  }
+}
+function closeMatch() { const b = document.getElementById('matchModal'); if (b) b.style.display = 'none'; }
 
 function closeTeam() { document.getElementById('teamModal').style.display = 'none'; }
 
