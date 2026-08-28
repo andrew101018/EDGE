@@ -1,4 +1,10 @@
 let DATA = {};
+const SUPA_URL = 'https://ejfdqvjfzgsjtztzvhem.supabase.co/rest/v1/';
+const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVqZmRxdmpmemdzanR6dHp2aGVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcyMzE3NDAsImV4cCI6MjEwMjgwNzc0MH0.YD0-kgvHlRIPbJMulwv6PKhxKz9frzeT5m4QGYRGBA4';
+let supa = null;
+try {
+  if (window.supabase && SUPA_URL.includes('supabase.co')) supa = window.supabase.createClient(SUPA_URL, SUPA_KEY);
+} catch (e) {}
 let MATCHES = [];
 
 function go(page, btn) {
@@ -189,7 +195,9 @@ function savePredict() {
   });
   localStorage.setItem('edgePredict', JSON.stringify(saved));
   alert(count ? `تم حفظ ${count} توقع ✅ النقاط بتتحسب لوحدها بعد المباريات` : 'اكتب نتيجة واحدة على الأقل الأول 😅');
+    uploadScore(true);
 }
+
 
 async function showTeam(slug, teamId, teamName) {
   let box = document.getElementById('teamModal');
@@ -387,6 +395,49 @@ function saveFantasy() {
   localStorage.setItem('edgeFantasy', JSON.stringify(FANTASY_SEL));
   alert('تم حفظ فريقك! ⚽ النقاط هتتحسب لوحدها مع كل تحديث بيانات');
   renderFantasy();
+    uploadScore(true);
+}
+
+function fantasyPoints() {
+  const pool = fantasyPool();
+  let pts = 0;
+  if (FANTASY_SEL && FANTASY_SEL.snapshot) {
+    FANTASY_SEL.snapshot.forEach(s => {
+      const cur = pool.find(p => p.name === s.name);
+      if (cur) pts += (cur.val - s.val) * (isGoalsCat(s.cat) ? 3 : 2);
+    });
+  }
+  return pts;
+}
+
+async function uploadScore(silent) {
+  if (!supa) { if (!silent) alert('وصّل مفاتيح Supabase في أول app.js الأول'); return; }
+  let name = localStorage.getItem('edgeName');
+  if (!name) {
+    name = prompt('اكتب اسمك اللي هيظهر في لوحة الصدارة:');
+    if (!name) return;
+    localStorage.setItem('edgeName', name.trim());
+  }
+  const pred = parseInt(localStorage.getItem('edgePoints') || '0');
+  const fan = fantasyPoints();
+  const id = name.trim().toLowerCase().replace(/\s+/g, '-');
+  const {error} = await supa.from('players').upsert({
+    id, name: name.trim(), pred_points: pred, fantasy_points: fan, total: pred + fan
+  });
+  if (!silent) alert(error ? 'خطأ: ' + error.message : 'تم رفع نقاطك 🚀');
+  loadBoard();
+}
+
+async function loadBoard() {
+  const el = document.getElementById('boardContainer');
+  if (!el) return;
+  if (!supa) { el.innerHTML = '<div class="card">🏅 اللوحة هتشتغل بعد توصيل مفاتيح Supabase</div>'; return; }
+  const {data, error} = await supa.from('players').select('*').order('total', {ascending: false}).limit(50);
+  if (error || !data || !data.length) { el.innerHTML = '<div class="card">لسه مفيش لاعبين — كن أول من يرفع نقاطه! 🚀</div>'; return; }
+  const medals = ['🥇', '🥈', ''];
+  el.innerHTML = '<table class="stand"><tr><th>#</th><th>الاسم</th><th>توقعات</th><th>فانتازي</th><th>الإجمالي</th></tr>' +
+    data.map((r, i) => `<tr><td>${medals[i] || i + 1}</td><td>${r.name}</td><td>${r.pred_points}</td><td>${r.fantasy_points}</td><td class="pts">${r.total}</td></tr>`).join('') +
+    '</table>';
 }
 
 async function loadData() {
@@ -402,6 +453,7 @@ async function loadData() {
     renderTv();
     renderPredict();
    renderFantasy();
+       loadBoard();
 
     document.getElementById('newsContainer').innerHTML = DATA.news.length > 0
       ? DATA.news.map(n => `<div class="news-item">${n.t}</div>`).join('')

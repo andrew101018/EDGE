@@ -32,6 +32,7 @@
   <button class="nav-btn" onclick="go('tv', this)">📺 شاهد</button>
   <button class="nav-btn" onclick="go('predict', this)">🎮 توقعات</button>
   <button class="nav-btn" onclick="go('fantasy', this)">🎮 فانتازي</button>
+  <button class="nav-btn" onclick="go('board', this)">🏅 الصدارة</button>
 </nav>
 
 <main class="container">
@@ -80,6 +81,13 @@
     <button class="btn fantasy-save-btn" onclick="saveFantasy()">💾 حفظ الفريق</button>
   </section>
   
+  <section id="sec-board" class="page">
+    <h2>🏅 لوحة الصدارة</h2>
+    <p style="opacity:.8;margin-bottom:14px;">نقاطك من التوقعات + الفانتازي في مواجهة أصحابك</p>
+    <button class="btn" style="display:block;margin:0 auto 16px;" onclick="uploadScore()">🚀 رفع نقاطي</button>
+    <div id="boardContainer"></div>
+  </section>
+
   <section class="section telegram">
     <h2>📢 تابعنا في كل مكان</h2>
     <p>الأخبار والنتائج والفيديوهات لحظياً على كل منصاتنا</p>
@@ -101,6 +109,7 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="app.js?v=3"></script>
 <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');</script>
 </body>
