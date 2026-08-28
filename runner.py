@@ -970,16 +970,24 @@ def fetch_espn_news():
             r = requests.get(
                 f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/news",
                 timeout=20)
-            if not r.ok: continue
+            if not r.ok:
+                print("espn news http:", slug, r.status_code)
+                continue
             d = r.json()
-            for a in d.get("articles", [])[:3]:
+            arts = d.get("articles") or d.get("feed") or d.get("headlines") or []
+            for a in arts[:3]:
+                title = a.get("headline") or a.get("title") or ""
                 imgs = a.get("images") or []
-                out.append({
-                    "t": a.get("headline", ""),
-                    "img": imgs[0].get("url", "") if imgs else "",
-                })
+                img = ""
+                if imgs:
+                    img = imgs[0].get("url") or imgs[0].get("href") or ""
+                if not img and a.get("image"):
+                    img = a.get("image")
+                if title:
+                    out.append({"t": title, "img": img})
         except Exception as e:
             print("espn news error:", slug, e)
+    print("🌍 أخبار عالمية:", len(out))
     return out
 
 def fetch_highlights(matches):
