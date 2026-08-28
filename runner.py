@@ -1214,6 +1214,8 @@ def make_publish_package(news_lines):
             digest = build_digest(state, today)
             if digest and send_tg(digest):
                 print("✅ نُشرت نشرة الليل")
+                send_tg("🎮 لعبت توقعات النهارده؟\nتوقع نتائج المباريات واكسب نقاط في مواجهة أصحابك ⚽\n🏅 لوحة الصدارة + فانتازي إيدج من الموقع:\n🌐 https://andrew101018.github.io/EDGE/")
+                print("📢 اتبعتت رسالة النمو")
                 if not FORCE:
                     state["last_digest_date"] = today
 

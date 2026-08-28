@@ -40,6 +40,7 @@
   <button class="nav-btn" onclick="go('predict', this)">🎮 توقعات</button>
   <button class="nav-btn" onclick="go('fantasy', this)">🎮 فانتازي</button>
   <button class="nav-btn" onclick="go('board', this)">🏅 الصدارة</button>
+ <button class="nav-btn" onclick="go('shop', this)">🛒 المتجر</button>
 </nav>
 
 <main class="container">
@@ -83,16 +84,22 @@
     <h2>🎮 فانتازي إيدج</h2>
     <div id="fantasyInfo" class="points-banner"></div>
     <div id="fantasySquad" class="p-grid fantasy-squad"></div>
-        <h3 style="margin:16px 0 10px;color:#fbbf24;">دوس على اللاعب لاختياره — 5 لاعبين بميزانية 70 💰</h3>
+    <h3 class="fantasy-instruction">دوس على اللاعب لاختياره — 5 لاعبين بميزانية 70 💰</h3>
     <div id="fantasyPool" class="grid"></div>
     <button class="btn fantasy-save-btn" onclick="saveFantasy()">💾 حفظ الفريق</button>
   </section>
   
   <section id="sec-board" class="page">
     <h2>🏅 لوحة الصدارة</h2>
-    <p style="opacity:.8;margin-bottom:14px;">نقاطك من التوقعات + الفانتازي في مواجهة أصحابك</p>
-    <button class="btn" style="display:block;margin:0 auto 16px;" onclick="uploadScore()">🚀 رفع نقاطي</button>
+    <p class="board-description">نقاطك من التوقعات + الفانتازي في مواجهة أصحابك</p>
+    <button type="button" class="btn upload-score-btn" onclick="uploadScore()">🚀 رفع نقاطي</button>
     <div id="boardContainer"></div>
+  </section>
+
+  <section id="sec-shop" class="page">
+    <h2>🛒 متجر الكورة</h2>
+    <p class="shop-description">منتجات مختارة لعشاق الكورة — بدعمكم القناة تستمر ⚽</p>
+    <div class="grid" id="shopContainer"></div>
   </section>
 
   <section class="section telegram">

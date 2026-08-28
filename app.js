@@ -692,6 +692,21 @@ async function uploadScore(silent) {
   loadBoard();
 }
 
+const SHOP = [
+  {name: 'كورة مباريات احترافية', emoji: '⚽', link: 'https://www.amazon.ae/s?k=football+ball'},
+  {name: 'تيشيرت فريقك المفضل', emoji: '👕', link: 'https://www.amazon.ae/s?k=football+jersey'},
+  {name: 'حذاء كورة عالي الجودة', emoji: '👟', link: 'https://www.amazon.ae/s?k=football+boots'},
+  {name: 'شال وإكسسوارات مشجعين', emoji: '🧣', link: 'https://www.amazon.ae/s?k=football+scarf'},
+];
+function renderShop() {
+  document.getElementById('shopContainer').innerHTML = SHOP.map(p => `
+    <div class="tv-card">
+      <div style="font-size:2.2em;">${p.emoji}</div>
+      <div class="tv-teams" style="margin-top:6px;">${p.name}</div>
+      <a class="btn" style="margin-top:8px;" href="${p.link}" target="_blank">اشتري من هنا</a>
+    </div>`).join('');
+}
+
 async function loadBoard() {
   const el = document.getElementById('boardContainer');
   if (!el) return;
@@ -717,7 +732,8 @@ async function loadData() {
     renderTv();
     renderPredict();
    renderFantasy();
-       loadBoard();
+   loadBoard();
+    renderShop();
 
     document.getElementById('newsContainer').innerHTML = DATA.news.length > 0
       ? DATA.news.map(n => `<div class="news-item">${n.t}</div>`).join('')
