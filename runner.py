@@ -1,6 +1,9 @@
 import os, json, hashlib, time, re, random, asyncio, subprocess, importlib
 import requests
-import feedparser
+try:
+    import feedparser  # type: ignore[import-not-found]
+except ImportError:
+    feedparser = None
 from bs4 import BeautifulSoup
 from datetime import datetime
 from zoneinfo import ZoneInfo
