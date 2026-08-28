@@ -31,6 +31,7 @@
   <button class="nav-btn" onclick="go('leaders', this)">👑 الهدافين</button>
   <button class="nav-btn" onclick="go('tv', this)">📺 شاهد</button>
   <button class="nav-btn" onclick="go('predict', this)">🎮 توقعات</button>
+  <button class="nav-btn" onclick="go('fantasy', this)">🎮 فانتازي</button>
 </nav>
 
 <main class="container">
@@ -70,6 +71,15 @@
     <button class="btn predict-save-btn" onclick="savePredict()">💾 حفظ التوقعات</button>
   </section>
 
+  <section id="sec-fantasy" class="page">
+    <h2>🎮 فانتازي إيدج</h2>
+    <div id="fantasyInfo" class="points-banner"></div>
+    <div id="fantasySquad" class="p-grid fantasy-squad"></div>
+    <h3 class="fantasy-instructions">دوس على اللاعب لاختياره — 5 لاعبين بميزانية 40 💰</h3>
+    <div id="fantasyPool" class="grid"></div>
+    <button class="btn fantasy-save-btn" onclick="saveFantasy()">💾 حفظ الفريق</button>
+  </section>
+  
   <section class="section telegram">
     <h2>📢 تابعنا في كل مكان</h2>
     <p>الأخبار والنتائج والفيديوهات لحظياً على كل منصاتنا</p>

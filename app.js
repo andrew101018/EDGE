@@ -307,6 +307,88 @@ function closeMatch() { const b = document.getElementById('matchModal'); if (b) 
 
 function closeTeam() { document.getElementById('teamModal').style.display = 'none'; }
 
+let FANTASY_SEL = JSON.parse(localStorage.getItem('edgeFantasy') || 'null');
+
+function fantasyPool() {
+  const map = {};
+  Object.values(DATA.leaders || {}).forEach(cats => {
+    Object.entries(cats).forEach(([cat, items]) => {
+      items.forEach(p => {
+        const val = parseInt(p.value) || 0;
+        if (!map[p.name] || val > map[p.name].val) {
+          map[p.name] = {name: p.name, team: p.team, face: p.face, cat, val};
+        }
+      });
+    });
+  });
+  return Object.values(map).map(p => Object.assign(p, {price: 4 + p.val}));
+}
+
+function isGoalsCat(cat) {
+  return cat.includes('الهداف') || /goal/i.test(cat);
+}
+
+function renderFantasy() {
+  const pool = fantasyPool();
+  window._fantasyPool = pool;
+  const chosen = (FANTASY_SEL && FANTASY_SEL.players) || [];
+
+  let pts = 0;
+  if (FANTASY_SEL && FANTASY_SEL.snapshot) {
+    FANTASY_SEL.snapshot.forEach(s => {
+      const cur = pool.find(p => p.name === s.name);
+      if (cur) pts += (cur.val - s.val) * (isGoalsCat(s.cat) ? 3 : 2);
+    });
+  }
+  document.getElementById('fantasyInfo').innerHTML =
+    `⭐ نقاط فريقك: <b>${pts}</b> — الهدف +3 والأسيست +2 (بتتحدث لوحدها مع كل تحديث)`;
+
+  document.getElementById('fantasySquad').innerHTML = chosen.length ?
+    chosen.map(n => {
+      const p = pool.find(x => x.name === n);
+      return p ? `<span class="p-card">${p.face ? `<img class="p-face" src="${p.face}" onerror="this.style.display='none'">` : '👤'} ${p.name} <small>💰${p.price}</small></span>` : '';
+    }).join('') : '';
+
+  document.getElementById('fantasyPool').innerHTML = pool
+    .sort((a, b) => b.val - a.val).slice(0, 40).map(p => `
+      <div class="tv-card" style="cursor:pointer;${chosen.includes(p.name) ? 'border-color:#fbbf24;' : ''}" onclick="toggleFantasy('${p.name.replace(/'/g, '')}')">
+        ${p.face ? `<img class="p-face" style="width:42px;height:42px;" src="${p.face}" onerror="this.style.display='none'">` : '👤'}
+        <div class="tv-teams" style="margin-top:6px;">${p.name}</div>
+        <div class="tv-info">${p.team} | ${p.cat}: ${p.val}</div>
+        <div style="color:#fbbf24;font-weight:bold;">💰 ${p.price}</div>
+      </div>`).join('');
+}
+
+function toggleFantasy(name) {
+  const pool = window._fantasyPool || fantasyPool();
+  let chosen = (FANTASY_SEL && FANTASY_SEL.players) || [];
+  const p = pool.find(x => x.name === name);
+  if (!p) return;
+  if (chosen.includes(name)) {
+    chosen = chosen.filter(n => n !== name);
+  } else {
+    const spent = pool.filter(x => chosen.includes(x.name)).reduce((s, x) => s + x.price, 0);
+    if (chosen.length >= 5) { alert('ماكس 5 لاعبين يا نجم 😅'); return; }
+    if (spent + p.price > 40) { alert('الميزانية مش كافية! 💸'); return; }
+    chosen.push(name);
+  }
+  FANTASY_SEL = FANTASY_SEL || {};
+  FANTASY_SEL.players = chosen;
+  renderFantasy();
+}
+
+function saveFantasy() {
+  const pool = window._fantasyPool || fantasyPool();
+  if (!FANTASY_SEL || !(FANTASY_SEL.players || []).length) { alert('اختار لاعبين الأول! 👥'); return; }
+  FANTASY_SEL.snapshot = FANTASY_SEL.players.map(n => {
+    const p = pool.find(x => x.name === n);
+    return {name: n, val: p ? p.val : 0, cat: p ? p.cat : ''};
+  });
+  localStorage.setItem('edgeFantasy', JSON.stringify(FANTASY_SEL));
+  alert('تم حفظ فريقك! ⚽ النقاط هتتحسب لوحدها مع كل تحديث بيانات');
+  renderFantasy();
+}
+
 async function loadData() {
   try {
     const r = await fetch('site/data.json?t=' + Date.now());
@@ -319,6 +401,7 @@ async function loadData() {
     renderLeaders();
     renderTv();
     renderPredict();
+   renderFantasy();
 
     document.getElementById('newsContainer').innerHTML = DATA.news.length > 0
       ? DATA.news.map(n => `<div class="news-item">${n.t}</div>`).join('')

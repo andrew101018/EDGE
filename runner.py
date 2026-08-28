@@ -946,7 +946,7 @@ def fetch_leaders():
                 label = labels.get(cname) or cat.get("displayName") or cat.get("title") or "الأفضل"
                 items = []
                 entries = cat.get("leaders") or cat.get("entries") or cat.get("items") or []
-                for e in entries[:5]:
+                for e in entries[:10]:
                     a = e.get("athlete", {}) or {}
                     items.append({
                         "name": ar_team(a.get("displayName", "")),
