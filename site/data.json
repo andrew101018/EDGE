@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-08-30 12:03 AM",
+  "updated_at": "2026-08-30 02:28 AM",
   "news": [
+    {
+      "t": "⚽ «خرجوا علي محمود مش هعرف أحميه تاني».. رسالة محمد معروف لـ وائل جمعة في مباراة الأهلي وزد.. إعلامي",
+      "img": ""
+    },
+    {
+      "t": "⚽ ما التشابه والفرق بين الرغبي وكرة القدم الأميركية؟ - annahar.com",
+      "img": ""
+    },
+    {
+      "t": "⚽ \"نطالب بالعدالة والشفافية\".. زد يعلن اعتراضه على قرارات حكم مباراة الأهلي - يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ هل يُعيد حسام أشرف الحسابات الهجومية للزمالك أمام السويس بتروجيت - الزمالك اليوم",
+      "img": ""
+    },
     {
       "t": "⚽ كنا فين وبقينا فين.. المقاعد الأفريقية للكرة المصرية ثابتة والقوة تتضاعف - اليوم السابع",
       "img": ""
@@ -64,25 +80,13 @@
     {
       "t": "⚽ الزمالك: سنطبق اللائحة على بيزيرا عندما يعود - 365Scores",
       "img": ""
-    },
-    {
-      "t": "⚽ الزمالك يرفض التعجل فى شكوى خوان بيزيرا لـ«فيفا».. اعرف السبب - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ رسائل لبيزيرا ودعم.. جمهور الأهلي والزمالك يتصدر المشهد في الجولة الثانية (فيديو) - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ مصدر موقر فى الزمالك يتحدث عن فكرة انتقال حسام عبد المجيد لـالاهلى مستقبلاً - الزمالك اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ لقطة سعودية تكشف تعرض برشلونة لظلم تحكيمي في دوري الأبطال - Kooora",
-      "img": ""
     }
   ],
   "results": [
+    "SV Elversberg 3 - 2 Bayer Leverkusen",
+    "RB Leipzig 3 - 0 Borussia Mönchengladbach",
+    "Mainz 0 - 0 SC Paderborn 07",
+    "Sevilla 1 - 3 أتلتيكو مدريد",
     "FC Cologne 3 - 2 TSG Hoffenheim",
     "1. FC Union Berlin 3 - 3 Eintracht Frankfurt",
     "يوفنتوس 2 - 0 Parma",
@@ -206,20 +210,6 @@
       "slug": "esp.1",
       "items": [
         {
-          "home": "Sevilla",
-          "away": "أتلتيكو مدريد",
-          "eid": "401882897",
-          "slug": "esp.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/243.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "3",
-          "time": "10:30 PM",
-          "state": "in",
-          "detail": "70'"
-        },
-        {
           "home": "Levante",
           "away": "Real Betis",
           "eid": "401882902",
@@ -244,6 +234,20 @@
           "hs": "2",
           "as": "1",
           "time": "08:00 PM",
+          "state": "post",
+          "detail": "FT"
+        },
+        {
+          "home": "Sevilla",
+          "away": "أتلتيكو مدريد",
+          "eid": "401882897",
+          "slug": "esp.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/243.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",
+          "tv": "beIN Sports",
+          "hs": "1",
+          "as": "3",
+          "time": "10:30 PM",
           "state": "post",
           "detail": "FT"
         }
@@ -732,7 +736,7 @@
     "الدوري الإسباني": [
       {
         "rank": 1,
-        "team": "Alavés",
+        "team": "أتلتيكو مدريد",
         "logo": "",
         "gp": 3.0,
         "w": 2.0,
@@ -742,6 +746,16 @@
       },
       {
         "rank": 2,
+        "team": "Alavés",
+        "logo": "",
+        "gp": 3.0,
+        "w": 2.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 7.0
+      },
+      {
+        "rank": 3,
         "team": "برشلونة",
         "logo": "",
         "gp": 2.0,
@@ -751,7 +765,7 @@
         "pts": 6.0
       },
       {
-        "rank": 3,
+        "rank": 4,
         "team": "ريال مدريد",
         "logo": "",
         "gp": 2.0,
@@ -761,18 +775,8 @@
         "pts": 6.0
       },
       {
-        "rank": 4,
-        "team": "Sevilla",
-        "logo": "",
-        "gp": 2.0,
-        "w": 2.0,
-        "d": 0.0,
-        "l": 0.0,
-        "pts": 6.0
-      },
-      {
         "rank": 5,
-        "team": "Real Betis",
+        "team": "Sevilla",
         "logo": "",
         "gp": 3.0,
         "w": 2.0,
@@ -782,13 +786,13 @@
       },
       {
         "rank": 6,
-        "team": "أتلتيكو مدريد",
+        "team": "Real Betis",
         "logo": "",
-        "gp": 2.0,
-        "w": 1.0,
-        "d": 1.0,
-        "l": 0.0,
-        "pts": 4.0
+        "gp": 3.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 1.0,
+        "pts": 6.0
       },
       {
         "rank": 7,
@@ -1073,40 +1077,44 @@
       "img": "https://a.espncdn.com/photo/2026/0828/r1708109_1296x729_16-9.jpg"
     },
     {
-      "t": "Champions League draw becomes UEFA's latest stand against FIFA president Infantino",
-      "img": "https://a.espncdn.com/photo/2026/0827/r1707747_1296x729_16-9.jpg"
+      "t": "Aston Villa's Champions League draw: Paris Saint-Germain, Barcelona, Borussia Dortmund",
+      "img": "https://a.espncdn.com/photo/2026/0319/r1630909_1296x729_16-9.jpg"
     },
     {
-      "t": "Champions League draw: Good games for Liverpool, bad for Barcelona",
-      "img": "https://a.espncdn.com/photo/2026/0827/r1707753_1296x729_16-9.jpg"
+      "t": "Man United's Champions League draw: Bayern Munich, Atlético Madrid, Roma",
+      "img": "https://a.espncdn.com/photo/2026/0117/r1601718_1296x729_16-9.jpg"
     },
     {
-      "t": "Champions League draw recap: Arsenal-Madrid, PSG-Barça among notable matches",
-      "img": "https://a.espncdn.com/photo/2026/0827/r1707631_1296x729_16-9.jpg"
+      "t": "Champions League schedule: Real Madrid open league phase vs. Inter Milan",
+      "img": "https://a.espncdn.com/photo/2026/0829/r1708693_1296x729_16-9.jpg"
     },
     {
-      "t": "European soccer recap: Liverpool held by Forest, big-spending Spurs stumble vs. Newcastle",
-      "img": "https://a.espncdn.com/photo/2026/0829/r1708595_1296x729_16-9.jpg"
+      "t": "Can Liverpool afford to let Gakpo join Man City?",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0829/dm_260829_COM_SOC_ANALYSIS_Can_Liverpool_afford_to_let_Gakpo_join_Man_City_2026_8_26/dm_260829_COM_SOC_ANALYSIS_Can_Liverpool_afford_to_let_Gakpo_join_Man_City_2026_8_26.jpg"
     },
     {
-      "t": "Tottenham's De Zerbi: Richarlison, Danso, Sarr have asked to leave",
-      "img": "https://a.espncdn.com/photo/2026/0829/r1708658_1296x729_16-9.jpg"
+      "t": "Is Barcola the key to unlocking Wirtz at Liverpool?",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0829/dm_260829_COM_SOC_ANALYSIS_Is_Barcola_the_key_to_unlocking_Wirtz_at_Liverpool_2026_8_29/dm_260829_COM_SOC_ANALYSIS_Is_Barcola_the_key_to_unlocking_Wirtz_at_Liverpool_2026_8_29.jpg"
     },
     {
-      "t": "De Zerbi apologies to Spurs fans for 'environment' after successive league defeats",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0829/dm_260829_De_Zerbi_apologies_to_Spurs_fans_for_environment_after_successive_league_defeats/dm_260829_De_Zerbi_apologies_to_Spurs_fans_for_environment_after_successive_league_defeats.jpg"
+      "t": "Michael Carrick: 'Lazy' to claim Man United lack passion",
+      "img": "https://a.espncdn.com/photo/2026/0829/r1708657_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer rumors, news: Man United offered Atétli striker Sørloth",
-      "img": "https://a.espncdn.com/photo/2026/0221/r1618266_1296x729_16-9.jpg"
+      "t": "Álvarez-less Atlético cruise to win over Sevilla ",
+      "img": "https://a.espncdn.com/photo/2026/0829/r1708710_1296x729_16-9.jpg"
     },
     {
-      "t": "Real Sociedad vs. Espanyol - Game Highlights",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0829/9a2949b8-3e6d-46c0-a68c-d3de9a31e23d/9a2949b8-3e6d-46c0-a68c-d3de9a31e23d.jpg"
+      "t": "Baena and Lookman fire Atlético Madrid to 3-1 win over Sevilla",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0829/dm_260829_COM_SOC_Final_Game_Highlight_Baena_and_Lookman_fire_Atlico_Madrid_to_3-1_win_over_Sevilla_29_8_26/dm_260829_COM_SOC_Final_Game_Highlight_Baena_and_Lookman_fire_Atlico_Madrid_to_3-1_win_over_Sevilla_29_8_26.jpg"
     },
     {
-      "t": "Levante vs. Real Betis - Game Highlights",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0829/46f40484-cfa4-4a18-a3d6-1b001a5175da/46f40484-cfa4-4a18-a3d6-1b001a5175da.jpg"
+      "t": "Sevilla vs. Atletico Madrid - Game Highlights",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0829/163881f2-445e-4de4-b2bb-bde064c862a7/163881f2-445e-4de4-b2bb-bde064c862a7.jpg"
+    },
+    {
+      "t": "Cristian Volpato scores a stunner for Sassuolo",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0829/dm_260829_SOC_Highlight_Cristian_Volpato_scores_a_stunner_for_Sassuolo_20260830_AUS_ONLY/dm_260829_SOC_Highlight_Cristian_Volpato_scores_a_stunner_for_Sassuolo_20260830_AUS_ONLY.jpg"
     },
     {
       "t": "Pulisic stays on bench as Ramos gives Milan win over Venezia",
@@ -1115,10 +1123,6 @@
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
       "img": "https://a.espncdn.com/photo/2026/0731/r1695938_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Weekend predictions: Pressure on Man United, Carrick already? Wrexham to beat Birmingham?",
-      "img": "https://a.espncdn.com/photo/2026/0827/r1707508_1296x729_16-9.jpg"
     },
     {
       "t": "RB Leipzig eyeing Chelsea striker Marc Guiu - source",
