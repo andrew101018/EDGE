@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-29 07:09 PM",
+  "updated_at": "2026-08-29 07:29 PM",
   "news": [
     {
       "t": "🔥 محمد صلاح يكسر الصمت بعد وداع طرابزون الدوري الأوروبي!",
@@ -51,6 +51,18 @@
     },
     {
       "t": "⚽ جيمي كاراجر فى مواجهة الإفلاس.. كيف قادته أفلام التسعينيات إلى أزمة ضريبية؟ - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ لقطة سعودية تكشف تعرض برشلونة لظلم تحكيمي في دوري الأبطال - Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ مصدر موقر فى الزمالك يتحدث عن فكرة انتقال حسام عبد المجيد لـالاهلى مستقبلاً - الزمالك اليوم",
+      "img": ""
+    },
+    {
+      "t": "⚽ رسائل لبيزيرا ودعم.. جمهور الأهلي والزمالك يتصدر المشهد في الجولة الثانية (فيديو) - يلاكورة",
       "img": ""
     }
   ],
@@ -304,11 +316,11 @@
             "beIN Sports",
             "https://www.bein.com/ar/"
           ],
-          "hs": "2",
+          "hs": "3",
           "as": "2",
           "time": "06:00 PM",
           "state": "in",
-          "detail": "HT"
+          "detail": "62'"
         },
         {
           "home": "Real Sociedad",
@@ -543,11 +555,11 @@
             "beIN Sports",
             "https://www.bein.com/ar/"
           ],
-          "hs": "0",
+          "hs": "1",
           "as": "1",
           "time": "06:15 PM",
           "state": "in",
-          "detail": "HT"
+          "detail": "54'"
         },
         {
           "home": "AJ Auxerre",
@@ -635,10 +647,10 @@
             "https://www.sporttv.pt"
           ],
           "hs": "1",
-          "as": "0",
+          "as": "1",
           "time": "05:30 PM",
-          "state": "in",
-          "detail": "76'"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "Arouca",
@@ -654,8 +666,8 @@
           "hs": "2",
           "as": "1",
           "time": "05:30 PM",
-          "state": "in",
-          "detail": "78'"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "Académico de Viseu",
@@ -688,11 +700,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2566.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/151.png",
           "tv": "",
-          "hs": "1",
+          "hs": "2",
           "as": "1",
           "time": "05:30 PM",
-          "state": "in",
-          "detail": "80'"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "AZ Alkmaar",
@@ -740,7 +752,7 @@
           "as": "0",
           "time": "07:00 PM",
           "state": "in",
-          "detail": "9'"
+          "detail": "29'"
         },
         {
           "home": "Galatasaray",
@@ -825,6 +837,20 @@
       "league": "الدوري البلجيكي",
       "items": [
         {
+          "home": "KV Kortrijk",
+          "away": "Royal Charleroi SC",
+          "eid": "401879013",
+          "slug": "bel.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5786.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3616.png",
+          "tv": "",
+          "hs": "0",
+          "as": "0",
+          "time": "07:15 PM",
+          "state": "in",
+          "detail": "12'"
+        },
+        {
           "home": "RAAL La Louvière",
           "away": "KV Mechelen",
           "eid": "401879014",
@@ -837,20 +863,6 @@
           "time": "05:00 PM",
           "state": "post",
           "detail": "FT"
-        },
-        {
-          "home": "KV Kortrijk",
-          "away": "Royal Charleroi SC",
-          "eid": "401879013",
-          "slug": "bel.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5786.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3616.png",
-          "tv": "",
-          "hs": "0",
-          "as": "0",
-          "time": "07:15 PM",
-          "state": "pre",
-          "detail": "Scheduled"
         },
         {
           "home": "Cercle Brugge KSV",
@@ -935,7 +947,7 @@
           "as": "0",
           "time": "07:05 PM",
           "state": "in",
-          "detail": "2'"
+          "detail": "22'"
         },
         {
           "home": "Al Ettifaq",
