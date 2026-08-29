@@ -1132,7 +1132,7 @@ def build_site_data(state, today):
     os.makedirs("site", exist_ok=True)
     with open("site/data.json", "w", encoding="utf-8") as f:
         json.dump(site_data, f, ensure_ascii=False, indent=2)
-    send_owner("✅ تم تحديث الموقع: " + site_data.get("updated_at", ""))    
+        send_owner("✅ تم تحديث الموقع: " + site_data.get("updated_at", ""))
     print("🌐 تم رفع data.json بنجاح")
     print("🌐 تم تحديث بيانات الموقع")
 
