@@ -116,7 +116,24 @@ function renderMatches() {
     resultsHtml = '<h2 style="margin-top:24px;">🏁 نتائج اليوم</h2><div class="list">' +
       DATA.results.map(t => `<div class="result-item">🏁 ${t}</div>`).join('') + '</div>';
   }
-  el.innerHTML = (liveHtml + restHtml + resultsHtml) || '<div class="card">لا توجد مباريات حالياً</div>';
+    const preItems = [];
+  groups.forEach(g => g.items.forEach(m => {
+    if (m.state === 'pre') preItems.push(Object.assign({}, m, {league: g.league}));
+  }));
+  let preHtml = '';
+  if (preItems.length) {
+    preHtml = '<div class="live-block" style="background:linear-gradient(135deg,#0f172a,#1e293b);border:1px solid #334155;"><div class="live-title" style="color:#fbbf24;animation:none;">🕐 مباريات خلال 24 ساعة</div>' +
+      preItems.slice(0, 6).map(m => `
+        <div class="live-card">
+          <div class="live-teams">
+            <span class="team-link" data-team="${m.slug}|${m.homeId}|${m.home}">${teamLogo(m.homeLogo)} ${m.home}</span>
+            <span class="live-score" style="color:#94a3b8;font-size:1.05em;">${m.time}</span>
+            <span class="team-link" data-team="${m.slug}|${m.awayId}|${m.away}">${m.away} ${teamLogo(m.awayLogo)}</span>
+          </div>
+          <div class="live-meta">🏆 ${m.league}${m.tv ? ` | 📺 ${m.tv}` : ''}</div>
+        </div>`).join('') + '</div>';
+  }
+    el.innerHTML = (liveHtml + preHtml + restHtml + resultsHtml) || '<div class="card">لا توجد مباريات حالياً</div>';
 }
 
 function renderLeaders() {

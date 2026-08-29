@@ -990,6 +990,18 @@ def fetch_espn_news():
                     out.append({"t": title, "img": img})
         except Exception as e:
             print("espn news error:", slug, e)
+    if not out:
+        try:
+            r = requests.get("https://www.thesportsdb.com/api/v1/json/123/latest_soccer.php", timeout=20)
+            if r.ok:
+                d = r.json()
+                for n in (d.get("news") or [])[:12]:
+                    t = n.get("strHeadline") or ""
+                    img = n.get("strThumb") or ""
+                    if t:
+                        out.append({"t": t, "img": img})
+        except Exception as e:
+            print("thesportsdb error:", e)
     print("🌍 أخبار عالمية:", len(out))
     return out
 
