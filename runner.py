@@ -801,14 +801,3 @@ if __name__ == "__main__":
         print(tb)
         send_owner("🚨 البوت وقع:\n" + tb[-800:])
         raise
-
-
-
-
-
-
-
-
-
-
-
