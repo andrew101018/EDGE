@@ -1280,4 +1280,14 @@ def make_publish_package(news_lines):
     print("🏁 انتهت الجولة")
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception:
+        import traceback
+        tb = traceback.format_exc()
+        print(tb)
+        try:
+            send_owner(f"🚨 البوت وقع — ده الخطأ:\n\n{tb[-900:]}")
+        except Exception:
+            pass
+        raise
