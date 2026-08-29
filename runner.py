@@ -1,144 +1,85 @@
-import os, json, hashlib, time, re, random, asyncio, subprocess, importlib
-import traceback
+import os, json, hashlib, time, re, random, traceback
 import requests
 try:
-    import feedparser  # type: ignore[import-not-found]
+    import feedparser
 except ImportError:
     feedparser = None
-try:
-    from bs4 import BeautifulSoup  # type: ignore[import-not-found]
-except ImportError:
-    BeautifulSoup = None
+from bs4 import BeautifulSoup
 from datetime import datetime
 from zoneinfo import ZoneInfo
-from difflib import SequenceMatcher
-
-
-class GoogleTranslator:
-    """Small dependency-free replacement for deep_translator.GoogleTranslator."""
-    def __init__(self, source="auto", target="ar"):
-        self.source = source
-        self.target = target
-
-    def translate(self, text):
-        response = requests.get(
-            "https://translate.googleapis.com/translate_a/single",
-            params={
-                "client": "gtx",
-                "sl": self.source,
-                "tl": self.target,
-                "dt": "t",
-                "q": text,
-            },
-            timeout=15,
-        )
-        response.raise_for_status()
-        return "".join(part[0] for part in response.json()[0] if part[0])
 
 TG_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TG_CHANNEL = os.environ.get("TELEGRAM_CHANNEL_ID", "@edgefootballplatform")
+OWNER_CHAT_ID = os.environ.get("OWNER_CHAT_ID", "")
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "")
 GROQ_KEY = os.environ.get("GROQ_KEY", "")
-DEEPSEEK_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
-OPENROUTER_KEY = os.environ.get("OPENROUTER_KEY", "")
-MISTRAL_KEY = os.environ.get("MISTRAL_KEY", "")
-CEREBRAS_KEY = os.environ.get("CEREBRAS_KEY", "")
-FORCE = os.environ.get("FORCE", "") == "1"
-OWNER_CHAT_ID = os.environ.get("OWNER_CHAT_ID", "").strip()
-
-STATE_FILE = "posted.json"
-MAX_PER_RUN = 6
-FRESH_HOURS = 4
 CAIRO = ZoneInfo("Africa/Cairo")
+STATE_FILE = "posted.json"
 
 ARABIC_SOURCES = [
     "https://news.google.com/rss/search?q=%D9%83%D8%B1%D8%A9%20%D8%A7%D9%84%D9%82%D8%AF%D9%85&hl=ar&gl=EG&ceid=AR:eg",
     "https://news.google.com/rss/search?q=%D8%A7%D9%84%D8%A3%D9%87%D9%84%D9%8A%20OR%20%D8%A7%D9%84%D8%B2%D9%85%D8%A7%D9%84%D9%83&hl=ar&gl=EG&ceid=AR:eg",
     "https://feeds.bbci.co.uk/arabic/sport/rss.xml",
-    "https://www.skynewsarabia.com/sports/rss.xml"
+    "https://www.skynewsarabia.com/sports/rss.xml",
 ]
-
-
-
 ENGLISH_SOURCES = [
-    {"name": "BBC Football", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"},
-    {"name": "Sky Sports Football", "url": "https://www.skysports.com/rss/12040"},
-    {"name": "ESPN FC", "url": "https://www.espn.com/espn/rss/soccer/news"},
-    {"name": "The Guardian Football", "url": "https://www.theguardian.com/football/rss"},
+    "https://feeds.bbci.co.uk/sport/football/rss.xml",
+    "https://www.espn.com/espn/rss/soccer/news",
 ]
-
-EXCLUDE_KEYWORDS = [
-    "cricket", "كريكت", "wimbledon", "ويمبلدون", "tennis", "كرة المضرب",
-    "boxing", "الملاكمة", "formula 1", "فورمولا", "rugby", "الرجبي",
-    "baseball", "البيسبول", "hockey", "الهوكي", "basketball", "كرة السلة",
-    "nba", "كرة اليد", "handball", "السباحة", "swimming", "ألعاب القوى",
-    "الشطرنج", "chess", "المصارعة", "wrestling", "الدراجات", "cycling",
-    "الجولف", "golf", "super bowl", "nfl", "test match", "the ashes",
-    "grand slam",
-]
-
-FOOTBALL_KEYWORDS = [
-    "كرة", "كورة", "football", "soccer", "دوري", "ملعب", "مدرب", "منتخب",
-    "أهداف", "هدف", "انتقال", "صفقة", "تشكيلة", "مباراة", "مباريات", "كأس",
-    "فيفا", "يويفا", "الأهلي", "الزمالك", "ريال", "برشلونة", "ليفربول",
-    "مانشستر", "تشيلسي", "أرسنال", "باريس سان", "الهلال", "النصر", "الاتحاد",
-    "صلاح", "ميسي", "رونالدو", "مبابي", "هالاند", "بريميرليج", "الليجا",
-    "كالتشيو", "بوندسليجا", "champions", "premier", "guardiola", "كلوب",
-    "أنشيلوتي", "بيراميدز", "الإسماعيلي", "المصري", "الترجي", "الوداد",
-]
-
-def is_football(title, summary):
-    t = (title + " " + summary).lower()
-    for k in EXCLUDE_KEYWORDS:
-        if k.lower() in t:
-            return False
-    for k in FOOTBALL_KEYWORDS:
-        if k.lower() in t:
-            return True
-    return False
-
-def norm_title(t):
-    t = t.lower()
-    t = re.sub(r'[^\w\u0600-\u06FF]+', ' ', t)
-    return t.strip()[:80]
-
-def is_dup_title(nt, recent):
-    for p in recent[-200:]:
-        if nt == p:
-            return True
-        if abs(len(nt) - len(p)) < 12 and SequenceMatcher(None, nt, p).ratio() > 0.9:
-            return True
-    return False
+EXCLUDE = ["cricket", "كريكت", "tennis", "كرة المضرب", "boxing", "الملاكمة",
+           "formula", "فورمولا", "rugby", "الرجبي", "basketball", "كرة السلة",
+           "hockey", "الهوكي", "swimming", "السباحة", "chess", "الشطرنج",
+           "olympic", "أولمبياد", "wimbledon", "ويمبلدون"]
+FOOT = ["كرة", "كورة", "football", "soccer", "دوري", "ملعب", "مدرب", "منتخب",
+        "هدف", "أهداف", "انتقال", "صفقة", "تشكيلة", "مباراة", "مباريات", "كأس",
+        "فيفا", "يويفا", "الأهلي", "الزمالك", "ريال", "برشلونة", "ليفربول",
+        "مانشستر", "تشيلسي", "أرسنال", "الهلال", "النصر", "الاتحاد", "صلاح",
+        "ميسي", "رونالدو", "مبابي", "هالاند", "بيراميدز"]
 
 LEAGUES = {
-    "eng.1": "الدوري الإنجليزي", "eng.2": "تشامبيونشيب",
+    "egy.1": "الدوري المصري", "ksa.1": "الدوري السعودي",
+    "uefa.champions": "دوري أبطال أوروبا", "eng.1": "الدوري الإنجليزي",
     "esp.1": "الدوري الإسباني", "ita.1": "الدوري الإيطالي",
     "ger.1": "الدوري الألماني", "fra.1": "الدوري الفرنسي",
-    "por.1": "الدوري البرتغالي", "ned.1": "الدوري الهولندي",
-    "tur.1": "الدوري التركي", "sco.1": "الدوري الاسكتلندي",
-    "bel.1": "الدوري البلجيكي", "gre.1": "الدوري اليوناني",
-    "ksa.1": "الدوري السعودي", "egy.1": "الدوري المصري",
-    "uae.1": "دوري الإمارات", "mar.1": "الدوري المغربي",
-    "tun.1": "الدوري التونسي", "usa.1": "الدوري الأمريكي",
-    "bra.1": "الدوري البرازيلي", "arg.1": "الدوري الأرجنتيني",
-    "uefa.champions": "دوري أبطال أوروبا", "uefa.europa": "الدوري الأوروبي",
-    "fifa.world": "كأس العالم",
 }
-BIG_LEAGUES = ["eng.1", "esp.1", "uefa.champions", "egy.1", "ksa.1"]
-IMPORTANT = ["eng.1", "esp.1", "ita.1", "ger.1", "fra.1",
-             "ksa.1", "egy.1", "uefa.champions", "uefa.europa"]
+PRIORITY = ["egy.1", "ksa.1", "uefa.champions", "eng.1", "esp.1", "ita.1", "ger.1", "fra.1"]
 BROADCASTERS = {
-    "eng.1": ("beIN Sports", "https://www.bein.com/ar/"),
-    "esp.1": ("beIN Sports", "https://www.bein.com/ar/"),
-    "ita.1": ("beIN Sports", "https://www.bein.com/ar/"),
-    "fra.1": ("beIN Sports", "https://www.bein.com/ar/"),
-    "ger.1": ("beIN Sports", "https://www.bein.com/ar/"),
-    "uefa.champions": ("beIN Sports", "https://www.bein.com/ar/"),
-    "uefa.europa": ("beIN Sports", "https://www.bein.com/ar/"),
-    "ksa.1": ("SSC / شاهد", "https://shahid.mbc.com/ar"),
-    "egy.1": ("أون تايم سبورتس", "https://www.facebook.com/ONTimesports"),
-    "por.1": ("Sport TV", "https://www.sporttv.pt"),
+    "eng.1": "beIN Sports", "esp.1": "beIN Sports", "ita.1": "beIN Sports",
+    "fra.1": "beIN Sports", "ger.1": "beIN Sports", "uefa.champions": "beIN Sports",
+    "ksa.1": "SSC / شاهد", "egy.1": "أون تايم سبورتس",
 }
+TEAM_AR = {
+    "Real Madrid": "ريال مدريد", "Barcelona": "برشلونة", "Liverpool": "ليفربول",
+    "Manchester City": "مانشستر سيتي", "Manchester United": "مانشستر يونايتد",
+    "Chelsea": "تشيلسي", "Arsenal": "أرسنال", "Tottenham Hotspur": "توتنهام",
+    "Paris Saint-Germain": "باريس سان جيرمان", "Bayern Munich": "بايرن ميونخ",
+    "Juventus": "يوفنتوس", "Inter": "إنتر ميلان", "AC Milan": "ميلان",
+    "Atlético Madrid": "أتلتيكو مدريد", "Borussia Dortmund": "بوروسيا دورتموند",
+    "Napoli": "نابولي", "Aston Villa": "أستون فيلا", "Newcastle United": "نيوكاسل",
+    "Al Ahly": "الأهلي", "Zamalek": "الزمالك", "Pyramids FC": "بيراميدز",
+    "Al Hilal": "الهلال", "Al Nassr": "النصر", "Al Ittihad": "الاتحاد",
+    "Al Ahli": "الأهلي السعودي", "Al Shabab": "الشباب", "Al Ettifaq": "الاتفاق",
+    "Al Fayha": "الفيحاء", "Al Riyad": "الرياض", "Al Wehda": "الوحدة",
+    "Al Qadsiah": "القادسية", "Al Khaleej": "الخليج", "Al Raed": "الرائد",
+    "Al Taawoun": "التعاون", "Damac FC": "ضمك", "Al Fateh": "الفتح",
+    "Ismaily": "الإسماعيلي", "Al Masry": "المصري", "Smouha": "سموحة", "ENPPI": "إنبي",
+    "Ceramica Cleopatra": "سيراميكا كليوباترا", "Modern Sport": "مودرن سبورت",
+    "Galatasaray": "جالاطا سراي", "Fenerbahçe": "فنربخشة", "Beşiktaş": "بشكتاش",
+    "Benfica": "بنفيكا", "Porto": "بورتو", "Sporting CP": "سبورتينج لشبونة",
+    "Ajax": "أياكس", "PSV Eindhoven": "آيندهوفن", "Inter Miami": "إنتر ميامي",
+    "LAFC": "لوس أنجلوس FC", "Chicago Fire": "شيكاغو فاير", "Santos": "سانتوس",
+}
+
+def ar_team(name):
+    return TEAM_AR.get(name, name)
+
+def is_football(t, s):
+    x = (t + " " + s).lower()
+    for k in EXCLUDE:
+        if k.lower() in x: return False
+    for k in FOOT:
+        if k.lower() in x: return True
+    return False
 
 def send_tg(text):
     try:
@@ -186,12 +127,12 @@ def call_groq(prompt, temp=0.9):
     return None
 
 def ai_rewrite(title, summary, en=False):
-    task = "ترجم للعربية ثم" if en else ""
-    prompt = f"""أنت محرر رياضي. اكتب بأسلوب معلق مصري حماسي.
+    task = "ترجم للعربية أولاً ثم" if en else ""
+    prompt = f"""أنت محرر رياضي في قناة Edge Football. اكتب بأسلوب معلق مصري حماسي.
 {task} أعد صياغة:
 العنوان: {title}
 المحتوى: {summary[:1200]}
-- لا تنسخ حرفياً
+- لا تنسخ حرفياً أبداً
 - السطر الأول: عنوان جذاب مع إيموجي
 - بعدين سطرين عامية مصرية
 - لو مش كورة اكتب: SKIP"""
@@ -224,7 +165,7 @@ def top_table(slug, n=8):
             stats = {s["name"]: s.get("value") for s in e.get("stats", [])}
             rows.append({
                 "rank": int(float(stats.get("rank", 99))),
-                "team": e.get("team", {}).get("displayName", ""),
+                "team": ar_team(e.get("team", {}).get("displayName", "")),
                 "logo": e.get("team", {}).get("logo", ""),
                 "gp": stats.get("gamesPlayed", "-"),
                 "w": stats.get("wins", "-"),
@@ -285,26 +226,28 @@ def main():
     state = load_state()
     now = datetime.now(CAIRO)
     today = now.strftime("%Y-%m-%d")
-    posted = set(state["posted"])
-
-    send_owner(f"🟢 بدأت الجولة المصغرة | {now.strftime('%H:%M')}")
-    report = [f"🟢 بدأت | {now.strftime('%H:%M')}"]
+    posted = set(state.get("posted", []))
+    send_owner(f"🟢 بدأت الجولة | {now.strftime('%H:%M')}")
+    report = []
 
     # ========== الأخبار ==========
     news_count = 0
-    for url in ARABIC_SOURCES:
-        if news_count >= 3: break
+    for url in ARABIC_SOURCES + ENGLISH_SOURCES:
+        if news_count >= 4: break
         try:
             rr = requests.get(url, timeout=10, headers={"User-Agent": "EdgeFootball/1.0"})
             feed = feedparser.parse(rr.content)
-            for e in feed.entries[:4]:
+            en = url in ENGLISH_SOURCES
+            for e in feed.entries[:5]:
+                if news_count >= 4: break
                 title = e.get("title", "").strip()
                 url_e = e.get("link", "")
                 if not title or not url_e: continue
+                summary = BeautifulSoup(e.get("summary", ""), "html.parser").get_text().strip()
+                if not is_football(title, summary): continue
                 h = hashlib.md5((title + url_e).encode()).hexdigest()
                 if h in posted: continue
-                summary = BeautifulSoup(e.get("summary", ""), "html.parser").get_text().strip()
-                draft = ai_rewrite(title, summary)
+                draft = ai_rewrite(title, summary, en)
                 if not draft or "SKIP" in draft[:20]:
                     draft = f"⚽ {title}\n\n{summary[:300]}"
                 if send_tg(draft + "\n\n📡 Edge Football"):
@@ -314,14 +257,14 @@ def main():
                     state.setdefault("site_news", []).append(
                         {"t": draft.splitlines()[0][:100], "img": ""})
                     time.sleep(4)
-                if news_count >= 3: break
         except Exception as ex:
             print("news error:", ex)
     report.append(f"📰 أخبار: {news_count}")
 
-    # ========== المباريات ==========
+    # ========== المباريات (بالأهمية) ==========
     matches = []
-    for slug, name in LEAGUES.items():
+    for slug in PRIORITY:
+        name = LEAGUES[slug]
         data = fetch_scoreboard(slug)
         if not data: continue
         group = {"league": name, "slug": slug, "items": [], "big": True}
@@ -338,8 +281,8 @@ def main():
                 home = [c for c in comps if c.get("homeAway") == "home"][0]
                 away = [c for c in comps if c.get("homeAway") == "away"][0]
                 group["items"].append({
-                    "home": home["team"]["displayName"],
-                    "away": away["team"]["displayName"],
+                    "home": ar_team(home["team"]["displayName"]),
+                    "away": ar_team(away["team"]["displayName"]),
                     "eid": ev.get("id"),
                     "slug": slug,
                     "homeLogo": home["team"].get("logo", ""),
@@ -354,21 +297,18 @@ def main():
         if group["items"]:
             group["items"].sort(key=lambda x: {"in": 0, "post": 1, "pre": 2}.get(x["state"], 3))
             matches.append(group)
-        PRIORITY = ["egy.1", "ksa.1", "uefa.champions", "eng.1", "esp.1", "ita.1", "ger.1", "fra.1"]
-    matches.sort(key=lambda g: PRIORITY.index(g["slug"]) if g.get("slug") in PRIORITY else 99)
-    total_matches = sum(len(g["items"]) for g in matches)
-    report.append(f"⚽ مباريات: {total_matches}")
+    report.append(f"⚽ مباريات: {sum(len(g['items']) for g in matches)}")
 
-    # ========== ترتيب الدوريات ==========
+    # ========== الترتيب ==========
     tables = {}
-    for slug, name in LEAGUES.items():
+    for slug in PRIORITY:
         t = top_table(slug, 8)
         if t:
-            tables[name] = t
+            tables[LEAGUES[slug]] = t
 
     # ========== الهدافون ==========
     leaders = {}
-    for slug, name in LEAGUES.items():
+    for slug in PRIORITY:
         try:
             r = requests.get(
                 f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/leaders",
@@ -379,19 +319,18 @@ def main():
             for cat in d.get("leaders", []):
                 label = cat.get("displayName") or "الأفضل"
                 items = []
-                entries = cat.get("leaders") or cat.get("entries") or []
-                for e in entries[:10]:
+                for e in (cat.get("leaders") or cat.get("entries") or [])[:10]:
                     a = e.get("athlete", {}) or {}
                     items.append({
                         "name": a.get("displayName", ""),
-                        "team": (a.get("team", {}) or {}).get("displayName", ""),
+                        "team": ar_team((a.get("team", {}) or {}).get("displayName", "")),
                         "value": e.get("displayValue", e.get("value", "")),
                         "face": (a.get("headshot", {}) or {}).get("href", ""),
                     })
                 if items:
                     cats[label] = items
             if cats:
-                leaders[name] = cats
+                leaders[LEAGUES[slug]] = cats
         except Exception:
             pass
 
@@ -414,12 +353,12 @@ def main():
     state["site_news"] = state.get("site_news", [])[-20:]
     save_state(state)
 
-    # ========== التقرير ==========
-    report.append(f"📁 site/data.json: ✅ ({os.path.getsize('site/data.json')} بايت)")
-    report.append(f"🕐 آخر تحديث: {site_data['updated_at']}")
-    report.append("🏁 انتهت الجولة المصغرة")
-    send_owner("\n".join(report))
-    print("\n".join(report))
+    report.append(f"📁 data.json: ✅ {os.path.getsize('site/data.json')} بايت")
+    report.append(f"🕐 تحديث: {site_data['updated_at']}")
+    report.append("🏁 انتهت الجولة")
+    msg = "\n".join(report)
+    send_owner(msg)
+    print(msg)
 
 if __name__ == "__main__":
     try:
@@ -427,8 +366,5 @@ if __name__ == "__main__":
     except Exception:
         tb = traceback.format_exc()
         print(tb)
-        try:
-            send_owner("🚨 البوت وقع:\n" + tb[-900:])
-        except Exception:
-            pass
+        send_owner("🚨 البوت وقع:\n" + tb[-800:])
         raise
