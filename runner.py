@@ -1034,6 +1034,7 @@ def fetch_highlights(matches):
     return items
     
 def build_site_data(state, today):
+    print("📦 بداية بناء بيانات الموقع...")
     now = datetime.now(CAIRO)
 
     # آخر 10 أخبار دايماً
@@ -1128,6 +1129,8 @@ def build_site_data(state, today):
     os.makedirs("site", exist_ok=True)
     with open("site/data.json", "w", encoding="utf-8") as f:
         json.dump(site_data, f, ensure_ascii=False, indent=2)
+    send_owner("✅ تم تحديث الموقع: " + data.get("updated_at", ""))
+    print("🌐 تم رفع data.json بنجاح")
     print("🌐 تم تحديث بيانات الموقع")
 
 # ============================================
