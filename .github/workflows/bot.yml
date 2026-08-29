@@ -2,7 +2,7 @@ name: Edge Football Bot
 
 on:
   schedule:
-    - cron: "*/20 * * * *"
+    - cron: '*/30 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -11,7 +11,7 @@ permissions:
 jobs:
   run-bot:
     runs-on: ubuntu-latest
-    timeout-minutes: 19
+    timeout-minutes: 29
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

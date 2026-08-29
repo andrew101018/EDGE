@@ -45,8 +45,8 @@ CEREBRAS_KEY = os.environ.get("CEREBRAS_KEY", "")
 FORCE = os.environ.get("FORCE", "") == "1"
 
 STATE_FILE = "posted.json"
-MAX_PER_RUN = 5
-FRESH_HOURS = 8
+MAX_PER_RUN = 3
+FRESH_HOURS = 4
 CAIRO = ZoneInfo("Africa/Cairo")
 
 ARABIC_SOURCES = [
