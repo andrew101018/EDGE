@@ -4,7 +4,10 @@ try:
     import feedparser  # type: ignore[import-not-found]
 except ImportError:
     feedparser = None
-from bs4 import BeautifulSoup
+try:
+    from bs4 import BeautifulSoup  # type: ignore[import-not-found]
+except ImportError:
+    BeautifulSoup = None
 from datetime import datetime
 from zoneinfo import ZoneInfo
 from difflib import SequenceMatcher
@@ -1048,8 +1051,8 @@ def build_site_data(state, today):
         if item["d"] == today:
             results_items.append(item["t"])
 
-    # المباريات (لايف + منتهية + قادمة) متجمعة حسب البطولة
-        matches = []
+        # المباريات (لايف + منتهية + قادمة) متجمعة حسب البطولة
+    matches = []
     order = {"in": 0, "post": 1, "pre": 2}
     for slug, name in LEAGUES.items():
         data = fetch_scoreboard(slug)
@@ -1129,8 +1132,7 @@ def build_site_data(state, today):
     os.makedirs("site", exist_ok=True)
     with open("site/data.json", "w", encoding="utf-8") as f:
         json.dump(site_data, f, ensure_ascii=False, indent=2)
-    send_owner("✅ تم تحديث الموقع: " + data.get("updated_at", ""))
-    print("🌐 تم رفع data.json بنجاح")
+    send_owner("✅ تم تحديث الموقع: " + site_data.get("updated_at", ""))    print("🌐 تم رفع data.json بنجاح")
     print("🌐 تم تحديث بيانات الموقع")
 
 # ============================================
@@ -1276,8 +1278,17 @@ def make_publish_package(news_lines):
     state["daily_news"] = [x for x in state.get("daily_news", []) if x["d"] == today][-20:]
     state["daily_results"] = [x for x in state.get("daily_results", []) if x["d"] == today][-20:]
 
-    # ---------- الموقع ----------
-    build_site_data(state, today)
+        # ---------- الموقع ----------
+    try:
+        build_site_data(state, today)
+    except Exception:
+        import traceback
+        tb = traceback.format_exc()
+        print("🚨 فشل بناء الموقع:", tb[-500:])
+        try:
+            send_owner("🚨 فشل تحديث الموقع:\n" + tb[-800:])
+        except Exception:
+            pass
 
     save_state(state)
     print("🏁 انتهت الجولة")
