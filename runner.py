@@ -237,6 +237,38 @@ def top_table(slug, n=8):
     except Exception:
         return None
 
+def fetch_world():
+    out = []
+    for slug in ["eng.1", "esp.1", "ita.1", "ger.1", "ksa.1", "egy.1", "uefa.champions"]:
+        try:
+            r = requests.get(
+                f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/news",
+                timeout=8)
+            if not r.ok: continue
+            d = r.json()
+            arts = d.get("articles") or d.get("feed") or d.get("headlines") or []
+            for a in arts[:3]:
+                title = a.get("headline") or a.get("title") or ""
+                imgs = a.get("images") or []
+                img = (imgs[0].get("url") or imgs[0].get("href")) if imgs else ""
+                if not img and a.get("image"):
+                    img = a.get("image")
+                if title:
+                    out.append({"t": title, "img": img or ""})
+        except Exception:
+            pass
+    if not out:
+        try:
+            r = requests.get("https://www.thesportsdb.com/api/v1/json/123/latest_soccer.php", timeout=8)
+            if r.ok:
+                for n in (r.json().get("news") or [])[:12]:
+                    t = n.get("strHeadline") or ""
+                    if t:
+                        out.append({"t": t, "img": n.get("strThumb") or ""})
+        except Exception:
+            pass
+    return out
+
 def load_state():
     try:
         with open(STATE_FILE, encoding="utf-8") as f:
@@ -292,7 +324,7 @@ def main():
     for slug, name in LEAGUES.items():
         data = fetch_scoreboard(slug)
         if not data: continue
-        group = {"league": name, "items": [], "big": True}
+        group = {"league": name, "slug": slug, "items": [], "big": True}
         for ev in data.get("events", []):
             try:
                 comp = ev["competitions"][0]
@@ -322,6 +354,8 @@ def main():
         if group["items"]:
             group["items"].sort(key=lambda x: {"in": 0, "post": 1, "pre": 2}.get(x["state"], 3))
             matches.append(group)
+        PRIORITY = ["egy.1", "ksa.1", "uefa.champions", "eng.1", "esp.1", "ita.1", "ger.1", "fra.1"]
+    matches.sort(key=lambda g: PRIORITY.index(g["slug"]) if g.get("slug") in PRIORITY else 99)
     total_matches = sum(len(g["items"]) for g in matches)
     report.append(f"⚽ مباريات: {total_matches}")
 
@@ -369,7 +403,7 @@ def main():
         "matches": matches,
         "tables": tables,
         "leaders": leaders,
-        "world": [],
+        "world": fetch_world(),
         "highlights": [],
     }
     os.makedirs("site", exist_ok=True)
