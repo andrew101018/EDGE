@@ -736,6 +736,23 @@ async function loadBoard() {
     '</table>';
 }
 
+const TRANSFER_WORDS = ['صفقة', 'صفقات', 'انتقال', 'تعاقد', 'توقيع', 'يرحل', 'رحيل',
+  'يجدد', 'تجديد', 'إعارة', 'بيع', 'شراء', 'مليون', 'ينتقل', 'انضم',
+  'transfer', 'signed', 'signs', 'loan', 'deal', 'move', 'joins'];
+function renderTransfers() {
+  const all = [...(DATA.news || []), ...(DATA.world || [])];
+  const items = all.filter(n => {
+    const t = (n.t || '').toLowerCase();
+    return TRANSFER_WORDS.some(w => t.includes(w));
+  });
+  document.getElementById('transfersContainer').innerHTML = items.length ? items.map(n => `
+    <div class="tv-card" style="text-align:right;">
+      ${n.img ? `<img src="${n.img}" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:8px;" onerror="this.style.display='none'">` : ''}
+      <div style="font-weight:bold;font-size:.9em;">${n.t}</div>
+    </div>`).join('')
+    : '<div class="card">مفيش أخبار انتقالات دلوقتي — هتتحدث مع كل جولة 🔄</div>';
+}
+
 async function loadData() {
   try {
     const r = await fetch('site/data.json?t=' + Date.now());
@@ -752,6 +769,7 @@ async function loadData() {
     loadBoard();
     renderShop();
     renderWorld();
+    renderTransfers();
 
     document.getElementById('newsContainer').innerHTML = DATA.news.length > 0
       ? DATA.news.map(n => `<div class="news-item">${n.t}</div>`).join('')

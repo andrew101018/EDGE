@@ -35,13 +35,14 @@
   <button class="nav-btn active" onclick="go('home', this)">🏠 الرئيسية</button>
   <button class="nav-btn" onclick="go('matches', this)">⚽ المباريات</button>
   <button class="nav-btn" onclick="go('tables', this)">🏆 الترتيب</button>
+  <button class="nav-btn" onclick="go('world', this)">🌍 عالمية</button>
   <button class="nav-btn" onclick="go('leaders', this)">👑 الهدافين</button>
+  <button class="nav-btn" onclick="go('transfers', this)">💸 الانتقالات</button>
   <button class="nav-btn" onclick="go('tv', this)">📺 شاهد</button>
   <button class="nav-btn" onclick="go('predict', this)">🎮 توقعات</button>
   <button class="nav-btn" onclick="go('fantasy', this)">🎮 فانتازي</button>
   <button class="nav-btn" onclick="go('board', this)">🏅 الصدارة</button>
   <button class="nav-btn" onclick="go('shop', this)">🛒 المتجر</button>
-  <button class="nav-btn" onclick="go('world', this)">🌍 عالمية</button>
   <button id="installBtn" class="nav-btn" hidden onclick="installApp()">📲 ثبّت التطبيق</button>
 </nav>
 
@@ -108,6 +109,12 @@
     <h2>🌍 الصحافة العالمية</h2>
     <p class="world-description">أبرز العناوين المصورة من الصحافة العالمية</p>
     <div id="worldContainer" class="grid"></div>
+  </section>
+
+  <section id="sec-transfers" class="page">
+    <h2>💸 مركز الانتقالات</h2>
+    <p class="transfers-description">كل الصفقات والانتقالات — متجمعة تلقائياً من كل المصادر</p>
+    <div id="transfersContainer" class="grid"></div>
   </section>
 
   <section class="section telegram">
