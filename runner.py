@@ -1287,7 +1287,7 @@ if __name__ == "__main__":
         tb = traceback.format_exc()
         print(tb)
         try:
-            send_owner(f"🚨 البوت وقع — ده الخطأ:\n\n{tb[-900:]}")
+            send_owner("🚨 البوت وقع:\n" + tb[-900:])
         except Exception:
             pass
         raise
