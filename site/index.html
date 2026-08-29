@@ -5,8 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Edge Football ⚽ الكورة بتبدأ من هنا</title>
 <meta name="description" content="كل حاجة في الكورة قبل أي حد تاني — أخبار، نتائج، لايف، ترتيب، هدافين، دليل مشاهدة، توقعات">
-<link rel="stylesheet" href="style.css">
-</head>
+<meta property="og:title" content="Edge Football ⚽ الكورة بتبدأ من هنا">
+<meta property="og:description" content="أخبار، نتائج، لايف، ترتيب، هدافين، فانتازي — كل حاجة في الكورة قبل أي حد تاني ⚡">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://andrew101018.github.io/EDGE/">
+<meta property="og:image" content="https://andrew101018.github.io/EDGE/icon.svg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css?v=3"></head>
 <body>
 <header>
   <div class="container">
@@ -14,9 +21,11 @@
     <p class="subtitle">الكورة بتبدأ من هنا 🔥 كل حاجة في الكورة.. قبل أي حد تاني ⚡</p>
     <div class="socials">
       <a href="https://t.me/edgefootballplatform" target="_blank" rel="noopener">📲 تيليجرام</a>
-      <a href="https://youtube.com/@EdgeFootballPlatform" target="_blank" rel="noopener">▶️ يوتيوب</a>
-      <a href="https://facebook.com/EdgeFootballPlatform" target="_blank" rel="noopener">📘 فيسبوك</a>
-      <a href="https://tiktok.com/@edgefootball" target="_blank" rel="noopener">🎵 تيك توك</a>
+      <a href="https://youtube.com/@andygmall?si=scJTXJgee0gtMZar" target="_blank" rel="noopener">📺 يوتيوب</a>
+      <a href="https://www.facebook.com/share/1Gohnia7GU/" target="_blank" rel="noopener">📘 فيسبوك</a>
+      <a href="https://www.tiktok.com/@andr8w_10?_r=1&_t=ZS-99DBAk3ILae" target="_blank" rel="noopener">🎵 تيك توك</a>
+      <a href="https://www.instagram.com/edge_footballl?igsi=cHU5dGY0ZTZvdmN4" target="_blank" rel="noopener">📸 إنستجرام</a>
+      <a href="https://www.threads.com/@edge_footballl" target="_blank" rel="noopener">🧵 ثريدز</a>
     </div>
     <div class="last-update" id="lastUpdate"></div>
   </div>
@@ -29,6 +38,10 @@
   <button class="nav-btn" onclick="go('leaders', this)">👑 الهدافين</button>
   <button class="nav-btn" onclick="go('tv', this)">📺 شاهد</button>
   <button class="nav-btn" onclick="go('predict', this)">🎮 توقعات</button>
+  <button class="nav-btn" onclick="go('fantasy', this)">🎮 فانتازي</button>
+  <button class="nav-btn" onclick="go('board', this)">🏅 الصدارة</button>
+ <button class="nav-btn" onclick="go('shop', this)">🛒 المتجر</button>
+   <button class="nav-btn" onclick="go('world', this)">🌍 عالمية</button>
 </nav>
 
 <main class="container">
@@ -68,6 +81,34 @@
     <button class="btn predict-save-btn" onclick="savePredict()">💾 حفظ التوقعات</button>
   </section>
 
+  <section id="sec-fantasy" class="page">
+    <h2>🎮 فانتازي إيدج</h2>
+    <div id="fantasyInfo" class="points-banner"></div>
+    <div id="fantasySquad" class="p-grid fantasy-squad"></div>
+    <h3 class="fantasy-instruction">دوس على اللاعب لاختياره — 5 لاعبين بميزانية 70 💰</h3>
+    <div id="fantasyPool" class="grid"></div>
+    <button class="btn fantasy-save-btn" onclick="saveFantasy()">💾 حفظ الفريق</button>
+  </section>
+  
+  <section id="sec-board" class="page">
+    <h2>🏅 لوحة الصدارة</h2>
+    <p class="board-description">نقاطك من التوقعات + الفانتازي في مواجهة أصحابك</p>
+    <button type="button" class="btn upload-score-btn" onclick="uploadScore()">🚀 رفع نقاطي</button>
+    <div id="boardContainer"></div>
+  </section>
+
+  <section id="sec-shop" class="page">
+    <h2>🛒 متجر الكورة</h2>
+    <p class="shop-description">منتجات مختارة لعشاق الكورة — بدعمكم القناة تستمر ⚽</p>
+    <div class="grid" id="shopContainer"></div>
+  </section>
+
+  <section id="sec-world" class="page">
+    <h2>🌍 الصحافة العالمية</h2>
+    <p class="world-description">أبرز العناوين المصورة من الصحافة العالمية</p>
+    <div id="worldContainer" class="grid"></div>
+  </section>
+
   <section class="section telegram">
     <h2>📢 تابعنا في كل مكان</h2>
     <p>الأخبار والنتائج والفيديوهات لحظياً على كل منصاتنا</p>
@@ -83,12 +124,21 @@
   </div>
 </div>
 
+  <section class="section telegram advertising-section">
+    <h2>🤝 للإعلان والرعايات</h2>
+    <p>Edge Football — منصة كورة صاعدة بجمهور شغوف ⚽<br>للتواصل بخصوص الإعلانات والرعايات:</p>
+    <a href="https://t.me/edgefootballplatform" target="_blank" rel="noopener" class="btn">📩 راسلنا على تيليجرام</a>
+  </section>
+
 <footer>
   <div class="container">
     <p>© 2026 Edge Football — الكورة بتبدأ من هنا 🔥 كل حاجة في الكورة.. قبل أي حد تاني ⚡</p>
   </div>
 </footer>
 
-<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js?v=3"></script>
+<a class="share-wa" target="_blank" rel="noopener" href="https://wa.me/?text=🔥 أخبار كورة لحظياً + مباريات لايف + فانتازي — الكورة بتبدأ من هنا ⚽ https://andrew101018.github.io/EDGE/">💬</a>
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');</script>
 </body>
 </html>

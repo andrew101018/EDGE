@@ -29,7 +29,7 @@ class GoogleTranslator:
                 "dt": "t",
                 "q": text,
             },
-            timeout=30,
+            timeout=15,
         )
         response.raise_for_status()
         return "".join(part[0] for part in response.json()[0] if part[0])
@@ -271,7 +271,7 @@ def send_tg(text):
     try:
         r = requests.post(
             f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage",
-            json={"chat_id": TG_CHANNEL, "text": text}, timeout=30)
+            json={"chat_id": TG_CHANNEL, "text": text}, timeout=15)
         if not r.ok:
             print("❌ Telegram error:", r.status_code, r.text[:200])
         return r.ok
@@ -284,7 +284,7 @@ def send_poll(question, options):
         r = requests.post(
             f"https://api.telegram.org/bot{TG_TOKEN}/sendPoll",
             json={"chat_id": TG_CHANNEL, "question": question,
-                  "options": [{"text": o} for o in options]}, timeout=30)
+                  "options": [{"text": o} for o in options]}, timeout=15)
         if not r.ok:
             print("❌ Poll error:", r.status_code, r.text[:200])
         return r.ok
@@ -315,7 +315,7 @@ def send_photo(url, caption):
     try:
         r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendPhoto",
             json={"chat_id": TG_CHANNEL, "photo": url, "caption": caption[:1000]},
-            timeout=60)
+            timeout=25)
         if r.ok: return True
         print("❌ Photo error:", r.status_code)
     except Exception as e:
@@ -331,7 +331,7 @@ def post_facebook(text, image_url):
         r = requests.post(
             f"https://graph.facebook.com/v19.0/{FB_PAGE_ID}/photos",
             data={"url": image_url, "caption": text, "access_token": FB_PAGE_TOKEN},
-            timeout=60)
+            timeout=25)
         if r.ok:
             print("✅ نُشر على فيسبوك")
             return True
@@ -344,7 +344,7 @@ def send_owner(text):
     if not OWNER_CHAT_ID: return False
     try:
         r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage",
-            json={"chat_id": OWNER_CHAT_ID, "text": text}, timeout=30)
+            json={"chat_id": OWNER_CHAT_ID, "text": text}, timeout=15)
         return r.ok
     except Exception:
         return False
@@ -428,7 +428,7 @@ def call_gemini(prompt, temp):
                     "contents": [{"parts": [{"text": prompt}]}],
                     "generationConfig": {"temperature": temp},
                 },
-                timeout=60,
+                timeout=25,
             )
             if r.ok:
                 print("✨ Gemini model:", model)
@@ -447,7 +447,7 @@ def call_groq(prompt, temp):
             r = requests.post("https://api.groq.com/openai/v1/chat/completions",
                 headers={"Authorization": f"Bearer {GROQ_KEY}"},
                 json={"model": model, "temperature": temp,
-                      "messages": [{"role": "user", "content": prompt}]}, timeout=60)
+                      "messages": [{"role": "user", "content": prompt}]}, timeout=25)
             if r.ok:
                 print("✨ Groq model:", model)
                 return r.json()["choices"][0]["message"]["content"]
@@ -462,7 +462,7 @@ def call_deepseek(prompt, temp):
         r = requests.post("https://api.deepseek.com/chat/completions",
             headers={"Authorization": f"Bearer {DEEPSEEK_KEY}"},
             json={"model": "deepseek-chat", "temperature": temp,
-                  "messages": [{"role": "user", "content": prompt}]}, timeout=60)
+                  "messages": [{"role": "user", "content": prompt}]}, timeout=25)
         if r.ok:
             return r.json()["choices"][0]["message"]["content"]
         print("DeepSeek status:", r.status_code, r.text[:150])
@@ -477,7 +477,7 @@ def call_openai_compat(base_url, key, models, prompt, temp, name):
             r = requests.post(base_url,
                 headers={"Authorization": f"Bearer {key}"},
                 json={"model": model, "temperature": temp,
-                      "messages": [{"role": "user", "content": prompt}]}, timeout=60)
+                      "messages": [{"role": "user", "content": prompt}]}, timeout=25)
             if r.ok:
                 print(f"✨ {name}:", model)
                 return r.json()["choices"][0]["message"]["content"]
@@ -553,7 +553,7 @@ def fetch_scoreboard(slug):
     try:
         r = requests.get(
             f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard",
-            timeout=20)
+            timeout=8)
         if r.ok:
             data = r.json()
     except Exception as e:
@@ -565,7 +565,7 @@ def fetch_standings(slug):
     try:
         r = requests.get(
             f"https://site.api.espn.com/apis/v2/sports/soccer/{slug}/standings",
-            timeout=20)
+            timeout=8)
         if not r.ok: return None
         data = r.json()
         if "standings" in data and "entries" in data["standings"]:
@@ -581,7 +581,7 @@ def fetch_lineups(slug, event_id):
     try:
         r = requests.get(
             f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/summary?event={event_id}",
-            timeout=20)
+            timeout=8)
         if not r.ok: return None
         data = r.json()
         out = {}
@@ -901,7 +901,7 @@ def make_short(text, state):
     prompt = urllib.parse.quote(
         "dramatic football stadium at night, cinematic lighting, green pitch, epic atmosphere, no text")
     r = requests.get(
-        f"https://image.pollinations.ai/prompt/{prompt}?width=1080&height=1920", timeout=120)
+        f"https://image.pollinations.ai/prompt/{prompt}?width=1080&height=1920", timeout=400)
     if not r.ok or len(r.content) < 1000:
         print("⚠️ توليد الصورة فشل — هنكمل من غير فيديو")
         return
@@ -943,7 +943,7 @@ def fetch_leaders():
         try:
             r = requests.get(
                 f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/leaders",
-                timeout=20)
+                timeout=8)
             if not r.ok: continue
             d = r.json()
             cats = {}
@@ -975,7 +975,7 @@ def fetch_espn_news():
         try:
             r = requests.get(
                 f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/news",
-                timeout=20)
+                timeout=8)
             if not r.ok:
                 print("espn news http:", slug, r.status_code)
                 continue
@@ -995,7 +995,7 @@ def fetch_espn_news():
             print("espn news error:", slug, e)
     if not out:
         try:
-            r = requests.get("https://www.thesportsdb.com/api/v1/json/123/latest_soccer.php", timeout=20)
+            r = requests.get("https://www.thesportsdb.com/api/v1/json/123/latest_soccer.php", timeout=8)
             if r.ok:
                 d = r.json()
                 for n in (d.get("news") or [])[:12]:
@@ -1011,7 +1011,7 @@ def fetch_espn_news():
 def fetch_highlights(matches):
     items = []
     try:
-        r = requests.get("https://www.scorebat.com/video-api/v3/", timeout=30)
+        r = requests.get("https://www.scorebat.com/video-api/v3/", timeout=15)
         if r.ok:
             d = r.json()
             resp = d.get("response", []) if isinstance(d, dict) else d
@@ -1182,7 +1182,7 @@ def main():
             post_facebook(content, "")
             make_shorts_script(content)
             count += 1
-            time.sleep(15)
+            time.sleep(5)
     state["posted"] = list(posted)
     state["posted_titles"] = recent_titles[-500:]
     state["last_openers"] = openers[-5:]
@@ -1234,7 +1234,7 @@ def make_publish_package(news_lines):
             reported.add(eid)
             state.setdefault("daily_results", []).append({"d": today, "t": short})
             sent += 1
-            time.sleep(10)
+            time.sleep(5)
     state["reported_matches"] = list(reported)[-500:]
 
     # ---------- البريفيو ----------
@@ -1248,7 +1248,7 @@ def make_publish_package(news_lines):
             if send_tg(text):
                 previewed.add(eid)
                 p_sent += 1
-                time.sleep(10)
+                time.sleep(4)
         state["previewed"] = list(previewed)[-300:]
 
     # ---------- جدول الصباح ----------

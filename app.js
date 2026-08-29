@@ -792,3 +792,14 @@ function renderWorld() {
 
 loadData();
 setInterval(loadData, 60000);
+let deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const b = document.getElementById('installBtn');
+  if (b) b.style.display = 'inline-block';
+});
+function installApp() {
+  if (!deferredPrompt) { alert('من قائمة المتصفح ⋮ اختار: إضافة إلى الشاشة الرئيسية'); return; }
+  deferredPrompt.prompt();
+}
