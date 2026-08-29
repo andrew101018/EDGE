@@ -5,15 +5,9 @@ try:
 except ImportError:
     feedparser = None
 from bs4 import BeautifulSoup
-from datetime import datetimeimport os, json, hashlib, time, re, random, traceback
-import requests
-try:
-    import feedparser
-except ImportError:
-    feedparser = None
-from bs4 import BeautifulSoup
 from datetime import datetime
 from zoneinfo import ZoneInfo
+from difflib import SequenceMatcher
 
 TG_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TG_CHANNEL = os.environ.get("TELEGRAM_CHANNEL_ID", "@edgefootballplatform")
@@ -37,60 +31,40 @@ ENGLISH_SOURCES = [
     {"name": "BBC Football", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"},
     {"name": "ESPN FC", "url": "https://www.espn.com/espn/rss/soccer/news"},
 ]
-EXCLUDE = ["cricket", "كريكت", "wimbledon", "ويمبلدون", "tennis", "كرة المضرب",
-    "boxing", "الملاكمة", "formula 1", "فورمولا", "rugby", "الرجبي",
-    "baseball", "البيسبول", "hockey", "الهوكي", "basketball", "كرة السلة",
-    "nba", "كرة اليد", "handball", "السباحة", "swimming", "ألعاب القوى",
-    "الشطرنج", "chess", "المصارعة", "wrestling", "الدراجات", "cycling",
-    "الجولف", "golf", "super bowl", "nfl", "test match", "the ashes",
-    "grand slam", "olympic", "أولمبياد"]
-FOOT = ["كرة", "كورة", "football", "soccer", "دوري", "ملعب", "مدرب", "منتخب",
-    "أهداف", "هدف", "انتقال", "صفقة", "تشكيلة", "مباراة", "مباريات", "كأس",
-    "فيفا", "يويفا", "الأهلي", "الزمالك", "ريال", "برشلونة", "ليفربول",
-    "مانشستر", "تشيلسي", "أرسنال", "باريس سان", "الهلال", "النصر", "الاتحاد",
-    "صلاح", "ميسي", "رونالدو", "مبابي", "هالاند", "بريميرليج", "الليجا",
-    "كالتشيو", "بوندسليجا", "champions", "premier", "guardiola", "كلوب",
-    "أنشيلوتي", "بيراميدز", "الإسماعيلي", "المصري", "الترجي", "الوداد"]
+EXCLUDE = ["cricket", "كريكت", "wimbledon", "ويمبلدون", "tennis", "كرة المضرب", "boxing", "الملاكمة",
+    "formula 1", "فورمولا", "rugby", "الرجبي", "baseball", "البيسبول", "hockey", "الهوكي",
+    "basketball", "كرة السلة", "nba", "كرة اليد", "handball", "السباحة", "swimming", "ألعاب القوى",
+    "الشطرنج", "chess", "المصارعة", "wrestling", "الدراجات", "cycling", "الجولف", "golf",
+    "super bowl", "nfl", "test match", "the ashes", "grand slam", "olympic", "أولمبياد"]
+FOOT = ["كرة", "كورة", "football", "soccer", "دوري", "ملعب", "مدرب", "منتخب", "أهداف", "هدف",
+    "انتقال", "صفقة", "تشكيلة", "مباراة", "مباريات", "كأس", "فيفا", "يويفا", "الأهلي", "الزمالك",
+    "ريال", "برشلونة", "ليفربول", "مانشستر", "تشيلسي", "أرسنال", "باريس سان", "الهلال", "النصر",
+    "الاتحاد", "صلاح", "ميسي", "رونالدو", "مبابي", "هالاند", "بريميرليج", "الليجا", "كالتشيو",
+    "بوندسليجا", "champions", "premier", "guardiola", "كلوب", "أنشيلوتي", "بيراميدز", "الإسماعيلي", "المصري", "الترجي", "الوداد"]
 
-LEAGUES = {
-    "eng.1": "الدوري الإنجليزي", "esp.1": "الدوري الإسباني",
-    "ita.1": "الدوري الإيطالي", "ger.1": "الدوري الألماني",
-    "fra.1": "الدوري الفرنسي", "ksa.1": "الدوري السعودي",
-    "egy.1": "الدوري المصري", "uefa.champions": "دوري أبطال أوروبا",
-}
+LEAGUES = {"eng.1": "الدوري الإنجليزي", "esp.1": "الدوري الإسباني", "ita.1": "الدوري الإيطالي",
+    "ger.1": "الدوري الألماني", "fra.1": "الدوري الفرنسي", "ksa.1": "الدوري السعودي",
+    "egy.1": "الدوري المصري", "uefa.champions": "دوري أبطال أوروبا"}
 PRIORITY = ["egy.1", "ksa.1", "uefa.champions", "eng.1", "esp.1", "ita.1", "ger.1", "fra.1"]
 BIG_LEAGUES = ["eng.1", "esp.1", "uefa.champions", "egy.1", "ksa.1"]
-BROADCASTERS = {
-    "eng.1": ("beIN Sports", "https://www.bein.com/ar/"),
-    "esp.1": ("beIN Sports", "https://www.bein.com/ar/"),
-    "ita.1": ("beIN Sports", "https://www.bein.com/ar/"),
-    "fra.1": ("beIN Sports", "https://www.bein.com/ar/"),
-    "ger.1": ("beIN Sports", "https://www.bein.com/ar/"),
-    "uefa.champions": ("beIN Sports", "https://www.bein.com/ar/"),
-    "ksa.1": ("SSC / شاهد", "https://shahid.mbc.com/ar"),
-    "egy.1": ("أون تايم سبورتس", "https://www.facebook.com/ONTimesports"),
-}
-TEAM_AR = {
-    "Real Madrid": "ريال مدريد", "Barcelona": "برشلونة", "Liverpool": "ليفربول",
-    "Manchester City": "مانشستر سيتي", "Manchester United": "مانشستر يونايتد",
-    "Chelsea": "تشيلسي", "Arsenal": "أرسنال", "Tottenham Hotspur": "توتنهام",
-    "Paris Saint-Germain": "باريس سان جيرمان", "Bayern Munich": "بايرن ميونخ",
-    "Juventus": "يوفنتوس", "Inter": "إنتر ميلان", "AC Milan": "ميلان",
-    "Atlético Madrid": "أتلتيكو مدريد", "Borussia Dortmund": "بوروسيا دورتموند",
-    "Napoli": "نابولي", "Aston Villa": "أستون فيلا", "Newcastle United": "نيوكاسل",
-    "Al Ahly": "الأهلي", "Zamalek": "الزمالك", "Pyramids FC": "بيراميدز",
-    "Al Hilal": "الهلال", "Al Nassr": "النصر", "Al Ittihad": "الاتحاد",
-    "Al Ahli": "الأهلي السعودي", "Al Shabab": "الشباب", "Al Ettifaq": "الاتفاق",
-    "Al Fayha": "الفيحاء", "Al Riyad": "الرياض", "Al Wehda": "الوحدة",
-    "Al Qadsiah": "القادسية", "Al Khaleej": "الخليج", "Al Raed": "الرائد",
-    "Al Taawoun": "التعاون", "Damac FC": "ضمك", "Al Fateh": "الفتح",
+BROADCASTERS = {"eng.1": "beIN Sports", "esp.1": "beIN Sports", "ita.1": "beIN Sports",
+    "fra.1": "beIN Sports", "ger.1": "beIN Sports", "uefa.champions": "beIN Sports",
+    "ksa.1": "SSC / شاهد", "egy.1": "أون تايم سبورتس"}
+TEAM_AR = {"Real Madrid": "ريال مدريد", "Barcelona": "برشلونة", "Liverpool": "ليفربول",
+    "Manchester City": "مانشستر سيتي", "Manchester United": "مانشستر يونايتد", "Chelsea": "تشيلسي",
+    "Arsenal": "أرسنال", "Tottenham Hotspur": "توتنهام", "Paris Saint-Germain": "باريس سان جيرمان",
+    "Bayern Munich": "بايرن ميونخ", "Juventus": "يوفنتوس", "Inter": "إنتر ميلان", "AC Milan": "ميلان",
+    "Atlético Madrid": "أتلتيكو مدريد", "Borussia Dortmund": "بوروسيا دورتموند", "Napoli": "نابولي",
+    "Aston Villa": "أستون فيلا", "Newcastle United": "نيوكاسل", "Al Ahly": "الأهلي", "Zamalek": "الزمالك",
+    "Pyramids FC": "بيراميدز", "Al Hilal": "الهلال", "Al Nassr": "النصر", "Al Ittihad": "الاتحاد",
+    "Al Ahli": "الأهلي السعودي", "Al Shabab": "الشباب", "Al Ettifaq": "الاتفاق", "Al Fayha": "الفيحاء",
+    "Al Riyad": "الرياض", "Al Wehda": "الوحدة", "Al Qadsiah": "القادسية", "Al Khaleej": "الخليج",
+    "Al Raed": "الرائد", "Al Taawoun": "التعاون", "Damac FC": "ضمك", "Al Fateh": "الفتح",
     "Ismaily": "الإسماعيلي", "Al Masry": "المصري", "Smouha": "سموحة", "ENPPI": "إنبي",
     "Ceramica Cleopatra": "سيراميكا كليوباترا", "Modern Sport": "مودرن سبورت",
-    "Galatasaray": "جالاطا سراي", "Fenerbahçe": "فنربخشة", "Beşiktaş": "بشكتاش",
-    "Benfica": "بنفيكا", "Porto": "بورتو", "Sporting CP": "سبورتينج لشبونة",
-    "Ajax": "أياكس", "PSV Eindhoven": "آيندهوفن", "Inter Miami": "إنتر ميامي",
-    "LAFC": "لوس أنجلوس FC", "Chicago Fire": "شيكاغو فاير", "Santos": "سانتوس",
-}
+    "Galatasaray": "جالاطا سراي", "Fenerbahçe": "فنربخشة", "Beşiktaş": "بشكتاش", "Benfica": "بنفيكا",
+    "Porto": "بورتو", "Sporting CP": "سبورتينج لشبونة", "Ajax": "أياكس", "PSV Eindhoven": "آيندهوفن",
+    "Inter Miami": "إنتر ميامي", "LAFC": "لوس أنجلوس FC", "Chicago Fire": "شيكاغو فاير", "Santos": "سانتوس"}
 
 def ar_team(name):
     return TEAM_AR.get(name, name)
@@ -103,6 +77,17 @@ def is_football(title, summary):
         if k.lower() in t: return True
     return False
 
+def norm_title(t):
+    t = t.lower()
+    t = re.sub(r'[^\w\u0600-\u06FF]+', ' ', t)
+    return t.strip()[:80]
+
+def is_dup_title(nt, recent):
+    for p in recent[-200:]:
+        if nt == p: return True
+        if abs(len(nt) - len(p)) < 12 and SequenceMatcher(None, nt, p).ratio() > 0.9: return True
+    return False
+
 ENGAGEMENTS = [
     {"type": "poll", "q": "مين أحسن مهاجم في العالم دلوقتي؟ 🔥", "options": ["هالاند", "مبابي", "محمد صلاح", "فينيسيوس"]},
     {"type": "poll", "q": "مين الأعظم في التاريخ؟ 🐐", "options": ["ميسي", "رونالدو", "الاتنين في قلبي"]},
@@ -111,7 +96,6 @@ ENGAGEMENTS = [
     {"type": "text", "t": "💡 معلومة سريعة: ريال مدريد نادي القرن في أوروبا.. أكتر نادي كسب الشامبيونزليج 🏆"},
     {"type": "poll", "q": "أنهي مباراة بتستناها أكتر؟ ⏰", "options": ["كلاسيكو الأرض", "ديربي البريميرليج", "ليلية الأبطال", "قمة الدوري المصري"]},
 ]
-
 STYLES = [
     {"name": "المعلق الحماسي", "p": "اكتب بأسلوب معلق كرة قدم حماسي: تعجيب، طاقة عالية، عامية مصرية قوية."},
     {"name": "العاجل المختصر", "p": "اكتب بأسلوب الخبر العاجل: سطرين فقط، معلومة مباشرة، بدون أي حشو."},
@@ -128,6 +112,13 @@ BASE_RULES = """قواعد ثابتة:
 - ممنوع أي حروف لاتينية داخل النص
 - السطر الأول: عنوان جذاب مع إيموجي
 - لو الخبر ليس عن كرة القدم اكتب كلمة واحدة: SKIP"""
+LONG_SCRIPT_PROMPT = """أنت كاتب سيناريوهات فيديوهات كرة قدم محترف.
+اكتب سكريبت فيديو طويل (3-4 دقائق) بالعامية المصرية يلخص أهم أخبار اليوم:
+- مقدمة حماسية 20 ثانية
+- 3-4 فقرات، كل فقرة: [المشهد:] وصف بصري / [التعليق:] كلامك بصوتك
+- خاتمة: دعوة للاشتراك + سؤال للجمهور
+أخبار اليوم:
+"""
 
 def hash_id(title, url):
     return hashlib.md5((title + url).encode()).hexdigest()
@@ -144,19 +135,14 @@ def save_state(state):
     with open(STATE_FILE, "w", encoding="utf-8") as f:
         json.dump(state, f, ensure_ascii=False)
 
-class GoogleTranslator:
-    def translate(self, text):
-        r = requests.get("https://translate.googleapis.com/translate_a/single",
-            params={"client": "gtx", "sl": "auto", "tl": "ar", "dt": "t", "q": text}, timeout=10)
-        r.raise_for_status()
-        return "".join(p[0] for p in r.json()[0] if p[0])
-
 def translate(text):
     try:
-        res = GoogleTranslator().translate(text[:500])
-        if not res: return None
+        r = requests.get("https://translate.googleapis.com/translate_a/single",
+            params={"client": "gtx", "sl": "auto", "tl": "ar", "dt": "t", "q": text[:500]}, timeout=10)
+        r.raise_for_status()
+        res = "".join(p[0] for p in r.json()[0] if p[0])
         bad = ["server error", "that's an error", "error 500", "try again later", "unavailable"]
-        if any(b in res.lower() for b in bad): return None
+        if not res or any(b in res.lower() for b in bad): return None
         return res
     except Exception:
         return None
@@ -174,8 +160,7 @@ def send_tg(text):
 def send_poll(question, options):
     try:
         r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendPoll",
-            json={"chat_id": TG_CHANNEL, "question": question,
-                  "options": [{"text": o} for o in options]}, timeout=15)
+            json={"chat_id": TG_CHANNEL, "question": question, "options": [{"text": o} for o in options]}, timeout=15)
         return r.ok
     except Exception:
         return False
@@ -193,10 +178,8 @@ def call_gemini(prompt, temp):
     if not GEMINI_KEY: return None
     for model in ["gemini-2.5-flash", "gemini-2.0-flash"]:
         try:
-            r = requests.post(
-                f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_KEY}",
-                json={"contents": [{"parts": [{"text": prompt}]}],
-                      "generationConfig": {"temperature": temp}}, timeout=25)
+            r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_KEY}",
+                json={"contents": [{"parts": [{"text": prompt}]}], "generationConfig": {"temperature": temp}}, timeout=25)
             if r.ok:
                 print("✨ Gemini:", model)
                 return r.json()["candidates"][0]["content"]["parts"][0]["text"]
@@ -211,10 +194,8 @@ def call_groq(prompt, temp):
         try:
             r = requests.post("https://api.groq.com/openai/v1/chat/completions",
                 headers={"Authorization": f"Bearer {GROQ_KEY}"},
-                json={"model": model, "temperature": temp,
-                      "messages": [{"role": "user", "content": prompt}]}, timeout=25)
-            if r.ok:
-                return r.json()["choices"][0]["message"]["content"]
+                json={"model": model, "temperature": temp, "messages": [{"role": "user", "content": prompt}]}, timeout=25)
+            if r.ok: return r.json()["choices"][0]["message"]["content"]
         except Exception:
             pass
     return None
@@ -224,10 +205,8 @@ def call_deepseek(prompt, temp):
     try:
         r = requests.post("https://api.deepseek.com/chat/completions",
             headers={"Authorization": f"Bearer {DEEPSEEK_KEY}"},
-            json={"model": "deepseek-chat", "temperature": temp,
-                  "messages": [{"role": "user", "content": prompt}]}, timeout=25)
-        if r.ok:
-            return r.json()["choices"][0]["message"]["content"]
+            json={"model": "deepseek-chat", "temperature": temp, "messages": [{"role": "user", "content": prompt}]}, timeout=25)
+        if r.ok: return r.json()["choices"][0]["message"]["content"]
     except Exception:
         pass
     return None
@@ -236,14 +215,13 @@ def ai_process(title, content, is_english, forbidden=None):
     style = random.choice(STYLES)
     temp = round(random.uniform(0.9, 1.3), 2)
     print(f"🎭 ستايل: {style['name']} | حرارة: {temp}")
-    forbidden_block = ""
+    fb = ""
     if forbidden:
-        forbidden_block = "\nممنوع تفتح الخبر بأي من الجمل دي (اتستخدمت قبل كده):\n"
-        forbidden_block += "\n".join(f"- {f}" for f in forbidden[-5:])
+        fb = "\nممنوع تفتح الخبر بأي من الجمل دي (اتستخدمت قبل كده):\n" + "\n".join(f"- {f}" for f in forbidden[-5:])
     task = "ترجم للعربية أولاً ثم" if is_english else ""
     prompt = f"""أنت محرر رياضي في قناة Edge Football.
 {style['p']}
-{BASE_RULES}{forbidden_block}
+{BASE_RULES}{fb}
 
 {task} أعد صياغة الخبر ده:
 العنوان: {title}
@@ -267,11 +245,9 @@ def fetch_standings(slug):
         r = requests.get(f"https://site.api.espn.com/apis/v2/sports/soccer/{slug}/standings", timeout=8)
         if not r.ok: return None
         data = r.json()
-        if "standings" in data and "entries" in data["standings"]:
-            return data["standings"]["entries"]
+        if "standings" in data and "entries" in data["standings"]: return data["standings"]["entries"]
         for ch in data.get("children", []):
-            if "standings" in ch and "entries" in ch["standings"]:
-                return ch["standings"]["entries"]
+            if "standings" in ch and "entries" in ch["standings"]: return ch["standings"]["entries"]
     except Exception as e:
         print("standings error:", slug, e)
     return None
@@ -280,52 +256,15 @@ def fetch_lineups(slug, event_id):
     try:
         r = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/summary?event={event_id}", timeout=8)
         if not r.ok: return None
-        data = r.json()
         out = {}
-        for roster in data.get("rosters", []):
+        for roster in r.json().get("rosters", []):
             team = roster.get("team", {}).get("shortDisplayName", "")
-            players = [p.get("athlete", {}).get("shortName", "") for p in roster.get("rosters", [])
-                       if p.get("starter") in (True, "true")]
+            players = [p.get("athlete", {}).get("shortName", "") for p in roster.get("rosters", []) if p.get("starter") in (True, "true")]
             players = [p for p in players if p]
-            if team and players:
-                out[team] = players[:11]
+            if team and players: out[team] = players[:11]
         return out or None
     except Exception:
         return None
-LONG_SCRIPT_PROMPT = """أنت كاتب سيناريوهات فيديوهات كرة قدم محترف.
-اكتب سكريبت فيديو طويل (3-4 دقائق) بالعامية المصرية يلخص أهم أخبار اليوم:
-- مقدمة حماسية 20 ثانية
-- 3-4 فقرات، كل فقرة:
-[المشهد:] وصف بصري
-[التعليق:] كلامك بصوتك
-- خاتمة: دعوة للاشتراك + سؤال للجمهور
-أخبار اليوم:
-"""
-
-def make_publish_package(news_lines):
-    prompt = f"""انت خبير سوشيال ميديا رياضي. اكتب باقة نشر جاهزة لفيديو كورة عن الأخبار دي:
-{news_lines}
-
-بالشكل ده بالظبط:
-🎬 عنوان يوتيوب: (عنوان عربي جذاب فيه إيموجي ورقم)
-🎵 عنوان تيك توك: (جملة قصيرة استفزازية بتوقف السكرول)
-📝 وصف: سطرين + دعوة للاشتراك
-#️⃣ هاشتاجات: 12 هاشتاج عربي وإنجليزي بمسافات"""
-    return call_gemini(prompt, 0.9) or call_groq(prompt, 0.9)
-
-from difflib import SequenceMatcher
-
-def norm_title(t):
-    t = t.lower()
-    t = re.sub(r'[^\w\u0600-\u06FF]+', ' ', t)
-    return t.strip()[:80]
-
-def is_dup_title(nt, recent):
-    for p in recent[-200:]:
-        if nt == p: return True
-        if abs(len(nt) - len(p)) < 12 and SequenceMatcher(None, nt, p).ratio() > 0.9:
-            return True
-    return False
 
 def collect_news(state):
     posted = set(state.get("posted", []))
@@ -355,8 +294,7 @@ def collect_news(state):
                 if is_dup_title(nt, recent_titles):
                     skipped_dup += 1
                     continue
-                fresh.append({"title": title, "url": url, "summary": summary,
-                              "source": source["name"], "en": is_en, "hash": h, "nt": nt})
+                fresh.append({"title": title, "url": url, "summary": summary, "source": source["name"], "en": is_en, "hash": h, "nt": nt})
         except Exception as ex:
             print("fetch error:", source["name"], ex)
     print(f"🚫 قديمة: {skipped_old} | مكررة: {skipped_dup}")
@@ -369,8 +307,7 @@ def finish_text(home, hs, away, as_, name):
     elif as_ > hs: line = f"{away} قلبها وخد التلات نقاط 🔥"
     else: line = "تعادل مثير.. ولا واحد رضي بالتاني 😅"
     short = f"{home} {hs} - {as_} {away}"
-    full = f"🏁 نهاية المباراة | {name}\n{short}\n{line}\n\n⚽ Edge Football"
-    return full, short
+    return f"🏁 نهاية المباراة | {name}\n{short}\n{line}\n\n⚽ Edge Football", short
 
 def collect_finished(state, now):
     reported = set(state.get("reported_matches", []))
@@ -391,8 +328,7 @@ def collect_finished(state, now):
                 comps = comp["competitors"]
                 home = [c for c in comps if c.get("homeAway") == "home"][0]
                 away = [c for c in comps if c.get("homeAway") == "away"][0]
-                full, short = finish_text(home["team"]["displayName"], home["score"],
-                                          away["team"]["displayName"], away["score"], name)
+                full, short = finish_text(home["team"]["displayName"], home["score"], away["team"]["displayName"], away["score"], name)
                 found.append((eid, full, short))
             except Exception:
                 continue
@@ -441,8 +377,7 @@ def collect_previews(state, now):
                 comp = ev["competitions"][0]
                 if comp["status"]["type"]["state"] != "pre": continue
                 dt = datetime.fromisoformat(ev["date"].replace("Z", "+00:00")).astimezone(CAIRO)
-                hours_left = (dt - now).total_seconds() / 3600
-                if not (0.5 <= hours_left <= 4): continue
+                if not (0.5 <= (dt - now).total_seconds() / 3600 <= 4): continue
                 comps = comp["competitors"]
                 home = ar_team([c for c in comps if c.get("homeAway") == "home"][0]["team"]["displayName"])
                 away = ar_team([c for c in comps if c.get("homeAway") == "away"][0]["team"]["displayName"])
@@ -452,8 +387,7 @@ def collect_previews(state, now):
     return found, previewed
 
 def build_preview(slug, home, away, dt, event_id):
-    lines = [f"🔥 الليلة | {LEAGUES[slug]}",
-             f"⚽ {home} × {away} — {dt.strftime('%I:%M %p')}", ""]
+    lines = [f"🔥 الليلة | {LEAGUES[slug]}", f"⚽ {home} × {away} — {dt.strftime('%I:%M %p')}", ""]
     lineups = fetch_lineups(slug, event_id)
     if lineups:
         for team, players in list(lineups.items())[:2]:
@@ -474,16 +408,12 @@ def top_table(slug, n=8):
     for e in entries:
         try:
             stats = {s["name"]: s.get("value") for s in e.get("stats", [])}
-            rows.append({
-                "rank": int(float(stats.get("rank", 99))),
+            rows.append({"rank": int(float(stats.get("rank", 99))),
                 "team": ar_team(e.get("team", {}).get("displayName", "")),
                 "logo": e.get("team", {}).get("logo", ""),
-                "gp": stats.get("gamesPlayed", "-"),
-                "w": stats.get("wins", "-"),
-                "d": stats.get("ties", stats.get("draws", "-")),
-                "l": stats.get("losses", "-"),
-                "pts": stats.get("points", "-"),
-            })
+                "gp": stats.get("gamesPlayed", "-"), "w": stats.get("wins", "-"),
+                "d": stats.get("ties", stats.get("draws", "-")), "l": stats.get("losses", "-"),
+                "pts": stats.get("points", "-")})
         except Exception:
             continue
     rows.sort(key=lambda x: x["rank"])
@@ -507,8 +437,7 @@ def build_digest(state, today):
                 lines.append(f"🏆 {LEAGUES[slug]}:")
                 lines += [f"{r['rank']}. {r['team']} — {r['pts']} نقطة" for r in t]
                 lines.append("")
-    if len(lines) <= 3:
-        return None
+    if len(lines) <= 3: return None
     lines.append("تصبحوا على كورة 😴 Edge Football")
     return "\n".join(lines)
 
@@ -531,37 +460,29 @@ def build_schedule(today):
                 total += 1
             except Exception:
                 continue
-    if total == 0:
-        return None
+    if total == 0: return None
     return "\n".join(lines) + "\n\n⚽ Edge Football"
 
 def post_engagement(state):
     idx = state.get("engagement_index", 0) % len(ENGAGEMENTS)
     item = ENGAGEMENTS[idx]
-    if item["type"] == "poll":
-        ok = send_poll(item["q"], item["options"])
-    else:
-        ok = send_tg(item["t"] + "\n\n⚽ Edge Football")
+    ok = send_poll(item["q"], item["options"]) if item["type"] == "poll" else send_tg(item["t"] + "\n\n⚽ Edge Football")
     if ok:
         state["engagement_index"] = idx + 1
         print("✅ نُشر منشور تفاعل")
 
 def fetch_world():
     out = []
-    for slug in ["eng.1", "esp.1", "ita.1", "ger.1", "ksa.1", "egy.1", "uefa.champions"]:
+    for slug in PRIORITY:
         try:
             r = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/news", timeout=8)
             if not r.ok: continue
-            d = r.json()
-            arts = d.get("articles") or d.get("feed") or d.get("headlines") or []
+            arts = r.json().get("articles") or r.json().get("feed") or r.json().get("headlines") or []
             for a in arts[:3]:
                 title = a.get("headline") or a.get("title") or ""
                 imgs = a.get("images") or []
-                img = (imgs[0].get("url") or imgs[0].get("href")) if imgs else ""
-                if not img and a.get("image"):
-                    img = a.get("image")
-                if title:
-                    out.append({"t": title, "img": img or ""})
+                img = (imgs[0].get("url") or imgs[0].get("href")) if imgs else (a.get("image") or "")
+                if title: out.append({"t": title, "img": img or ""})
         except Exception:
             pass
     if not out:
@@ -570,27 +491,22 @@ def fetch_world():
             if r.ok:
                 for n in (r.json().get("news") or [])[:12]:
                     t = n.get("strHeadline") or ""
-                    if t:
-                        out.append({"t": t, "img": n.get("strThumb") or ""})
+                    if t: out.append({"t": t, "img": n.get("strThumb") or ""})
         except Exception:
             pass
     return out
 
 def build_site_data(state, today):
     now = datetime.now(CAIRO)
-    news_items = [x for x in state.get("site_news", [])][::-1][:20]
-    results_items = [x["t"] for x in state.get("daily_results", []) if x["d"] == today][-10:][::-1]
     matches = []
     for slug in PRIORITY:
-        name = LEAGUES[slug]
         data = fetch_scoreboard(slug)
         if not data: continue
-        group = {"league": name, "slug": slug, "items": [], "big": True}
+        group = {"league": LEAGUES[slug], "slug": slug, "items": [], "big": True}
         for ev in data.get("events", []):
             try:
                 comp = ev["competitions"][0]
                 st = comp["status"]["type"]["state"]
-                detail = comp["status"]["type"].get("shortDetail", "")
                 dt = datetime.fromisoformat(ev["date"].replace("Z", "+00:00")).astimezone(CAIRO)
                 hrs = (now - dt).total_seconds() / 3600
                 if st == "post" and hrs > 24: continue
@@ -599,17 +515,12 @@ def build_site_data(state, today):
                 home = [c for c in comps if c.get("homeAway") == "home"][0]
                 away = [c for c in comps if c.get("homeAway") == "away"][0]
                 group["items"].append({
-                    "home": ar_team(home["team"]["displayName"]),
-                    "away": ar_team(away["team"]["displayName"]),
+                    "home": ar_team(home["team"]["displayName"]), "away": ar_team(away["team"]["displayName"]),
                     "eid": ev.get("id"), "slug": slug,
-                    "homeLogo": home["team"].get("logo", ""),
-                    "awayLogo": away["team"].get("logo", ""),
-                    "tv": BROADCASTERS.get(slug, ("", ""))[0],
-                    "tvUrl": BROADCASTERS.get(slug, ("", ""))[1],
-                    "hs": home["score"], "as": away["score"],
-                    "time": dt.strftime("%I:%M %p"),
-                    "state": st, "detail": detail,
-                })
+                    "homeLogo": home["team"].get("logo", ""), "awayLogo": away["team"].get("logo", ""),
+                    "tv": BROADCASTERS.get(slug, ""), "hs": home["score"], "as": away["score"],
+                    "time": dt.strftime("%I:%M %p"), "state": st,
+                    "detail": comp["status"]["type"].get("shortDetail", "")})
             except Exception:
                 continue
         if group["items"]:
@@ -618,46 +529,48 @@ def build_site_data(state, today):
     tables = {}
     for slug in PRIORITY:
         t = top_table(slug, 8)
-        if t:
-            tables[LEAGUES[slug]] = t
+        if t: tables[LEAGUES[slug]] = t
     leaders = {}
     for slug in PRIORITY:
         try:
             r = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/leaders", timeout=8)
             if not r.ok: continue
-            d = r.json()
             cats = {}
-            for cat in d.get("leaders", []):
+            for cat in r.json().get("leaders", []):
                 label = cat.get("displayName") or "الأفضل"
                 items = []
                 for e in (cat.get("leaders") or cat.get("entries") or [])[:10]:
                     a = e.get("athlete", {}) or {}
-                    items.append({
-                        "name": a.get("displayName", ""),
+                    items.append({"name": a.get("displayName", ""),
                         "team": ar_team((a.get("team", {}) or {}).get("displayName", "")),
                         "value": e.get("displayValue", e.get("value", "")),
-                        "face": (a.get("headshot", {}) or {}).get("href", ""),
-                    })
-                if items:
-                    cats[label] = items
-            if cats:
-                leaders[LEAGUES[slug]] = cats
+                        "face": (a.get("headshot", {}) or {}).get("href", "")})
+                if items: cats[label] = items
+            if cats: leaders[LEAGUES[slug]] = cats
         except Exception:
             pass
     site_data = {
         "updated_at": now.strftime("%Y-%m-%d %I:%M %p"),
-        "news": news_items,
-        "results": results_items,
-        "matches": matches,
-        "tables": tables,
-        "leaders": leaders,
-        "world": fetch_world(),
-        "highlights": [],
+        "news": state.get("site_news", [])[-20:][::-1],
+        "results": [x["t"] for x in state.get("daily_results", []) if x["d"] == today][-10:][::-1],
+        "matches": matches, "tables": tables, "leaders": leaders,
+        "world": fetch_world(), "highlights": [],
     }
     os.makedirs("site", exist_ok=True)
     with open("site/data.json", "w", encoding="utf-8") as f:
         json.dump(site_data, f, ensure_ascii=False, indent=2)
     print("🌐 تم تحديث بيانات الموقع")
+
+def make_publish_package(news_lines):
+    prompt = f"""انت خبير سوشيال ميديا رياضي. اكتب باقة نشر جاهزة لفيديو كورة عن الأخبار دي:
+{news_lines}
+
+بالشكل ده بالظبط:
+🎬 عنوان يوتيوب: (عنوان عربي جذاب فيه إيموجي ورقم)
+🎵 عنوان تيك توك: (جملة قصيرة استفزازية بتوقف السكرول)
+📝 وصف: سطرين + دعوة للاشتراك
+#️⃣ هاشتاجات: 12 هاشتاج عربي وإنجليزي بمسافات"""
+    return call_gemini(prompt, 0.9) or call_groq(prompt, 0.9)
 
 def main():
     state = load_state()
@@ -667,7 +580,6 @@ def main():
     send_owner(f"🟢 بدأت الجولة | {now.strftime('%H:%M')}")
     report = []
 
-    # ---------- الأخبار ----------
     fresh, posted, recent_titles = collect_news(state)
     print(f"📥 أخبار جديدة: {len(fresh)}")
     count = 0
@@ -700,7 +612,6 @@ def main():
     state["last_openers"] = openers[-5:]
     state["site_news"] = state.get("site_news", [])[-20:]
 
-    # ---------- سكريبت الفيديو + باقة النشر (6م-11م) ----------
     if FORCE or (18 <= now.hour <= 23 and state.get("last_long_date") != today):
         news_today = [x["t"] for x in state.get("daily_news", []) if x["d"] == today]
         if news_today:
@@ -711,10 +622,8 @@ def main():
                 pkg = make_publish_package("\n".join(f"- {t}" for t in news_today[:6]))
                 if pkg and send_owner("📦 باقة النشر (تيك توك + يوتيوب):\n\n" + pkg):
                     print("📦 اتبعتت باقة النشر")
-                if not FORCE:
-                    state["last_long_date"] = today
+                if not FORCE: state["last_long_date"] = today
 
-    # ---------- اللايف ----------
     alerts = check_live(state)
     print(f"🟢 تنبيهات لايف: {len(alerts)}")
     a_sent = 0
@@ -725,7 +634,6 @@ def main():
             time.sleep(4)
     report.append(f"🟢 لايف: {a_sent}")
 
-    # ---------- النتائج ----------
     found, reported = collect_finished(state, now)
     print(f"🏁 نتائج جديدة: {len(found)}")
     sent = 0
@@ -740,49 +648,40 @@ def main():
     report.append(f"🏁 نتائج: {sent}")
     state["reported_matches"] = list(reported)[-500:]
 
-    # ---------- البريفيو ----------
     if FORCE or 17 <= now.hour <= 21:
         previews, previewed = collect_previews(state, now)
         p_sent = 0
         for eid, slug, home, away, dt in previews:
             if p_sent >= 2: break
-            text = build_preview(slug, home, away, dt, eid)
-            if send_tg(text):
+            if send_tg(build_preview(slug, home, away, dt, eid)):
                 previewed.add(eid)
                 p_sent += 1
                 time.sleep(4)
         state["previewed"] = list(previewed)[-300:]
 
-    # ---------- جدول الصباح ----------
     if FORCE or (8 <= now.hour <= 12):
         if FORCE or state.get("last_schedule_date") != today:
             sched = build_schedule(today)
             if sched and send_tg(sched):
                 print("✅ نُشرت نشرة المواعيد")
-                if not FORCE:
-                    state["last_schedule_date"] = today
+                if not FORCE: state["last_schedule_date"] = today
 
-    # ---------- نشرة الليل + رسالة النمو ----------
     if FORCE or (21 <= now.hour <= 23):
         if FORCE or state.get("last_digest_date") != today:
             digest = build_digest(state, today)
             if digest and send_tg(digest):
                 print("✅ نُشرت نشرة الليل")
                 send_tg("🎮 لعبت توقعات النهارده؟\nتوقع واكسب نقاط ضد أصحابك ⚽\n🌐 https://andrew101018.github.io/EDGE/")
-                if not FORCE:
-                    state["last_digest_date"] = today
+                if not FORCE: state["last_digest_date"] = today
 
-    # ---------- تفاعل ----------
     last_eng = state.get("last_engagement", 0)
     if FORCE or (10 <= now.hour <= 23 and time.time() - last_eng >= 2 * 3600):
         post_engagement(state)
-        if not FORCE:
-            state["last_engagement"] = time.time()
+        if not FORCE: state["last_engagement"] = time.time()
 
     state["daily_news"] = [x for x in state.get("daily_news", []) if x["d"] == today][-20:]
     state["daily_results"] = [x for x in state.get("daily_results", []) if x["d"] == today][-20:]
 
-    # ---------- الموقع ----------
     build_site_data(state, today)
     save_state(state)
 
