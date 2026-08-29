@@ -44,6 +44,7 @@ OPENROUTER_KEY = os.environ.get("OPENROUTER_KEY", "")
 MISTRAL_KEY = os.environ.get("MISTRAL_KEY", "")
 CEREBRAS_KEY = os.environ.get("CEREBRAS_KEY", "")
 FORCE = os.environ.get("FORCE", "") == "1"
+OWNER_CHAT_ID = os.environ.get("OWNER_CHAT_ID", "").strip()
 
 STATE_FILE = "posted.json"
 MAX_PER_RUN = 6
