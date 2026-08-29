@@ -1143,6 +1143,8 @@ def main():
     state = load_state()
     now = datetime.now(CAIRO)
     today = now.strftime("%Y-%m-%d")
+    report = [f"📊 تقرير الجولة | {now.strftime('%H:%M')}", ""]
+    send_owner("\n".join(report + ["🟢 بدأت الجولة"]))
     openers = state.get("last_openers", [])
 
     # ---------- الأخبار ----------
@@ -1291,7 +1293,34 @@ def make_publish_package(news_lines):
         except Exception:
             pass
 
-    save_state(state)
+        save_state(state)
+    
+    # ---------- التقرير النهائي ----------
+    try:
+        import os
+        site_exists = os.path.exists("site/data.json")
+        site_size = os.path.getsize("site/data.json") if site_exists else 0
+        site_updated = ""
+        if site_exists:
+            try:
+                with open("site/data.json", encoding="utf-8") as f:
+                    sd = json.load(f)
+                site_updated = sd.get("updated_at", "?")
+            except Exception:
+                pass
+        
+        report_lines = [
+            f"📊 تقرير نهاية الجولة | {now.strftime('%H:%M')}",
+            f"📰 أخبار نُشرت: {count}",
+            f"🟢 تنبيهات لايف: {len(alerts) if 'alerts' in dir() else '—'}",
+            f"🏁 نتائج نُشرت: {sent if 'sent' in dir() else '—'}",
+            f"📁 site/data.json موجود: {'✅' if site_exists else '❌'}",
+            f"📏 حجم الملف: {site_size} بايت",
+            f"🕐 آخر تحديث في الملف: {site_updated or '—'}",
+        ]
+        send_owner("\n".join(report_lines))
+    except Exception as e:
+        send_owner("⚠️ خطأ في التقرير: " + str(e)[:200])
     print("🏁 انتهت الجولة")
 
 if __name__ == "__main__":
