@@ -1,6 +1,18 @@
 {
-  "updated_at": "2026-08-29 10:05 PM",
+  "updated_at": "2026-08-29 10:37 PM",
   "news": [
+    {
+      "t": "⚽ مواعيد مباريات الجولة الثالثة في الدوري.. الأهلي يواجه سموحة والزمالك أمام بتروجت - El-Ahly.com ال",
+      "img": ""
+    },
+    {
+      "t": "⚽ على طريقة الأهلي.. الزمالك يحدد حارسه الأساسي والبديل الأول والثاني - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ قبل الوصول للهدف الألف.. ماذا قال إنفانتينو لكريستيانو رونالدو؟ - Masrawy",
+      "img": ""
+    },
     {
       "t": "⚽ نائبة رئيس يويفا: انتصرنا على فيفا.. والتهديد بمقاطعة المونديال أتى بثماره - العربية",
       "img": ""
@@ -68,21 +80,13 @@
     {
       "t": "⚽ تألق عاشور وظهور داري وسليم.. الأهلي يفوز على دلفي وديًا - يلاكورة",
       "img": ""
-    },
-    {
-      "t": "🔥 ميركاتو يناير على الساخن.. هل يتلقى الزمالك ضربة ثنائية من الأهلي؟",
-      "img": ""
-    },
-    {
-      "t": "🔥 لقطة غريبة من بيزيرا تثير الجدل وسط أزمته مع الزمالك!",
-      "img": ""
-    },
-    {
-      "t": "🎮 مصر إلى المونديال.. الفراعنة في كأس العالم \"فيفا إي 2026\"!",
-      "img": ""
     }
   ],
   "results": [
+    "Monza 2 - 3 Udinese",
+    "Fiorentina 0 - 3 Frosinone",
+    "Real Sociedad 2 - 1 Espanyol",
+    "Levante 5 - 2 Real Betis",
     "توتنهام 0 - 2 نيوكاسل",
     "Coventry City 0 - 1 Hull City",
     "AFC Bournemouth 1 - 1 Everton",
@@ -102,10 +106,10 @@
           "awayLogo": "",
           "tv": "SSC / شاهد",
           "hs": "0",
-          "as": "1",
+          "as": "2",
           "time": "09:00 PM",
           "state": "in",
-          "detail": "HT"
+          "detail": "75'"
         },
         {
           "home": "الفتح",
@@ -119,7 +123,7 @@
           "as": "0",
           "time": "09:00 PM",
           "state": "in",
-          "detail": "46'"
+          "detail": "78'"
         },
         {
           "home": "Al Kholood",
@@ -206,6 +210,20 @@
       "slug": "esp.1",
       "items": [
         {
+          "home": "Sevilla",
+          "away": "أتلتيكو مدريد",
+          "eid": "401882897",
+          "slug": "esp.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/243.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "1",
+          "time": "10:30 PM",
+          "state": "in",
+          "detail": "7'"
+        },
+        {
           "home": "Levante",
           "away": "Real Betis",
           "eid": "401882902",
@@ -232,20 +250,6 @@
           "time": "08:00 PM",
           "state": "post",
           "detail": "FT"
-        },
-        {
-          "home": "Sevilla",
-          "away": "أتلتيكو مدريد",
-          "eid": "401882897",
-          "slug": "esp.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/243.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "10:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -266,7 +270,7 @@
           "as": "0",
           "time": "09:45 PM",
           "state": "in",
-          "detail": "19'"
+          "detail": "HT"
         },
         {
           "home": "Fiorentina",
@@ -416,11 +420,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/172.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7868.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "1",
           "time": "09:45 PM",
           "state": "in",
-          "detail": "20'"
+          "detail": "HT"
         },
         {
           "home": "Brest",
@@ -434,7 +438,7 @@
           "as": "1",
           "time": "09:45 PM",
           "state": "in",
-          "detail": "20'"
+          "detail": "HT"
         },
         {
           "home": "Lorient",
@@ -445,10 +449,10 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/170.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "0",
+          "as": "2",
           "time": "09:45 PM",
           "state": "in",
-          "detail": "20'"
+          "detail": "HT"
         },
         {
           "home": "Lyon",
@@ -462,7 +466,7 @@
           "as": "0",
           "time": "09:45 PM",
           "state": "in",
-          "detail": "20'"
+          "detail": "HT"
         },
         {
           "home": "Strasbourg",
@@ -1089,24 +1093,24 @@
       "img": "https://a.espncdn.com/photo/2026/0829/r1708595_1296x729_16-9.jpg"
     },
     {
-      "t": "Nottingham Forest nearing deal for Daniel Muñoz from Crystal Palace - sources",
-      "img": "https://a.espncdn.com/photo/2026/0829/r1708569_1296x729_16-9.jpg"
+      "t": "Transfer rumors, news: Man United offered Atétli striker Sørloth",
+      "img": "https://a.espncdn.com/photo/2026/0221/r1618266_1296x729_16-9.jpg"
     },
     {
-      "t": "Everton fans threaten 'riot' over potential sale of teenage winger Harrison Armstrong to Nottingham Forest",
-      "img": "https://a.espncdn.com/photo/2026/0829/r1708547_1296x729_16-9.jpg"
+      "t": "Hull head coach Sergej Jakirovic: Players must 'stay humble' as dream start continues",
+      "img": "https://a.espncdn.com/photo/2026/0829/r1708600_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Transfer rumors, news: Man United offered Atétli striker Sørloth",
+      "img": "https://a.espncdn.com/photo/2026/0221/r1618266_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Real Sociedad vs. Espanyol - Game Highlights",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0829/9a2949b8-3e6d-46c0-a68c-d3de9a31e23d/9a2949b8-3e6d-46c0-a68c-d3de9a31e23d.jpg"
     },
     {
       "t": "Levante vs. Real Betis - Game Highlights",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0829/46f40484-cfa4-4a18-a3d6-1b001a5175da/46f40484-cfa4-4a18-a3d6-1b001a5175da.jpg"
-    },
-    {
-      "t": "Transfer rumors, news: Could Julián Álvarez rejoin Man City?",
-      "img": "https://a.espncdn.com/photo/2026/0827/r1707853_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Mourinho hails Vinícius Jr. & Mbappé's 'incredible quality' for Real Madrid",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0829/dm_260829_COM_SOC_Presser_Mourinho_hails_Vinicius_Jr_Mbappes_incredible_quality_for_Real_Madrid_20260/dm_260829_COM_SOC_Presser_Mourinho_hails_Vinicius_Jr_Mbappes_incredible_quality_for_Real_Madrid_20260.jpg"
     },
     {
       "t": "Pulisic stays on bench as Ramos gives Milan win over Venezia",
