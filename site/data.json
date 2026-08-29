@@ -1,6 +1,18 @@
 {
-  "updated_at": "2026-08-29 10:37 PM",
+  "updated_at": "2026-08-30 12:03 AM",
   "news": [
+    {
+      "t": "⚽ كنا فين وبقينا فين.. المقاعد الأفريقية للكرة المصرية ثابتة والقوة تتضاعف - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ باريديس: عقوبات «فيفا» بعد نهائي كأس العالم مبالغ فيها - بوابة الشروق",
+      "img": ""
+    },
+    {
+      "t": "⚽ كنا فين وبقينا فين.. المقاعد الأفريقية للكرة المصرية ثابتة والقوة تتضاعف - اليوم السابع",
+      "img": ""
+    },
     {
       "t": "⚽ مواعيد مباريات الجولة الثالثة في الدوري.. الأهلي يواجه سموحة والزمالك أمام بتروجت - El-Ahly.com ال",
       "img": ""
@@ -68,35 +80,33 @@
     {
       "t": "⚽ لقطة سعودية تكشف تعرض برشلونة لظلم تحكيمي في دوري الأبطال - Kooora",
       "img": ""
-    },
-    {
-      "t": "⚽ جيمي كاراجر فى مواجهة الإفلاس.. كيف قادته أفلام التسعينيات إلى أزمة ضريبية؟ - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ قرار الادارة بخصوص راتب الشهر الخاص بـ خوان بيزيرا المتمرد - الزمالك اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ تألق عاشور وظهور داري وسليم.. الأهلي يفوز على دلفي وديًا - يلاكورة",
-      "img": ""
     }
   ],
   "results": [
-    "Monza 2 - 3 Udinese",
-    "Fiorentina 0 - 3 Frosinone",
-    "Real Sociedad 2 - 1 Espanyol",
-    "Levante 5 - 2 Real Betis",
-    "توتنهام 0 - 2 نيوكاسل",
-    "Coventry City 0 - 1 Hull City",
-    "AFC Bournemouth 1 - 1 Everton",
-    "ليفربول 2 - 2 Nottingham Forest"
+    "FC Cologne 3 - 2 TSG Hoffenheim",
+    "1. FC Union Berlin 3 - 3 Eintracht Frankfurt",
+    "يوفنتوس 2 - 0 Parma",
+    "Sassuolo 2 - 1 Torino"
   ],
   "matches": [
     {
       "league": "الدوري السعودي",
       "slug": "ksa.1",
       "items": [
+        {
+          "home": "Al Kholood",
+          "away": "الأهلي السعودي",
+          "eid": "401900380",
+          "slug": "ksa.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22028.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8346.png",
+          "tv": "SSC / شاهد",
+          "hs": "3",
+          "as": "1",
+          "time": "07:05 PM",
+          "state": "post",
+          "detail": "FT"
+        },
         {
           "home": "الاتفاق",
           "away": "Al Diriyah",
@@ -106,10 +116,10 @@
           "awayLogo": "",
           "tv": "SSC / شاهد",
           "hs": "0",
-          "as": "2",
+          "as": "3",
           "time": "09:00 PM",
-          "state": "in",
-          "detail": "75'"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "الفتح",
@@ -122,20 +132,6 @@
           "hs": "0",
           "as": "0",
           "time": "09:00 PM",
-          "state": "in",
-          "detail": "78'"
-        },
-        {
-          "home": "Al Kholood",
-          "away": "الأهلي السعودي",
-          "eid": "401900380",
-          "slug": "ksa.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22028.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8346.png",
-          "tv": "SSC / شاهد",
-          "hs": "3",
-          "as": "1",
-          "time": "07:05 PM",
           "state": "post",
           "detail": "FT"
         }
@@ -217,11 +213,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/243.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "1",
+          "hs": "1",
+          "as": "3",
           "time": "10:30 PM",
           "state": "in",
-          "detail": "7'"
+          "detail": "70'"
         },
         {
           "home": "Levante",
@@ -258,20 +254,6 @@
       "league": "الدوري الإيطالي",
       "slug": "ita.1",
       "items": [
-        {
-          "home": "يوفنتوس",
-          "away": "Parma",
-          "eid": "401874746",
-          "slug": "ita.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/111.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/115.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "09:45 PM",
-          "state": "in",
-          "detail": "HT"
-        },
         {
           "home": "Fiorentina",
           "away": "Frosinone",
@@ -311,6 +293,20 @@
           "hs": "2",
           "as": "1",
           "time": "07:30 PM",
+          "state": "post",
+          "detail": "FT"
+        },
+        {
+          "home": "يوفنتوس",
+          "away": "Parma",
+          "eid": "401874746",
+          "slug": "ita.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/111.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/115.png",
+          "tv": "beIN Sports",
+          "hs": "2",
+          "as": "0",
+          "time": "09:45 PM",
           "state": "post",
           "detail": "FT"
         }
@@ -413,62 +409,6 @@
       "slug": "fra.1",
       "items": [
         {
-          "home": "AJ Auxerre",
-          "away": "Angers",
-          "eid": "401876484",
-          "slug": "fra.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/172.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7868.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "1",
-          "time": "09:45 PM",
-          "state": "in",
-          "detail": "HT"
-        },
-        {
-          "home": "Brest",
-          "away": "Toulouse",
-          "eid": "401876483",
-          "slug": "fra.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6997.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/179.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "1",
-          "time": "09:45 PM",
-          "state": "in",
-          "detail": "HT"
-        },
-        {
-          "home": "Lorient",
-          "away": "Troyes",
-          "eid": "401876482",
-          "slug": "fra.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/273.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/170.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "2",
-          "time": "09:45 PM",
-          "state": "in",
-          "detail": "HT"
-        },
-        {
-          "home": "Lyon",
-          "away": "Le Havre AC",
-          "eid": "401876481",
-          "slug": "fra.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/167.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3236.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "09:45 PM",
-          "state": "in",
-          "detail": "HT"
-        },
-        {
           "home": "Strasbourg",
           "away": "Lens",
           "eid": "401876477",
@@ -479,6 +419,62 @@
           "hs": "2",
           "as": "1",
           "time": "06:15 PM",
+          "state": "post",
+          "detail": "FT"
+        },
+        {
+          "home": "AJ Auxerre",
+          "away": "Angers",
+          "eid": "401876484",
+          "slug": "fra.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/172.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7868.png",
+          "tv": "beIN Sports",
+          "hs": "1",
+          "as": "3",
+          "time": "09:45 PM",
+          "state": "post",
+          "detail": "FT"
+        },
+        {
+          "home": "Brest",
+          "away": "Toulouse",
+          "eid": "401876483",
+          "slug": "fra.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6997.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/179.png",
+          "tv": "beIN Sports",
+          "hs": "2",
+          "as": "2",
+          "time": "09:45 PM",
+          "state": "post",
+          "detail": "FT"
+        },
+        {
+          "home": "Lorient",
+          "away": "Troyes",
+          "eid": "401876482",
+          "slug": "fra.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/273.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/170.png",
+          "tv": "beIN Sports",
+          "hs": "1",
+          "as": "2",
+          "time": "09:45 PM",
+          "state": "post",
+          "detail": "FT"
+        },
+        {
+          "home": "Lyon",
+          "away": "Le Havre AC",
+          "eid": "401876481",
+          "slug": "fra.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/167.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3236.png",
+          "tv": "beIN Sports",
+          "hs": "1",
+          "as": "1",
+          "time": "09:45 PM",
           "state": "post",
           "detail": "FT"
         }
@@ -522,14 +518,24 @@
         "rank": 4,
         "team": "الاتحاد",
         "logo": "",
-        "gp": 3.0,
+        "gp": 4.0,
         "w": 2.0,
-        "d": 1.0,
+        "d": 2.0,
         "l": 0.0,
-        "pts": 7.0
+        "pts": 8.0
       },
       {
         "rank": 5,
+        "team": "Al Diriyah",
+        "logo": "",
+        "gp": 4.0,
+        "w": 2.0,
+        "d": 1.0,
+        "l": 1.0,
+        "pts": 7.0
+      },
+      {
+        "rank": 6,
         "team": "الأهلي السعودي",
         "logo": "",
         "gp": 3.0,
@@ -539,18 +545,8 @@
         "pts": 6.0
       },
       {
-        "rank": 6,
-        "team": "القادسية",
-        "logo": "",
-        "gp": 3.0,
-        "w": 2.0,
-        "d": 0.0,
-        "l": 1.0,
-        "pts": 6.0
-      },
-      {
         "rank": 7,
-        "team": "الاتفاق",
+        "team": "القادسية",
         "logo": "",
         "gp": 3.0,
         "w": 2.0,
@@ -828,6 +824,16 @@
       },
       {
         "rank": 2,
+        "team": "يوفنتوس",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 3,
         "team": "Udinese",
         "logo": "",
         "gp": 2.0,
@@ -837,7 +843,7 @@
         "pts": 4.0
       },
       {
-        "rank": 3,
+        "rank": 4,
         "team": "AS Roma",
         "logo": "",
         "gp": 1.0,
@@ -847,7 +853,7 @@
         "pts": 3.0
       },
       {
-        "rank": 4,
+        "rank": 5,
         "team": "Internazionale",
         "logo": "",
         "gp": 1.0,
@@ -857,7 +863,7 @@
         "pts": 3.0
       },
       {
-        "rank": 5,
+        "rank": 6,
         "team": "Lecce",
         "logo": "",
         "gp": 1.0,
@@ -867,7 +873,7 @@
         "pts": 3.0
       },
       {
-        "rank": 6,
+        "rank": 7,
         "team": "نابولي",
         "logo": "",
         "gp": 1.0,
@@ -877,18 +883,8 @@
         "pts": 3.0
       },
       {
-        "rank": 7,
-        "team": "Atalanta",
-        "logo": "",
-        "gp": 1.0,
-        "w": 1.0,
-        "d": 0.0,
-        "l": 0.0,
-        "pts": 3.0
-      },
-      {
         "rank": 8,
-        "team": "Cagliari",
+        "team": "Atalanta",
         "logo": "",
         "gp": 1.0,
         "w": 1.0,
@@ -992,6 +988,26 @@
       },
       {
         "rank": 2,
+        "team": "Lyon",
+        "logo": "",
+        "gp": 2.0,
+        "w": 1.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 4.0
+      },
+      {
+        "rank": 3,
+        "team": "Troyes",
+        "logo": "",
+        "gp": 2.0,
+        "w": 1.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 4.0
+      },
+      {
+        "rank": 4,
         "team": "Marseille",
         "logo": "",
         "gp": 1.0,
@@ -1001,7 +1017,7 @@
         "pts": 3.0
       },
       {
-        "rank": 3,
+        "rank": 5,
         "team": "Lens",
         "logo": "",
         "gp": 2.0,
@@ -1011,17 +1027,7 @@
         "pts": 3.0
       },
       {
-        "rank": 4,
-        "team": "Lyon",
-        "logo": "",
-        "gp": 1.0,
-        "w": 1.0,
-        "d": 0.0,
-        "l": 0.0,
-        "pts": 3.0
-      },
-      {
-        "rank": 5,
+        "rank": 6,
         "team": "AS Monaco",
         "logo": "",
         "gp": 1.0,
@@ -1031,8 +1037,8 @@
         "pts": 3.0
       },
       {
-        "rank": 6,
-        "team": "Strasbourg",
+        "rank": 7,
+        "team": "Angers",
         "logo": "",
         "gp": 2.0,
         "w": 1.0,
@@ -1041,24 +1047,14 @@
         "pts": 3.0
       },
       {
-        "rank": 7,
-        "team": "باريس سان جيرمان",
+        "rank": 8,
+        "team": "Strasbourg",
         "logo": "",
         "gp": 2.0,
-        "w": 0.0,
-        "d": 2.0,
-        "l": 0.0,
-        "pts": 2.0
-      },
-      {
-        "rank": 8,
-        "team": "Brest",
-        "logo": "",
-        "gp": 1.0,
-        "w": 0.0,
-        "d": 1.0,
-        "l": 0.0,
-        "pts": 1.0
+        "w": 1.0,
+        "d": 0.0,
+        "l": 1.0,
+        "pts": 3.0
       }
     ]
   },
@@ -1089,16 +1085,16 @@
       "img": "https://a.espncdn.com/photo/2026/0827/r1707631_1296x729_16-9.jpg"
     },
     {
-      "t": "European live updates: Liverpool held by Forest, big-spending Spurs stumble vs. Newcastle",
+      "t": "European soccer recap: Liverpool held by Forest, big-spending Spurs stumble vs. Newcastle",
       "img": "https://a.espncdn.com/photo/2026/0829/r1708595_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer rumors, news: Man United offered Atétli striker Sørloth",
-      "img": "https://a.espncdn.com/photo/2026/0221/r1618266_1296x729_16-9.jpg"
+      "t": "Tottenham's De Zerbi: Richarlison, Danso, Sarr have asked to leave",
+      "img": "https://a.espncdn.com/photo/2026/0829/r1708658_1296x729_16-9.jpg"
     },
     {
-      "t": "Hull head coach Sergej Jakirovic: Players must 'stay humble' as dream start continues",
-      "img": "https://a.espncdn.com/photo/2026/0829/r1708600_1296x729_16-9.jpg"
+      "t": "De Zerbi apologies to Spurs fans for 'environment' after successive league defeats",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0829/dm_260829_De_Zerbi_apologies_to_Spurs_fans_for_environment_after_successive_league_defeats/dm_260829_De_Zerbi_apologies_to_Spurs_fans_for_environment_after_successive_league_defeats.jpg"
     },
     {
       "t": "Transfer rumors, news: Man United offered Atétli striker Sørloth",
