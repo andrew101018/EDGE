@@ -2,6 +2,8 @@
 # Edge Football - جالب الأخبار (محدّث)
 # ============================================
 
+import requests
+
 import feedparser
 from bs4 import BeautifulSoup
 import asyncio
@@ -13,7 +15,8 @@ import re
 async def fetch_rss(source, is_english_source=False):
     """جلب أخبار من مصدر RSS واحد"""
     try:
-        feed = feedparser.parse(source["url"])
+        rr = requests.get(source["url"], timeout=10, headers={"User-Agent": "EdgeFootball/1.0"})
+        feed = feedparser.parse(rr.content)
         news_list = []
         
         for entry in feed.entries[:10]:
