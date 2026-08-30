@@ -7,6 +7,14 @@ try {
 } catch (e) {}
 let MATCHES = [];
 
+function go(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+  const el = document.getElementById('sec-' + id);
+  if (el) el.style.display = 'block';
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
 function goMulti(ids, btn) {
   document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
   ids.forEach(id => {
@@ -16,15 +24,6 @@ function goMulti(ids, btn) {
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   if (btn) btn.classList.add('active');
   window.scrollTo(0, 0);
-}
-
-function go(page, btn) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  const sec = document.getElementById('sec-' + page);
-  if (sec) sec.classList.add('active');
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-  window.scrollTo({top: 0});
 }
 
 function teamLogo(src) {

@@ -496,6 +496,30 @@ def fetch_world():
             pass
     return out
 
+STARS = ["Mohamed Salah", "Erling Haaland", "Kylian Mbappe", "Harry Kane",
+    "Robert Lewandowski", "Vinicius Junior", "Jude Bellingham", "Bukayo Saka",
+    "Lamine Yamal", "Cristiano Ronaldo", "Karim Benzema", "Neymar",
+    "Riyad Mahrez", "Achraf Hakimi", "Omar Marmoush", "Cole Palmer"]
+
+def fetch_leaders():
+    items = []
+    for name in STARS:
+        try:
+            r = requests.get(
+                f"https://www.thesportsdb.com/api/v1/json/123/searchplayers.php?n={name.replace(' ', '%20')}",
+                timeout=8)
+            if not r.ok: continue
+            for p in (r.json().get("player") or [])[:1]:
+                items.append({
+                    "name": p.get("strPlayer") or name,
+                    "team": ar_team(p.get("strTeam") or ""),
+                    "value": p.get("strPosition") or "نجم",
+                    "face": p.get("strCutout") or p.get("strThumb") or "",
+                })
+        except Exception:
+            pass
+    return {"نجوم الموسم ⭐": items} if items else {}
+
 def build_site_data(state, today):
     now = datetime.now(CAIRO)
     matches = []
@@ -530,25 +554,7 @@ def build_site_data(state, today):
     for slug in PRIORITY:
         t = top_table(slug, 8)
         if t: tables[LEAGUES[slug]] = t
-    leaders = {}
-    for slug in PRIORITY:
-        try:
-            r = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/leaders", timeout=8)
-            if not r.ok: continue
-            cats = {}
-            for cat in r.json().get("leaders", []):
-                label = cat.get("displayName") or "الأفضل"
-                items = []
-                for e in (cat.get("leaders") or cat.get("entries") or [])[:10]:
-                    a = e.get("athlete", {}) or {}
-                    items.append({"name": a.get("displayName", ""),
-                        "team": ar_team((a.get("team", {}) or {}).get("displayName", "")),
-                        "value": e.get("displayValue", e.get("value", "")),
-                        "face": (a.get("headshot", {}) or {}).get("href", "")})
-                if items: cats[label] = items
-            if cats: leaders[LEAGUES[slug]] = cats
-        except Exception:
-            pass
+        leaders = fetch_leaders()
     site_data = {
         "updated_at": now.strftime("%Y-%m-%d %I:%M %p"),
         "news": state.get("site_news", [])[-20:][::-1],
