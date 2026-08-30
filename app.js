@@ -753,6 +753,18 @@ function renderTransfers() {
     : '<div class="card">مفيش أخبار انتقالات دلوقتي — هتتحدث مع كل جولة 🔄</div>';
 }
 
+function renderArchive() {
+  const q = (document.getElementById('archiveSearch').value || '').trim().toLowerCase();
+  const all = [...(DATA.news || []), ...(DATA.world || [])];
+  const items = q ? all.filter(n => (n.t || '').toLowerCase().includes(q)) : all;
+  document.getElementById('archiveContainer').innerHTML = items.length ? items.map(n => `
+    <div class="tv-card" style="text-align:right;">
+      ${n.img ? `<img src="${n.img}" style="width:100%;height:110px;object-fit:cover;border-radius:8px;margin-bottom:8px;" onerror="this.style.display='none'">` : ''}
+      <div style="font-weight:bold;font-size:.9em;">${n.t}</div>
+    </div>`).join('')
+    : '<div class="card">مفيش نتائج مطابقة لبحثك 🔍</div>';
+}
+
 async function loadData() {
   try {
     const r = await fetch('site/data.json?t=' + Date.now());
@@ -770,6 +782,7 @@ async function loadData() {
     renderShop();
     renderWorld();
     renderTransfers();
+    renderArchive();
 
     document.getElementById('newsContainer').innerHTML = DATA.news.length > 0
       ? DATA.news.map(n => `<div class="news-item">${n.t}</div>`).join('')

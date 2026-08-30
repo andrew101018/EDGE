@@ -36,6 +36,7 @@
   <button class="nav-btn" onclick="go('matches', this)">⚽ المباريات</button>
   <button class="nav-btn" onclick="go('tables', this)">🏆 الترتيب</button>
   <button class="nav-btn" onclick="go('world', this)">🌍 عالمية</button>
+    <button class="nav-btn" onclick="go('archive', this)">📚 الأرشيف</button>
   <button class="nav-btn" onclick="go('leaders', this)">👑 الهدافين</button>
   <button class="nav-btn" onclick="go('transfers', this)">💸 الانتقالات</button>
   <button class="nav-btn" onclick="go('tv', this)">📺 شاهد</button>
@@ -115,6 +116,12 @@
     <h2>💸 مركز الانتقالات</h2>
     <p class="transfers-description">كل الصفقات والانتقالات — متجمعة تلقائياً من كل المصادر</p>
     <div id="transfersContainer" class="grid"></div>
+  </section>
+
+  <section id="sec-archive" class="page">
+    <h2>📚 أرشيف الأخبار</h2>
+    <input id="archiveSearch" class="archive-search" placeholder="🔍 ابحث في الأخبار (صلاح، صفقة، دوري...)" oninput="renderArchive()">
+    <div id="archiveContainer" class="grid"></div>
   </section>
 
   <section class="section telegram">
