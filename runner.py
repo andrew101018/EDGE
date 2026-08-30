@@ -1,7 +1,7 @@
 import os, json, hashlib, time, re, random, traceback
 import requests
 try:
-    import feedparser
+    from feedparser import feedparser
 except ImportError:
     feedparser = None
 from bs4 import BeautifulSoup

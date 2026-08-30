@@ -7,6 +7,17 @@ try {
 } catch (e) {}
 let MATCHES = [];
 
+function goMulti(ids, btn) {
+  document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+  ids.forEach(id => {
+    const el = document.getElementById('sec-' + id);
+    if (el) el.style.display = 'block';
+  });
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
 function go(page, btn) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const sec = document.getElementById('sec-' + page);
@@ -786,6 +797,51 @@ function renderPlayers() {
     : '<div class="card">مفيش لاعب بالاسم ده في البيانات الحالية 🔍</div>';
 }
 
+function allTeams() {
+  const out = [];
+  Object.entries(DATA.tables || {}).forEach(([league, rows]) => {
+    (rows || []).forEach(r => out.push(Object.assign({}, r, {league: league})));
+  });
+  return out;
+}
+function fillTeamSelects() {
+  const a = document.getElementById('teamA'), b = document.getElementById('teamB');
+  if (!a || a.options.length) return;
+  const opts = allTeams().map(t => `<option>${t.team}</option>`).join('');
+  a.innerHTML = opts; b.innerHTML = opts;
+  if (b.options.length > 1) b.selectedIndex = 1;
+}
+function renderCompare() {
+  const teams = allTeams();
+  const ta = teams.find(t => t.team === document.getElementById('teamA').value);
+  const tb = teams.find(t => t.team === document.getElementById('teamB').value);
+  if (!ta || !tb) return;
+  const row = (label, va, vb, lowerBetter) => {
+    const na = Number(va) || 0, nb = Number(vb) || 0;
+    const ca = lowerBetter ? (na < nb ? '#4ade80' : na > nb ? '#f87171' : '#fff') : (na > nb ? '#4ade80' : na < nb ? '#f87171' : '#fff');
+    const cb = lowerBetter ? (nb < na ? '#4ade80' : nb > na ? '#f87171' : '#fff') : (nb > na ? '#4ade80' : nb < na ? '#f87171' : '#fff');
+    return `<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#0f172a;border-radius:10px;margin-bottom:8px;">
+      <b style="color:${ca};flex:1;text-align:right;">${va}</b>
+      <span style="opacity:.8;flex:1;text-align:center;">${label}</span>
+      <b style="color:${cb};flex:1;text-align:left;">${vb}</b>
+    </div>`;
+  };
+  const head = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+    <div style="text-align:center;flex:1;">${ta.logo ? `<img src="${ta.logo}" style="width:48px;height:48px;object-fit:contain;display:block;margin:0 auto 6px;">` : ''}<b>${ta.team}</b><div style="opacity:.7;font-size:.8em;">${ta.league}</div></div>
+    <div style="font-size:1.6em;">⚖️</div>
+    <div style="text-align:center;flex:1;">${tb.logo ? `<img src="${tb.logo}" style="width:48px;height:48px;object-fit:contain;display:block;margin:0 auto 6px;">` : ''}<b>${tb.team}</b><div style="opacity:.7;font-size:.8em;">${tb.league}</div></div>
+  </div>`;
+  const pa = Number(ta.pts) || 0, pb = Number(tb.pts) || 0;
+  const verdict = pa === pb ? '' : `<div class="card" style="text-align:center;font-weight:bold;color:#fbbf24;">${pa > pb ? ta.team : tb.team} الأعلى نقاطاً 🔥</div>`;
+  document.getElementById('compareContainer').innerHTML = head +
+    row('النقاط', ta.pts, tb.pts) +
+    row('المركز', ta.rank, tb.rank, true) +
+    row('لعب', ta.gp, tb.gp) +
+    row('فوز', ta.w, tb.w) +
+    row('تعادل', ta.d, tb.d) +
+    row('خسارة', ta.l, tb.l, true) + verdict;
+}
+
 async function loadData() {
   try {
     const r = await fetch('site/data.json?t=' + Date.now());
@@ -804,7 +860,8 @@ async function loadData() {
     renderWorld();
     renderTransfers();
     renderArchive();
-      renderPlayers();
+    renderPlayers();
+    fillTeamSelects();
 
     document.getElementById('newsContainer').innerHTML = DATA.news.length > 0
       ? DATA.news.map(n => `<div class="news-item">${n.t}</div>`).join('')

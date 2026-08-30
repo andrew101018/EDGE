@@ -33,19 +33,16 @@
 
 <nav class="top-nav">
   <button class="nav-btn active" onclick="go('home', this)">🏠 الرئيسية</button>
-  <button class="nav-btn" onclick="go('matches', this)">⚽ المباريات</button>
+  <button class="nav-btn" onclick="goMulti(['matches','tv'], this)">⚽ المباريات</button>
   <button class="nav-btn" onclick="go('tables', this)">🏆 الترتيب</button>
+  <button class="nav-btn" onclick="goMulti(['leaders','players'], this)">👑 الهدافين</button>
+  <button class="nav-btn" onclick="goMulti(['predict','fantasy','board'], this)">🎮 الألعاب</button>
   <button class="nav-btn" onclick="go('world', this)">🌍 عالمية</button>
-  <button class="nav-btn" onclick="go('archive', this)">📚 الأرشيف</button>
-  <button class="nav-btn" onclick="go('leaders', this)">👑 الهدافين</button>  
-  <button class="nav-btn" onclick="go('players', this)">👤 اللاعبون</button>
   <button class="nav-btn" onclick="go('transfers', this)">💸 الانتقالات</button>
-  <button class="nav-btn" onclick="go('tv', this)">📺 شاهد</button>
-  <button class="nav-btn" onclick="go('predict', this)">🎮 توقعات</button>
-  <button class="nav-btn" onclick="go('fantasy', this)">🎮 فانتازي</button>
-  <button class="nav-btn" onclick="go('board', this)">🏅 الصدارة</button>
+  <button class="nav-btn" onclick="go('archive', this)">📚 الأرشيف</button>
+  <button class="nav-btn" onclick="go('compare', this)">⚖️ مقارنة</button>
   <button class="nav-btn" onclick="go('shop', this)">🛒 المتجر</button>
-  <button id="installBtn" class="nav-btn" hidden onclick="installApp()">📲 ثبّت التطبيق</button>
+  <button id="installBtn" class="nav-btn install-btn" onclick="installApp()">📲 ثبّت التطبيق</button>
 </nav>
 
 <main class="container">
@@ -130,6 +127,18 @@
     <p class="players-description">اكتب اسم أي لاعب أو فريق وشوف أرقامه في كل الدوريات</p>
     <input id="playerSearch" class="archive-search players-search" placeholder="🔍 مثال: صلاح / هالاند / الأهلي..." oninput="renderPlayers()">
     <div id="playersContainer" class="grid"></div>
+  </section>
+
+    <section id="sec-compare" class="page">
+    <h2>⚖️ قارن فريقين</h2>
+    <p class="compare-description">اختار أي فريقين وشوف مين الأقوى بالأرقام</p>
+    <div class="compare-controls">
+      <select id="teamA" title="اختر الفريق الأول"></select>
+      <span class="compare-divider">×</span>
+      <select id="teamB" title="اختر الفريق الثاني"></select>
+      <button class="btn" onclick="renderCompare()">قارن 🔥</button>
+    </div>
+    <div id="compareContainer"></div>
   </section>
 
   <section class="section telegram">
