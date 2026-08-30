@@ -1,13 +1,10 @@
-import os, json, hashlib, time, re, random, traceback
+import os, json, hashlib, time, re, random, traceback, email.utils
 import requests
-try:
-    from feedparser import feedparser
-except ImportError:
-    feedparser = None
 from bs4 import BeautifulSoup
 from datetime import datetime
 from zoneinfo import ZoneInfo
 from difflib import SequenceMatcher
+from xml.etree import ElementTree
 
 TG_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TG_CHANNEL = os.environ.get("TELEGRAM_CHANNEL_ID", "@edgefootballplatform")
@@ -87,6 +84,33 @@ def is_dup_title(nt, recent):
         if nt == p: return True
         if abs(len(nt) - len(p)) < 12 and SequenceMatcher(None, nt, p).ratio() > 0.9: return True
     return False
+
+def parse_rss(content):
+    entries = []
+    try:
+        root = ElementTree.fromstring(content)
+    except Exception:
+        return entries
+    for it in root.findall(".//item"):
+        pub = it.findtext("pubDate") or ""
+        pp = None
+        if pub:
+            try:
+                pp = time.gmtime(email.utils.mktime_tz(email.utils.parsedate_tz(pub)))
+            except Exception:
+                pp = None
+        entries.append({"title": (it.findtext("title") or "").strip(),
+            "link": (it.findtext("link") or "").strip(),
+            "summary": it.findtext("description") or "", "published_parsed": pp})
+    if not entries:
+        ns = {"a": "http://www.w3.org/2005/Atom"}
+        for it in root.findall(".//a:entry", ns):
+            link_el = it.find("a:link", ns)
+            entries.append({"title": (it.findtext("a:title", default="", namespaces=ns) or "").strip(),
+                "link": link_el.get("href", "") if link_el is not None else "",
+                "summary": it.findtext("a:summary", default="", namespaces=ns) or "",
+                "published_parsed": None})
+    return entries
 
 ENGAGEMENTS = [
     {"type": "poll", "q": "مين أحسن مهاجم في العالم دلوقتي؟ 🔥", "options": ["هالاند", "مبابي", "محمد صلاح", "فينيسيوس"]},
@@ -274,8 +298,7 @@ def collect_news(state):
     for source, is_en in [(s, False) for s in ARABIC_SOURCES] + [(s, True) for s in ENGLISH_SOURCES]:
         try:
             rr = requests.get(source["url"], timeout=10, headers={"User-Agent": "EdgeFootball/1.0"})
-            feed = feedparser.parse(rr.content)
-            for e in feed.entries[:8]:
+            for e in parse_rss(rr.content)[:8]:
                 title = e.get("title", "").strip()
                 url = e.get("link", "")
                 if not title or not url: continue
@@ -496,89 +519,6 @@ def fetch_world():
             pass
     return out
 
-STARS = ["Mohamed Salah", "Erling Haaland", "Kylian Mbappe", "Harry Kane",
-    "Robert Lewandowski", "Vinicius Junior", "Jude Bellingham", "Bukayo Saka",
-    "Lamine Yamal", "Cristiano Ronaldo", "Karim Benzema", "Neymar",
-    "Riyad Mahrez", "Achraf Hakimi", "Omar Marmoush", "Cole Palmer"]
-
-def fetch_leaders():
-    items = []
-    for name in STARS:
-        try:
-            r = requests.get(
-                f"https://www.thesportsdb.com/api/v1/json/123/searchplayers.php?n={name.replace(' ', '%20')}",
-                timeout=8)
-            if not r.ok: continue
-            for p in (r.json().get("player") or [])[:1]:
-                items.append({
-                    "name": p.get("strPlayer") or name,
-                    "team": ar_team(p.get("strTeam") or ""),
-                    "value": p.get("strPosition") or "نجم",
-                    "face": p.get("strCutout") or p.get("strThumb") or "",
-                })
-        except Exception:
-            pass
-    return {"نجوم الموسم ⭐": items} if items else {}
-
-def fetch_top_scorers(slug):
-    """يسحب هدافين الدوري من صفحة ESPN"""
-    try:
-        r = requests.get(
-            f"https://www.espn.com/soccer/stats/_/league/{slug}",
-            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"},
-            timeout=10)
-        if not r.ok: return []
-        soup = BeautifulSoup(r.text, "html.parser")
-        rows = []
-        tables = soup.select("table")
-        if not tables: return []
-        name_table = tables[0] if len(tables) >= 1 else None
-        stat_table = tables[1] if len(tables) >= 2 else tables[0]
-        names = []
-        if name_table:
-            for tr in name_table.select("tr")[1:]:
-                a = tr.select_one("a")
-                img = tr.select_one("img")
-                tds = tr.select("td")
-                team_span = tr.select("span")
-                name = a.get_text(strip=True) if a else ""
-                face = img["src"] if img and img.get("src") else ""
-                team = ""
-                for s in team_span:
-                    t = s.get_text(strip=True)
-                    if t and t != name:
-                        team = t
-                        break
-                if not team:
-                    for td in tds:
-                        t = td.get_text(strip=True)
-                        if t and t != name and not t.isdigit():
-                            team = t
-                            break
-                names.append({"name": name, "team": team, "face": face})
-        stats = []
-        if stat_table:
-            for tr in stat_table.select("tr")[1:]:
-                tds = tr.select("td")
-                vals = [td.get_text(strip=True) for td in tds]
-                stats.append(vals)
-        for i, n in enumerate(names):
-            if not n["name"]: continue
-            goals = "0"
-            if i < len(stats) and len(stats[i]) >= 2:
-                goals = stats[i][1] if stats[i][1].isdigit() else stats[i][0] if stats[i][0].isdigit() else "0"
-            if int(goals) <= 0: continue
-            rows.append({
-                "name": n["name"],
-                "team": ar_team(n["team"]),
-                "value": f"{goals} ⚽",
-                "face": n["face"],
-            })
-        return rows[:20]
-    except Exception as e:
-        print(f"scorers error {slug}:", e)
-        return []
-
 def build_site_data(state, today):
     now = datetime.now(CAIRO)
     matches = []
@@ -627,13 +567,19 @@ def build_site_data(state, today):
     for slug in PRIORITY:
         t = top_table(slug, 8)
         if t: tables[LEAGUES[slug]] = t
-        leaders = fetch_leaders()
-        leaders = {}
+    leaders = {}
     for slug, agg in scorer_agg.items():
         rows = sorted([v for v in agg.values() if v["g"] > 0], key=lambda x: -x["g"])[:15]
         if rows:
             leaders[LEAGUES[slug]] = {"الهدافون 🏆 (الموسم الحالي)": [
                 {"name": r["name"], "team": r["team"], "value": f"{r['g']} ⚽", "face": r["face"]} for r in rows]}
+    site_data = {
+        "updated_at": now.strftime("%Y-%m-%d %I:%M %p"),
+        "news": state.get("site_news", [])[-20:][::-1],
+        "results": [x["t"] for x in state.get("daily_results", []) if x["d"] == today][-10:][::-1],
+        "matches": matches, "tables": tables, "leaders": leaders,
+        "world": fetch_world(), "highlights": [],
+    }
     os.makedirs("site", exist_ok=True)
     with open("site/data.json", "w", encoding="utf-8") as f:
         json.dump(site_data, f, ensure_ascii=False, indent=2)
