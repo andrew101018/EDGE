@@ -765,6 +765,27 @@ function renderArchive() {
     : '<div class="card">مفيش نتائج مطابقة لبحثك 🔍</div>';
 }
 
+function renderPlayers() {
+  const q = (document.getElementById('playerSearch').value || '').trim().toLowerCase();
+  const all = [];
+  Object.entries(DATA.leaders || {}).forEach(([league, cats]) => {
+    Object.entries(cats || {}).forEach(([label, items]) => {
+      (items || []).forEach(p => all.push(Object.assign({}, p, {league: league, label: label})));
+    });
+  });
+  const items = q
+    ? all.filter(p => (p.name || '').toLowerCase().includes(q) || (p.team || '').toLowerCase().includes(q))
+    : all.slice(0, 12);
+  document.getElementById('playersContainer').innerHTML = items.length ? items.map(p => `
+    <div class="tv-card" style="text-align:center;">
+      ${p.face ? `<img src="${p.face}" style="width:64px;height:64px;border-radius:50%;object-fit:cover;margin:0 auto 8px;display:block;" onerror="this.style.display='none'">` : '<div style="font-size:2.2em;">👤</div>'}
+      <div style="font-weight:bold;">${p.name}</div>
+      <div style="opacity:.7;font-size:.85em;">${p.team} | ${p.league}</div>
+      <div style="color:#fbbf24;font-weight:bold;margin-top:6px;">${p.label}: ${p.value}</div>
+    </div>`).join('')
+    : '<div class="card">مفيش لاعب بالاسم ده في البيانات الحالية 🔍</div>';
+}
+
 async function loadData() {
   try {
     const r = await fetch('site/data.json?t=' + Date.now());
@@ -783,6 +804,7 @@ async function loadData() {
     renderWorld();
     renderTransfers();
     renderArchive();
+      renderPlayers();
 
     document.getElementById('newsContainer').innerHTML = DATA.news.length > 0
       ? DATA.news.map(n => `<div class="news-item">${n.t}</div>`).join('')

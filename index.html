@@ -36,8 +36,9 @@
   <button class="nav-btn" onclick="go('matches', this)">⚽ المباريات</button>
   <button class="nav-btn" onclick="go('tables', this)">🏆 الترتيب</button>
   <button class="nav-btn" onclick="go('world', this)">🌍 عالمية</button>
-    <button class="nav-btn" onclick="go('archive', this)">📚 الأرشيف</button>
-  <button class="nav-btn" onclick="go('leaders', this)">👑 الهدافين</button>
+  <button class="nav-btn" onclick="go('archive', this)">📚 الأرشيف</button>
+  <button class="nav-btn" onclick="go('leaders', this)">👑 الهدافين</button>  
+  <button class="nav-btn" onclick="go('players', this)">👤 اللاعبون</button>
   <button class="nav-btn" onclick="go('transfers', this)">💸 الانتقالات</button>
   <button class="nav-btn" onclick="go('tv', this)">📺 شاهد</button>
   <button class="nav-btn" onclick="go('predict', this)">🎮 توقعات</button>
@@ -122,6 +123,13 @@
     <h2>📚 أرشيف الأخبار</h2>
     <input id="archiveSearch" class="archive-search" placeholder="🔍 ابحث في الأخبار (صلاح، صفقة، دوري...)" oninput="renderArchive()">
     <div id="archiveContainer" class="grid"></div>
+  </section>
+
+  <section id="sec-players" class="page">
+    <h2>👤 دليل اللاعبين</h2>
+    <p class="players-description">اكتب اسم أي لاعب أو فريق وشوف أرقامه في كل الدوريات</p>
+    <input id="playerSearch" class="archive-search players-search" placeholder="🔍 مثال: صلاح / هالاند / الأهلي..." oninput="renderPlayers()">
+    <div id="playersContainer" class="grid"></div>
   </section>
 
   <section class="section telegram">
