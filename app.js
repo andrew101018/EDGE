@@ -912,3 +912,112 @@ function installApp() {
   if (!deferredPrompt) { alert('من قائمة المتصفح ⋮ اختار: إضافة إلى الشاشة الرئيسية'); return; }
   deferredPrompt.prompt();
 }
+// ================= إصلاحات نهائية =================
+const STARS = ["Mohamed Salah","Erling Haaland","Kylian Mbappe","Harry Kane",
+"Robert Lewandowski","Vinicius Junior","Jude Bellingham","Bukayo Saka",
+"Lamine Yamal","Cristiano Ronaldo","Karim Benzema","Neymar",
+"Riyad Mahrez","Achraf Hakimi","Omar Marmoush","Cole Palmer"];
+let STARS_CACHE = null;
+async function loadStars() {
+  if (STARS_CACHE) return STARS_CACHE;
+  const items = [];
+  for (const name of STARS) {
+    try {
+      const r = await fetch("https://www.thesportsdb.com/api/v1/json/123/searchplayers.php?n=" + encodeURIComponent(name));
+      const p = ((await r.json()).player || [])[0];
+      if (p) items.push({name: p.strPlayer || name, team: p.strTeam || "",
+        value: p.strPosition || "نجم", face: p.strCutout || p.strThumb || ""});
+    } catch (e) {}
+  }
+  STARS_CACHE = items;
+  return items;
+}
+function allTeams() {
+  const map = {};
+  Object.entries(DATA.tables || {}).forEach(([league, rows]) => {
+    (rows || []).forEach(r => {
+      const gp = Number(r.gp) || 0;
+      const cur = map[r.team];
+      if (!cur || gp > (Number(cur.gp) || 0)) map[r.team] = Object.assign({}, r, {league: league});
+    });
+  });
+  return Object.values(map);
+}
+async function renderPlayers() {
+  const q = (document.getElementById('playerSearch').value || '').trim().toLowerCase();
+  let base = [];
+  Object.entries(DATA.leaders || {}).forEach(([league, cats]) => {
+    Object.entries(cats || {}).forEach(([label, items]) => {
+      (items || []).forEach(p => base.push(Object.assign({}, p, {league: league, label: label})));
+    });
+  });
+  if (!base.length) {
+    const stars = await loadStars();
+    base = stars.map(p => Object.assign({}, p, {league: "نجوم الموسم ⭐"}));
+  }
+  const items = q ? base.filter(p => (p.name || '').toLowerCase().includes(q) || (p.team || '').toLowerCase().includes(q)) : base.slice(0, 16);
+  document.getElementById('playersContainer').innerHTML = items.length ? items.map(p => `
+    <div class="tv-card" style="text-align:center;">
+      ${p.face ? `<img src="${p.face}" style="width:64px;height:64px;border-radius:50%;object-fit:cover;margin:0 auto 8px;display:block;" onerror="this.style.display='none'">` : '<div style="font-size:2.2em;">👤</div>'}
+      <div style="font-weight:bold;">${p.name}</div>
+      <div style="opacity:.7;font-size:.85em;">${p.team} | ${p.league}</div>
+      <div style="color:#fbbf24;font-weight:bold;margin-top:6px;">⭐ ${p.value || 'نجم'}</div>
+    </div>`).join('')
+    : '<div class="card">مفيش لاعب بالاسم ده 🔍</div>';
+}
+window.addEventListener('load', () => {
+  setTimeout(async () => {
+    if (!DATA.leaders || !Object.keys(DATA.leaders).length) {
+      const stars = await loadStars();
+      if (stars.length) {
+        DATA.leaders = {"نجوم الموسم ⭐": {"نجوم": stars}};
+        if (typeof renderLeaders === 'function') renderLeaders();
+        renderPlayers();
+      }
+    }
+  }, 1500);
+});
+// ===== إصلاح الهدافين والبحث =====
+function renderLeaders() {
+  const c = document.getElementById('leadersContainer');
+  if (!c) return;
+  const L = DATA.leaders || {};
+  if (!Object.keys(L).length) { c.innerHTML = '<div class="card">مفيش بيانات هدافين دلوقتي 🔄</div>'; return; }
+  let h = '';
+  Object.entries(L).forEach(([league, cats]) => {
+    h += `<h3 style="margin:18px 0 8px;color:#fbbf24;">${league}</h3>`;
+    Object.entries(cats).forEach(([label, items]) => {
+      h += `<h4 style="margin:8px 0 6px;opacity:.8;">${label}</h4><div class="grid">`;
+      (items || []).forEach((p, i) => {
+        h += `<div class="tv-card" style="text-align:center;">
+          ${p.face ? `<img src="${p.face}" style="width:52px;height:52px;border-radius:50%;object-fit:cover;margin:0 auto 6px;display:block;" onerror="this.style.display='none'">` : '<div style="font-size:1.8em;">👤</div>'}
+          <div style="font-weight:bold;">${i+1}. ${p.name}</div>
+          <div style="opacity:.7;font-size:.82em;">${p.team}</div>
+          <div style="color:#fbbf24;font-weight:bold;margin-top:4px;">${p.value}</div>
+        </div>`;
+      });
+      h += '</div>';
+    });
+  });
+  c.innerHTML = h;
+}
+function renderPlayers() {
+  const q = (document.getElementById('playerSearch')?.value || '').trim().toLowerCase();
+  const all = [];
+  Object.entries(DATA.leaders || {}).forEach(([league, cats]) => {
+    Object.entries(cats || {}).forEach(([label, items]) => {
+      (items || []).forEach(p => all.push(Object.assign({}, p, {league})));
+    });
+  });
+  const items = q ? all.filter(p => (p.name||'').toLowerCase().includes(q) || (p.team||'').toLowerCase().includes(q)) : all.slice(0, 20);
+  const c = document.getElementById('playersContainer');
+  if (!c) return;
+  c.innerHTML = items.length ? items.map((p, i) => `
+    <div class="tv-card" style="text-align:center;">
+      ${p.face ? `<img src="${p.face}" style="width:52px;height:52px;border-radius:50%;object-fit:cover;margin:0 auto 6px;display:block;" onerror="this.style.display='none'">` : '<div style="font-size:1.8em;">👤</div>'}
+      <div style="font-weight:bold;">${p.name}</div>
+      <div style="opacity:.7;font-size:.82em;">${p.team} | ${p.league}</div>
+      <div style="color:#fbbf24;font-weight:bold;margin-top:4px;">⭐ ${p.value}</div>
+    </div>`).join('')
+    : '<div class="card">مفيش لاعب بالاسم ده 🔍</div>';
+}

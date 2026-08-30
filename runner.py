@@ -520,6 +520,65 @@ def fetch_leaders():
             pass
     return {"نجوم الموسم ⭐": items} if items else {}
 
+def fetch_top_scorers(slug):
+    """يسحب هدافين الدوري من صفحة ESPN"""
+    try:
+        r = requests.get(
+            f"https://www.espn.com/soccer/stats/_/league/{slug}",
+            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"},
+            timeout=10)
+        if not r.ok: return []
+        soup = BeautifulSoup(r.text, "html.parser")
+        rows = []
+        tables = soup.select("table")
+        if not tables: return []
+        name_table = tables[0] if len(tables) >= 1 else None
+        stat_table = tables[1] if len(tables) >= 2 else tables[0]
+        names = []
+        if name_table:
+            for tr in name_table.select("tr")[1:]:
+                a = tr.select_one("a")
+                img = tr.select_one("img")
+                tds = tr.select("td")
+                team_span = tr.select("span")
+                name = a.get_text(strip=True) if a else ""
+                face = img["src"] if img and img.get("src") else ""
+                team = ""
+                for s in team_span:
+                    t = s.get_text(strip=True)
+                    if t and t != name:
+                        team = t
+                        break
+                if not team:
+                    for td in tds:
+                        t = td.get_text(strip=True)
+                        if t and t != name and not t.isdigit():
+                            team = t
+                            break
+                names.append({"name": name, "team": team, "face": face})
+        stats = []
+        if stat_table:
+            for tr in stat_table.select("tr")[1:]:
+                tds = tr.select("td")
+                vals = [td.get_text(strip=True) for td in tds]
+                stats.append(vals)
+        for i, n in enumerate(names):
+            if not n["name"]: continue
+            goals = "0"
+            if i < len(stats) and len(stats[i]) >= 2:
+                goals = stats[i][1] if stats[i][1].isdigit() else stats[i][0] if stats[i][0].isdigit() else "0"
+            if int(goals) <= 0: continue
+            rows.append({
+                "name": n["name"],
+                "team": ar_team(n["team"]),
+                "value": f"{goals} ⚽",
+                "face": n["face"],
+            })
+        return rows[:20]
+    except Exception as e:
+        print(f"scorers error {slug}:", e)
+        return []
+
 def build_site_data(state, today):
     now = datetime.now(CAIRO)
     matches = []
@@ -555,6 +614,11 @@ def build_site_data(state, today):
         t = top_table(slug, 8)
         if t: tables[LEAGUES[slug]] = t
         leaders = fetch_leaders()
+        leaders = {}
+    for slug in PRIORITY:
+        scorers = fetch_top_scorers(slug)
+        if scorers:
+            leaders[LEAGUES[slug]] = {"الهدافون 🏆": scorers}    
     site_data = {
         "updated_at": now.strftime("%Y-%m-%d %I:%M %p"),
         "news": state.get("site_news", [])[-20:][::-1],
