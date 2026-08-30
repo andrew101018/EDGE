@@ -238,60 +238,36 @@ async function showTeam(slug, teamId, teamName) {
   box.firstElementChild.style.cssText = 'max-width:640px;margin:40px auto;background:#1e293b;border-radius:12px;padding:20px;';
   document.getElementById('teamModalTitle').textContent = '👥 ' + teamName;
   document.getElementById('teamModalBody').innerHTML = 'جاري تحميل قائمة اللاعبين...';
-
+  const safeJson = async (r) => { const t = await r.text(); try { return JSON.parse(t); } catch (e) { return {}; } };
   try {
-    // البحث عن الفريق في TheSportsDB
-    const searchUrl = 'https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=' + encodeURIComponent(teamName);
-    const searchRes = await fetch(searchUrl);
-    const searchData = await searchRes.json();
-    const team = (searchData.teams || [])[0];
-    
+    const sd = await safeJson(await fetch('https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=' + encodeURIComponent(teamName)));
+    const team = (sd.teams || [])[0];
     let html = '';
     if (team) {
-      // شعار + معلومات
       html += `<div style="text-align:center;margin-bottom:16px;">
         ${team.strBadge ? `<img src="${team.strBadge}" style="width:80px;height:80px;object-fit:contain;">` : ''}
         <div style="font-size:1.3em;font-weight:bold;margin-top:8px;">${team.strTeam}</div>
         <div style="opacity:.7;">${team.strLeague || ''} ${team.strCountry ? '• ' + team.strCountry : ''}</div>
         ${team.strStadium ? `<div style="opacity:.8;margin-top:4px;">🏟️ ${team.strStadium}</div>` : ''}
       </div>`;
-      
-      // البحث عن لاعبين الفريق
-      const playersUrl = 'https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?t=' + encodeURIComponent(teamName);
-      const playersRes = await fetch(playersUrl);
-      const playersData = await playersRes.json();
-      const players = playersData.player || [];
-      
+      const pd = await safeJson(await fetch('https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?t=' + encodeURIComponent(team.strTeam)));
+      const players = pd.player || [];
       if (players.length) {
         html += '<div class="pos-box"><b>👥 اللاعبون:</b><div class="p-grid">';
         players.slice(0, 30).forEach(p => {
-          const face = p.strCutout || p.strThumb || p.strFanart1 || '';
-          const pos = p.strPosition || 'لاعب';
-          html += `<span class="p-card">
-            ${face ? `<img class="p-face" src="${face}" onerror="this.style.display='none'">` : '👤'}
-            ${p.strPlayer}
-            <small>(${pos})</small>
-            ${p.strNationality ? `<small>🏳️ ${p.strNationality}</small>` : ''}
-          </span>`;
+          const face = p.strCutout || p.strThumb || '';
+          html += `<span class="p-card">${face ? `<img class="p-face" src="${face}" onerror="this.style.display='none'">` : '👤'} ${p.strPlayer} <small>(${p.strPosition || 'لاعب'})</small></span>`;
         });
         html += '</div></div>';
       } else {
-        html += '<div class="card">قائمة اللاعبين مش متاحة للفريق ده</div>';
-      }
-      
-      // معلومات إضافية
-      if (team.strDescriptionAR) {
-        html += `<div class="pos-box"><b>ℹ️ عن النادي:</b><p style="line-height:1.6;">${team.strDescriptionAR.slice(0, 300)}...</p></div>`;
-      } else if (team.strDescriptionEN) {
-        html += `<div class="pos-box"><b>ℹ️ About:</b><p style="line-height:1.6;">${team.strDescriptionEN.slice(0, 300)}...</p></div>`;
+        html += '<div class="card">قائمة اللاعبين مش متاحة للفريق ده حالياً 🙏</div>';
       }
     } else {
-      html = `<div class="card">مفيش بيانات للفريق ده في قاعدة البيانات 🔍<br><small>جرب البحث باسم الفريق الإنجليزي</small></div>`;
+      html = '<div class="card">مفيش بيانات كافية للفريق ده في قاعدة البيانات 🔍<br><small>جرب دوس على فريق باسمه الإنجليزي</small></div>';
     }
-    
     document.getElementById('teamModalBody').innerHTML = html;
   } catch (e) {
-    document.getElementById('teamModalBody').innerHTML = '❌ خطأ في تحميل البيانات: ' + e.message;
+    document.getElementById('teamModalBody').innerHTML = '<div class="card">تعذر تحميل القائمة — جرب فريق تاني 🔄</div>';
   }
 }
 
