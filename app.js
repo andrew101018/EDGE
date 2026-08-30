@@ -226,51 +226,29 @@ function savePredict() {
 }
 
 
+const AR2EN = {"ريال مدريد":"Real Madrid","برشلونة":"Barcelona","ليفربول":"Liverpool","مانشستر سيتي":"Manchester City","مانشستر يونايتد":"Manchester United","تشيلسي":"Chelsea","أرسنال":"Arsenal","توتنهام":"Tottenham Hotspur","باريس سان جيرمان":"Paris Saint-Germain","بايرن ميونخ":"Bayern Munich","يوفنتوس":"Juventus","إنتر ميلان":"Inter","ميلان":"AC Milan","أتلتيكو مدريد":"Atlético Madrid","بوروسيا دورتموند":"Borussia Dortmund","نابولي":"Napoli","أستون فيلا":"Aston Villa","نيوكاسل":"Newcastle United","الأهلي":"Al Ahly","الزمالك":"Zamalek","بيراميدز":"Pyramids FC","الهلال":"Al Hilal","النصر":"Al Nassr","الاتحاد":"Al Ittihad","الأهلي السعودي":"Al Ahli","الشباب":"Al Shabab","الاتفاق":"Al Ettifaq","الفيحاء":"Al Fayha","الرياض":"Al Riyad","الوحدة":"Al Wehda","القادسية":"Al Qadsiah","الخليج":"Al Khaleej","الرائد":"Al Raed","التعاون":"Al Taawoun","ضمك":"Damac FC","الفتح":"Al Fateh","الإسماعيلي":"Ismaily","المصري":"Al Masry","سموحة":"Smouha","إنبي":"ENPPI","سيراميكا كليوباترا":"Ceramica Cleopatra","مودرن سبورت":"Modern Sport","جالاطا سراي":"Galatasaray","فنربخشة":"Fenerbahçe","بشكتاش":"Beşiktaş","بنفيكا":"Benfica","بورتو":"Porto","سبورتينج لشبونة":"Sporting CP","أياكس":"Ajax","آيندهوفن":"PSV Eindhoven","إنتر ميامي":"Inter Miami","لوس أنجلوس FC":"LAFC","شيكاغو فاير":"Chicago Fire","سانتوس":"Santos"};
 async function showTeam(slug, teamId, teamName) {
-  let box = document.getElementById('teamModal');
-  if (!box) {
-    box = document.createElement('div');
-    box.id = 'teamModal';
-    box.innerHTML = '<div><div style="display:flex;justify-content:space-between;align-items:center;font-weight:bold;color:#fbbf24;font-size:1.2em;margin-bottom:12px;"><span id="teamModalTitle"></span><button onclick="closeTeam()" style="background:none;border:none;color:#ef4444;font-size:1.3em;cursor:pointer;">✖</button></div><div id="teamModalBody"></div></div>';
-    document.body.appendChild(box);
-  }
-  box.style.cssText = 'display:block;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);z-index:9999;overflow:auto;';
+  const box = document.getElementById('teamModal') || (() => {
+    const b = document.createElement('div'); b.id = 'teamModal';
+    b.innerHTML = '<div><div style="display:flex;justify-content:space-between;font-weight:bold;color:#fbbf24;font-size:1.2em;margin-bottom:12px;"><span id="teamModalTitle"></span><button onclick="closeTeam()" style="background:none;border:none;color:#ef4444;font-size:1.3em;cursor:pointer;">✖</button></div><div id="teamModalBody"></div></div>';
+    document.body.appendChild(b); return b;
+  })();
+  box.style.cssText = 'display:block;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:9999;overflow:auto;';
   box.firstElementChild.style.cssText = 'max-width:640px;margin:40px auto;background:#1e293b;border-radius:12px;padding:20px;';
   document.getElementById('teamModalTitle').textContent = '👥 ' + teamName;
-  document.getElementById('teamModalBody').innerHTML = 'جاري تحميل قائمة اللاعبين...';
-  const safeJson = async (r) => { const t = await r.text(); try { return JSON.parse(t); } catch (e) { return {}; } };
-  try {
-    const sd = await safeJson(await fetch('https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=' + encodeURIComponent(teamName)));
-    const team = (sd.teams || [])[0];
-    let html = '';
-    if (team) {
-      html += `<div style="text-align:center;margin-bottom:16px;">
-        ${team.strBadge ? `<img src="${team.strBadge}" style="width:80px;height:80px;object-fit:contain;">` : ''}
-        <div style="font-size:1.3em;font-weight:bold;margin-top:8px;">${team.strTeam}</div>
-        <div style="opacity:.7;">${team.strLeague || ''} ${team.strCountry ? '• ' + team.strCountry : ''}</div>
-        ${team.strStadium ? `<div style="opacity:.8;margin-top:4px;">🏟️ ${team.strStadium}</div>` : ''}
-      </div>`;
-      const pd = await safeJson(await fetch('https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?t=' + encodeURIComponent(team.strTeam)));
-      const players = pd.player || [];
-      if (players.length) {
-        html += '<div class="pos-box"><b>👥 اللاعبون:</b><div class="p-grid">';
-        players.slice(0, 30).forEach(p => {
-          const face = p.strCutout || p.strThumb || '';
-          html += `<span class="p-card">${face ? `<img class="p-face" src="${face}" onerror="this.style.display='none'">` : '👤'} ${p.strPlayer} <small>(${p.strPosition || 'لاعب'})</small></span>`;
-        });
-        html += '</div></div>';
-      } else {
-        html += '<div class="card">قائمة اللاعبين مش متاحة للفريق ده حالياً 🙏</div>';
-      }
-    } else {
-      html = '<div class="card">مفيش بيانات كافية للفريق ده في قاعدة البيانات 🔍<br><small>جرب دوس على فريق باسمه الإنجليزي</small></div>';
-    }
-    document.getElementById('teamModalBody').innerHTML = html;
-  } catch (e) {
-    document.getElementById('teamModalBody').innerHTML = '<div class="card">تعذر تحميل القائمة — جرب فريق تاني 🔄</div>';
-  }
+  document.getElementById('teamModalBody').innerHTML = 'ثانية بنحمل اللاعبين... ⏳';
+  const get = async u => { try { return JSON.parse(await (await fetch(u)).text()); } catch (e) { return {}; } };
+  const q = AR2EN[teamName] || teamName;
+  const teams = ((await get('https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=' + encodeURIComponent(q))).teams || []);
+  const team = teams.find(t => (t.strGender || 'Male') !== 'Female') || teams[0];
+  if (!team) { document.getElementById('teamModalBody').innerHTML = '<div class="card">مفيش بيانات للفريق ده 🙏</div>'; return; }
+  const players = (await get('https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?t=' + encodeURIComponent(team.strTeam))).player || [];
+  let html = `<div style="text-align:center;margin-bottom:14px;">${team.strBadge ? `<img src="${team.strBadge}" style="width:70px;height:70px;object-fit:contain;">` : ''}<div style="font-weight:bold;font-size:1.2em;">${team.strTeam}</div><div style="opacity:.7;">${team.strLeague || ''}</div></div>`;
+  html += players.length ? '<div class="p-grid">' + players.slice(0, 25).map(p =>
+    `<span class="p-card">${p.strCutout || p.strThumb ? `<img class="p-face" src="${p.strCutout || p.strThumb}" onerror="this.style.display='none'">` : '👤'} ${p.strPlayer} <small>(${p.strPosition || 'لاعب'})</small></span>`).join('') + '</div>'
+    : '<div class="card">قائمة اللاعبين مش متاحة للفريق ده حالياً 🙏</div>';
+  document.getElementById('teamModalBody').innerHTML = html;
 }
-
 async function showMatch(slug, eid, title) {
   let box = document.getElementById('matchModal');
   if (!box) {
