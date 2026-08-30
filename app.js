@@ -237,61 +237,59 @@ async function showTeam(slug, teamId, teamName) {
   box.style.cssText = 'display:block;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);z-index:9999;overflow:auto;';
   box.firstElementChild.style.cssText = 'max-width:640px;margin:40px auto;background:#1e293b;border-radius:12px;padding:20px;';
   document.getElementById('teamModalTitle').textContent = '👥 ' + teamName;
-  document.getElementById('teamModalBody').innerHTML = 'جاري تحميل القائمة...';
+  document.getElementById('teamModalBody').innerHTML = 'جاري تحميل قائمة اللاعبين...';
+
   try {
-    const [rRoster, rTeam] = await Promise.all([
-      fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/teams/${teamId}/roster`),
-      fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/teams/${teamId}`)
-    ]);
+    // البحث عن الفريق في TheSportsDB
+    const searchUrl = 'https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=' + encodeURIComponent(teamName);
+    const searchRes = await fetch(searchUrl);
+    const searchData = await searchRes.json();
+    const team = (searchData.teams || [])[0];
+    
     let html = '';
-    try {
-      const dt = await rTeam.json();
-      const coach = (dt.coach && (dt.coach.displayName || dt.coach.fullName)) ||
-                    (dt.team && dt.team.coach && (dt.team.coach.displayName || dt.team.coach.fullName)) ||
-                    (Array.isArray(dt.coaches) && dt.coaches[0] && (dt.coaches[0].displayName || dt.coaches[0].fullName)) || null;
-      if (coach) html += `<div class="pos-box coach-box">🎯 المدير الفني: <b>${coach}</b></div>`;
-    } catch (e) {}
-          const d = await rRoster.json();
-
-    const coachName = d.coach && (d.coach.displayName || d.coach.fullName || d.coach.name);
-    if (coachName) html += `<div class="pos-box coach-box">🎯 المدير الفني: <b>${coachName}</b></div>`;
-
-    const players = [];
-    const addList = (pos, list) => {
-      (list || []).forEach(i => {
-        const a = i.athlete || i;
-        if (a && (a.displayName || a.fullName)) players.push({pos, a});
-      });
-    };
-    if (Array.isArray(d.athletes)) {
-      d.athletes.forEach(g => {
-        if (g && (g.items || g.athletes)) {
-          const pos = typeof g.position === 'string' ? g.position
-                    : (g.position && (g.position.name || g.position.displayName)) || 'لاعبون';
-          addList(pos, g.items || g.athletes);
-        } else if (g && (g.displayName || g.fullName)) {
-          const pos = (g.position && (g.position.name || g.position.displayName)) || 'لاعبون';
-          players.push({pos, a: g});
-        }
-      });
-    } else if (d.athletes && typeof d.athletes === 'object') {
-      Object.entries(d.athletes).forEach(([pos, list]) => addList(pos, list));
+    if (team) {
+      // شعار + معلومات
+      html += `<div style="text-align:center;margin-bottom:16px;">
+        ${team.strBadge ? `<img src="${team.strBadge}" style="width:80px;height:80px;object-fit:contain;">` : ''}
+        <div style="font-size:1.3em;font-weight:bold;margin-top:8px;">${team.strTeam}</div>
+        <div style="opacity:.7;">${team.strLeague || ''} ${team.strCountry ? '• ' + team.strCountry : ''}</div>
+        ${team.strStadium ? `<div style="opacity:.8;margin-top:4px;">🏟️ ${team.strStadium}</div>` : ''}
+      </div>`;
+      
+      // البحث عن لاعبين الفريق
+      const playersUrl = 'https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?t=' + encodeURIComponent(teamName);
+      const playersRes = await fetch(playersUrl);
+      const playersData = await playersRes.json();
+      const players = playersData.player || [];
+      
+      if (players.length) {
+        html += '<div class="pos-box"><b>👥 اللاعبون:</b><div class="p-grid">';
+        players.slice(0, 30).forEach(p => {
+          const face = p.strCutout || p.strThumb || p.strFanart1 || '';
+          const pos = p.strPosition || 'لاعب';
+          html += `<span class="p-card">
+            ${face ? `<img class="p-face" src="${face}" onerror="this.style.display='none'">` : '👤'}
+            ${p.strPlayer}
+            <small>(${pos})</small>
+            ${p.strNationality ? `<small>🏳️ ${p.strNationality}</small>` : ''}
+          </span>`;
+        });
+        html += '</div></div>';
+      } else {
+        html += '<div class="card">قائمة اللاعبين مش متاحة للفريق ده</div>';
+      }
+      
+      // معلومات إضافية
+      if (team.strDescriptionAR) {
+        html += `<div class="pos-box"><b>ℹ️ عن النادي:</b><p style="line-height:1.6;">${team.strDescriptionAR.slice(0, 300)}...</p></div>`;
+      } else if (team.strDescriptionEN) {
+        html += `<div class="pos-box"><b>ℹ️ About:</b><p style="line-height:1.6;">${team.strDescriptionEN.slice(0, 300)}...</p></div>`;
+      }
+    } else {
+      html = `<div class="card">مفيش بيانات للفريق ده في قاعدة البيانات 🔍<br><small>جرب البحث باسم الفريق الإنجليزي</small></div>`;
     }
-
-    const byPos = {};
-    players.forEach(p => { (byPos[p.pos] = byPos[p.pos] || []).push(p.a); });
-    Object.entries(byPos).forEach(([pos, list]) => {
-      const cards = list.map(a => {
-        const face = (a.headshot && (a.headshot.href || a.headshot.url)) || (a.id ? `https://a.espncdn.com/i/headshots/soccer/players/full/${a.id}.png` : '');
-        const s = a.statistics || {};
-        const bits = [];
-        if (s.goals) bits.push(`⚽ ${s.goals}`);
-        if (s.assists) bits.push(`🅰️ ${s.assists}`);
-        return `<span class="p-card">${face ? `<img class="p-face" src="${face}" onerror="this.style.display='none'">` : '👤'} ${a.displayName || a.fullName}${a.jersey ? ` (${a.jersey})` : ''}${bits.length ? ` <small>${bits.join(' ')}</small>` : ''}</span>`;
-      }).join('');
-      if (cards) html += `<div class="pos-box"><b>${pos}:</b><div class="p-grid">${cards}</div></div>`;
-    });
-    document.getElementById('teamModalBody').innerHTML = html || ('لا توجد بيانات — عينة: ' + JSON.stringify(d).slice(0, 300));
+    
+    document.getElementById('teamModalBody').innerHTML = html;
   } catch (e) {
     document.getElementById('teamModalBody').innerHTML = '❌ خطأ في تحميل البيانات: ' + e.message;
   }
@@ -1021,3 +1019,54 @@ function renderPlayers() {
     </div>`).join('')
     : '<div class="card">مفيش لاعب بالاسم ده 🔍</div>';
 }
+// ===== الهدافون الحقيقيون — ترتيب بالأهداف من ESPN مباشرة =====
+async function buildScorers() {
+  const slugs = {"egy.1":"الدوري المصري","ksa.1":"الدوري السعودي","uefa.champions":"دوري أبطال أوروبا",
+    "eng.1":"الدوري الإنجليزي","esp.1":"الدوري الإسباني","ita.1":"الدوري الإيطالي",
+    "ger.1":"الدوري الألماني","fra.1":"الدوري الفرنسي"};
+  const out = {};
+  for (const slug of Object.keys(slugs)) {
+    try {
+      const r = await fetch("https://site.api.espn.com/apis/site/v2/sports/soccer/" + slug + "/scoreboard");
+      const d = await r.json();
+      const map = {};
+      (d.events || []).forEach(ev => {
+        (((ev.competitions || [])[0] || {}).competitors || []).forEach(c => {
+          (c.leaders || []).forEach(l => {
+            if (!((l.name || "").includes("goals"))) return;
+            (l.leaders || []).forEach(p => {
+              const a = p.athlete || {};
+              const g = Number(p.value) || 0;
+              const key = a.id || a.displayName;
+              if (!map[key] || map[key].g < g) {
+                map[key] = {name: a.displayName || "", team: (c.team || {}).displayName || "", g: g,
+                  face: ((a.headshot || {}).href) || ""};
+              }
+            });
+          });
+        });
+      });
+      const list = Object.values(map).filter(p => p.g > 0 && p.name)
+        .sort((a, b) => b.g - a.g).slice(0, 15)
+        .map(p => ({name: p.name, team: p.team, value: p.g + " ⚽", face: p.face}));
+      if (list.length) out[slugs[slug]] = {"الهدافون 🏆": list};
+    } catch (e) {}
+  }
+  return out;
+}
+window.addEventListener('load', () => {
+  setTimeout(async () => {
+    if (!DATA.leaders || !Object.keys(DATA.leaders).length) {
+      let L = await buildScorers();
+      if (!Object.keys(L).length && typeof loadStars === 'function') {
+        const stars = await loadStars();
+        if (stars.length) L = {"نجوم الموسم ⭐": {"نجوم": stars}};
+      }
+      if (Object.keys(L).length) {
+        DATA.leaders = L;
+        if (typeof renderLeaders === 'function') renderLeaders();
+        if (typeof renderPlayers === 'function') renderPlayers();
+      }
+    }
+  }, 1200);
+});
