@@ -582,6 +582,7 @@ def fetch_top_scorers(slug):
 def build_site_data(state, today):
     now = datetime.now(CAIRO)
     matches = []
+    scorer_agg = {}
     for slug in PRIORITY:
         data = fetch_scoreboard(slug)
         if not data: continue
@@ -597,6 +598,19 @@ def build_site_data(state, today):
                 comps = comp["competitors"]
                 home = [c for c in comps if c.get("homeAway") == "home"][0]
                 away = [c for c in comps if c.get("homeAway") == "away"][0]
+                for c in comps:
+                    for l in c.get("leaders", []):
+                        if "goals" not in (l.get("name") or ""): continue
+                        for p in l.get("leaders", []):
+                            a = p.get("athlete", {}) or {}
+                            try: g = int(float(p.get("value", 0) or 0))
+                            except Exception: g = 0
+                            key = a.get("id") or a.get("displayName")
+                            cur = scorer_agg.setdefault(slug, {})
+                            if key not in cur or cur[key]["g"] < g:
+                                cur[key] = {"name": a.get("displayName", ""),
+                                    "team": ar_team((c.get("team", {}) or {}).get("displayName", "")),
+                                    "g": g, "face": ((a.get("headshot", {}) or {}).get("href", ""))}
                 group["items"].append({
                     "home": ar_team(home["team"]["displayName"]), "away": ar_team(away["team"]["displayName"]),
                     "eid": ev.get("id"), "slug": slug,
@@ -615,17 +629,11 @@ def build_site_data(state, today):
         if t: tables[LEAGUES[slug]] = t
         leaders = fetch_leaders()
         leaders = {}
-    for slug in PRIORITY:
-        scorers = fetch_top_scorers(slug)
-        if scorers:
-            leaders[LEAGUES[slug]] = {"الهدافون 🏆": scorers}    
-    site_data = {
-        "updated_at": now.strftime("%Y-%m-%d %I:%M %p"),
-        "news": state.get("site_news", [])[-20:][::-1],
-        "results": [x["t"] for x in state.get("daily_results", []) if x["d"] == today][-10:][::-1],
-        "matches": matches, "tables": tables, "leaders": leaders,
-        "world": fetch_world(), "highlights": [],
-    }
+    for slug, agg in scorer_agg.items():
+        rows = sorted([v for v in agg.values() if v["g"] > 0], key=lambda x: -x["g"])[:15]
+        if rows:
+            leaders[LEAGUES[slug]] = {"الهدافون 🏆 (الموسم الحالي)": [
+                {"name": r["name"], "team": r["team"], "value": f"{r['g']} ⚽", "face": r["face"]} for r in rows]}
     os.makedirs("site", exist_ok=True)
     with open("site/data.json", "w", encoding="utf-8") as f:
         json.dump(site_data, f, ensure_ascii=False, indent=2)

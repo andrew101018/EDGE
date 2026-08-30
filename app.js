@@ -910,77 +910,41 @@ function installApp() {
   if (!deferredPrompt) { alert('من قائمة المتصفح ⋮ اختار: إضافة إلى الشاشة الرئيسية'); return; }
   deferredPrompt.prompt();
 }
-// ================= إصلاحات نهائية =================
-const STARS = ["Mohamed Salah","Erling Haaland","Kylian Mbappe","Harry Kane",
-"Robert Lewandowski","Vinicius Junior","Jude Bellingham","Bukayo Saka",
-"Lamine Yamal","Cristiano Ronaldo","Karim Benzema","Neymar",
-"Riyad Mahrez","Achraf Hakimi","Omar Marmoush","Cole Palmer"];
-let STARS_CACHE = null;
-async function loadStars() {
-  if (STARS_CACHE) return STARS_CACHE;
-  const items = [];
-  for (const name of STARS) {
-    try {
-      const r = await fetch("https://www.thesportsdb.com/api/v1/json/123/searchplayers.php?n=" + encodeURIComponent(name));
-      const p = ((await r.json()).player || [])[0];
-      if (p) items.push({name: p.strPlayer || name, team: p.strTeam || "",
-        value: p.strPosition || "نجم", face: p.strCutout || p.strThumb || ""});
-    } catch (e) {}
-  }
-  STARS_CACHE = items;
-  return items;
-}
+// ================= بيانات حية فقط =================
 function allTeams() {
   const map = {};
   Object.entries(DATA.tables || {}).forEach(([league, rows]) => {
     (rows || []).forEach(r => {
-      const gp = Number(r.gp) || 0;
-      const cur = map[r.team];
-      if (!cur || gp > (Number(cur.gp) || 0)) map[r.team] = Object.assign({}, r, {league: league});
+      if (typeof r === 'string') {
+        const m = r.match(/^(\d+)\.\s*(.+?)\s*—\s*(\d+)/);
+        if (m) map[m[2]] = {rank: +m[1], team: m[2], pts: +m[3], gp: 1, w: '-', d: '-', l: '-', logo: '', league: league};
+      } else {
+        const gp = Number(r.gp) || 0;
+        const cur = map[r.team];
+        if (!cur || gp > (Number(cur.gp) || 0)) map[r.team] = Object.assign({}, r, {league: league});
+      }
     });
   });
   return Object.values(map);
 }
-async function renderPlayers() {
-  const q = (document.getElementById('playerSearch').value || '').trim().toLowerCase();
-  let base = [];
-  Object.entries(DATA.leaders || {}).forEach(([league, cats]) => {
-    Object.entries(cats || {}).forEach(([label, items]) => {
-      (items || []).forEach(p => base.push(Object.assign({}, p, {league: league, label: label})));
-    });
-  });
-  if (!base.length) {
-    const stars = await loadStars();
-    base = stars.map(p => Object.assign({}, p, {league: "نجوم الموسم ⭐"}));
-  }
-  const items = q ? base.filter(p => (p.name || '').toLowerCase().includes(q) || (p.team || '').toLowerCase().includes(q)) : base.slice(0, 16);
-  document.getElementById('playersContainer').innerHTML = items.length ? items.map(p => `
-    <div class="tv-card" style="text-align:center;">
-      ${p.face ? `<img src="${p.face}" style="width:64px;height:64px;border-radius:50%;object-fit:cover;margin:0 auto 8px;display:block;" onerror="this.style.display='none'">` : '<div style="font-size:2.2em;">👤</div>'}
-      <div style="font-weight:bold;">${p.name}</div>
-      <div style="opacity:.7;font-size:.85em;">${p.team} | ${p.league}</div>
-      <div style="color:#fbbf24;font-weight:bold;margin-top:6px;">⭐ ${p.value || 'نجم'}</div>
-    </div>`).join('')
-    : '<div class="card">مفيش لاعب بالاسم ده 🔍</div>';
+function fixTables() {
+  const el = document.getElementById('tablesContainer');
+  if (!el) return;
+  const objs = Object.values(DATA.tables || {}).some(rows => rows && rows[0] && typeof rows[0] === 'object');
+  if (objs) return;
+  const byLeague = {};
+  allTeams().forEach(t => { (byLeague[t.league] = byLeague[t.league] || []).push(t); });
+  el.innerHTML = Object.entries(byLeague).map(([name, rows]) => `
+    <div class="table-box"><h3>🏆 ${name}</h3>
+    <table class="stand"><tr><th>#</th><th>الفريق</th><th>نقاط</th></tr>
+    ${rows.sort((a, b) => a.rank - b.rank).map(r => `<tr><td>${r.rank}</td><td>${r.team}</td><td class="pts">${r.pts}</td></tr>`).join('')}
+    </table></div>`).join('') || el.innerHTML;
 }
-window.addEventListener('load', () => {
-  setTimeout(async () => {
-    if (!DATA.leaders || !Object.keys(DATA.leaders).length) {
-      const stars = await loadStars();
-      if (stars.length) {
-        DATA.leaders = {"نجوم الموسم ⭐": {"نجوم": stars}};
-        if (typeof renderLeaders === 'function') renderLeaders();
-        renderPlayers();
-      }
-    }
-  }, 1500);
-});
-// ===== إصلاح الهدافين والبحث =====
 function renderLeaders() {
   const c = document.getElementById('leadersContainer');
   if (!c) return;
   const L = DATA.leaders || {};
-  if (!Object.keys(L).length) { c.innerHTML = '<div class="card">مفيش بيانات هدافين دلوقتي 🔄</div>'; return; }
+  if (!Object.keys(L).length) { c.innerHTML = '<div class="card">الهدافون هيتحدثوا مع أول جولة 🔄</div>'; return; }
   let h = '';
   Object.entries(L).forEach(([league, cats]) => {
     h += `<h3 style="margin:18px 0 8px;color:#fbbf24;">${league}</h3>`;
@@ -989,7 +953,7 @@ function renderLeaders() {
       (items || []).forEach((p, i) => {
         h += `<div class="tv-card" style="text-align:center;">
           ${p.face ? `<img src="${p.face}" style="width:52px;height:52px;border-radius:50%;object-fit:cover;margin:0 auto 6px;display:block;" onerror="this.style.display='none'">` : '<div style="font-size:1.8em;">👤</div>'}
-          <div style="font-weight:bold;">${i+1}. ${p.name}</div>
+          <div style="font-weight:bold;">${i + 1}. ${p.name}</div>
           <div style="opacity:.7;font-size:.82em;">${p.team}</div>
           <div style="color:#fbbf24;font-weight:bold;margin-top:4px;">${p.value}</div>
         </div>`;
@@ -1007,10 +971,10 @@ function renderPlayers() {
       (items || []).forEach(p => all.push(Object.assign({}, p, {league})));
     });
   });
-  const items = q ? all.filter(p => (p.name||'').toLowerCase().includes(q) || (p.team||'').toLowerCase().includes(q)) : all.slice(0, 20);
+  const items = q ? all.filter(p => (p.name || '').toLowerCase().includes(q) || (p.team || '').toLowerCase().includes(q)) : all.slice(0, 20);
   const c = document.getElementById('playersContainer');
   if (!c) return;
-  c.innerHTML = items.length ? items.map((p, i) => `
+  c.innerHTML = items.length ? items.map(p => `
     <div class="tv-card" style="text-align:center;">
       ${p.face ? `<img src="${p.face}" style="width:52px;height:52px;border-radius:50%;object-fit:cover;margin:0 auto 6px;display:block;" onerror="this.style.display='none'">` : '<div style="font-size:1.8em;">👤</div>'}
       <div style="font-weight:bold;">${p.name}</div>
@@ -1019,54 +983,13 @@ function renderPlayers() {
     </div>`).join('')
     : '<div class="card">مفيش لاعب بالاسم ده 🔍</div>';
 }
-// ===== الهدافون الحقيقيون — ترتيب بالأهداف من ESPN مباشرة =====
-async function buildScorers() {
-  const slugs = {"egy.1":"الدوري المصري","ksa.1":"الدوري السعودي","uefa.champions":"دوري أبطال أوروبا",
-    "eng.1":"الدوري الإنجليزي","esp.1":"الدوري الإسباني","ita.1":"الدوري الإيطالي",
-    "ger.1":"الدوري الألماني","fra.1":"الدوري الفرنسي"};
-  const out = {};
-  for (const slug of Object.keys(slugs)) {
-    try {
-      const r = await fetch("https://site.api.espn.com/apis/site/v2/sports/soccer/" + slug + "/scoreboard");
-      const d = await r.json();
-      const map = {};
-      (d.events || []).forEach(ev => {
-        (((ev.competitions || [])[0] || {}).competitors || []).forEach(c => {
-          (c.leaders || []).forEach(l => {
-            if (!((l.name || "").includes("goals"))) return;
-            (l.leaders || []).forEach(p => {
-              const a = p.athlete || {};
-              const g = Number(p.value) || 0;
-              const key = a.id || a.displayName;
-              if (!map[key] || map[key].g < g) {
-                map[key] = {name: a.displayName || "", team: (c.team || {}).displayName || "", g: g,
-                  face: ((a.headshot || {}).href) || ""};
-              }
-            });
-          });
-        });
-      });
-      const list = Object.values(map).filter(p => p.g > 0 && p.name)
-        .sort((a, b) => b.g - a.g).slice(0, 15)
-        .map(p => ({name: p.name, team: p.team, value: p.g + " ⚽", face: p.face}));
-      if (list.length) out[slugs[slug]] = {"الهدافون 🏆": list};
-    } catch (e) {}
-  }
-  return out;
-}
 window.addEventListener('load', () => {
-  setTimeout(async () => {
-    if (!DATA.leaders || !Object.keys(DATA.leaders).length) {
-      let L = await buildScorers();
-      if (!Object.keys(L).length && typeof loadStars === 'function') {
-        const stars = await loadStars();
-        if (stars.length) L = {"نجوم الموسم ⭐": {"نجوم": stars}};
-      }
-      if (Object.keys(L).length) {
-        DATA.leaders = L;
-        if (typeof renderLeaders === 'function') renderLeaders();
-        if (typeof renderPlayers === 'function') renderPlayers();
-      }
-    }
-  }, 1200);
+  setTimeout(() => {
+    fixTables();
+    const a = document.getElementById('teamA');
+    if (a) a.innerHTML = '';
+    fillTeamSelects();
+    renderLeaders();
+    renderPlayers();
+  }, 1500);
 });
