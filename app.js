@@ -238,13 +238,15 @@ async function showTeam(slug, teamId, teamName) {
   document.getElementById('teamModalTitle').textContent = '👥 ' + teamName;
   document.getElementById('teamModalBody').innerHTML = 'ثانية بنحمل اللاعبين... ⏳';
   const get = async u => { try { return JSON.parse(await (await fetch(u)).text()); } catch (e) { return {}; } };
-  const q = AR2EN[teamName] || teamName;
-  const teams = ((await get('https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=' + encodeURIComponent(q))).teams || []);
-  const team = teams.find(t => (t.strGender || 'Male') !== 'Female') || teams[0];
+  const q = (typeof AR2EN !== 'undefined' && AR2EN[teamName]) || teamName;
+  const teams = ((await get('https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=' + encodeURIComponent(q))).teams || []).filter(t => (t.strGender || 'Male') !== 'Female');
+  const team = teams.find(t => (t.strTeam || '').toLowerCase() === q.toLowerCase())
+    || teams.find(t => (t.strTeam || '').toLowerCase().indexOf(q.toLowerCase().slice(0, 8)) === 0)
+    || teams[0];
   if (!team) { document.getElementById('teamModalBody').innerHTML = '<div class="card">مفيش بيانات للفريق ده 🙏</div>'; return; }
-  const players = (await get('https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?t=' + encodeURIComponent(team.strTeam))).player || [];
+  const players = ((await get('https://www.thesportsdb.com/api/v1/json/3/lookup_all_players.php?id=' + team.idTeam)).player || []).filter(p => p.strPlayer);
   let html = `<div style="text-align:center;margin-bottom:14px;">${team.strBadge ? `<img src="${team.strBadge}" style="width:70px;height:70px;object-fit:contain;">` : ''}<div style="font-weight:bold;font-size:1.2em;">${team.strTeam}</div><div style="opacity:.7;">${team.strLeague || ''}</div></div>`;
-  html += players.length ? '<div class="p-grid">' + players.slice(0, 25).map(p =>
+  html += players.length ? '<div class="p-grid">' + players.slice(0, 30).map(p =>
     `<span class="p-card">${p.strCutout || p.strThumb ? `<img class="p-face" src="${p.strCutout || p.strThumb}" onerror="this.style.display='none'">` : '👤'} ${p.strPlayer} <small>(${p.strPosition || 'لاعب'})</small></span>`).join('') + '</div>'
     : '<div class="card">قائمة اللاعبين مش متاحة للفريق ده حالياً 🙏</div>';
   document.getElementById('teamModalBody').innerHTML = html;
