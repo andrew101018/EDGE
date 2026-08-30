@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-08-30 04:28 AM",
+  "updated_at": "2026-08-30 10:05 AM",
   "news": [
+    {
+      "t": "⚽ تفاصيل جديدة بشأن موقف بيزيرا مع الزمالك - صدى البلد",
+      "img": ""
+    },
+    {
+      "t": "⚽ لجنة الحكام تضع خطة لتجهيز 25 حكماً لإدارة مباريات الدوري الممتاز - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ \"ميركاتو\" مثير وصفقات قياسية، ما أبرز انتقالات نجوم كرة القدم في صيف 2026؟ - BBC",
+      "img": ""
+    },
+    {
+      "t": "⚽ عنده كل الإمكانيات.. وليد صلاح الدين ينتقد رحيل نجم الأهلي - صدى البلد",
+      "img": ""
+    },
     {
       "t": "⚽ «زد» يشكو حكم مباراة الأهلي أحمد سمير: قدمنا أداء قويا رغم الخسارة - بوابة الأهرام",
       "img": ""
@@ -63,22 +79,6 @@
     },
     {
       "t": "⚽ تقارير تكشف محاولات جديدة في ملف شركة كرة القدم في نادي الزمالك - الزمالك اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ \"لا يبتسم للرغيف الساخن\".. هل تعلم الأهلي من التجربة الأردنية للتعاقد مع عموتة؟ - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ تصعيد جديد.. يويفا يلاحق إنفانتينو بتهمة \"سوء الإدارة\" ويطالبه بالرحيل - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ كنا فين وبقينا فين.. منتخب مصر من حلم الوصول إلى منافسة كبار المونديال وعوائد ضخمة - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ التعادل يحسم مباراة ليفربول ونوتينغهام فورست - beIN SPORTS",
       "img": ""
     }
   ],
@@ -149,60 +149,60 @@
       "slug": "eng.1",
       "items": [
         {
-          "home": "ليفربول",
-          "away": "Nottingham Forest",
-          "eid": "401879314",
+          "home": "تشيلسي",
+          "away": "Brighton & Hove Albion",
+          "eid": "401879317",
           "slug": "eng.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/393.png",
-          "tv": "beIN Sports",
-          "hs": "2",
-          "as": "2",
-          "time": "02:30 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "AFC Bournemouth",
-          "away": "Everton",
-          "eid": "401879296",
-          "slug": "eng.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/349.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/368.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "1",
-          "time": "05:00 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Coventry City",
-          "away": "Hull City",
-          "eid": "401879316",
-          "slug": "eng.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/388.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/306.png",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/363.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/331.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "1",
-          "time": "05:00 PM",
-          "state": "post",
-          "detail": "FT"
+          "as": "0",
+          "time": "04:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
         },
         {
-          "home": "توتنهام",
-          "away": "نيوكاسل",
-          "eid": "401879312",
+          "home": "Leeds United",
+          "away": "Brentford",
+          "eid": "401879315",
           "slug": "eng.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/367.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/361.png",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/357.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/337.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "2",
-          "time": "07:30 PM",
-          "state": "post",
-          "detail": "FT"
+          "as": "0",
+          "time": "04:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Sunderland",
+          "away": "Fulham",
+          "eid": "401879313",
+          "slug": "eng.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/366.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/370.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "04:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "مانشستر يونايتد",
+          "away": "Ipswich Town",
+          "eid": "401879293",
+          "slug": "eng.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/360.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/373.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "06:30 PM",
+          "state": "pre",
+          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -415,74 +415,46 @@
       "slug": "fra.1",
       "items": [
         {
-          "home": "Strasbourg",
-          "away": "Lens",
-          "eid": "401876477",
+          "home": "Paris FC",
+          "away": "Nice",
+          "eid": "401876479",
           "slug": "fra.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/180.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/175.png",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6851.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2502.png",
           "tv": "beIN Sports",
-          "hs": "2",
-          "as": "1",
+          "hs": "0",
+          "as": "0",
+          "time": "04:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Stade Rennais",
+          "away": "Le Mans",
+          "eid": "401876478",
+          "slug": "fra.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2697.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
           "time": "06:15 PM",
-          "state": "post",
-          "detail": "FT"
+          "state": "pre",
+          "detail": "Scheduled"
         },
         {
-          "home": "AJ Auxerre",
-          "away": "Angers",
-          "eid": "401876484",
+          "home": "AS Monaco",
+          "away": "Marseille",
+          "eid": "401876480",
           "slug": "fra.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/172.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7868.png",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/174.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/176.png",
           "tv": "beIN Sports",
-          "hs": "1",
-          "as": "3",
+          "hs": "0",
+          "as": "0",
           "time": "09:45 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Brest",
-          "away": "Toulouse",
-          "eid": "401876483",
-          "slug": "fra.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6997.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/179.png",
-          "tv": "beIN Sports",
-          "hs": "2",
-          "as": "2",
-          "time": "09:45 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Lorient",
-          "away": "Troyes",
-          "eid": "401876482",
-          "slug": "fra.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/273.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/170.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "2",
-          "time": "09:45 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Lyon",
-          "away": "Le Havre AC",
-          "eid": "401876481",
-          "slug": "fra.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/167.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3236.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "1",
-          "time": "09:45 PM",
-          "state": "post",
-          "detail": "FT"
+          "state": "pre",
+          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -1103,16 +1075,16 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0829/dm_260829_COM_SOC_ANALYSIS_Can_Liverpool_afford_to_let_Gakpo_join_Man_City_2026_8_26/dm_260829_COM_SOC_ANALYSIS_Can_Liverpool_afford_to_let_Gakpo_join_Man_City_2026_8_26.jpg"
     },
     {
+      "t": "Lionel Messi's 4-goal performance leads Inter Miami to big win",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0829/ss_20260829_214626533_3641024/ss_20260829_214626533_3641024.jpg"
+    },
+    {
       "t": "Álvarez-less Atlético cruise to win over Sevilla ",
       "img": "https://a.espncdn.com/photo/2026/0829/r1708710_1296x729_16-9.jpg"
     },
     {
       "t": "Baena and Lookman fire Atlético Madrid to 3-1 win over Sevilla",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0829/dm_260829_COM_SOC_Final_Game_Highlight_Baena_and_Lookman_fire_Atlico_Madrid_to_3-1_win_over_Sevilla_29_8_26/dm_260829_COM_SOC_Final_Game_Highlight_Baena_and_Lookman_fire_Atlico_Madrid_to_3-1_win_over_Sevilla_29_8_26.jpg"
-    },
-    {
-      "t": "Sevilla vs. Atletico Madrid - Game Highlights",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0829/163881f2-445e-4de4-b2bb-bde064c862a7/163881f2-445e-4de4-b2bb-bde064c862a7.jpg"
     },
     {
       "t": "Cristian Volpato scores a stunner for Sassuolo",
@@ -1127,16 +1099,16 @@
       "img": "https://a.espncdn.com/photo/2026/0731/r1695938_1296x729_16-9.jpg"
     },
     {
+      "t": "Okon-Engstler wins in Bundesliga debut on banner day for Socceroos in Europe",
+      "img": "https://a.espncdn.com/photo/2026/0830/r1708878_1296x729_16-9.jpg"
+    },
+    {
       "t": "RB Leipzig eyeing Chelsea striker Marc Guiu - source",
       "img": "https://a.espncdn.com/photo/2026/0828/r1708334_1296x729_16-9.jpg"
     },
     {
       "t": "Olise scores as Bayern hit 5 in opening win over Stuttgart",
       "img": "https://a.espncdn.com/photo/2026/0828/r1708236_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0731/r1695938_1296x729_16-9.jpg"
     },
     {
       "t": "Gio Reyna looking to continue development with Strasbourg in Ligue 1",
