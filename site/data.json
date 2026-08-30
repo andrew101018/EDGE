@@ -1,6 +1,18 @@
 {
-  "updated_at": "2026-08-30 05:11 PM",
+  "updated_at": "2026-08-30 05:20 PM",
   "news": [
+    {
+      "t": "⚽ من المُحليات إلى الذكاء الاصطناعي والطبيعة، ماذا تكشف الدراسات عن صحتنا ونمط حياتنا؟ - جولة الصحف",
+      "img": ""
+    },
+    {
+      "t": "⚽ عصام عبد الفتاح يوضح موقفه من إسناد مباراة الأهلي والزمالك إلي حكم مصري - بطولات",
+      "img": ""
+    },
+    {
+      "t": "⚽ بسبب شوبير.. الأهلي يخطر لاعبيه بقرار هام.. مصراوي يكشف التفاصيل - Masrawy",
+      "img": ""
+    },
     {
       "t": "⚽ هل يرحل بيزيرا عن الزمالك بهذه الطريقة؟.. شوبير يكشف التفاصيل - Masrawy",
       "img": ""
@@ -68,18 +80,6 @@
     {
       "t": "⚽ موعد مباراة الزمالك وبتروجت فى الدوري المصري والقنوات الناقلة - اليوم السابع",
       "img": ""
-    },
-    {
-      "t": "⚽ هاني حتحوت: الزمالك يقلب الطاولة على البنك الأهلي ويحصد أول 3 نقاط - صدى البلد",
-      "img": ""
-    },
-    {
-      "t": "⚽ تفاصيل جديدة بشأن موقف بيزيرا مع الزمالك - صدى البلد",
-      "img": ""
-    },
-    {
-      "t": "⚽ لجنة الحكام تضع خطة لتجهيز 25 حكماً لإدارة مباريات الدوري الممتاز - اليوم السابع",
-      "img": ""
     }
   ],
   "results": [
@@ -146,7 +146,7 @@
           "as": "1",
           "time": "04:00 PM",
           "state": "in",
-          "detail": "52'"
+          "detail": "60'"
         },
         {
           "home": "Leeds United",
@@ -160,7 +160,7 @@
           "as": "1",
           "time": "04:00 PM",
           "state": "in",
-          "detail": "51'"
+          "detail": "59'"
         },
         {
           "home": "Sunderland",
@@ -174,7 +174,7 @@
           "as": "0",
           "time": "04:00 PM",
           "state": "in",
-          "detail": "55'"
+          "detail": "63'"
         },
         {
           "home": "مانشستر يونايتد",
@@ -275,11 +275,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/126.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/137.png",
           "tv": "beIN Sports",
-          "hs": "1",
+          "hs": "2",
           "as": "0",
           "time": "04:30 PM",
           "state": "in",
-          "detail": "41'"
+          "detail": "HT"
         },
         {
           "home": "FC Augsburg",
@@ -314,7 +314,7 @@
           "as": "0",
           "time": "04:00 PM",
           "state": "in",
-          "detail": "52'"
+          "detail": "61'"
         },
         {
           "home": "Stade Rennais",
@@ -1092,16 +1092,16 @@
       "img": "https://a.espncdn.com/photo/2026/0830/r1708911_1296x729_16-9.jpg"
     },
     {
+      "t": "Barcelona head coach Hansi Flick plays down concerns over Lamine Yamal's start to the season",
+      "img": "https://a.espncdn.com/photo/2026/0830/r1708959_2_1296x729_16-9.jpg"
+    },
+    {
       "t": "Barcelona in advanced talks with Arsenal for Gabriel Jesus - source",
       "img": "https://a.espncdn.com/photo/2026/0830/r1708931_1296x729_16-9.jpg"
     },
     {
       "t": "Every time Messi scored 4 goals for Barcelona, Inter Miami, Argentina",
       "img": "https://a.espncdn.com/photo/2026/0830/r1708907_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0830/r1708900_1296x729_16-9.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
