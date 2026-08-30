@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-08-30 08:40 PM",
+  "updated_at": "2026-08-30 11:20 PM",
   "news": [
+    {
+      "t": "⚽ إطلاق اسم محمد صلاح على الشارع الذي يسكن فيه في تركيا - FilGoal.com",
+      "img": ""
+    },
+    {
+      "t": "⚽ تفاصيل استعدادات الزمالك لمواجهة منتخب السويس بتروجت - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ أسطورة فرنسا يصدم مبابي: أرشح كفاراتسخيليا للكرة الذهبية - Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ مباشر مباراة الجزائر ضد تونس في نهائي كرة القدم بدورة ألعاب البحر المتوسط - الجزيرة نت",
+      "img": ""
+    },
     {
       "t": "⚽ محمد عمر: الأهلي والزمالك قدوة.. ومينفعش كل مباراة شكوى من التحكيم - صدى البلد",
       "img": ""
@@ -64,35 +80,19 @@
     {
       "t": "⚽ احتفاءً بالنجم المصري.. تسمية أحد شوارع تركيا بإسم محمد صلاح - يلاكورة",
       "img": ""
-    },
-    {
-      "t": "⚽ موعد ظهور الزمالك فى اختبار جديد أمام منتخب السويس بتروجت بالدوري - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ فاركو يكشف تفاصيل شكواه ضد الزمالك بشأن المستحقات المتأخرة لصفقتي عمرو ناصر وأحمد شريف - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ أول رد من لجنة الحكام على تصريحات كريم حسن شحاتة بشأن مبارة الأهلي وزد (خاص) - المصري اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ قرارات لجنة المسابقات (٧) بتاريخ ٢٠٢٦/٨/٣٠ - الاتحاد المصري لكرة القدم",
-      "img": ""
     }
   ],
   "results": [
+    "SC Freiburg 4 - 1 Werder Bremen",
+    "نابولي 1 - 2 Como",
+    "Deportivo 3 - 1 Valencia",
+    "ريال مدريد 4 - 0 Málaga",
     "مانشستر يونايتد 5 - 2 Ipswich Town",
     "Sunderland 1 - 0 Fulham",
     "Leeds United 1 - 1 Brentford",
     "تشيلسي 4 - 3 Brighton & Hove Albion",
     "Brest 2 - 2 Toulouse",
-    "AJ Auxerre 1 - 3 Angers",
-    "Strasbourg 2 - 1 Lens",
-    "بوروسيا دورتموند 2 - 0 Hamburg SV",
-    "SV Elversberg 3 - 2 Bayer Leverkusen",
-    "RB Leipzig 3 - 0 Borussia Mönchengladbach"
+    "AJ Auxerre 1 - 3 Angers"
   ],
   "matches": [
     {
@@ -107,11 +107,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21964.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/793.png",
           "tv": "SSC / شاهد",
-          "hs": "0",
+          "hs": "1",
           "as": "1",
           "time": "07:05 PM",
-          "state": "in",
-          "detail": "74'"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "القادسية",
@@ -121,11 +121,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22022.png",
           "awayLogo": "",
           "tv": "SSC / شاهد",
-          "hs": "0",
-          "as": "0",
+          "hs": "3",
+          "as": "1",
           "time": "09:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "post",
+          "detail": "FT"
         }
       ],
       "big": true
@@ -198,18 +198,18 @@
       "slug": "esp.1",
       "items": [
         {
-          "home": "Deportivo",
-          "away": "Valencia",
-          "eid": "401882904",
+          "home": "Celta Vigo",
+          "away": "Athletic Club",
+          "eid": "401882905",
           "slug": "esp.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/90.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/94.png",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/85.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/93.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "0",
-          "time": "08:30 PM",
+          "as": "2",
+          "time": "10:30 PM",
           "state": "in",
-          "detail": "8'"
+          "detail": "HT"
         },
         {
           "home": "ريال مدريد",
@@ -226,18 +226,18 @@
           "detail": "FT"
         },
         {
-          "home": "Celta Vigo",
-          "away": "Athletic Club",
-          "eid": "401882905",
+          "home": "Deportivo",
+          "away": "Valencia",
+          "eid": "401882904",
           "slug": "esp.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/85.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/93.png",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/90.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/94.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "10:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "hs": "3",
+          "as": "1",
+          "time": "08:30 PM",
+          "state": "post",
+          "detail": "FT"
         }
       ],
       "big": true
@@ -246,6 +246,34 @@
       "league": "الدوري الإيطالي",
       "slug": "ita.1",
       "items": [
+        {
+          "home": "Cagliari",
+          "away": "Internazionale",
+          "eid": "401874938",
+          "slug": "ita.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2925.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/110.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "1",
+          "time": "09:45 PM",
+          "state": "in",
+          "detail": "77'"
+        },
+        {
+          "home": "Lazio",
+          "away": "Genoa",
+          "eid": "401874742",
+          "slug": "ita.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/112.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3263.png",
+          "tv": "beIN Sports",
+          "hs": "1",
+          "as": "0",
+          "time": "09:45 PM",
+          "state": "in",
+          "detail": "74'"
+        },
         {
           "home": "نابولي",
           "away": "Como",
@@ -257,22 +285,8 @@
           "hs": "1",
           "as": "2",
           "time": "07:30 PM",
-          "state": "in",
-          "detail": "47'"
-        },
-        {
-          "home": "Cagliari",
-          "away": "Internazionale",
-          "eid": "401874938",
-          "slug": "ita.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2925.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/110.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "09:45 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "post",
+          "detail": "FT"
         }
       ],
       "big": true
@@ -317,6 +331,20 @@
       "slug": "fra.1",
       "items": [
         {
+          "home": "AS Monaco",
+          "away": "Marseille",
+          "eid": "401876480",
+          "slug": "fra.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/174.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/176.png",
+          "tv": "beIN Sports",
+          "hs": "2",
+          "as": "0",
+          "time": "09:45 PM",
+          "state": "in",
+          "detail": "75'"
+        },
+        {
           "home": "Paris FC",
           "away": "Nice",
           "eid": "401876479",
@@ -343,20 +371,6 @@
           "time": "06:15 PM",
           "state": "post",
           "detail": "FT"
-        },
-        {
-          "home": "AS Monaco",
-          "away": "Marseille",
-          "eid": "401876480",
-          "slug": "fra.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/174.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/176.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "09:45 PM",
-          "state": "pre",
-          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -386,6 +400,16 @@
       },
       {
         "rank": 3,
+        "team": "القادسية",
+        "logo": "",
+        "gp": 4.0,
+        "w": 3.0,
+        "d": 0.0,
+        "l": 1.0,
+        "pts": 9.0
+      },
+      {
+        "rank": 4,
         "team": "Al Kholood",
         "logo": "",
         "gp": 4.0,
@@ -395,7 +419,7 @@
         "pts": 8.0
       },
       {
-        "rank": 4,
+        "rank": 5,
         "team": "الاتحاد",
         "logo": "",
         "gp": 4.0,
@@ -405,7 +429,7 @@
         "pts": 8.0
       },
       {
-        "rank": 5,
+        "rank": 6,
         "team": "Al Diriyah",
         "logo": "",
         "gp": 4.0,
@@ -415,18 +439,8 @@
         "pts": 7.0
       },
       {
-        "rank": 6,
-        "team": "الأهلي السعودي",
-        "logo": "",
-        "gp": 3.0,
-        "w": 2.0,
-        "d": 0.0,
-        "l": 1.0,
-        "pts": 6.0
-      },
-      {
         "rank": 7,
-        "team": "القادسية",
+        "team": "الأهلي السعودي",
         "logo": "",
         "gp": 3.0,
         "w": 2.0,
@@ -672,22 +686,22 @@
       },
       {
         "rank": 7,
+        "team": "Deportivo",
+        "logo": "",
+        "gp": 3.0,
+        "w": 1.0,
+        "d": 2.0,
+        "l": 0.0,
+        "pts": 5.0
+      },
+      {
+        "rank": 8,
         "team": "Osasuna",
         "logo": "",
         "gp": 2.0,
         "w": 1.0,
         "d": 1.0,
         "l": 0.0,
-        "pts": 4.0
-      },
-      {
-        "rank": 8,
-        "team": "Levante",
-        "logo": "",
-        "gp": 3.0,
-        "w": 1.0,
-        "d": 1.0,
-        "l": 1.0,
         "pts": 4.0
       }
     ],
@@ -724,6 +738,16 @@
       },
       {
         "rank": 4,
+        "team": "Como",
+        "logo": "",
+        "gp": 2.0,
+        "w": 1.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 4.0
+      },
+      {
+        "rank": 5,
         "team": "AS Roma",
         "logo": "",
         "gp": 1.0,
@@ -733,7 +757,7 @@
         "pts": 3.0
       },
       {
-        "rank": 5,
+        "rank": 6,
         "team": "Internazionale",
         "logo": "",
         "gp": 1.0,
@@ -743,18 +767,8 @@
         "pts": 3.0
       },
       {
-        "rank": 6,
-        "team": "Lecce",
-        "logo": "",
-        "gp": 1.0,
-        "w": 1.0,
-        "d": 0.0,
-        "l": 0.0,
-        "pts": 3.0
-      },
-      {
         "rank": 7,
-        "team": "نابولي",
+        "team": "Lecce",
         "logo": "",
         "gp": 1.0,
         "w": 1.0,
@@ -938,78 +952,7 @@
       }
     ]
   },
-  "leaders": {
-    "الدوري السعودي": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Julián Quiñones",
-          "team": "القادسية",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Alexandre Mendy",
-          "team": "Al-Faisaly",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    },
-    "الدوري الإسباني": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Iago Aspas",
-          "team": "Celta Vigo",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Aitor Paredes",
-          "team": "Athletic Club",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    },
-    "الدوري الإيطالي": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Alessandro Romano",
-          "team": "Cagliari",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Yann Bisseck",
-          "team": "Internazionale",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Davide Frattesi",
-          "team": "Lazio",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    },
-    "الدوري الفرنسي": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Amine Gouiri",
-          "team": "Marseille",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Eric Dier",
-          "team": "AS Monaco",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    }
-  },
+  "leaders": {},
   "world": [
     {
       "t": "Ollie Watkins departs Aston Villa, joins Saudi Pro League side Al Hilal",
@@ -1036,28 +979,28 @@
       "img": "https://a.espncdn.com/photo/2026/0829/r1708693_1296x729_16-9.jpg"
     },
     {
-      "t": "Bruno Fernandes nets hat trick as Man United run riot in comeback against Ipswich ",
-      "img": "https://a.espncdn.com/photo/2026/0830/r1709043_2_594x334_16-9.jpg"
+      "t": "Premier League VAR review: Man United handball didn't cancel goal for odd reason",
+      "img": "https://a.espncdn.com/photo/2026/0830/r1709133_1296x729_16-9.jpg"
     },
     {
-      "t": "European soccer live updates: Man United cruise past Ipswich",
+      "t": "European soccer recap: Man United cruise past Ipswich",
       "img": "https://a.espncdn.com/photo/2026/0830/r1709052_1296x729_16-9.jpg"
     },
     {
-      "t": "Dominic Calvert-Lewin scores late equaliser to salvage a 1-1 draw with Brentford at Elland Road",
-      "img": "https://a.espncdn.com/photo/2026/0830/r1708986_1296x729_16-9.jpg"
+      "t": "After Man United's rocky start, Carrick's calm vindicated in win over Ipswich",
+      "img": "https://a.espncdn.com/photo/2026/0830/r1709098_1296x729_16-9.jpg"
     },
     {
-      "t": "Burley: Real Madrid can challenge Barcelona with Bellingham at his best",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0830/dm_260830_COM_SOC_Analysis_Burley_Real_Madrid_can_challenge_Barcelona_with_Bellingham_at_his_best_2026083/dm_260830_COM_SOC_Analysis_Burley_Real_Madrid_can_challenge_Barcelona_with_Bellingham_at_his_best_2026083.jpg"
+      "t": "Deportivo La Coruña vs. Valencia - Game Highlights",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0830/ae3eac0c-505f-4623-90b6-852f2333a18a/ae3eac0c-505f-4623-90b6-852f2333a18a.jpg"
     },
     {
-      "t": "Jude Bellingham shines as Real Madrid thrash Malaga 4-0",
-      "img": "https://a.espncdn.com/photo/2026/0830/r1709061_1296x729_16-9.jpg"
+      "t": "Can Gabriel Jesus be Barcelona's alternative for Julián Álvarez?",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0830/dm_260830_COM_SOC_Analysis_Can_Gabriel_Jesus_be_Barcelonas_alternative_for_Julian_Alvarez_20260830_GLOBA/dm_260830_COM_SOC_Analysis_Can_Gabriel_Jesus_be_Barcelonas_alternative_for_Julian_Alvarez_20260830_GLOBA.jpg"
     },
     {
-      "t": "Real Madrid vs. Málaga - Game Highlights",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0830/eed83c64-2fff-443d-9505-0299602f3173/eed83c64-2fff-443d-9505-0299602f3173.jpg"
+      "t": "Real Madrid's Jude Bellingham revels in new role under José Mourinho",
+      "img": "https://a.espncdn.com/photo/2026/0830/r1709062_1296x729_16-9.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
