@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-08-30 04:04 PM",
+  "updated_at": "2026-08-30 04:43 PM",
   "news": [
+    {
+      "t": "⚽ فاركو يكشف تفاصيل شكواه ضد الزمالك بشأن المستحقات المتأخرة لصفقتي عمرو ناصر وأحمد شريف - يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ أول رد من لجنة الحكام على تصريحات كريم حسن شحاتة بشأن مبارة الأهلي وزد (خاص) - المصري اليوم",
+      "img": ""
+    },
+    {
+      "t": "⚽ قرارات لجنة المسابقات (٧) بتاريخ ٢٠٢٦/٨/٣٠ - الاتحاد المصري لكرة القدم",
+      "img": ""
+    },
+    {
+      "t": "⚽ مصدر فى الزمالك يكشف أخر تطورات الموقف بخصوص خوان بيزيرا المتمرد - الزمالك اليوم",
+      "img": ""
+    },
     {
       "t": "⚽ ممدوح عباس يتحمل مصاريف استضافة منافس الزمالك في دوري أبطال أفريقيا | مصراوي - Masrawy",
       "img": ""
@@ -64,22 +80,6 @@
     {
       "t": "⚽ \"نطالب بالعدالة والشفافية\".. زد يعلن اعتراضه على قرارات حكم مباراة الأهلي - يلاكورة",
       "img": ""
-    },
-    {
-      "t": "⚽ هل يُعيد حسام أشرف الحسابات الهجومية للزمالك أمام السويس بتروجيت - الزمالك اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ كنا فين وبقينا فين.. المقاعد الأفريقية للكرة المصرية ثابتة والقوة تتضاعف - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ باريديس: عقوبات «فيفا» بعد نهائي كأس العالم مبالغ فيها - بوابة الشروق",
-      "img": ""
-    },
-    {
-      "t": "⚽ كنا فين وبقينا فين.. المقاعد الأفريقية للكرة المصرية ثابتة والقوة تتضاعف - اليوم السابع",
-      "img": ""
     }
   ],
   "results": [
@@ -142,11 +142,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/363.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/331.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "3",
+          "as": "1",
           "time": "04:00 PM",
           "state": "in",
-          "detail": "3'"
+          "detail": "43'"
         },
         {
           "home": "Leeds United",
@@ -157,10 +157,10 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/337.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "0",
+          "as": "1",
           "time": "04:00 PM",
           "state": "in",
-          "detail": "3'"
+          "detail": "42'"
         },
         {
           "home": "Sunderland",
@@ -174,7 +174,7 @@
           "as": "0",
           "time": "04:00 PM",
           "state": "in",
-          "detail": "4'"
+          "detail": "44'"
         },
         {
           "home": "مانشستر يونايتد",
@@ -247,40 +247,12 @@
       "slug": "ita.1",
       "items": [
         {
-          "home": "نابولي",
-          "away": "Como",
-          "eid": "401874755",
-          "slug": "ita.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/114.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "07:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
-        },
-        {
           "home": "Cagliari",
           "away": "Internazionale",
           "eid": "401874938",
           "slug": "ita.1",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2925.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/110.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "09:45 PM",
-          "state": "pre",
-          "detail": "Scheduled"
-        },
-        {
-          "home": "Lazio",
-          "away": "Genoa",
-          "eid": "401874742",
-          "slug": "ita.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/112.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3263.png",
           "tv": "beIN Sports",
           "hs": "0",
           "as": "0",
@@ -306,8 +278,8 @@
           "hs": "0",
           "as": "0",
           "time": "04:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "13'"
         },
         {
           "home": "FC Augsburg",
@@ -338,11 +310,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6851.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2502.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "0",
           "time": "04:00 PM",
           "state": "in",
-          "detail": "4'"
+          "detail": "43'"
         },
         {
           "home": "Stade Rennais",
@@ -952,7 +924,136 @@
       }
     ]
   },
-  "leaders": {},
+  "leaders": {
+    "الدوري السعودي": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Abdulaziz Aldhuwayhi",
+          "team": "Al Hazem",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Yannick Carrasco",
+          "team": "الشباب",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Julián Quiñones",
+          "team": "القادسية",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Alexandre Mendy",
+          "team": "Al-Faisaly",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
+    "الدوري الإنجليزي": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Emersonn",
+          "team": "Ipswich Town",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
+    "الدوري الإسباني": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Kylian Mbappé",
+          "team": "ريال مدريد",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Pierre-Emerick Aubameyang",
+          "team": "Deportivo",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Chupete",
+          "team": "Málaga",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Iago Aspas",
+          "team": "Celta Vigo",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Aitor Paredes",
+          "team": "Athletic Club",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
+    "الدوري الإيطالي": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Kevin De Bruyne",
+          "team": "نابولي",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Alessandro Romano",
+          "team": "Cagliari",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Yann Bisseck",
+          "team": "Internazionale",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Davide Frattesi",
+          "team": "Lazio",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
+    "الدوري الفرنسي": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Amine Gouiri",
+          "team": "Marseille",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Esteban Lepaul",
+          "team": "Stade Rennais",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Dame Guèye",
+          "team": "Le Mans",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Eric Dier",
+          "team": "AS Monaco",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    }
+  },
   "world": [
     {
       "t": "Cristiano Ronaldo goal tracker: Road to 1,000 career goals",
@@ -980,15 +1081,15 @@
     },
     {
       "t": "European soccer live updates: Chelsea host Brighton & Hove Albion",
-      "img": "https://a.espncdn.com/photo/2026/0830/r1708914_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Liverpool captain Virgil van Dijk urges club to keep a hold of Cody Gakpo",
-      "img": "https://a.espncdn.com/photo/2026/0830/r1708911_1296x729_16-9.jpg"
+      "img": "https://a.espncdn.com/photo/2026/0830/r1708945_1296x729_16-9.jpg"
     },
     {
       "t": "Transfer rumors, news: Liverpool in talks to sign Ismaïla Sarr",
       "img": "https://a.espncdn.com/photo/2026/0830/r1708882_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Liverpool captain Virgil van Dijk urges club to keep a hold of Cody Gakpo",
+      "img": "https://a.espncdn.com/photo/2026/0830/r1708911_1296x729_16-9.jpg"
     },
     {
       "t": "Every time Messi scored 4 goals for Barcelona, Inter Miami, Argentina",
