@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-08-30 04:58 PM",
+  "updated_at": "2026-08-30 05:11 PM",
   "news": [
+    {
+      "t": "⚽ هل يرحل بيزيرا عن الزمالك بهذه الطريقة؟.. شوبير يكشف التفاصيل - Masrawy",
+      "img": ""
+    },
+    {
+      "t": "⚽ مصدر في الأهلي: رفضنا طلب شوبير.. وعروضنا متساوية للثلاثي - يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ عقوبات بالجملة ضد المنصورة بعد الانسحاب أمام فاركو.. وتغريم الإسماعيلي - المصري اليوم",
+      "img": ""
+    },
+    {
+      "t": "⚽ عقوبات الجولة الثانية بدوري المحترفين.. أبرزها خصم 3 نقاط من المنصورة - اليوم السابع",
+      "img": ""
+    },
     {
       "t": "⚽ الزمالك: لا يوجد بند يمنع حسام عبد المجيد من الانتقال للأهلي.. وضمنا حقوقنا - اليوم السابع",
       "img": ""
@@ -63,22 +79,6 @@
     },
     {
       "t": "⚽ لجنة الحكام تضع خطة لتجهيز 25 حكماً لإدارة مباريات الدوري الممتاز - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ \"ميركاتو\" مثير وصفقات قياسية، ما أبرز انتقالات نجوم كرة القدم في صيف 2026؟ - BBC",
-      "img": ""
-    },
-    {
-      "t": "⚽ عنده كل الإمكانيات.. وليد صلاح الدين ينتقد رحيل نجم الأهلي - صدى البلد",
-      "img": ""
-    },
-    {
-      "t": "⚽ «زد» يشكو حكم مباراة الأهلي أحمد سمير: قدمنا أداء قويا رغم الخسارة - بوابة الأهرام",
-      "img": ""
-    },
-    {
-      "t": "⚽ ليدز وتشيلسي فى الصدارة.. أندية الدوري الإنجليزي حسب متوسط أطوال اللاعبين - اليوم السابع",
       "img": ""
     }
   ],
@@ -146,7 +146,7 @@
           "as": "1",
           "time": "04:00 PM",
           "state": "in",
-          "detail": "HT"
+          "detail": "52'"
         },
         {
           "home": "Leeds United",
@@ -160,7 +160,7 @@
           "as": "1",
           "time": "04:00 PM",
           "state": "in",
-          "detail": "HT"
+          "detail": "51'"
         },
         {
           "home": "Sunderland",
@@ -174,7 +174,7 @@
           "as": "0",
           "time": "04:00 PM",
           "state": "in",
-          "detail": "HT"
+          "detail": "55'"
         },
         {
           "home": "مانشستر يونايتد",
@@ -275,11 +275,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/126.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/137.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "0",
           "time": "04:30 PM",
           "state": "in",
-          "detail": "28'"
+          "detail": "41'"
         },
         {
           "home": "FC Augsburg",
@@ -310,11 +310,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6851.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2502.png",
           "tv": "beIN Sports",
-          "hs": "1",
+          "hs": "2",
           "as": "0",
           "time": "04:00 PM",
           "state": "in",
-          "detail": "HT"
+          "detail": "52'"
         },
         {
           "home": "Stade Rennais",
@@ -1092,16 +1092,16 @@
       "img": "https://a.espncdn.com/photo/2026/0830/r1708911_1296x729_16-9.jpg"
     },
     {
+      "t": "Barcelona in advanced talks with Arsenal for Gabriel Jesus - source",
+      "img": "https://a.espncdn.com/photo/2026/0830/r1708931_1296x729_16-9.jpg"
+    },
+    {
       "t": "Every time Messi scored 4 goals for Barcelona, Inter Miami, Argentina",
       "img": "https://a.espncdn.com/photo/2026/0830/r1708907_1296x729_16-9.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
       "img": "https://a.espncdn.com/photo/2026/0830/r1708900_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Lionel Messi's 4-goal performance leads Inter Miami to big win",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0829/ss_20260829_214626533_3641024/ss_20260829_214626533_3641024.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
