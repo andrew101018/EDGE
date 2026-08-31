@@ -565,7 +565,6 @@ function showTeam(slug, teamId, teamName) {
     document.getElementById('teamModalBody').innerHTML = '<div class="card">تعذر عرض القائمة 🙏</div>';
   }
 }
-<<<<<<< HEAD
 function showTeam(slug, teamId, teamName) {
   const box = document.getElementById('teamModal');
   if (!box) return;
@@ -614,5 +613,3 @@ function showTeam(slug, teamId, teamName) {
     document.getElementById('teamModalBody').innerHTML = '<div class="card">تعذر عرض الإحصائيات 🙏</div>';
   }
 }
-=======
->>>>>>> af2cc67e701719a4502c65b59067052775f8d5e7
