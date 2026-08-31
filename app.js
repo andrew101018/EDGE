@@ -307,9 +307,12 @@ function fantasyPool() {
     {name: 'يوسف النصيري', team: 'فنربخشة', val: 13, cat: 'الهدافون'},
     {name: 'فانجيليس بافليديس', team: 'بنفيكا', val: 16, cat: 'الهدافون'},
   ];
-  stars.forEach(p => { if (!map[p.name]) map[p.name] = {name: p.name, team: p.team, face: '', cat: p.cat, val: p.val}; });
-  return Object.values(map).map(p => Object.assign(p, {price: 4 + Math.round(p.val / 2)}));
-}
+    const liveTeams = new Set(Object.values(DATA.leaders || {}).flatMap(cats => Object.values(cats).flat().map(p => p.team)));
+  stars.forEach(p => {
+    if (!map[p.name] && !liveTeams.has(p.team)) {
+      map[p.name] = {name: p.name, team: p.team, face: '', cat: p.cat, val: p.val};
+    }
+  });
 function isGoalsCat(cat) { return cat.includes('الهداف') || /goal/i.test(cat); }
 function renderFantasy() {
   const pool = fantasyPool();
@@ -556,4 +559,10 @@ window.addEventListener('beforeinstallprompt', e => {
 function installApp() {
   if (!deferredPrompt) { alert('من قائمة المتصفح ⋮ اختار: إضافة إلى الشاشة الرئيسية'); return; }
   deferredPrompt.prompt();
+}
+window.addEventListener('appinstalled', () => {
+  deferredPrompt = null;
+  const b = document.getElementById('installBtn');
+  if (b) b.style.display = 'none';
+});
 }
