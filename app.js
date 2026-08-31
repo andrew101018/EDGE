@@ -537,34 +537,3 @@ function installApp() {
   if (!deferredPrompt) { alert('من قائمة المتصفح ⋮ اختار: إضافة إلى الشاشة الرئيسية'); return; }
   deferredPrompt.prompt();
 }
-// ================= 🎬 مركز الهايلايتس =================
-function enhanceHighlights() {
-  document.querySelectorAll('.match-wrap').forEach(w => {
-    if (w.querySelector('.hl-link')) return;
-    const row = w.querySelector('.match-row');
-    if (!row) return;
-    const parts = (row.getAttribute('data-match') || '').split('|');
-    const title = parts[2] || '';
-    if (!title) return;
-    const q = encodeURIComponent(title + ' اهداف ملخص');
-    const d = document.createElement('div');
-    d.className = 'hl-link';
-    d.style.cssText = 'text-align:center;padding-bottom:6px;';
-    d.innerHTML = `<a href="https://www.youtube.com/results?search_query=${q}" target="_blank" style="color:#fbbf24;font-size:.85em;text-decoration:none;">🎬 شاهد الهايلايتس</a>`;
-    w.appendChild(d);
-  });
-  document.querySelectorAll('.live-card').forEach(c => {
-    if (c.querySelector('.hl-link')) return;
-    const t = c.querySelector('.live-teams');
-    if (!t) return;
-    const names = t.textContent.replace(/\d+\s*-\s*\d+/g, '').trim();
-    const q = encodeURIComponent(names + ' اهداف ملخص');
-    const d = document.createElement('div');
-    d.className = 'hl-link';
-    d.style.cssText = 'text-align:center;margin-top:4px;';
-    d.innerHTML = `<a href="https://www.youtube.com/results?search_query=${q}" target="_blank" style="color:#fbbf24;font-size:.8em;text-decoration:none;">🎬 الهايلايتس</a>`;
-    c.appendChild(d);
-  });
-}
-setInterval(enhanceHighlights, 65000);
-window.addEventListener('load', () => setTimeout(enhanceHighlights, 2000));
