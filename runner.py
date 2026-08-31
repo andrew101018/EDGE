@@ -553,7 +553,8 @@ def build_site_data(state, today):
                                     "g": g, "face": ((a.get("headshot", {}) or {}).get("href", ""))}
                 group["items"].append({
                     "home": ar_team(home["team"]["displayName"]), "away": ar_team(away["team"]["displayName"]),
-                    "eid": ev.get("id"), "slug": slug,
+                    "eid": ev.get("id"), "slug": slug, "homeId": home["team"].get("id", ""),
+                    "awayId": away["team"].get("id", ""),
                     "homeLogo": home["team"].get("logo", ""), "awayLogo": away["team"].get("logo", ""),
                     "tv": BROADCASTERS.get(slug, ""), "hs": home["score"], "as": away["score"],
                     "time": dt.strftime("%I:%M %p"), "state": st,
