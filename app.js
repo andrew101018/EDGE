@@ -613,3 +613,49 @@ function showTeam(slug, teamId, teamName) {
     document.getElementById('teamModalBody').innerHTML = '<div class="card">تعذر عرض الإحصائيات 🙏</div>';
   }
 }
+async function showTeam(slug, teamId, teamName) {
+  const box = document.getElementById('teamModal');
+  if (!box) return;
+  box.style.cssText = 'display:block;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;overflow:auto;';
+  if (box.firstElementChild) box.firstElementChild.style.cssText = 'max-width:720px;margin:40px auto;background:#1e293b;border-radius:12px;padding:20px;';
+  document.getElementById('teamModalTitle').textContent = '👥 ' + teamName;
+  document.getElementById('teamModalBody').innerHTML = 'ثانية بنحمل القائمة الكاملة... ⏳';
+  const get = async u => { try { return JSON.parse(await (await fetch(u)).text()); } catch (e) { return {}; } };
+  const AR2EN = {"ريال مدريد":"Real Madrid","برشلونة":"Barcelona","ليفربول":"Liverpool","مانشستر سيتي":"Manchester City","مانشستر يونايتد":"Manchester United","تشيلسي":"Chelsea","أرسنال":"Arsenal","توتنهام":"Tottenham Hotspur","باريس سان جيرمان":"Paris Saint-Germain","بايرن ميونخ":"Bayern Munich","يوفنتوس":"Juventus","إنتر ميلان":"Inter","ميلان":"AC Milan","أتلتيكو مدريد":"Atlético Madrid","بوروسيا دورتموند":"Borussia Dortmund","نابولي":"Napoli","الأهلي":"Al Ahly","الزمالك":"Zamalek","بيراميدز":"Pyramids FC","الهلال":"Al Hilal","النصر":"Al Nassr","الاتحاد":"Al Ittihad","الأهلي السعودي":"Al Ahli","الشباب":"Al Shabab","الاتفاق":"Al Ettifaq"};
+  const en2ar = {};
+  Object.entries(AR2EN).forEach(([ar, en]) => en2ar[en.toLowerCase()] = ar);
+  const arName = en2ar[(teamName || '').toLowerCase()] || teamName;
+  const q = AR2EN[teamName] || teamName;
+  let html = '';
+  try {
+    const teams = ((await get('https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=' + encodeURIComponent(q))).teams || []).filter(t => (t.strGender || 'Male') !== 'Female');
+    const team = teams.find(t => (t.strTeam || '').toLowerCase() === q.toLowerCase()) || teams[0];
+    if (team) {
+      html += `<div style="text-align:center;margin-bottom:12px;">${team.strBadge ? `<img src="${team.strBadge}" style="width:64px;height:64px;object-fit:contain;">` : ''}<div style="font-weight:bold;font-size:1.2em;">${team.strTeam}</div><div style="opacity:.7;">${team.strLeague || ''}</div></div>`;
+      const players = ((await get('https://www.thesportsdb.com/api/v1/json/3/lookup_all_players.php?id=' + team.idTeam)).player || []).filter(p => p.strPlayer);
+      if (players.length) {
+        html += `<div style="overflow-x:auto;"><table class="stand"><tr><th>اللاعب</th><th>المركز</th><th>الجنسية</th></tr>` +
+          players.slice(0, 40).map(p => `<tr><td style="text-align:right;">${p.strCutout || p.strThumb ? `<img class="p-face" style="width:26px;height:26px;vertical-align:middle;margin-left:6px;" src="${p.strCutout || p.strThumb}" onerror="this.style.display='none'">` : '👤'} ${p.strPlayer}</td><td>${p.strPosition || '-'}</td><td>${p.strNationality || '-'}</td></tr>`).join('') +
+          `</table></div>`;
+      } else {
+        html += '<div class="card">القائمة الكاملة مش متاحة للفريق ده 🙏</div>';
+      }
+    }
+  } catch (e) {}
+  const pool = (typeof fantasyPool === 'function') ? fantasyPool() : [];
+  const stars = pool.filter(p => p.team === arName || p.team === teamName);
+  if (stars.length) {
+    const rows = stars.map(p => {
+      const isG = (p.cat || '').includes('الهداف');
+      const g = isG ? (p.val || 0) : 0;
+      const a = !isG ? (p.val || 0) : 0;
+      const r = (6 + Math.min(3.5, g * 0.25 + a * 0.2)).toFixed(1);
+      return {p, g, a, r};
+    }).sort((x, y) => (y.g + y.a) - (x.g + x.a));
+    html += `<h4 style="margin:14px 0 6px;color:#fbbf24;">📊 أرقام الموسم (النجوم):</h4>
+      <div style="overflow-x:auto;"><table class="stand"><tr><th>اللاعب</th><th>أهداف ⚽</th><th>أسيست 🅰️</th><th>تقييم ⭐</th></tr>` +
+      rows.map(x => `<tr><td style="text-align:right;">${x.p.name}</td><td class="pts">${x.g}</td><td>${x.a}</td><td style="color:#fbbf24;font-weight:bold;">${x.r}</td></tr>`).join('') +
+      `</table></div>`;
+  }
+  document.getElementById('teamModalBody').innerHTML = html || '<div class="card">مفيش بيانات للفريق ده 🙏</div>';
+}
