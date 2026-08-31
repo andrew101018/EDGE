@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-08-31 09:45 PM",
+  "updated_at": "2026-08-31 11:56 PM",
   "news": [
+    {
+      "t": "⚽ عاجل.. ميسي يعلن اعتزاله الدولي | كووورة - kooora.com",
+      "img": ""
+    },
+    {
+      "t": "⚽ تغييرات في تشكيل الزمالك أمام منتخب السويس بتروجت في الدوري - almasryalyoum.com",
+      "img": ""
+    },
+    {
+      "t": "⚽ أمير هشام عن فوز الزمالك على السويس بتروجيت : حالفه الحظ إلى أبعد درجة - صدى البلد",
+      "img": ""
+    },
+    {
+      "t": "⚽ الإسماعيلي يعلن.. تعيين أحمد كشري مديرًا فنيًا للفريق - يلاكورة",
+      "img": ""
+    },
     {
       "t": "⚽ صبحى عبد السلام يطلب المستحيل لكرة القدم المصرية - الزمالك اليوم",
       "img": ""
@@ -64,25 +80,11 @@
     {
       "t": "⚽ الأهلي يمدد عقد عمر سيد معوض حتى عام 2030 - يلاكورة",
       "img": ""
-    },
-    {
-      "t": "⚽ تشكيل الزمالك المتوقع أمام منتخب السويس بتروجت فى مباراة الليلة بالدورى - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ بنزيما أمام مفترق الطرق.. 3 خيارات بعد الرحيل عن الهلال - Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ لجنة الحكام تبرئ محمد معروف ووائل جمعة من واقعة الأهلي وزد رسميا - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ «الحكام» تعلن نتيجة «تسجيلات الفار» في واقعة الأهلي وزد.. وتوجه رسالة عاجلة - المصري اليوم",
-      "img": ""
     }
   ],
   "results": [
+    "Atalanta 1 - 0 Bologna",
+    "Osasuna 1 - 0 Getafe",
     "Lecce 0 - 4 AS Roma",
     "القادسية 3 - 1 Al-Faisaly",
     "Al Hazem 1 - 1 الشباب",
@@ -90,8 +92,7 @@
     "Stade Rennais 3 - 2 Le Mans",
     "FC Augsburg 3 - 0 Schalke 04",
     "Lazio 1 - 0 Genoa",
-    "Cagliari 0 - 1 Internazionale",
-    "Celta Vigo 0 - 2 Athletic Club"
+    "Cagliari 0 - 1 Internazionale"
   ],
   "matches": [
     {
@@ -118,9 +119,48 @@
       "big": true
     },
     {
+      "league": "الدوري الإنجليزي",
+      "slug": "eng.1",
+      "items": [
+        {
+          "home": "أستون فيلا",
+          "away": "أرسنال",
+          "eid": "401879295",
+          "slug": "eng.1",
+          "homeId": "362",
+          "awayId": "359",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "1",
+          "time": "10:00 PM",
+          "state": "in",
+          "detail": "90'+9'"
+        }
+      ],
+      "big": true
+    },
+    {
       "league": "الدوري الإسباني",
       "slug": "esp.1",
       "items": [
+        {
+          "home": "برشلونة",
+          "away": "Rayo Vallecano",
+          "eid": "401882903",
+          "slug": "esp.1",
+          "homeId": "83",
+          "awayId": "101",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/101.png",
+          "tv": "beIN Sports",
+          "hs": "3",
+          "as": "2",
+          "time": "10:30 PM",
+          "state": "in",
+          "detail": "61'"
+        },
         {
           "home": "Osasuna",
           "away": "Getafe",
@@ -134,24 +174,8 @@
           "hs": "1",
           "as": "0",
           "time": "08:30 PM",
-          "state": "in",
-          "detail": "50'"
-        },
-        {
-          "home": "برشلونة",
-          "away": "Rayo Vallecano",
-          "eid": "401882903",
-          "slug": "esp.1",
-          "homeId": "83",
-          "awayId": "101",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/101.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "10:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "post",
+          "detail": "FT"
         }
       ],
       "big": true
@@ -186,11 +210,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/105.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/107.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "0",
           "time": "09:45 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "post",
+          "detail": "FT"
         }
       ],
       "big": true
@@ -499,6 +523,16 @@
       },
       {
         "rank": 4,
+        "team": "Osasuna",
+        "logo": "",
+        "gp": 3.0,
+        "w": 2.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 7.0
+      },
+      {
+        "rank": 5,
         "team": "برشلونة",
         "logo": "",
         "gp": 2.0,
@@ -508,7 +542,7 @@
         "pts": 6.0
       },
       {
-        "rank": 5,
+        "rank": 6,
         "team": "Sevilla",
         "logo": "",
         "gp": 3.0,
@@ -518,7 +552,7 @@
         "pts": 6.0
       },
       {
-        "rank": 6,
+        "rank": 7,
         "team": "Real Betis",
         "logo": "",
         "gp": 3.0,
@@ -528,7 +562,7 @@
         "pts": 6.0
       },
       {
-        "rank": 7,
+        "rank": 8,
         "team": "Deportivo",
         "logo": "",
         "gp": 3.0,
@@ -536,16 +570,6 @@
         "d": 2.0,
         "l": 0.0,
         "pts": 5.0
-      },
-      {
-        "rank": 8,
-        "team": "Osasuna",
-        "logo": "",
-        "gp": 2.0,
-        "w": 1.0,
-        "d": 1.0,
-        "l": 0.0,
-        "pts": 4.0
       }
     ],
     "الدوري الإيطالي": [
@@ -591,7 +615,7 @@
       },
       {
         "rank": 5,
-        "team": "Lazio",
+        "team": "Atalanta",
         "logo": "",
         "gp": 2.0,
         "w": 2.0,
@@ -601,6 +625,16 @@
       },
       {
         "rank": 6,
+        "team": "Lazio",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 7,
         "team": "Udinese",
         "logo": "",
         "gp": 2.0,
@@ -610,7 +644,7 @@
         "pts": 4.0
       },
       {
-        "rank": 7,
+        "rank": 8,
         "team": "Como",
         "logo": "",
         "gp": 2.0,
@@ -618,16 +652,6 @@
         "d": 1.0,
         "l": 0.0,
         "pts": 4.0
-      },
-      {
-        "rank": 8,
-        "team": "Atalanta",
-        "logo": "",
-        "gp": 1.0,
-        "w": 1.0,
-        "d": 0.0,
-        "l": 0.0,
-        "pts": 3.0
       }
     ],
     "الدوري الألماني": [
@@ -812,32 +836,6 @@
         }
       ]
     },
-    "الدوري الإسباني": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Fermín López",
-          "team": "برشلونة",
-          "value": "3 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Sergio Camello",
-          "team": "Rayo Vallecano",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    },
-    "الدوري الإيطالي": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Giacomo Raspadori",
-          "team": "Atalanta",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    },
     "الدوري الفرنسي": {
       "الهدافون 🏆 (الموسم الحالي)": [
         {
@@ -881,36 +879,36 @@
       "img": "https://a.espncdn.com/photo/2026/0117/r1601718_1296x729_16-9.jpg"
     },
     {
-      "t": "Premier League live updates: Aston Villa host defending champs Arsenal",
-      "img": "https://a.espncdn.com/photo/2026/0827/r1707839_2_1296x729_16-9.jpg"
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0831/r1709440_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer rumors, news: Spurs to make late move for Pulisic?",
-      "img": "https://a.espncdn.com/photo/2026/0819/r1703941_1296x729_16-9.jpg"
+      "t": "Everton-linked Richarlison asks Tottenham to show 'respect' over transfer away",
+      "img": "https://a.espncdn.com/photo/2026/0831/r1709588_1296x729_16-9.jpg"
     },
     {
-      "t": "Cody Gakpo set for Liverpool stay after Man City offer rejected - sources",
-      "img": "https://a.espncdn.com/photo/2026/0825/r1706612_1296x729_16-9.jpg"
+      "t": "Sources: Folarin Balogun joining Everton in deal worth up to $54M",
+      "img": "https://a.espncdn.com/photo/2026/0812/r1700903_1296x729_16-9.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
       "img": "https://a.espncdn.com/photo/2026/0831/r1709440_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Osasuna vs. Getafe - Game Highlights",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0831/a8fd4593-efc2-4b69-af6c-2e7a42b6d1b6/a8fd4593-efc2-4b69-af6c-2e7a42b6d1b6.jpg"
     },
     {
       "t": "Mourinho: We need to have patience with Diomande",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0831/dm_260831_Mourinho_We_need_to_have_patience_with_Diomande/dm_260831_Mourinho_We_need_to_have_patience_with_Diomande.jpg"
     },
     {
-      "t": "What can we expect on transfer deadline day? Balogun, Enzo, Álvarez updates?",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709375_1296x729_16-9.jpg"
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0831/r1709440_1296x729_16-9.jpg"
     },
     {
       "t": "Transfer rumors, news: Spurs to make late move for Pulisic?",
       "img": "https://a.espncdn.com/photo/2026/0819/r1703941_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709440_1296x729_16-9.jpg"
     },
     {
       "t": "Transfer big board: Best players in each position who could move this summer",
@@ -929,16 +927,16 @@
       "img": "https://a.espncdn.com/photo/2026/0830/r1708878_1296x729_16-9.jpg"
     },
     {
-      "t": "Everton near deal for USMNT forward Folarin Balogun - sources",
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0831/r1709440_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Sources: Folarin Balogun joining Everton in deal worth up to $54M",
       "img": "https://a.espncdn.com/photo/2026/0812/r1700903_1296x729_16-9.jpg"
     },
     {
       "t": "Ogden: Balogun is one to watch on deadline day",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0831/dm_260831_Ogden_Balogun_is_one_to_watch_on_deadline_day/dm_260831_Ogden_Balogun_is_one_to_watch_on_deadline_day.jpg"
-    },
-    {
-      "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709440_1296x729_16-9.jpg"
     }
   ],
   "highlights": []
