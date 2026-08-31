@@ -508,6 +508,12 @@ async function loadData() {
     const r = await fetch('site/data.json?t=' + Date.now());
     DATA = await r.json();
     document.getElementById('lastUpdate').textContent = 'آخر تحديث: ' + DATA.updated_at;
+    if (!DATA.matches && (DATA.schedule || DATA.live)) {
+      const groups = {};
+      (DATA.live || []).forEach(m => { const g = groups[m.league] = groups[m.league] || {league: m.league, items: []}; g.items.push({home: m.home, away: m.away, hs: m.home_score, as: m.away_score, state: 'in', detail: 'مباشر', tv: '', eid: 'L' + m.home + m.away, slug: ''}); });
+      (DATA.schedule || []).forEach(m => { const g = groups[m.league] = groups[m.league] || {league: m.league, items: []}; g.items.push({home: m.home, away: m.away, time: m.time, state: 'pre', tv: '', eid: 'S' + m.home + m.away, slug: ''}); });
+      DATA.matches = Object.values(groups);
+    }
     MATCHES = DATA.matches || [];
     renderMatches();
     renderLeaders();
