@@ -712,3 +712,62 @@ async function showTeam(slug, teamId, teamName) {
     document.getElementById('teamModalBody').innerHTML = '<div class="card">تعذر تحميل القائمة 🙏</div>';
   }
 }
+async function showTeam(slug, teamId, teamName) {
+  const box = document.getElementById('teamModal');
+  if (!box) return;
+  box.style.cssText = 'display:block;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;overflow:auto;';
+  if (box.firstElementChild) box.firstElementChild.style.cssText = 'max-width:800px;margin:40px auto;background:#1e293b;border-radius:12px;padding:20px;';
+  document.getElementById('teamModalTitle').textContent = '👥 ' + teamName;
+  document.getElementById('teamModalBody').innerHTML = 'ثانية بنحمل القائمة الكاملة... ⏳';
+  const get = async u => { try { return JSON.parse(await (await fetch(u)).text()); } catch (e) { return {}; } };
+  const ageFrom = d => { if (!d) return '-'; const b = new Date(d); if (isNaN(b)) return '-'; const t = new Date(); let a = t.getFullYear() - b.getFullYear(); const m = t.getMonth() - b.getMonth(); if (m < 0 || (m === 0 && t.getDate() < b.getDate())) a--; return a; };
+  const AR2EN = {"ريال مدريد":"Real Madrid","برشلونة":"Barcelona","ليفربول":"Liverpool","مانشستر سيتي":"Manchester City","مانشستر يونايتد":"Manchester United","تشيلسي":"Chelsea","أرسنال":"Arsenal","توتنهام":"Tottenham Hotspur","باريس سان جيرمان":"Paris Saint-Germain","بايرن ميونخ":"Bayern Munich","يوفنتوس":"Juventus","إنتر ميلان":"Inter","ميلان":"AC Milan","أتلتيكو مدريد":"Atlético Madrid","بوروسيا دورتموند":"Borussia Dortmund","نابولي":"Napoli","الأهلي":"Al Ahly","الزمالك":"Zamalek","بيراميدز":"Pyramids FC","الهلال":"Al Hilal","النصر":"Al Nassr","الاتحاد":"Al Ittihad","الأهلي السعودي":"Al Ahli","الشباب":"Al Shabab","الاتفاق":"Al Ettifaq","الفيحاء":"Al Fayha","الرياض":"Al Riyad","الوحدة":"Al Wehda","القادسية":"Al Qadsiah","الخليج":"Al Khaleej","الرائد":"Al Raed","التعاون":"Al Taawoun","ضمك":"Damac FC","الفتح":"Al Fateh","الإسماعيلي":"Ismaily","المصري":"Al Masry","سموحة":"Smouha","إنبي":"ENPPI","جالاطا سراي":"Galatasaray","فنربخشة":"Fenerbahçe","بشكتاش":"Beşiktaş"};
+  const P2AR = {"Mohamed Salah":"محمد صلاح","Erling Haaland":"إيرلينج هالاند","Kylian Mbappé":"كيليان مبابي","Kylian Mbappe":"كيليان مبابي","Cole Palmer":"كول بالمر","Bukayo Saka":"بوكايو ساكا","Karim Benzema":"كريم بنزيما","Aleksandar Mitrovic":"ألكساندر ميتروفيتش","Cristiano Ronaldo":"كريستيانو رونالدو","Lionel Messi":"ليونيل ميسي","Harry Kane":"هاري كين","Riyad Mahrez":"رياض محرز","Salem Al-Dawsari":"سالم الدوسري","Emam Ashour":"إمام عاشور","Mahmoud Trezeguet":"محمود تريزيجيه","Ahmed Sayed Zizo":"أحمد سيد زيزو","Victor Osimhen":"فيكتور أوسيمين","Lautaro Martínez":"لاوتارو مارتينيز","João Pedro":"جواو بيدرو","Darwin Núñez":"داروين نونيز"};
+  const en2ar = {};
+  Object.entries(AR2EN).forEach(([ar, en]) => en2ar[en.toLowerCase()] = ar);
+  const arName = en2ar[(teamName || '').toLowerCase()] || teamName;
+  const q = AR2EN[teamName] || teamName;
+  const pool = (typeof fantasyPool === 'function') ? fantasyPool() : [];
+  const stars = pool.filter(p => p.team === arName || p.team === teamName);
+  let gp = 0;
+  Object.values(DATA.tables || {}).forEach(rows => (rows || []).forEach(r => {
+    if (r && typeof r === 'object' && (r.team === arName || r.team === teamName)) { const g = Number(r.gp) || 0; if (g > gp) gp = g; }
+  }));
+  const statsOf = name => {
+    const st = pool.find(x => x.name === name) || pool.find(x => x.name === P2AR[name]);
+    if (!st) return null;
+    const isG = (st.cat || '').includes('الهداف');
+    const g = isG ? st.val : 0, a = !isG ? st.val : 0;
+    return [g, a, (6 + Math.min(3.5, g * 0.25 + a * 0.2)).toFixed(1)];
+  };
+  let html = `<div style="text-align:center;margin-bottom:12px;"><div style="font-size:2.6em;">⚽</div><div style="font-weight:bold;font-size:1.25em;">${teamName}</div>${gp ? `<div style="opacity:.7;">📊 لعب ${gp} مباراة في الدوري</div>` : ''}</div>`;
+  try {
+    const teams = ((await get('https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=' + encodeURIComponent(q))).teams || []).filter(t => (t.strGender || 'Male') !== 'Female');
+    const team = teams.find(t => (t.strTeam || '').toLowerCase() === q.toLowerCase()) || teams[0];
+    if (team) {
+      html = `<div style="text-align:center;margin-bottom:12px;">${team.strBadge ? `<img src="${team.strBadge}" style="width:64px;height:64px;object-fit:contain;">` : ''}<div style="font-weight:bold;font-size:1.25em;">${team.strTeam}</div><div style="opacity:.7;">${team.strLeague || ''}${gp ? ` • لعب ${gp}` : ''}</div></div>`;
+      let players = ((await get('https://www.thesportsdb.com/api/v1/json/3/lookup_all_players.php?id=' + team.idTeam)).player || []).filter(p => p.strPlayer);
+      if (!players.length) players = ((await get('https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?t=' + encodeURIComponent(team.strTeam))).player || []).filter(p => p.strPlayer);
+      if (players.length) {
+        const order = {Goalkeeper: 0, Defender: 1, 'Centre-Back': 1, 'Left-Back': 1, 'Right-Back': 1, Midfielder: 2, 'Central Midfield': 2, 'Attacking Midfield': 2, 'Defensive Midfield': 2, Forward: 3, Striker: 3, 'Left Wing': 3, 'Right Wing': 3};
+        players.sort((a, b) => (order[a.strPosition] ?? 5) - (order[b.strPosition] ?? 5));
+        html += `<div style="overflow-x:auto;"><table class="stand"><tr><th style="text-align:right;">اللاعب</th><th>السن</th><th>الجنسية</th><th>المركز</th><th>لعب</th><th>⚽</th><th>🅰️</th><th>⭐</th></tr>` +
+          players.map(p => {
+            const s = statsOf(p.strPlayer);
+            return `<tr><td style="text-align:right;">${p.strCutout || p.strThumb ? `<img class="p-face" style="width:24px;height:24px;vertical-align:middle;margin-left:5px;" src="${p.strCutout || p.strThumb}" onerror="this.style.display='none'">` : '👤'} ${p.strPlayer}</td><td>${ageFrom(p.dateBorn)}</td><td>${p.strNationality || '-'}</td><td>${p.strPosition || '-'}</td><td>${gp || '-'}</td><td class="pts">${s ? s[0] : '-'}</td><td>${s ? s[1] : '-'}</td><td style="color:#fbbf24;font-weight:bold;">${s ? s[2] : '-'}</td></tr>`;
+          }).join('') + `</table></div>`;
+        document.getElementById('teamModalBody').innerHTML = html;
+        return;
+      }
+    }
+  } catch (e) {}
+  if (stars.length) {
+    const rows = stars.map(p => { const isG = (p.cat || '').includes('الهداف'); const g = isG ? p.val : 0, a = !isG ? p.val : 0; return Object.assign({}, p, {g, a, r: (6 + Math.min(3.5, g * 0.25 + a * 0.2)).toFixed(1)}); }).sort((x, y) => (y.g + y.a) - (x.g + x.a));
+    html += `<div style="overflow-x:auto;"><table class="stand"><tr><th style="text-align:right;">اللاعب</th><th>لعب</th><th>⚽</th><th>🅰️</th><th>⭐</th></tr>` +
+      rows.map(p => `<tr><td style="text-align:right;">${p.name}</td><td>${gp || '-'}</td><td class="pts">${p.g}</td><td>${p.a}</td><td style="color:#fbbf24;font-weight:bold;">${p.r}</td></tr>`).join('') + `</table></div>
+      <p style="opacity:.6;font-size:.8em;margin-top:8px;">القائمة الكاملة للفريق ده مش متاحة في المصدر المجاني — دول نجوم الفريق بأرقام الموسم 🙏</p>`;
+  } else {
+    html += '<div لأclass="card">مفيش بيانات كافية للفريق ده 🙏</div>';
+  }
+  document.getElementById('teamModalBody').innerHTML = html;
+}
