@@ -1,6 +1,10 @@
 {
-  "updated_at": "2026-08-31 12:26 PM",
+  "updated_at": "2026-08-31 12:42 PM",
   "news": [
+    {
+      "t": "⚽ بيراميدز في مواجهة قوية أمام المصري بالدوري المصري اليوم - صدى البلد",
+      "img": ""
+    },
     {
       "t": "⚽ تشكيل الزمالك المتوقع لمباراة السويس بتروجت.. تغيير وحيد - يلاكورة",
       "img": ""
@@ -76,10 +80,6 @@
     {
       "t": "⚽ تفاصيل استعدادات الزمالك لمواجهة منتخب السويس بتروجت - اليوم السابع",
       "img": ""
-    },
-    {
-      "t": "⚽ أسطورة فرنسا يصدم مبابي: أرشح كفاراتسخيليا للكرة الذهبية - Kooora",
-      "img": ""
     }
   ],
   "results": [
@@ -102,6 +102,8 @@
           "away": "الأهلي السعودي",
           "eid": "401900375",
           "slug": "ksa.1",
+          "homeId": "929",
+          "awayId": "8346",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/929.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8346.png",
           "tv": "SSC / شاهد",
@@ -123,6 +125,8 @@
           "away": "Getafe",
           "eid": "401882901",
           "slug": "esp.1",
+          "homeId": "97",
+          "awayId": "2922",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/97.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2922.png",
           "tv": "beIN Sports",
@@ -137,6 +141,8 @@
           "away": "Rayo Vallecano",
           "eid": "401882903",
           "slug": "esp.1",
+          "homeId": "83",
+          "awayId": "101",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/101.png",
           "tv": "beIN Sports",
@@ -158,6 +164,8 @@
           "away": "Bologna",
           "eid": "401874970",
           "slug": "ita.1",
+          "homeId": "105",
+          "awayId": "107",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/105.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/107.png",
           "tv": "beIN Sports",
@@ -179,6 +187,8 @@
           "away": "Werder Bremen",
           "eid": "401884814",
           "slug": "ger.1",
+          "homeId": "126",
+          "awayId": "137",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/126.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/137.png",
           "tv": "beIN Sports",
@@ -193,6 +203,8 @@
           "away": "Schalke 04",
           "eid": "401884813",
           "slug": "ger.1",
+          "homeId": "3841",
+          "awayId": "133",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3841.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/133.png",
           "tv": "beIN Sports",
