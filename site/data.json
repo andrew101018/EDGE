@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-08-31 04:01 AM",
+  "updated_at": "2026-08-31 10:12 AM",
   "news": [
+    {
+      "t": "⚽ نجم الأهلي السابق: «جماهير الزمالك تميل لتشجيع بيراميدز» - المصري اليوم",
+      "img": ""
+    },
+    {
+      "t": "⚽ الأهلي يستأنف تدريباته لمواجهة سموحة فى الدوري.. وعموتة يصحح الأخطاء - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ محمد صلاح يبحث عن انطلاقة جديدة مع طرابزون سبور بعد صدمة الدوري الأوروبي - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ مليارات ولعب مالي نظيف.. صدمة بنزيما والهجوم الذهبي يورط الهلال! - Kooora",
+      "img": ""
+    },
     {
       "t": "⚽ جمعة مشهور: حمدى مضى للزمالك ولكن أزمة القيد عطلت الصفقة.. والأهلى خسر خالد عوض - اليوم السابع",
       "img": ""
@@ -64,22 +80,6 @@
     {
       "t": "⚽ الهلال السبب.. هل يعتزل بنزيما كرة القدم نهائيًا؟ - Kooora",
       "img": ""
-    },
-    {
-      "t": "⚽ بعد أزمة الأهلي وزد.. اتحاد الكرة يعلن مفاجأة عن حكم مواجهة القمة رسمياً - الأهلي نيوز",
-      "img": ""
-    },
-    {
-      "t": "⚽ بعد أحداث لقاء فاركو.. اتحاد الكرة يقرر خصم 3 نقاط من المنصورة وغرامة 50 ألف - الوطن",
-      "img": ""
-    },
-    {
-      "t": "⚽ من المُحليات إلى الذكاء الاصطناعي والطبيعة، ماذا تكشف الدراسات عن صحتنا ونمط حياتنا؟ - جولة الصحف",
-      "img": ""
-    },
-    {
-      "t": "⚽ عصام عبد الفتاح يوضح موقفه من إسناد مباراة الأهلي والزمالك إلي حكم مصري - بطولات",
-      "img": ""
     }
   ],
   "results": [
@@ -98,95 +98,18 @@
       "slug": "ksa.1",
       "items": [
         {
-          "home": "Al Hazem",
-          "away": "الشباب",
-          "eid": "401900377",
+          "home": "الهلال",
+          "away": "الأهلي السعودي",
+          "eid": "401900375",
           "slug": "ksa.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21964.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/793.png",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/929.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8346.png",
           "tv": "SSC / شاهد",
-          "hs": "1",
-          "as": "1",
-          "time": "07:05 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "القادسية",
-          "away": "Al-Faisaly",
-          "eid": "401900376",
-          "slug": "ksa.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22022.png",
-          "awayLogo": "",
-          "tv": "SSC / شاهد",
-          "hs": "3",
-          "as": "1",
-          "time": "09:00 PM",
-          "state": "post",
-          "detail": "FT"
-        }
-      ],
-      "big": true
-    },
-    {
-      "league": "الدوري الإنجليزي",
-      "slug": "eng.1",
-      "items": [
-        {
-          "home": "تشيلسي",
-          "away": "Brighton & Hove Albion",
-          "eid": "401879317",
-          "slug": "eng.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/363.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/331.png",
-          "tv": "beIN Sports",
-          "hs": "4",
-          "as": "3",
-          "time": "04:00 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Leeds United",
-          "away": "Brentford",
-          "eid": "401879315",
-          "slug": "eng.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/357.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/337.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "1",
-          "time": "04:00 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Sunderland",
-          "away": "Fulham",
-          "eid": "401879313",
-          "slug": "eng.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/366.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/370.png",
-          "tv": "beIN Sports",
-          "hs": "1",
+          "hs": "0",
           "as": "0",
-          "time": "04:00 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "مانشستر يونايتد",
-          "away": "Ipswich Town",
-          "eid": "401879293",
-          "slug": "eng.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/360.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/373.png",
-          "tv": "beIN Sports",
-          "hs": "5",
-          "as": "2",
-          "time": "06:30 PM",
-          "state": "post",
-          "detail": "FT"
+          "time": "09:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -196,46 +119,32 @@
       "slug": "esp.1",
       "items": [
         {
-          "home": "ريال مدريد",
-          "away": "Málaga",
-          "eid": "401882899",
+          "home": "Osasuna",
+          "away": "Getafe",
+          "eid": "401882901",
           "slug": "esp.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/99.png",
-          "tv": "beIN Sports",
-          "hs": "4",
-          "as": "0",
-          "time": "06:00 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Deportivo",
-          "away": "Valencia",
-          "eid": "401882904",
-          "slug": "esp.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/90.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/94.png",
-          "tv": "beIN Sports",
-          "hs": "3",
-          "as": "1",
-          "time": "08:30 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Celta Vigo",
-          "away": "Athletic Club",
-          "eid": "401882905",
-          "slug": "esp.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/85.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/93.png",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/97.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2922.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "2",
+          "as": "0",
+          "time": "08:30 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "برشلونة",
+          "away": "Rayo Vallecano",
+          "eid": "401882903",
+          "slug": "esp.1",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/101.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
           "time": "10:30 PM",
-          "state": "post",
-          "detail": "FT"
+          "state": "pre",
+          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -245,46 +154,18 @@
       "slug": "ita.1",
       "items": [
         {
-          "home": "نابولي",
-          "away": "Como",
-          "eid": "401874755",
+          "home": "Atalanta",
+          "away": "Bologna",
+          "eid": "401874970",
           "slug": "ita.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/114.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "2",
-          "time": "07:30 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Cagliari",
-          "away": "Internazionale",
-          "eid": "401874938",
-          "slug": "ita.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2925.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/110.png",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/105.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/107.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "1",
-          "time": "09:45 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Lazio",
-          "away": "Genoa",
-          "eid": "401874742",
-          "slug": "ita.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/112.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3263.png",
-          "tv": "beIN Sports",
-          "hs": "1",
           "as": "0",
           "time": "09:45 PM",
-          "state": "post",
-          "detail": "FT"
+          "state": "pre",
+          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -318,55 +199,6 @@
           "hs": "3",
           "as": "0",
           "time": "06:30 PM",
-          "state": "post",
-          "detail": "FT"
-        }
-      ],
-      "big": true
-    },
-    {
-      "league": "الدوري الفرنسي",
-      "slug": "fra.1",
-      "items": [
-        {
-          "home": "Paris FC",
-          "away": "Nice",
-          "eid": "401876479",
-          "slug": "fra.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6851.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2502.png",
-          "tv": "beIN Sports",
-          "hs": "3",
-          "as": "0",
-          "time": "04:00 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Stade Rennais",
-          "away": "Le Mans",
-          "eid": "401876478",
-          "slug": "fra.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2697.png",
-          "tv": "beIN Sports",
-          "hs": "3",
-          "as": "2",
-          "time": "06:15 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "AS Monaco",
-          "away": "Marseille",
-          "eid": "401876480",
-          "slug": "fra.1",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/174.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/176.png",
-          "tv": "beIN Sports",
-          "hs": "2",
-          "as": "0",
-          "time": "09:45 PM",
           "state": "post",
           "detail": "FT"
         }
@@ -950,7 +782,68 @@
       }
     ]
   },
-  "leaders": {},
+  "leaders": {
+    "الدوري السعودي": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Ivan Toney",
+          "team": "الأهلي السعودي",
+          "value": "4 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Sergej Milinkovic-Savic",
+          "team": "الهلال",
+          "value": "2 ⚽",
+          "face": ""
+        }
+      ]
+    },
+    "الدوري الإسباني": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Fermín López",
+          "team": "برشلونة",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Ante Budimir",
+          "team": "Osasuna",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Enes Ünal",
+          "team": "Getafe",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Sergio Camello",
+          "team": "Rayo Vallecano",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
+    "الدوري الإيطالي": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Olaf Gorter",
+          "team": "Lecce",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Giacomo Raspadori",
+          "team": "Atalanta",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    }
+  },
   "world": [
     {
       "t": "Ollie Watkins departs Aston Villa, joins Saudi Pro League side Al Hilal",
@@ -977,16 +870,16 @@
       "img": "https://a.espncdn.com/photo/2026/0829/r1708693_1296x729_16-9.jpg"
     },
     {
+      "t": "Transfer rumors, news: Spurs to make late move for Pulisic?",
+      "img": "https://a.espncdn.com/photo/2026/0819/r1703941_1296x729_16-9.jpg"
+    },
+    {
       "t": "Chelsea claim victory in seven-goal classic against Brighton",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0830/dm_260830_Soccer_HIGHLIGHT_Chelsea_claim_victory_in_seven_goal_classic_against_Brighton_20260831_AUS/dm_260830_Soccer_HIGHLIGHT_Chelsea_claim_victory_in_seven_goal_classic_against_Brighton_20260831_AUS.jpg"
     },
     {
       "t": "Fernandes claims hat trick in United's 5-2 win against Ipswich",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0830/dm_260830_Soccer_HIGHLIGHT_Fernandes_claims_hat_trick_in_Uniteds_5_2_win_against_Ipswich_20260831_AUS/dm_260830_Soccer_HIGHLIGHT_Fernandes_claims_hat_trick_in_Uniteds_5_2_win_against_Ipswich_20260831_AUS.jpg"
-    },
-    {
-      "t": "Transfer rumors, news: Liverpool, Newcastle eye Fernandez-Pardo",
-      "img": "https://a.espncdn.com/photo/2026/0830/r1709244_1296x729_16-9.jpg"
     },
     {
       "t": "Celta Vigo vs. Athletic Club - Game Highlights",
@@ -1001,16 +894,16 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0830/dm_260830_COM_SOC_Analysis_Can_Gabriel_Jesus_be_Barcelonas_alternative_for_Julian_Alvarez_20260830_GLOBA/dm_260830_COM_SOC_Analysis_Can_Gabriel_Jesus_be_Barcelonas_alternative_for_Julian_Alvarez_20260830_GLOBA.jpg"
     },
     {
+      "t": "Transfer rumors, news: Spurs to make late move for Pulisic?",
+      "img": "https://a.espncdn.com/photo/2026/0819/r1703941_1296x729_16-9.jpg"
+    },
+    {
       "t": "Summer transfer window: Grading big signings in men's soccer",
       "img": "https://a.espncdn.com/photo/2026/0830/r1708900_1296x729_16-9.jpg"
     },
     {
       "t": "Cristian Volpato scores a stunner for Sassuolo",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0829/dm_260829_SOC_Highlight_Cristian_Volpato_scores_a_stunner_for_Sassuolo_20260830_AUS_ONLY/dm_260829_SOC_Highlight_Cristian_Volpato_scores_a_stunner_for_Sassuolo_20260830_AUS_ONLY.jpg"
-    },
-    {
-      "t": "Pulisic stays on bench as Ramos gives Milan win over Venezia",
-      "img": "https://a.espncdn.com/photo/2026/0828/r1708296_1296x729_16-9.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
