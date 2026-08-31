@@ -7,7 +7,6 @@ try {
 } catch (e) {}
 let MATCHES = [];
 
-// ================= التنقل =================
 function go(id, btn) {
   document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
   const el = document.getElementById('sec-' + id);
@@ -31,7 +30,6 @@ function teamLogo(src) {
   return `<img class="t-logo" src="${src}" onerror="this.style.display='none'">`;
 }
 
-// ================= نوافذ التفاصيل =================
 document.addEventListener('click', function (e) {
   const teamEl = e.target.closest('[data-team]');
   if (teamEl) {
@@ -60,7 +58,6 @@ document.addEventListener('click', function (e) {
   }
 })();
 
-// ================= المباريات =================
 function matchRow(m) {
   let score = '';
   if (m.state === 'in') score = `<div class="m-score live">${m.hs} - ${m.as}<span class="m-status">🔴 ${m.detail}</span></div>`;
@@ -107,7 +104,6 @@ function renderMatches() {
   el.innerHTML = (liveHtml + preHtml + restHtml + resultsHtml) || '<div class="card">لا توجد مباريات حالياً</div>';
 }
 
-// ================= الهدافون والبحث =================
 function renderLeaders() {
   const c = document.getElementById('leadersContainer');
   if (!c) return;
@@ -155,7 +151,6 @@ function renderPlayers() {
   </div>`).join('') : '<div class="card">مفيش لاعب بالاسم ده 🔍</div>';
 }
 
-// ================= نافذة الفريق (بالبيانات المحلية — مضمونة 100%) =================
 function showTeam(slug, teamId, teamName) {
   const box = document.getElementById('teamModal');
   box.style.cssText = 'display:block;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;overflow:auto;';
@@ -175,13 +170,12 @@ function showTeam(slug, teamId, teamName) {
     if (goals.length) html += `<div class="pos-box"><b>🏆 الهدافون:</b><div class="p-grid">${goals.map(p => card(p, '⚽')).join('')}</div></div>`;
     if (assists.length) html += `<div class="pos-box"><b>🎯 صناعة الأهداف:</b><div class="p-grid">${assists.map(p => card(p, '🅰️')).join('')}</div></div>`;
   } else {
-    html += `<div class="card">قائمة نجوم الفريق ده هتتضاف قريباً 🙏<br><small>الفرق المتاحة: ${[...new Set(pool.slice(0, 20).map(p => p.team))].slice(0, 10).join('، ')}</small></div>`;
+    html += `<div class="card">قائمة نجوم الفريق ده هتتضاف قريباً 🙏</div>`;
   }
   document.getElementById('teamModalBody').innerHTML = html;
 }
 function closeTeam() { const b = document.getElementById('teamModal'); if (b) b.style.display = 'none'; }
 
-// ================= نافذة المباراة =================
 async function showMatch(slug, eid, title) {
   const box = document.getElementById('matchModal');
   box.style.cssText = 'display:block;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;overflow:auto;';
@@ -213,7 +207,6 @@ async function showMatch(slug, eid, title) {
 }
 function closeMatch() { const b = document.getElementById('matchModal'); if (b) b.style.display = 'none'; }
 
-// ================= التلفزيون =================
 function renderTv() {
   const el = document.getElementById('tvContainer');
   const rows = [];
@@ -225,7 +218,6 @@ function renderTv() {
   </div>`).join('') : '<div class="card">لا توجد مباريات مذاعة قريباً</div>';
 }
 
-// ================= التوقعات =================
 function renderPredict() {
   const saved = JSON.parse(localStorage.getItem('edgePredict') || '{}');
   const scored = JSON.parse(localStorage.getItem('edgeScored') || '[]');
@@ -267,7 +259,6 @@ function savePredict() {
   uploadScore(true);
 }
 
-// ================= الفانتازي =================
 let FANTASY_SEL = JSON.parse(localStorage.getItem('edgeFantasy') || 'null');
 function fantasyPool() {
   const map = {};
@@ -281,18 +272,14 @@ function fantasyPool() {
   });
   const stars = [
     {name: 'محمد صلاح', team: 'ليفربول', val: 20, cat: 'الهدافون'},
-    {name: 'فيرجيل فان دايك', team: 'ليفربول', val: 2, cat: 'صناعة الأهداف'},
     {name: 'إيرلينج هالاند', team: 'مانشستر سيتي', val: 25, cat: 'الهدافون'},
-    {name: 'فيل فودين', team: 'مانشستر سيتي', val: 11, cat: 'الهدافون'},
     {name: 'بوكايو ساكا', team: 'أرسنال', val: 14, cat: 'صناعة الأهداف'},
     {name: 'كول بالمر', team: 'تشيلسي', val: 16, cat: 'الهدافون'},
-    {name: 'برونو فيرنانديز', team: 'مانشستر يونايتد', val: 12, cat: 'صناعة الأهداف'},
     {name: 'كيليان مبابي', team: 'ريال مدريد', val: 28, cat: 'الهدافون'},
     {name: 'فينيسيوس جونيور', team: 'ريال مدريد', val: 17, cat: 'الهدافون'},
     {name: 'لامين يامال', team: 'برشلونة', val: 15, cat: 'صناعة الأهداف'},
     {name: 'لاوتارو مارتينيز', team: 'إنتر ميلان', val: 18, cat: 'الهدافون'},
     {name: 'هاري كين', team: 'بايرن ميونخ', val: 24, cat: 'الهدافون'},
-    {name: 'عثمان ديمبيلي', team: 'باريس سان جيرمان', val: 15, cat: 'الهدافون'},
     {name: 'كريستيانو رونالدو', team: 'النصر', val: 25, cat: 'الهدافون'},
     {name: 'كريم بنزيما', team: 'الهلال', val: 14, cat: 'الهدافون'},
     {name: 'ألكساندر ميتروفيتش', team: 'الهلال', val: 16, cat: 'الهدافون'},
@@ -301,18 +288,14 @@ function fantasyPool() {
     {name: 'محمود تريزيجيه', team: 'الأهلي', val: 11, cat: 'الهدافون'},
     {name: 'أحمد سيد زيزو', team: 'الأهلي', val: 12, cat: 'صناعة الأهداف'},
     {name: 'ليونيل ميسي', team: 'إنتر ميامي', val: 22, cat: 'الهدافون'},
-    {name: 'لويس سواريز', team: 'إنتر ميامي', val: 15, cat: 'الهدافون'},
-    {name: 'روبرت ليفاندوفسكي', team: 'شيكاغو فاير', val: 16, cat: 'الهدافون'},
     {name: 'فيكتور أوسيمين', team: 'جلطة سراي', val: 20, cat: 'الهدافون'},
-    {name: 'يوسف النصيري', team: 'فنربخشة', val: 13, cat: 'الهدافون'},
-    {name: 'فانجيليس بافليديس', team: 'بنفيكا', val: 16, cat: 'الهدافون'},
   ];
-    const liveTeams = new Set(Object.values(DATA.leaders || {}).flatMap(cats => Object.values(cats).flat().map(p => p.team)));
+  const liveTeams = new Set(Object.values(DATA.leaders || {}).flatMap(cats => Object.values(cats).flat().map(p => p.team)));
   stars.forEach(p => {
-    if (!map[p.name] && !liveTeams.has(p.team)) {
-      map[p.name] = {name: p.name, team: p.team, face: '', cat: p.cat, val: p.val};
-    }
+    if (!map[p.name] && !liveTeams.has(p.team)) map[p.name] = {name: p.name, team: p.team, face: '', cat: p.cat, val: p.val};
   });
+  return Object.values(map).map(p => Object.assign(p, {price: 4 + Math.round(p.val / 2)}));
+}
 function isGoalsCat(cat) { return cat.includes('الهداف') || /goal/i.test(cat); }
 function renderFantasy() {
   const pool = fantasyPool();
@@ -378,7 +361,6 @@ function fantasyPoints() {
   return pts;
 }
 
-// ================= الصدارة =================
 async function uploadScore(silent) {
   if (!supa) { if (!silent) alert('وصّل مفاتيح Supabase في أول app.js'); return; }
   let name = localStorage.getItem('edgeName');
@@ -405,7 +387,6 @@ async function loadBoard() {
     data.map((r, i) => `<tr><td>${medals[i] || i + 1}</td><td>${r.name}</td><td>${r.pred_points}</td><td>${r.fantasy_points}</td><td class="pts">${r.total}</td></tr>`).join('') + '</table>';
 }
 
-// ================= المتجر =================
 const SHOP = [
   {name: 'كورة مباريات احترافية', emoji: '⚽', link: 'https://www.amazon.ae/s?k=football+ball'},
   {name: 'تيشيرت فريقك المفضل', emoji: '👕', link: 'https://www.amazon.ae/s?k=football+jersey'},
@@ -419,7 +400,6 @@ function renderShop() {
     <a class="btn" style="margin-top:8px;" href="${p.link}" target="_blank">اشتري من هنا</a></div>`).join('');
 }
 
-// ================= الأخبار الأخرى =================
 const TRANSFER_WORDS = ['صفقة', 'صفقات', 'انتقال', 'تعاقد', 'توقيع', 'يرحل', 'رحيل', 'يجدد', 'تجديد', 'إعارة', 'بيع', 'شراء', 'مليون', 'ينتقل', 'انضم', 'transfer', 'signed', 'signs', 'loan', 'deal', 'move', 'joins'];
 function renderTransfers() {
   const all = [...(DATA.news || []), ...(DATA.world || [])];
@@ -450,7 +430,6 @@ function renderWorld() {
     </div>`).join('') : '<div class="card">لا توجد أخبار عالمية حالياً</div>';
 }
 
-// ================= الترتيب والمقارنة =================
 function allTeams() {
   const map = {};
   Object.entries(DATA.tables || {}).forEach(([league, rows]) => {
@@ -502,18 +481,11 @@ function renderCompare() {
     row('تعادل', ta.d, tb.d) + row('خسارة', ta.l, tb.l, true) + verdict;
 }
 
-// ================= تحميل البيانات الرئيسي =================
 async function loadData() {
   try {
     const r = await fetch('site/data.json?t=' + Date.now());
     DATA = await r.json();
     document.getElementById('lastUpdate').textContent = 'آخر تحديث: ' + DATA.updated_at;
-    if (!DATA.matches && (DATA.schedule || DATA.live)) {
-      const groups = {};
-      (DATA.live || []).forEach(m => { const g = groups[m.league] = groups[m.league] || {league: m.league, items: []}; g.items.push({home: m.home, away: m.away, hs: m.home_score, as: m.away_score, state: 'in', detail: 'مباشر', tv: '', eid: 'L' + m.home + m.away, slug: ''}); });
-      (DATA.schedule || []).forEach(m => { const g = groups[m.league] = groups[m.league] || {league: m.league, items: []}; g.items.push({home: m.home, away: m.away, time: m.time, state: 'pre', tv: '', eid: 'S' + m.home + m.away, slug: ''}); });
-      DATA.matches = Object.values(groups);
-    }
     MATCHES = DATA.matches || [];
     renderMatches();
     renderLeaders();
@@ -527,10 +499,10 @@ async function loadData() {
     renderArchive();
     renderPlayers();
     fillTeamSelects();
-    document.getElementById('newsContainer').innerHTML = DATA.news.length > 0
+    document.getElementById('newsContainer').innerHTML = (DATA.news || []).length > 0
       ? DATA.news.map(n => `<div class="news-item">${typeof n === 'string' ? n : n.t || ''}</div>`).join('')
       : '<div class="card">لا توجد أخبار جديدة حالياً</div>';
-    document.getElementById('resultsContainer').innerHTML = DATA.results.length > 0
+    document.getElementById('resultsContainer').innerHTML = (DATA.results || []).length > 0
       ? DATA.results.map(t => `<div class="result-item">🏁 ${t}</div>`).join('')
       : '<div class="card">لا توجد نتائج اليوم</div>';
     document.getElementById('tablesContainer').innerHTML = Object.entries(DATA.tables || {})
@@ -554,7 +526,6 @@ async function loadData() {
 loadData();
 setInterval(loadData, 60000);
 
-// ================= تثبيت التطبيق =================
 let deferredPrompt = null;
 window.addEventListener('beforeinstallprompt', e => {
   e.preventDefault();
@@ -565,10 +536,4 @@ window.addEventListener('beforeinstallprompt', e => {
 function installApp() {
   if (!deferredPrompt) { alert('من قائمة المتصفح ⋮ اختار: إضافة إلى الشاشة الرئيسية'); return; }
   deferredPrompt.prompt();
-}
-window.addEventListener('appinstalled', () => {
-  deferredPrompt = null;
-  const b = document.getElementById('installBtn');
-  if (b) b.style.display = 'none';
-});
 }
