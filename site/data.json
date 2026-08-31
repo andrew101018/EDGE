@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-08-31 06:52 PM",
+  "updated_at": "2026-08-31 08:41 PM",
   "news": [
+    {
+      "t": "⚽ وصول حافلة الزمالك إلى استاد القاهرة لخوض مباراة منتخب السويس بتروجت - youm7.com",
+      "img": ""
+    },
+    {
+      "t": "⚽ \"ما يفعلونه محبط للغاية\".. صدام إنجليزي مع يويفا بسبب ليفربول - Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ \"موسوليني\" في الملاعب الإيطالية، ابن حفيدة الزعيم الإيطالي يعيد اسم جده إلى ميادين كرة القدم - BBC",
+      "img": ""
+    },
+    {
+      "t": "⚽ لجنة الحكام تبرئ محمد معروف ووائل جمعة من واقعة الأهلي وزد رسميا - youm7.com",
+      "img": ""
+    },
     {
       "t": "⚽ بالأرقام.. ماذا قدم ميسي مع منتخب الأرجنتين قبل اعتزاله اللعب الدولي؟ - اليوم السابع",
       "img": ""
@@ -64,22 +80,6 @@
     {
       "t": "⚽ بيراميدز في مواجهة قوية أمام المصري بالدوري المصري اليوم - صدى البلد",
       "img": ""
-    },
-    {
-      "t": "⚽ تشكيل الزمالك المتوقع لمباراة السويس بتروجت.. تغيير وحيد - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ إيران تعلن إسقاط مُسيرة أمريكية وقصف \"قواعد عسكرية في الإمارات وقطر والأردن\" ردّاً على غارات في مض",
-      "img": ""
-    },
-    {
-      "t": "⚽ مواجهات مرتقبة في الجولة الثالثة من الدوري الممتاز.. الأهلي وبيراميدز بالعلامة الكاملة.. وهل يحافظ",
-      "img": ""
-    },
-    {
-      "t": "⚽ موقف الزمالك والأهلي، ترتيب الدوري الممتاز قبل انطلاق الجولة الثالثة - فيتو",
-      "img": ""
     }
   ],
   "results": [
@@ -133,8 +133,8 @@
           "hs": "0",
           "as": "0",
           "time": "08:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "9'"
         },
         {
           "home": "برشلونة",
@@ -159,6 +159,22 @@
       "league": "الدوري الإيطالي",
       "slug": "ita.1",
       "items": [
+        {
+          "home": "Lecce",
+          "away": "AS Roma",
+          "eid": "401874945",
+          "slug": "ita.1",
+          "homeId": "113",
+          "awayId": "104",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/113.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/104.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "3",
+          "time": "07:30 PM",
+          "state": "in",
+          "detail": "HT"
+        },
         {
           "home": "Atalanta",
           "away": "Bologna",
@@ -781,18 +797,6 @@
           "face": ""
         },
         {
-          "name": "Ante Budimir",
-          "team": "Osasuna",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Enes Ünal",
-          "team": "Getafe",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
           "name": "Sergio Camello",
           "team": "Rayo Vallecano",
           "value": "1 ⚽",
@@ -803,30 +807,8 @@
     "الدوري الإيطالي": {
       "الهدافون 🏆 (الموسم الحالي)": [
         {
-          "name": "Olaf Gorter",
-          "team": "Lecce",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
           "name": "Giacomo Raspadori",
           "team": "Atalanta",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    },
-    "الدوري الفرنسي": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Christ Tapé",
-          "team": "Toulouse",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Tiago Santos",
-          "team": "Lille",
           "value": "1 ⚽",
           "face": ""
         }
@@ -847,6 +829,10 @@
       "img": "https://a.espncdn.com/photo/2026/0828/r1708280_1296x729_16-9.jpg"
     },
     {
+      "t": "EFL criticises UEFA after rescheduling three domestic fixtures",
+      "img": "https://a.espncdn.com/photo/2026/0827/r1707643_1296x729_16-9.jpg"
+    },
+    {
       "t": "Aston Villa's Champions League draw: Paris Saint-Germain, Barcelona, Borussia Dortmund",
       "img": "https://a.espncdn.com/photo/2026/0319/r1630909_1296x729_16-9.jpg"
     },
@@ -855,20 +841,16 @@
       "img": "https://a.espncdn.com/photo/2026/0117/r1601718_1296x729_16-9.jpg"
     },
     {
-      "t": "Champions League schedule: Real Madrid open league phase vs. Inter Milan",
-      "img": "https://a.espncdn.com/photo/2026/0829/r1708693_1296x729_16-9.jpg"
-    },
-    {
       "t": "Premier League live updates: Aston Villa host defending champs Arsenal",
       "img": "https://a.espncdn.com/photo/2026/0827/r1707839_2_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer rumors, news: Spurs to make late move for Pulisic?",
-      "img": "https://a.espncdn.com/photo/2026/0819/r1703941_1296x729_16-9.jpg"
+      "t": "Cody Gakpo set for Liverpool stay after Man City offer rejected - sources",
+      "img": "https://a.espncdn.com/photo/2026/0825/r1706612_1296x729_16-9.jpg"
     },
     {
-      "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709440_1296x729_16-9.jpg"
+      "t": "Everton near deal for USMNT forward Folarin Balogun - sources",
+      "img": "https://a.espncdn.com/photo/2026/0812/r1700903_1296x729_16-9.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
@@ -907,15 +889,15 @@
       "img": "https://a.espncdn.com/photo/2026/0830/r1708878_1296x729_16-9.jpg"
     },
     {
+      "t": "Everton near deal for USMNT forward Folarin Balogun - sources",
+      "img": "https://a.espncdn.com/photo/2026/0812/r1700903_1296x729_16-9.jpg"
+    },
+    {
       "t": "Ogden: Balogun is one to watch on deadline day",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0831/dm_260831_Ogden_Balogun_is_one_to_watch_on_deadline_day/dm_260831_Ogden_Balogun_is_one_to_watch_on_deadline_day.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709440_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Bradley Barcola joins Liverpool in £123m move from Paris Saint-Germain",
       "img": "https://a.espncdn.com/photo/2026/0831/r1709440_1296x729_16-9.jpg"
     }
   ],
