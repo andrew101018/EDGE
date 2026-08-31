@@ -815,6 +815,22 @@
           "face": ""
         }
       ]
+    },
+    "الدوري الفرنسي": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Christ Tapé",
+          "team": "Toulouse",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Tiago Santos",
+          "team": "Lille",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
     }
   },
   "world": [
