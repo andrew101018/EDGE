@@ -537,3 +537,31 @@ function installApp() {
   if (!deferredPrompt) { alert('من قائمة المتصفح ⋮ اختار: إضافة إلى الشاشة الرئيسية'); return; }
   deferredPrompt.prompt();
 }
+function showTeam(slug, teamId, teamName) {
+  const box = document.getElementById('teamModal');
+  if (!box) return;
+  box.style.cssText = 'display:block;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;overflow:auto;';
+  if (box.firstElementChild) box.firstElementChild.style.cssText = 'max-width:640px;margin:40px auto;background:#1e293b;border-radius:12px;padding:20px;';
+  document.getElementById('teamModalTitle').textContent = '👥 ' + teamName;
+  try {
+    const pool = (typeof fantasyPool === 'function') ? fantasyPool() : [];
+    const AR2EN = {"ريال مدريد":"Real Madrid","برشلونة":"Barcelona","ليفربول":"Liverpool","مانشستر سيتي":"Manchester City","مانشستر يونايتد":"Manchester United","تشيلسي":"Chelsea","أرسنال":"Arsenal","توتنهام":"Tottenham Hotspur","باريس سان جيرمان":"Paris Saint-Germain","بايرن ميونخ":"Bayern Munich","يوفنتوس":"Juventus","إنتر ميلان":"Inter","ميلان":"AC Milan","أتلتيكو مدريد":"Atlético Madrid","بوروسيا دورتموند":"Borussia Dortmund","نابولي":"Napoli","الأهلي":"Al Ahly","الزمالك":"Zamalek","بيراميدز":"Pyramids FC","الهلال":"Al Hilal","النصر":"Al Nassr","الاتحاد":"Al Ittihad","الأهلي السعودي":"Al Ahli"};
+    const en2ar = {};
+    Object.entries(AR2EN).forEach(([ar, en]) => en2ar[en.toLowerCase()] = ar);
+    const arName = en2ar[(teamName || '').toLowerCase()] || teamName;
+    const players = pool.filter(p => p.team === arName || p.team === teamName);
+    let html = `<div style="text-align:center;margin-bottom:14px;"><div style="font-size:3em;">⚽</div><div style="font-weight:bold;font-size:1.3em;">${teamName}</div></div>`;
+    if (players.length) {
+      const goals = players.filter(p => (p.cat || '').includes('الهداف')).sort((a, b) => b.val - a.val);
+      const rest = players.filter(p => !(p.cat || '').includes('الهداف'));
+      const card = (p, e) => `<span class="p-card">${p.face ? `<img class="p-face" src="${p.face}" onerror="this.style.display='none'">` : '👤'} ${p.name} <small>${e} ${p.val}</small></span>`;
+      if (goals.length) html += `<div class="pos-box"><b>🏆 الهدافون:</b><div class="p-grid">${goals.map(p => card(p, '⚽')).join('')}</div></div>`;
+      if (rest.length) html += `<div class="pos-box"><b>🎯 صناعة الأهداف:</b><div class="p-grid">${rest.map(p => card(p, '🅰️')).join('')}</div></div>`;
+    } else {
+      html += '<div class="card">نجوم الفريق ده هيتضافوا قريباً 🙏<br><small>جرب: الهلال، النصر، الأهلي، الزمالك، ريال مدريد، برشلونة، ليفربول، مانشستر سيتي</small></div>';
+    }
+    document.getElementById('teamModalBody').innerHTML = html;
+  } catch (e) {
+    document.getElementById('teamModalBody').innerHTML = '<div class="card">تعذر عرض القائمة 🙏</div>';
+  }
+}
