@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-08-31 09:19 PM",
+  "updated_at": "2026-08-31 09:45 PM",
   "news": [
+    {
+      "t": "⚽ صبحى عبد السلام يطلب المستحيل لكرة القدم المصرية - الزمالك اليوم",
+      "img": ""
+    },
+    {
+      "t": "⚽ لجنة الحكام: بعد مراجعة التسجيلات.. معروف لم يطلب خروج لاعب الأهلي - FilGoal",
+      "img": ""
+    },
+    {
+      "t": "⚽ رسميا.. الكشف عن موعد إعلان المرشحين للكرة الذهبية - Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ \"قرار مؤلم، وما زال يؤلمني في أعماقي\"، ميسي يُعلن اعتزاله دولياً - BBC",
+      "img": ""
+    },
     {
       "t": "⚽ النهاية.. ميسي يودع منتخب الأرجنتين - سكاي نيوز عربية",
       "img": ""
@@ -64,25 +80,10 @@
     {
       "t": "⚽ «الحكام» تعلن نتيجة «تسجيلات الفار» في واقعة الأهلي وزد.. وتوجه رسالة عاجلة - المصري اليوم",
       "img": ""
-    },
-    {
-      "t": "⚽ نجوم المستقبل في كرة القدم.. 4 مواهب عربية تألقت في دورة ألعاب المتوسط - اخبارك نت",
-      "img": ""
-    },
-    {
-      "t": "⚽ ما حكم لعب مباراة كرة قدم مقابل دفع الفريق الخاسر ثمن حجز الملعب؟ الإفتاء: «قُمار مُحّرم» - المصري",
-      "img": ""
-    },
-    {
-      "t": "⚽ مصدر يوضح ليلا كورة.. سبب غياب محمود جهاد عن مباريات الزمالك - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ تعليق جهاد جريشة على بيان لجنة الحكام بخصوص مباراة الاهلى وزد - الزمالك اليوم",
-      "img": ""
     }
   ],
   "results": [
+    "Lecce 0 - 4 AS Roma",
     "القادسية 3 - 1 Al-Faisaly",
     "Al Hazem 1 - 1 الشباب",
     "AS Monaco 2 - 0 Marseille",
@@ -134,7 +135,7 @@
           "as": "0",
           "time": "08:30 PM",
           "state": "in",
-          "detail": "45'+2'"
+          "detail": "50'"
         },
         {
           "home": "برشلونة",
@@ -172,8 +173,8 @@
           "hs": "0",
           "as": "4",
           "time": "07:30 PM",
-          "state": "in",
-          "detail": "82'"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "Atalanta",
@@ -184,6 +185,29 @@
           "awayId": "107",
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/105.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/107.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "09:45 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": true
+    },
+    {
+      "league": "الدوري الفرنسي",
+      "slug": "fra.1",
+      "items": [
+        {
+          "home": "Toulouse",
+          "away": "Lille",
+          "eid": "401876468",
+          "slug": "fra.1",
+          "homeId": "179",
+          "awayId": "166",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/179.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/166.png",
           "tv": "beIN Sports",
           "hs": "0",
           "as": "0",
@@ -527,7 +551,7 @@
     "الدوري الإيطالي": [
       {
         "rank": 1,
-        "team": "Internazionale",
+        "team": "AS Roma",
         "logo": "",
         "gp": 2.0,
         "w": 2.0,
@@ -537,7 +561,7 @@
       },
       {
         "rank": 2,
-        "team": "ميلان",
+        "team": "Internazionale",
         "logo": "",
         "gp": 2.0,
         "w": 2.0,
@@ -547,7 +571,7 @@
       },
       {
         "rank": 3,
-        "team": "يوفنتوس",
+        "team": "ميلان",
         "logo": "",
         "gp": 2.0,
         "w": 2.0,
@@ -557,7 +581,7 @@
       },
       {
         "rank": 4,
-        "team": "Lazio",
+        "team": "يوفنتوس",
         "logo": "",
         "gp": 2.0,
         "w": 2.0,
@@ -567,6 +591,16 @@
       },
       {
         "rank": 5,
+        "team": "Lazio",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 6,
         "team": "Udinese",
         "logo": "",
         "gp": 2.0,
@@ -576,7 +610,7 @@
         "pts": 4.0
       },
       {
-        "rank": 6,
+        "rank": 7,
         "team": "Como",
         "logo": "",
         "gp": 2.0,
@@ -586,18 +620,8 @@
         "pts": 4.0
       },
       {
-        "rank": 7,
-        "team": "AS Roma",
-        "logo": "",
-        "gp": 1.0,
-        "w": 1.0,
-        "d": 0.0,
-        "l": 0.0,
-        "pts": 3.0
-      },
-      {
         "rank": 8,
-        "team": "Lecce",
+        "team": "Atalanta",
         "logo": "",
         "gp": 1.0,
         "w": 1.0,
@@ -813,6 +837,22 @@
           "face": ""
         }
       ]
+    },
+    "الدوري الفرنسي": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Christ Tapé",
+          "team": "Toulouse",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Tiago Santos",
+          "team": "Lille",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
     }
   },
   "world": [
@@ -845,12 +885,12 @@
       "img": "https://a.espncdn.com/photo/2026/0827/r1707839_2_1296x729_16-9.jpg"
     },
     {
-      "t": "Cody Gakpo set for Liverpool stay after Man City offer rejected - sources",
-      "img": "https://a.espncdn.com/photo/2026/0825/r1706612_1296x729_16-9.jpg"
+      "t": "Transfer rumors, news: Spurs to make late move for Pulisic?",
+      "img": "https://a.espncdn.com/photo/2026/0819/r1703941_1296x729_16-9.jpg"
     },
     {
-      "t": "Everton near deal for USMNT forward Folarin Balogun - sources",
-      "img": "https://a.espncdn.com/photo/2026/0812/r1700903_1296x729_16-9.jpg"
+      "t": "Cody Gakpo set for Liverpool stay after Man City offer rejected - sources",
+      "img": "https://a.espncdn.com/photo/2026/0825/r1706612_1296x729_16-9.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
