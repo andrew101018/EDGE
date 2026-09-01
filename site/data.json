@@ -1,6 +1,18 @@
 {
-  "updated_at": "2026-09-01 08:24 AM",
+  "updated_at": "2026-09-01 10:39 AM",
   "news": [
+    {
+      "t": "⚽ جمال عبدالحميد: جبت للأهلي 5 دوري وبعدين سابني بعكازين للزمالك - صدى البلد",
+      "img": ""
+    },
+    {
+      "t": "⚽ ملوك المهارة.. رونالدينيو يتفوق على بيليه ومارادونا وغياب ميسي ورونالدو - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ المفاجأة جاءت من ألمانيا.. نجم برشلونة يجد نفسه أمام عرض لا يقاوم - Kooora",
+      "img": ""
+    },
     {
       "t": "⚽ جمال عبدالحميد: محظوظ إني لعبت للأهلي ولكن الزمالك اللي خيره عليا - صدى البلد",
       "img": ""
@@ -67,18 +79,6 @@
     },
     {
       "t": "⚽ النهاية.. ميسي يودع منتخب الأرجنتين - سكاي نيوز عربية",
-      "img": ""
-    },
-    {
-      "t": "⚽ ميسي مع الأرجنتين ...مسيرة بدأت بطرد وانتهت في القمة - beIN SPORTS",
-      "img": ""
-    },
-    {
-      "t": "⚽ بيرس مورجان: اعتزال ميسي حسم صراع الأفضل لصالح رونالدو - Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ اتحاد الكرة غير موقفة بعد اللى حصل : تغيير الوجهة بخصوص طاقم تحكيم القمة - الزمالك اليوم",
       "img": ""
     }
   ],
@@ -750,22 +750,6 @@
         }
       ]
     },
-    "الدوري الإنجليزي": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Leif Davis",
-          "team": "Ipswich Town",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Alexander Isak",
-          "team": "ليفربول",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    },
     "الدوري الإسباني": {
       "الهدافون 🏆 (الموسم الحالي)": [
         {
@@ -777,22 +761,6 @@
         {
           "name": "Iago Aspas",
           "team": "Celta Vigo",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    },
-    "الدوري الألماني": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Thijs Dallinga",
-          "team": "FC Cologne",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Josha Vagnoman",
-          "team": "VfB Stuttgart",
           "value": "1 ⚽",
           "face": ""
         }
@@ -841,65 +809,66 @@
       "img": "https://a.espncdn.com/photo/2026/0117/r1601718_1296x729_16-9.jpg"
     },
     {
+      "t": "Live transfer rumors, news, updates on deadline day",
+      "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Africa's transfer deadline day - Ndiaye to Man City, Mbaye incoming, Osimhen to Man United?",
+      "img": "https://a.espncdn.com/photo/2026/0830/r1708897_1296x729_16-9.jpg"
+    },
+    {
       "t": "Arsenal remain undefeated in the Premier League",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0831/dm_260831_Soccer_HIGHLIGHT_2_Arsenal_remain_undefeated_in_the_Premier_League_20260901_AUS/dm_260831_Soccer_HIGHLIGHT_2_Arsenal_remain_undefeated_in_the_Premier_League_20260901_AUS.jpg"
     },
     {
-      "t": "Premier League VAR review: Arsenal should've been awarded a penalty, so why did VAR let it go?",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709700_1296x729_16-9.jpg"
+      "t": "Live transfer rumors, news, updates on deadline day",
+      "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
     },
     {
-      "t": "Arsenal remain undefeated in the Premier League",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0831/dm_260831_Soccer_HIGHLIGHT_Arsenal_remain_undefeated_in_the_Premier_League_20260901_AUS/dm_260831_Soccer_HIGHLIGHT_Arsenal_remain_undefeated_in_the_Premier_League_20260901_AUS.jpg"
+      "t": "Africa's transfer deadline day - Ndiaye to Man City, Mbaye incoming, Osimhen to Man United?",
+      "img": "https://a.espncdn.com/photo/2026/0830/r1708897_1296x729_16-9.jpg"
     },
     {
       "t": "Flick 'surprised' perfect-fit Jesus set to join Barcelona",
       "img": "https://a.espncdn.com/photo/2026/0831/r1709734_1296x729_16-9.jpg"
     },
     {
-      "t": "Was Anthony Gordon the correct choice for Barcelona over Marcus Rashford?",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0831/dm_260831_COM_SOC_Analysis_Was_Anthony_Gordon_the_correct_choice_for_Barcelona_over_Marcus_Rashford_2026/dm_260831_COM_SOC_Analysis_Was_Anthony_Gordon_the_correct_choice_for_Barcelona_over_Marcus_Rashford_2026.jpg"
+      "t": "Live transfer rumors, news, updates on deadline day",
+      "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
     },
     {
-      "t": "Raphinha, Yamal doubles see Barcelona continue hot start",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709703_1296x729_16-9.jpg"
+      "t": "When does the 2026 summer transfer window open and close?",
+      "img": "https://a.espncdn.com/photo/2026/0813/r1701176_1296x729_16-9.jpg"
     },
     {
       "t": "Transfer rumors, news: Spurs to make late move for Pulisic?",
       "img": "https://a.espncdn.com/photo/2026/0819/r1703941_1296x729_16-9.jpg"
     },
     {
-      "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709440_1296x729_16-9.jpg"
+      "t": "Live transfer rumors, news, updates on deadline day",
+      "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer big board: Best players in each position who could move this summer",
-      "img": "https://a.espncdn.com/photo/2026/0613/r1672603_1296x729_16-9.jpg"
+      "t": "Africa's transfer deadline day - Ndiaye to Man City, Mbaye incoming, Osimhen to Man United?",
+      "img": "https://a.espncdn.com/photo/2026/0830/r1708897_1296x729_16-9.jpg"
     },
     {
-      "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709440_1296x729_16-9.jpg"
+      "t": "When does the 2026 summer transfer window open and close?",
+      "img": "https://a.espncdn.com/photo/2026/0813/r1701176_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer big board: Best players in each position who could move this summer",
-      "img": "https://a.espncdn.com/photo/2026/0613/r1672603_1296x729_16-9.jpg"
+      "t": "Live transfer rumors, news, updates on deadline day",
+      "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
     },
     {
-      "t": "Okon-Engstler wins in Bundesliga debut on banner day for Socceroos in Europe",
-      "img": "https://a.espncdn.com/photo/2026/0830/r1708878_1296x729_16-9.jpg"
+      "t": "Africa's transfer deadline day - Ndiaye to Man City, Mbaye incoming, Osimhen to Man United?",
+      "img": "https://a.espncdn.com/photo/2026/0830/r1708897_1296x729_16-9.jpg"
     },
     {
-      "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709440_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Sources: Folarin Balogun joining Everton in deal worth up to $54M",
-      "img": "https://a.espncdn.com/photo/2026/0812/r1700903_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Ogden: Balogun is one to watch on deadline day",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0831/dm_260831_Ogden_Balogun_is_one_to_watch_on_deadline_day/dm_260831_Ogden_Balogun_is_one_to_watch_on_deadline_day.jpg"
+      "t": "When does the 2026 summer transfer window open and close?",
+      "img": "https://a.espncdn.com/photo/2026/0813/r1701176_1296x729_16-9.jpg"
     }
   ],
-  "highlights": []
+  "highlights": [],
+  "squads": {}
 }
