@@ -1,6 +1,18 @@
 {
-  "updated_at": "2026-09-01 10:39 AM",
+  "updated_at": "2026-09-01 11:29 AM",
   "news": [
+    {
+      "t": "⚽ «حدث ليلا»: عروض لنجم الزمالك.. وقرار مرتقب من الأهلي تجاه شوبير - almasryalyoum.com",
+      "img": ""
+    },
+    {
+      "t": "⚽ «حدث ليلا»: عروض لنجم الزمالك.. وقرار مرتقب من الأهلي تجاه شوبير - almasryalyoum.com",
+      "img": ""
+    },
+    {
+      "t": "⚽ رقم قياسى جديد.. لامين يامال يتجاوز هالاند ومبابى فى بيج 5 - اليوم السابع",
+      "img": ""
+    },
     {
       "t": "⚽ جمال عبدالحميد: جبت للأهلي 5 دوري وبعدين سابني بعكازين للزمالك - صدى البلد",
       "img": ""
@@ -67,18 +79,6 @@
     },
     {
       "t": "⚽ لجنة الحكام: بعد مراجعة التسجيلات.. معروف لم يطلب خروج لاعب الأهلي - FilGoal",
-      "img": ""
-    },
-    {
-      "t": "⚽ رسميا.. الكشف عن موعد إعلان المرشحين للكرة الذهبية - Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ \"قرار مؤلم، وما زال يؤلمني في أعماقي\"، ميسي يُعلن اعتزاله دولياً - BBC",
-      "img": ""
-    },
-    {
-      "t": "⚽ النهاية.. ميسي يودع منتخب الأرجنتين - سكاي نيوز عربية",
       "img": ""
     }
   ],
@@ -809,16 +809,16 @@
       "img": "https://a.espncdn.com/photo/2026/0117/r1601718_1296x729_16-9.jpg"
     },
     {
+      "t": "Yoane Wissa's Newcastle sequel is already looking better than the original",
+      "img": "https://a.espncdn.com/photo/2026/0829/r1708609_1296x729_16-9.jpg"
+    },
+    {
       "t": "Live transfer rumors, news, updates on deadline day",
       "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
     },
     {
       "t": "Africa's transfer deadline day - Ndiaye to Man City, Mbaye incoming, Osimhen to Man United?",
       "img": "https://a.espncdn.com/photo/2026/0830/r1708897_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Arsenal remain undefeated in the Premier League",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0831/dm_260831_Soccer_HIGHLIGHT_2_Arsenal_remain_undefeated_in_the_Premier_League_20260901_AUS/dm_260831_Soccer_HIGHLIGHT_2_Arsenal_remain_undefeated_in_the_Premier_League_20260901_AUS.jpg"
     },
     {
       "t": "Live transfer rumors, news, updates on deadline day",
@@ -837,24 +837,12 @@
       "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
     },
     {
-      "t": "When does the 2026 summer transfer window open and close?",
-      "img": "https://a.espncdn.com/photo/2026/0813/r1701176_1296x729_16-9.jpg"
-    },
-    {
       "t": "Transfer rumors, news: Spurs to make late move for Pulisic?",
       "img": "https://a.espncdn.com/photo/2026/0819/r1703941_1296x729_16-9.jpg"
     },
     {
-      "t": "Live transfer rumors, news, updates on deadline day",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Africa's transfer deadline day - Ndiaye to Man City, Mbaye incoming, Osimhen to Man United?",
-      "img": "https://a.espncdn.com/photo/2026/0830/r1708897_1296x729_16-9.jpg"
-    },
-    {
-      "t": "When does the 2026 summer transfer window open and close?",
-      "img": "https://a.espncdn.com/photo/2026/0813/r1701176_1296x729_16-9.jpg"
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709863_3_1296x729_16-9.jpg"
     },
     {
       "t": "Live transfer rumors, news, updates on deadline day",
@@ -865,8 +853,20 @@
       "img": "https://a.espncdn.com/photo/2026/0830/r1708897_1296x729_16-9.jpg"
     },
     {
-      "t": "When does the 2026 summer transfer window open and close?",
-      "img": "https://a.espncdn.com/photo/2026/0813/r1701176_1296x729_16-9.jpg"
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709863_3_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Live transfer rumors, news, updates on deadline day",
+      "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Africa's transfer deadline day - Ndiaye to Man City, Mbaye incoming, Osimhen to Man United?",
+      "img": "https://a.espncdn.com/photo/2026/0830/r1708897_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709863_3_1296x729_16-9.jpg"
     }
   ],
   "highlights": [],
