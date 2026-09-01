@@ -38,6 +38,7 @@
   <button class="nav-btn" onclick="goMulti(['leaders','players'], this)">👑 الهدافين</button>
   <button class="nav-btn" onclick="goMulti(['predict','fantasy','board'], this)">🎮 الألعاب</button>
   <button class="nav-btn" onclick="go('world', this)">🌍 عالمية</button>
+  <button class="nav-btn" onclick="go('champions', this)">🏆 سجل الأبطال</button>
   <button class="nav-btn" onclick="go('nationals', this)">🌍 المنتخبات</button>
   <button class="nav-btn" onclick="go('transfers', this)">💸 الانتقالات</button>
   <button class="nav-btn" onclick="go('archive', this)">📚 الأرشيف</button>
@@ -147,6 +148,12 @@
     <p class="nationals-description">دوس على أي منتخب تشوف مبارياته ونتايجه ولاعيبته</p>
     <input id="natSearch" class="nat-search" placeholder="🔍 ابحث عن منتخب: مصر، البرازيل، فرنسا..." oninput="renderNationals(this.value)">
     <div id="nationalsContainer" class="grid"></div>
+  </section>
+
+    <section id="sec-champions" class="page">
+    <h2>🏆 سجل أبطال الدوريات</h2>
+    <p style="opacity:.8;margin-bottom:14px;">الأندية الأكثر تتويجاً في تاريخ أكبر الدوريات</p>
+    <div id="championsContainer"></div>
   </section>
   
   <section class="section telegram">
