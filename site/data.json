@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-01 03:15 AM",
+  "updated_at": "2026-09-01 08:24 AM",
   "news": [
+    {
+      "t": "⚽ جمال عبدالحميد: محظوظ إني لعبت للأهلي ولكن الزمالك اللي خيره عليا - صدى البلد",
+      "img": ""
+    },
+    {
+      "t": "⚽ ملف يلا كورة.. بيان لجنة الحكام.. انتصار الزمالك.. ومشاركة حمزة عبد الكريم - يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ كوشنر نادم على خطة بيع حصة من كأس العالم - BBC",
+      "img": ""
+    },
+    {
+      "t": "⚽ حكام كرة القدم والنادي الكبير - almasryalyoum.com",
+      "img": ""
+    },
     {
       "t": "⚽ ثلاثي الأرجنتين لميسي: الكلمات تعجز أمام إرثك.. أنت الأعظم في التاريخ - Kooora",
       "img": ""
@@ -64,22 +80,6 @@
     {
       "t": "⚽ اتحاد الكرة غير موقفة بعد اللى حصل : تغيير الوجهة بخصوص طاقم تحكيم القمة - الزمالك اليوم",
       "img": ""
-    },
-    {
-      "t": "⚽ وصول حافلة الزمالك إلى استاد القاهرة لخوض مباراة منتخب السويس بتروجت - youm7.com",
-      "img": ""
-    },
-    {
-      "t": "⚽ \"ما يفعلونه محبط للغاية\".. صدام إنجليزي مع يويفا بسبب ليفربول - Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ \"موسوليني\" في الملاعب الإيطالية، ابن حفيدة الزعيم الإيطالي يعيد اسم جده إلى ميادين كرة القدم - BBC",
-      "img": ""
-    },
-    {
-      "t": "⚽ لجنة الحكام تبرئ محمد معروف ووائل جمعة من واقعة الأهلي وزد رسميا - youm7.com",
-      "img": ""
     }
   ],
   "results": [
@@ -111,102 +111,24 @@
       "big": true
     },
     {
-      "league": "الدوري الإنجليزي",
-      "slug": "eng.1",
-      "items": [
-        {
-          "home": "أستون فيلا",
-          "away": "أرسنال",
-          "eid": "401879295",
-          "slug": "eng.1",
-          "homeId": "362",
-          "awayId": "359",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "1",
-          "time": "10:00 PM",
-          "state": "post",
-          "detail": "FT"
-        }
-      ],
-      "big": true
-    },
-    {
       "league": "الدوري الإسباني",
       "slug": "esp.1",
       "items": [
         {
-          "home": "Osasuna",
-          "away": "Getafe",
-          "eid": "401882901",
+          "home": "Real Sociedad",
+          "away": "Celta Vigo",
+          "eid": "401882867",
           "slug": "esp.1",
-          "homeId": "97",
-          "awayId": "2922",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/97.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2922.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "0",
-          "time": "08:30 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "برشلونة",
-          "away": "Rayo Vallecano",
-          "eid": "401882903",
-          "slug": "esp.1",
-          "homeId": "83",
-          "awayId": "101",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/101.png",
-          "tv": "beIN Sports",
-          "hs": "5",
-          "as": "2",
-          "time": "10:30 PM",
-          "state": "post",
-          "detail": "FT"
-        }
-      ],
-      "big": true
-    },
-    {
-      "league": "الدوري الإيطالي",
-      "slug": "ita.1",
-      "items": [
-        {
-          "home": "Lecce",
-          "away": "AS Roma",
-          "eid": "401874945",
-          "slug": "ita.1",
-          "homeId": "113",
-          "awayId": "104",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/113.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/104.png",
+          "homeId": "89",
+          "awayId": "85",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/85.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "4",
-          "time": "07:30 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Atalanta",
-          "away": "Bologna",
-          "eid": "401874970",
-          "slug": "ita.1",
-          "homeId": "105",
-          "awayId": "107",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/105.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/107.png",
-          "tv": "beIN Sports",
-          "hs": "1",
           "as": "0",
-          "time": "09:45 PM",
-          "state": "post",
-          "detail": "FT"
+          "time": "10:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -824,6 +746,22 @@
           "name": "Sergej Milinkovic-Savic",
           "team": "الهلال",
           "value": "2 ⚽",
+          "face": ""
+        }
+      ]
+    },
+    "الدوري الإسباني": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Luka Sucic",
+          "team": "Real Sociedad",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Iago Aspas",
+          "team": "Celta Vigo",
+          "value": "1 ⚽",
           "face": ""
         }
       ]
