@@ -720,7 +720,9 @@ def build_site_data(state, today):
             rows = sorted([v for v in agg.values() if v["g"] > 0], key=lambda x: -x["g"])[:15]
             if rows:
                 leaders[LEAGUES[slug]] = {"الهدافون 🏆 (الموسم الحالي)": [
-                    {"name": r["name"], "team": r["team"], "value": f"{r['g']} ⚽", "face": r["face"]} for r in rows]}    site_data = {
+                    {"name": r["name"], "team": r["team"], "value": f"{r['g']} ⚽", "face": r["face"]} 
+                    for r in rows]}  
+                site_data = {
         "updated_at": now.strftime("%Y-%m-%d %I:%M %p"),
         "news": state.get("site_news", [])[-20:][::-1],
         "results": [x["t"] for x in state.get("daily_results", []) if x["d"] == today][-10:][::-1],
