@@ -3,24 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<div style="display:flex;align-items:center;justify-content:center;gap:12px;">
-    <img src="https://raw.githubusercontent.com/andrew101018/EDGE/main/edge-logo.png" style="height:64px;width:64px;object-fit:contain;border-radius:12px;">
-    <h1 style="margin:0;">Edge Football</h1>
-  </div>
+<title>Edge Football ⚽ الكورة بتبدأ من هنا</title>
 <meta name="description" content="كل حاجة في الكورة قبل أي حد تاني — أخبار، نتائج، لايف، ترتيب، هدافين، دليل مشاهدة، توقعات">
 <meta property="og:title" content="Edge Football ⚽ الكورة بتبدأ من هنا">
 <meta property="og:description" content="أخبار، نتائج، لايف، ترتيب، هدافين، فانتازي — كل حاجة في الكورة قبل أي حد تاني ⚡">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://andrew101018.github.io/EDGE/">
-<meta property="og:image" content="https://andrew101018.github.io/EDGE/icon.svg">
-<link rel="icon" href="https://raw.githubusercontent.com/andrew101018/EDGE/main/edge-logo.png">
-<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/andrew101018/EDGE/main/edge-logo.png">
-<link rel="manifest" href="manifest.json">
-<link rel="stylesheet" href="style.css?v=3"></head>
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/edge-logo.png">
+<meta name="theme-color" content="#f59e0b">
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/edge-logo.png">
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/edge-logo.png">
+<link rel="manifest" href="site/manifest.json">
+<link rel="stylesheet" href="style.css?v=4">
+</head>
 <body>
 <header>
   <div class="container">
-    <h1>⚽ Edge Football</h1>
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:6px;">
+      <img src="https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/edge-logo.png" alt="Edge Football" style="height:64px;width:64px;object-fit:contain;border-radius:12px;">
+      <h1 style="margin:0;">Edge Football</h1>
+    </div>
     <p class="subtitle">الكورة بتبدأ من هنا 🔥 كل حاجة في الكورة.. قبل أي حد تاني ⚡</p>
     <div class="socials">
       <a href="https://t.me/edgefootballplatform" target="_blank" rel="noopener">📲 تيليجرام</a>
@@ -29,8 +31,6 @@
       <a href="https://www.tiktok.com/@andr8w_10?_r=1&_t=ZS-99DBAk3ILae" target="_blank" rel="noopener">🎵 تيك توك</a>
       <a href="https://www.instagram.com/edge_footballl?igsi=cHU5dGY0ZTZvdmN4" target="_blank" rel="noopener">📸 إنستجرام</a>
       <a href="https://www.threads.com/@edge_footballl" target="_blank" rel="noopener">🧵 ثريدز</a>
-      <link rel="manifest" href="site/manifest.json">
-  <meta name="theme-color" content="#fbbf24">
     </div>
     <div class="last-update" id="lastUpdate"></div>
   </div>
@@ -97,7 +97,7 @@
     <div id="fantasyPool" class="grid"></div>
     <button class="btn fantasy-save-btn" onclick="saveFantasy()">💾 حفظ الفريق</button>
   </section>
-  
+
   <section id="sec-board" class="page">
     <h2>🏅 لوحة الصدارة</h2>
     <p class="board-description">نقاطك من التوقعات + الفانتازي في مواجهة أصحابك</p>
@@ -136,7 +136,7 @@
     <div id="playersContainer" class="grid"></div>
   </section>
 
-    <section id="sec-compare" class="page">
+  <section id="sec-compare" class="page">
     <h2>⚖️ قارن فريقين</h2>
     <p class="compare-description">اختار أي فريقين وشوف مين الأقوى بالأرقام</p>
     <div class="compare-controls">
@@ -148,19 +148,19 @@
     <div id="compareContainer"></div>
   </section>
 
-    <section id="sec-nationals" class="page">
+  <section id="sec-nationals" class="page">
     <h2>🌍 المنتخبات</h2>
     <p class="nationals-description">دوس على أي منتخب تشوف مبارياته ونتايجه ولاعيبته</p>
     <input id="natSearch" class="nat-search" placeholder="🔍 ابحث عن منتخب: مصر، البرازيل، فرنسا..." oninput="renderNationals(this.value)">
     <div id="nationalsContainer" class="grid"></div>
   </section>
 
-    <section id="sec-champions" class="page">
+  <section id="sec-champions" class="page">
     <h2>🏆 سجل أبطال الدوريات</h2>
     <p style="opacity:.8;margin-bottom:14px;">الأندية الأكثر تتويجاً في تاريخ أكبر الدوريات</p>
     <div id="championsContainer"></div>
   </section>
-  
+
   <section class="section telegram">
     <h2>📢 تابعنا في كل مكان</h2>
     <p>الأخبار والنتائج والفيديوهات لحظياً على كل منصاتنا</p>
@@ -183,7 +183,7 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="app.js?v=3"></script>
+<script src="app.js?v=4"></script>
 <a class="share-wa" target="_blank" rel="noopener" href="https://wa.me/?text=🔥 أخبار كورة لحظياً + مباريات لايف + فانتازي — الكورة بتبدأ من هنا ⚽ https://andrew101018.github.io/EDGE/">💬</a>
 <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');</script>
 </body>
