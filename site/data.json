@@ -1,6 +1,18 @@
 {
-  "updated_at": "2026-09-01 08:25 PM",
+  "updated_at": "2026-09-01 09:06 PM",
   "news": [
+    {
+      "t": "⚽ اتحاد الكرة يخاطب بعض الاتحادات لتوفير تحكيم أجنبي لمباراتي الأهلي ضد الزمالك وبيراميدز - يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ أفشة ومحمد عبد الله يقتربان من دخول قائمة مباراة الأهلي وسموحة - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ أرقام مذهلة وعودة هيبة الفراعنة.. ماذا قدم حسام حسن مع مصر في 939 يومًا؟ - يلاكورة",
+      "img": ""
+    },
     {
       "t": "⚽ هل توسّع مصر والصين تعاونهما العسكري؟",
       "img": ""
@@ -68,18 +80,6 @@
     {
       "t": "⚽ مصدر ليلا كورة: الأهلي يطلب استقدام حكام أجانب لمباراتي الزمالك وبيراميدز - يلاكورة",
       "img": ""
-    },
-    {
-      "t": "⚽ بهدف مذهل \"عابر للملعب\".. حارس مرمى يحرز هدفا من منطقة جزائه - skynewsarabia.com",
-      "img": ""
-    },
-    {
-      "t": "⚽ رسميًا.. جنوب أفريقيا تقدم موسيماني مديرًا فنيًا للمنتخب الأول - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ عودة بعد 14 عاما.. موسيماني يتولى تدريب منتخب جنوب إفريقيا - FilGoal",
-      "img": ""
     }
   ],
   "results": [
@@ -104,8 +104,8 @@
           "hs": "0",
           "as": "0",
           "time": "09:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "5'"
         }
       ],
       "big": true
@@ -734,22 +734,6 @@
     ]
   },
   "leaders": {
-    "الدوري السعودي": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Ivan Toney",
-          "team": "الأهلي السعودي",
-          "value": "4 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Sergej Milinkovic-Savic",
-          "team": "الهلال",
-          "value": "2 ⚽",
-          "face": ""
-        }
-      ]
-    },
     "الدوري الإنجليزي": {
       "الهدافون 🏆 (الموسم الحالي)": [
         {
@@ -845,24 +829,24 @@
       "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
     },
     {
-      "t": "Harvey Elliott leaves Liverpool on loan for Valencia",
-      "img": "https://a.espncdn.com/photo/2024/0913/r1385766_1296x729_16-9.jpg"
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
     },
     {
-      "t": "Man City agree to record-equaling £125m deal with Chelsea for Enzo Fernández - sources",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709997_1296x729_16-9.jpg"
+      "t": "Olley can't make sense of Spurs' move for Mudryk",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0901/dm_260901_Olley_cant_make_sense_of_Spurs_move_for_Mudryk/dm_260901_Olley_cant_make_sense_of_Spurs_move_for_Mudryk.jpg"
     },
     {
       "t": "Live transfer rumors, news, updates on deadline day",
       "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
     },
     {
-      "t": "Harvey Elliott leaves Liverpool on loan for Valencia",
-      "img": "https://a.espncdn.com/photo/2024/0913/r1385766_1296x729_16-9.jpg"
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
     },
     {
-      "t": "Why Barcelona turned to Gabriel Jesus after Julián Álvarez transfer bid failed",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1710007_1296x729_16-9.jpg"
+      "t": "Harvey Elliott leaves Liverpool on loan for Valencia",
+      "img": "https://a.espncdn.com/photo/2024/0913/r1385766_1296x729_16-9.jpg"
     },
     {
       "t": "Live transfer rumors, news, updates on deadline day",
@@ -893,12 +877,12 @@
       "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
     },
     {
-      "t": "Chelsea's €45m Lamine Camara bid rejected amid Enzo Fernández talks - sources",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709884_1296x729_16-9.jpg"
-    },
-    {
       "t": "Summer transfer window: Grading big signings in men's soccer",
       "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Chelsea's €45m Lamine Camara bid rejected amid Enzo Fernández talks - sources",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709884_1296x729_16-9.jpg"
     }
   ],
   "highlights": [],
