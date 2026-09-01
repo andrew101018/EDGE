@@ -793,3 +793,26 @@ async function showTeam(slug, teamId, teamName) {
   }
   document.getElementById('teamModalBody').innerHTML = '<div class="card">قائمة الفريق ده لسه بتتجمع من المصدر (جرب بعد شوية) 🔄<br><small>بنجمع فريقين جديدين كل نصف ساعة لحد ما نغطي كل الدوريات</small></div>';
 }
+function renderAbout() {
+  const el = document.getElementById('aboutStats');
+  if (!el) return;
+  const matches = (DATA.matches || []).reduce((s, g) => s + (g.items || []).length, 0);
+  const leagues = Object.keys(DATA.tables || {}).length;
+  const squads = Object.keys(DATA.squads || {}).length;
+  const news = (DATA.news || []).length + (DATA.world || []).length;
+  const stats = [
+    ['⚽', matches, 'مباراة متابعة'],
+    ['🏆', leagues, 'دوريات مغطاة'],
+    ['👥', squads, 'فريق بقائمة كاملة'],
+    ['📰', news, 'خبر حديث'],
+    ['🤖', 3, 'محركات AI'],
+    ['🔄', 30, 'دقيقة بين كل تحديث'],
+  ];
+  el.innerHTML = stats.map(s => `<div class="tv-card" style="text-align:center;">
+    <div style="font-size:2em;">${s[0]}</div>
+    <div style="font-size:1.7em;font-weight:bold;color:#fbbf24;">${s[1]}</div>
+    <div style="opacity:.8;font-size:.85em;">${s[2]}</div>
+  </div>`).join('');
+}
+window.addEventListener('load', () => setTimeout(renderAbout, 2000));
+setInterval(renderAbout, 60000);

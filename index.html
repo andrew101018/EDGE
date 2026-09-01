@@ -42,6 +42,7 @@
   <button class="nav-btn" onclick="go('archive', this)">📚 الأرشيف</button>
   <button class="nav-btn" onclick="go('compare', this)">⚖️ مقارنة</button>
   <button class="nav-btn" onclick="go('shop', this)">🛒 المتجر</button>
+  <button class="nav-btn" onclick="go('about', this)">📊 عن المنصة</button>
   <button id="installBtn" class="nav-btn install-btn" onclick="installApp()">📲 ثبّت التطبيق</button>
 </nav>
 
@@ -139,6 +140,20 @@
       <button class="btn" onclick="renderCompare()">قارن 🔥</button>
     </div>
     <div id="compareContainer"></div>
+  </section>
+
+    <section id="sec-about" class="page">
+    <h2>📊 عن منصة Edge Football</h2>
+    <p class="about-description">إيدج فوتبول منصة كرة قدم أوتوماتيكية بالكامل: قناة تيليجرام ذكية + موقع لحظي — مبنية ومُدارة بمطوّر واحد ومن غير أي سيرفر مدفوع.</p>
+    <div id="aboutStats" class="grid about-stats"></div>
+    <div class="card about-info">
+      <b>⚙️ إزاي بنشتغل؟</b><br>
+      🤖 بوت بايثون بيجمع الأخبار من 6+ مصادر ويعيد صياغتها بـ 3 محركات ذكاء اصطناعي (Gemini / Groq / DeepSeek)<br>
+      📡 بيانات المباريات والترتيب واللاعبين من ESPN + API-Football<br>
+      👥 قوائم كاملة للفرق: سن، جنسية، مركز، لعب، أهداف، أسيست، تقييم<br>
+      🔄 كل حاجة بتتحدث أوتوماتيك كل 30 دقيقة<br>
+      💸 تكلفة التشغيل: صفر جنيه
+    </div>
   </section>
 
   <section class="section telegram">
