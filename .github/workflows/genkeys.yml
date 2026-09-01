@@ -1,0 +1,11 @@
+name: genkeys
+on: [workflow_dispatch]
+jobs:
+  gen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v4
+        with: {python-version: '3.11'}
+      - run: |
+          pip install py-vapid -q
+          python -c "from vapid import VAPID; v=VAPID(); k=v.generate_keys(); print('PUBLIC:', v.public_key); print('PRIVATE:', open('private_key.pem').read())"
