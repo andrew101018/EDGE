@@ -563,6 +563,33 @@ def fetch_top_scorers():
             print(f"scorers error {slug}: {ex}")
     return leaders
 
+def fetch_top_scorers():
+    if not API_FOOTBALL_KEY:
+        print("⚠️ no API_FOOTBALL_KEY for scorers")
+        return {}
+    leaders = {}
+    for slug, lid in AF_LEAGUES.items():
+        try:
+            resp = af_get("players/topscorers", {"league": lid, "season": AF_SEASON})
+            if not resp: continue
+            rows = []
+            for e in resp[:15]:
+                p = e.get("player") or {}
+                st = (e.get("statistics") or [{}])[0]
+                goals = (st.get("goals") or {}).get("total") or 0
+                assists = (st.get("goals") or {}).get("assists") or 0
+                rows.append({"name": p.get("name", ""),
+                    "team": ar_team(((st.get("team") or {}).get("name") or "")),
+                    "goals": goals, "assists": assists, "face": p.get("photo") or ""})
+            if rows:
+                leaders[LEAGUES.get(slug, slug)] = {
+                    "الهدافون 🏆": [{"name": r["name"], "team": r["team"], "value": f"{r['goals']} ⚽", "face": r["face"]} for r in rows],
+                    "صناعة الأهداف 🎯": [{"name": r["name"], "team": r["team"], "value": f"{r['assists']} 🅰️", "face": r["face"]} for r in sorted(rows, key=lambda x: -(x["assists"] or 0)) if r["assists"]]}
+                print(f"✅ scorers {slug}: {len(rows)}")
+        except Exception as ex:
+            print(f"scorers error {slug}: {ex}")
+    return leaders
+
 def update_squads(state):
     if not API_FOOTBALL_KEY: return
     ids = state.setdefault("af_ids", {})
@@ -656,9 +683,13 @@ def build_site_data(state, today):
         t = top_table(slug, 8)
         if t: tables[LEAGUES[slug]] = t
         leaders = fetch_top_scorers()
+        leaders = fetch_top_scorers()
     if not leaders:
         for slug, agg in scorer_agg.items():
             rows = sorted([v for v in agg.values() if v["g"] > 0], key=lambda x: -x["g"])[:15]
+            if rows:
+                leaders[LEAGUES[slug]] = {"الهدافون 🏆 (الموسم الحالي)": [
+                    {"name": r["name"], "team": r["team"], "value": f"{r['g']} ⚽", "face": r["face"]} for r in rows]}
             if rows:
                 leaders[LEAGUES[slug]] = {"الهدافون 🏆 (الموسم الحالي)": [
                     {"name": r["name"], "team": r["team"], "value": f"{r['g']} ⚽", "face": r["face"]} for r in rows]}
