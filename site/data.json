@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-01 09:06 PM",
+  "updated_at": "2026-09-01 09:41 PM",
   "news": [
+    {
+      "t": "⚽ المصري حمزة عبد الكريم يتحدّث عن ظهوره الرسمي الأول مع برشلونة - beIN SPORTS",
+      "img": ""
+    },
+    {
+      "t": "⚽ أول تصريحات \"مقتضبة وسريعة\" لحسام حسن بعد تجديد تعاقده مع إتحاد الكرة - الزمالك اليوم",
+      "img": ""
+    },
+    {
+      "t": "⚽ الزمالك يبحث بدائل بنتايج أمام بطل جيبوتي - الزمالك اليوم",
+      "img": ""
+    },
+    {
+      "t": "⚽ مصدر ليلا كورة: الأهلي يجدد عقد مصطفى شوبير 3 سنوات - يلاكورة",
+      "img": ""
+    },
     {
       "t": "⚽ اتحاد الكرة يخاطب بعض الاتحادات لتوفير تحكيم أجنبي لمباراتي الأهلي ضد الزمالك وبيراميدز - يلاكورة",
       "img": ""
@@ -64,22 +80,6 @@
     {
       "t": "⚽ الأهلي يطلب حكامًا أجانب لمباراتي الزمالك وبيراميدز بالدوري - الهيئة الوطنية للإعلام",
       "img": ""
-    },
-    {
-      "t": "⚽ سعر الدولار يرتفع في البنك الأهلي والقاهرة لليوم الثالث على التوالي - Masrawy",
-      "img": ""
-    },
-    {
-      "t": "⚽ فحوصات طبية تُحدد مدة غياب محمد السيد عن الزمالك - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ مباشر: اليوم الأخير من سوق الانتقالات.. طالع أهم الصفقات! - Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ مصدر ليلا كورة: الأهلي يطلب استقدام حكام أجانب لمباراتي الزمالك وبيراميدز - يلاكورة",
-      "img": ""
     }
   ],
   "results": [
@@ -101,11 +101,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/929.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8346.png",
           "tv": "SSC / شاهد",
-          "hs": "0",
+          "hs": "2",
           "as": "0",
           "time": "09:00 PM",
           "state": "in",
-          "detail": "5'"
+          "detail": "41'"
         }
       ],
       "big": true
@@ -127,6 +127,29 @@
           "hs": "0",
           "as": "0",
           "time": "10:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": true
+    },
+    {
+      "league": "الدوري الألماني",
+      "slug": "ger.1",
+      "items": [
+        {
+          "home": "VfB Stuttgart",
+          "away": "FC Cologne",
+          "eid": "401884808",
+          "slug": "ger.1",
+          "homeId": "134",
+          "awayId": "122",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/122.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "09:30 PM",
           "state": "pre",
           "detail": "Scheduled"
         }
@@ -825,6 +848,14 @@
       "img": "https://a.espncdn.com/photo/2026/0117/r1601718_1296x729_16-9.jpg"
     },
     {
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Liverpool complete £30 million deal for goalkeeper Lucca Brughmans - sources",
+      "img": "https://a.espncdn.com/photo/2026/0831/r1709410_1296x729_16-9.jpg"
+    },
+    {
       "t": "Live transfer rumors, news, updates on deadline day",
       "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
     },
@@ -833,52 +864,44 @@
       "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
     },
     {
-      "t": "Olley can't make sense of Spurs' move for Mudryk",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0901/dm_260901_Olley_cant_make_sense_of_Spurs_move_for_Mudryk/dm_260901_Olley_cant_make_sense_of_Spurs_move_for_Mudryk.jpg"
-    },
-    {
       "t": "Live transfer rumors, news, updates on deadline day",
       "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Marsden: Gabriel Jesus signing is essential for Barcelona",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0901/dm_260901_COM_SOC_ANALYSIS_Marsden_Gabriel_Jesus_signing_is_essential_for_Barcelona_2026_9_1/dm_260901_COM_SOC_ANALYSIS_Marsden_Gabriel_Jesus_signing_is_essential_for_Barcelona_2026_9_1.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
       "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
     },
     {
-      "t": "Harvey Elliott leaves Liverpool on loan for Valencia",
-      "img": "https://a.espncdn.com/photo/2024/0913/r1385766_1296x729_16-9.jpg"
-    },
-    {
       "t": "Live transfer rumors, news, updates on deadline day",
       "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
     },
     {
       "t": "Honest Ahanor joins Crystal Palace on loan, will join Chelsea in 2027",
       "img": "https://a.espncdn.com/photo/2026/0901/r1709917_1296x729_16-9.jpg"
     },
     {
-      "t": "Live transfer rumors, news, updates on deadline day",
-      "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
-    },
-    {
       "t": "Summer transfer window: Grading big signings in men's soccer",
       "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Live transfer rumors, news, updates on deadline day",
+      "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
     },
     {
       "t": "Fabio Vieira joins Hamburg in permanent deal from Arsenal",
       "img": "https://a.espncdn.com/photo/2024/0823/r1376754_1296x729_16-9.jpg"
     },
     {
-      "t": "Live transfer rumors, news, updates on deadline day",
-      "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
-    },
-    {
       "t": "Summer transfer window: Grading big signings in men's soccer",
       "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Live transfer rumors, news, updates on deadline day",
+      "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
     },
     {
       "t": "Chelsea's €45m Lamine Camara bid rejected amid Enzo Fernández talks - sources",
