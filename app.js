@@ -771,3 +771,25 @@ async function showTeam(slug, teamId, teamName) {
   }
   document.getElementById('teamModalBody').innerHTML = html;
 }
+async function showTeam(slug, teamId, teamName) {
+  const box = document.getElementById('teamModal');
+  if (!box) return;
+  box.style.cssText = 'display:block;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;overflow:auto;';
+  if (box.firstElementChild) box.firstElementChild.style.cssText = 'max-width:800px;margin:40px auto;background:#1e293b;border-radius:12px;padding:20px;';
+  document.getElementById('teamModalTitle').textContent = '👥 ' + teamName;
+  document.getElementById('teamModalBody').innerHTML = 'ثانية بنحمل القائمة... ⏳';
+  const AR2EN = {"ريال مدريد":"Real Madrid","برشلونة":"Barcelona","ليفربول":"Liverpool","مانشستر سيتي":"Manchester City","مانشستر يونايتد":"Manchester United","تشيلسي":"Chelsea","أرسنال":"Arsenal","توتنهام":"Tottenham Hotspur","باريس سان جيرمان":"Paris Saint-Germain","بايرن ميونخ":"Bayern Munich","يوفنتوس":"Juventus","إنتر ميلان":"Inter","ميلان":"AC Milan","أتلتيكو مدريد":"Atlético Madrid","بوروسيا دورتموند":"Borussia Dortmund","نابولي":"Napoli","الأهلي":"Al Ahly","الزمالك":"Zamalek","بيراميدز":"Pyramids FC","الهلال":"Al Hilal","النصر":"Al Nassr","الاتحاد":"Al Ittihad","الأهلي السعودي":"Al Ahli","الشباب":"Al Shabab","الاتفاق":"Al Ettifaq"};
+  const en2ar = {};
+  Object.entries(AR2EN).forEach(([ar, en]) => en2ar[en.toLowerCase()] = ar);
+  const arName = en2ar[(teamName || '').toLowerCase()] || teamName;
+  const order = {Goalkeeper: 0, Defender: 1, Midfielder: 2, Attacker: 3, Forward: 3, Striker: 3, 'Centre-Back': 1, 'Left-Back': 1, 'Right-Back': 1, 'Central Midfield': 2, 'Attacking Midfield': 2, 'Left Wing': 3, 'Right Wing': 3};
+  const table = players => `<div style="overflow-x:auto;"><table class="stand"><tr><th style="text-align:right;">اللاعب</th><th>السن</th><th>الجنسية</th><th>المركز</th><th>لعب</th><th>⚽</th><th>🅰️</th><th>⭐</th></tr>` +
+    players.map(p => `<tr><td style="text-align:right;">${p.face ? `<img class="p-face" style="width:24px;height:24px;vertical-align:middle;margin-left:5px;" src="${p.face}" onerror="this.style.display='none'">` : '👤'} ${p.name}</td><td>${p.age}</td><td>${p.nat}</td><td>${p.pos}</td><td>${p.apps}</td><td class="pts">${p.goals}</td><td>${p.assists}</td><td style="color:#fbbf24;font-weight:bold;">${p.rating}</td></tr>`).join('') + `</table></div>`;
+  const squad = ((DATA.squads || {})[teamName] || (DATA.squads || {})[arName] || []);
+  if (squad.length) {
+    squad.sort((a, b) => (order[a.pos] ?? 5) - (order[b.pos] ?? 5));
+    document.getElementById('teamModalBody').innerHTML = `<div style="text-align:center;margin-bottom:12px;"><div style="font-size:2.6em;">⚽</div><div style="font-weight:bold;font-size:1.25em;">${teamName}</div><div style="opacity:.7;">✅ بيانات رسمية من API-Football</div></div>` + table(squad);
+    return;
+  }
+  document.getElementById('teamModalBody').innerHTML = '<div class="card">قائمة الفريق ده لسه بتتجمع من المصدر (جرب بعد شوية) 🔄<br><small>بنجمع فريقين جديدين كل نصف ساعة لحد ما نغطي كل الدوريات</small></div>';
+}

@@ -519,6 +519,66 @@ def fetch_world():
             pass
     return out
 
+API_FOOTBALL_KEY = os.environ.get("API_FOOTBALL_KEY", "")
+AF_SEASON = 2026
+AF_LEAGUES = {"ksa.1": 307, "egy.1": 233, "eng.1": 39, "esp.1": 140, "ita.1": 135,
+    "ger.1": 78, "fra.1": 61, "uefa.champions": 2}
+
+def af_get(path, params):
+    if not API_FOOTBALL_KEY: return []
+    try:
+        r = requests.get("https://v3.football.api-sports.io/" + path,
+            headers={"x-apisports-key": API_FOOTBALL_KEY}, params=params, timeout=15)
+        if r.ok:
+            return r.json().get("response") or []
+        print("api-football status:", r.status_code)
+    except Exception as e:
+        print("api-football:", e)
+    return []
+
+def update_squads(state):
+    if not API_FOOTBALL_KEY: return
+    ids = state.setdefault("af_ids", {})
+    for slug, lid in AF_LEAGUES.items():
+        if slug not in ids:
+            teams = af_get("teams", {"league": lid, "season": AF_SEASON})
+            if teams:
+                ids[slug] = {t["team"]["name"]: t["team"]["id"] for t in teams}
+                print("af teams cached:", slug, len(ids[slug]))
+    queue = state.get("squads_queue") or []
+    if not queue:
+        for slug in AF_LEAGUES:
+            for name in (ids.get(slug) or {}):
+                queue.append([slug, name])
+        state["squads_queue"] = queue
+    squads = state.setdefault("squads", {})
+    done = 0
+    while queue and done < 2:
+        slug, name = queue.pop(0)
+        tid = (ids.get(slug) or {}).get(name)
+        if not tid: continue
+        resp = af_get("players", {"team": tid, "season": AF_SEASON})
+        if not resp: continue
+        rows = []
+        for e in resp:
+            p = e.get("player") or {}
+            st = (e.get("statistics") or [{}])[0]
+            rows.append({
+                "name": p.get("name", ""), "age": p.get("age") or "-",
+                "nat": p.get("nationality") or "-", "pos": p.get("position") or "-",
+                "face": p.get("photo") or "",
+                "apps": (st.get("games") or {}).get("appearences") or 0,
+                "goals": (st.get("goals") or {}).get("total") or 0,
+                "assists": (st.get("goals") or {}).get("assists") or 0,
+                "rating": (st.get("games") or {}).get("rating") or "-"})
+        if rows:
+            squads[ar_team(name)] = rows
+            print("✅ squad:", name, len(rows))
+        done += 1
+        time.sleep(1)
+    state["squads_queue"] = queue
+    print("📋 قوائم متبقية:", len(queue))
+
 def build_site_data(state, today):
     now = datetime.now(CAIRO)
     matches = []
@@ -579,7 +639,7 @@ def build_site_data(state, today):
         "news": state.get("site_news", [])[-20:][::-1],
         "results": [x["t"] for x in state.get("daily_results", []) if x["d"] == today][-10:][::-1],
         "matches": matches, "tables": tables, "leaders": leaders,
-        "world": fetch_world(), "highlights": [],
+        "world": fetch_world(), "highlights": [], "squads": state.get("squads", {}),
     }
     os.makedirs("site", exist_ok=True)
     with open("site/data.json", "w", encoding="utf-8") as f:
@@ -707,6 +767,7 @@ def main():
     state["daily_news"] = [x for x in state.get("daily_news", []) if x["d"] == today][-20:]
     state["daily_results"] = [x for x in state.get("daily_results", []) if x["d"] == today][-20:]
 
+    update_squads(state)
     build_site_data(state, today)
     save_state(state)
 
