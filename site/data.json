@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-01 04:44 PM",
+  "updated_at": "2026-09-01 04:57 PM",
   "news": [
+    {
+      "t": "⚽ مصدر ليلا كورة: الأهلي يطلب استقدام حكام أجانب لمباراتي الزمالك وبيراميدز - يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ بهدف مذهل \"عابر للملعب\".. حارس مرمى يحرز هدفا من منطقة جزائه - skynewsarabia.com",
+      "img": ""
+    },
+    {
+      "t": "⚽ رسميًا.. جنوب أفريقيا تقدم موسيماني مديرًا فنيًا للمنتخب الأول - يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ عودة بعد 14 عاما.. موسيماني يتولى تدريب منتخب جنوب إفريقيا - FilGoal",
+      "img": ""
+    },
     {
       "t": "⚽ عبد الستار صبري مديرا فنيا لمنتخب مصر مواليد 2010 - FilGoal",
       "img": ""
@@ -63,22 +79,6 @@
     },
     {
       "t": "⚽ \"آلية التصدي للتجاوزات\".. يلا كورة يكشف كواليس جلسة أبو ريدة مع عصام عبد الفتاح - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ «حدث ليلا»: عروض لنجم الزمالك.. وقرار مرتقب من الأهلي تجاه شوبير - المصري اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ مصدر ليلا كورة: عبدالمنصف وصبحي ضمن حسابات شوقي غريب لتدريب حراس المنتخبات الوطنية - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ ابن حفيدة الزعيم الإيطالي موسوليني يعيد اسم جده إلى ميادين كرة القدم - BBC",
-      "img": ""
-    },
-    {
-      "t": "⚽ «حدث ليلا»: عروض لنجم الزمالك.. وقرار مرتقب من الأهلي تجاه شوبير - almasryalyoum.com",
       "img": ""
     }
   ],
@@ -157,7 +157,582 @@
       "big": true
     }
   ],
-  "tables": [],
+  "tables": {
+    "الدوري السعودي": [
+      {
+        "rank": 1,
+        "team": "النصر",
+        "logo": "",
+        "gp": 4.0,
+        "w": 4.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 12.0
+      },
+      {
+        "rank": 2,
+        "team": "الهلال",
+        "logo": "",
+        "gp": 3.0,
+        "w": 3.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 9.0
+      },
+      {
+        "rank": 3,
+        "team": "القادسية",
+        "logo": "",
+        "gp": 4.0,
+        "w": 3.0,
+        "d": 0.0,
+        "l": 1.0,
+        "pts": 9.0
+      },
+      {
+        "rank": 4,
+        "team": "Al Kholood",
+        "logo": "",
+        "gp": 4.0,
+        "w": 2.0,
+        "d": 2.0,
+        "l": 0.0,
+        "pts": 8.0
+      },
+      {
+        "rank": 5,
+        "team": "الاتحاد",
+        "logo": "",
+        "gp": 4.0,
+        "w": 2.0,
+        "d": 2.0,
+        "l": 0.0,
+        "pts": 8.0
+      },
+      {
+        "rank": 6,
+        "team": "Al Diriyah",
+        "logo": "",
+        "gp": 4.0,
+        "w": 2.0,
+        "d": 1.0,
+        "l": 1.0,
+        "pts": 7.0
+      },
+      {
+        "rank": 7,
+        "team": "الأهلي السعودي",
+        "logo": "",
+        "gp": 3.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 1.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 8,
+        "team": "Neom SC",
+        "logo": "",
+        "gp": 4.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 2.0,
+        "pts": 6.0
+      }
+    ],
+    "دوري أبطال أوروبا": [
+      {
+        "rank": 1,
+        "team": "AEK Athens",
+        "logo": "",
+        "gp": 0.0,
+        "w": 0.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 0.0
+      },
+      {
+        "rank": 2,
+        "team": "أرسنال",
+        "logo": "",
+        "gp": 0.0,
+        "w": 0.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 0.0
+      },
+      {
+        "rank": 3,
+        "team": "أستون فيلا",
+        "logo": "",
+        "gp": 0.0,
+        "w": 0.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 0.0
+      },
+      {
+        "rank": 4,
+        "team": "أتلتيكو مدريد",
+        "logo": "",
+        "gp": 0.0,
+        "w": 0.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 0.0
+      },
+      {
+        "rank": 5,
+        "team": "برشلونة",
+        "logo": "",
+        "gp": 0.0,
+        "w": 0.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 0.0
+      },
+      {
+        "rank": 6,
+        "team": "بايرن ميونخ",
+        "logo": "",
+        "gp": 0.0,
+        "w": 0.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 0.0
+      },
+      {
+        "rank": 7,
+        "team": "Bodo/Glimt",
+        "logo": "",
+        "gp": 0.0,
+        "w": 0.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 0.0
+      },
+      {
+        "rank": 8,
+        "team": "بوروسيا دورتموند",
+        "logo": "",
+        "gp": 0.0,
+        "w": 0.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 0.0
+      }
+    ],
+    "الدوري الإنجليزي": [
+      {
+        "rank": 1,
+        "team": "مانشستر سيتي",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 2,
+        "team": "أرسنال",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 3,
+        "team": "Hull City",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 4,
+        "team": "تشيلسي",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 5,
+        "team": "Brentford",
+        "logo": "",
+        "gp": 2.0,
+        "w": 1.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 4.0
+      },
+      {
+        "rank": 6,
+        "team": "نيوكاسل",
+        "logo": "",
+        "gp": 2.0,
+        "w": 1.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 4.0
+      },
+      {
+        "rank": 7,
+        "team": "Everton",
+        "logo": "",
+        "gp": 2.0,
+        "w": 1.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 4.0
+      },
+      {
+        "rank": 8,
+        "team": "Leeds United",
+        "logo": "",
+        "gp": 2.0,
+        "w": 1.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 4.0
+      }
+    ],
+    "الدوري الإسباني": [
+      {
+        "rank": 1,
+        "team": "برشلونة",
+        "logo": "",
+        "gp": 3.0,
+        "w": 3.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 9.0
+      },
+      {
+        "rank": 2,
+        "team": "ريال مدريد",
+        "logo": "",
+        "gp": 3.0,
+        "w": 3.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 9.0
+      },
+      {
+        "rank": 3,
+        "team": "أتلتيكو مدريد",
+        "logo": "",
+        "gp": 3.0,
+        "w": 2.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 7.0
+      },
+      {
+        "rank": 4,
+        "team": "Alavés",
+        "logo": "",
+        "gp": 3.0,
+        "w": 2.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 7.0
+      },
+      {
+        "rank": 5,
+        "team": "Osasuna",
+        "logo": "",
+        "gp": 3.0,
+        "w": 2.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 7.0
+      },
+      {
+        "rank": 6,
+        "team": "Sevilla",
+        "logo": "",
+        "gp": 3.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 1.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 7,
+        "team": "Real Betis",
+        "logo": "",
+        "gp": 3.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 1.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 8,
+        "team": "Deportivo",
+        "logo": "",
+        "gp": 3.0,
+        "w": 1.0,
+        "d": 2.0,
+        "l": 0.0,
+        "pts": 5.0
+      }
+    ],
+    "الدوري الإيطالي": [
+      {
+        "rank": 1,
+        "team": "AS Roma",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 2,
+        "team": "Internazionale",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 3,
+        "team": "ميلان",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 4,
+        "team": "يوفنتوس",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 5,
+        "team": "Atalanta",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 6,
+        "team": "Lazio",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 7,
+        "team": "Udinese",
+        "logo": "",
+        "gp": 2.0,
+        "w": 1.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 4.0
+      },
+      {
+        "rank": 8,
+        "team": "Como",
+        "logo": "",
+        "gp": 2.0,
+        "w": 1.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 4.0
+      }
+    ],
+    "الدوري الألماني": [
+      {
+        "rank": 1,
+        "team": "بايرن ميونخ",
+        "logo": "",
+        "gp": 1.0,
+        "w": 1.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 3.0
+      },
+      {
+        "rank": 2,
+        "team": "SC Freiburg",
+        "logo": "",
+        "gp": 1.0,
+        "w": 1.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 3.0
+      },
+      {
+        "rank": 3,
+        "team": "FC Augsburg",
+        "logo": "",
+        "gp": 1.0,
+        "w": 1.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 3.0
+      },
+      {
+        "rank": 4,
+        "team": "RB Leipzig",
+        "logo": "",
+        "gp": 1.0,
+        "w": 1.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 3.0
+      },
+      {
+        "rank": 5,
+        "team": "بوروسيا دورتموند",
+        "logo": "",
+        "gp": 1.0,
+        "w": 1.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 3.0
+      },
+      {
+        "rank": 6,
+        "team": "SV Elversberg",
+        "logo": "",
+        "gp": 1.0,
+        "w": 1.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 3.0
+      },
+      {
+        "rank": 7,
+        "team": "FC Cologne",
+        "logo": "",
+        "gp": 1.0,
+        "w": 1.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 3.0
+      },
+      {
+        "rank": 8,
+        "team": "Eintracht Frankfurt",
+        "logo": "",
+        "gp": 1.0,
+        "w": 0.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 1.0
+      }
+    ],
+    "الدوري الفرنسي": [
+      {
+        "rank": 1,
+        "team": "AS Monaco",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 2,
+        "team": "Paris FC",
+        "logo": "",
+        "gp": 2.0,
+        "w": 1.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 4.0
+      },
+      {
+        "rank": 3,
+        "team": "Lille",
+        "logo": "",
+        "gp": 2.0,
+        "w": 1.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 4.0
+      },
+      {
+        "rank": 4,
+        "team": "Lyon",
+        "logo": "",
+        "gp": 2.0,
+        "w": 1.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 4.0
+      },
+      {
+        "rank": 5,
+        "team": "Stade Rennais",
+        "logo": "",
+        "gp": 2.0,
+        "w": 1.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 4.0
+      },
+      {
+        "rank": 6,
+        "team": "Troyes",
+        "logo": "",
+        "gp": 2.0,
+        "w": 1.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 4.0
+      },
+      {
+        "rank": 7,
+        "team": "Lens",
+        "logo": "",
+        "gp": 2.0,
+        "w": 1.0,
+        "d": 0.0,
+        "l": 1.0,
+        "pts": 3.0
+      },
+      {
+        "rank": 8,
+        "team": "Marseille",
+        "logo": "",
+        "gp": 2.0,
+        "w": 1.0,
+        "d": 0.0,
+        "l": 1.0,
+        "pts": 3.0
+      }
+    ]
+  },
   "leaders": {
     "الدوري السعودي": {
       "الهدافون 🏆 (الموسم الحالي)": [
@@ -238,24 +813,24 @@
       "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
     },
     {
-      "t": "Gabriel Jesus completes transfer to Barcelona from Arsenal",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709931_1296x729_16-9.jpg"
+      "t": "Gabriel Jesus took pay cut for 'dream' Barcelona transfer from Arsenal",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709933_1296x729_16-9.jpg"
     },
     {
-      "t": "Honest Ahanor joins Crystal Palace on loan, will join Chelsea in 2027",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709917_1296x729_16-9.jpg"
+      "t": "Gabriel Jesus completes transfer to Barcelona from Arsenal",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709931_1296x729_16-9.jpg"
     },
     {
       "t": "Live transfer rumors, news, updates on deadline day",
       "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
     },
     {
-      "t": "Jose Mourinho's first Clásico on Real Madrid return set for Oct. 25",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709889_2_1296x729_16-9.jpg"
+      "t": "Gabriel Jesus took pay cut for 'dream' Barcelona transfer from Arsenal",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709933_1296x729_16-9.jpg"
     },
     {
-      "t": "Flick: I really love Gabriel Jesus, I was surprised we got him",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0901/dm_260901_Flick_I_really_love_Gabriel_Jesus_I_was_surprised_we_got_him/dm_260901_Flick_I_really_love_Gabriel_Jesus_I_was_surprised_we_got_him.jpg"
+      "t": "Jose Mourinho's first Clásico on Real Madrid return set for Oct. 25",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709889_2_1296x729_16-9.jpg"
     },
     {
       "t": "Live transfer rumors, news, updates on deadline day",
