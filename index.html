@@ -38,11 +38,11 @@
   <button class="nav-btn" onclick="goMulti(['leaders','players'], this)">👑 الهدافين</button>
   <button class="nav-btn" onclick="goMulti(['predict','fantasy','board'], this)">🎮 الألعاب</button>
   <button class="nav-btn" onclick="go('world', this)">🌍 عالمية</button>
+  <button class="nav-btn" onclick="go('nationals', this)">🌍 المنتخبات</button>
   <button class="nav-btn" onclick="go('transfers', this)">💸 الانتقالات</button>
   <button class="nav-btn" onclick="go('archive', this)">📚 الأرشيف</button>
   <button class="nav-btn" onclick="go('compare', this)">⚖️ مقارنة</button>
   <button class="nav-btn" onclick="go('shop', this)">🛒 المتجر</button>
-  <button class="nav-btn" onclick="go('about', this)">📊 عن المنصة</button>
   <button id="installBtn" class="nav-btn install-btn" onclick="installApp()">📲 ثبّت التطبيق</button>
 </nav>
 
@@ -142,20 +142,13 @@
     <div id="compareContainer"></div>
   </section>
 
-    <section id="sec-about" class="page">
-    <h2>📊 عن منصة Edge Football</h2>
-    <p class="about-description">إيدج فوتبول منصة كرة قدم أوتوماتيكية بالكامل: قناة تيليجرام ذكية + موقع لحظي — مبنية ومُدارة بمطوّر واحد ومن غير أي سيرفر مدفوع.</p>
-    <div id="aboutStats" class="grid about-stats"></div>
-    <div class="card about-info">
-      <b>⚙️ إزاي بنشتغل؟</b><br>
-      🤖 بوت بايثون بيجمع الأخبار من 6+ مصادر ويعيد صياغتها بـ 3 محركات ذكاء اصطناعي (Gemini / Groq / DeepSeek)<br>
-      📡 بيانات المباريات والترتيب واللاعبين من ESPN + API-Football<br>
-      👥 قوائم كاملة للفرق: سن، جنسية، مركز، لعب، أهداف، أسيست، تقييم<br>
-      🔄 كل حاجة بتتحدث أوتوماتيك كل 30 دقيقة<br>
-      💸 تكلفة التشغيل: صفر جنيه
-    </div>
+    <section id="sec-nationals" class="page">
+    <h2>🌍 المنتخبات</h2>
+    <p class="nationals-description">دوس على أي منتخب تشوف مبارياته ونتايجه ولاعيبته</p>
+    <input id="natSearch" class="nat-search" placeholder="🔍 ابحث عن منتخب: مصر، البرازيل، فرنسا..." oninput="renderNationals(this.value)">
+    <div id="nationalsContainer" class="grid"></div>
   </section>
-
+  
   <section class="section telegram">
     <h2>📢 تابعنا في كل مكان</h2>
     <p>الأخبار والنتائج والفيديوهات لحظياً على كل منصاتنا</p>

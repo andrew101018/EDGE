@@ -793,26 +793,63 @@ async function showTeam(slug, teamId, teamName) {
   }
   document.getElementById('teamModalBody').innerHTML = '<div class="card">قائمة الفريق ده لسه بتتجمع من المصدر (جرب بعد شوية) 🔄<br><small>بنجمع فريقين جديدين كل نصف ساعة لحد ما نغطي كل الدوريات</small></div>';
 }
-function renderAbout() {
-  const el = document.getElementById('aboutStats');
+const NATIONALS = [
+  ['مصر','Egypt','🇪'], ['السعودية','Saudi Arabia','🇸🇦'], ['المغرب','Morocco','🇲'], ['الجزائر','Algeria','🇩'],
+  ['تونس','Tunisia','🇹🇳'], ['قطر','Qatar','🇶'], ['الإمارات','United Arab Emirates','🇦🇪'], ['العراق','Iraq','🇮🇶'],
+  ['الأردن','Jordan','🇯🇴'], ['السنغال','Senegal','🇸🇳'], ['نيجيريا','Nigeria','🇳🇬'], ['غانا','Ghana','🇬'],
+  ['الكاميرون','Cameroon','🇨🇲'], ['مالي','Mali','🇲'], ['بوركينا فاسو','Burkina Faso','🇧🇫'], ['جنوب أفريقيا','South Africa','🇿🇦'],
+  ['إسبانيا','Spain','🇪🇸'], ['البرتغال','Portugal','🇵🇹'], ['فرنسا','France','🇫🇷'], ['إنجلترا','England','🏴󠁢󠁮󠁿'],
+  ['ألمانيا','Germany','🇩🇪'], ['إيطاليا','Italy','🇮🇹'], ['هولندا','Netherlands','🇳🇱'], ['بلجيكا','Belgium','🇧🇪'],
+  ['كرواتيا','Croatia','🇭🇷'], ['سويسرا','Switzerland','🇨🇭'], ['تركيا','Turkey','🇹🇷'], ['اليونان','Greece','🇬🇷'],
+  ['اسكتلندا','Scotland','🏴󠁢󠁣'], ['الدنمارك','Denmark','🇩🇰'], ['النرويج','Norway','🇳🇴'], ['السويد','Sweden','🇸🇪'],
+  ['بولندا','Poland','🇵🇱'], ['أوكرانيا','Ukraine','🇺🇦'], ['النمسا','Austria','🇦🇹'], ['ويلز','Wales','🏴󠁢󠁳'],
+  ['البرازيل','Brazil','🇧🇷'], ['الأرجنتين','Argentina','🇦🇷'], ['أوروجواي','Uruguay','🇺🇾'], ['كولومبيا','Colombia','🇨🇴'],
+  ['تشيلي','Chile','🇨🇱'], ['المكسيك','Mexico','🇲🇽'], ['أمريكا','United States','🇺🇸'], ['كندا','Canada','🇨🇦'],
+  ['اليابان','Japan','🇯🇵'], ['كوريا الجنوبية','South Korea','🇰🇷'], ['أستراليا','Australia','🇦🇺'], ['إيران','Iran','🇮🇷'],
+];
+function renderNationals(filter) {
+  const el = document.getElementById('nationalsContainer');
   if (!el) return;
-  const matches = (DATA.matches || []).reduce((s, g) => s + (g.items || []).length, 0);
-  const leagues = Object.keys(DATA.tables || {}).length;
-  const squads = Object.keys(DATA.squads || {}).length;
-  const news = (DATA.news || []).length + (DATA.world || []).length;
-  const stats = [
-    ['⚽', matches, 'مباراة متابعة'],
-    ['🏆', leagues, 'دوريات مغطاة'],
-    ['👥', squads, 'فريق بقائمة كاملة'],
-    ['📰', news, 'خبر حديث'],
-    ['🤖', 3, 'محركات AI'],
-    ['🔄', 30, 'دقيقة بين كل تحديث'],
-  ];
-  el.innerHTML = stats.map(s => `<div class="tv-card" style="text-align:center;">
-    <div style="font-size:2em;">${s[0]}</div>
-    <div style="font-size:1.7em;font-weight:bold;color:#fbbf24;">${s[1]}</div>
-    <div style="opacity:.8;font-size:.85em;">${s[2]}</div>
-  </div>`).join('');
+  const q = (filter || '').trim();
+  const list = NATIONALS.filter(n => !q || n[0].includes(q) || n[1].toLowerCase().includes(q.toLowerCase()));
+  el.innerHTML = list.map(n => `<div class="tv-card" style="text-align:center;cursor:pointer;" onclick="showNational('${n[1]}','${n[0]}','${n[2]}')">
+    <div style="font-size:2.4em;">${n[2]}</div>
+    <div style="font-weight:bold;margin-top:6px;">${n[0]}</div>
+  </div>`).join('') || '<div class="card">مفيش منتخب بالاسم ده 🔍</div>';
 }
-window.addEventListener('load', () => setTimeout(renderAbout, 2000));
-setInterval(renderAbout, 60000);
+async function showNational(en, ar, flag) {
+  const box = document.getElementById('teamModal');
+  if (!box) return;
+  box.style.cssText = 'display:block;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;overflow:auto;';
+  if (box.firstElementChild) box.firstElementChild.style.cssText = 'max-width:720px;margin:40px auto;background:#1e293b;border-radius:12px;padding:20px;';
+  document.getElementById('teamModalTitle').textContent = flag + ' منتخب ' + ar;
+  document.getElementById('teamModalBody').innerHTML = 'ثانية بنحمل البيانات... ⏳';
+  const get = async u => { try { return JSON.parse(await (await fetch(u)).text()); } catch (e) { return {}; } };
+  let html = `<div style="text-align:center;margin-bottom:14px;"><div style="font-size:3em;">${flag}</div><div style="font-weight:bold;font-size:1.3em;">منتخب ${ar}</div></div>`;
+  try {
+    const teams = ((await get('https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=' + encodeURIComponent(en))).teams || []);
+    const team = teams.find(t => (t.strTeam || '').toLowerCase() === en.toLowerCase()) || teams[0];
+    if (team) {
+      const next = ((await get('https://www.thesportsdb.com/api/v1/json/3/eventsnext.php?id=' + team.idTeam)).events || []);
+      const last = ((await get('https://www.thesportsdb.com/api/v1/json/3/eventslast.php?id=' + team.idTeam)).events || []);
+      if (next.length) {
+        html += '<h3 style="color:#fbbf24;margin:12px 0 8px;">🕐 المباريات القادمة</h3>';
+        html += next.slice(0, 6).map(e => {
+          const d = e.dateEvent ? new Date(e.dateEvent) : null;
+          return `<div class="live-card" style="margin-bottom:8px;"><div class="live-teams"><span>${e.strHomeTeam}</span><span class="live-score" style="color:#94a3b8;">${d ? d.toLocaleDateString('ar-EG', {day: 'numeric', month: 'long'}) : '🕐'}</span><span>${e.strAwayTeam}</span></div><div class="live-meta">🏆 ${e.strLeague || 'مباراة دولية'}</div></div>`;
+        }).join('');
+      }
+      if (last.length) {
+        html += '<h3 style="color:#fbbf24;margin:14px 0 8px;">🏁 آخر النتائج</h3>';
+        html += last.slice(0, 6).map(e => `<div class="result-item">🏁 ${e.strHomeTeam} ${e.intHomeScore ?? '-'} - ${e.intAwayScore ?? '-'} ${e.strAwayTeam}</div>`).join('');
+      }
+      const squad = ((await get('https://www.thesportsdb.com/api/v1/json/3/lookup_all_players.php?id=' + team.idTeam)).player || []).filter(p => p.strPlayer);
+      if (squad.length) {
+        html += '<h3 style="color:#fbbf24;margin:14px 0 8px;">👥 القائمة</h3><div style="overflow-x:auto;"><table class="stand"><tr><th style="text-align:right;">اللاعب</th><th>المركز</th><th>الجنسية</th></tr>' +
+          squad.slice(0, 30).map(p => `<tr><td style="text-align:right;">${p.strCutout || p.strThumb ? `<img class="p-face" style="width:24px;height:24px;vertical-align:middle;margin-left:5px;" src="${p.strCutout || p.strThumb}" onerror="this.style.display='none'">` : '👤'} ${p.strPlayer}</td><td>${p.strPosition || '-'}</td><td>${p.strNationality || '-'}</td></tr>`).join('') + '</table></div>';
+      }
+    }
+  } catch (e) {}
+  document.getElementById('teamModalBody').innerHTML = html;
+}
+window.addEventListener('load', () => setTimeout(() => renderNationals(''), 1500));
