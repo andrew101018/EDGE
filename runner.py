@@ -351,6 +351,12 @@ def collect_finished(state, now):
                 comps = comp["competitors"]
                 home = [c for c in comps if c.get("homeAway") == "home"][0]
                 away = [c for c in comps if c.get("homeAway") == "away"][0]
+                for c in comps:
+                    for l in c.get("leaders", []):
+                        ...
+                if st == "post" and hrs > 24: continue
+                if st == "pre" and hrs < -72: continue
+                group["items"].append({
                 full, short = finish_text(home["team"]["displayName"], home["score"], away["team"]["displayName"], away["score"], name)
                 found.append((eid, full, short))
             except Exception:
@@ -647,8 +653,6 @@ def build_site_data(state, today):
                 st = comp["status"]["type"]["state"]
                 dt = datetime.fromisoformat(ev["date"].replace("Z", "+00:00")).astimezone(CAIRO)
                 hrs = (now - dt).total_seconds() / 3600
-                if st == "post" and hrs > 24: continue
-                if st == "pre" and hrs < -72: continue
                 comps = comp["competitors"]
                 home = [c for c in comps if c.get("homeAway") == "home"][0]
                 away = [c for c in comps if c.get("homeAway") == "away"][0]
@@ -665,6 +669,8 @@ def build_site_data(state, today):
                                 cur[key] = {"name": a.get("displayName", ""),
                                     "team": ar_team((c.get("team", {}) or {}).get("displayName", "")),
                                     "g": g, "face": ((a.get("headshot", {}) or {}).get("href", ""))}
+                if st == "post" and hrs > 24: continue
+                if st == "pre" and hrs < -72: continue
                 group["items"].append({
                     "home": ar_team(home["team"]["displayName"]), "away": ar_team(away["team"]["displayName"]),
                     "eid": ev.get("id"), "slug": slug, "homeId": home["team"].get("id", ""),
