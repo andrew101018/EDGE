@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-01 09:41 PM",
+  "updated_at": "2026-09-02 12:31 AM",
   "news": [
+    {
+      "t": "⚽ مواعيد مباريات منتخب مصر المقبلة أمام أنجولا وجنوب السودان في التصفيات - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ الزمالك يجهز ملفه القانوني في أزمة زيزو.. و10 أيام لحسم الخطوة المقبلة - الزمالك اليوم",
+      "img": ""
+    },
+    {
+      "t": "⚽ الأهلي يعلن قرارا رسميا عن مستقبل مصطفى شوبير - Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ رسميا.. الأهلي يعلن تجديد عقد مصطفى شوبير حتى 2029 - يلاكورة",
+      "img": ""
+    },
     {
       "t": "⚽ المصري حمزة عبد الكريم يتحدّث عن ظهوره الرسمي الأول مع برشلونة - beIN SPORTS",
       "img": ""
@@ -64,27 +80,10 @@
     {
       "t": "⚽ موعد مباراة الأهلي وسموحة فى الدورى والقناة الناقلة - اليوم السابع",
       "img": ""
-    },
-    {
-      "t": "⚽ 17 ألف مهاجر يرسمون خريطة كرة القدم الجديدة - البيان",
-      "img": ""
-    },
-    {
-      "t": "⚽ رسميًا.. اتحاد الكرة يعلن تجديد عقد الجهاز الفني لمنتخب مصر حتى 2030 - Masrawy",
-      "img": ""
-    },
-    {
-      "t": "⚽ «إلى المونديال الثلاثي».. اتحاد الكرة يجدد عقد حسام حسن حتى 2030 - المصري اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ الأهلي يطلب حكامًا أجانب لمباراتي الزمالك وبيراميدز بالدوري - الهيئة الوطنية للإعلام",
-      "img": ""
     }
   ],
   "results": [
-    "برشلونة 5 - 2 Rayo Vallecano",
-    "أستون فيلا 0 - 1 أرسنال"
+    "الهلال 3 - 0 الأهلي السعودي"
   ],
   "matches": [
     {
@@ -101,11 +100,34 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/929.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8346.png",
           "tv": "SSC / شاهد",
-          "hs": "2",
+          "hs": "3",
           "as": "0",
           "time": "09:00 PM",
-          "state": "in",
-          "detail": "41'"
+          "state": "post",
+          "detail": "FT"
+        }
+      ],
+      "big": true
+    },
+    {
+      "league": "الدوري الإنجليزي",
+      "slug": "eng.1",
+      "items": [
+        {
+          "home": "Ipswich Town",
+          "away": "ليفربول",
+          "eid": "401879288",
+          "slug": "eng.1",
+          "homeId": "373",
+          "awayId": "364",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/373.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "10:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -184,7 +206,7 @@
     "الدوري السعودي": [
       {
         "rank": 1,
-        "team": "النصر",
+        "team": "الهلال",
         "logo": "",
         "gp": 4.0,
         "w": 4.0,
@@ -194,13 +216,13 @@
       },
       {
         "rank": 2,
-        "team": "الهلال",
+        "team": "النصر",
         "logo": "",
-        "gp": 3.0,
-        "w": 3.0,
+        "gp": 4.0,
+        "w": 4.0,
         "d": 0.0,
         "l": 0.0,
-        "pts": 9.0
+        "pts": 12.0
       },
       {
         "rank": 3,
@@ -246,10 +268,10 @@
         "rank": 7,
         "team": "الأهلي السعودي",
         "logo": "",
-        "gp": 3.0,
+        "gp": 4.0,
         "w": 2.0,
         "d": 0.0,
-        "l": 1.0,
+        "l": 2.0,
         "pts": 6.0
       },
       {
@@ -848,32 +870,32 @@
       "img": "https://a.espncdn.com/photo/2026/0117/r1601718_1296x729_16-9.jpg"
     },
     {
-      "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
+      "t": "Jack Grealish re-joins Everton on loan from Man City",
+      "img": "https://a.espncdn.com/photo/2026/0803/r1697241_1296x729_16-9.jpg"
     },
     {
-      "t": "Liverpool complete £30 million deal for goalkeeper Lucca Brughmans - sources",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709410_1296x729_16-9.jpg"
+      "t": "Tottenham sign Mykhailo Mudryk on loan with £75m permanent option",
+      "img": "https://a.espncdn.com/photo/2026/0831/r1709725_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1710109_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1710109_1296x729_16-9.jpg"
     },
     {
       "t": "Live transfer rumors, news, updates on deadline day",
       "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
     },
     {
-      "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Live transfer rumors, news, updates on deadline day",
-      "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Marsden: Gabriel Jesus signing is essential for Barcelona",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0901/dm_260901_COM_SOC_ANALYSIS_Marsden_Gabriel_Jesus_signing_is_essential_for_Barcelona_2026_9_1/dm_260901_COM_SOC_ANALYSIS_Marsden_Gabriel_Jesus_signing_is_essential_for_Barcelona_2026_9_1.jpg"
+      "t": "Will Atletico Madrid fans forgive Julian Alvarez?",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0901/dm_260901_COM_SOC_ANALYSIS_Will_Atletico_Madrid_fans_forgive_Julian_Alvarez_2026_9_1/dm_260901_COM_SOC_ANALYSIS_Will_Atletico_Madrid_fans_forgive_Julian_Alvarez_2026_9_1.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
+      "img": "https://a.espncdn.com/photo/2026/0901/r1710109_1296x729_16-9.jpg"
     },
     {
       "t": "Live transfer rumors, news, updates on deadline day",
@@ -885,7 +907,7 @@
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
+      "img": "https://a.espncdn.com/photo/2026/0901/r1710109_1296x729_16-9.jpg"
     },
     {
       "t": "Live transfer rumors, news, updates on deadline day",
@@ -897,14 +919,14 @@
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
+      "img": "https://a.espncdn.com/photo/2026/0901/r1710109_1296x729_16-9.jpg"
     },
     {
       "t": "Live transfer rumors, news, updates on deadline day",
       "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
     },
     {
-      "t": "Chelsea's €45m Lamine Camara bid rejected amid Enzo Fernández talks - sources",
+      "t": "Chelsea agree €55m deal for Monaco's Lamine Camara - sources",
       "img": "https://a.espncdn.com/photo/2026/0901/r1709884_1296x729_16-9.jpg"
     }
   ],
