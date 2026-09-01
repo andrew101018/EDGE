@@ -205,7 +205,6 @@ def call_gemini(prompt, temp):
             r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_KEY}",
                 json={"contents": [{"parts": [{"text": prompt}]}], "generationConfig": {"temperature": temp}}, timeout=25)
             if r.ok:
-                print("✨ Gemini:", model)
                 return r.json()["candidates"][0]["content"]["parts"][0]["text"]
             print("Gemini status:", model, r.status_code)
         except Exception as e:
@@ -238,7 +237,6 @@ def call_deepseek(prompt, temp):
 def ai_process(title, content, is_english, forbidden=None):
     style = random.choice(STYLES)
     temp = round(random.uniform(0.9, 1.3), 2)
-    print(f"🎭 ستايل: {style['name']} | حرارة: {temp}")
     fb = ""
     if forbidden:
         fb = "\nممنوع تفتح الخبر بأي من الجمل دي (اتستخدمت قبل كده):\n" + "\n".join(f"- {f}" for f in forbidden[-5:])
@@ -351,12 +349,6 @@ def collect_finished(state, now):
                 comps = comp["competitors"]
                 home = [c for c in comps if c.get("homeAway") == "home"][0]
                 away = [c for c in comps if c.get("homeAway") == "away"][0]
-                for c in comps:
-                    for l in c.get("leaders", []):
-                        ...
-                if st == "post" and hrs > 24: continue
-                if st == "pre" and hrs < -72: continue
-                group["items"].append({
                 full, short = finish_text(home["team"]["displayName"], home["score"], away["team"]["displayName"], away["score"], name)
                 found.append((eid, full, short))
             except Exception:
@@ -525,120 +517,6 @@ def fetch_world():
             pass
     return out
 
-API_FOOTBALL_KEY = os.environ.get("API_FOOTBALL_KEY", "")
-AF_SEASON = 2026
-AF_LEAGUES = {"ksa.1": 307, "egy.1": 233, "eng.1": 39, "esp.1": 140, "ita.1": 135,
-    "ger.1": 78, "fra.1": 61, "uefa.champions": 2}
-
-def af_get(path, params):
-    if not API_FOOTBALL_KEY: return []
-    try:
-        r = requests.get("https://v3.football.api-sports.io/" + path,
-            headers={"x-apisports-key": API_FOOTBALL_KEY}, params=params, timeout=15)
-        if r.ok:
-            return r.json().get("response") or []
-        print("api-football status:", r.status_code)
-    except Exception as e:
-        print("api-football:", e)
-    return []
-
-def fetch_top_scorers():
-    if not API_FOOTBALL_KEY:
-        print("⚠️ no API_FOOTBALL_KEY for scorers")
-        return {}
-    leaders = {}
-    for slug, lid in AF_LEAGUES.items():
-        try:
-            resp = af_get("players/topscorers", {"league": lid, "season": AF_SEASON})
-            if not resp: continue
-            rows = []
-            for e in resp[:15]:
-                p = e.get("player") or {}
-                st = (e.get("statistics") or [{}])[0]
-                goals = (st.get("goals") or {}).get("total") or 0
-                assists = (st.get("goals") or {}).get("assists") or 0
-                rows.append({"name": p.get("name", ""),
-                    "team": ar_team(((st.get("team") or {}).get("name") or "")),
-                    "goals": goals, "assists": assists, "face": p.get("photo") or ""})
-            if rows:
-                leaders[LEAGUES.get(slug, slug)] = {
-                    "الهدافون 🏆": [{"name": r["name"], "team": r["team"], "value": f"{r['goals']} ⚽", "face": r["face"]} for r in rows],
-                    "صناعة الأهداف 🎯": [{"name": r["name"], "team": r["team"], "value": f"{r['assists']} 🅰️", "face": r["face"]} for r in sorted(rows, key=lambda x: -(x["assists"] or 0)) if r["assists"]]}
-                print(f"✅ scorers {slug}: {len(rows)}")
-        except Exception as ex:
-            print(f"scorers error {slug}: {ex}")
-    return leaders
-
-def fetch_top_scorers():
-    if not API_FOOTBALL_KEY:
-        print("⚠️ no API_FOOTBALL_KEY for scorers")
-        return {}
-    leaders = {}
-    for slug, lid in AF_LEAGUES.items():
-        try:
-            resp = af_get("players/topscorers", {"league": lid, "season": AF_SEASON})
-            if not resp: continue
-            rows = []
-            for e in resp[:15]:
-                p = e.get("player") or {}
-                st = (e.get("statistics") or [{}])[0]
-                goals = (st.get("goals") or {}).get("total") or 0
-                assists = (st.get("goals") or {}).get("assists") or 0
-                rows.append({"name": p.get("name", ""),
-                    "team": ar_team(((st.get("team") or {}).get("name") or "")),
-                    "goals": goals, "assists": assists, "face": p.get("photo") or ""})
-            if rows:
-                leaders[LEAGUES.get(slug, slug)] = {
-                    "الهدافون 🏆": [{"name": r["name"], "team": r["team"], "value": f"{r['goals']} ⚽", "face": r["face"]} for r in rows],
-                    "صناعة الأهداف 🎯": [{"name": r["name"], "team": r["team"], "value": f"{r['assists']} 🅰️", "face": r["face"]} for r in sorted(rows, key=lambda x: -(x["assists"] or 0)) if r["assists"]]}
-                print(f"✅ scorers {slug}: {len(rows)}")
-        except Exception as ex:
-            print(f"scorers error {slug}: {ex}")
-    return leaders
-
-def update_squads(state):
-    if not API_FOOTBALL_KEY: return
-    ids = state.setdefault("af_ids", {})
-    for slug, lid in AF_LEAGUES.items():
-        if slug not in ids:
-            teams = af_get("teams", {"league": lid, "season": AF_SEASON})
-            if teams:
-                ids[slug] = {t["team"]["name"]: t["team"]["id"] for t in teams}
-                print("af teams cached:", slug, len(ids[slug]))
-    queue = state.get("squads_queue") or []
-    if not queue:
-        for slug in AF_LEAGUES:
-            for name in (ids.get(slug) or {}):
-                queue.append([slug, name])
-        state["squads_queue"] = queue
-    squads = state.setdefault("squads", {})
-    done = 0
-    while queue and done < 2:
-        slug, name = queue.pop(0)
-        tid = (ids.get(slug) or {}).get(name)
-        if not tid: continue
-        resp = af_get("players", {"team": tid, "season": AF_SEASON})
-        if not resp: continue
-        rows = []
-        for e in resp:
-            p = e.get("player") or {}
-            st = (e.get("statistics") or [{}])[0]
-            rows.append({
-                "name": p.get("name", ""), "age": p.get("age") or "-",
-                "nat": p.get("nationality") or "-", "pos": p.get("position") or "-",
-                "face": p.get("photo") or "",
-                "apps": (st.get("games") or {}).get("appearences") or 0,
-                "goals": (st.get("goals") or {}).get("total") or 0,
-                "assists": (st.get("goals") or {}).get("assists") or 0,
-                "rating": (st.get("games") or {}).get("rating") or "-"})
-        if rows:
-            squads[ar_team(name)] = rows
-            print("✅ squad:", name, len(rows))
-        done += 1
-        time.sleep(1)
-    state["squads_queue"] = queue
-    print("📋 قوائم متبقية:", len(queue))
-
 def build_site_data(state, today):
     now = datetime.now(CAIRO)
     matches = []
@@ -689,44 +567,11 @@ def build_site_data(state, today):
         t = top_table(slug, 8)
         if t: tables[LEAGUES[slug]] = t
     leaders = {}
-    for slug in PRIORITY:
-        try:
-            r = requests.get("https://www.espn.com/soccer/stats/_/league/" + slug,
-                headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}, timeout=12)
-            if not r.ok: continue
-            soup = BeautifulSoup(r.text, "html.parser")
-            tbl = None
-            for t in soup.find_all("table"):
-                hs = [th.get_text(strip=True) for th in t.find_all("th")]
-                if "G" in hs and "Name" in hs:
-                    tbl = t
-                    break
-            if not tbl: continue
-            hs = [th.get_text(strip=True) for th in tbl.find_all("th")]
-            gi = hs.index("G")
-            rows = []
-            for tr in tbl.find_all("tr")[1:]:
-                tds = tr.find_all("td")
-                if len(tds) <= gi: continue
-                name = tds[1].get_text(strip=True) if len(tds) > 1 else ""
-                team = tds[2].get_text(strip=True) if len(tds) > 2 else ""
-                try: g = int(tds[gi].get_text(strip=True))
-                except Exception: g = 0
-                img = tr.find("img")
-                if name and g > 0:
-                    rows.append({"name": name, "team": ar_team(team), "value": f"{g} ⚽",
-                        "face": (img.get("src") or "") if img else ""})
-            if rows:
-                leaders[LEAGUES[slug]] = {"الهدافون 🏆": rows[:15]}
-                print("✅ scorers", slug, len(rows))
-        except Exception as ex:
-            print("scorers error", slug, ex)
-    if not leaders:
-        for slug, agg in scorer_agg.items():
-            rows = sorted([v for v in agg.values() if v["g"] > 0], key=lambda x: -x["g"])[:15]
-            if rows:
-                leaders[LEAGUES[slug]] = {"الهدافون 🏆 (الموسم الحالي)": [
-                    {"name": r["name"], "team": r["team"], "value": f"{r['g']} ⚽", "face": r["face"]} for r in rows]}
+    for slug, agg in scorer_agg.items():
+        rows = sorted([v for v in agg.values() if v["g"] > 0], key=lambda x: -x["g"])[:15]
+        if rows:
+            leaders[LEAGUES[slug]] = {"الهدافون 🏆 (الموسم الحالي)": [
+                {"name": r["name"], "team": r["team"], "value": f"{r['g']} ⚽", "face": r["face"]} for r in rows]}
     site_data = {
         "updated_at": now.strftime("%Y-%m-%d %I:%M %p"),
         "news": state.get("site_news", [])[-20:][::-1],
@@ -738,7 +583,7 @@ def build_site_data(state, today):
     with open("site/data.json", "w", encoding="utf-8") as f:
         json.dump(site_data, f, ensure_ascii=False, indent=2)
     print("🌐 تم تحديث بيانات الموقع")
-    
+
 def make_publish_package(news_lines):
     prompt = f"""انت خبير سوشيال ميديا رياضي. اكتب باقة نشر جاهزة لفيديو كورة عن الأخبار دي:
 {news_lines}
@@ -860,7 +705,6 @@ def main():
     state["daily_news"] = [x for x in state.get("daily_news", []) if x["d"] == today][-20:]
     state["daily_results"] = [x for x in state.get("daily_results", []) if x["d"] == today][-20:]
 
-    update_squads(state)
     build_site_data(state, today)
     save_state(state)
 
