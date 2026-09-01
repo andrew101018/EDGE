@@ -945,3 +945,33 @@ function renderChampions() {
   }).join('');
 }
 window.addEventListener('load', () => setTimeout(renderChampions, 1500));
+async function askNotifications() {
+  if (!('Notification' in window) || !('serviceWorker' in navigator)) {
+    alert('المتصفح ده مش بيدعم الإشعارات — جرّب كروم'); return;
+  }
+  try {
+    const perm = await Notification.requestPermission();
+    if (perm !== 'granted') { alert('الإشعارات اترفضت — فعّلها من إعدادات المتصفح عشان توصلك الأهداف'); return; }
+    const reg = await navigator.serviceWorker.ready;
+    let sub = await reg.pushManager.getSubscription();
+    if (!sub) {
+      const key = await reg.pushManager.subscribe({userVisibleOnly: true,
+        applicationServerKey: ''}).catch(() => null);
+      sub = key;
+    }
+    localStorage.setItem('edgeNotif', '1');
+    alert('تم تفعيل الإشعارات 🔔 هيوصلك تنبيه مع كل جول وانطلاق مباراة');
+  } catch (e) {
+    alert('تعذر تفعيل الإشعارات: ' + e.message);
+  }
+}
+(function addNotifBtn() {
+  const nav = document.querySelector('.top-nav');
+  if (nav && !document.getElementById('notifBtn')) {
+    const b = document.createElement('button');
+    b.id = 'notifBtn'; b.className = 'nav-btn'; b.textContent = '🔔 الإشعارات';
+    b.onclick = askNotifications;
+    nav.appendChild(b);
+  }
+})();
+
