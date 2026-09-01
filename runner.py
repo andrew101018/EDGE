@@ -684,20 +684,43 @@ def build_site_data(state, today):
         if t: tables[LEAGUES[slug]] = t
         leaders = fetch_top_scorers()
         leaders = fetch_top_scorers()
+        leaders = {}
+    for slug in PRIORITY:
+        try:
+            r = requests.get("https://www.espn.com/soccer/stats/_/league/" + slug,
+                headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}, timeout=12)
+            if not r.ok: continue
+            soup = BeautifulSoup(r.text, "html.parser")
+            tables = soup.find_all("table")
+            if len(tables) < 2: continue
+            head = [th.get_text(strip=True) for th in tables[1].find_all("th")]
+            gi = head.index("G") if "G" in head else (head.index("Goals") if "Goals" in head else len(head) - 1)
+            nrows = tables[0].find_all("tr")[1:]
+            srows = tables[1].find_all("tr")[1:]
+            rows = []
+            for nr, sr in zip(nrows, srows):
+                a = nr.find("a")
+                pname = a.get_text(strip=True) if a else ""
+                tds = nr.find_all("td")
+                team = tds[1].get_text(strip=True) if len(tds) > 1 else ""
+                img = nr.find("img")
+                sv = [td.get_text(strip=True) for td in sr.find_all("td")]
+                try: g = int(sv[gi]) if gi < len(sv) else 0
+                except Exception: g = 0
+                if pname and g > 0:
+                    rows.append({"name": pname, "team": ar_team(team), "value": f"{g} ⚽",
+                        "face": (img.get("src") or img.get("data-src") or "") if img else ""})
+            if rows:
+                leaders[LEAGUES[slug]] = {"الهدافون 🏆": rows[:15]}
+                print("✅ scorers", slug, len(rows))
+        except Exception as ex:
+            print("scorers error", slug, ex)
     if not leaders:
         for slug, agg in scorer_agg.items():
             rows = sorted([v for v in agg.values() if v["g"] > 0], key=lambda x: -x["g"])[:15]
             if rows:
                 leaders[LEAGUES[slug]] = {"الهدافون 🏆 (الموسم الحالي)": [
-                    {"name": r["name"], "team": r["team"], "value": f"{r['g']} ⚽", "face": r["face"]} for r in rows]}
-            if rows:
-                leaders[LEAGUES[slug]] = {"الهدافون 🏆 (الموسم الحالي)": [
-                    {"name": r["name"], "team": r["team"], "value": f"{r['g']} ⚽", "face": r["face"]} for r in rows]}
-            rows = sorted([v for v in agg.values() if v["g"] > 0], key=lambda x: -x["g"])[:15]
-            if rows:
-                leaders[LEAGUES[slug]] = {"الهدافون 🏆 (الموسم الحالي)": [
-                    {"name": r["name"], "team": r["team"], "value": f"{r['g']} ⚽", "face": r["face"]} for r in rows]}
-    site_data = {
+                    {"name": r["name"], "team": r["team"], "value": f"{r['g']} ⚽", "face": r["face"]} for r in rows]}    site_data = {
         "updated_at": now.strftime("%Y-%m-%d %I:%M %p"),
         "news": state.get("site_news", [])[-20:][::-1],
         "results": [x["t"] for x in state.get("daily_results", []) if x["d"] == today][-10:][::-1],
