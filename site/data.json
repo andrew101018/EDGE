@@ -750,6 +750,22 @@
         }
       ]
     },
+    "الدوري الإنجليزي": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Leif Davis",
+          "team": "Ipswich Town",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Alexander Isak",
+          "team": "ليفربول",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
     "الدوري الإسباني": {
       "الهدافون 🏆 (الموسم الحالي)": [
         {
@@ -761,6 +777,22 @@
         {
           "name": "Iago Aspas",
           "team": "Celta Vigo",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
+    "الدوري الألماني": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Thijs Dallinga",
+          "team": "FC Cologne",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Josha Vagnoman",
+          "team": "VfB Stuttgart",
           "value": "1 ⚽",
           "face": ""
         }
