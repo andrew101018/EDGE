@@ -921,3 +921,27 @@ async function showTeam(slug, teamId, teamName) {
     document.getElementById('teamModalBody').innerHTML = '<div class="card">مفيش بيانات كافية للفريق ده 🙏</div>';
   }
 }
+const CHAMPIONS = {
+  "الدوري الإنجليزي 🏴󠁢󠁮󠁿": [["مانشستر يونايتد", 20], ["ليفربول", 20], ["أرسنال", 13], ["مانشستر سيتي", 10], ["إيفرتون", 9], ["أستون فيلا", 7], ["تشيلسي", 6]],
+  "الدوري الإسباني 🇪🇸": [["ريال مدريد", 36], ["برشلونة", 27], ["أتلتيكو مدريد", 11], ["أتلتيك بلباو", 8], ["فالنسيا", 6]],
+  "الدوري الإيطالي 🇮🇹": [["يوفنتوس", 36], ["إنتر ميلان", 20], ["ميلان", 19], ["جنوى", 9], ["تورينو", 7], ["نابولي", 4]],
+  "الدوري الألماني 🇩🇪": [["بايرن ميونخ", 33], ["نورنبيرج", 9], ["بوروسيا دورتموند", 8], ["شالكه", 7], ["هامبورج", 6]],
+  "الدوري الفرنسي 🇫🇷": [["سانت إيتيان", 10], ["باريس سان جيرمان", 12], ["مارسيليا", 10], ["موناكو", 8], ["نانت", 8], ["ليون", 7]],
+  "الدوري السعودي 🇸🇦": [["الهلال", 19], ["الاتحاد", 9], ["النصر", 9], ["الشباب", 6], ["الأهلي", 3]],
+  "الدوري المصري 🇪🇬": [["الأهلي", 44], ["الزمالك", 14], ["الإسماعيلي", 3], ["المقاولون", 1], ["غزل المحلة", 1]],
+  "دوري أبطال أوروبا ⭐": [["ريال مدريد", 15], ["ميلان", 7], ["بايرن ميونخ", 6], ["ليفربول", 6], ["برشلونة", 5], ["إنتر ميلان", 3]],
+};
+function renderChampions() {
+  const el = document.getElementById('championsContainer');
+  if (!el) return;
+  el.innerHTML = Object.entries(CHAMPIONS).map(([league, rows]) => {
+    const max = rows[0][1];
+    return `<div class="table-box"><h3>${league}</h3><table class="stand">
+      <tr><th>#</th><th>النادي</th><th>الألقاب</th></tr>
+      ${rows.map((r, i) => `<tr><td>${i + 1}</td><td>${r[0]}</td>
+        <td><div style="display:flex;align-items:center;gap:8px;"><span class="pts">${r[1]} 🏆</span>
+        <div style="flex:1;height:8px;background:#1e293b;border-radius:4px;overflow:hidden;"><div style="width:${(r[1] / max * 100).toFixed(0)}%;height:100%;background:linear-gradient(90deg,#fbbf24,#f59e0b);"></div></div></div></td></tr>`).join('')}
+      </table></div>`;
+  }).join('');
+}
+window.addEventListener('load', () => setTimeout(renderChampions, 1500));
