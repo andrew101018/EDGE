@@ -1,13 +1,17 @@
 {
-  "name": "Edge Football — الكورة بتبدأ من هنا",
+  "name": "Edge Football - الكورة بتبدأ من هنا",
   "short_name": "Edge⚽",
-  "start_url": "./",
+  "description": "كل حاجة في الكورة.. أخبار، مباريات لايف، هدافين، فانتازي",
+  "start_url": "/EDGE/",
+  "scope": "/EDGE/",
   "display": "standalone",
-  "background_color": "#0b1220",
-  "theme_color": "#dc2626",
+  "background_color": "#000000",
+  "theme_color": "#f59e0b",
   "dir": "rtl",
   "lang": "ar",
+  "orientation": "portrait",
   "icons": [
-    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+    { "src": "https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg", "sizes": "192x192", "type": "image/jpeg", "purpose": "any" },
+    { "src": "https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg", "sizes": "512x512", "type": "image/jpeg", "purpose": "any maskable" }
   ]
 }
