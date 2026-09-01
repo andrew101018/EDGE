@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-01 04:57 PM",
+  "updated_at": "2026-09-01 06:15 PM",
   "news": [
+    {
+      "t": "⚽ الأهلي يطلب حكامًا أجانب لمباراتي الزمالك وبيراميدز بالدوري - الهيئة الوطنية للإعلام",
+      "img": ""
+    },
+    {
+      "t": "⚽ سعر الدولار يرتفع في البنك الأهلي والقاهرة لليوم الثالث على التوالي - Masrawy",
+      "img": ""
+    },
+    {
+      "t": "⚽ فحوصات طبية تُحدد مدة غياب محمد السيد عن الزمالك - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ مباشر: اليوم الأخير من سوق الانتقالات.. طالع أهم الصفقات! - Kooora",
+      "img": ""
+    },
     {
       "t": "⚽ مصدر ليلا كورة: الأهلي يطلب استقدام حكام أجانب لمباراتي الزمالك وبيراميدز - يلاكورة",
       "img": ""
@@ -63,22 +79,6 @@
     },
     {
       "t": "⚽ الظاهرة والظهير يعودان معًا.. رونالدو وروبرتو كارلوس يستحوذان على ناد جديد - Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ اعتزال ميسي الدولي يشعل رسائل الوداع.. إنفانتينو ودي ماريا ونجوم الأرجنتين يحتفون بالأسطورة - اخبا",
-      "img": ""
-    },
-    {
-      "t": "⚽ لامين يامال يحطم رقم أسطورتي الريال وأتلتيكو - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ الزمالك يستفسر عن مقدم تعاقد بيزيرا من أهلى دبي ويتمسك بحضور اللاعب - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ \"آلية التصدي للتجاوزات\".. يلا كورة يكشف كواليس جلسة أبو ريدة مع عصام عبد الفتاح - يلاكورة",
       "img": ""
     }
   ],
@@ -750,6 +750,22 @@
         }
       ]
     },
+    "الدوري الإنجليزي": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Leif Davis",
+          "team": "Ipswich Town",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Alexander Isak",
+          "team": "ليفربول",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
     "الدوري الإسباني": {
       "الهدافون 🏆 (الموسم الحالي)": [
         {
@@ -761,6 +777,22 @@
         {
           "name": "Iago Aspas",
           "team": "Celta Vigo",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
+    "الدوري الألماني": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Thijs Dallinga",
+          "team": "FC Cologne",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Josha Vagnoman",
+          "team": "VfB Stuttgart",
           "value": "1 ⚽",
           "face": ""
         }
@@ -810,63 +842,63 @@
     },
     {
       "t": "Live transfer rumors, news, updates on deadline day",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
+      "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Ogden: Man Utd failing to sign a defender is a 'dereliction of duty'",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0901/dm_260901_Ogden_Man_Utd_failing_to_sign_a_defender_is_a_dereliction_of_duty/dm_260901_Ogden_Man_Utd_failing_to_sign_a_defender_is_a_dereliction_of_duty.jpg"
+    },
+    {
+      "t": "Chelsea offer for Lamine Camara rejected amid Enzo Fernández talks - sources",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709884_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Live transfer rumors, news, updates on deadline day",
+      "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
     },
     {
       "t": "Gabriel Jesus took pay cut for 'dream' Barcelona transfer from Arsenal",
       "img": "https://a.espncdn.com/photo/2026/0901/r1709933_1296x729_16-9.jpg"
     },
     {
-      "t": "Gabriel Jesus completes transfer to Barcelona from Arsenal",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709931_1296x729_16-9.jpg"
-    },
-    {
       "t": "Live transfer rumors, news, updates on deadline day",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
+      "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
     },
     {
-      "t": "Gabriel Jesus took pay cut for 'dream' Barcelona transfer from Arsenal",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709933_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Jose Mourinho's first Clásico on Real Madrid return set for Oct. 25",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709889_2_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Live transfer rumors, news, updates on deadline day",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
     },
     {
       "t": "Honest Ahanor joins Crystal Palace on loan, will join Chelsea in 2027",
       "img": "https://a.espncdn.com/photo/2026/0901/r1709917_1296x729_16-9.jpg"
     },
     {
-      "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709863_3_1296x729_16-9.jpg"
+      "t": "Live transfer rumors, news, updates on deadline day",
+      "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
     },
     {
-      "t": "Live transfer rumors, news, updates on deadline day",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
     },
     {
       "t": "Fabio Vieira joins Hamburg in permanent deal from Arsenal",
       "img": "https://a.espncdn.com/photo/2024/0823/r1376754_1296x729_16-9.jpg"
     },
     {
-      "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709863_3_1296x729_16-9.jpg"
-    },
-    {
       "t": "Live transfer rumors, news, updates on deadline day",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
+      "img": "https://a.espncdn.com/photo/2026/0827/r1707861_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Chelsea offer for Lamine Camara rejected amid Enzo Fernández talks - sources",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709884_1296x729_16-9.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709863_3_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Chelsea make Lamine Camara offer amid Enzo Fernández talks - sources",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709884_1296x729_16-9.jpg"
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709956_1296x729_16-9.jpg"
     }
   ],
   "highlights": [],
