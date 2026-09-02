@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-02 12:02 PM",
+  "updated_at": "2026-09-02 02:48 PM",
   "news": [
+    {
+      "t": "⚽ إيران تستهدف \"مصالح أمريكية\" في المنطقة، ومقتل بحارين في حادث ناقلة سعودية بمضيق هرمز",
+      "img": ""
+    },
+    {
+      "t": "⚽ «محليا وقاريا».. مواعيد مباريات الأهلي والزمالك وبيراميدز في سبتمبر 2026 - الوطن",
+      "img": ""
+    },
+    {
+      "t": "⚽ وصول حكام مباراة الذهاب بين الزمالك وإيه إس بورت الجيبوتي بدوري الأبطال إلى القاهرة - الأخبار المس",
+      "img": ""
+    },
+    {
+      "t": "⚽ صفقة صنعت التاريخ.. ميركاتو مغربي مصري يخطف الأضواء - Kooora",
+      "img": ""
+    },
     {
       "t": "⚽ كريم الدبيس وكباكا يواصلان التأهيل فى الأهلى ويغيبان عن مباراة سموحة - اليوم السابع",
       "img": ""
@@ -63,22 +79,6 @@
     },
     {
       "t": "⚽ ملف يلا كورة.. التجديد لحسام حسن وشوبير.. حكام أجانب للقمة.. وتطورات العائد للزمالك - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ مهدد بغرامة تصل إلى 5 ملايين دولار.. الغندور يكشف تطورات أزمة بيزيرا - المصري اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ بعد قرار \"كاس\"، اتحاد الكرة يعلن تأجيل انطلاقة دوري القسم الثاني ب بمجموعة القاهرة - فيتو",
-      "img": ""
-    },
-    {
-      "t": "⚽ تأجيل انطلاق دوري القسم الثاني «ب» بالقاهرة بعد عودة أورنج - صدى البلد",
-      "img": ""
-    },
-    {
-      "t": "⚽ اتحاد الكرة يعلن عودة أورانج لدوري القسم الثاني بعد قرار \"كاس\" - يلاكورة",
       "img": ""
     }
   ],
@@ -918,7 +918,7 @@
   },
   "world": [
     {
-      "t": "Ollie Watkins scores on Al Hilal debut, 'eyes opened' by club's win over Man City",
+      "t": "Ollie Watkins scores on Al Hilal debut, says Saudi Arabia is 'Premier League quality'",
       "img": "https://a.espncdn.com/photo/2026/0902/r1710298_1296x729_16-9.jpg"
     },
     {
@@ -930,6 +930,10 @@
       "img": "https://a.espncdn.com/photo/2026/0624/r1678599_1296x729_16-9.jpg"
     },
     {
+      "t": "Nicol: Spurs have had the worst transfer window",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0902/dm_260902_Nicol_Spurs_have_had_the_worst_transfer_window/dm_260902_Nicol_Spurs_have_had_the_worst_transfer_window.jpg"
+    },
+    {
       "t": "EFL criticises UEFA after rescheduling three domestic fixtures",
       "img": "https://a.espncdn.com/photo/2026/0827/r1707643_1296x729_16-9.jpg"
     },
@@ -938,20 +942,28 @@
       "img": "https://a.espncdn.com/photo/2026/0319/r1630909_1296x729_16-9.jpg"
     },
     {
-      "t": "Man United's Champions League draw: Bayern Munich, Atlético Madrid, Roma",
-      "img": "https://a.espncdn.com/photo/2026/0117/r1601718_1296x729_16-9.jpg"
+      "t": "Premier League sets new record for transfer spending",
+      "img": "https://a.espncdn.com/photo/2026/0902/r1710316_1296x729_16-9.jpg"
     },
     {
-      "t": "Worst 2026 transfers, ranked: How Man United, Tottenham and others might have messed up",
-      "img": "https://a.espncdn.com/photo/2026/0902/r1710222_1296x729_16-9.jpg"
+      "t": "Nicol: Spurs have had the worst transfer window",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0902/dm_260902_Nicol_Spurs_have_had_the_worst_transfer_window/dm_260902_Nicol_Spurs_have_had_the_worst_transfer_window.jpg"
+    },
+    {
+      "t": "Ogden: Balogun 'left Everton's transfer window in tatters'",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0902/dm_260902_Ogden_Balogun_left_Everton_transfer_window_in_tatters/dm_260902_Ogden_Balogun_left_Everton_transfer_window_in_tatters.jpg"
+    },
+    {
+      "t": "Marc Casadó becomes latest academy player to depart Barcelona",
+      "img": "https://a.espncdn.com/photo/2026/0902/r1710308_1296x729_16-9.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
       "img": "https://a.espncdn.com/photo/2026/0902/r1710301_1296x729_16-9.jpg"
     },
     {
-      "t": "Man United enquired about Man City's Rayan Aït-Nouri - sources",
-      "img": "https://a.espncdn.com/photo/2025/1230/r1595112_1296x729_16-9.jpg"
+      "t": "Summer transfer window bargains: Karetsas, Yohanna, Mora and more",
+      "img": "https://a.espncdn.com/photo/2026/0831/r1709390_1296x729_16-9.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
@@ -978,28 +990,16 @@
       "img": "https://a.espncdn.com/photo/2026/0901/r1710167_1296x729_16-9.jpg"
     },
     {
-      "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0902/r1710301_1296x729_16-9.jpg"
+      "t": "Erik Lira's move to Monaco falls through due to Folarin Balogun's failed move to Everton",
+      "img": "https://a.espncdn.com/photo/2026/0902/r1710315_1296x729_16-9.jpg"
     },
     {
-      "t": "Summer transfer window bargains: Karetsas, Yohanna, Mora and more",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709390_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Transfer deadline day recap: Everton fail with Balogun deal, Enzo signs for Man City",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1710167_1296x729_16-9.jpg"
+      "t": "Balogun's failed Everton transfer sums up USMNT's underwhelming summer window",
+      "img": "https://a.espncdn.com/photo/2026/0902/r1710278_1296x729_16-9.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
       "img": "https://a.espncdn.com/photo/2026/0902/r1710301_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Summer transfer window bargains: Karetsas, Yohanna, Mora and more",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709390_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Folarin Balogun U-turn after deadline scuppered Everton move - sources",
-      "img": "https://a.espncdn.com/photo/2026/0630/r1682242_1296x729_16-9.jpg"
     }
   ],
   "highlights": [],
