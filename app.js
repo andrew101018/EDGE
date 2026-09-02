@@ -949,21 +949,26 @@ async function askNotifications() {
   if (!('Notification' in window) || !('serviceWorker' in navigator)) {
     alert('المتصفح ده مش بيدعم الإشعارات — جرّب كروم'); return;
   }
+  const perm = await Notification.requestPermission();
+  if (perm !== 'granted') { alert('الإشعارات اترفضت — فعّلها من إعدادات المتصفح'); return; }
   try {
-    const perm = await Notification.requestPermission();
-    if (perm !== 'granted') { alert('الإشعارات اترفضت — فعّلها من إعدادات المتصفح عشان توصلك الأهداف'); return; }
     const reg = await navigator.serviceWorker.ready;
     let sub = await reg.pushManager.getSubscription();
     if (!sub) {
-      const key = await reg.pushManager.subscribe({userVisibleOnly: true,
-        applicationServerKey: ''}).catch(() => null);
-      sub = key;
+      const res = await fetch('site/vapid.json');
+      const vapid = await res.json();
+      const rawKey = Uint8Array.from(atob(vapid.publicKey.replace(/-/g,'+').replace(/_/g,'/')), c => c.charCodeAt(0));
+      sub = await reg.pushManager.subscribe({userVisibleOnly: true, applicationServerKey: rawKey});
     }
+    const SUPA = 'https://ejfdqvjfzgsjtztzvhem.supabase.co';
+    const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVqZmRxdmpmemdzanR6dHp2aGVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcyMzE3NDAsImV4cCI6MjEwMjgwNzc0MH0.YD0-kgvHlRIPbJMulwv6PKhxKz9frzeT5m4QGYRGBA4';
+    await fetch(SUPA + '/rest/v1/push_subs', {
+      method: 'POST', headers: {'Content-Type': 'application/json', 'apikey': SUPA_KEY, 'Authorization': 'Bearer ' + SUPA_KEY, 'Prefer': 'return=minimal'},
+      body: JSON.stringify({subscription: sub.toJSON()})
+    });
     localStorage.setItem('edgeNotif', '1');
-    alert('تم تفعيل الإشعارات 🔔 هيوصلك تنبيه مع كل جول وانطلاق مباراة');
-  } catch (e) {
-    alert('تعذر تفعيل الإشعارات: ' + e.message);
-  }
+    alert('✅ تم تفعيل الإشعارات! هيوصلك تنبيه مع كل جول 🔔⚽');
+  } catch (e) { alert('تعذر التفعيل: ' + e.message); }
 }
 (function addNotifBtn() {
   const nav = document.querySelector('.top-nav');
