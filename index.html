@@ -40,6 +40,7 @@
   <button class="nav-btn active" onclick="go('home', this)">🏠 الرئيسية</button>
   <button class="nav-btn" onclick="goMulti(['matches','tv'], this)">⚽ المباريات</button>
   <button class="nav-btn" onclick="go('tables', this)">🏆 الترتيب</button>
+  <button class="nav-btn" onclick="go('stats', this)">📊 إحصائيات</button>
   <button class="nav-btn" onclick="goMulti(['leaders','players'], this)">👑 الهدافين</button>
   <button class="nav-btn" onclick="goMulti(['predict','fantasy','board'], this)">🎮 الألعاب</button>
   <button class="nav-btn" onclick="go('world', this)">🌍 عالمية</button>
@@ -159,6 +160,12 @@
     <h2>🏆 سجل أبطال الدوريات</h2>
     <p style="opacity:.8;margin-bottom:14px;">الأندية الأكثر تتويجاً في تاريخ أكبر الدوريات</p>
     <div id="championsContainer"></div>
+  </section>
+
+    <section id="sec-stats" class="page">
+    <h2>📊 إحصائيات الموسم</h2>
+    <p style="opacity:.8;margin-bottom:14px;">أرقام حقيقية من جداول الدوريات — بتتحدث كل جولة</p>
+    <div id="statsContainer"></div>
   </section>
 
   <section class="section telegram">
