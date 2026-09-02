@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-02 05:08 AM",
+  "updated_at": "2026-09-02 10:12 AM",
   "news": [
+    {
+      "t": "⚽ ميدو: «لو استمر حمزة عبد الكريم في الأهلي لما شارك» - المصري اليوم",
+      "img": ""
+    },
+    {
+      "t": "⚽ 3 سيناريوهات تحدد موعد نهاية مسيرة ميسي بعد الاعتزال مع الأرجنتين - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ أحمد حسام عوض يكشف دور شركة الكرة بالأهلي ومُساهمتها في ميزانية قطاع كرة القدم - صدى البلد",
+      "img": ""
+    },
+    {
+      "t": "⚽ قانون كرة القدم - المصري اليوم",
+      "img": ""
+    },
     {
       "t": "⚽ ستوري نجوم كرة القدم.. رسالة أفشة وإمام عاشور رفقة زوجته (صور) - Masrawy",
       "img": ""
@@ -64,22 +80,6 @@
     {
       "t": "⚽ مصدر ليلا كورة: الأهلي يجدد عقد مصطفى شوبير 3 سنوات - يلاكورة",
       "img": ""
-    },
-    {
-      "t": "⚽ اتحاد الكرة يخاطب بعض الاتحادات لتوفير تحكيم أجنبي لمباراتي الأهلي ضد الزمالك وبيراميدز - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ أفشة ومحمد عبد الله يقتربان من دخول قائمة مباراة الأهلي وسموحة - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ أرقام مذهلة وعودة هيبة الفراعنة.. ماذا قدم حسام حسن مع مصر في 939 يومًا؟ - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ هل توسّع مصر والصين تعاونهما العسكري؟",
-      "img": ""
     }
   ],
   "results": [
@@ -91,20 +91,52 @@
       "slug": "ksa.1",
       "items": [
         {
-          "home": "الهلال",
-          "away": "الأهلي السعودي",
-          "eid": "401900375",
+          "home": "الفيحاء",
+          "away": "Al Kholood",
+          "eid": "401900374",
           "slug": "ksa.1",
-          "homeId": "929",
-          "awayId": "8346",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/929.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8346.png",
+          "homeId": "21827",
+          "awayId": "22028",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21827.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22028.png",
           "tv": "SSC / شاهد",
-          "hs": "3",
+          "hs": "0",
+          "as": "0",
+          "time": "06:55 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Neom SC",
+          "away": "الخليج",
+          "eid": "401900373",
+          "slug": "ksa.1",
+          "homeId": "130899",
+          "awayId": "21829",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/130899.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21829.png",
+          "tv": "SSC / شاهد",
+          "hs": "0",
+          "as": "0",
+          "time": "07:30 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Al Diriyah",
+          "away": "القادسية",
+          "eid": "401900372",
+          "slug": "ksa.1",
+          "homeId": "131746",
+          "awayId": "22022",
+          "homeLogo": "",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22022.png",
+          "tv": "SSC / شاهد",
+          "hs": "0",
           "as": "0",
           "time": "09:00 PM",
-          "state": "post",
-          "detail": "FT"
+          "state": "pre",
+          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -779,6 +811,46 @@
     ]
   },
   "leaders": {
+    "الدوري السعودي": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Lázaro",
+          "team": "الفيحاء",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Julien Domingues",
+          "team": "Al Kholood",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Alexandre Lacazette",
+          "team": "Neom SC",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Darwin Núñez",
+          "team": "Al Diriyah",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Mateo Retegui",
+          "team": "القادسية",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Saleh Al-Jamaan",
+          "team": "الخليج",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
     "الدوري الإنجليزي": {
       "الهدافون 🏆 (الموسم الحالي)": [
         {
@@ -870,28 +942,16 @@
       "img": "https://a.espncdn.com/photo/2026/0117/r1601718_1296x729_16-9.jpg"
     },
     {
-      "t": "Summer transfer window: Grading big signings in men's soccer",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
+      "t": "Transfers recap - Senegal's stars, and Man City, dominate deadline day",
+      "img": "https://a.espncdn.com/photo/2026/0902/r1710291_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer deadline day recap: Everton hopeful on Balogun deal, Enzo signs for Man City",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1710167_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Man City sign Enzo Fernández from Chelsea for joint-record fee",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709997_1296x729_16-9.jpg"
+      "t": "Folarin Balogun U-turn after deadline scuppered Everton move - sources",
+      "img": "https://a.espncdn.com/photo/2026/0630/r1682242_1296x729_16-9.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
       "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Transfer deadline day recap: Everton hopeful on Balogun deal, Enzo signs for Man City",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1710167_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Chelsea, Real Madrid win transfer window; Liverpool biggest losers",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1710148_1296x729_16-9.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
@@ -926,8 +986,20 @@
       "img": "https://a.espncdn.com/photo/2026/0901/r1710167_1296x729_16-9.jpg"
     },
     {
-      "t": "Chelsea fume after Monaco's Lamine Camara U-turn - sources",
-      "img": "https://a.espncdn.com/photo/2026/0901/r1709884_1296x729_16-9.jpg"
+      "t": "Chelsea, Real Madrid win transfer window; Liverpool biggest losers",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1710148_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Folarin Balogun U-turn after deadline scuppered Everton move - sources",
+      "img": "https://a.espncdn.com/photo/2026/0630/r1682242_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0831/r1709704_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Transfer deadline day recap: Everton hopeful on Balogun deal, Enzo signs for Man City",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1710167_1296x729_16-9.jpg"
     }
   ],
   "highlights": [],
