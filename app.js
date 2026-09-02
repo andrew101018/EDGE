@@ -1002,4 +1002,38 @@ function toggleTheme() {
     nav.appendChild(b);
   }
 })();
+function renderStats() {
+  const el = document.getElementById('statsContainer');
+  if (!el) return;
+  const tables = DATA.tables || {};
+  if (!Object.keys(tables).length) { el.innerHTML = '<div class="card">الإحصائيات هتظهر مع أول تحديث للترتيب 🔄</div>'; return; }
+  let html = '';
+  Object.entries(tables).forEach(([league, rows]) => {
+    if (!rows || !rows.length || typeof rows[0] === 'string') return;
+    const sorted = [...rows].sort((a, b) => (Number(b.pts) || 0) - (Number(a.pts) || 0));
+    const top = sorted[0];
+    const mostWins = [...rows].sort((a, b) => (Number(b.w) || 0) - (Number(a.w) || 0))[0];
+    const mostLosses = [...rows].sort((a, b) => (Number(b.l) || 0) - (Number(a.l) || 0))[0];
+    const mostDraws = [...rows].sort((a, b) => (Number(b.d) || 0) - (Number(a.d) || 0))[0];
+    const totalGoals = rows.reduce((s, r) => s + (Number(r.w) || 0) * 2 + (Number(r.d) || 0), 0);
+    const cards = [
+      ['🥇', 'المتصدر', top ? top.team : '-', top ? top.pts + ' نقطة' : ''],
+      ['💪', 'أكثر فوز', mostWins ? mostWins.team : '-', mostWins ? mostWins.w + ' فوز' : ''],
+      ['😤', 'أكثر خسارة', mostLosses ? mostLosses.team : '-', mostLosses ? mostLosses.l + ' خسارة' : ''],
+      ['🤝', 'أكثر تعادل', mostDraws ? mostDraws.team : '-', mostDraws ? mostDraws.d + ' تعادل' : ''],
+      ['⚽', 'إجمالي النقاط', league, totalGoals + ''],
+      ['🏟️', 'عدد الفرق', league, rows.length + ''],
+    ];
+    html += `<div class="table-box"><h3>🏆 ${league}</h3><div class="grid">${cards.map(c => `
+      <div class="tv-card" style="text-align:center;">
+        <div style="font-size:2em;">${c[0]}</div>
+        <div style="font-weight:bold;color:#fbbf24;margin:6px 0;">${c[1]}</div>
+        <div style="font-size:1.1em;font-weight:bold;">${c[2]}</div>
+        <div style="opacity:.7;font-size:.85em;">${c[3]}</div>
+      </div>`).join('')}</div></div>`;
+  });
+  el.innerHTML = html || '<div class="card">مفيش بيانات كافية دلوقتي 🔄</div>';
+}
+window.addEventListener('load', () => setTimeout(renderStats, 2000));
+setInterval(renderStats, 60000);
 
