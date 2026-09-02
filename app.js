@@ -979,4 +979,27 @@ async function askNotifications() {
     nav.appendChild(b);
   }
 })();
+(function initTheme() {
+  const saved = localStorage.getItem('edgeTheme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+})();
+function toggleTheme() {
+  const cur = document.documentElement.getAttribute('data-theme') || 'dark';
+  const next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('edgeTheme', next);
+  const btn = document.getElementById('themeBtn');
+  if (btn) btn.textContent = next === 'dark' ? '🌙 ليلي' : '☀️ نهاري';
+}
+(function addThemeBtn() {
+  const nav = document.querySelector('.top-nav');
+  if (nav && !document.getElementById('themeBtn')) {
+    const b = document.createElement('button');
+    b.id = 'themeBtn'; b.className = 'nav-btn';
+    const cur = localStorage.getItem('edgeTheme') || 'dark';
+    b.textContent = cur === 'dark' ? '🌙 ليلي' : '☀️ نهاري';
+    b.onclick = toggleTheme;
+    nav.appendChild(b);
+  }
+})();
 
