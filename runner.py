@@ -422,7 +422,7 @@ def build_preview(slug, home, away, dt, event_id):
     lines.append("⚽ Edge Football")
     return "\n".join(lines)
 
-def top_table(slug, n=8):
+def top_table(slug, n=30):
     entries = fetch_standings(slug)
     if not entries: return None
     rows = []
