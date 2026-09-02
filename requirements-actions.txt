@@ -5,3 +5,4 @@ deep-translator
 edge-tts
 google-api-python-client
 google-auth-oauthlib
+pywebpush
