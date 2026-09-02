@@ -82,3 +82,18 @@ footer { text-align: center; padding: 20px; opacity: 0.7; font-size: 0.85em; }
   display: none;
 }
 .nav-btn { flex: 0 0 auto !important; white-space: nowrap; }
+[data-theme="light"] {
+  --bg: #f1f5f9; --card: #ffffff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; --accent: #f59e0b;
+}
+[data-theme="light"] body { background: var(--bg); color: var(--text); }
+[data-theme="light"] header { background: linear-gradient(135deg, #1e293b, #334155); }
+[data-theme="light"] .card, [data-theme="light"] .news-item, [data-theme="light"] .result-item,
+[data-theme="light"] .tv-card, [data-theme="light"] .table-box, [data-theme="light"] .live-card,
+[data-theme="light"] .pred-row, [data-theme="light"] .modal-box { background: var(--card); color: var(--text); border-color: var(--border); }
+[data-theme="light"] .stand th { background: #e2e8f0; color: #1e293b; }
+[data-theme="light"] .stand td { border-color: #e2e8f0; }
+[data-theme="light"] input, [data-theme="light"] select { background: #fff; color: #1e293b; border-color: #cbd5e1; }
+[data-theme="light"] footer { background: #1e293b; color: #94a3b8; }
+[data-theme="light"] .top-nav { background: #e2e8f0; }
+[data-theme="light"] .nav-btn { color: #334155; }
+[data-theme="light"] .nav-btn.active { background: #f59e0b; color: #000; }
