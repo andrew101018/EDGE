@@ -1,6 +1,14 @@
 {
-  "updated_at": "2026-09-03 04:42 PM",
+  "updated_at": "2026-09-03 08:25 PM",
   "news": [
+    {
+      "t": "⚽ إيران تتوعد بالثأر لقتلى حفل الزفاف، وواشنطن تؤكد موفقها مجدداً من السلاح النووي لطهران",
+      "img": ""
+    },
+    {
+      "t": "⚽ جدول ترتيب الدوري المصري قبل مباراة الأهلي وسموحة.. بيراميدز في الصدارة - اليوم السابع",
+      "img": ""
+    },
     {
       "t": "⚽ إيران تشن هجمات على الكويت، والصين تدعو إلى \"هيكل أمني جديد\" للشرق الأوسط",
       "img": ""
@@ -72,14 +80,6 @@
     {
       "t": "⚽ الأرجنتين تعلن إيقاف كل مباريات الدوري عند الدقيقة 10 تكريمًا لـ«ميسي» - اليوم السابع",
       "img": ""
-    },
-    {
-      "t": "⚽ منتصر الرفاعي يتحدث عن موعد لعودة بيزيرا للقاهرة - الزمالك اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ عبد الواحد السيد يكشف رأيه في مصير بيزيرا مع الزمالك - الزمالك اليوم",
-      "img": ""
     }
   ],
   "results": [],
@@ -98,11 +98,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21827.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22028.png",
           "tv": "SSC / شاهد",
-          "hs": "0",
-          "as": "0",
+          "hs": "2",
+          "as": "1",
           "time": "06:55 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "72'"
         },
         {
           "home": "Neom SC",
@@ -114,11 +114,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/130899.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21829.png",
           "tv": "SSC / شاهد",
-          "hs": "0",
+          "hs": "3",
           "as": "0",
           "time": "07:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "HT"
         },
         {
           "home": "Al Diriyah",
@@ -127,7 +127,7 @@
           "slug": "ksa.1",
           "homeId": "131746",
           "awayId": "22022",
-          "homeLogo": "",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131746.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22022.png",
           "tv": "SSC / شاهد",
           "hs": "0",
@@ -812,24 +812,6 @@
     "الدوري السعودي": {
       "الهدافون 🏆 (الموسم الحالي)": [
         {
-          "name": "Lázaro",
-          "team": "الفيحاء",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Julien Domingues",
-          "team": "Al Kholood",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Alexandre Lacazette",
-          "team": "Neom SC",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
           "name": "Darwin Núñez",
           "team": "Al Diriyah",
           "value": "2 ⚽",
@@ -839,12 +821,6 @@
           "name": "Mateo Retegui",
           "team": "القادسية",
           "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Saleh Al-Jamaan",
-          "team": "الخليج",
-          "value": "1 ⚽",
           "face": ""
         }
       ]
@@ -916,16 +892,16 @@
   },
   "world": [
     {
+      "t": "Gabriel Martinelli leaves Arsenal for Al Hilal in £60m transfer",
+      "img": "https://a.espncdn.com/photo/2026/0825/r1706616_1296x729_16-9.jpg"
+    },
+    {
       "t": "Ange Postecoglou: Cristiano Ronaldo drew me to Al Nassr",
       "img": "https://a.espncdn.com/photo/2026/0903/r1710778_2_1296x729_16-9.jpg"
     },
     {
       "t": "Ollie Watkins scores on Al Hilal debut, says Saudi Arabia is 'Premier League quality'",
       "img": "https://a.espncdn.com/photo/2026/0902/r1710298_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Ollie Watkins departs Aston Villa, joins Saudi Pro League side Al Hilal",
-      "img": "https://a.espncdn.com/photo/2026/0521/r1661613_1296x729_16-9.jpg"
     },
     {
       "t": "Fenerbahce: Mason Greenwood, Matteo Guendouzi subject of UEFA investigation",
@@ -940,64 +916,64 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0902/dm_260902_Nicol_Spurs_have_had_the_worst_transfer_window/dm_260902_Nicol_Spurs_have_had_the_worst_transfer_window.jpg"
     },
     {
-      "t": "Transfer rumors, news: Chelsea eye ex-Liverpool star Wijnaldum",
-      "img": "https://a.espncdn.com/photo/2021/0524/r858559_1296x729_16-9.jpg"
+      "t": "Tottenham leave Richarlison out of Premier League squad amid exit talk",
+      "img": "https://a.espncdn.com/photo/2026/0903/r1710954_1296x729_16-9.jpg"
     },
     {
-      "t": "Iraola 'very happy' with Barcola ahead of potential Liverpool debut",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0903/dm_260903_COM_SOC_Presser_Iraola_very_happy_with_Barcola_ahead_of_potential_Liverpool_debut_20260903_GLO/dm_260903_COM_SOC_Presser_Iraola_very_happy_with_Barcola_ahead_of_potential_Liverpool_debut_20260903_GLO.jpg"
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0902/r1710301_1296x729_16-9.jpg"
     },
     {
-      "t": "Mike Dean admits to playing secret 'game' to not blow whistle while refereeing Premier League matches",
-      "img": "https://a.espncdn.com/photo/2023/0825/r1215267_1296x729_16-9.jpg"
+      "t": "Gabriel Martinelli leaves Arsenal for Al Hilal in £60m transfer",
+      "img": "https://a.espncdn.com/photo/2026/0825/r1706616_1296x729_16-9.jpg"
     },
     {
-      "t": "Inter Milan striker Lautaro Martínez confirms Barcelona were interested in summer move",
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0902/r1710301_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Bold predictions, 2026-27: Ballon d'Or for Olise, Brentford in Champions League",
+      "img": "https://a.espncdn.com/photo/2026/0903/r1710892_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Mourinho: There are no words to describe Messi's quality",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0903/dm_260903_Mourinho_There_are_no_words_to_describe_Messis_quality/dm_260903_Mourinho_There_are_no_words_to_describe_Messis_quality.jpg"
+    },
+    {
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0902/r1710301_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Bold predictions, 2026-27: Ballon d'Or for Olise, Brentford in Champions League",
+      "img": "https://a.espncdn.com/photo/2026/0903/r1710892_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Inter Milan striker Lautaro Martínez confirms Barcelona interest",
       "img": "https://a.espncdn.com/photo/2026/0903/r1710793_1296x729_16-9.jpg"
     },
     {
-      "t": "Real Madrid's José Mourinho pays tribute to Lionel Messi: 'A player we'll miss'",
-      "img": "https://a.espncdn.com/photo/2026/0903/r1710788_1296x729_16-9.jpg"
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0902/r1710301_1296x729_16-9.jpg"
     },
     {
-      "t": "Alternative transfer awards: Left on the shelf, best bargain hunters, top data pick, more",
-      "img": "https://a.espncdn.com/photo/2026/0826/r1707119_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Inter Milan striker Lautaro Martínez confirms Barcelona were interested in summer move",
-      "img": "https://a.espncdn.com/photo/2026/0903/r1710793_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Luka Modric not thinking about retirement: 'Try to stay in the present'",
-      "img": "https://a.espncdn.com/photo/2026/0903/r1710780_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Alternative transfer awards: Left on the shelf, best bargain hunters, top data pick, more",
-      "img": "https://a.espncdn.com/photo/2026/0826/r1707119_1296x729_16-9.jpg"
+      "t": "Bold predictions, 2026-27: Ballon d'Or for Olise, Brentford in Champions League",
+      "img": "https://a.espncdn.com/photo/2026/0903/r1710892_1296x729_16-9.jpg"
     },
     {
       "t": "Edin Džeko to retire from Bosnia-Herzegovina international duty",
       "img": "https://a.espncdn.com/photo/2026/0702/r1683543_1296x729_16-9.jpg"
     },
     {
-      "t": "Alternative transfer awards: Left on the shelf, best bargain hunters, top data pick, more",
-      "img": "https://a.espncdn.com/photo/2026/0826/r1707119_1296x729_16-9.jpg"
+      "t": "Summer transfer window: Grading big signings in men's soccer",
+      "img": "https://a.espncdn.com/photo/2026/0902/r1710301_1296x729_16-9.jpg"
     },
     {
-      "t": "Sancho, Pogba, Wijnaldum among top free agents in 2026",
-      "img": "https://a.espncdn.com/photo/2024/0114/r1277141_1296x729_16-9.jpg"
+      "t": "Luis Enrique targets third straight Champions League title with PSG",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0903/dm_260903_Luis_Enrique_targets_third_straight_Champions_League_title_with_PSG/dm_260903_Luis_Enrique_targets_third_straight_Champions_League_title_with_PSG.jpg"
     },
     {
-      "t": "Alternative transfer awards: Left on the shelf, best bargain hunters, top data pick, more",
-      "img": "https://a.espncdn.com/photo/2026/0826/r1707119_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Sancho, Pogba, Wijnaldum among top free agents in 2026",
-      "img": "https://a.espncdn.com/photo/2024/0114/r1277141_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Monaco CEO still looking for Folarin Balogun transfer after failed Everton move",
-      "img": "https://a.espncdn.com/photo/2026/0304/r1622848_1296x729_16-9.jpg"
+      "t": "Bold predictions, 2026-27: Ballon d'Or for Olise, Brentford in Champions League",
+      "img": "https://a.espncdn.com/photo/2026/0903/r1710892_1296x729_16-9.jpg"
     }
   ],
   "highlights": [],
