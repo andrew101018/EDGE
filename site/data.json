@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-04 08:18 PM",
+  "updated_at": "2026-09-04 10:45 PM",
   "news": [
+    {
+      "t": "⚽ الأهلي يتعادل سلبيًا مع تيم إف سي قبل مباراة المقاولون - صدى البلد",
+      "img": ""
+    },
+    {
+      "t": "⚽ قبل مواجهة المقاولون.. الأهلي يتعادل مع تيم إف سي وديًا - يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ الأهلي يتعادل سلبيا مع تيم إف سي وديا استعدادا للمقاولون بالدورى - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ عودة إلى الدوري.. موعد مباراة الزمالك المقبلة بعد الفوز في تمهيدي أفريقيا - يلاكورة",
+      "img": ""
+    },
     {
       "t": "⚽ ماستانتونو: حزين بسبب ميسي.. ونصيحة مورينيو وراء رحيلي عن ريال مدريد - Kooora",
       "img": ""
@@ -64,25 +80,11 @@
     {
       "t": "⚽ الونش يعود لقائمة منتخب مصر في معسكر سبتمبر بعد غياب 4 سنوات - اليوم السابع",
       "img": ""
-    },
-    {
-      "t": "⚽ 7 أساطير يتصدرون تاريخ كأس العالم مهما تغيرت الأزمنة.. بيليه يظل الملك - youm7.com",
-      "img": ""
-    },
-    {
-      "t": "⚽ تقرير: أحمد حسن ضمن أفضل 15 لاعبا دوليا في تاريخ كرة القدم - FilGoal",
-      "img": ""
-    },
-    {
-      "t": "⚽ بمجموع الانتقالات.. أغلى اللاعبين في تاريخ كرة القدم - اخبارك نت",
-      "img": ""
-    },
-    {
-      "t": "⚽ عموتة: قدمنا مباراة قوية أمام سموحة.. ونستحق الفوز بالنقاط الثلاث - youm7.com",
-      "img": ""
     }
   ],
   "results": [
+    "Abha 0 - 1 الاتفاق",
+    "Lyon 3 - 1 AJ Auxerre",
     "Al Diriyah 0 - 2 القادسية",
     "Toulouse 0 - 1 Lille",
     "Real Sociedad 0 - 0 Celta Vigo"
@@ -93,22 +95,6 @@
       "slug": "ksa.1",
       "items": [
         {
-          "home": "Abha",
-          "away": "الاتفاق",
-          "eid": "401900371",
-          "slug": "ksa.1",
-          "homeId": "21833",
-          "awayId": "8363",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21833.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8363.png",
-          "tv": "SSC / شاهد",
-          "hs": "0",
-          "as": "0",
-          "time": "07:00 PM",
-          "state": "in",
-          "detail": "59'"
-        },
-        {
           "home": "الأهلي السعودي",
           "away": "Al Riyadh",
           "eid": "401900369",
@@ -118,11 +104,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8346.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21965.png",
           "tv": "SSC / شاهد",
-          "hs": "0",
+          "hs": "4",
           "as": "0",
           "time": "09:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "82'"
         },
         {
           "home": "الشباب",
@@ -135,10 +121,26 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/929.png",
           "tv": "SSC / شاهد",
           "hs": "0",
-          "as": "0",
+          "as": "1",
           "time": "09:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "82'"
+        },
+        {
+          "home": "Abha",
+          "away": "الاتفاق",
+          "eid": "401900371",
+          "slug": "ksa.1",
+          "homeId": "21833",
+          "awayId": "8363",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21833.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8363.png",
+          "tv": "SSC / شاهد",
+          "hs": "0",
+          "as": "1",
+          "time": "07:00 PM",
+          "state": "post",
+          "detail": "FT"
         }
       ],
       "big": true
@@ -158,10 +160,10 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "0",
+          "as": "2",
           "time": "10:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "45'"
         }
       ],
       "big": true
@@ -183,8 +185,31 @@
           "hs": "0",
           "as": "0",
           "time": "10:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "43'"
+        }
+      ],
+      "big": true
+    },
+    {
+      "league": "الدوري الإيطالي",
+      "slug": "ita.1",
+      "items": [
+        {
+          "home": "Genoa",
+          "away": "Como",
+          "eid": "401874744",
+          "slug": "ita.1",
+          "homeId": "3263",
+          "awayId": "2572",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3263.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
+          "tv": "beIN Sports",
+          "hs": "1",
+          "as": "3",
+          "time": "09:45 PM",
+          "state": "in",
+          "detail": "HT"
         }
       ],
       "big": true
@@ -203,11 +228,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/122.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "0",
           "time": "09:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "55'"
         }
       ],
       "big": true
@@ -216,22 +241,6 @@
       "league": "الدوري الفرنسي",
       "slug": "fra.1",
       "items": [
-        {
-          "home": "Lyon",
-          "away": "AJ Auxerre",
-          "eid": "401876472",
-          "slug": "fra.1",
-          "homeId": "167",
-          "awayId": "172",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/167.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/172.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "08:00 PM",
-          "state": "in",
-          "detail": "18'"
-        },
         {
           "home": "باريس سان جيرمان",
           "away": "AS Monaco",
@@ -242,11 +251,27 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/174.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "0",
           "time": "10:05 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "40'"
+        },
+        {
+          "home": "Lyon",
+          "away": "AJ Auxerre",
+          "eid": "401876472",
+          "slug": "fra.1",
+          "homeId": "167",
+          "awayId": "172",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/167.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/172.png",
+          "tv": "beIN Sports",
+          "hs": "3",
+          "as": "1",
+          "time": "08:00 PM",
+          "state": "post",
+          "detail": "FT"
         }
       ],
       "big": true
@@ -306,6 +331,16 @@
       },
       {
         "rank": 6,
+        "team": "الاتفاق",
+        "logo": "",
+        "gp": 5.0,
+        "w": 3.0,
+        "d": 0.0,
+        "l": 2.0,
+        "pts": 9.0
+      },
+      {
+        "rank": 7,
         "team": "الاتحاد",
         "logo": "",
         "gp": 4.0,
@@ -315,7 +350,7 @@
         "pts": 8.0
       },
       {
-        "rank": 7,
+        "rank": 8,
         "team": "Al Diriyah",
         "logo": "",
         "gp": 5.0,
@@ -323,16 +358,6 @@
         "d": 1.0,
         "l": 2.0,
         "pts": 7.0
-      },
-      {
-        "rank": 8,
-        "team": "الأهلي السعودي",
-        "logo": "",
-        "gp": 4.0,
-        "w": 2.0,
-        "d": 0.0,
-        "l": 2.0,
-        "pts": 6.0
       }
     ],
     "دوري أبطال أوروبا": [
@@ -748,7 +773,7 @@
     "الدوري الفرنسي": [
       {
         "rank": 1,
-        "team": "Lille",
+        "team": "Lyon",
         "logo": "",
         "gp": 3.0,
         "w": 2.0,
@@ -758,6 +783,16 @@
       },
       {
         "rank": 2,
+        "team": "Lille",
+        "logo": "",
+        "gp": 3.0,
+        "w": 2.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 7.0
+      },
+      {
+        "rank": 3,
         "team": "AS Monaco",
         "logo": "",
         "gp": 2.0,
@@ -767,18 +802,8 @@
         "pts": 6.0
       },
       {
-        "rank": 3,
-        "team": "Paris FC",
-        "logo": "",
-        "gp": 2.0,
-        "w": 1.0,
-        "d": 1.0,
-        "l": 0.0,
-        "pts": 4.0
-      },
-      {
         "rank": 4,
-        "team": "Lyon",
+        "team": "Paris FC",
         "logo": "",
         "gp": 2.0,
         "w": 1.0,
@@ -828,100 +853,7 @@
       }
     ]
   },
-  "leaders": {
-    "الدوري السعودي": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Ivan Toney",
-          "team": "الأهلي السعودي",
-          "value": "4 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Teddy Okou",
-          "team": "Al Riyadh",
-          "value": "3 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Sergej Milinkovic-Savic",
-          "team": "الهلال",
-          "value": "3 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Yannick Carrasco",
-          "team": "الشباب",
-          "value": "2 ⚽",
-          "face": ""
-        }
-      ]
-    },
-    "الدوري الإنجليزي": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Leif Davis",
-          "team": "Ipswich Town",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Alexander Isak",
-          "team": "ليفربول",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    },
-    "الدوري الإسباني": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Kylian Mbappé",
-          "team": "ريال مدريد",
-          "value": "4 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Rodrigo Riquelme",
-          "team": "Real Betis",
-          "value": "2 ⚽",
-          "face": ""
-        }
-      ]
-    },
-    "الدوري الألماني": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Thijs Dallinga",
-          "team": "FC Cologne",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Josha Vagnoman",
-          "team": "VfB Stuttgart",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    },
-    "الدوري الفرنسي": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Ferran Torres",
-          "team": "باريس سان جيرمان",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Paris Brunner",
-          "team": "AS Monaco",
-          "value": "2 ⚽",
-          "face": ""
-        }
-      ]
-    }
-  },
+  "leaders": {},
   "world": [
     {
       "t": "Al Ettifaq's Mohau Nkota returns to Orlando Pirates on season-long loan",
@@ -948,8 +880,8 @@
       "img": "https://a.espncdn.com/photo/2026/0903/r1711100_1296x729_16-9.jpg"
     },
     {
-      "t": "Premier League LIVE updates: Ipswich Town host Liverpool in Friday night clash",
-      "img": "https://a.espncdn.com/photo/2026/0903/r1711033_1296x729_16-9.jpg"
+      "t": "Premier League live updates: Isak brace gives Liverpool early lead over Ipswich",
+      "img": "https://a.espncdn.com/photo/2026/0904/r1711431_1296x729_16-9.jpg"
     },
     {
       "t": "Arteta backs Arsenal's transfer window: 'I love my players'",
@@ -972,16 +904,16 @@
       "img": "https://a.espncdn.com/photo/2026/0902/r1710301_1296x729_16-9.jpg"
     },
     {
+      "t": "Napoli boss Allegri returns to Milan vs. title 'favorites' Inter",
+      "img": "https://a.espncdn.com/photo/2026/0904/r1711401_1296x729_16-9.jpg"
+    },
+    {
       "t": "Weekend predictions: Arsenal take on Chelsea in a London derby, can PSG bounce back?",
       "img": "https://a.espncdn.com/photo/2026/0903/r1710963_1296x729_16-9.jpg"
     },
     {
       "t": "Summer transfer window: Grading big signings in men's soccer",
       "img": "https://a.espncdn.com/photo/2026/0902/r1710301_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Bold predictions, 2026-27: Ballon d'Or for Olise, Brentford in Champions League",
-      "img": "https://a.espncdn.com/photo/2026/0903/r1710892_1296x729_16-9.jpg"
     },
     {
       "t": "Bayern 'know how to deal with' Jamal Musiala seizures - Vincent Kompany",
