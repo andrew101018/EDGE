@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-04 04:38 PM",
+  "updated_at": "2026-09-04 08:18 PM",
   "news": [
+    {
+      "t": "⚽ ماستانتونو: حزين بسبب ميسي.. ونصيحة مورينيو وراء رحيلي عن ريال مدريد - Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ عاجل.. تشكيل الزمالك أمام بطل جيبوتي في بداية مشوار دوري ابطال افريقيا - الزمالك اليوم",
+      "img": ""
+    },
+    {
+      "t": "⚽ الزمالك يصل استاد القاهرة لمواجهة بطل جيبوتي فى دوري أبطال أفريقيا - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ تدوير بين الحراس.. مصدر ليلا كورة: صبحي أساسيًا أمام بطل جيبوتي واستبعاد عواد ومهدي - يلاكورة",
+      "img": ""
+    },
     {
       "t": "⚽ لاعب الزمالك السابق يعلق على تألق حسام أشرف - الزمالك اليوم",
       "img": ""
@@ -64,22 +80,6 @@
     {
       "t": "⚽ عموتة: قدمنا مباراة قوية أمام سموحة.. ونستحق الفوز بالنقاط الثلاث - youm7.com",
       "img": ""
-    },
-    {
-      "t": "⚽ تقرير للفيفا : الانفاق العالمي في سوق انتقالات اللاعبين تجاوز الـ 9.89 مليار دولار وإنجلترا تصدرت ",
-      "img": ""
-    },
-    {
-      "t": "⚽ الزمالك يوضح حقيقة التفريط فى موهبة 2008 بعد معايشة بنفيكا - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ موقف حمزة؟ برشلونة يعلن قائمته الأوروبية.. ويستبعد ضحية يامال - Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ باللون الأسود.. الزمالك يعلن عن قميصه الثاني للموسم الجديد 2026 - 2027 - يلاكورة",
-      "img": ""
     }
   ],
   "results": [
@@ -105,8 +105,8 @@
           "hs": "0",
           "as": "0",
           "time": "07:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "59'"
         },
         {
           "home": "الأهلي السعودي",
@@ -229,8 +229,8 @@
           "hs": "0",
           "as": "0",
           "time": "08:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "18'"
         },
         {
           "home": "باريس سان جيرمان",
@@ -838,12 +838,6 @@
           "face": ""
         },
         {
-          "name": "Moussa Dembélé",
-          "team": "الاتفاق",
-          "value": "3 ⚽",
-          "face": ""
-        },
-        {
           "name": "Teddy Okou",
           "team": "Al Riyadh",
           "value": "3 ⚽",
@@ -859,12 +853,6 @@
           "name": "Yannick Carrasco",
           "team": "الشباب",
           "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Koshaim Al Karani",
-          "team": "Abha",
-          "value": "1 ⚽",
           "face": ""
         }
       ]
@@ -930,18 +918,6 @@
           "team": "AS Monaco",
           "value": "2 ⚽",
           "face": ""
-        },
-        {
-          "name": "Noah Nartey",
-          "team": "Lyon",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Lamine Sy",
-          "team": "AJ Auxerre",
-          "value": "1 ⚽",
-          "face": ""
         }
       ]
     }
@@ -972,16 +948,16 @@
       "img": "https://a.espncdn.com/photo/2026/0903/r1711100_1296x729_16-9.jpg"
     },
     {
-      "t": "Maresca: Enzo Fernandez is 'a winner'",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0904/dm_260904_Maresca_Enzo_Fernandez_is_a_winner/dm_260904_Maresca_Enzo_Fernandez_is_a_winner.jpg"
+      "t": "Premier League LIVE updates: Ipswich Town host Liverpool in Friday night clash",
+      "img": "https://a.espncdn.com/photo/2026/0903/r1711033_1296x729_16-9.jpg"
     },
     {
-      "t": "Man United 'made the most' of money available with transfers - Michael Carrick",
-      "img": "https://a.espncdn.com/photo/2026/0904/r1711293_1296x729_16-9.jpg"
+      "t": "Arteta backs Arsenal's transfer window: 'I love my players'",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0904/dm_260904_Arteta_backs_Arsenals_transfer_window_I_love_my_players/dm_260904_Arteta_backs_Arsenals_transfer_window_I_love_my_players.jpg"
     },
     {
-      "t": "Yankuba Minteh can 'fulfil his dream' next year after Liverpool bid rejected - Brighton boss",
-      "img": "https://a.espncdn.com/photo/2026/0904/r1711270_1296x729_16-9.jpg"
+      "t": "Alonso calls for Chelsea to 'move forward' after Fernandez's departure",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0904/dm_260904_COM_SOC_Presser_Alonso_calls_for_Chelsea_to_move_forward_after_Fernandezs_departure__20260904/dm_260904_COM_SOC_Presser_Alonso_calls_for_Chelsea_to_move_forward_after_Fernandezs_departure__20260904.jpg"
     },
     {
       "t": "Real Sociedad vs. Celta Vigo - Game Highlights",
