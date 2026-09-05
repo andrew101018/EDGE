@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-05 02:20 PM",
+  "updated_at": "2026-09-05 04:57 PM",
   "news": [
+    {
+      "t": "⚽ منتخب مصر لكرة القدم للساق الواحدة يتوج ببطولة روسيا الدولية - بوابة الشروق",
+      "img": ""
+    },
+    {
+      "t": "⚽ \"رياضة قذرة!\" .. لويس إنريكي ينفجر بعد سقوط باريس سان جيرمان من جديد - Goal.com",
+      "img": ""
+    },
+    {
+      "t": "⚽ فليك: من شاهد خسارة ريال مدريد سيدرك هذه الحقيقة - Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ بالأسماء وأرقام القمصان.. يلا كورة يكشف 33 لاعبا في قائمة الزمالك لدوري أبطال أفريقيا (صور) - يلاك",
+      "img": ""
+    },
     {
       "t": "⚽ قدم بارترا تحسم قرار الإعادة.. ماذا يقول القانون في ركلة جزاء مبابي؟ - Kooora",
       "img": ""
@@ -64,25 +80,10 @@
     {
       "t": "⚽ عمر كمال: رفضت عرضا من بيراميدز بـ80 مليون جنيه.. و«اللى عند الأهلى مبيروحش» - اليوم السابع",
       "img": ""
-    },
-    {
-      "t": "⚽ فرج عامر يطالب الأهلي بضم حارس القناة: مستقبل مصر - صدى البلد",
-      "img": ""
-    },
-    {
-      "t": "⚽ عمر كمال: هذا موقفي من الانضمام لـ الزمالك.. وعموتة عاملني بطريقة سيئة - FilGoal",
-      "img": ""
-    },
-    {
-      "t": "⚽ الأهلي يتعادل سلبيًا مع تيم إف سي قبل مباراة المقاولون - صدى البلد",
-      "img": ""
-    },
-    {
-      "t": "⚽ قبل مواجهة المقاولون.. الأهلي يتعادل مع تيم إف سي وديًا - يلاكورة",
-      "img": ""
     }
   ],
   "results": [
+    "نيوكاسل 2 - 2 AFC Bournemouth",
     "الشباب 0 - 2 الهلال",
     "الأهلي السعودي 5 - 0 Al Riyadh",
     "باريس سان جيرمان 1 - 2 AS Monaco",
@@ -145,11 +146,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/361.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/349.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "2",
+          "as": "2",
           "time": "02:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "Brentford",
@@ -306,8 +307,8 @@
           "hs": "0",
           "as": "0",
           "time": "04:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "HT"
         },
         {
           "home": "Internazionale",
@@ -342,11 +343,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/598.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "0",
           "time": "04:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "27'"
         },
         {
           "home": "Borussia Mönchengladbach",
@@ -358,11 +359,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/268.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10388.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "0",
           "time": "04:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "25'"
         },
         {
           "home": "SC Paderborn 07",
@@ -377,8 +378,8 @@
           "hs": "0",
           "as": "0",
           "time": "04:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "27'"
         },
         {
           "home": "TSG Hoffenheim",
@@ -393,8 +394,8 @@
           "hs": "0",
           "as": "0",
           "time": "04:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "27'"
         },
         {
           "home": "Werder Bremen",
@@ -406,11 +407,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/137.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11420.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "0",
           "time": "04:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "25'"
         }
       ],
       "big": true
@@ -689,17 +690,17 @@
       },
       {
         "rank": 6,
-        "team": "Brentford",
+        "team": "نيوكاسل",
         "logo": "",
-        "gp": 2.0,
+        "gp": 3.0,
         "w": 1.0,
-        "d": 1.0,
+        "d": 2.0,
         "l": 0.0,
-        "pts": 4.0
+        "pts": 5.0
       },
       {
         "rank": 7,
-        "team": "نيوكاسل",
+        "team": "Brentford",
         "logo": "",
         "gp": 2.0,
         "w": 1.0,
@@ -1079,12 +1080,6 @@
     "الدوري الإنجليزي": {
       "الهدافون 🏆 (الموسم الحالي)": [
         {
-          "name": "Anthony Elanga",
-          "team": "نيوكاسل",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
           "name": "Jack Hinshelwood",
           "team": "Brighton & Hove Albion",
           "value": "2 ⚽",
@@ -1094,12 +1089,6 @@
           "name": "Erling Haaland",
           "team": "مانشستر سيتي",
           "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Marcus Tavernier",
-          "team": "AFC Bournemouth",
-          "value": "1 ⚽",
           "face": ""
         },
         {
@@ -1189,66 +1178,8 @@
           "face": ""
         },
         {
-          "name": "Pietro Comuzzo",
-          "team": "Torino",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
           "name": "Rasmus Højlund",
           "team": "نابولي",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    },
-    "الدوري الألماني": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Yuito Suzuki",
-          "team": "SC Freiburg",
-          "value": "3 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Patrik Schick",
-          "team": "Bayer Leverkusen",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Leopold Querfeld",
-          "team": "1. FC Union Berlin",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Lukas Petkov",
-          "team": "SV Elversberg",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Ozan Kabak",
-          "team": "TSG Hoffenheim",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Serhou Guirassy",
-          "team": "بوروسيا دورتموند",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Dariusz Stalmach",
-          "team": "Werder Bremen",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Antonio Nusa",
-          "team": "RB Leipzig",
           "value": "1 ⚽",
           "face": ""
         }
@@ -1291,16 +1222,16 @@
   },
   "world": [
     {
+      "t": "Liverpool sporting director Richard Hughes steps down",
+      "img": "https://a.espncdn.com/photo/2026/0905/r1711693_1296x729_16-9.jpg"
+    },
+    {
       "t": "Al Ettifaq's Mohau Nkota returns to Orlando Pirates on season-long loan",
       "img": "https://a.espncdn.com/photo/2026/0417/r1645012_1296x729_16-9.jpg"
     },
     {
       "t": "Gabriel Martinelli leaves Arsenal for Al Hilal in £60m transfer",
       "img": "https://a.espncdn.com/photo/2026/0825/r1706616_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Ange Postecoglou: Cristiano Ronaldo drew me to Al Nassr",
-      "img": "https://a.espncdn.com/photo/2026/0903/r1710778_2_1296x729_16-9.jpg"
     },
     {
       "t": "PSG give coach Luis Enrique, 5 players new contracts",
@@ -1315,28 +1246,28 @@
       "img": "https://a.espncdn.com/photo/2024/1113/r1414195_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer rumors, news: Arsenal set to sign teenage Georgian midfielder",
-      "img": "https://a.espncdn.com/photo/2026/0905/r1711684_1296x729_16-9.jpg"
+      "t": "Premier League live updates: Newcastle, Bournemouth draw; Man City up next",
+      "img": "https://a.espncdn.com/photo/2026/0905/r1711701_1296x729_16-9.jpg"
     },
     {
-      "t": "Iraola 'pleased' to secure first Liverpool win",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0905/dm_260905_Iraola_pleased_to_secure_first_Liverpool_win/dm_260905_Iraola_pleased_to_secure_first_Liverpool_win.jpg"
+      "t": "Jacob Ramsey scores last-gasp equaliser to salvage a point for Newcastle, Bournemouth drop points from winning position again",
+      "img": "https://a.espncdn.com/photo/2026/0905/r1711732_1296x729_16-9.jpg"
     },
     {
-      "t": "Premier League live updates: Newcastle host Bournemouth",
-      "img": "https://a.espncdn.com/photo/2026/0905/r1711685_1296x729_16-9.jpg"
+      "t": "Liverpool boss Andoni Iraola says Bradley Barcola is 'in a good place' but patience will help",
+      "img": "https://a.espncdn.com/photo/2026/0905/r1711713_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Raphinha appointed Barcelona captain, first Brazilian to hold the role",
+      "img": "https://a.espncdn.com/photo/2026/0905/r1711720_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Flick admits Yamal is a doubt for Barcelona vs. Valencia",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0905/dm_260905_Flick_admits_Yamal_is_a_doubt_for_Barcelona_vs_Valencia/dm_260905_Flick_admits_Yamal_is_a_doubt_for_Barcelona_vs_Valencia.jpg"
     },
     {
       "t": "Barcelona's Yamal hits 50 goals! When did Messi, Ronaldo, Mbappé, Haaland reach half-centuries?",
       "img": "https://a.espncdn.com/photo/2026/0904/r1711266_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Real Betis vs. Real Madrid - Game Highlights",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0904/ss_20260904_204059701_36470181267/ss_20260904_204059701_36470181267.jpg"
-    },
-    {
-      "t": "José Mourinho can't explain shock Real Madrid loss at Betis",
-      "img": "https://a.espncdn.com/photo/2026/0904/r1711535_1296x729_16-9.jpg"
     },
     {
       "t": "Napoli boss Allegri returns to Milan vs. title 'favorites' Inter",
