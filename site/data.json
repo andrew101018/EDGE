@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-05 05:10 AM",
+  "updated_at": "2026-09-05 10:01 AM",
   "news": [
+    {
+      "t": "⚽ «غياب بيزيرا جيه في صالحه».. رضا عبدالعال يتغنى بـ نجم الزمالك - المصري اليوم",
+      "img": ""
+    },
+    {
+      "t": "⚽ بيليجريني: الريال لا يستحق التعادل معنا.. وعاقبنا فريق مورينيو بنقطة قوته - Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ «عك وخنقونا.. متعش الدور إنك لعيب كورة».. هجوم ناري من رضا عبدالعال ضد ثنائي الزمالك - المصري اليو",
+      "img": ""
+    },
+    {
+      "t": "⚽ حسام حسن يستقر على قائمة المحترفين لمعسكر منتخب مصر فى سبتمبر - اليوم السابع",
+      "img": ""
+    },
     {
       "t": "⚽ موعد مباراتي منتخب مصر أمام أنجولا وجنوب السودان فى تصفيات أمم أفريقيا - اليوم السابع",
       "img": ""
@@ -63,22 +79,6 @@
     },
     {
       "t": "⚽ عاجل.. تشكيل الزمالك أمام بطل جيبوتي في بداية مشوار دوري ابطال افريقيا - الزمالك اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ الزمالك يصل استاد القاهرة لمواجهة بطل جيبوتي فى دوري أبطال أفريقيا - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ تدوير بين الحراس.. مصدر ليلا كورة: صبحي أساسيًا أمام بطل جيبوتي واستبعاد عواد ومهدي - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ لاعب الزمالك السابق يعلق على تألق حسام أشرف - الزمالك اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ هل تحرر صلاح من القيود؟ رحلة 14 عاما بين \"المينتاليتي\" واستنشاق هواء مصر - يلاكورة",
       "img": ""
     }
   ],
@@ -221,20 +221,84 @@
       "slug": "ger.1",
       "items": [
         {
-          "home": "VfB Stuttgart",
-          "away": "FC Cologne",
-          "eid": "401884808",
+          "home": "Bayer Leverkusen",
+          "away": "1. FC Union Berlin",
+          "eid": "401884806",
           "slug": "ger.1",
-          "homeId": "134",
-          "awayId": "122",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/122.png",
+          "homeId": "131",
+          "awayId": "598",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/598.png",
           "tv": "beIN Sports",
-          "hs": "4",
-          "as": "1",
-          "time": "09:30 PM",
-          "state": "post",
-          "detail": "FT"
+          "hs": "0",
+          "as": "0",
+          "time": "04:30 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Borussia Mönchengladbach",
+          "away": "SV Elversberg",
+          "eid": "401884804",
+          "slug": "ger.1",
+          "homeId": "268",
+          "awayId": "10388",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/268.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10388.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "04:30 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "SC Paderborn 07",
+          "away": "SC Freiburg",
+          "eid": "401884800",
+          "slug": "ger.1",
+          "homeId": "3307",
+          "awayId": "126",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3307.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/126.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "04:30 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "TSG Hoffenheim",
+          "away": "بوروسيا دورتموند",
+          "eid": "401884807",
+          "slug": "ger.1",
+          "homeId": "7911",
+          "awayId": "124",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7911.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/124.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "04:30 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Werder Bremen",
+          "away": "RB Leipzig",
+          "eid": "401884802",
+          "slug": "ger.1",
+          "homeId": "137",
+          "awayId": "11420",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/137.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11420.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "04:30 PM",
+          "state": "pre",
+          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -855,7 +919,60 @@
       }
     ]
   },
-  "leaders": {},
+  "leaders": {
+    "الدوري الألماني": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Yuito Suzuki",
+          "team": "SC Freiburg",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Patrik Schick",
+          "team": "Bayer Leverkusen",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Leopold Querfeld",
+          "team": "1. FC Union Berlin",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Lukas Petkov",
+          "team": "SV Elversberg",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Ozan Kabak",
+          "team": "TSG Hoffenheim",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Serhou Guirassy",
+          "team": "بوروسيا دورتموند",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Dariusz Stalmach",
+          "team": "Werder Bremen",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Antonio Nusa",
+          "team": "RB Leipzig",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    }
+  },
   "world": [
     {
       "t": "Al Ettifaq's Mohau Nkota returns to Orlando Pirates on season-long loan",
