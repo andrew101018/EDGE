@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-05 04:57 PM",
+  "updated_at": "2026-09-05 07:29 PM",
   "news": [
+    {
+      "t": "⚽ إنفانتينو يتجاهل الحديث عن مستقبله في رئاسة الفيفا - صدى البلد",
+      "img": ""
+    },
+    {
+      "t": "⚽ وسط الجدل.. إنفانتينو يتلقى دعمًا أفريقيًا يغيّر حسابات انتخابات \"فيفا\" - Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ محمد صلاح يشارك فى تدريبات طرابزون سبور بكرة القدم الأمريكية.. صور - youm7.com",
+      "img": ""
+    },
+    {
+      "t": "⚽ تحت قيادة عموتة.. 14 لاعبًا ينتظرون مشاركتهم الأولى مع الأهلي في الموسم الجديد (صور) - yallakora.c",
+      "img": ""
+    },
     {
       "t": "⚽ منتخب مصر لكرة القدم للساق الواحدة يتوج ببطولة روسيا الدولية - بوابة الشروق",
       "img": ""
@@ -64,33 +80,19 @@
     {
       "t": "⚽ ستوري نجوم كرة القدم.. الحضري في الجيم.. محمد صلاح وابنته.. إمام عاشور وزيدان - Masrawy",
       "img": ""
-    },
-    {
-      "t": "⚽ رئيس الشباب: رياض محرز مكسب لكرة القدم السعودية... سنرى ما يحدث خلال 48 ساعة - aawsat.com",
-      "img": ""
-    },
-    {
-      "t": "⚽ تعليق أيمن يونس على فوز الزمالك على بطل جيبوتى .. وإنتقاد لهذا اللاعب - الزمالك اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ صبحي عبد السلام يحذر إدارة الزمالك من تسهيل انتقال هؤلاء إلى الأهلي - الزمالك اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ عمر كمال: رفضت عرضا من بيراميدز بـ80 مليون جنيه.. و«اللى عند الأهلى مبيروحش» - اليوم السابع",
-      "img": ""
     }
   ],
   "results": [
+    "مانشستر سيتي 1 - 0 Coventry City",
+    "Fulham 2 - 3 Crystal Palace",
+    "Brighton & Hove Albion 1 - 1 Leeds United",
+    "Brentford 1 - 1 Sunderland",
     "نيوكاسل 2 - 2 AFC Bournemouth",
     "الشباب 0 - 2 الهلال",
     "الأهلي السعودي 5 - 0 Al Riyadh",
     "باريس سان جيرمان 1 - 2 AS Monaco",
     "VfB Stuttgart 4 - 1 FC Cologne",
-    "Genoa 1 - 4 Como",
-    "Real Betis 1 - 0 ريال مدريد",
-    "Ipswich Town 0 - 2 ليفربول"
+    "Genoa 1 - 4 Como"
   ],
   "matches": [
     {
@@ -110,8 +112,8 @@
           "hs": "0",
           "as": "0",
           "time": "06:50 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "39'"
         },
         {
           "home": "التعاون",
@@ -126,8 +128,8 @@
           "hs": "0",
           "as": "0",
           "time": "06:55 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "35'"
         }
       ],
       "big": true
@@ -162,11 +164,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/337.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/366.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "1",
+          "as": "1",
           "time": "05:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "Brighton & Hove Albion",
@@ -178,11 +180,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/331.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/357.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "1",
+          "as": "1",
           "time": "05:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "Fulham",
@@ -194,11 +196,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/370.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/384.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "2",
+          "as": "3",
           "time": "05:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "مانشستر سيتي",
@@ -210,11 +212,27 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/388.png",
           "tv": "beIN Sports",
+          "hs": "1",
+          "as": "0",
+          "time": "05:00 PM",
+          "state": "post",
+          "detail": "FT"
+        },
+        {
+          "home": "Nottingham Forest",
+          "away": "توتنهام",
+          "eid": "401878780",
+          "slug": "eng.1",
+          "homeId": "393",
+          "awayId": "367",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/393.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/367.png",
+          "tv": "beIN Sports",
           "hs": "0",
           "as": "0",
           "time": "05:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "Hull City",
@@ -249,11 +267,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/93.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "3",
           "as": "0",
           "time": "05:15 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "Rayo Vallecano",
@@ -295,22 +313,6 @@
       "slug": "ita.1",
       "items": [
         {
-          "home": "Fiorentina",
-          "away": "Torino",
-          "eid": "401874939",
-          "slug": "ita.1",
-          "homeId": "109",
-          "awayId": "239",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/109.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/239.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "04:00 PM",
-          "state": "in",
-          "detail": "HT"
-        },
-        {
           "home": "Internazionale",
           "away": "نابولي",
           "eid": "401874937",
@@ -323,8 +325,24 @@
           "hs": "0",
           "as": "0",
           "time": "07:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "29'"
+        },
+        {
+          "home": "Fiorentina",
+          "away": "Torino",
+          "eid": "401874939",
+          "slug": "ita.1",
+          "homeId": "109",
+          "awayId": "239",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/109.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/239.png",
+          "tv": "beIN Sports",
+          "hs": "1",
+          "as": "2",
+          "time": "04:00 PM",
+          "state": "post",
+          "detail": "FT"
         }
       ],
       "big": true
@@ -343,11 +361,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/598.png",
           "tv": "beIN Sports",
-          "hs": "1",
+          "hs": "4",
           "as": "0",
           "time": "04:30 PM",
-          "state": "in",
-          "detail": "27'"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "Borussia Mönchengladbach",
@@ -359,11 +377,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/268.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10388.png",
           "tv": "beIN Sports",
-          "hs": "1",
-          "as": "0",
+          "hs": "3",
+          "as": "4",
           "time": "04:30 PM",
-          "state": "in",
-          "detail": "25'"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "SC Paderborn 07",
@@ -376,10 +394,10 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/126.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "0",
+          "as": "1",
           "time": "04:30 PM",
-          "state": "in",
-          "detail": "27'"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "TSG Hoffenheim",
@@ -391,11 +409,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7911.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/124.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "2",
+          "as": "3",
           "time": "04:30 PM",
-          "state": "in",
-          "detail": "27'"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "Werder Bremen",
@@ -407,11 +425,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/137.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11420.png",
           "tv": "beIN Sports",
-          "hs": "1",
-          "as": "0",
+          "hs": "3",
+          "as": "1",
           "time": "04:30 PM",
-          "state": "in",
-          "detail": "25'"
+          "state": "post",
+          "detail": "FT"
         }
       ],
       "big": true
@@ -431,10 +449,10 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/273.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "0",
+          "as": "1",
           "time": "06:15 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "57'"
         },
         {
           "home": "Le Havre AC",
@@ -642,11 +660,11 @@
         "rank": 1,
         "team": "مانشستر سيتي",
         "logo": "",
-        "gp": 2.0,
-        "w": 2.0,
+        "gp": 3.0,
+        "w": 3.0,
         "d": 0.0,
         "l": 0.0,
-        "pts": 6.0
+        "pts": 9.0
       },
       {
         "rank": 2,
@@ -680,7 +698,7 @@
       },
       {
         "rank": 5,
-        "team": "ليفربول",
+        "team": "Brentford",
         "logo": "",
         "gp": 3.0,
         "w": 1.0,
@@ -690,7 +708,7 @@
       },
       {
         "rank": 6,
-        "team": "نيوكاسل",
+        "team": "ليفربول",
         "logo": "",
         "gp": 3.0,
         "w": 1.0,
@@ -700,23 +718,23 @@
       },
       {
         "rank": 7,
-        "team": "Brentford",
+        "team": "نيوكاسل",
         "logo": "",
-        "gp": 2.0,
+        "gp": 3.0,
         "w": 1.0,
-        "d": 1.0,
+        "d": 2.0,
         "l": 0.0,
-        "pts": 4.0
+        "pts": 5.0
       },
       {
         "rank": 8,
-        "team": "Everton",
+        "team": "Leeds United",
         "logo": "",
-        "gp": 2.0,
+        "gp": 3.0,
         "w": 1.0,
-        "d": 1.0,
+        "d": 2.0,
         "l": 0.0,
-        "pts": 4.0
+        "pts": 5.0
       }
     ],
     "الدوري الإسباني": [
@@ -752,16 +770,6 @@
       },
       {
         "rank": 4,
-        "team": "أتلتيكو مدريد",
-        "logo": "",
-        "gp": 3.0,
-        "w": 2.0,
-        "d": 1.0,
-        "l": 0.0,
-        "pts": 7.0
-      },
-      {
-        "rank": 5,
         "team": "Alavés",
         "logo": "",
         "gp": 3.0,
@@ -771,7 +779,7 @@
         "pts": 7.0
       },
       {
-        "rank": 6,
+        "rank": 5,
         "team": "Osasuna",
         "logo": "",
         "gp": 3.0,
@@ -781,7 +789,27 @@
         "pts": 7.0
       },
       {
+        "rank": 6,
+        "team": "أتلتيكو مدريد",
+        "logo": "",
+        "gp": 4.0,
+        "w": 2.0,
+        "d": 1.0,
+        "l": 1.0,
+        "pts": 7.0
+      },
+      {
         "rank": 7,
+        "team": "Athletic Club",
+        "logo": "",
+        "gp": 4.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 2.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 8,
         "team": "Sevilla",
         "logo": "",
         "gp": 3.0,
@@ -789,16 +817,6 @@
         "d": 0.0,
         "l": 1.0,
         "pts": 6.0
-      },
-      {
-        "rank": 8,
-        "team": "Deportivo",
-        "logo": "",
-        "gp": 3.0,
-        "w": 1.0,
-        "d": 2.0,
-        "l": 0.0,
-        "pts": 5.0
       }
     ],
     "الدوري الإيطالي": [
@@ -886,6 +904,36 @@
     "الدوري الألماني": [
       {
         "rank": 1,
+        "team": "SC Freiburg",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 2,
+        "team": "بوروسيا دورتموند",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 3,
+        "team": "SV Elversberg",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 4,
         "team": "بايرن ميونخ",
         "logo": "",
         "gp": 1.0,
@@ -895,17 +943,17 @@
         "pts": 3.0
       },
       {
-        "rank": 2,
-        "team": "SC Freiburg",
+        "rank": 5,
+        "team": "Bayer Leverkusen",
         "logo": "",
-        "gp": 1.0,
+        "gp": 2.0,
         "w": 1.0,
         "d": 0.0,
-        "l": 0.0,
+        "l": 1.0,
         "pts": 3.0
       },
       {
-        "rank": 3,
+        "rank": 6,
         "team": "FC Augsburg",
         "logo": "",
         "gp": 1.0,
@@ -915,38 +963,8 @@
         "pts": 3.0
       },
       {
-        "rank": 4,
-        "team": "RB Leipzig",
-        "logo": "",
-        "gp": 1.0,
-        "w": 1.0,
-        "d": 0.0,
-        "l": 0.0,
-        "pts": 3.0
-      },
-      {
-        "rank": 5,
-        "team": "بوروسيا دورتموند",
-        "logo": "",
-        "gp": 1.0,
-        "w": 1.0,
-        "d": 0.0,
-        "l": 0.0,
-        "pts": 3.0
-      },
-      {
-        "rank": 6,
-        "team": "SV Elversberg",
-        "logo": "",
-        "gp": 1.0,
-        "w": 1.0,
-        "d": 0.0,
-        "l": 0.0,
-        "pts": 3.0
-      },
-      {
         "rank": 7,
-        "team": "VfB Stuttgart",
+        "team": "RB Leipzig",
         "logo": "",
         "gp": 2.0,
         "w": 1.0,
@@ -956,7 +974,7 @@
       },
       {
         "rank": 8,
-        "team": "FC Cologne",
+        "team": "VfB Stuttgart",
         "logo": "",
         "gp": 2.0,
         "w": 1.0,
@@ -1049,78 +1067,8 @@
     ]
   },
   "leaders": {
-    "الدوري السعودي": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Abdulaziz Aldhuwayhi",
-          "team": "Al Hazem",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Abderrazak Hamdallah",
-          "team": "التعاون",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Alexandre Mendy",
-          "team": "Al-Faisaly",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Lukás Haraslín",
-          "team": "الفتح",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    },
     "الدوري الإنجليزي": {
       "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Jack Hinshelwood",
-          "team": "Brighton & Hove Albion",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Erling Haaland",
-          "team": "مانشستر سيتي",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Vitaly Janelt",
-          "team": "Brentford",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Nilson Angulo",
-          "team": "Sunderland",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Dominic Calvert-Lewin",
-          "team": "Leeds United",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Gonzalo García",
-          "team": "Fulham",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Morgan Gibbs-White",
-          "team": "Nottingham Forest",
-          "value": "1 ⚽",
-          "face": ""
-        },
         {
           "name": "Semi Ajayi",
           "team": "Hull City",
@@ -1131,12 +1079,6 @@
     },
     "الدوري الإسباني": {
       "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Álex Baena",
-          "team": "أتلتيكو مدريد",
-          "value": "3 ⚽",
-          "face": ""
-        },
         {
           "name": "Sergio Camello",
           "team": "Rayo Vallecano",
@@ -1156,12 +1098,6 @@
           "face": ""
         },
         {
-          "name": "Álex Berenguer",
-          "team": "Athletic Club",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
           "name": "Pape Gueye",
           "team": "Villarreal",
           "value": "1 ⚽",
@@ -1169,30 +1105,8 @@
         }
       ]
     },
-    "الدوري الإيطالي": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Hakan Çalhanoglu",
-          "team": "Internazionale",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Rasmus Højlund",
-          "team": "نابولي",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    },
     "الدوري الفرنسي": {
       "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Florian Thauvin",
-          "team": "Lens",
-          "value": "3 ⚽",
-          "face": ""
-        },
         {
           "name": "Louis Mafouta",
           "team": "Le Mans",
@@ -1203,12 +1117,6 @@
           "name": "Kamory Doumbia",
           "team": "Brest",
           "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Jean-Victor Makengo",
-          "team": "Lorient",
-          "value": "1 ⚽",
           "face": ""
         },
         {
@@ -1234,6 +1142,10 @@
       "img": "https://a.espncdn.com/photo/2026/0825/r1706616_1296x729_16-9.jpg"
     },
     {
+      "t": "Fenerbahce's Mattéo Guendouzi banned for two Champions League matches after Lyon clashes",
+      "img": "https://a.espncdn.com/photo/2026/0905/r1711756_2_1296x729_16-9.jpg"
+    },
+    {
       "t": "PSG give coach Luis Enrique, 5 players new contracts",
       "img": "https://a.espncdn.com/photo/2026/0904/r1711451_1296x729_16-9.jpg"
     },
@@ -1242,20 +1154,20 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0904/dm_260904_Maresca_Enzo_Fernandez_is_a_winner/dm_260904_Maresca_Enzo_Fernandez_is_a_winner.jpg"
     },
     {
-      "t": "Taylor Harwood-Bellis left out of Aston Villa Champions League squad after expressing 'excitement' for 'biggest stage'",
-      "img": "https://a.espncdn.com/photo/2024/1113/r1414195_1296x729_16-9.jpg"
+      "t": "Enzo Le Fée scores late penalty for Sunderland in lively 1-1 draw with Brentford",
+      "img": "https://a.espncdn.com/photo/2026/0905/r1711816_1296x729_16-9.jpg"
     },
     {
-      "t": "Premier League live updates: Newcastle, Bournemouth draw; Man City up next",
-      "img": "https://a.espncdn.com/photo/2026/0905/r1711701_1296x729_16-9.jpg"
+      "t": "Premier League live updates: Haaland fires Man City to win, Hull take on Villa",
+      "img": "https://a.espncdn.com/photo/2026/0905/r1711764_1296x729_16-9.jpg"
     },
     {
-      "t": "Jacob Ramsey scores last-gasp equaliser to salvage a point for Newcastle, Bournemouth drop points from winning position again",
-      "img": "https://a.espncdn.com/photo/2026/0905/r1711732_1296x729_16-9.jpg"
+      "t": "Ben Chilwell returns to Crystal Palace with winner for Fulham in 3-2 thriller",
+      "img": "https://a.espncdn.com/photo/2026/0905/r1711800_1296x729_16-9.jpg"
     },
     {
-      "t": "Liverpool boss Andoni Iraola says Bradley Barcola is 'in a good place' but patience will help",
-      "img": "https://a.espncdn.com/photo/2026/0905/r1711713_1296x729_16-9.jpg"
+      "t": "Athletic Club vs. Atletico Madrid - Game Highlights",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0905/861638e7-b02a-4f5c-a542-372d6172e6d1/861638e7-b02a-4f5c-a542-372d6172e6d1.jpg"
     },
     {
       "t": "Raphinha appointed Barcelona captain, first Brazilian to hold the role",
@@ -1264,10 +1176,6 @@
     {
       "t": "Flick admits Yamal is a doubt for Barcelona vs. Valencia",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0905/dm_260905_Flick_admits_Yamal_is_a_doubt_for_Barcelona_vs_Valencia/dm_260905_Flick_admits_Yamal_is_a_doubt_for_Barcelona_vs_Valencia.jpg"
-    },
-    {
-      "t": "Barcelona's Yamal hits 50 goals! When did Messi, Ronaldo, Mbappé, Haaland reach half-centuries?",
-      "img": "https://a.espncdn.com/photo/2026/0904/r1711266_1296x729_16-9.jpg"
     },
     {
       "t": "Napoli boss Allegri returns to Milan vs. title 'favorites' Inter",
