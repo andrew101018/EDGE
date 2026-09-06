@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-06 09:28 PM",
+  "updated_at": "2026-09-06 11:39 PM",
   "news": [
+    {
+      "t": "⚽ كأنه في برشلونة منذ 10 سنوات.. 60 دقيقة تدمر الشكوك حول رودري - Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ أخبار | جيسوس: برشلونة يقدم كرة القدم التي أحبها.. وسعيد بظهوري الأول بهذا القميص العظيم - FilGoal",
+      "img": ""
+    },
+    {
+      "t": "⚽ شاهد.. برشلونة يكتسح فالنسيا وينفرد بصدارة الدوري الإسباني - الجزيرة نت",
+      "img": ""
+    },
+    {
+      "t": "⚽ تفاصيل جلسة حسين لبيب مع كبار الفريق الأبيض - الزمالك اليوم",
+      "img": ""
+    },
     {
       "t": "⚽ ابن كومان يكرر جنون والده.. حارس يسجل هدفين ويكتب التاريخ - Kooora",
       "img": ""
@@ -64,35 +80,19 @@
     {
       "t": "⚽ متى يظهر أحمد الجفالي مع فريق الزمالك - الزمالك اليوم",
       "img": ""
-    },
-    {
-      "t": "⚽ التقارب المصري الصيني ومباريات كرة القدم - المصري اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ أليجري: فوز إنتر علينا دليل على تجاوز كرة القدم المنطق - اخبارك نت",
-      "img": ""
-    },
-    {
-      "t": "⚽ مواعيد مباريات منتخب مصر فى تصفيات أمم أفريقيا.. البداية أمام أنجولا - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ أردوغان يجتمع مع رؤساء أكبر أندية كرة القدم التركية: أؤمن بأن الدوري الممتاز سيستمر في أجواء من ال",
-      "img": ""
     }
   ],
   "results": [
+    "Angers 1 - 2 Stade Rennais",
+    "Troyes 2 - 6 Strasbourg",
+    "Eintracht Frankfurt 1 - 4 FC Augsburg",
+    "Alavés 5 - 2 Osasuna",
     "Bologna 2 - 2 Sassuolo",
     "Málaga 0 - 0 Levante",
     "Valencia 0 - 5 برشلونة",
     "أرسنال 2 - 1 تشيلسي",
     "Hamburg SV 0 - 5 Mainz",
-    "Parma 1 - 1 Monza",
-    "Frosinone 3 - 2 Venezia",
-    "Everton 2 - 2 مانشستر يونايتد",
-    "Nice 1 - 1 Le Mans",
-    "Le Havre AC 1 - 2 Brest"
+    "Parma 1 - 1 Monza"
   ],
   "matches": [
     {
@@ -281,20 +281,20 @@
       "slug": "esp.1",
       "items": [
         {
-          "home": "Alavés",
-          "away": "Osasuna",
-          "eid": "401882896",
+          "home": "Espanyol",
+          "away": "Sevilla",
+          "eid": "401882892",
           "slug": "esp.1",
-          "homeId": "96",
-          "awayId": "97",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/96.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/97.png",
+          "homeId": "88",
+          "awayId": "243",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/88.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/243.png",
           "tv": "beIN Sports",
-          "hs": "5",
-          "as": "2",
-          "time": "07:30 PM",
+          "hs": "0",
+          "as": "0",
+          "time": "10:00 PM",
           "state": "in",
-          "detail": "90'+5'"
+          "detail": "80'"
         },
         {
           "home": "Valencia",
@@ -313,6 +313,22 @@
           "detail": "FT"
         },
         {
+          "home": "Alavés",
+          "away": "Osasuna",
+          "eid": "401882896",
+          "slug": "esp.1",
+          "homeId": "96",
+          "awayId": "97",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/96.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/97.png",
+          "tv": "beIN Sports",
+          "hs": "5",
+          "as": "2",
+          "time": "07:30 PM",
+          "state": "post",
+          "detail": "FT"
+        },
+        {
           "home": "Málaga",
           "away": "Levante",
           "eid": "401882890",
@@ -327,22 +343,6 @@
           "time": "07:30 PM",
           "state": "post",
           "detail": "FT"
-        },
-        {
-          "home": "Espanyol",
-          "away": "Sevilla",
-          "eid": "401882892",
-          "slug": "esp.1",
-          "homeId": "88",
-          "awayId": "243",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/88.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/243.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "10:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -351,6 +351,22 @@
       "league": "الدوري الإيطالي",
       "slug": "ita.1",
       "items": [
+        {
+          "home": "يوفنتوس",
+          "away": "ميلان",
+          "eid": "401874954",
+          "slug": "ita.1",
+          "homeId": "111",
+          "awayId": "103",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/111.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/103.png",
+          "tv": "beIN Sports",
+          "hs": "1",
+          "as": "1",
+          "time": "09:45 PM",
+          "state": "in",
+          "detail": "90'+4'"
+        },
         {
           "home": "Frosinone",
           "away": "Venezia",
@@ -398,22 +414,6 @@
           "time": "07:00 PM",
           "state": "post",
           "detail": "FT"
-        },
-        {
-          "home": "يوفنتوس",
-          "away": "ميلان",
-          "eid": "401874954",
-          "slug": "ita.1",
-          "homeId": "111",
-          "awayId": "103",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/111.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/103.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "09:45 PM",
-          "state": "pre",
-          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -462,6 +462,22 @@
       "slug": "fra.1",
       "items": [
         {
+          "home": "Marseille",
+          "away": "Paris FC",
+          "eid": "401876471",
+          "slug": "fra.1",
+          "homeId": "176",
+          "awayId": "6851",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/176.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6851.png",
+          "tv": "beIN Sports",
+          "hs": "2",
+          "as": "3",
+          "time": "09:45 PM",
+          "state": "in",
+          "detail": "90'+5'"
+        },
+        {
           "home": "Troyes",
           "away": "Strasbourg",
           "eid": "401876467",
@@ -492,22 +508,6 @@
           "time": "06:15 PM",
           "state": "post",
           "detail": "FT"
-        },
-        {
-          "home": "Marseille",
-          "away": "Paris FC",
-          "eid": "401876471",
-          "slug": "fra.1",
-          "homeId": "176",
-          "awayId": "6851",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/176.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6851.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "09:45 PM",
-          "state": "pre",
-          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -773,6 +773,16 @@
       },
       {
         "rank": 2,
+        "team": "Alavés",
+        "logo": "",
+        "gp": 4.0,
+        "w": 3.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 10.0
+      },
+      {
+        "rank": 3,
         "team": "ريال مدريد",
         "logo": "",
         "gp": 4.0,
@@ -782,7 +792,7 @@
         "pts": 9.0
       },
       {
-        "rank": 3,
+        "rank": 4,
         "team": "Real Betis",
         "logo": "",
         "gp": 4.0,
@@ -792,7 +802,7 @@
         "pts": 9.0
       },
       {
-        "rank": 4,
+        "rank": 5,
         "team": "Deportivo",
         "logo": "",
         "gp": 4.0,
@@ -802,28 +812,18 @@
         "pts": 8.0
       },
       {
-        "rank": 5,
-        "team": "Alavés",
-        "logo": "",
-        "gp": 3.0,
-        "w": 2.0,
-        "d": 1.0,
-        "l": 0.0,
-        "pts": 7.0
-      },
-      {
         "rank": 6,
-        "team": "Osasuna",
+        "team": "أتلتيكو مدريد",
         "logo": "",
-        "gp": 3.0,
+        "gp": 4.0,
         "w": 2.0,
         "d": 1.0,
-        "l": 0.0,
+        "l": 1.0,
         "pts": 7.0
       },
       {
         "rank": 7,
-        "team": "أتلتيكو مدريد",
+        "team": "Osasuna",
         "logo": "",
         "gp": 4.0,
         "w": 2.0,
@@ -1117,54 +1117,6 @@
           "face": ""
         }
       ]
-    },
-    "الدوري الإسباني": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Roberto Fernández",
-          "team": "Espanyol",
-          "value": "3 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Miguel Sierra",
-          "team": "Sevilla",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    },
-    "الدوري الإيطالي": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Bremer",
-          "team": "يوفنتوس",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Gonçalo Ramos",
-          "team": "ميلان",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    },
-    "الدوري الفرنسي": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Amine Gouiri",
-          "team": "Marseille",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Lassine Sinayoko",
-          "team": "Paris FC",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
     }
   },
   "world": [
@@ -1193,28 +1145,28 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0904/dm_260904_Maresca_Enzo_Fernandez_is_a_winner/dm_260904_Maresca_Enzo_Fernandez_is_a_winner.jpg"
     },
     {
-      "t": "Premier League recap: Arsenal defeat Chelsea in thrilling London derby",
-      "img": "https://a.espncdn.com/photo/2026/0906/r1712363_1296x729_16-9.jpg"
+      "t": "Transfer rumors, news: Richarlison could be forced into Saudi move",
+      "img": "https://a.espncdn.com/photo/2026/0906/r1712441_1296x729_16-9.jpg"
     },
     {
-      "t": "Arsenal come from behind to beat Chelsea and maintain perfect start in pulsating London derby",
-      "img": "https://a.espncdn.com/photo/2026/0906/r1712370_1296x729_16-9.jpg"
+      "t": "Arteta 'enjoyed every minute' of Arsenal's win over Chelsea",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0906/dm_260906_Arteta_enjoyed_every_minute_of_Arsenals_win_over_Chelsea/dm_260906_Arteta_enjoyed_every_minute_of_Arsenals_win_over_Chelsea.jpg"
     },
     {
-      "t": "Martin Ødegaard, Kai Havertz strikes give Arsenal statement London derby win over Chelsea",
-      "img": "https://a.espncdn.com/photo/2026/0906/r1712362_1296x729_16-9.jpg"
+      "t": "Chelsea are on the rise, but Arsenal remain kings of Premier League",
+      "img": "https://a.espncdn.com/photo/2026/0906/r1712396_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Málaga vs. Levante - Game Highlights",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0906/93bec655-ad32-44e0-abb7-efd22556e4ee/93bec655-ad32-44e0-abb7-efd22556e4ee.jpg"
+    },
+    {
+      "t": "Alavés vs. Osasuna - Game Highlights",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0906/ce9890a3-e8e8-4293-8998-5ec7b0acfab2/ce9890a3-e8e8-4293-8998-5ec7b0acfab2.jpg"
     },
     {
       "t": "Hansi Flick after Barcelona 5-0 win: 'Nearly perfect' but can be 'better'",
       "img": "https://a.espncdn.com/photo/2026/0906/r1712385_594x334_16-9.jpg"
-    },
-    {
-      "t": "Garcia expects Lamine Yamal to win Ballon d'Or 'very soon'",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0906/dm_260906_COM_SOC_Analysis_Garcia_expects_Lamine_Yamal_to_win_Ballon_dOr_very_soon_20260906_GLOBAL/dm_260906_COM_SOC_Analysis_Garcia_expects_Lamine_Yamal_to_win_Ballon_dOr_very_soon_20260906_GLOBAL.jpg"
-    },
-    {
-      "t": "Yamal at the double as Barcelona thrash Valencia in LaLiga",
-      "img": "https://a.espncdn.com/photo/2026/0906/r1712348_2_1296x729_16-9.jpg"
     },
     {
       "t": "Lautaro Martínez brace seals thrilling comeback win for Inter over Napoli",
