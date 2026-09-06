@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-06 07:03 PM",
+  "updated_at": "2026-09-06 09:28 PM",
   "news": [
+    {
+      "t": "⚽ ابن كومان يكرر جنون والده.. حارس يسجل هدفين ويكتب التاريخ - Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ إنفانتينو يؤكد ترشحه لرئاسة فيفا من جديد - اخبارك نت",
+      "img": ""
+    },
+    {
+      "t": "⚽ اتحاد الكرة يخطر نادى أورانج بقرارات لجنة الانضباط بعد عودة الفريق للدورى - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ لا خير إن شاء الله : مفاضلة بين هذا الثنائى لتولى مهمة تدريب المنتخب الاوليمبي - الزمالك اليوم",
+      "img": ""
+    },
     {
       "t": "⚽ كل ما تريد معرفته عن صراع المربع الذهبى للدوري قبل انطلاق الجولة الرابعة - اليوم السابع",
       "img": ""
@@ -64,35 +80,19 @@
     {
       "t": "⚽ أردوغان يجتمع مع رؤساء أكبر أندية كرة القدم التركية: أؤمن بأن الدوري الممتاز سيستمر في أجواء من ال",
       "img": ""
-    },
-    {
-      "t": "⚽ ستوري نجوم كرة القدم.. إمام عاشور وابنته.. صلاح في مران طرابزون.. الحضري داخل الجيم - Masrawy",
-      "img": ""
-    },
-    {
-      "t": "⚽ أليجري: خسارة نابولي أمام إنتر دليل على عدم منطق كرة القدم - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ متى يظهر أحمد الجفالي مع فريق الزمالك - zamalektoday.com",
-      "img": ""
-    },
-    {
-      "t": "⚽ فرح واستذكار للضحايا مع عودة الحياة إلى كرة القدم الفلسطينية - مونت كارلو الدولية",
-      "img": ""
     }
   ],
   "results": [
+    "Bologna 2 - 2 Sassuolo",
+    "Málaga 0 - 0 Levante",
+    "Valencia 0 - 5 برشلونة",
+    "أرسنال 2 - 1 تشيلسي",
     "Hamburg SV 0 - 5 Mainz",
     "Parma 1 - 1 Monza",
     "Frosinone 3 - 2 Venezia",
     "Everton 2 - 2 مانشستر يونايتد",
     "Nice 1 - 1 Le Mans",
-    "Le Havre AC 1 - 2 Brest",
-    "Lens 0 - 1 Lorient",
-    "Schalke 04 0 - 0 بايرن ميونخ",
-    "Werder Bremen 3 - 1 RB Leipzig",
-    "TSG Hoffenheim 2 - 3 بوروسيا دورتموند"
+    "Le Havre AC 1 - 2 Brest"
   ],
   "matches": [
     {
@@ -242,22 +242,6 @@
       "slug": "eng.1",
       "items": [
         {
-          "home": "أرسنال",
-          "away": "تشيلسي",
-          "eid": "401879292",
-          "slug": "eng.1",
-          "homeId": "359",
-          "awayId": "363",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/363.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "1",
-          "time": "06:30 PM",
-          "state": "in",
-          "detail": "33'"
-        },
-        {
           "home": "Everton",
           "away": "مانشستر يونايتد",
           "eid": "401879291",
@@ -272,6 +256,22 @@
           "time": "04:00 PM",
           "state": "post",
           "detail": "FT"
+        },
+        {
+          "home": "أرسنال",
+          "away": "تشيلسي",
+          "eid": "401879292",
+          "slug": "eng.1",
+          "homeId": "359",
+          "awayId": "363",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/363.png",
+          "tv": "beIN Sports",
+          "hs": "2",
+          "as": "1",
+          "time": "06:30 PM",
+          "state": "post",
+          "detail": "FT"
         }
       ],
       "big": true
@@ -280,6 +280,22 @@
       "league": "الدوري الإسباني",
       "slug": "esp.1",
       "items": [
+        {
+          "home": "Alavés",
+          "away": "Osasuna",
+          "eid": "401882896",
+          "slug": "esp.1",
+          "homeId": "96",
+          "awayId": "97",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/96.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/97.png",
+          "tv": "beIN Sports",
+          "hs": "5",
+          "as": "2",
+          "time": "07:30 PM",
+          "state": "in",
+          "detail": "90'+5'"
+        },
         {
           "home": "Valencia",
           "away": "برشلونة",
@@ -291,26 +307,10 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "4",
+          "as": "5",
           "time": "05:15 PM",
-          "state": "in",
-          "detail": "82'"
-        },
-        {
-          "home": "Alavés",
-          "away": "Osasuna",
-          "eid": "401882896",
-          "slug": "esp.1",
-          "homeId": "96",
-          "awayId": "97",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/96.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/97.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "07:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "Málaga",
@@ -325,8 +325,8 @@
           "hs": "0",
           "as": "0",
           "time": "07:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "Espanyol",
@@ -351,22 +351,6 @@
       "league": "الدوري الإيطالي",
       "slug": "ita.1",
       "items": [
-        {
-          "home": "Bologna",
-          "away": "Sassuolo",
-          "eid": "401874751",
-          "slug": "ita.1",
-          "homeId": "107",
-          "awayId": "3997",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/107.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3997.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "07:00 PM",
-          "state": "in",
-          "detail": "2'"
-        },
         {
           "home": "Frosinone",
           "away": "Venezia",
@@ -400,6 +384,22 @@
           "detail": "FT"
         },
         {
+          "home": "Bologna",
+          "away": "Sassuolo",
+          "eid": "401874751",
+          "slug": "ita.1",
+          "homeId": "107",
+          "awayId": "3997",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/107.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3997.png",
+          "tv": "beIN Sports",
+          "hs": "2",
+          "as": "2",
+          "time": "07:00 PM",
+          "state": "post",
+          "detail": "FT"
+        },
+        {
           "home": "يوفنتوس",
           "away": "ميلان",
           "eid": "401874954",
@@ -423,22 +423,6 @@
       "slug": "ger.1",
       "items": [
         {
-          "home": "Eintracht Frankfurt",
-          "away": "FC Augsburg",
-          "eid": "401884805",
-          "slug": "ger.1",
-          "homeId": "125",
-          "awayId": "3841",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/125.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3841.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "0",
-          "time": "06:30 PM",
-          "state": "in",
-          "detail": "33'"
-        },
-        {
           "home": "Hamburg SV",
           "away": "Mainz",
           "eid": "401884803",
@@ -453,6 +437,22 @@
           "time": "04:30 PM",
           "state": "post",
           "detail": "FT"
+        },
+        {
+          "home": "Eintracht Frankfurt",
+          "away": "FC Augsburg",
+          "eid": "401884805",
+          "slug": "ger.1",
+          "homeId": "125",
+          "awayId": "3841",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/125.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3841.png",
+          "tv": "beIN Sports",
+          "hs": "1",
+          "as": "4",
+          "time": "06:30 PM",
+          "state": "post",
+          "detail": "FT"
         }
       ],
       "big": true
@@ -461,22 +461,6 @@
       "league": "الدوري الفرنسي",
       "slug": "fra.1",
       "items": [
-        {
-          "home": "Angers",
-          "away": "Stade Rennais",
-          "eid": "401876475",
-          "slug": "fra.1",
-          "homeId": "7868",
-          "awayId": "169",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7868.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "2",
-          "time": "06:15 PM",
-          "state": "in",
-          "detail": "45'+3'"
-        },
         {
           "home": "Troyes",
           "away": "Strasbourg",
@@ -490,6 +474,22 @@
           "hs": "2",
           "as": "6",
           "time": "04:00 PM",
+          "state": "post",
+          "detail": "FT"
+        },
+        {
+          "home": "Angers",
+          "away": "Stade Rennais",
+          "eid": "401876475",
+          "slug": "fra.1",
+          "homeId": "7868",
+          "awayId": "169",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7868.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png",
+          "tv": "beIN Sports",
+          "hs": "1",
+          "as": "2",
+          "time": "06:15 PM",
           "state": "post",
           "detail": "FT"
         },
@@ -691,6 +691,16 @@
       },
       {
         "rank": 2,
+        "team": "أرسنال",
+        "logo": "",
+        "gp": 3.0,
+        "w": 3.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 9.0
+      },
+      {
+        "rank": 3,
         "team": "Hull City",
         "logo": "",
         "gp": 3.0,
@@ -700,23 +710,13 @@
         "pts": 7.0
       },
       {
-        "rank": 3,
-        "team": "أرسنال",
-        "logo": "",
-        "gp": 2.0,
-        "w": 2.0,
-        "d": 0.0,
-        "l": 0.0,
-        "pts": 6.0
-      },
-      {
         "rank": 4,
         "team": "تشيلسي",
         "logo": "",
-        "gp": 2.0,
+        "gp": 3.0,
         "w": 2.0,
         "d": 0.0,
-        "l": 0.0,
+        "l": 1.0,
         "pts": 6.0
       },
       {
@@ -765,11 +765,11 @@
         "rank": 1,
         "team": "برشلونة",
         "logo": "",
-        "gp": 3.0,
-        "w": 3.0,
+        "gp": 4.0,
+        "w": 4.0,
         "d": 0.0,
         "l": 0.0,
-        "pts": 9.0
+        "pts": 12.0
       },
       {
         "rank": 2,
@@ -927,7 +927,7 @@
     "الدوري الألماني": [
       {
         "rank": 1,
-        "team": "SC Freiburg",
+        "team": "FC Augsburg",
         "logo": "",
         "gp": 2.0,
         "w": 2.0,
@@ -937,7 +937,7 @@
       },
       {
         "rank": 2,
-        "team": "بوروسيا دورتموند",
+        "team": "SC Freiburg",
         "logo": "",
         "gp": 2.0,
         "w": 2.0,
@@ -947,7 +947,7 @@
       },
       {
         "rank": 3,
-        "team": "SV Elversberg",
+        "team": "بوروسيا دورتموند",
         "logo": "",
         "gp": 2.0,
         "w": 2.0,
@@ -957,6 +957,16 @@
       },
       {
         "rank": 4,
+        "team": "SV Elversberg",
+        "logo": "",
+        "gp": 2.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 5,
         "team": "Mainz",
         "logo": "",
         "gp": 2.0,
@@ -966,7 +976,7 @@
         "pts": 4.0
       },
       {
-        "rank": 5,
+        "rank": 6,
         "team": "بايرن ميونخ",
         "logo": "",
         "gp": 2.0,
@@ -976,23 +986,13 @@
         "pts": 4.0
       },
       {
-        "rank": 6,
+        "rank": 7,
         "team": "Bayer Leverkusen",
         "logo": "",
         "gp": 2.0,
         "w": 1.0,
         "d": 0.0,
         "l": 1.0,
-        "pts": 3.0
-      },
-      {
-        "rank": 7,
-        "team": "FC Augsburg",
-        "logo": "",
-        "gp": 1.0,
-        "w": 1.0,
-        "d": 0.0,
-        "l": 0.0,
         "pts": 3.0
       },
       {
@@ -1039,6 +1039,16 @@
       },
       {
         "rank": 4,
+        "team": "Stade Rennais",
+        "logo": "",
+        "gp": 3.0,
+        "w": 2.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 7.0
+      },
+      {
+        "rank": 5,
         "team": "Strasbourg",
         "logo": "",
         "gp": 3.0,
@@ -1048,7 +1058,7 @@
         "pts": 6.0
       },
       {
-        "rank": 5,
+        "rank": 6,
         "team": "Brest",
         "logo": "",
         "gp": 3.0,
@@ -1058,18 +1068,8 @@
         "pts": 5.0
       },
       {
-        "rank": 6,
-        "team": "Paris FC",
-        "logo": "",
-        "gp": 2.0,
-        "w": 1.0,
-        "d": 1.0,
-        "l": 0.0,
-        "pts": 4.0
-      },
-      {
         "rank": 7,
-        "team": "Stade Rennais",
+        "team": "Paris FC",
         "logo": "",
         "gp": 2.0,
         "w": 1.0,
@@ -1124,30 +1124,6 @@
           "name": "Roberto Fernández",
           "team": "Espanyol",
           "value": "3 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Mariano Díaz",
-          "team": "Alavés",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Ante Budimir",
-          "team": "Osasuna",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Roger Brugué",
-          "team": "Levante",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Chupete",
-          "team": "Málaga",
-          "value": "1 ⚽",
           "face": ""
         },
         {
@@ -1217,28 +1193,28 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0904/dm_260904_Maresca_Enzo_Fernandez_is_a_winner/dm_260904_Maresca_Enzo_Fernandez_is_a_winner.jpg"
     },
     {
-      "t": "Premier League live updates: Arsenal level vs. Chelsea in frantic game",
-      "img": "https://a.espncdn.com/photo/2026/0906/r1712330_1296x729_16-9.jpg"
+      "t": "Premier League recap: Arsenal defeat Chelsea in thrilling London derby",
+      "img": "https://a.espncdn.com/photo/2026/0906/r1712363_1296x729_16-9.jpg"
     },
     {
-      "t": "Last-gasp Ainsley Maitland-Niles screamer snatches point for Everton against Man United",
-      "img": "https://a.espncdn.com/photo/2026/0906/r1712301_1296x729_16-9.jpg"
+      "t": "Arsenal come from behind to beat Chelsea and maintain perfect start in pulsating London derby",
+      "img": "https://a.espncdn.com/photo/2026/0906/r1712370_1296x729_16-9.jpg"
     },
     {
-      "t": "Tottenham boss Roberto De Zerbi says Mykhailo Mudryk will need time to find his best form",
-      "img": "https://a.espncdn.com/photo/2026/0906/r1712191_1296x729_16-9.jpg"
+      "t": "Martin Ødegaard, Kai Havertz strikes give Arsenal statement London derby win over Chelsea",
+      "img": "https://a.espncdn.com/photo/2026/0906/r1712362_1296x729_16-9.jpg"
     },
     {
-      "t": "BACK-TO-BACK GOALS 🤩 Athletic Club vs. Atletico Madrid",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0905/ss_20260905_181214461_36486991107/ss_20260905_181214461_36486991107.jpg"
+      "t": "Hansi Flick after Barcelona 5-0 win: 'Nearly perfect' but can be 'better'",
+      "img": "https://a.espncdn.com/photo/2026/0906/r1712385_594x334_16-9.jpg"
     },
     {
-      "t": "Adama Traore scores ridiculous own goal in Deportivo's win over Villarreal",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0905/dm_260905_COM_SOC_Highlight_Adama_Traore_scores_ridiculous_own_goal_in_Deportivos_win_over_Villarreal_2026/dm_260905_COM_SOC_Highlight_Adama_Traore_scores_ridiculous_own_goal_in_Deportivos_win_over_Villarreal_2026.jpg"
+      "t": "Garcia expects Lamine Yamal to win Ballon d'Or 'very soon'",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0906/dm_260906_COM_SOC_Analysis_Garcia_expects_Lamine_Yamal_to_win_Ballon_dOr_very_soon_20260906_GLOBAL/dm_260906_COM_SOC_Analysis_Garcia_expects_Lamine_Yamal_to_win_Ballon_dOr_very_soon_20260906_GLOBAL.jpg"
     },
     {
-      "t": "Villarreal vs. Deportivo La Coruña - Game Highlights",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0905/28cbcaa0-f1a2-45b7-85fd-b0e80ada14c4/28cbcaa0-f1a2-45b7-85fd-b0e80ada14c4.jpg"
+      "t": "Yamal at the double as Barcelona thrash Valencia in LaLiga",
+      "img": "https://a.espncdn.com/photo/2026/0906/r1712348_2_1296x729_16-9.jpg"
     },
     {
       "t": "Lautaro Martínez brace seals thrilling comeback win for Inter over Napoli",
