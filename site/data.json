@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-07 07:13 PM",
+  "updated_at": "2026-09-07 11:04 PM",
   "news": [
+    {
+      "t": "⚽ كيليان مبابي مهاجم ريال مدريد في لقاء حصري مع beIN SPORTS - beIN SPORTS",
+      "img": ""
+    },
+    {
+      "t": "⚽ إسماعيل صيباري يشعل الجدل في الدوري الألماني - kooora.com",
+      "img": ""
+    },
+    {
+      "t": "⚽ أحمد مجدي يوجه رسالة لناصر منسي ويشيد بثنائي الزمالك - الزمالك اليوم",
+      "img": ""
+    },
+    {
+      "t": "⚽ منتصر الرفاعى يسأل عن سبب تعدد أزمات الزمالك وخاصة هذا الملف - الزمالك اليوم",
+      "img": ""
+    },
     {
       "t": "⚽ ديون الزمالك فى فيفا حتى الآن.. أرقام صادمة - اليوم السابع",
       "img": ""
@@ -64,25 +80,13 @@
     {
       "t": "⚽ حالات الجولة الثالثة من الدوري: لا ركلة جزاء لـ الأهلي ولا خطأ على مدافعه أمام سموحة - FilGoal",
       "img": ""
-    },
-    {
-      "t": "⚽ رغم الانتقادات.. إنفانتينو يتحدى معارضيه ويترشح لولاية جديدة - اخبارك نت",
-      "img": ""
-    },
-    {
-      "t": "⚽ تحت أنظار حمزة وأحزان ديانج.. برشلونة يسحق فالنسيا بخماسية - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ مدير الكرة بالمقاولون: عمر كمال لم يسيء لأحد.. واهتمام الأهلي بـ عبد الناصر شأن داخلي - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ كأنه في برشلونة منذ 10 سنوات.. 60 دقيقة تدمر الشكوك حول رودري - Kooora",
-      "img": ""
     }
   ],
   "results": [
+    "الهلال 0 - 2 Neom SC",
+    "الخليج 0 - 0 Al Riyadh",
+    "Cagliari 1 - 0 Lecce",
+    "Getafe 1 - 1 Celta Vigo",
     "Marseille 2 - 3 Paris FC",
     "يوفنتوس 1 - 1 ميلان",
     "Espanyol 1 - 1 Sevilla"
@@ -105,8 +109,8 @@
           "hs": "0",
           "as": "0",
           "time": "06:30 PM",
-          "state": "in",
-          "detail": "44'"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "الهلال",
@@ -119,10 +123,10 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/130899.png",
           "tv": "SSC / شاهد",
           "hs": "0",
-          "as": "0",
+          "as": "2",
           "time": "09:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "post",
+          "detail": "FT"
         }
       ],
       "big": true
@@ -235,22 +239,6 @@
       "slug": "esp.1",
       "items": [
         {
-          "home": "Getafe",
-          "away": "Celta Vigo",
-          "eid": "401882891",
-          "slug": "esp.1",
-          "homeId": "2922",
-          "awayId": "85",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2922.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/85.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "08:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
-        },
-        {
           "home": "Elche",
           "away": "Real Sociedad",
           "eid": "401882893",
@@ -261,10 +249,26 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "0",
+          "as": "2",
           "time": "10:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "34'"
+        },
+        {
+          "home": "Getafe",
+          "away": "Celta Vigo",
+          "eid": "401882891",
+          "slug": "esp.1",
+          "homeId": "2922",
+          "awayId": "85",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2922.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/85.png",
+          "tv": "beIN Sports",
+          "hs": "1",
+          "as": "1",
+          "time": "08:00 PM",
+          "state": "post",
+          "detail": "FT"
         }
       ],
       "big": true
@@ -273,22 +277,6 @@
       "league": "الدوري الإيطالي",
       "slug": "ita.1",
       "items": [
-        {
-          "home": "Cagliari",
-          "away": "Lecce",
-          "eid": "401874943",
-          "slug": "ita.1",
-          "homeId": "2925",
-          "awayId": "113",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2925.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/113.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "07:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
-        },
         {
           "home": "Udinese",
           "away": "Lazio",
@@ -299,32 +287,25 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/118.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/112.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "0",
           "time": "09:45 PM",
-          "state": "pre",
-          "detail": "Scheduled"
-        }
-      ],
-      "big": true
-    },
-    {
-      "league": "الدوري الفرنسي",
-      "slug": "fra.1",
-      "items": [
+          "state": "in",
+          "detail": "58'"
+        },
         {
-          "home": "Marseille",
-          "away": "Paris FC",
-          "eid": "401876471",
-          "slug": "fra.1",
-          "homeId": "176",
-          "awayId": "6851",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/176.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6851.png",
+          "home": "Cagliari",
+          "away": "Lecce",
+          "eid": "401874943",
+          "slug": "ita.1",
+          "homeId": "2925",
+          "awayId": "113",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2925.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/113.png",
           "tv": "beIN Sports",
-          "hs": "2",
-          "as": "3",
-          "time": "09:45 PM",
+          "hs": "1",
+          "as": "0",
+          "time": "07:30 PM",
           "state": "post",
           "detail": "FT"
         }
@@ -338,10 +319,10 @@
         "rank": 1,
         "team": "الهلال",
         "logo": "",
-        "gp": 5.0,
+        "gp": 6.0,
         "w": 5.0,
         "d": 0.0,
-        "l": 0.0,
+        "l": 1.0,
         "pts": 15.0
       },
       {
@@ -366,6 +347,16 @@
       },
       {
         "rank": 4,
+        "team": "Neom SC",
+        "logo": "",
+        "gp": 6.0,
+        "w": 4.0,
+        "d": 0.0,
+        "l": 2.0,
+        "pts": 12.0
+      },
+      {
+        "rank": 5,
         "team": "الاتحاد",
         "logo": "",
         "gp": 5.0,
@@ -375,7 +366,7 @@
         "pts": 11.0
       },
       {
-        "rank": 5,
+        "rank": 6,
         "team": "الأهلي السعودي",
         "logo": "",
         "gp": 5.0,
@@ -385,23 +376,13 @@
         "pts": 9.0
       },
       {
-        "rank": 6,
+        "rank": 7,
         "team": "Al Kholood",
         "logo": "",
         "gp": 5.0,
         "w": 2.0,
         "d": 3.0,
         "l": 0.0,
-        "pts": 9.0
-      },
-      {
-        "rank": 7,
-        "team": "Neom SC",
-        "logo": "",
-        "gp": 5.0,
-        "w": 3.0,
-        "d": 0.0,
-        "l": 2.0,
         "pts": 9.0
       },
       {
@@ -908,81 +889,12 @@
       }
     ]
   },
-  "leaders": {
-    "الدوري السعودي": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Sergej Milinkovic-Savic",
-          "team": "الهلال",
-          "value": "4 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Alexandre Lacazette",
-          "team": "Neom SC",
-          "value": "3 ⚽",
-          "face": ""
-        }
-      ]
-    },
-    "الدوري الإسباني": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Enes Ünal",
-          "team": "Getafe",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Iago Aspas",
-          "team": "Celta Vigo",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Buba Sangaré",
-          "team": "Elche",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Luka Sucic",
-          "team": "Real Sociedad",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    },
-    "الدوري الإيطالي": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Hassane Kamara",
-          "team": "Udinese",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Davide Frattesi",
-          "team": "Lazio",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Alessandro Romano",
-          "team": "Cagliari",
-          "value": "1 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Olaf Gorter",
-          "team": "Lecce",
-          "value": "1 ⚽",
-          "face": ""
-        }
-      ]
-    }
-  },
+  "leaders": {},
   "world": [
+    {
+      "t": "Transfer rumors, news: Saudi clubs keen to offer U.S.'s Balogun Monaco exit",
+      "img": "https://a.espncdn.com/photo/2026/0304/r1622848_1296x729_16-9.jpg"
+    },
     {
       "t": "Liverpool sporting director Richard Hughes steps down",
       "img": "https://a.espncdn.com/photo/2026/0905/r1711693_1296x729_16-9.jpg"
@@ -990,10 +902,6 @@
     {
       "t": "Al Ettifaq's Mohau Nkota returns to Orlando Pirates on season-long loan",
       "img": "https://a.espncdn.com/photo/2026/0417/r1645012_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Gabriel Martinelli leaves Arsenal for Al Hilal in £60m transfer",
-      "img": "https://a.espncdn.com/photo/2026/0825/r1706616_1296x729_16-9.jpg"
     },
     {
       "t": "Mbappe backs himself as the best in the world",
@@ -1012,12 +920,16 @@
       "img": "https://a.espncdn.com/photo/2026/0907/r1712804_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer rumors, news: Chelsea eye Scott to replace Enzo Fernández",
-      "img": "https://a.espncdn.com/photo/2026/0829/r1708517_1296x729_16-9.jpg"
-    },
-    {
       "t": "Arsenal show Chelsea, Premier League who's boss; Inter the team to beat in Serie A",
       "img": "https://a.espncdn.com/photo/2026/0907/r1712653_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Benjamin Šeško urges Man United to find positives after 'painful' Everton draw",
+      "img": "https://a.espncdn.com/photo/2026/0907/r1712717_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Getafe vs. Celta Vigo - Game Highlights",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0907/f88e803d-3c9a-4023-beae-c08d141bc8ef/f88e803d-3c9a-4023-beae-c08d141bc8ef.jpg"
     },
     {
       "t": "Mbappe backs himself as the best in the world",
@@ -1026,10 +938,6 @@
     {
       "t": "Valencia fans slam owner Peter Lim, club 'mercenaries'",
       "img": "https://a.espncdn.com/photo/2026/0907/r1712569_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Espanyol vs. Sevilla - Game Highlights",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0906/5401bf21-c8d8-4237-9def-18b0e8eac803/5401bf21-c8d8-4237-9def-18b0e8eac803.jpg"
     },
     {
       "t": "Mbappe backs himself as the best in the world",
