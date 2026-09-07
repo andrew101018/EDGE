@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-07 08:29 AM",
+  "updated_at": "2026-09-07 01:38 PM",
   "news": [
+    {
+      "t": "⚽ الزمالك يحدد موعد الإعلان عن المدير الرياضي الجديد - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ حسام المندوة يحسم الجدل بشأن عرض الحبتور للاستثمار في شركة الكرة بالزمالك - الزمالك اليوم",
+      "img": ""
+    },
+    {
+      "t": "⚽ نجم برشلونة السابق يعلن اعتزاله - Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ صباحك أوروبي.. اشتباكات الديربي.. إنريكي يخطط لخطف حمزة.. وعودة بنزيما - يلاكورة",
+      "img": ""
+    },
     {
       "t": "⚽ رغم الانتقادات.. إنفانتينو يتحدى معارضيه ويترشح لولاية جديدة - akhbarak.net",
       "img": ""
@@ -63,22 +79,6 @@
     },
     {
       "t": "⚽ ابن كومان يكرر جنون والده.. حارس يسجل هدفين ويكتب التاريخ - Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ إنفانتينو يؤكد ترشحه لرئاسة فيفا من جديد - اخبارك نت",
-      "img": ""
-    },
-    {
-      "t": "⚽ اتحاد الكرة يخطر نادى أورانج بقرارات لجنة الانضباط بعد عودة الفريق للدورى - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ لا خير إن شاء الله : مفاضلة بين هذا الثنائى لتولى مهمة تدريب المنتخب الاوليمبي - الزمالك اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ كل ما تريد معرفته عن صراع المربع الذهبى للدوري قبل انطلاق الجولة الرابعة - اليوم السابع",
       "img": ""
     }
   ],
@@ -274,68 +274,36 @@
       "slug": "esp.1",
       "items": [
         {
-          "home": "Valencia",
-          "away": "برشلونة",
-          "eid": "401882888",
+          "home": "Getafe",
+          "away": "Celta Vigo",
+          "eid": "401882891",
           "slug": "esp.1",
-          "homeId": "94",
-          "awayId": "83",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/94.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "5",
-          "time": "05:15 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Alavés",
-          "away": "Osasuna",
-          "eid": "401882896",
-          "slug": "esp.1",
-          "homeId": "96",
-          "awayId": "97",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/96.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/97.png",
-          "tv": "beIN Sports",
-          "hs": "5",
-          "as": "2",
-          "time": "07:30 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Málaga",
-          "away": "Levante",
-          "eid": "401882890",
-          "slug": "esp.1",
-          "homeId": "99",
-          "awayId": "1538",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/99.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1538.png",
+          "homeId": "2922",
+          "awayId": "85",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2922.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/85.png",
           "tv": "beIN Sports",
           "hs": "0",
           "as": "0",
-          "time": "07:30 PM",
-          "state": "post",
-          "detail": "FT"
+          "time": "08:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
         },
         {
-          "home": "Espanyol",
-          "away": "Sevilla",
-          "eid": "401882892",
+          "home": "Elche",
+          "away": "Real Sociedad",
+          "eid": "401882893",
           "slug": "esp.1",
-          "homeId": "88",
-          "awayId": "243",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/88.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/243.png",
+          "homeId": "3751",
+          "awayId": "89",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3751.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png",
           "tv": "beIN Sports",
-          "hs": "1",
-          "as": "1",
-          "time": "10:00 PM",
-          "state": "post",
-          "detail": "FT"
+          "hs": "0",
+          "as": "0",
+          "time": "10:30 PM",
+          "state": "pre",
+          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -345,68 +313,36 @@
       "slug": "ita.1",
       "items": [
         {
-          "home": "Frosinone",
-          "away": "Venezia",
-          "eid": "401874768",
+          "home": "Cagliari",
+          "away": "Lecce",
+          "eid": "401874943",
           "slug": "ita.1",
-          "homeId": "4057",
-          "awayId": "17530",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4057.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17530.png",
+          "homeId": "2925",
+          "awayId": "113",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2925.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/113.png",
           "tv": "beIN Sports",
-          "hs": "3",
-          "as": "2",
-          "time": "04:00 PM",
-          "state": "post",
-          "detail": "FT"
+          "hs": "0",
+          "as": "0",
+          "time": "07:30 PM",
+          "state": "pre",
+          "detail": "Scheduled"
         },
         {
-          "home": "Parma",
-          "away": "Monza",
-          "eid": "401874987",
+          "home": "Udinese",
+          "away": "Lazio",
+          "eid": "401874962",
           "slug": "ita.1",
-          "homeId": "115",
-          "awayId": "4007",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/115.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4007.png",
+          "homeId": "118",
+          "awayId": "112",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/118.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/112.png",
           "tv": "beIN Sports",
-          "hs": "1",
-          "as": "1",
-          "time": "04:00 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Bologna",
-          "away": "Sassuolo",
-          "eid": "401874751",
-          "slug": "ita.1",
-          "homeId": "107",
-          "awayId": "3997",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/107.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3997.png",
-          "tv": "beIN Sports",
-          "hs": "2",
-          "as": "2",
-          "time": "07:00 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "يوفنتوس",
-          "away": "ميلان",
-          "eid": "401874954",
-          "slug": "ita.1",
-          "homeId": "111",
-          "awayId": "103",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/111.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/103.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "1",
+          "hs": "0",
+          "as": "0",
           "time": "09:45 PM",
-          "state": "post",
-          "detail": "FT"
+          "state": "pre",
+          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -1110,6 +1046,62 @@
           "face": ""
         }
       ]
+    },
+    "الدوري الإسباني": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Enes Ünal",
+          "team": "Getafe",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Iago Aspas",
+          "team": "Celta Vigo",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Buba Sangaré",
+          "team": "Elche",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Luka Sucic",
+          "team": "Real Sociedad",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
+    "الدوري الإيطالي": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Hassane Kamara",
+          "team": "Udinese",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Davide Frattesi",
+          "team": "Lazio",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Alessandro Romano",
+          "team": "Cagliari",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Olaf Gorter",
+          "team": "Lecce",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
     }
   },
   "world": [
@@ -1126,28 +1118,28 @@
       "img": "https://a.espncdn.com/photo/2026/0825/r1706616_1296x729_16-9.jpg"
     },
     {
+      "t": "Can Mourinho lead Real Madrid to Champions League glory and prove how special he is?",
+      "img": "https://a.espncdn.com/photo/2026/0817/r1702870_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Champions League Power Rankings before MD1: Who's No. 1?",
+      "img": "https://a.espncdn.com/photo/2026/0530/r1665877_1296x729_16-9.jpg"
+    },
+    {
       "t": "Fenerbahce's Mattéo Guendouzi banned for two Champions League matches after Lyon clashes",
       "img": "https://a.espncdn.com/photo/2026/0905/r1711756_2_1296x729_16-9.jpg"
     },
     {
-      "t": "PSG give coach Luis Enrique, 5 players new contracts",
-      "img": "https://a.espncdn.com/photo/2026/0904/r1711451_1296x729_16-9.jpg"
+      "t": "Man United still pursuing Leicester midfielder Louis Page - sources",
+      "img": "https://a.espncdn.com/photo/2026/0907/r1712698_1296x729_16-9.jpg"
     },
     {
-      "t": "Maresca: Enzo Fernandez is 'a winner'",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0904/dm_260904_Maresca_Enzo_Fernandez_is_a_winner/dm_260904_Maresca_Enzo_Fernandez_is_a_winner.jpg"
+      "t": "Wayne Rooney: Arsenal defender Gabriel 'extremely lucky' to avoid red in Chelsea win",
+      "img": "https://a.espncdn.com/photo/2026/0907/r1712690_1296x729_16-9.jpg"
     },
     {
-      "t": "Iliman Ndiaye on Tottenham links: 'When Manchester City comes through you don't say no'",
-      "img": "https://a.espncdn.com/photo/2026/0906/r1712497_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Transfer rumors, news: Richarlison could be forced into Saudi move",
-      "img": "https://a.espncdn.com/photo/2026/0906/r1712441_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Arteta 'enjoyed every minute' of Arsenal's win over Chelsea",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0906/dm_260906_Arteta_enjoyed_every_minute_of_Arsenals_win_over_Chelsea/dm_260906_Arteta_enjoyed_every_minute_of_Arsenals_win_over_Chelsea.jpg"
+      "t": "Alonso: Defeat to Arsenal 'needs to hurt in a positive way' for Chelsea",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0907/dm_260907_Alonso_Defeat_to_Arsenal_needs_to_hurt_in_a_positive_way_for_Chelsea/dm_260907_Alonso_Defeat_to_Arsenal_needs_to_hurt_in_a_positive_way_for_Chelsea.jpg"
     },
     {
       "t": "Valencia fans slam owner Peter Lim, club 'mercenaries'",
@@ -1162,16 +1154,16 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0906/93bec655-ad32-44e0-abb7-efd22556e4ee/93bec655-ad32-44e0-abb7-efd22556e4ee.jpg"
     },
     {
+      "t": "AC Milan boss Ruben Amorim calls for patience after Serie A winning streak ends",
+      "img": "https://a.espncdn.com/photo/2026/0907/r1712688_1296x729_16-9.jpg"
+    },
+    {
       "t": "Federico Gatti's stoppage-time header rescues point for Juventus against Milan",
       "img": "https://a.espncdn.com/photo/2026/0906/r1712461_1296x729_16-9.jpg"
     },
     {
       "t": "Lautaro Martínez brace seals thrilling comeback win for Inter over Napoli",
       "img": "https://a.espncdn.com/photo/2026/0905/r1711904_1296x729_16-9.jpg"
-    },
-    {
-      "t": "European soccer recap: Haaland wins it for Man City, Inter with comeback vs. Napoli",
-      "img": "https://a.espncdn.com/photo/2026/0905/r1711764_1296x729_16-9.jpg"
     },
     {
       "t": "Bayern Munich fail to score Bundesliga goal for first time in 18 months",
