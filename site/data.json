@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-07 01:38 PM",
+  "updated_at": "2026-09-07 07:13 PM",
   "news": [
+    {
+      "t": "⚽ ديون الزمالك فى فيفا حتى الآن.. أرقام صادمة - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ ريال مدريد يضع اللمسات الأخيرة قبل مواجهة إنتر - beIN SPORTS",
+      "img": ""
+    },
+    {
+      "t": "⚽ اتحاد الكرة يعلن.. محمود ناجي حكمًا لمواجهة الزمالك وأبو قير للأسمدة - يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ الزمالك يعلن تجديد عقد من عقود الرعاية - الزمالك اليوم",
+      "img": ""
+    },
     {
       "t": "⚽ الزمالك يحدد موعد الإعلان عن المدير الرياضي الجديد - اليوم السابع",
       "img": ""
@@ -64,22 +80,6 @@
     {
       "t": "⚽ كأنه في برشلونة منذ 10 سنوات.. 60 دقيقة تدمر الشكوك حول رودري - Kooora",
       "img": ""
-    },
-    {
-      "t": "⚽ أخبار | جيسوس: برشلونة يقدم كرة القدم التي أحبها.. وسعيد بظهوري الأول بهذا القميص العظيم - FilGoal",
-      "img": ""
-    },
-    {
-      "t": "⚽ شاهد.. برشلونة يكتسح فالنسيا وينفرد بصدارة الدوري الإسباني - الجزيرة نت",
-      "img": ""
-    },
-    {
-      "t": "⚽ تفاصيل جلسة حسين لبيب مع كبار الفريق الأبيض - الزمالك اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ ابن كومان يكرر جنون والده.. حارس يسجل هدفين ويكتب التاريخ - Kooora",
-      "img": ""
     }
   ],
   "results": [
@@ -105,8 +105,8 @@
           "hs": "0",
           "as": "0",
           "time": "06:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "44'"
         },
         {
           "home": "الهلال",
@@ -231,45 +231,6 @@
       "big": true
     },
     {
-      "league": "الدوري الإنجليزي",
-      "slug": "eng.1",
-      "items": [
-        {
-          "home": "Everton",
-          "away": "مانشستر يونايتد",
-          "eid": "401879291",
-          "slug": "eng.1",
-          "homeId": "368",
-          "awayId": "360",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/368.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/360.png",
-          "tv": "beIN Sports",
-          "hs": "2",
-          "as": "2",
-          "time": "04:00 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "أرسنال",
-          "away": "تشيلسي",
-          "eid": "401879292",
-          "slug": "eng.1",
-          "homeId": "359",
-          "awayId": "363",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/363.png",
-          "tv": "beIN Sports",
-          "hs": "2",
-          "as": "1",
-          "time": "06:30 PM",
-          "state": "post",
-          "detail": "FT"
-        }
-      ],
-      "big": true
-    },
-    {
       "league": "الدوري الإسباني",
       "slug": "esp.1",
       "items": [
@@ -348,80 +309,9 @@
       "big": true
     },
     {
-      "league": "الدوري الألماني",
-      "slug": "ger.1",
-      "items": [
-        {
-          "home": "Hamburg SV",
-          "away": "Mainz",
-          "eid": "401884803",
-          "slug": "ger.1",
-          "homeId": "127",
-          "awayId": "2950",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/127.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2950.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "5",
-          "time": "04:30 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Eintracht Frankfurt",
-          "away": "FC Augsburg",
-          "eid": "401884805",
-          "slug": "ger.1",
-          "homeId": "125",
-          "awayId": "3841",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/125.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3841.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "4",
-          "time": "06:30 PM",
-          "state": "post",
-          "detail": "FT"
-        }
-      ],
-      "big": true
-    },
-    {
       "league": "الدوري الفرنسي",
       "slug": "fra.1",
       "items": [
-        {
-          "home": "Troyes",
-          "away": "Strasbourg",
-          "eid": "401876467",
-          "slug": "fra.1",
-          "homeId": "170",
-          "awayId": "180",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/170.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/180.png",
-          "tv": "beIN Sports",
-          "hs": "2",
-          "as": "6",
-          "time": "04:00 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Angers",
-          "away": "Stade Rennais",
-          "eid": "401876475",
-          "slug": "fra.1",
-          "homeId": "7868",
-          "awayId": "169",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7868.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "2",
-          "time": "06:15 PM",
-          "state": "post",
-          "detail": "FT"
-        },
         {
           "home": "Marseille",
           "away": "Paris FC",
@@ -1028,21 +918,9 @@
           "face": ""
         },
         {
-          "name": "Teddy Okou",
-          "team": "Al Riyadh",
-          "value": "3 ⚽",
-          "face": ""
-        },
-        {
           "name": "Alexandre Lacazette",
           "team": "Neom SC",
           "value": "3 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Saleh Al-Jamaan",
-          "team": "الخليج",
-          "value": "1 ⚽",
           "face": ""
         }
       ]
@@ -1118,6 +996,10 @@
       "img": "https://a.espncdn.com/photo/2026/0825/r1706616_1296x729_16-9.jpg"
     },
     {
+      "t": "Mbappe backs himself as the best in the world",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0907/dm_260907_Mbappe_backs_himself_as_the_best_in_the_world/dm_260907_Mbappe_backs_himself_as_the_best_in_the_world.jpg"
+    },
+    {
       "t": "Can Mourinho lead Real Madrid to Champions League glory and prove how special he is?",
       "img": "https://a.espncdn.com/photo/2026/0817/r1702870_1296x729_16-9.jpg"
     },
@@ -1126,20 +1008,20 @@
       "img": "https://a.espncdn.com/photo/2026/0530/r1665877_1296x729_16-9.jpg"
     },
     {
-      "t": "Fenerbahce's Mattéo Guendouzi banned for two Champions League matches after Lyon clashes",
-      "img": "https://a.espncdn.com/photo/2026/0905/r1711756_2_1296x729_16-9.jpg"
+      "t": "Arsenal's Ezri Konsa 'loved' battle with England teammate Morgan Rogers in Chelsea clash",
+      "img": "https://a.espncdn.com/photo/2026/0907/r1712804_1296x729_16-9.jpg"
     },
     {
-      "t": "Man United still pursuing Leicester midfielder Louis Page - sources",
-      "img": "https://a.espncdn.com/photo/2026/0907/r1712698_1296x729_16-9.jpg"
+      "t": "Transfer rumors, news: Chelsea eye Scott to replace Enzo Fernández",
+      "img": "https://a.espncdn.com/photo/2026/0829/r1708517_1296x729_16-9.jpg"
     },
     {
-      "t": "Wayne Rooney: Arsenal defender Gabriel 'extremely lucky' to avoid red in Chelsea win",
-      "img": "https://a.espncdn.com/photo/2026/0907/r1712690_1296x729_16-9.jpg"
+      "t": "Arsenal show Chelsea, Premier League who's boss; Inter the team to beat in Serie A",
+      "img": "https://a.espncdn.com/photo/2026/0907/r1712653_1296x729_16-9.jpg"
     },
     {
-      "t": "Alonso: Defeat to Arsenal 'needs to hurt in a positive way' for Chelsea",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0907/dm_260907_Alonso_Defeat_to_Arsenal_needs_to_hurt_in_a_positive_way_for_Chelsea/dm_260907_Alonso_Defeat_to_Arsenal_needs_to_hurt_in_a_positive_way_for_Chelsea.jpg"
+      "t": "Mbappe backs himself as the best in the world",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0907/dm_260907_Mbappe_backs_himself_as_the_best_in_the_world/dm_260907_Mbappe_backs_himself_as_the_best_in_the_world.jpg"
     },
     {
       "t": "Valencia fans slam owner Peter Lim, club 'mercenaries'",
@@ -1150,32 +1032,28 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0906/5401bf21-c8d8-4237-9def-18b0e8eac803/5401bf21-c8d8-4237-9def-18b0e8eac803.jpg"
     },
     {
-      "t": "Málaga vs. Levante - Game Highlights",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0906/93bec655-ad32-44e0-abb7-efd22556e4ee/93bec655-ad32-44e0-abb7-efd22556e4ee.jpg"
+      "t": "Mbappe backs himself as the best in the world",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0907/dm_260907_Mbappe_backs_himself_as_the_best_in_the_world/dm_260907_Mbappe_backs_himself_as_the_best_in_the_world.jpg"
     },
     {
-      "t": "AC Milan boss Ruben Amorim calls for patience after Serie A winning streak ends",
-      "img": "https://a.espncdn.com/photo/2026/0907/r1712688_1296x729_16-9.jpg"
+      "t": "Arsenal show Chelsea, Premier League who's boss; Inter the team to beat in Serie A",
+      "img": "https://a.espncdn.com/photo/2026/0907/r1712653_1296x729_16-9.jpg"
     },
     {
-      "t": "Federico Gatti's stoppage-time header rescues point for Juventus against Milan",
-      "img": "https://a.espncdn.com/photo/2026/0906/r1712461_1296x729_16-9.jpg"
+      "t": "Fiorentina sack manager Fabio Grosso after 0-3 start",
+      "img": "https://a.espncdn.com/photo/2023/1130/r1260010_1296x729_16-9.jpg"
     },
     {
-      "t": "Lautaro Martínez brace seals thrilling comeback win for Inter over Napoli",
-      "img": "https://a.espncdn.com/photo/2026/0905/r1711904_1296x729_16-9.jpg"
+      "t": "Harry Kane 'proud' to be in Ballon d'Or contention after 'best season so far'",
+      "img": "https://a.espncdn.com/photo/2026/0907/r1712753_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Bayern Munich CEO: 'No offers' for Michael Olise in summer, cannot make promises on future",
+      "img": "https://a.espncdn.com/photo/2026/0907/r1712702_1296x729_16-9.jpg"
     },
     {
       "t": "Bayern Munich fail to score Bundesliga goal for first time in 18 months",
       "img": "https://a.espncdn.com/photo/2026/0905/r1711923_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Bayern Munich falter, Loris Karius secures goalless draw for newly promoted Schalke",
-      "img": "https://a.espncdn.com/photo/2026/0905/r1711893_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Bayern 'know how to deal with' Jamal Musiala seizures - Vincent Kompany",
-      "img": "https://a.espncdn.com/photo/2026/0729/r1695065_1296x729_16-9.jpg"
     },
     {
       "t": "Giovanni Reyna scores first goal since move to Strasbourg",
