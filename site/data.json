@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-07 11:04 PM",
+  "updated_at": "2026-09-08 01:55 AM",
   "news": [
+    {
+      "t": "⚽ إنفانتينو يحتفى بإنجاز الفراعنة فى كأس العالم 2026 ويشيد بالجماهير المصرية - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ \"قدموا بطولة استثنائية\".. إنفانتينو يشيد بأداء منتخب مصر في كأس العالم 2026 - يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ خالد الغندور يحسم هذا الجدل بشأن حسام أشرف - الزمالك اليوم",
+      "img": ""
+    },
+    {
+      "t": "⚽ أخبار | الزمالك: لا نقول إن الأخطاء التحكيمية متعمدة.. وهذا موعد صرف المستحقات المتبقية للاعبين - ",
+      "img": ""
+    },
     {
       "t": "⚽ كيليان مبابي مهاجم ريال مدريد في لقاء حصري مع beIN SPORTS - beIN SPORTS",
       "img": ""
@@ -64,32 +80,11 @@
     {
       "t": "⚽ \"لجنة الحكام\" تعلن موقفها من قرارات مباراتي الأهلي والزمالك - سكاي نيوز عربية",
       "img": ""
-    },
-    {
-      "t": "⚽ حسم الجدل حول الحالات التحكيمية في مباراتي الزمالك وبتروجت والأهلي وسموحة - صدى البلد",
-      "img": ""
-    },
-    {
-      "t": "⚽ أمين صندوق الزمالك: الأهلي من الأندية التي تقدم عقودا غير صحيحة بالقيمة المالية للاعبين - صدى البل",
-      "img": ""
-    },
-    {
-      "t": "⚽ \"إكرامي يودع نجله ورضا سليم يرد على شائعات الرحيل\".. ستوري نجوم كرة القدم - Masrawy",
-      "img": ""
-    },
-    {
-      "t": "⚽ حالات الجولة الثالثة من الدوري: لا ركلة جزاء لـ الأهلي ولا خطأ على مدافعه أمام سموحة - FilGoal",
-      "img": ""
     }
   ],
   "results": [
-    "الهلال 0 - 2 Neom SC",
-    "الخليج 0 - 0 Al Riyadh",
-    "Cagliari 1 - 0 Lecce",
-    "Getafe 1 - 1 Celta Vigo",
-    "Marseille 2 - 3 Paris FC",
-    "يوفنتوس 1 - 1 ميلان",
-    "Espanyol 1 - 1 Sevilla"
+    "Udinese 1 - 2 Lazio",
+    "Elche 2 - 3 Real Sociedad"
   ],
   "matches": [
     {
@@ -239,22 +234,6 @@
       "slug": "esp.1",
       "items": [
         {
-          "home": "Elche",
-          "away": "Real Sociedad",
-          "eid": "401882893",
-          "slug": "esp.1",
-          "homeId": "3751",
-          "awayId": "89",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3751.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "2",
-          "time": "10:30 PM",
-          "state": "in",
-          "detail": "34'"
-        },
-        {
           "home": "Getafe",
           "away": "Celta Vigo",
           "eid": "401882891",
@@ -269,6 +248,22 @@
           "time": "08:00 PM",
           "state": "post",
           "detail": "FT"
+        },
+        {
+          "home": "Elche",
+          "away": "Real Sociedad",
+          "eid": "401882893",
+          "slug": "esp.1",
+          "homeId": "3751",
+          "awayId": "89",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3751.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png",
+          "tv": "beIN Sports",
+          "hs": "2",
+          "as": "3",
+          "time": "10:30 PM",
+          "state": "post",
+          "detail": "FT"
         }
       ],
       "big": true
@@ -277,22 +272,6 @@
       "league": "الدوري الإيطالي",
       "slug": "ita.1",
       "items": [
-        {
-          "home": "Udinese",
-          "away": "Lazio",
-          "eid": "401874962",
-          "slug": "ita.1",
-          "homeId": "118",
-          "awayId": "112",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/118.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/112.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "0",
-          "time": "09:45 PM",
-          "state": "in",
-          "detail": "58'"
-        },
         {
           "home": "Cagliari",
           "away": "Lecce",
@@ -306,6 +285,22 @@
           "hs": "1",
           "as": "0",
           "time": "07:30 PM",
+          "state": "post",
+          "detail": "FT"
+        },
+        {
+          "home": "Udinese",
+          "away": "Lazio",
+          "eid": "401874962",
+          "slug": "ita.1",
+          "homeId": "118",
+          "awayId": "112",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/118.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/112.png",
+          "tv": "beIN Sports",
+          "hs": "1",
+          "as": "2",
+          "time": "09:45 PM",
           "state": "post",
           "detail": "FT"
         }
@@ -665,6 +660,16 @@
       },
       {
         "rank": 3,
+        "team": "Lazio",
+        "logo": "",
+        "gp": 3.0,
+        "w": 3.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 9.0
+      },
+      {
+        "rank": 4,
         "team": "Como",
         "logo": "",
         "gp": 3.0,
@@ -674,7 +679,7 @@
         "pts": 7.0
       },
       {
-        "rank": 4,
+        "rank": 5,
         "team": "ميلان",
         "logo": "",
         "gp": 3.0,
@@ -684,7 +689,7 @@
         "pts": 7.0
       },
       {
-        "rank": 5,
+        "rank": 6,
         "team": "يوفنتوس",
         "logo": "",
         "gp": 3.0,
@@ -692,16 +697,6 @@
         "d": 1.0,
         "l": 0.0,
         "pts": 7.0
-      },
-      {
-        "rank": 6,
-        "team": "Lazio",
-        "logo": "",
-        "gp": 2.0,
-        "w": 2.0,
-        "d": 0.0,
-        "l": 0.0,
-        "pts": 6.0
       },
       {
         "rank": 7,
@@ -904,16 +899,20 @@
       "img": "https://a.espncdn.com/photo/2026/0417/r1645012_1296x729_16-9.jpg"
     },
     {
-      "t": "Mbappe backs himself as the best in the world",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0907/dm_260907_Mbappe_backs_himself_as_the_best_in_the_world/dm_260907_Mbappe_backs_himself_as_the_best_in_the_world.jpg"
+      "t": "Can Havertz lead Arsenal to Champions League glory?",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0907/dm_260907_COM_SOC_ANALYSIS_Can_Havertz_lead_Arsenal_to_Champions_League_glory_2026_9_7/dm_260907_COM_SOC_ANALYSIS_Can_Havertz_lead_Arsenal_to_Champions_League_glory_2026_9_7.jpg"
     },
     {
-      "t": "Can Mourinho lead Real Madrid to Champions League glory and prove how special he is?",
-      "img": "https://a.espncdn.com/photo/2026/0817/r1702870_1296x729_16-9.jpg"
+      "t": "Marcotti: Real Madrid can win the UCL without firing on all cylinders",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0907/dm_260907_COM_SOC_ANALYSIS_Marcotti_Real_Madrid_can_win_the_UCL_without_firing_on_all_cylinders_2026_9_7/dm_260907_COM_SOC_ANALYSIS_Marcotti_Real_Madrid_can_win_the_UCL_without_firing_on_all_cylinders_2026_9_7.jpg"
     },
     {
-      "t": "Champions League Power Rankings before MD1: Who's No. 1?",
-      "img": "https://a.espncdn.com/photo/2026/0530/r1665877_1296x729_16-9.jpg"
+      "t": "Manchester City training has club vibe as Maresca plays music",
+      "img": "https://a.espncdn.com/photo/2026/0907/r1712951_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Are Arsenal building a Premier League dynasty?",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0907/dm_260907_COM_SOC_ANALYSIS_Can_Havertz_lead_Arsenal_to_Champions_League_glory_2026_9_26/dm_260907_COM_SOC_ANALYSIS_Can_Havertz_lead_Arsenal_to_Champions_League_glory_2026_9_26.jpg"
     },
     {
       "t": "Arsenal's Ezri Konsa 'loved' battle with England teammate Morgan Rogers in Chelsea clash",
@@ -924,20 +923,16 @@
       "img": "https://a.espncdn.com/photo/2026/0907/r1712653_1296x729_16-9.jpg"
     },
     {
-      "t": "Benjamin Šeško urges Man United to find positives after 'painful' Everton draw",
-      "img": "https://a.espncdn.com/photo/2026/0907/r1712717_1296x729_16-9.jpg"
+      "t": "Serie A Weekend Reaction: Can Roma challenge Inter for the title?",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0907/ss_20260907_175109503_36520361120/ss_20260907_175109503_36520361120.jpg"
+    },
+    {
+      "t": "Elche vs. Real Sociedad - Game Highlights",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0907/637d7635-1646-4908-acd0-d94cdc77245b/637d7635-1646-4908-acd0-d94cdc77245b.jpg"
     },
     {
       "t": "Getafe vs. Celta Vigo - Game Highlights",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0907/f88e803d-3c9a-4023-beae-c08d141bc8ef/f88e803d-3c9a-4023-beae-c08d141bc8ef.jpg"
-    },
-    {
-      "t": "Mbappe backs himself as the best in the world",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0907/dm_260907_Mbappe_backs_himself_as_the_best_in_the_world/dm_260907_Mbappe_backs_himself_as_the_best_in_the_world.jpg"
-    },
-    {
-      "t": "Valencia fans slam owner Peter Lim, club 'mercenaries'",
-      "img": "https://a.espncdn.com/photo/2026/0907/r1712569_1296x729_16-9.jpg"
     },
     {
       "t": "Mbappe backs himself as the best in the world",
