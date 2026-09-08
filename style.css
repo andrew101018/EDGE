@@ -166,3 +166,17 @@ body.menu-open .menu-toggle span:nth-child(3) { transform: translateY(-8px) rota
 [data-theme="light"] .nav-btn { color: #334155; }
 [data-theme="light"] .nav-btn.active { background: #f59e0b; color: #000; }
 [data-theme="light"] .menu-overlay { background: rgba(15,23,42,0.45); }
+
+/* ---------- 🧭 تنظيم القايمة: فواصل وعناوين المجموعات ---------- */
+.nav-sep { flex: 0 0 auto; align-self: center; width: 1px; height: 24px; background: #24344f; margin: 0 6px; display: block; }
+.nav-group-title { display: none; }
+
+@media (max-width: 768px) {
+  .nav-sep { display: none; }
+  .nav-group-title { display: block; width: 100%; padding: 16px 8px 6px; font-size: 0.75em; font-weight: bold; color: #f59e0b; opacity: 0.9; letter-spacing: 0.5px; white-space: nowrap; }
+  .install-btn { background: linear-gradient(135deg, #b45309, #f59e0b); color: #111; border-color: #f59e0b; }
+  [data-theme="light"] .install-btn { background: linear-gradient(135deg, #b45309, #f59e0b); color: #111; border-color: #f59e0b; }
+}
+
+[data-theme="light"] .nav-sep { background: #cbd5e1; }
+[data-theme="light"] .nav-group-title { color: #b45309; }
