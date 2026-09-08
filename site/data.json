@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-08 08:29 AM",
+  "updated_at": "2026-09-08 12:59 PM",
   "news": [
+    {
+      "t": "⚽ موعد إعلان المرشحين لجائزة الكرة الذهبية 2026 اليوم - صدى البلد",
+      "img": ""
+    },
+    {
+      "t": "⚽ الكرة الذهبية.. الكشف عن قائمة المرشحين لأفضل نادٍ نسائي 2026 - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ يحدث باستمرار.. رسميا: الإعلان عن المرشحين للكرة الذهبية 2026 - Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ محمد صلاح في التشكيلة المثالية للجولة الرابعة بالدوري التركي - اليوم السابع",
+      "img": ""
+    },
     {
       "t": "⚽ محامي زيزو: لم نتلق حيثيات لجنة شؤون اللاعبين بحفظ شكوى اللاعب ضد الزمالك - FilGoal",
       "img": ""
@@ -64,22 +80,6 @@
     {
       "t": "⚽ منتصر الرفاعى يسأل عن سبب تعدد أزمات الزمالك وخاصة هذا الملف - الزمالك اليوم",
       "img": ""
-    },
-    {
-      "t": "⚽ ديون الزمالك فى فيفا حتى الآن.. أرقام صادمة - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ ريال مدريد يضع اللمسات الأخيرة قبل مواجهة إنتر - beIN SPORTS",
-      "img": ""
-    },
-    {
-      "t": "⚽ اتحاد الكرة يعلن.. محمود ناجي حكمًا لمواجهة الزمالك وأبو قير للأسمدة - يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ الزمالك يعلن تجديد عقد من عقود الرعاية - الزمالك اليوم",
-      "img": ""
     }
   ],
   "results": [
@@ -92,36 +92,52 @@
       "slug": "ksa.1",
       "items": [
         {
-          "home": "الخليج",
-          "away": "Al Riyadh",
-          "eid": "401900365",
+          "home": "الاتفاق",
+          "away": "Al Faisaly",
+          "eid": "401900363",
           "slug": "ksa.1",
-          "homeId": "21829",
-          "awayId": "21965",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21829.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21965.png",
+          "homeId": "8363",
+          "awayId": "21446",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8363.png",
+          "awayLogo": "",
           "tv": "SSC / شاهد",
           "hs": "0",
           "as": "0",
           "time": "06:30 PM",
-          "state": "post",
-          "detail": "FT"
+          "state": "pre",
+          "detail": "Scheduled"
         },
         {
-          "home": "الهلال",
-          "away": "Neom SC",
-          "eid": "401900364",
+          "home": "Al Hazem",
+          "away": "التعاون",
+          "eid": "401900362",
           "slug": "ksa.1",
-          "homeId": "929",
-          "awayId": "130899",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/929.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/130899.png",
+          "homeId": "21964",
+          "awayId": "18459",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21964.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18459.png",
           "tv": "SSC / شاهد",
           "hs": "0",
-          "as": "2",
+          "as": "0",
+          "time": "06:55 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "القادسية",
+          "away": "الأهلي السعودي",
+          "eid": "401900361",
+          "slug": "ksa.1",
+          "homeId": "22022",
+          "awayId": "8346",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22022.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8346.png",
+          "tv": "SSC / شاهد",
+          "hs": "0",
+          "as": "0",
           "time": "09:00 PM",
-          "state": "post",
-          "detail": "FT"
+          "state": "pre",
+          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -807,6 +823,46 @@
     ]
   },
   "leaders": {
+    "الدوري السعودي": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Ivan Toney",
+          "team": "الأهلي السعودي",
+          "value": "6 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Moussa Dembélé",
+          "team": "الاتفاق",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Mateo Retegui",
+          "team": "القادسية",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Abdulaziz Aldhuwayhi",
+          "team": "Al Hazem",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Abderrazak Hamdallah",
+          "team": "التعاون",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Alexandre Mendy",
+          "team": "Al Faisaly",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
     "الدوري الإسباني": {
       "الهدافون 🏆 (الموسم الحالي)": [
         {
@@ -880,40 +936,40 @@
       "img": "https://a.espncdn.com/photo/2026/0905/r1711693_1296x729_16-9.jpg"
     },
     {
-      "t": "Can Havertz lead Arsenal to Champions League glory?",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0907/dm_260907_COM_SOC_ANALYSIS_Can_Havertz_lead_Arsenal_to_Champions_League_glory_2026_9_7/dm_260907_COM_SOC_ANALYSIS_Can_Havertz_lead_Arsenal_to_Champions_League_glory_2026_9_7.jpg"
+      "t": "Chivu: 'Inter will do everything to win at the Bernabéu'",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0908/dm_260908_Chivu_Inter_will_do_everything_to_win_at_the_Bernabeu/dm_260908_Chivu_Inter_will_do_everything_to_win_at_the_Bernabeu.jpg"
     },
     {
-      "t": "Marcotti: Real Madrid can win the UCL without firing on all cylinders",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0907/dm_260907_COM_SOC_ANALYSIS_Marcotti_Real_Madrid_can_win_the_UCL_without_firing_on_all_cylinders_2026_9_7/dm_260907_COM_SOC_ANALYSIS_Marcotti_Real_Madrid_can_win_the_UCL_without_firing_on_all_cylinders_2026_9_7.jpg"
+      "t": "Mourinho: 'Chivu will always be one of my guys'",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0908/dm_260908_Mourinho_Chivu_will_always_be_one_of_my_guys/dm_260908_Mourinho_Chivu_will_always_be_one_of_my_guys.jpg"
     },
     {
-      "t": "Manchester City training has club vibe as Maresca plays music",
-      "img": "https://a.espncdn.com/photo/2026/0907/r1712951_1296x729_16-9.jpg"
+      "t": "Maresca: 'Expectations are high' for Manchester City against Porto",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0908/dm_260908_Maresca_Expectations_are_high_for_Manchester_City_against_Porto/dm_260908_Maresca_Expectations_are_high_for_Manchester_City_against_Porto.jpg"
     },
     {
-      "t": "Are Arsenal building a Premier League dynasty?",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0907/dm_260907_COM_SOC_ANALYSIS_Can_Havertz_lead_Arsenal_to_Champions_League_glory_2026_9_26/dm_260907_COM_SOC_ANALYSIS_Can_Havertz_lead_Arsenal_to_Champions_League_glory_2026_9_26.jpg"
+      "t": "Premier League clubs are overspending on wingers who can't score goals",
+      "img": "https://a.espncdn.com/photo/2026/0907/r1712835_1296x729_16-9.jpg"
     },
     {
-      "t": "Arsenal's Ezri Konsa 'loved' battle with England teammate Morgan Rogers in Chelsea clash",
-      "img": "https://a.espncdn.com/photo/2026/0907/r1712804_1296x729_16-9.jpg"
+      "t": "Transfer rumors, news: Arsenal set for Rice talks to ward off Real Madrid interest",
+      "img": "https://a.espncdn.com/photo/2026/0908/r1713118_1296x729_16-9.jpg"
     },
     {
-      "t": "Arsenal show Chelsea, Premier League who's boss; Inter the team to beat in Serie A",
-      "img": "https://a.espncdn.com/photo/2026/0907/r1712653_1296x729_16-9.jpg"
+      "t": "Can versatile Iliman Ndiaye avoid Manchester City's expensive talent graveyard?",
+      "img": "https://a.espncdn.com/photo/2026/0908/r1713121_1296x729_16-9.jpg"
+    },
+    {
+      "t": "José Mourinho backs Endrick for Real Madrid breakthrough after summer transfer block",
+      "img": "https://a.espncdn.com/photo/2026/0908/r1713127_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Transfer rumors, news: Arsenal set for Rice talks to ward off Real Madrid interest",
+      "img": "https://a.espncdn.com/photo/2026/0908/r1713118_1296x729_16-9.jpg"
     },
     {
       "t": "Serie A Weekend Reaction: Can Roma challenge Inter for the title?",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0907/ss_20260907_175109503_36520361120/ss_20260907_175109503_36520361120.jpg"
-    },
-    {
-      "t": "Elche vs. Real Sociedad - Game Highlights",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0907/637d7635-1646-4908-acd0-d94cdc77245b/637d7635-1646-4908-acd0-d94cdc77245b.jpg"
-    },
-    {
-      "t": "Getafe vs. Celta Vigo - Game Highlights",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0907/f88e803d-3c9a-4023-beae-c08d141bc8ef/f88e803d-3c9a-4023-beae-c08d141bc8ef.jpg"
     },
     {
       "t": "Mbappe backs himself as the best in the world",
@@ -928,6 +984,10 @@
       "img": "https://a.espncdn.com/photo/2023/1130/r1260010_1296x729_16-9.jpg"
     },
     {
+      "t": "Ousmane Dembélé says Harry Kane a Ballon d'Or candidate - but predicts award will go to PSG player",
+      "img": "https://a.espncdn.com/photo/2026/0908/r1713123_1296x729_16-9.jpg"
+    },
+    {
       "t": "Harry Kane 'proud' to be in Ballon d'Or contention after 'best season so far'",
       "img": "https://a.espncdn.com/photo/2026/0907/r1712753_1296x729_16-9.jpg"
     },
@@ -936,8 +996,8 @@
       "img": "https://a.espncdn.com/photo/2026/0907/r1712702_1296x729_16-9.jpg"
     },
     {
-      "t": "Bayern Munich fail to score Bundesliga goal for first time in 18 months",
-      "img": "https://a.espncdn.com/photo/2026/0905/r1711923_1296x729_16-9.jpg"
+      "t": "Ousmane Dembélé says Harry Kane a Ballon d'Or candidate - but predicts award will go to PSG player",
+      "img": "https://a.espncdn.com/photo/2026/0908/r1713123_1296x729_16-9.jpg"
     },
     {
       "t": "Giovanni Reyna scores first goal since move to Strasbourg",
@@ -946,10 +1006,6 @@
     {
       "t": "Luis Enrique unfazed as historic PSG winless start deepens",
       "img": "https://a.espncdn.com/photo/2026/0904/r1711544_1296x729_16-9.jpg"
-    },
-    {
-      "t": "PSG upset by Monaco to extend winless start",
-      "img": "https://a.espncdn.com/photo/2026/0904/r1711507_1296x729_16-9.jpg"
     }
   ],
   "highlights": [],
