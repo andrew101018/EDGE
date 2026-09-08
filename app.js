@@ -9,26 +9,86 @@ try {
 } catch (e) {}
 let MATCHES = [];
 
-function go(id, btn) {
-  document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-  const el = document.getElementById('sec-' + id);
-  if (el) el.style.display = 'block';
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-  window.scrollTo(0, 0);
-}
+/* ===== 🧭 التنقل + روابط الأقسام (hash) — كل قسم بقى له لينك قابل للمشاركة ===== */
+function go(id, btn) { navigateTo([id], btn); }
 
-function goMulti(ids, btn) {
+function goMulti(ids, btn) { navigateTo(ids, btn); }
+
+function applySections(ids) {
   document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
   ids.forEach(id => {
     const el = document.getElementById('sec-' + id);
     if (el) el.style.display = 'block';
   });
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
   window.scrollTo(0, 0);
 }
 
+function setActiveNav(ids) {
+  const multiKey = "['" + ids.join("','") + "']";
+  document.querySelectorAll('.nav-btn').forEach(b => {
+    const oc = b.getAttribute('onclick') || '';
+    b.classList.remove('active');
+    if (ids.length === 1 && oc.indexOf("go('" + ids[0] + "'") > -1) b.classList.add('active');
+    if (ids.length > 1 && oc.indexOf(multiKey) > -1) b.classList.add('active');
+  });
+}
+
+function parseHash() {
+  const h = (location.hash || '').replace(/^#/, '').trim();
+  if (!h) return null;
+  const ids = h.split(',').map(s => s.trim()).filter(id => document.getElementById('sec-' + id));
+  return ids.length ? ids : null;
+}
+
+let _curKey = 'home';
+
+function navigateTo(ids, btn, fromHash) {
+  const key = ids.join(',');
+  if (key === _curKey && !btn) return;
+  _curKey = key;
+  applySections(ids);
+  if (btn) {
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  } else {
+    setActiveNav(ids);
+  }
+  if (!fromHash && location.hash !== '#' + key) location.hash = key;
+}
+
+/* رجوع/تقدّم بالمتصفح بيتحكم في الأقسام */
+window.addEventListener('hashchange', function () {
+  const ids = parseHash();
+  if (ids) navigateTo(ids, null, true);
+});
+
+/* فتح قسم مباشرة من الرابط المشترك عند أول تحميل */
+(function () {
+  const ids = parseHash();
+  if (ids && ids.join(',') !== 'home') navigateTo(ids, null, true);
+})();
+
+/* ===== ⌨️ Esc + الضغط على الخلفية يقفلوا المودالات ===== */
+document.addEventListener('keydown', function (e) {
+  if (e.key !== 'Escape') return;
+  const tm = document.getElementById('teamModal');
+  const mm = document.getElementById('matchModal');
+  if (mm && mm.style.display === 'block') { closeMatch(); return; }
+  if (tm && tm.style.display === 'block') { closeTeam(); return; }
+  const gs = document.getElementById('globalResults');
+  if (gs) gs.innerHTML = '';
+});
+
+document.addEventListener('click', function (e) {
+  if (e.target && e.target.id === 'teamModal') closeTeam();
+  if (e.target && e.target.id === 'matchModal') closeMatch();
+});
+
+/* 🎁 إصلاح: إخفاء مودال المباراة اللي بيتعمل ديناميكياً (كان ظاهر فاضي في آخر الصفحة) */
+(function () {
+  const mm = document.getElementById('matchModal');
+  if (mm) mm.style.display = 'none';
+})();
 function teamLogo(src) {
   if (!src) return '';
   return `<img class="t-logo" src="${src}" onerror="this.style.display='none'">`;
