@@ -180,3 +180,9 @@ body.menu-open .menu-toggle span:nth-child(3) { transform: translateY(-8px) rota
 
 [data-theme="light"] .nav-sep { background: #cbd5e1; }
 [data-theme="light"] .nav-group-title { color: #b45309; }
+
+/* ---------- القايمة بتلف على سطرين لو الشاشة ضيقة (بدل السكرول المخفي) ---------- */
+.top-nav { flex-wrap: wrap; }
+@media (max-width: 768px) {
+  .top-nav { flex-wrap: nowrap; }
+}
