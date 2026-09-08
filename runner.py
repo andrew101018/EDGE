@@ -647,7 +647,7 @@ def main():
             print("⚠️ تجاوز:", item["title"][:40])
             posted.add(item["hash"])
             continue
-        content += f"\n\n📡 المصدر: {item['source']}"
+        #content += f"\n\n📡 المصدر: {item['source']}"
         if send_tg(content):
             print("✅ نُشر:", title[:40])
             posted.add(item["hash"])
