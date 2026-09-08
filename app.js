@@ -1066,3 +1066,63 @@ function getHighlightUrl(home, away) {
   });
   obs.observe(document.body, {childList: true, subtree: true});
 })();
+function globalSearch(q) {
+  const el = document.getElementById('globalResults');
+  if (!el) return;
+  q = (q || '').trim();
+  if (q.length < 2) { el.innerHTML = ''; return; }
+  const ql = q.toLowerCase();
+  let results = [];
+  // Search news
+  (DATA.news || []).forEach(n => {
+    if ((n.t || '').toLowerCase().includes(ql))
+      results.push({icon: '📰', text: n.t, section: 'الأخبار'});
+  });
+  // Search world news
+  (DATA.world || []).forEach(n => {
+    if ((n.t || '').toLowerCase().includes(ql))
+      results.push({icon: '🌍', text: n.t, section: 'عالمية'});
+  });
+  // Search players from squads
+  Object.entries(DATA.squads || {}).forEach(([team, players]) => {
+    (players || []).forEach(p => {
+      if ((p.name || '').toLowerCase().includes(ql))
+        results.push({icon: '👤', text: p.name + ' — ' + team, section: 'اللاعبين', action: () => showTeam('', '', team)});
+    });
+  });
+  // Search teams in tables
+  Object.entries(DATA.tables || {}).forEach(([league, rows]) => {
+    (rows || []).forEach(r => {
+      if (r && typeof r === 'object' && (r.team || '').toLowerCase().includes(ql))
+        results.push({icon: '🏟️', text: r.team + ' — ' + league, section: 'الترتيب', action: () => showTeam('', '', r.team)});
+    });
+  });
+  // Search matches
+  (DATA.matches || []).forEach(g => {
+    (g.items || []).forEach(m => {
+      if ((m.home || '').toLowerCase().includes(ql) || (m.away || '').toLowerCase().includes(ql))
+        results.push({icon: '⚽', text: m.home + ' × ' + m.away + ' — ' + g.league, section: 'المباريات'});
+    });
+  });
+  // Search leaders
+  Object.entries(DATA.leaders || {}).forEach(([league, cats]) => {
+    Object.values(cats || {}).forEach(players => {
+      (players || []).forEach(p => {
+        if ((p.name || '').toLowerCase().includes(ql))
+          results.push({icon: '👑', text: p.name + ' — ' + (p.team || '') + ' — ' + league, section: 'الهدافين'});
+      });
+    });
+  });
+  if (!results.length) {
+    el.innerHTML = '<div style="opacity:.6;padding:8px;">مفيش نتائج لـ "' + q + '" 🔍</div>';
+    return;
+  }
+  el.innerHTML = '<div style="background:#1e293b;border-radius:10px;padding:10px;max-height:300px;overflow:auto;">' +
+    results.slice(0, 15).map((r, i) => `<div style="padding:8px;border-bottom:1px solid #334155;cursor:pointer;display:flex;gap:8px;align-items:center;" 
+      onclick="${r.action ? 'globalResults[' + i + ']()' : ''}" 
+      onmouseover="this.style.background='#334155'" onmouseout="this.style.background='transparent'">
+      <span>${r.icon}</span>
+      <div style="flex:1;"><div style="font-weight:bold;">${r.text}</div><div style="opacity:.6;font-size:.8em;">${r.section}</div></div>
+    </div>`).join('') + '</div>';
+  window.globalResults = results.map(r => r.action || (() => {}));
+}
