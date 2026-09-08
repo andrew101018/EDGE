@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-09-08 03:50 AM",
+  "updated_at": "2026-09-08 08:29 AM",
   "news": [
+    {
+      "t": "⚽ محامي زيزو: لم نتلق حيثيات لجنة شؤون اللاعبين بحفظ شكوى اللاعب ضد الزمالك - FilGoal",
+      "img": ""
+    },
+    {
+      "t": "⚽ كلوب بروج يستضيف أستون فيلا فى افتتاح مشوارهما بدوري أبطال أوروبا - اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ عامر حسين: لم أتقاضَ أجرًا عن أي منصب في الكرة المصرية منذ 26 سنة - elbalad.news",
+      "img": ""
+    },
+    {
+      "t": "⚽ اليوم الإعلان عن المرشحين لجائزة الكرة الذهبية 2026.. موقف محمد صلاح - القاهرة 24",
+      "img": ""
+    },
     {
       "t": "⚽ ملف يلا كورة.. إصابة تريزيجيه.. توثيق عقد ثنائي الزمالك وعودة مروان عطية لمران الأهلي - يلاكورة",
       "img": ""
@@ -63,22 +79,6 @@
     },
     {
       "t": "⚽ الزمالك يعلن تجديد عقد من عقود الرعاية - الزمالك اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ الزمالك يحدد موعد الإعلان عن المدير الرياضي الجديد - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ حسام المندوة يحسم الجدل بشأن عرض الحبتور للاستثمار في شركة الكرة بالزمالك - الزمالك اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ نجم برشلونة السابق يعلن اعتزاله - Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ صباحك أوروبي.. اشتباكات الديربي.. إنريكي يخطط لخطف حمزة.. وعودة بنزيما - يلاكورة",
       "img": ""
     }
   ],
@@ -225,84 +225,6 @@
           "time": "10:00 PM",
           "state": "pre",
           "detail": "Scheduled"
-        }
-      ],
-      "big": true
-    },
-    {
-      "league": "الدوري الإسباني",
-      "slug": "esp.1",
-      "items": [
-        {
-          "home": "Getafe",
-          "away": "Celta Vigo",
-          "eid": "401882891",
-          "slug": "esp.1",
-          "homeId": "2922",
-          "awayId": "85",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2922.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/85.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "1",
-          "time": "08:00 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Elche",
-          "away": "Real Sociedad",
-          "eid": "401882893",
-          "slug": "esp.1",
-          "homeId": "3751",
-          "awayId": "89",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3751.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png",
-          "tv": "beIN Sports",
-          "hs": "2",
-          "as": "3",
-          "time": "10:30 PM",
-          "state": "post",
-          "detail": "FT"
-        }
-      ],
-      "big": true
-    },
-    {
-      "league": "الدوري الإيطالي",
-      "slug": "ita.1",
-      "items": [
-        {
-          "home": "Cagliari",
-          "away": "Lecce",
-          "eid": "401874943",
-          "slug": "ita.1",
-          "homeId": "2925",
-          "awayId": "113",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2925.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/113.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "0",
-          "time": "07:30 PM",
-          "state": "post",
-          "detail": "FT"
-        },
-        {
-          "home": "Udinese",
-          "away": "Lazio",
-          "eid": "401874962",
-          "slug": "ita.1",
-          "homeId": "118",
-          "awayId": "112",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/118.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/112.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "2",
-          "time": "09:45 PM",
-          "state": "post",
-          "detail": "FT"
         }
       ],
       "big": true
@@ -884,11 +806,70 @@
       }
     ]
   },
-  "leaders": {},
+  "leaders": {
+    "الدوري الإسباني": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Miguel Sierra",
+          "team": "Sevilla",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Umar Sadiq",
+          "team": "Valencia",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
+    "الدوري الإيطالي": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "John Yeboah",
+          "team": "Venezia",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Mateo Pellegrino",
+          "team": "Fiorentina",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
+    "الدوري الألماني": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Emmanuel Latte Lath",
+          "team": "1. FC Union Berlin",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
+    "الدوري الفرنسي": {
+      "الهدافون 🏆 (الموسم الحالي)": [
+        {
+          "name": "Amine Gouiri",
+          "team": "Marseille",
+          "value": "4 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Esteban Lepaul",
+          "team": "Stade Rennais",
+          "value": "3 ⚽",
+          "face": ""
+        }
+      ]
+    }
+  },
   "world": [
     {
       "t": "Martinelli starts as Al Hilal's 47-game unbeaten streak ends",
-      "img": ""
+      "img": "https://a.espncdn.com/photo/2026/0908/r1713048_1296x729_16-9.jpg"
     },
     {
       "t": "Transfer rumors, news: Saudi clubs keen to offer U.S.'s Balogun Monaco exit",
