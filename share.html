@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edge Football — كارت النتيجة</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0b1220; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 24px 14px 60px; }
+  h1 { color: #fbbf24; font-size: 1.4em; margin-bottom: 6px; text-align: center; }
+  .hint { color: #94a3b8; font-size: 0.85em; margin-bottom: 16px; text-align: center; }
+  .tools { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 16px; }
+  .tool-btn { background: #16213a; color: #94a3b8; border: 1px solid #24344f; border-radius: 20px; padding: 9px 18px; cursor: pointer; font-weight: bold; font-size: 0.9em; }
+  .tool-btn.active { background: #dc2626; border-color: #dc2626; color: #fff; }
+  #card { max-width: 300px; width: 100%; border-radius: 14px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); display: block; }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
+  .act { display: inline-flex; align-items: center; gap: 8px; border: none; border-radius: 12px; padding: 13px 22px; font-weight: bold; cursor: pointer; font-size: 1em; min-height: 48px; text-decoration: none; }
+  .act.gold { background: linear-gradient(135deg, #b45309, #f59e0b); color: #111; }
+  .act.green { background: #25d366; color: #062012; }
+  .note { margin-top: 14px; color: #64748b; font-size: 0.78em; text-align: center; max-width: 420px; }
+</style>
+</head>
+<body>
+<h1>🔥 كارت النتيجة القابل للمشاركة</h1>
+<p class="hint" id="hint">اختار المقاس، حمّل الصورة وابعتها ستوري أو واتساب ⚡</p>
+<div class="tools">
+  <button class="tool-btn active" id="btnStory" type="button">ستوري 1080×1920</button>
+  <button class="tool-btn" id="btnSquare" type="button">مربع 1080×1080</button>
+</div>
+<canvas id="card" width="1080" height="1920"></canvas>
+<div class="actions">
+  <button class="act gold" id="btnDownload" type="button">📥 تحميل الصورة</button>
+  <button class="act gold" id="btnShare" type="button">📤 مشاركة</button>
+  <a class="act green" id="btnWa" target="_blank" rel="noopener" href="#">💬 واتساب</a>
+</div>
+<p class="note">لو زرار المشاركة مش شغال كصورة على جهازك: حمّل الصورة وابعتها يدوي — هي جاهزة بالمقاس الصح.</p>
+
+<script>
+(function () {
+"use strict";
+
+var FONT = "'Segoe UI', Tahoma, sans-serif";
+var LOGO_URL = "https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg";
+
+/* ---------- قراءة بيانات المباراة من الرابط ---------- */
+var q = new URLSearchParams(location.search);
+var data = {
+  t1: q.get("t1") || "الفريق الأول",
+  t2: q.get("t2") || "الفريق التاني",
+  s1: q.get("s1"),
+  s2: q.get("s2"),
+  lg: q.get("lg") || "أهم المباريات",
+  st: q.get("st") || "مباراة",
+  l1: q.get("l1"),
+  l2: q.get("l2")
+};
+var hasScore = data.s1 !== null && data.s1 !== "" && data.s2 !== null && data.s2 !== "";
+
+document.getElementById("hint").textContent = data.t1 + " × " + data.t2 + " — " + data.lg;
+
+var canvas = document.getElementById("card");
+var ctx = canvas.getContext("2d");
+var W = 1080;
+var H = 1920;
+
+var brandImg = null;
+var l1Img = null;
+var l2Img = null;
+
+/* ---------- أدوات الرسم ---------- */
+function fontStr(weight, size) {
+  return weight + " " + size + "px " + FONT;
+}
+
+function rrect(x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+function fitText(text, maxW, startSize, minSize, weight) {
+  var size = startSize;
+  ctx.font = fontStr(weight, size);
+  while (ctx.measureText(text).width > maxW && size > minSize) {
+    size -= 3;
+    ctx.font = fontStr(weight, size);
+  }
+  return size;
+}
+
+function loadImg(url) {
+  return new Promise(function (resolve) {
+    if (!url) { resolve(null); return; }
+    var img = new Image();
+    img.crossOrigin = "anonymous";
+    var done = false;
+    var timer = setTimeout(function () {
+      if (!done) { done = true; resolve(null); }
+    }, 6000);
+    img.onload = function () {
+      if (!done) { done = true; clearTimeout(timer); resolve(img); }
+    };
+    img.onerror = function () {
+      if (!done) { done = true; clearTimeout(timer); resolve(null); }
+    };
+    img.src = url;
+  });
+}
+
+function drawBrand(cx, cy, size) {
+  if (brandImg) {
+    ctx.save();
+    rrect(cx - size / 2, cy - size / 2, size, size, 26);
+    ctx.clip();
+    var s = Math.max(size / brandImg.width, size / brandImg.height);
+    var w = brandImg.width * s;
+    var h = brandImg.height * s;
+    ctx.drawImage(brandImg, cx - w / 2, cy - h / 2, w, h);
+    ctx.restore();
+    rrect(cx - size / 2, cy - size / 2, size, size, 26);
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = "#fbbf24";
+    ctx.stroke();
+  } else {
+    ctx.font = fontStr("bold", Math.round(size * 0.75));
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("🔥", cx, cy);
+  }
+}
+
+function drawTeamLogo(img, name, cx, cy, r) {
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI * 2);
+  ctx.fillStyle = "#ffffff";
+  ctx.fill();
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = "#fbbf24";
+  ctx.stroke();
+  if (img) {
+    ctx.beginPath();
+    ctx.arc(cx, cy, r - 7, 0, Math.PI * 2);
+    ctx.clip();
+    var s = Math.min((r * 2 - 14) / img.width, (r * 2 - 14) / img.height);
+    var w = img.width * s;
+    var h = img.height * s;
+    ctx.drawImage(img, cx - w / 2, cy - h / 2, w, h);
+  } else {
+    var ch = name ? name.trim().charAt(0) : "؟";
+    ctx.fillStyle = "#0b1220";
+    ctx.font = fontStr("bold", Math.round(r * 1.05));
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(ch, cx, cy + r * 0.05);
+  }
+  ctx.restore();
+}
+
+function goldPill(text, y, size) {
+  ctx.font = fontStr("bold", size);
+  var tw = ctx.measureText(text).width;
+  var w = tw + 70;
+  var h = size + 38;
+  rrect(W / 2 - w / 2, y - h / 2, w, h, h / 2);
+  var g = ctx.createLinearGradient(W / 2 - w / 2, y, W / 2 + w / 2, y);
+  g.addColorStop(0, "#b45309");
+  g.addColorStop(1, "#f59e0b");
+  ctx.fillStyle = g;
+  ctx.fill();
+  ctx.fillStyle = "#111827";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(text, W / 2, y + 2);
+}
+
+function statusPill(text, y, size) {
+  var live = /جار|لايڤ|لايف|live/i.test(text);
+  ctx.font = fontStr("bold", size);
+  var tw = ctx.measureText(text).width;
+  var w = tw + 60;
+  var h = size + 32;
+  rrect(W / 2 - w / 2, y - h / 2, w, h, h / 2);
+  ctx.fillStyle = "rgba(0,0,0,0.5)";
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = live ? "#ef4444" : "#24344f";
+  ctx.stroke();
+  ctx.fillStyle = live ? "#f87171" : "#e2e8f0";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(text, W / 2, y + 2);
+}
+
+/* ---------- مقاسات الرسم (ستوري / مربع) ---------- */
+function layout() {
+  if (H === 1920) {
+    return {
+      brandSize: 150, brandY: 190, brandTextY: 335, brandTextSize: 62,
+      tagY: 392, tagSize: 30, pillY: 480, pillSize: 34,
+      logoR: 105, logoCy: 760, t1x: 850, t2x: 230,
+      scoreY: 772, scoreSize: 150, scoreGap: 105,
+      nameY: 950, nameSize: 52, nameMaxW: 430,
+      statusY: 1055, statusSize: 30,
+      waterCy: 1300, waterR: 260,
+      lineY: 1580, footY: 1655, footSize: 44,
+      urlY: 1705, urlSize: 27, tgY: 1750, tgSize: 28
+    };
+  }
+  return {
+    brandSize: 92, brandY: 118, brandTextY: 225, brandTextSize: 46,
+    tagY: 268, tagSize: 24, pillY: 335, pillSize: 26,
+    logoR: 80, logoCy: 480, t1x: 850, t2x: 230,
+    scoreY: 490, scoreSize: 115, scoreGap: 90,
+    nameY: 610, nameSize: 40, nameMaxW: 420,
+    statusY: 705, statusSize: 24,
+    waterCy: 855, waterR: 150,
+    lineY: 880, footY: 935, footSize: 36,
+    urlY: 982, urlSize: 22, tgY: 1020, tgSize: 23
+  };
+}
+
+/* ---------- رسم الكارت ---------- */
+function draw() {
+  var L = layout();
+  ctx.clearRect(0, 0, W, H);
+  try { ctx.direction = "rtl"; } catch (e) {}
+
+  var g = ctx.createLinearGradient(0, 0, W, H);
+  g.addColorStop(0, "#7f1d1d");
+  g.addColorStop(1, "#0b1220");
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.globalAlpha = 0.06;
+  ctx.fillStyle = "#fbbf24";
+  ctx.beginPath();
+  ctx.arc(W * 0.14, H * 0.22, W * 0.4, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(W * 0.9, H * 0.7, W * 0.45, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.globalAlpha = 1;
+
+  var g2 = ctx.createLinearGradient(0, H * 0.62, 0, H);
+  g2.addColorStop(0, "rgba(4,8,16,0)");
+  g2.addColorStop(1, "rgba(4,8,16,0.55)");
+  ctx.fillStyle = g2;
+  ctx.fillRect(0, H * 0.62, W, H * 0.38);
+
+  drawBrand(W / 2, L.brandY, L.brandSize);
+  ctx.fillStyle = "#fbbf24";
+  ctx.font = fontStr("bold", L.brandTextSize);
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText("EDGE FOOTBALL", W / 2, L.brandTextY);
+  ctx.fillStyle = "#e2e8f0";
+  ctx.font = fontStr("bold", L.tagSize);
+  ctx.fillText("الكورة بتبدأ من هنا ⚡", W / 2, L.tagY);
+
+  goldPill(data.lg, L.pillY, L.pillSize);
+
+  drawTeamLogo(l1Img, data.t1, L.t1x, L.logoCy, L.logoR);
+  drawTeamLogo(l2Img, data.t2, L.t2x, L.logoCy, L.logoR);
+
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  if (hasScore) {
+    ctx.fillStyle = "#fbbf24";
+    ctx.font = fontStr("bold", L.scoreSize);
+    ctx.fillText(String(data.s1), W / 2 + L.scoreGap, L.scoreY);
+    ctx.fillText(String(data.s2), W / 2 - L.scoreGap, L.scoreY);
+    ctx.fillStyle = "#94a3b8";
+    ctx.font = fontStr("bold", Math.round(L.scoreSize * 0.5));
+    ctx.fillText("–", W / 2, L.scoreY + 6);
+  } else {
+    ctx.fillStyle = "#fbbf24";
+    ctx.font = fontStr("bold", Math.round(L.scoreSize * 0.75));
+    ctx.fillText("VS", W / 2, L.scoreY);
+  }
+
+  fitText(data.t1, L.nameMaxW, L.nameSize, 26, "bold");
+  ctx.fillStyle = "#ffffff";
+  ctx.textAlign = "right";
+  ctx.fillText(data.t1, W - 95, L.nameY);
+  fitText(data.t2, L.nameMaxW, L.nameSize, 26, "bold");
+  ctx.fillStyle = "#ffffff";
+  ctx.textAlign = "left";
+  ctx.fillText(data.t2, 95, L.nameY);
+
+  statusPill(data.st, L.statusY, L.statusSize);
+
+  ctx.globalAlpha = 0.05;
+  ctx.fillStyle = "#ffffff";
+  ctx.beginPath();
+  ctx.arc(W / 2, L.waterCy, L.waterR, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.globalAlpha = 1;
+
+  ctx.strokeStyle = "rgba(251,191,36,0.45)";
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(W * 0.22, L.lineY);
+  ctx.lineTo(W * 0.78, L.lineY);
+  ctx.stroke();
+  ctx.textAlign = "center";
+  ctx.fillStyle = "#fbbf24";
+  ctx.font = fontStr("bold", L.footSize);
+  ctx.fillText("EDGE FOOTBALL", W / 2, L.footY);
+  ctx.fillStyle = "#94a3b8";
+  ctx.font = fontStr("bold", L.urlSize);
+  ctx.fillText("andrew101018.github.io/EDGE", W / 2, L.urlY);
+  ctx.fillStyle = "#fbbf24";
+  ctx.font = fontStr("bold", L.tgSize);
+  ctx.fillText("تيليجرام: @edgefootballplatform", W / 2, L.tgY);
+}
+
+/* ---------- المقاسات ---------- */
+var btnStory = document.getElementById("btnStory");
+var btnSquare = document.getElementById("btnSquare");
+
+function setMode(m) {
+  H = (m === "story") ? 1920 : 1080;
+  canvas.width = W;
+  canvas.height = H;
+  if (m === "story") {
+    btnStory.classList.add("active");
+    btnSquare.classList.remove("active");
+  } else {
+    btnSquare.classList.add("active");
+    btnStory.classList.remove("active");
+  }
+  draw();
+}
+
+btnStory.addEventListener("click", function () { setMode("story"); });
+btnSquare.addEventListener("click", function () { setMode("square"); });
+
+/* ---------- تحميل ومشاركة ---------- */
+function shareText() {
+  var score = hasScore ? (" | " + data.s1 + " - " + data.s2) : "";
+  return "⚽ " + data.t1 + " × " + data.t2 + score + "\n🏆 " + data.lg + " — " + data.st + "\nالكورة بتبدأ من هنا ⚡ Edge Football";
+}
+
+document.getElementById("btnWa").href = "https://wa.me/?text=" + encodeURIComponent(shareText());
+
+function getBlob(cb) {
+  try {
+    canvas.toBlob(function (b) { cb(b); }, "image/png");
+  } catch (e) {
+    cb(null);
+  }
+}
+
+document.getElementById("btnDownload").addEventListener("click", function () {
+  getBlob(function (b) {
+    if (!b) { alert("حصلت مشكلة في التحميل، جرب تاني 🙏"); return; }
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(b);
+    a.download = "edge-football.png";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 5000);
+  });
+});
+
+document.getElementById("btnShare").addEventListener("click", function () {
+  getBlob(function (b) {
+    if (!b) { alert("حصلت مشكلة، جرب زرار التحميل 🙏"); return; }
+    var file = new File([b], "edge-football.png", { type: "image/png" });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      navigator.share({ files: [file], text: shareText() }).catch(function () {});
+    } else {
+      alert("المشاركة المباشرة مش متاحة على المتصفح ده — حمّل الصورة وابعتها يدوي 👌");
+    }
+  });
+});
+
+/* ---------- تشغيل ---------- */
+draw();
+Promise.all([loadImg(LOGO_URL), loadImg(data.l1), loadImg(data.l2)]).then(function (r) {
+  brandImg = r[0];
+  l1Img = r[1];
+  l2Img = r[2];
+  draw();
+});
+
+})();
+</script>
+</body>
+</html>
