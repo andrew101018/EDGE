@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-09-08 07:09 PM",
+  "updated_at": "2026-09-08 08:17 PM",
   "news": [
+    {
+      "t": "⚽ دوري أبطال أوروبا يعود: من أبرز المرشحين ومن هم اللاعبون الذين يستحقون المتابعة؟",
+      "full": "⚽ دوري أبطال أوروبا يعود: من أبرز المرشحين ومن هم اللاعبون الذين يستحقون المتابعة؟\n\nتحتل الأندية الإنجليزية الخمسة مراكز ضمن أفضل 10 فرق من حيث احتمالات الفوز باللقب، كما حصلت جميعها على أكثر من 50 في المئة من حيث احتمالات التأهل إلى دور الـ16.",
+      "img": ""
+    },
+    {
+      "t": "⚽ جدول ترتيب الدورى المصرى قبل مواجهة الزمالك وأبوقير للإسمدة - اليوم السابع",
+      "full": "⚽ جدول ترتيب الدورى المصرى قبل مواجهة الزمالك وأبوقير للإسمدة - اليوم السابع\n\nجدول ترتيب الدورى المصرى قبل مواجهة الزمالك وأبوقير للإسمدة  اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ يانج أفريكانز عن عدم تواجد الأهلي بدوري الأبطال: نحن عمالقة أفريقيا - يلاكورة",
+      "full": "⚽ يانج أفريكانز عن عدم تواجد الأهلي بدوري الأبطال: نحن عمالقة أفريقيا - يلاكورة\n\nيانج أفريكانز عن عدم تواجد الأهلي بدوري الأبطال: نحن عمالقة أفريقيا  يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ بقيادة بانزا والدباغ.. تشكيل الزمالك أمام أبو قير للأسمدة في الدوري - يلاكورة",
+      "full": "⚽ بقيادة بانزا والدباغ.. تشكيل الزمالك أمام أبو قير للأسمدة في الدوري - يلاكورة\n\nبقيادة بانزا والدباغ.. تشكيل الزمالك أمام أبو قير للأسمدة في الدوري  يلاكورة",
+      "img": ""
+    },
     {
       "t": "⚽ هيروح الأهلي ولا بيراميدز؟.. رقم خيالي لـ أحمد فتوح لخطفه من الزمالك - صدى البلد",
       "full": "⚽ هيروح الأهلي ولا بيراميدز؟.. رقم خيالي لـ أحمد فتوح لخطفه من الزمالك - صدى البلد\n\nهيروح الأهلي ولا بيراميدز؟.. رقم خيالي لـ أحمد فتوح لخطفه من الزمالك  صدى البلد",
@@ -80,22 +100,6 @@
       "t": "⚽ بسبب بلال.. الزمالك يعتزم شكوى قناة الأهلي للمجلس الأعلى لتنظيم الإعلام - المصري اليوم",
       "full": "⚽ بسبب بلال.. الزمالك يعتزم شكوى قناة الأهلي للمجلس الأعلى لتنظيم الإعلام - المصري اليوم\n\nبسبب بلال.. الزمالك يعتزم شكوى قناة الأهلي للمجلس الأعلى لتنظيم الإعلام  المصري اليوم",
       "img": ""
-    },
-    {
-      "t": "⚽ نجم الأهلي السابق: الزمالك لا يقدم كرة ممتعة لكنه يعرف كيف يفوز - اخبارك نت",
-      "img": ""
-    },
-    {
-      "t": "⚽ منشور جديد من رئيس \"فيفا\" عن منتخب مصر.. هذا ما جاء فيه - arabic.cnn.com",
-      "img": ""
-    },
-    {
-      "t": "⚽ أحدهم عربي.. المرشحين المحتملين لإسقاط إنفانتينو من عرش فيفا - Masrawy",
-      "img": ""
-    },
-    {
-      "t": "⚽ محمد صلاح أفضل لاعب في الجولة الرابعة بالدوري التركي - اليوم السابع",
-      "img": ""
     }
   ],
   "results": [
@@ -121,7 +125,7 @@
           "as": "0",
           "time": "06:30 PM",
           "state": "in",
-          "detail": "39'"
+          "detail": "85'"
         },
         {
           "home": "Al Hazem",
@@ -137,7 +141,7 @@
           "as": "0",
           "time": "06:55 PM",
           "state": "in",
-          "detail": "14'"
+          "detail": "59'"
         },
         {
           "home": "القادسية",
@@ -172,11 +176,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/887.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4411.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "0",
           "time": "07:45 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "31'"
         },
         {
           "home": "Club Brugge",
@@ -188,11 +192,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/570.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "1",
+          "as": "2",
           "time": "07:45 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "30'"
         },
         {
           "home": "بوروسيا دورتموند",
@@ -928,16 +932,20 @@
       "img": "https://a.espncdn.com/photo/2026/0905/r1711693_1296x729_16-9.jpg"
     },
     {
-      "t": "UEFA Champions League live updates: Villa kick off league phase against Brugge",
-      "img": "https://a.espncdn.com/photo/2026/0905/r1711576_1296x729_16-9.jpg"
+      "t": "UEFA Champions League live updates: Villa kick off league phase vs. Brugge",
+      "img": "https://a.espncdn.com/photo/2026/0908/r1713280_2_1296x729_16-9.jpg"
     },
     {
       "t": "UK flight disruption affects Arsenal's Champions League travel plans",
       "img": "https://a.espncdn.com/photo/2026/0908/r1713251_1296x729_16-9.jpg"
     },
     {
-      "t": "Gomez: Atlético current squad situation a 'win-win' for Jonathan David",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0908/dm_260908_Gomez_Atletico_current_squad_situation_a_win_win_for_Jonathan_David/dm_260908_Gomez_Atletico_current_squad_situation_a_win_win_for_Jonathan_David.jpg"
+      "t": "Luis Enrique: PSG must leave 'comfort zone' for Champions League three-peat chance",
+      "img": "https://a.espncdn.com/photo/2025/0929/r1553125_1296x729_16-9.jpg"
+    },
+    {
+      "t": "2026 Ballon d'Or: Full men's, women's shortlists, host city change, more",
+      "img": "https://a.espncdn.com/photo/2026/0908/r1713144_2_1296x729_16-9.jpg"
     },
     {
       "t": "Liverpool's Alexis Mac Allister 'very, very sad' after not being offered new contract",
@@ -948,8 +956,8 @@
       "img": "https://a.espncdn.com/photo/2026/0908/r1713118_1296x729_16-9.jpg"
     },
     {
-      "t": "Man United fan group call for unified pre-derby protest amid season ticket 'fiasco'",
-      "img": "https://a.espncdn.com/photo/2026/0908/r1713146_1296x729_16-9.jpg"
+      "t": "2026 Ballon d'Or: Full men's, women's shortlists, host city change, more",
+      "img": "https://a.espncdn.com/photo/2026/0908/r1713144_2_1296x729_16-9.jpg"
     },
     {
       "t": "Transfer rumors, news: Arsenal set for Rice talks to ward off Real Madrid interest",
@@ -960,8 +968,8 @@
       "img": "https://a.espncdn.com/photo/2026/0908/r1713143_1296x729_16-9.jpg"
     },
     {
-      "t": "José Mourinho backs Endrick for Real Madrid breakthrough after summer transfer block",
-      "img": "https://a.espncdn.com/photo/2026/0908/r1713127_1296x729_16-9.jpg"
+      "t": "2026 Ballon d'Or: Full men's, women's shortlists, host city change, more",
+      "img": "https://a.espncdn.com/photo/2026/0908/r1713144_2_1296x729_16-9.jpg"
     },
     {
       "t": "Napoli's Scott McTominay undergoes successful heart surgery",
@@ -972,8 +980,8 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0907/dm_260907_Mbappe_backs_himself_as_the_best_in_the_world/dm_260907_Mbappe_backs_himself_as_the_best_in_the_world.jpg"
     },
     {
-      "t": "Arsenal show Chelsea, Premier League who's boss; Inter the team to beat in Serie A",
-      "img": "https://a.espncdn.com/photo/2026/0907/r1712653_1296x729_16-9.jpg"
+      "t": "2026 Ballon d'Or: Full men's, women's shortlists, host city change, more",
+      "img": "https://a.espncdn.com/photo/2026/0908/r1713144_2_1296x729_16-9.jpg"
     },
     {
       "t": "Ousmane Dembélé says Harry Kane a Ballon d'Or candidate - but predicts award will go to PSG player",
@@ -984,8 +992,8 @@
       "img": "https://a.espncdn.com/photo/2026/0907/r1712753_1296x729_16-9.jpg"
     },
     {
-      "t": "Bayern Munich CEO: 'No offers' for Michael Olise in summer, cannot make promises on future",
-      "img": "https://a.espncdn.com/photo/2026/0907/r1712702_1296x729_16-9.jpg"
+      "t": "2026 Ballon d'Or: Full men's, women's shortlists, host city change, more",
+      "img": "https://a.espncdn.com/photo/2026/0908/r1713144_2_1296x729_16-9.jpg"
     },
     {
       "t": "Ousmane Dembélé says Harry Kane a Ballon d'Or candidate - but predicts award will go to PSG player",
@@ -994,10 +1002,6 @@
     {
       "t": "Giovanni Reyna scores first goal since move to Strasbourg",
       "img": "https://a.espncdn.com/photo/2026/0906/r1712519_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Luis Enrique unfazed as historic PSG winless start deepens",
-      "img": "https://a.espncdn.com/photo/2026/0904/r1711544_1296x729_16-9.jpg"
     }
   ],
   "highlights": [],
