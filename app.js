@@ -706,41 +706,163 @@ function renderStats() {
   el.innerHTML = html || '<div class="card">مفيش بيانات كافية دلوقتي 🔄</div>';
 }
 
+/* ===== 🔍 البحث الشامل المحسّن — تطبيع عربي + نتائج مجمعة + كل النتائج قابلة للضغط ===== */
+function normAr(s) {
+  return (s === null || s === undefined ? '' : String(s))
+    .replace(/[\u064B-\u065F\u0670\u0640]/g, '')
+    .replace(/[\u0622\u0623\u0625\u0627\u0671]/g, 'ا')
+    .replace(/\u0629/g, 'ه')
+    .replace(/[\u0649\u0626]/g, 'ي')
+    .replace(/\u0624/g, 'و')
+    .replace(/\u0621/g, '')
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function gsHl(text, q) {
+  try {
+    const i = String(text).toLowerCase().indexOf(String(q).toLowerCase());
+    if (i < 0) return text;
+    return text.slice(0, i) + '<b style="color:#fbbf24;">' + text.slice(i, i + q.length) + '</b>' + text.slice(i + q.length);
+  } catch (e) { return text; }
+}
+
+let _gsTimer = null;
 function globalSearch(q) {
+  clearTimeout(_gsTimer);
+  _gsTimer = setTimeout(function () { runGlobalSearch(q); }, 150);
+}
+
+function runGlobalSearch(q) {
   const el = document.getElementById('globalResults');
   if (!el) return;
   q = (q || '').trim();
   if (q.length < 2) { el.innerHTML = ''; return; }
-  const ql = q.toLowerCase();
-  const results = [];
-  (DATA.news || []).forEach(n => { if ((n.t || '').toLowerCase().includes(ql)) results.push({ icon: '📰', text: n.t, sec: 'الأخبار', fn: null }); });
-  (DATA.world || []).forEach(n => { if ((n.t || '').toLowerCase().includes(ql)) results.push({ icon: '🌍', text: n.t, sec: 'عالمية', fn: null }); });
+  const nq = normAr(q);
+  const hit = function (s) { return normAr(s).indexOf(nq) > -1; };
+
+  const groups = [
+    { icon: '⚽', title: 'مباريات', items: [] },
+    { icon: '🏟️', title: 'فرق', items: [] },
+    { icon: '👑', title: 'لاعبون وهدافون', items: [] },
+    { icon: '🚩', title: 'منتخبات', items: [] },
+    { icon: '📰', title: 'أخبار', items: [] },
+    { icon: '🌍', title: 'عالمية', items: [] }
+  ];
+  const gMatch = groups[0], gTeam = groups[1], gPlayer = groups[2], gNat = groups[3], gNews = groups[4], gWorld = groups[5];
+
+  /* مباريات */
+  (DATA.matches || []).forEach(g => (g.items || []).forEach(m => {
+    if (hit(m.home) || hit(m.away)) {
+      const state = m.state === 'in' ? '🔴 مباشر' : (m.state === 'post' ? '🏁 انتهت ' + m.hs + '-' + m.as : '🕐 ' + m.time);
+      gMatch.items.push({
+        text: m.home + ' × ' + m.away,
+        sub: g.league + ' | ' + state,
+        fn: function () { showMatch(m.slug, m.eid, m.home + ' × ' + m.away); }
+      });
+    }
+  }));
+
+  /* فرق من جداول الترتيب */
+  const seenTeams = {};
   Object.entries(DATA.tables || {}).forEach(([league, rows]) => {
     (rows || []).forEach(r => {
-      if (r && typeof r === 'object' && (r.team || '').toLowerCase().includes(ql)) results.push({ icon: '🏟️', text: r.team + ' — ' + league, sec: 'الترتيب', fn: () => showTeam('', '', r.team) });
+      if (r && typeof r === 'object' && r.team && !seenTeams[r.team] && hit(r.team)) {
+        seenTeams[r.team] = 1;
+        gTeam.items.push({
+          text: r.team,
+          sub: league + ' | المركز ' + (r.rank || '-') + ' | ' + (r.pts || 0) + ' نقطة',
+          fn: function () { showTeam('', '', r.team); }
+        });
+      }
     });
   });
-  (DATA.matches || []).forEach(g => {
-    (g.items || []).forEach(m => {
-      if ((m.home || '').toLowerCase().includes(ql) || (m.away || '').toLowerCase().includes(ql)) results.push({ icon: '⚽', text: m.home + ' × ' + m.away + ' — ' + g.league, sec: 'المباريات', fn: null });
+
+  /* لاعبون (الهدافون + نجوم الفانتازي) */
+  const seenPlayers = {};
+  const pool = (typeof fantasyPool === 'function') ? fantasyPool() : [];
+  pool.forEach(p => {
+    if (!p || seenPlayers[p.name] || !(hit(p.name) || hit(p.team))) return;
+    seenPlayers[p.name] = 1;
+    gPlayer.items.push({
+      text: p.name,
+      sub: (p.team || '-') + ' | ' + (p.cat || '') + ' ⭐' + (p.val || 0) + ' | 💰' + (p.price || 0),
+      fn: function () {
+        showNewsDetail(p.name, '👤 اللاعب: ' + p.name + '\n🏟️ الفريق: ' + (p.team || '-') + '\n🏆 ' + (p.cat || '') + '\n⭐ القيمة: ' + (p.val || 0) + '\n💰 السعر في الفانتازي: ' + (p.price || 0));
+        const h = document.getElementById('teamModalTitle');
+        if (h) h.textContent = '👑 ' + p.name;
+      }
     });
   });
-  Object.entries(DATA.leaders || {}).forEach(([league, cats]) => {
-    Object.values(cats || {}).forEach(players => {
-      (players || []).forEach(p => {
-        if ((p.name || '').toLowerCase().includes(ql)) results.push({ icon: '👑', text: p.name + ' — ' + (p.team || '') + ' — ' + league, sec: 'الهدافين', fn: null });
+
+  /* منتخبات */
+  const nats = (typeof NATIONALS !== 'undefined') ? NATIONALS : [];
+  nats.forEach(n => {
+    if (hit(n[0]) || hit(n[1])) {
+      gNat.items.push({
+        text: n[2] + ' منتخب ' + n[0],
+        sub: n[1],
+        fn: function () { showNational(n[1], n[0], n[2]); }
       });
+    }
+  });
+
+  /* أخبار */
+  (DATA.news || []).forEach(n => {
+    if (hit(n.t)) {
+      gNews.items.push({ text: n.t, sub: 'خبر', fn: function () { showNewsDetail(n.t, n.full || n.t); } });
+    }
+  });
+
+  /* عالمية */
+  (DATA.world || []).forEach(n => {
+    if (hit(n.t)) {
+      gWorld.items.push({ text: n.t, sub: 'خبر عالمي', fn: function () { showNewsDetail(n.t, n.full || n.t); } });
+    }
+  });
+
+  const total = groups.reduce((s, g) => s + g.items.length, 0);
+  if (!total) {
+    el.innerHTML = '<div style="background:#1e293b;border-radius:10px;padding:12px;opacity:.7;">مفيش نتايج لـ "' + q + '" 🔍 جرب اسم تاني أو اختصر البحث</div>';
+    return;
+  }
+
+  const PER_GROUP = 6;
+  const flat = [];
+  groups.forEach(g => g.items.slice(0, PER_GROUP).forEach(it => flat.push(it)));
+  window._gsResults = flat;
+
+  let idx = 0;
+  let html = '<div style="background:#1e293b;border:1px solid #334155;border-radius:12px;max-height:340px;overflow:auto;box-shadow:0 10px 30px rgba(0,0,0,.4);">';
+  groups.forEach(g => {
+    if (!g.items.length) return;
+    const extra = g.items.length > PER_GROUP ? ' <span style="opacity:.6;font-weight:normal;">+ ' + (g.items.length - PER_GROUP) + ' زيادة</span>' : '';
+    html += `<div style="position:sticky;top:0;background:#0f172a;padding:7px 12px;font-weight:bold;color:#fbbf24;font-size:.9em;border-bottom:1px solid #334155;">${g.icon} ${g.title} <span style="opacity:.7;font-weight:normal;">(${g.items.length})</span>${extra}</div>`;
+    g.items.slice(0, PER_GROUP).forEach(it => {
+      html += `<div style="padding:9px 12px;border-bottom:1px solid #24344f;cursor:pointer;display:flex;gap:10px;align-items:center;" onclick="if(window._gsResults[${idx}])window._gsResults[${idx}].fn()" onmouseover="this.style.background='#28354b'" onmouseout="this.style.background='transparent'">
+        <span style="font-size:1.15em;">${g.icon}</span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-weight:bold;font-size:.92em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${gsHl(it.text, q)}</div>
+          <div style="opacity:.6;font-size:.78em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${it.sub || ''}</div>
+        </div>
+      </div>`;
+      idx++;
     });
   });
-  if (!results.length) { el.innerHTML = '<div style="opacity:.6;padding:8px;">مفيش نتائج لـ "' + q + '" 🔍</div>'; return; }
-  window._gsResults = results;
-  el.innerHTML = '<div style="background:#1e293b;border-radius:10px;padding:10px;max-height:300px;overflow:auto;">' +
-    results.slice(0, 15).map((r, i) => `<div style="padding:8px;border-bottom:1px solid #334155;cursor:pointer;display:flex;gap:8px;align-items:center;" onclick="if(window._gsResults[${i}].fn)window._gsResults[${i}].fn()" onmouseover="this.style.background='#334155'" onmouseout="this.style.background='transparent'">
-      <span>${r.icon}</span>
-      <div style="flex:1;"><div style="font-weight:bold;">${r.text}</div><div style="opacity:.6;font-size:.8em;">${r.sec}</div></div>
-    </div>`).join('') + '</div>';
+  html += `<div style="padding:8px 12px;opacity:.55;font-size:.75em;text-align:center;">إجمالي ${total} نتيجة — اضغط Esc للإغلاق 🔎</div></div>`;
+  el.innerHTML = html;
 }
 
+/* Esc يقفل نتايج البحث */
+(function () {
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      const el = document.getElementById('globalResults');
+      if (el) el.innerHTML = '';
+    }
+  });
+})();
 async function loadData() {
   try {
     const r = await fetch('site/data.json?t=' + Date.now());
