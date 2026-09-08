@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-08 08:58 PM",
+  "updated_at": "2026-09-08 09:04 PM",
   "news": [
     {
       "t": "⚽ يانج أفريكانز عن عدم تواجد الأهلي بدوري الأبطال: نحن عمالقة أفريقيا - yallakora.com",
@@ -114,6 +114,38 @@
       "slug": "ksa.1",
       "items": [
         {
+          "home": "الاتحاد",
+          "away": "الفيحاء",
+          "eid": "401900360",
+          "slug": "ksa.1",
+          "homeId": "2276",
+          "awayId": "21827",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2276.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21827.png",
+          "tv": "SSC / شاهد",
+          "hs": "0",
+          "as": "0",
+          "time": "09:00 PM",
+          "state": "in",
+          "detail": "4'"
+        },
+        {
+          "home": "القادسية",
+          "away": "الأهلي السعودي",
+          "eid": "401900361",
+          "slug": "ksa.1",
+          "homeId": "22022",
+          "awayId": "8346",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22022.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8346.png",
+          "tv": "SSC / شاهد",
+          "hs": "0",
+          "as": "0",
+          "time": "09:00 PM",
+          "state": "in",
+          "detail": "5'"
+        },
+        {
           "home": "الاتفاق",
           "away": "Al Faisaly",
           "eid": "401900363",
@@ -144,22 +176,6 @@
           "time": "06:55 PM",
           "state": "post",
           "detail": "FT"
-        },
-        {
-          "home": "القادسية",
-          "away": "الأهلي السعودي",
-          "eid": "401900361",
-          "slug": "ksa.1",
-          "homeId": "22022",
-          "awayId": "8346",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22022.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8346.png",
-          "tv": "SSC / شاهد",
-          "hs": "0",
-          "as": "0",
-          "time": "09:00 PM",
-          "state": "pre",
-          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -182,7 +198,7 @@
           "as": "0",
           "time": "07:45 PM",
           "state": "in",
-          "detail": "56'"
+          "detail": "62'"
         },
         {
           "home": "Club Brugge",
@@ -198,7 +214,7 @@
           "as": "3",
           "time": "07:45 PM",
           "state": "in",
-          "detail": "54'"
+          "detail": "60'"
         },
         {
           "home": "بوروسيا دورتموند",
@@ -845,22 +861,6 @@
     ]
   },
   "leaders": {
-    "الدوري السعودي": {
-      "الهدافون 🏆 (الموسم الحالي)": [
-        {
-          "name": "Ivan Toney",
-          "team": "الأهلي السعودي",
-          "value": "6 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Mateo Retegui",
-          "team": "القادسية",
-          "value": "3 ⚽",
-          "face": ""
-        }
-      ]
-    },
     "الدوري الإسباني": {
       "الهدافون 🏆 (الموسم الحالي)": [
         {
