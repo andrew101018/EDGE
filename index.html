@@ -88,17 +88,34 @@
 
 <nav class="top-nav">
   <button class="nav-btn active" onclick="go('home', this)">🏠 الرئيسية</button>
+
+  <span class="nav-sep"></span>
+  <span class="nav-group-title">المباريات والدوريات</span>
   <button class="nav-btn" onclick="goMulti(['matches','tv'], this)">⚽ المباريات</button>
   <button class="nav-btn" onclick="go('tables', this)">🏆 الترتيب</button>
-  <button class="nav-btn" onclick="go('stats', this)">📊 إحصائيات</button>
   <button class="nav-btn" onclick="goMulti(['leaders','players'], this)">👑 الهدافين</button>
-  <button class="nav-btn" onclick="goMulti(['predict','fantasy','board'], this)">🎮 الألعاب</button>
-  <button class="nav-btn" onclick="go('world', this)">🌍 عالمية</button>
-  <button class="nav-btn" onclick="go('champions', this)">🏆 سجل الأبطال</button>
-  <button class="nav-btn" onclick="go('nationals', this)">🌍 المنتخبات</button>
+  <button class="nav-btn" onclick="go('stats', this)">📊 إحصائيات</button>
+
+  <span class="nav-sep"></span>
+  <span class="nav-group-title">الأخبار</span>
+  <button class="nav-btn" onclick="go('world', this)">📰 عالمية</button>
   <button class="nav-btn" onclick="go('transfers', this)">💸 الانتقالات</button>
   <button class="nav-btn" onclick="go('archive', this)">📚 الأرشيف</button>
+
+  <span class="nav-sep"></span>
+  <span class="nav-group-title">الألعاب</span>
+  <button class="nav-btn" onclick="go('predict', this)">🎯 التوقعات</button>
+  <button class="nav-btn" onclick="go('fantasy', this)">🧩 الفانتازي</button>
+  <button class="nav-btn" onclick="go('board', this)">🏅 الصدارة</button>
+
+  <span class="nav-sep"></span>
+  <span class="nav-group-title">المراجع</span>
+  <button class="nav-btn" onclick="go('nationals', this)">🌍 المنتخبات</button>
+  <button class="nav-btn" onclick="go('champions', this)">🥇 سجل الأبطال</button>
   <button class="nav-btn" onclick="go('compare', this)">⚖️ مقارنة</button>
+
+  <span class="nav-sep"></span>
+  <span class="nav-group-title">إضافات</span>
   <button class="nav-btn" onclick="go('shop', this)">🛒 المتجر</button>
   <button id="installBtn" class="nav-btn install-btn" onclick="installApp()">📲 ثبّت التطبيق</button>
 </nav>
