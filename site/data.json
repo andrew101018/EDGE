@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-08 08:17 PM",
+  "updated_at": "2026-09-08 08:57 PM",
   "news": [
     {
       "t": "⚽ دوري أبطال أوروبا يعود: من أبرز المرشحين ومن هم اللاعبون الذين يستحقون المتابعة؟",
@@ -103,6 +103,8 @@
     }
   ],
   "results": [
+    "Al Hazem 1 - 0 التعاون",
+    "الاتفاق 0 - 0 Al Faisaly",
     "Udinese 1 - 2 Lazio",
     "Elche 2 - 3 Real Sociedad"
   ],
@@ -124,8 +126,8 @@
           "hs": "0",
           "as": "0",
           "time": "06:30 PM",
-          "state": "in",
-          "detail": "85'"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "Al Hazem",
@@ -140,8 +142,8 @@
           "hs": "1",
           "as": "0",
           "time": "06:55 PM",
-          "state": "in",
-          "detail": "59'"
+          "state": "post",
+          "detail": "FT"
         },
         {
           "home": "القادسية",
@@ -180,7 +182,7 @@
           "as": "0",
           "time": "07:45 PM",
           "state": "in",
-          "detail": "31'"
+          "detail": "54'"
         },
         {
           "home": "Club Brugge",
@@ -193,10 +195,10 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png",
           "tv": "beIN Sports",
           "hs": "1",
-          "as": "2",
+          "as": "3",
           "time": "07:45 PM",
           "state": "in",
-          "detail": "30'"
+          "detail": "52'"
         },
         {
           "home": "بوروسيا دورتموند",
@@ -320,6 +322,16 @@
       },
       {
         "rank": 6,
+        "team": "الاتفاق",
+        "logo": "",
+        "gp": 6.0,
+        "w": 3.0,
+        "d": 1.0,
+        "l": 2.0,
+        "pts": 10.0
+      },
+      {
+        "rank": 7,
         "team": "الأهلي السعودي",
         "logo": "",
         "gp": 5.0,
@@ -329,23 +341,13 @@
         "pts": 9.0
       },
       {
-        "rank": 7,
+        "rank": 8,
         "team": "Al Kholood",
         "logo": "",
         "gp": 5.0,
         "w": 2.0,
         "d": 3.0,
         "l": 0.0,
-        "pts": 9.0
-      },
-      {
-        "rank": 8,
-        "team": "الاتفاق",
-        "logo": "",
-        "gp": 5.0,
-        "w": 3.0,
-        "d": 0.0,
-        "l": 2.0,
         "pts": 9.0
       }
     ],
@@ -932,16 +934,16 @@
       "img": "https://a.espncdn.com/photo/2026/0905/r1711693_1296x729_16-9.jpg"
     },
     {
-      "t": "UEFA Champions League live updates: Villa kick off league phase vs. Brugge",
+      "t": "Napoli facing midfielder shortage for Arsenal Champions League clash",
+      "img": "https://a.espncdn.com/photo/2026/0908/r1713317_1296x729_16-9.jpg"
+    },
+    {
+      "t": "UEFA Champions League live updates: Villa lead Brugge as league phase kicks off",
       "img": "https://a.espncdn.com/photo/2026/0908/r1713280_2_1296x729_16-9.jpg"
     },
     {
       "t": "UK flight disruption affects Arsenal's Champions League travel plans",
       "img": "https://a.espncdn.com/photo/2026/0908/r1713251_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Luis Enrique: PSG must leave 'comfort zone' for Champions League three-peat chance",
-      "img": "https://a.espncdn.com/photo/2025/0929/r1553125_1296x729_16-9.jpg"
     },
     {
       "t": "2026 Ballon d'Or: Full men's, women's shortlists, host city change, more",
