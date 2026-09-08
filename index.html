@@ -107,6 +107,7 @@
   <button class="nav-btn" onclick="go('predict', this)">🎯 التوقعات</button>
   <button class="nav-btn" onclick="go('fantasy', this)">🧩 الفانتازي</button>
   <button class="nav-btn" onclick="go('board', this)">🏅 الصدارة</button>
+  <button class="nav-btn" onclick="go('badges', this)">🎖️ الإنجازات</button>
 
   <span class="nav-sep"></span>
   <span class="nav-group-title">المراجع</span>
@@ -171,6 +172,14 @@
     <p class="board-description">نقاطك من التوقعات + الفانتازي في مواجهة أصحابك</p>
     <button type="button" class="btn upload-score-btn" onclick="uploadScore()">🚀 رفع نقاطي</button>
     <div id="boardContainer"></div>
+  </section>
+
+    <section id="sec-badges" class="page">
+    <h2>🎖️ إنجازاتك</h2>
+    <p class="badges-description">كل ما بتلعب وتتابع وتستكشف — بتفتح بادجات جديدة 🔥</p>
+    <div id="badgesSummary"></div>
+    <div id="badgesContainer" class="grid"></div>
+    <button class="btn" style="margin-top:16px;" onclick="shareBadges()">📤 شارك إنجازاتك مع أصحابك</button>
   </section>
 
   <section id="sec-shop" class="page">
@@ -259,6 +268,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="app.js?v=5"></script>
 <script src="mobile.js" defer></script>
+<script src="badges.js" defer></script>
 <a class="share-wa" target="_blank" rel="noopener" href="https://wa.me/?text=🔥 أخبار كورة لحظياً + مباريات لايف + فانتازي — الكورة بتبدأ من هنا ⚽ https://andrew101018.github.io/EDGE/">💬</a>
 <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');</script>
 </body>
