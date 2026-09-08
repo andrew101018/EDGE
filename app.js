@@ -660,6 +660,37 @@ const NATIONALS = [
   ['اليابان','Japan','🇯🇵'],['كوريا الجنوبية','South Korea','🇰🇷'],['أستراليا','Australia','🇦🇺'],['إيران','Iran','🇮🇷'],['الصين','China','🇨🇳'],['أوزبكستان','Uzbekistan','🇺🇿'],['فيتنام','Vietnam','🇻🇳'],['تايلاند','Thailand','🇹🇭'],['إندونيسيا','Indonesia','🇮🇩'],['ماليزيا','Malaysia','🇲'],['الهند','India','🇮🇳'],['باكستان','Pakistan','🇵🇰'],['أفغانستان','Afghanistan','🇦'],['تركمانستان','Turkmenistan','🇹🇲'],['طاجيكستان','Tajikistan','🇹🇯'],['قيرغيزستان','Kyrgyzstan','🇰🇬'],['كوريا الشمالية','North Korea','🇰🇵'],['هونج كونج','Hong Kong','🇭🇰'],['الفلبين','Philippines','🇵🇭'],['سنغافورة','Singapore','🇸🇬'],['ميانمار','Myanmar','🇲🇲'],['نيبال','Nepal','🇳🇵'],['بنجلاديش','Bangladesh','🇧🇩'],['سريلانكا','Sri Lanka','🇱🇰'],
   ['نيوزيلندا','New Zealand','🇳🇿'],['فيجي','Fiji','🇫🇯'],['بابوا غينيا الجديدة','Papua New Guinea','🇵🇬'],['جزر سليمان','Solomon Islands','🇸🇧'],['فانواتو','Vanuatu','🇻🇺']
 ];
+/* ===== 🚩 إصلاح الأعلام المكسورة (19 علم) ===== */
+(function () {
+  try {
+    const FLAG_FIX = {
+      'Somalia': '🇸🇴',
+      'Oman': '🇴🇲',
+      'Cameroon': '🇨🇲',
+      'Tanzania': '🇹🇿',
+      'Rwanda': '🇷🇼',
+      'Niger': '🇳🇪',
+      'Botswana': '🇧🇼',
+      'England': '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
+      'Scotland': '🏴󠁧󠁢󠁳󠁣󠁴󠁿',
+      'Wales': '🏴󠁧󠁢󠁷󠁬󠁳󠁿',
+      'Poland': '🇵🇱',
+      'Ukraine': '🇺🇦',
+      'Romania': '🇷🇴',
+      'Bulgaria': '🇧🇬',
+      'Belarus': '🇧🇾',
+      'Latvia': '🇱🇻',
+      'Peru': '🇵🇪',
+      'Malaysia': '🇲🇾',
+      'Afghanistan': '🇦🇫'
+    };
+    NATIONALS.forEach(function (n) {
+      if (FLAG_FIX[n[1]]) n[2] = FLAG_FIX[n[1]];
+    });
+  } catch (e) {
+    console.log('تخطي إصلاح الأعلام:', e);
+  }
+})();
 
 function renderNationals(filter) {
   const el = document.getElementById('nationalsContainer');
