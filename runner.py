@@ -566,12 +566,40 @@ def build_site_data(state, today):
     for slug in PRIORITY:
         t = top_table(slug, 8)
         if t: tables[LEAGUES[slug]] = t
-    leaders = {}
-    for slug, agg in scorer_agg.items():
-        rows = sorted([v for v in agg.values() if v["g"] > 0], key=lambda x: -x["g"])[:15]
-        if rows:
-            leaders[LEAGUES[slug]] = {"الهدافون 🏆 (الموسم الحالي)": [
-                {"name": r["name"], "team": r["team"], "value": f"{r['g']} ⚽", "face": r["face"]} for r in rows]}
+        leaders = {}
+    for slug in PRIORITY:
+        lid = {"eng.1": 39, "esp.1": 140, "ita.1": 135, "ger.1": 78, "fra.1": 61, "ksa.1": 307, "egy.1": 233, "uefa.champions": 2}.get(slug)
+        if not lid: continue
+        try:
+            r = requests.get("https://v3.football.api-sports.io/players/topscorers",
+                headers={"x-apisports-key": os.environ.get("API_FOOTBALL_KEY", "")},
+                params={"league": lid, "season": 2026}, timeout=12)
+            if not r.ok: continue
+            resp = r.json().get("response") or []
+            rows = []
+            for e in resp[:15]:
+                p = e.get("player") or {}
+                st = (e.get("statistics") or [{}])[0]
+                goals = (st.get("goals") or {}).get("total") or 0
+                assists = (st.get("goals") or {}).get("assists") or 0
+                team_name = ar_team(((st.get("team") or {}).get("name") or ""))
+                if goals > 0:
+                    rows.append({"name": p.get("name", ""), "team": team_name,
+                        "value": f"{goals} ⚽", "face": p.get("photo") or "", "assists": assists})
+            if rows:
+                leaders[LEAGUES[slug]] = {
+                    "الهدافون 🏆": [{"name": x["name"], "team": x["team"], "value": x["value"], "face": x["face"]} for x in rows],
+                    "صناعة الأهداف 🎯": [{"name": x["name"], "team": x["team"], "value": f"{x['assists']} 🅰️", "face": x["face"]} for x in sorted(rows, key=lambda a: -(a.get("assists") or 0)) if x.get("assists")]
+                }
+                print("✅ scorers", slug, len(rows))
+        except Exception as ex:
+            print("scorers error", slug, ex)
+    if not leaders:
+        for slug, agg in scorer_agg.items():
+            rows = sorted([v for v in agg.values() if v["g"] > 0], key=lambda x: -x["g"])[:15]
+            if rows:
+                leaders[LEAGUES[slug]] = {"الهدافون 🏆 (الموسم الحالي)": [
+                    {"name": r["name"], "team": r["team"], "value": f"{r['g']} ⚽", "face": r["face"]} for r in rows]}
     site_data = {
         "updated_at": now.strftime("%Y-%m-%d %I:%M %p"),
         "news": state.get("site_news", [])[-20:][::-1],
@@ -625,7 +653,7 @@ def main():
             posted.add(item["hash"])
             recent_titles.append(item["nt"])
             openers.append(content.splitlines()[0][:80])
-            state.setdefault("site_news", []).append({"t": content.splitlines()[0][:100], "img": ""})
+            state.setdefault("site_news", []).append({"t": content.splitlines()[0][:100], "full": content, "img": ""})
             state.setdefault("daily_news", []).append({"d": today, "t": content.splitlines()[0][:80]})
             count += 1
             time.sleep(5)
