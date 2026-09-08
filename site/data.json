@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-09-08 05:56 PM",
+  "updated_at": "2026-09-08 07:09 PM",
   "news": [
+    {
+      "t": "⚽ هيروح الأهلي ولا بيراميدز؟.. رقم خيالي لـ أحمد فتوح لخطفه من الزمالك - صدى البلد",
+      "full": "⚽ هيروح الأهلي ولا بيراميدز؟.. رقم خيالي لـ أحمد فتوح لخطفه من الزمالك - صدى البلد\n\nهيروح الأهلي ولا بيراميدز؟.. رقم خيالي لـ أحمد فتوح لخطفه من الزمالك  صدى البلد",
+      "img": ""
+    },
+    {
+      "t": "⚽ أخبار | مصدر من الزمالك لـ في الجول: شباب أهلي دبي رفع عرضه من أجل بيزيرا.. واتجاه لبيع اللاعب - F",
+      "full": "⚽ أخبار | مصدر من الزمالك لـ في الجول: شباب أهلي دبي رفع عرضه من أجل بيزيرا.. واتجاه لبيع اللاعب - FilGoal\n\nأخبار | مصدر من الزمالك لـ في الجول: شباب أهلي دبي رفع عرضه من أجل بيزيرا.. واتجاه لبيع اللاعب  FilGoal",
+      "img": ""
+    },
+    {
+      "t": "⚽ ترتيب الدوري قبل مباريات اليوم.. بيراميدز يواصل الصدارة والأهلي وصيفاً - اليوم السابع",
+      "full": "⚽ ترتيب الدوري قبل مباريات اليوم.. بيراميدز يواصل الصدارة والأهلي وصيفاً - اليوم السابع\n\nترتيب الدوري قبل مباريات اليوم.. بيراميدز يواصل الصدارة والأهلي وصيفاً  اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ غياب رافينيا وفليك أبرز الصواعق.. القائمة الكاملة لمرشحي جوائز الكرة الذهبية 2026 - Kooora",
+      "full": "⚽ غياب رافينيا وفليك أبرز الصواعق.. القائمة الكاملة لمرشحي جوائز الكرة الذهبية 2026 - Kooora\n\nغياب رافينيا وفليك أبرز الصواعق.. القائمة الكاملة لمرشحي جوائز الكرة الذهبية 2026  Koooraثنائي عربي ضمن قائمة المرشحين لجائزة أفضل موهبة شابة في العالم 2026  اليوم السابعاستبعد نفسه ولامين جمال.. ديمبيلي يختار 3 مرشحين للكرة الذهبية  الجزيرة نت",
+      "img": ""
+    },
     {
       "t": "⚽ محامي زيزو يصعّد ضد الزمالك.. ويهدد باللجوء إلى المحكمة الرياضية - صدى البلد",
       "full": "⚽ محامي زيزو يصعّد ضد الزمالك.. ويهدد باللجوء إلى المحكمة الرياضية - صدى البلد\n\nمحامي زيزو يصعّد ضد الزمالك.. ويهدد باللجوء إلى المحكمة الرياضية  صدى البلدأول رد فعل من الزمالك بعد تصريحات أحمد بلال النارية  إرم نيوزرد مضحك من مصدر فى الاهلى رداً على تصريحات أمين صندوق الزمالك بالامس  الزمالك اليوم",
@@ -76,22 +96,6 @@
     {
       "t": "⚽ محمد صلاح أفضل لاعب في الجولة الرابعة بالدوري التركي - اليوم السابع",
       "img": ""
-    },
-    {
-      "t": "⚽ موعد إعلان المرشحين لجائزة الكرة الذهبية 2026 اليوم - صدى البلد",
-      "img": ""
-    },
-    {
-      "t": "⚽ الكرة الذهبية.. الكشف عن قائمة المرشحين لأفضل نادٍ نسائي 2026 - اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ يحدث باستمرار.. رسميا: الإعلان عن المرشحين للكرة الذهبية 2026 - Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ محمد صلاح في التشكيلة المثالية للجولة الرابعة بالدوري التركي - اليوم السابع",
-      "img": ""
     }
   ],
   "results": [
@@ -116,8 +120,8 @@
           "hs": "0",
           "as": "0",
           "time": "06:30 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "39'"
         },
         {
           "home": "Al Hazem",
@@ -129,11 +133,11 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21964.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18459.png",
           "tv": "SSC / شاهد",
-          "hs": "0",
+          "hs": "1",
           "as": "0",
           "time": "06:55 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "detail": "14'"
         },
         {
           "home": "القادسية",
@@ -844,33 +848,9 @@
           "face": ""
         },
         {
-          "name": "Moussa Dembélé",
-          "team": "الاتفاق",
-          "value": "3 ⚽",
-          "face": ""
-        },
-        {
           "name": "Mateo Retegui",
           "team": "القادسية",
           "value": "3 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Abdulaziz Aldhuwayhi",
-          "team": "Al Hazem",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Abderrazak Hamdallah",
-          "team": "التعاون",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Alexandre Mendy",
-          "team": "Al Faisaly",
-          "value": "1 ⚽",
           "face": ""
         }
       ]
@@ -948,16 +928,16 @@
       "img": "https://a.espncdn.com/photo/2026/0905/r1711693_1296x729_16-9.jpg"
     },
     {
+      "t": "UEFA Champions League live updates: Villa kick off league phase against Brugge",
+      "img": "https://a.espncdn.com/photo/2026/0905/r1711576_1296x729_16-9.jpg"
+    },
+    {
+      "t": "UK flight disruption affects Arsenal's Champions League travel plans",
+      "img": "https://a.espncdn.com/photo/2026/0908/r1713251_1296x729_16-9.jpg"
+    },
+    {
       "t": "Gomez: Atlético current squad situation a 'win-win' for Jonathan David",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0908/dm_260908_Gomez_Atletico_current_squad_situation_a_win_win_for_Jonathan_David/dm_260908_Gomez_Atletico_current_squad_situation_a_win_win_for_Jonathan_David.jpg"
-    },
-    {
-      "t": "Hislop: Espi will not resolve Real Madrid balance issue",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0908/dm_260908_Hislop_Espi_will_not_resolve_Real_Madrid_balance_issue/dm_260908_Hislop_Espi_will_not_resolve_Real_Madrid_balance_issue.jpg"
-    },
-    {
-      "t": "Gomez: This is Barcelona playing total football",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0908/dm_260908_Gomez_This_is_Barcelona_playing_total_football/dm_260908_Gomez_This_is_Barcelona_playing_total_football.jpg"
     },
     {
       "t": "Liverpool's Alexis Mac Allister 'very, very sad' after not being offered new contract",
