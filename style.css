@@ -186,3 +186,25 @@ body.menu-open .menu-toggle span:nth-child(3) { transform: translateY(-8px) rota
 @media (max-width: 768px) {
   .top-nav { flex-wrap: nowrap; }
 }
+
+/* ---------- 🎖️ البادجات والإنجازات ---------- */
+.badge-card { background: #16213a; border: 1px solid #24344f; border-radius: 14px; padding: 18px 12px; text-align: center; position: relative; }
+.badge-icon { font-size: 2.3em; display: block; margin-bottom: 6px; }
+.badge-title { font-weight: bold; font-size: 0.95em; }
+.badge-desc { opacity: 0.65; font-size: 0.78em; margin-top: 4px; }
+.badge-card.unlocked { border-color: #f59e0b; background: linear-gradient(165deg, #1e293b 55%, #3f2d05); box-shadow: 0 0 16px rgba(245, 158, 11, 0.18); }
+.badge-card.locked { opacity: 0.5; filter: grayscale(0.85); }
+.badge-check { position: absolute; top: 8px; left: 10px; font-weight: bold; }
+.badge-progress { height: 6px; background: #0f172a; border-radius: 4px; overflow: hidden; margin-top: 10px; }
+.badge-progress > div { height: 100%; background: linear-gradient(90deg, #fbbf24, #f59e0b); }
+.badge-progress-num { opacity: 0.6; font-size: 0.72em; margin-top: 4px; }
+.badge-toast { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 9998; background: linear-gradient(135deg, #b45309, #f59e0b); color: #111; font-weight: bold; border-radius: 14px; padding: 12px 20px; display: flex; align-items: center; gap: 12px; box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45); animation: badgePop 4.2s ease forwards; max-width: 90vw; }
+@keyframes badgePop {
+  0% { transform: translateX(-50%) translateY(-90px); opacity: 0; }
+  10% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  85% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  100% { transform: translateX(-50%) translateY(-90px); opacity: 0; }
+}
+[data-theme="light"] .badge-card { background: #fff; border-color: #e2e8f0; }
+[data-theme="light"] .badge-progress { background: #e2e8f0; }
+[data-theme="light"] .badge-card.unlocked { border-color: #f59e0b; background: linear-gradient(165deg, #fff 55%, #fef3c7); }
