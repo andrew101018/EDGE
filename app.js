@@ -827,13 +827,14 @@ function renderNationals(filter) {
     <div style="font-weight:bold;margin-top:6px;">${n[0]}</div>
   </div>`).join('') || '<div class="card">مفيش منتخب بالاسم ده 🔍</div>';
 }
-async function showNational(en, ar, flag) {
+async function showNewsDetail(title, full) {
   const box = document.getElementById('teamModal');
   if (!box) return;
   box.style.cssText = 'display:block;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;overflow:auto;';
-  if (box.firstElementChild) box.firstElementChild.style.cssText = 'max-width:720px;margin:40px auto;background:#1e293b;border-radius:12px;padding:20px;';
-  document.getElementById('teamModalTitle').textContent = flag + ' منتخب ' + ar;
-  document.getElementById('teamModalBody').innerHTML = 'ثانية بنحمل البيانات... ⏳';
+  if (box.firstElementChild) box.firstElementChild.style.cssText = 'max-width:680px;margin:40px auto;background:#1e293b;border-radius:12px;padding:20px;';
+  document.getElementById('teamModalTitle').textContent = '📰 خبر';
+  document.getElementById('teamModalBody').innerHTML = '<h3 style="color:#fbbf24;margin-bottom:12px;">' + title + '</h3><div style="line-height:2;white-space:pre-wrap;font-size:1.05em;">' + (full || title) + '</div>';
+}
   const get = async u => { try { return JSON.parse(await (await fetch(u)).text()); } catch (e) { return {}; } };
   let html = `<div style="text-align:center;margin-bottom:14px;"><div style="font-size:3em;">${flag}</div><div style="font-weight:bold;font-size:1.3em;">منتخب ${ar}</div></div>`;
   try {
