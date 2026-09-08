@@ -566,40 +566,99 @@ def build_site_data(state, today):
     for slug in PRIORITY:
         t = top_table(slug, 8)
         if t: tables[LEAGUES[slug]] = t
-        leaders = {}
-    for slug in PRIORITY:
-        lid = {"eng.1": 39, "esp.1": 140, "ita.1": 135, "ger.1": 78, "fra.1": 61, "ksa.1": 307, "egy.1": 233, "uefa.champions": 2}.get(slug)
-        if not lid: continue
-        try:
-            r = requests.get("https://v3.football.api-sports.io/players/topscorers",
-                headers={"x-apisports-key": os.environ.get("API_FOOTBALL_KEY", "")},
-                params={"league": lid, "season": 2026}, timeout=12)
-            if not r.ok: continue
-            resp = r.json().get("response") or []
-            rows = []
-            for e in resp[:15]:
-                p = e.get("player") or {}
-                st = (e.get("statistics") or [{}])[0]
-                goals = (st.get("goals") or {}).get("total") or 0
-                assists = (st.get("goals") or {}).get("assists") or 0
-                team_name = ar_team(((st.get("team") or {}).get("name") or ""))
-                if goals > 0:
-                    rows.append({"name": p.get("name", ""), "team": team_name,
-                        "value": f"{goals} ⚽", "face": p.get("photo") or "", "assists": assists})
-            if rows:
-                leaders[LEAGUES[slug]] = {
-                    "الهدافون 🏆": [{"name": x["name"], "team": x["team"], "value": x["value"], "face": x["face"]} for x in rows],
-                    "صناعة الأهداف 🎯": [{"name": x["name"], "team": x["team"], "value": f"{x['assists']} 🅰️", "face": x["face"]} for x in sorted(rows, key=lambda a: -(a.get("assists") or 0)) if x.get("assists")]
-                }
-                print("✅ scorers", slug, len(rows))
-        except Exception as ex:
-            print("scorers error", slug, ex)
+
+    # ===== 🛡️ حماية الهدافين: قراءة آخر بيانات رسمية محفوظة =====
+    old_leaders = {}
+    try:
+        with open("site/data.json", encoding="utf-8") as f:
+            old_leaders = json.load(f).get("leaders") or {}
+    except Exception:
+        pass
+
+    BAD_MARKS = ("أهداف آخر الجولات", "الموسم الحالي")
+    def leaders_is_good(L):
+        if not L: return False
+        for cats in L.values():
+            for label in (cats or {}):
+                for m in BAD_MARKS:
+                    if m in label: return False
+        return True
+
+    # ===== ⏰ جلب الهدافين مرتين في اليوم بس (من 384 لـ 16 طلب) =====
+    def scorers_window(h):
+        if 6 <= h <= 11: return "am"
+        if 17 <= h <= 23: return "pm"
+        return None
+
+    w = scorers_window(now.hour)
+    meta = state.get("scorers_meta", {})
+    do_fetch = FORCE
+    if w and not do_fetch:
+        wd = meta.get(w, {}) or {}
+        if wd.get("date") != today:
+            do_fetch = True
+        elif not wd.get("ok") and wd.get("tries", 0) < 3:
+            do_fetch = True
+
+    leaders = {}
+    if do_fetch:
+        for slug in PRIORITY:
+            lid = {"eng.1": 39, "esp.1": 140, "ita.1": 135, "ger.1": 78, "fra.1": 61, "ksa.1": 307, "egy.1": 233, "uefa.champions": 2}.get(slug)
+            if not lid: continue
+            try:
+                r = requests.get("https://v3.football.api-sports.io/players/topscorers",
+                    headers={"x-apisports-key": os.environ.get("API_FOOTBALL_KEY", "")},
+                    params={"league": lid, "season": 2026}, timeout=12)
+                if not r.ok:
+                    print("scorers status", slug, r.status_code)
+                    continue
+                resp = r.json().get("response") or []
+                rows = []
+                for e in resp[:15]:
+                    p = e.get("player") or {}
+                    st = (e.get("statistics") or [{}])[0]
+                    goals = (st.get("goals") or {}).get("total") or 0
+                    assists = (st.get("goals") or {}).get("assists") or 0
+                    team_name = ar_team(((st.get("team") or {}).get("name") or ""))
+                    if goals > 0:
+                        rows.append({"name": p.get("name", ""), "team": team_name,
+                            "value": f"{goals} ⚽", "face": p.get("photo") or "", "assists": assists})
+                if rows:
+                    leaders[LEAGUES[slug]] = {
+                        "الهدافون 🏆": [{"name": x["name"], "team": x["team"], "value": x["value"], "face": x["face"]} for x in rows],
+                        "صناعة الأهداف 🎯": [{"name": x["name"], "team": x["team"], "value": f"{x['assists']} 🅰️", "face": x["face"]} for x in sorted(rows, key=lambda a: -(a.get("assists") or 0)) if x.get("assists")]
+                    }
+                    print("✅ scorers", slug, len(rows))
+            except Exception as ex:
+                print("scorers error", slug, ex)
+        if w:
+            wd = meta.setdefault(w, {})
+            if wd.get("date") != today:
+                wd["date"] = today
+                wd["tries"] = 0
+                wd["ok"] = False
+            wd["tries"] = (wd.get("tries") or 0) + 1
+            if leaders: wd["ok"] = True
+            state["scorers_meta"] = meta
+            print("📊 scorers:", w, "| ok:", wd.get("ok"), "| tries:", wd.get("tries"))
+
+    # ===== 🧩 ممنوع الكتابة فوق الأرقام الكويسة بأرقام فاشلة =====
+    if leaders:
+        if leaders_is_good(old_leaders):
+            old_leaders.update(leaders)
+            leaders = old_leaders
+        print("🏆 الهدافين: بيانات رسمية ✅")
+    elif old_leaders and leaders_is_good(old_leaders):
+        leaders = old_leaders
+        print("♻️ تم الاحتفاظ بآخر أرقام رسمية صحيحة للهدافين")
     if not leaders:
         for slug, agg in scorer_agg.items():
             rows = sorted([v for v in agg.values() if v["g"] > 0], key=lambda x: -x["g"])[:15]
             if rows:
-                leaders[LEAGUES[slug]] = {"الهدافون 🏆 (الموسم الحالي)": [
+                leaders[LEAGUES[slug]] = {"أهداف آخر الجولات ⚽": [
                     {"name": r["name"], "team": r["team"], "value": f"{r['g']} ⚽", "face": r["face"]} for r in rows]}
+        if leaders: print("⚠️ مفيش بيانات رسمية — استخدم أهداف آخر الجولات")
+
     site_data = {
         "updated_at": now.strftime("%Y-%m-%d %I:%M %p"),
         "news": state.get("site_news", [])[-20:][::-1],
@@ -611,7 +670,6 @@ def build_site_data(state, today):
     with open("site/data.json", "w", encoding="utf-8") as f:
         json.dump(site_data, f, ensure_ascii=False, indent=2)
     print("🌐 تم تحديث بيانات الموقع")
-
 def make_publish_package(news_lines):
     prompt = f"""انت خبير سوشيال ميديا رياضي. اكتب باقة نشر جاهزة لفيديو كورة عن الأخبار دي:
 {news_lines}
