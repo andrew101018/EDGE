@@ -1036,4 +1036,33 @@ function renderStats() {
 }
 window.addEventListener('load', () => setTimeout(renderStats, 2000));
 setInterval(renderStats, 60000);
-
+function getHighlightUrl(home, away) {
+  const q = encodeURIComponent(home + ' vs ' + away + ' highlights 2026');
+  return 'https://www.youtube.com/embed?listType=search&list=' + q;
+}
+(function patchMatchCards() {
+  const obs = new MutationObserver(() => {
+    document.querySelectorAll('.match-card, .live-card, [data-eid]').forEach(card => {
+      if (card.querySelector('.hl-btn')) return;
+      const home = card.querySelector('.home-name, .team-home')?.textContent?.trim() || '';
+      const away = card.querySelector('.away-name, .team-away')?.textContent?.trim() || '';
+      const score = card.querySelector('.live-score, .match-score')?.textContent?.trim() || '';
+      if (!home || !away || !score.includes('-')) return;
+      const btn = document.createElement('button');
+      btn.className = 'btn hl-btn';
+      btn.style.cssText = 'margin-top:8px;padding:6px 14px;font-size:.85em;background:#f59e0b;color:#000;border:none;border-radius:8px;cursor:pointer;width:100%;';
+      btn.textContent = '🎬 شاهد الهايلايتس';
+      btn.onclick = () => {
+        const url = getHighlightUrl(home, away);
+        const box = document.getElementById('teamModal');
+        if (!box) return;
+        box.style.cssText = 'display:block;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9999;overflow:auto;';
+        if (box.firstElementChild) box.firstElementChild.style.cssText = 'max-width:800px;margin:40px auto;background:#1e293b;border-radius:12px;padding:20px;';
+        document.getElementById('teamModalTitle').textContent = '🎬 ' + home + ' × ' + away;
+        document.getElementById('teamModalBody').innerHTML = '<div style="position:relative;padding-bottom:56.25%;height:0;"><iframe src="' + url + '" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:8px;" allowfullscreen></iframe></div><p style="opacity:.7;font-size:.85em;margin-top:10px;text-align:center;">لو الفيديو مش ظاهر، جرّب تبحث على YouTube: ' + home + ' vs ' + away + ' highlights</p>';
+      };
+      card.appendChild(btn);
+    });
+  });
+  obs.observe(document.body, {childList: true, subtree: true});
+})();
