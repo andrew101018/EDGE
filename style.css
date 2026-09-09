@@ -220,3 +220,54 @@ body.menu-open .menu-toggle span:nth-child(3) { transform: translateY(-8px) rota
   .news-img { width: 88px; }
 }
 [data-theme="light"] .news-card { background: #fff; }
+
+/* =====================================================
+   ✨ الهوية البصرية الاحترافية — خط Cairo + تنعيمات
+   ===================================================== */
+
+/* الخط العربي الاحترافي */
+body, button, input, select, textarea { font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif; }
+h1, h2, h3, h4, .subtitle, .league-title, .m-score, .live-score, .btn { font-weight: 800; }
+
+/* حركة ظهور ناعمة لكل قسم */
+.page.active { animation: fadeUp .3s ease; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+/* سكرول بار شيك */
+html { scroll-behavior: smooth; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #f59e0b; }
+::selection { background: #f59e0b; color: #111; }
+
+/* كروت بعمق وتفاعل */
+.tv-card, .table-box, .card { transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+.tv-card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0,0,0,.35); border-color: #f59e0b; }
+.table-box { box-shadow: 0 4px 18px rgba(0,0,0,.25); }
+.live-block { box-shadow: 0 8px 24px rgba(153,27,27,.25); }
+.news-item { transition: transform .15s ease, border-right-color .15s ease; }
+.news-item:hover { transform: translateX(-4px); border-right-color: #fbbf24; }
+
+/* أزرار متدرجة بظلال */
+.btn { background: linear-gradient(135deg, #dc2626, #b91c1c); box-shadow: 0 4px 14px rgba(220,38,38,.35); transition: transform .15s, box-shadow .15s, filter .15s; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(220,38,38,.45); filter: brightness(1.1); }
+.nav-btn { transition: background .15s, color .15s, border-color .15s, transform .15s; }
+.nav-btn:hover { color: #fff; border-color: #f59e0b; transform: translateY(-1px); }
+
+/* عناوين الأقسام بخط متدرج */
+h2 { border-bottom: none; padding-bottom: 0; display: flex; align-items: center; gap: 10px; }
+h2::after { content: ""; flex: 1; height: 3px; border-radius: 2px; background: linear-gradient(to left, #ef4444, rgba(239,68,68,0)); }
+
+/* لمسات نهائية */
+header { border-bottom: 3px solid #f59e0b; }
+footer { background: #0f172a; border-top: 1px solid #24344f; margin-top: 40px; padding: 26px 14px; opacity: 1; }
+button:focus-visible, a:focus-visible { outline: 2px solid #f59e0b; outline-offset: 2px; }
+#globalSearch:focus, .archive-search:focus, .nat-search:focus, .pred-inputs input:focus { outline: none; border-color: #f59e0b; box-shadow: 0 0 0 3px rgba(245,158,11,.15); }
+
+/* الثيم الفاتح */
+[data-theme="light"] ::-webkit-scrollbar-track { background: #f1f5f9; }
+[data-theme="light"] ::-webkit-scrollbar-thumb { background: #cbd5e1; }
+[data-theme="light"] .table-box { box-shadow: 0 4px 18px rgba(0,0,0,.08); }
+[data-theme="light"] .tv-card:hover { box-shadow: 0 10px 26px rgba(0,0,0,.12); }
+[data-theme="light"] .live-block { box-shadow: 0 8px 24px rgba(0,0,0,.1); }
