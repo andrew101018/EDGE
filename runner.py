@@ -357,12 +357,12 @@ def collect_news(state):
                 if is_dup_title(nt, recent_titles):
                     skipped_dup += 1
                     continue
-                                fresh.append({"title": title, "url": url, "summary": summary, "source": source["name"], "en": is_en, "hash": h, "nt": nt, "img": e.get("img") or ""})
+                fresh.append({"title": title, "url": url, "summary": summary, "source": source["name"], "en": is_en, "hash": h, "nt": nt, "img": e.get("img") or ""})
         except Exception as ex:
             print("fetch error:", source["name"], ex)
     print(f"🚫 قديمة: {skipped_old} | مكررة: {skipped_dup}")
     return fresh, posted, recent_titles
-
+    
 def finish_text(home, hs, away, as_, name):
     home, away = ar_team(home), ar_team(away)
     hs, as_ = int(hs), int(as_)
