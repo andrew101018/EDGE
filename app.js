@@ -981,10 +981,23 @@ function runGlobalSearch(q) {
     }
   });
 })();
+/* ===== ⚡ التحديث الذكي: كل 5 دقايق + عند رجوعك للتبويب + مفيش رسم لو مفيش تغيير ===== */
+let _lastDataRaw = '';
+let _lastRefresh = 0;
+
+/* ===== ⚡ التحديث الذكي: كل 5 دقايق + عند رجوعك للتبويب + مفيش رسم لو مفيش تغيير ===== */
+let _lastDataRaw = '';
+let _lastRefresh = 0;
+
 async function loadData() {
+  _lastRefresh = Date.now();
   try {
-    const r = await fetch('site/data.json?t=' + Date.now());
-    DATA = await r.json();
+    const r = await fetch('site/data.json?t=' + Date.now(), { cache: 'no-store' });
+    const raw = await r.text();
+    /* الداتا متغيرتش حرف؟ نمشي — من غير أي إعادة رسم */
+    if (raw && raw === _lastDataRaw) return;
+    _lastDataRaw = raw;
+    DATA = JSON.parse(raw);
     document.getElementById('lastUpdate').textContent = 'آخر تحديث: ' + DATA.updated_at;
     MATCHES = DATA.matches || [];
     renderMatches();
@@ -1029,77 +1042,18 @@ async function loadData() {
 }
 
 loadData();
-setInterval(loadData, 60000);
 
-let deferredPrompt = null;
-window.addEventListener('beforeinstallprompt', e => {
-  e.preventDefault();
-  deferredPrompt = e;
-  const b = document.getElementById('installBtn');
-  if (b) b.style.display = 'inline-block';
+/* ⏰ كل 5 دقايق بدل كل دقيقة — البوت بيتحدث كل 30 دقيقة أصلًا */
+setInterval(loadData, 300000);
+
+/* 👀 رجعت للتبويب بعد غياب دقيقتين أو أكتر → حدّث فورًا */
+document.addEventListener('visibilitychange', function () {
+  if (document.visibilityState === 'visible' && Date.now() - _lastRefresh > 120000) {
+    loadData();
+  }
 });
 
-function installApp() {
-  if (!deferredPrompt) { alert('من قائمة المتصفح ⋮ اختار: إضافة إلى الشاشة الرئيسية'); return; }
-  deferredPrompt.prompt();
-}
-
-async function askNotifications() {
-  if (!('Notification' in window) || !('serviceWorker' in navigator)) { alert('المتصفح ده مش بيدعم الإشعارات — جرّب كروم'); return; }
-  const perm = await Notification.requestPermission();
-  if (perm !== 'granted') { alert('الإشعارات اترفضت — فعّلها من إعدادات المتصفح'); return; }
-  try {
-    const reg = await navigator.serviceWorker.ready;
-    let sub = await reg.pushManager.getSubscription();
-    if (!sub) {
-      const res = await fetch('site/vapid.json');
-      const vapid = await res.json();
-      const rawKey = Uint8Array.from(atob(vapid.publicKey.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0));
-      sub = await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: rawKey });
-    }
-    await fetch(SUPA_URL.replace('/rest/v1/', '') + '/rest/v1/push_subs', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'apikey': SUPA_KEY, 'Authorization': 'Bearer ' + SUPA_KEY, 'Prefer': 'return=minimal' },
-      body: JSON.stringify({ subscription: sub.toJSON() })
-    });
-    localStorage.setItem('edgeNotif', '1');
-    alert('✅ تم تفعيل الإشعارات! هيوصلك تنبيه مع كل جول 🔔');
-  } catch (e) { alert('تعذر التفعيل: ' + e.message); }
-}
-
-(function addNavButtons() {
-  const nav = document.querySelector('.top-nav');
-  if (!nav) return;
-  if (!document.getElementById('notifBtn')) {
-    const b = document.createElement('button');
-    b.id = 'notifBtn'; b.className = 'nav-btn'; b.textContent = '🔔 الإشعارات';
-    b.onclick = askNotifications;
-    nav.appendChild(b);
-  }
-  if (!document.getElementById('themeBtn')) {
-    const t = document.createElement('button');
-    t.id = 'themeBtn'; t.className = 'nav-btn';
-    const cur = localStorage.getItem('edgeTheme') || 'dark';
-    t.textContent = cur === 'dark' ? '🌙 ليلي' : '☀️ نهاري';
-    t.onclick = function () {
-      const c = document.documentElement.getAttribute('data-theme') || 'dark';
-      const n = c === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', n);
-      localStorage.setItem('edgeTheme', n);
-      t.textContent = n === 'dark' ? '🌙 ليلي' : '☀️ نهاري';
-    };
-    nav.appendChild(t);
-  }
-})();
-
-(function initTheme() {
-  const saved = localStorage.getItem('edgeTheme') || 'dark';
-  document.documentElement.setAttribute('data-theme', saved);
-})();
-
-window.addEventListener('load', () => {
-  setTimeout(() => renderNationals(''), 1500);
-  setTimeout(renderChampions, 1500);
-  setTimeout(renderStats, 2000);
+/* 🌐 رجع النت بعد انقطاع → حدّث */
+window.addEventListener('online', function () {
+  setTimeout(loadData, 1500);
 });
-setInterval(renderStats, 60000);
