@@ -747,8 +747,8 @@ def main():
             print("⚠️ تجاوز:", item["title"][:40])
             posted.add(item["hash"])
             continue
-        #content += f"\n\n📡 المصدر: {item['source']}"
-               img = (item.get("img") or "").strip()
+               #content += f"\n\n📡 المصدر: {item['source']}"
+        img = (item.get("img") or "").strip()
         if send_tg_photo(content, img):
             print("✅ نُشر:", title[:40])
             posted.add(item["hash"])
