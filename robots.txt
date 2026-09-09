@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://andrew101018.github.io/EDGE/sitemap.xml
