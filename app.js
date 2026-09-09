@@ -473,15 +473,16 @@ function renderWorld() {
     </div>`).join('') : '<div class="card">لا توجد أخبار عالمية حالياً</div>';
 }
 
-function showNewsDetail(title, full) {
+function showNewsDetail(title, full, img) {
   const box = document.getElementById('teamModal');
   if (!box) return;
   box.style.cssText = 'display:block;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;overflow:auto;';
   if (box.firstElementChild) box.firstElementChild.style.cssText = 'max-width:680px;margin:40px auto;background:#1e293b;border-radius:12px;padding:20px;';
   document.getElementById('teamModalTitle').textContent = '📰 خبر';
-  document.getElementById('teamModalBody').innerHTML = '<h3 style="color:#fbbf24;margin-bottom:12px;">' + title + '</h3><div style="line-height:2;white-space:pre-wrap;font-size:1.05em;">' + (full || title) + '</div>';
+  document.getElementById('teamModalBody').innerHTML =
+    (img ? `<img src="${img}" style="width:100%;max-height:320px;object-fit:cover;border-radius:10px;margin-bottom:14px;" onerror="this.style.display='none'">` : '') +
+    '<h3 style="color:#fbbf24;margin-bottom:12px;">' + title + '</h3><div style="line-height:2;white-space:pre-wrap;font-size:1.05em;">' + (full || title) + '</div>';
 }
-
 function allTeams() {
   const map = {};
   Object.entries(DATA.tables || {}).forEach(([league, rows]) => {
@@ -1013,11 +1014,18 @@ async function loadData() {
     renderPlayers();
     fillTeamSelects();
     renderStats();
-    document.getElementById('newsContainer').innerHTML = (DATA.news || []).length
+        document.getElementById('newsContainer').innerHTML = (DATA.news || []).length
       ? DATA.news.map(n => {
           const t = typeof n === 'string' ? n : (n.t || '');
           const full = typeof n === 'string' ? n : (n.full || n.t || '');
-          return `<div class="news-item" style="cursor:pointer;" onclick="showNewsDetail('${esc(t)}','${esc(full)}')">${t}</div>`;
+          const img = (n && typeof n === 'object' && n.img) ? n.img : '';
+          return `<div class="news-card" onclick="showNewsDetail('${esc(t)}','${esc(full)}','${esc(img)}')">
+            ${img ? `<img class="news-img" src="${img}" loading="lazy" onerror="this.style.display='none'">` : ''}
+            <div class="news-body">
+              <div class="news-title">${t}</div>
+              <div class="news-hint">👆 اضغط لقراءة الخبر كامل</div>
+            </div>
+          </div>`;
         }).join('')
       : '<div class="card">لا توجد أخبار جديدة حالياً</div>';
     document.getElementById('resultsContainer').innerHTML = (DATA.results || []).length
