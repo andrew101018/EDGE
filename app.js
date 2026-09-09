@@ -9,7 +9,7 @@ try {
 } catch (e) {}
 let MATCHES = [];
 
-/* ===== 🧭 التنقل + روابط الأقسام (hash) — كل قسم بقى له لينك قابل للمشاركة ===== */
+/* ===== 🧭 التنقل + روابط الأقسام (hash) ===== */
 function go(id, btn) { navigateTo([id], btn); }
 
 function goMulti(ids, btn) { navigateTo(ids, btn); }
@@ -56,13 +56,11 @@ function navigateTo(ids, btn, fromHash) {
   if (!fromHash && location.hash !== '#' + key) location.hash = key;
 }
 
-/* رجوع/تقدّم بالمتصفح بيتحكم في الأقسام */
 window.addEventListener('hashchange', function () {
   const ids = parseHash();
   if (ids) navigateTo(ids, null, true);
 });
 
-/* فتح قسم مباشرة من الرابط المشترك عند أول تحميل */
 (function () {
   const ids = parseHash();
   if (ids && ids.join(',') !== 'home') navigateTo(ids, null, true);
@@ -84,11 +82,11 @@ document.addEventListener('click', function (e) {
   if (e.target && e.target.id === 'matchModal') closeMatch();
 });
 
-/* 🎁 إصلاح: إخفاء مودال المباراة اللي بيتعمل ديناميكياً (كان ظاهر فاضي في آخر الصفحة) */
 (function () {
   const mm = document.getElementById('matchModal');
   if (mm) mm.style.display = 'none';
 })();
+
 function teamLogo(src) {
   if (!src) return '';
   return `<img class="t-logo" src="${src}" onerror="this.style.display='none'">`;
@@ -280,6 +278,7 @@ function savePredict() {
   alert(count ? `تم حفظ ${count} توقع ✅` : 'اكتب نتيجة واحدة على الأقل الأول 😅');
   uploadScore(true);
 }
+
 let FANTASY_SEL = JSON.parse(localStorage.getItem('edgeFantasy') || 'null');
 
 function fantasyPool() {
@@ -483,6 +482,7 @@ function showNewsDetail(title, full, img) {
     (img ? `<img src="${img}" style="width:100%;max-height:320px;object-fit:cover;border-radius:10px;margin-bottom:14px;" onerror="this.style.display='none'">` : '') +
     '<h3 style="color:#fbbf24;margin-bottom:12px;">' + title + '</h3><div style="line-height:2;white-space:pre-wrap;font-size:1.05em;">' + (full || title) + '</div>';
 }
+
 function allTeams() {
   const map = {};
   Object.entries(DATA.tables || {}).forEach(([league, rows]) => {
@@ -536,6 +536,7 @@ function renderCompare() {
     row('لعب', ta.gp, tb.gp) + row('فوز', ta.w, tb.w) +
     row('تعادل', ta.d, tb.d) + row('خسارة', ta.l, tb.l, true) + verdict;
 }
+
 const AR2EN = {"ريال مدريد":"Real Madrid","برشلونة":"Barcelona","ليفربول":"Liverpool","مانشستر سيتي":"Manchester City","مانشستر يونايتد":"Manchester United","تشيلسي":"Chelsea","أرسنال":"Arsenal","توتنهام":"Tottenham Hotspur","باريس سان جيرمان":"Paris Saint-Germain","بايرن ميونخ":"Bayern Munich","يوفنتوس":"Juventus","إنتر ميلان":"Inter","ميلان":"AC Milan","أتلتيكو مدريد":"Atlético Madrid","بوروسيا دورتموند":"Borussia Dortmund","نابولي":"Napoli","الأهلي":"Al Ahly","الزمالك":"Zamalek","بيراميدز":"Pyramids FC","الهلال":"Al Hilal","النصر":"Al Nassr","الاتحاد":"Al Ittihad","الأهلي السعودي":"Al Ahli","الشباب":"Al Shabab","الاتفاق":"Al Ettifaq","أستون فيلا":"Aston Villa","نيوكاسل":"Newcastle United"};
 const P2AR = {"Mohamed Salah":"محمد صلاح","Erling Haaland":"إيرلينج هالاند","Kylian Mbappé":"كيليان مبابي","Kylian Mbappe":"كيليان مبابي","Cole Palmer":"كول بالمر","Bukayo Saka":"بوكايو ساكا","Karim Benzema":"كريم بنزيما","Aleksandar Mitrovic":"ألكساندر ميتروفيتش","Cristiano Ronaldo":"كريستيانو رونالدو","Lionel Messi":"ليونيل ميسي","Harry Kane":"هاري كين","Riyad Mahrez":"رياض محرز","Salem Al-Dawsari":"سالم الدوسري","Emam Ashour":"إمام عاشور","Mahmoud Trezeguet":"محمود تريزيجيه","Ahmed Sayed Zizo":"أحمد سيد زيزو","Victor Osimhen":"فيكتور أوسيمين","Lautaro Martínez":"لاوتارو مارتينيز","João Pedro":"جواو بيدرو","Darwin Núñez":"داروين نونيز"};
 
@@ -677,17 +678,19 @@ async function showMatch(slug, eid, title) {
     document.getElementById('matchModalBody').innerHTML = shareHtml + 'تعذر تحميل التفاصيل';
   }
 }
+
 function closeMatch() { const b = document.getElementById('matchModal'); if (b) b.style.display = 'none'; }
 
 const NATIONALS = [
-  ['مصر','Egypt','🇪🇬'],['السعودية','Saudi Arabia','🇸🇦'],['المغرب','Morocco','🇲🇦'],['الجزائر','Algeria','🇩🇿'],['تونس','Tunisia','🇹🇳'],['ليبيا','Libya','🇱🇾'],['السودان','Sudan','🇸🇩'],['موريتانيا','Mauritania','🇲🇷'],['الصومال','Somalia','🇸'],['جيبوتي','Djibouti','🇩🇯'],['جزر القمر','Comoros','🇰🇲'],['قطر','Qatar','🇶🇦'],['الإمارات','United Arab Emirates','🇦🇪'],['عمان','Oman','🇴'],['البحرين','Bahrain','🇧🇭'],['الكويت','Kuwait','🇰🇼'],['العراق','Iraq','🇮🇶'],['الأردن','Jordan','🇯🇴'],['لبنان','Lebanon','🇱🇧'],['سوريا','Syria','🇸🇾'],['فلسطين','Palestine','🇵🇸'],['اليمن','Yemen','🇾🇪'],
-  ['السنغال','Senegal','🇸🇳'],['نيجيريا','Nigeria','🇳🇬'],['غانا','Ghana','🇬🇭'],['الكاميرون','Cameroon','🇨'],['كوت ديفوار','Cote d\'Ivoire','🇨🇮'],['مالي','Mali','🇲🇱'],['بوركينا فاسو','Burkina Faso','🇧🇫'],['جنوب أفريقيا','South Africa','🇿🇦'],['الكونغو الديمقراطية','DR Congo','🇨🇩'],['الكونغو','Congo','🇨🇬'],['غينيا','Guinea','🇬🇳'],['غينيا الاستوائية','Equatorial Guinea','🇬🇶'],['الجابون','Gabon','🇬🇦'],['زامبيا','Zambia','🇿🇲'],['زيمبابوي','Zimbabwe','🇿🇼'],['أوغندا','Uganda','🇺🇬'],['كينيا','Kenya','🇰🇪'],['إثيوبيا','Ethiopia','🇪🇹'],['تنزانيا','Tanzania','🇹'],['رواندا','Rwanda','🇷'],['بنين','Benin','🇧🇯'],['توجو','Togo','🇹🇬'],['النيجر','Niger','🇳'],['تشاد','Chad','🇹🇩'],['بوتسوانا','Botswana','🇧'],['ناميبيا','Namibia','🇳🇦'],['موزمبيق','Mozambique','🇲🇿'],['مدغشقر','Madagascar','🇲🇬'],['الرأس الأخضر','Cape Verde','🇨🇻'],['جامبيا','Gambia','🇬🇲'],['غينيا بيساو','Guinea-Bissau','🇬🇼'],['ليبيريا','Liberia','🇱🇷'],['سيراليون','Sierra Leone','🇸🇱'],
-  ['إسبانيا','Spain','🇪🇸'],['البرتغال','Portugal','🇵🇹'],['فرنسا','France','🇫🇷'],['إنجلترا','England','🏴󠁮󠁿'],['ألمانيا','Germany','🇩🇪'],['إيطاليا','Italy','🇮🇹'],['هولندا','Netherlands','🇳🇱'],['بلجيكا','Belgium','🇧🇪'],['كرواتيا','Croatia','🇭🇷'],['سويسرا','Switzerland','🇨🇭'],['تركيا','Turkey','🇹🇷'],['اليونان','Greece','🇬🇷'],['اسكتلندا','Scotland','🏴󠁢󠁣󠁿'],['الدنمارك','Denmark','🇩🇰'],['النرويج','Norway','🇳🇴'],['السويد','Sweden','🇸🇪'],['بولندا','Poland','🇵'],['أوكرانيا','Ukraine','🇺'],['النمسا','Austria','🇦🇹'],['ويلز','Wales','🏴󠁧󠁷󠁳󠁿'],['التشيك','Czech Republic','🇨🇿'],['رومانيا','Romania','🇷'],['المجر','Hungary','🇭🇺'],['صربيا','Serbia','🇷🇸'],['روسيا','Russia','🇷🇺'],['سلوفاكيا','Slovakia','🇸🇰'],['سلوفينيا','Slovenia','🇸🇮'],['البوسنة','Bosnia and Herzegovina','🇧🇦'],['أيرلندا','Ireland','🇮🇪'],['أيسلندا','Iceland','🇮🇸'],['فنلندا','Finland','🇫🇮'],['ألبانيا','Albania','🇦🇱'],['مقدونيا الشمالية','North Macedonia','🇲🇰'],['بلغاريا','Bulgaria','🇧'],['الجبل الأسود','Montenegro','🇲🇪'],['كوسوفو','Kosovo','🇽🇰'],['مولدوفا','Moldova','🇲🇩'],['بيلاروسيا','Belarus','🇧'],['جورجيا','Georgia','🇬🇪'],['أرمينيا','Armenia','🇦🇲'],['أذربيجان','Azerbaijan','🇦🇿'],['كازاخستان','Kazakhstan','🇰🇿'],['إستونيا','Estonia','🇪🇪'],['لاتفيا','Latvia','🇱'],['ليتوانيا','Lithuania','🇱🇹'],['قبرص','Cyprus','🇨🇾'],['لوكسمبورج','Luxembourg','🇱🇺'],['مالطا','Malta','🇲🇹'],
-  ['البرازيل','Brazil','🇧🇷'],['الأرجنتين','Argentina','🇦🇷'],['أوروجواي','Uruguay','🇺🇾'],['كولومبيا','Colombia','🇨🇴'],['تشيلي','Chile','🇨🇱'],['باراجواي','Paraguay','🇵🇾'],['بيرو','Peru','🇵'],['الإكوادور','Ecuador','🇪🇨'],['فنزويلا','Venezuela','🇻🇪'],['بوليفيا','Bolivia','🇧🇴'],
+  ['مصر','Egypt','🇪🇬'],['السعودية','Saudi Arabia','🇸🇦'],['المغرب','Morocco','🇲🇦'],['الجزائر','Algeria','🇩🇿'],['تونس','Tunisia','🇹🇳'],['ليبيا','Libya','🇱🇾'],['السودان','Sudan','🇸🇩'],['موريتانيا','Mauritania','🇲🇷'],['الصومال','Somalia','🇸🇴'],['جيبوتي','Djibouti','🇩🇯'],['جزر القمر','Comoros','🇰🇲'],['قطر','Qatar','🇶🇦'],['الإمارات','United Arab Emirates','🇦🇪'],['عمان','Oman','🇴🇲'],['البحرين','Bahrain','🇧🇭'],['الكويت','Kuwait','🇰🇼'],['العراق','Iraq','🇮🇶'],['الأردن','Jordan','🇯🇴'],['لبنان','Lebanon','🇱🇧'],['سوريا','Syria','🇸🇾'],['فلسطين','Palestine','🇵🇸'],['اليمن','Yemen','🇾🇪'],
+  ['السنغال','Senegal','🇸🇳'],['نيجيريا','Nigeria','🇳🇬'],['غانا','Ghana','🇬🇭'],['الكاميرون','Cameroon','🇨🇲'],['كوت ديفوار','Cote d\'Ivoire','🇨🇮'],['مالي','Mali','🇲🇱'],['بوركينا فاسو','Burkina Faso','🇧🇫'],['جنوب أفريقيا','South Africa','🇿🇦'],['الكونغو الديمقراطية','DR Congo','🇨🇩'],['الكونغو','Congo','🇨🇬'],['غينيا','Guinea','🇬🇳'],['غينيا الاستوائية','Equatorial Guinea','🇬🇶'],['الجابون','Gabon','🇬🇦'],['زامبيا','Zambia','🇿🇲'],['زيمبابوي','Zimbabwe','🇿🇼'],['أوغندا','Uganda','🇺🇬'],['كينيا','Kenya','🇰🇪'],['إثيوبيا','Ethiopia','🇪🇹'],['تنزانيا','Tanzania','🇹🇿'],['رواندا','Rwanda','🇷🇼'],['بنين','Benin','🇧🇯'],['توجو','Togo','🇹🇬'],['النيجر','Niger','🇳🇪'],['تشاد','Chad','🇹🇩'],['بوتسوانا','Botswana','🇧🇼'],['ناميبيا','Namibia','🇳🇦'],['موزمبيق','Mozambique','🇲🇿'],['مدغشقر','Madagascar','🇲🇬'],['الرأس الأخضر','Cape Verde','🇨🇻'],['جامبيا','Gambia','🇬🇲'],['غينيا بيساو','Guinea-Bissau','🇬🇼'],['ليبيريا','Liberia','🇱🇷'],['سيراليون','Sierra Leone','🇸🇱'],
+  ['إسبانيا','Spain','🇪🇸'],['البرتغال','Portugal','🇵🇹'],['فرنسا','France','🇫🇷'],['إنجلترا','England','🏴󠁧󠁢󠁥󠁮󠁧󠁿'],['ألمانيا','Germany','🇩🇪'],['إيطاليا','Italy','🇮🇹'],['هولندا','Netherlands','🇳🇱'],['بلجيكا','Belgium','🇧🇪'],['كرواتيا','Croatia','🇭🇷'],['سويسرا','Switzerland','🇨🇭'],['تركيا','Turkey','🇹🇷'],['اليونان','Greece','🇬🇷'],['اسكتلندا','Scotland','🏴󠁧󠁢󠁳󠁣󠁴󠁿'],['الدنمارك','Denmark','🇩🇰'],['النرويج','Norway','🇳🇴'],['السويد','Sweden','🇸🇪'],['بولندا','Poland','🇵🇱'],['أوكرانيا','Ukraine','🇺🇦'],['النمسا','Austria','🇦🇹'],['ويلز','Wales','🏴󠁧󠁢󠁷󠁬󠁳󠁿'],['التشيك','Czech Republic','🇨🇿'],['رومانيا','Romania','🇷🇴'],['المجر','Hungary','🇭🇺'],['صربيا','Serbia','🇷🇸'],['روسيا','Russia','🇷🇺'],['سلوفاكيا','Slovakia','🇸🇰'],['سلوفينيا','Slovenia','🇸🇮'],['البوسنة','Bosnia and Herzegovina','🇧🇦'],['أيرلندا','Ireland','🇮🇪'],['أيسلندا','Iceland','🇮🇸'],['فنلندا','Finland','🇫🇮'],['ألبانيا','Albania','🇦🇱'],['مقدونيا الشمالية','North Macedonia','🇲🇰'],['بلغاريا','Bulgaria','🇧🇬'],['الجبل الأسود','Montenegro','🇲🇪'],['كوسوفو','Kosovo','🇽🇰'],['مولدوفا','Moldova','🇲🇩'],['بيلاروسيا','Belarus','🇧🇾'],['جورجيا','Georgia','🇬🇪'],['أرمينيا','Armenia','🇦🇲'],['أذربيجان','Azerbaijan','🇦🇿'],['كازاخستان','Kazakhstan','🇰🇿'],['إستونيا','Estonia','🇪🇪'],['لاتفيا','Latvia','🇱🇻'],['ليتوانيا','Lithuania','🇱🇹'],['قبرص','Cyprus','🇨🇾'],['لوكسمبورج','Luxembourg','🇱🇺'],['مالطا','Malta','🇲🇹'],
+  ['البرازيل','Brazil','🇧🇷'],['الأرجنتين','Argentina','🇦🇷'],['أوروجواي','Uruguay','🇺🇾'],['كولومبيا','Colombia','🇨🇴'],['تشيلي','Chile','🇨🇱'],['باراجواي','Paraguay','🇵🇾'],['بيرو','Peru','🇵🇪'],['الإكوادور','Ecuador','🇪🇨'],['فنزويلا','Venezuela','🇻🇪'],['بوليفيا','Bolivia','🇧🇴'],
   ['المكسيك','Mexico','🇲🇽'],['أمريكا','United States','🇺🇸'],['كندا','Canada','🇨🇦'],['كوستاريكا','Costa Rica','🇨🇷'],['بنما','Panama','🇵🇦'],['هندوراس','Honduras','🇭🇳'],['جواتيمالا','Guatemala','🇬🇹'],['السلفادور','El Salvador','🇸🇻'],['جامايكا','Jamaica','🇯🇲'],['هايتي','Haiti','🇭🇹'],['كوبا','Cuba','🇨🇺'],['ترينيداد','Trinidad and Tobago','🇹🇹'],
-  ['اليابان','Japan','🇯🇵'],['كوريا الجنوبية','South Korea','🇰🇷'],['أستراليا','Australia','🇦🇺'],['إيران','Iran','🇮🇷'],['الصين','China','🇨🇳'],['أوزبكستان','Uzbekistan','🇺🇿'],['فيتنام','Vietnam','🇻🇳'],['تايلاند','Thailand','🇹🇭'],['إندونيسيا','Indonesia','🇮🇩'],['ماليزيا','Malaysia','🇲'],['الهند','India','🇮🇳'],['باكستان','Pakistan','🇵🇰'],['أفغانستان','Afghanistan','🇦'],['تركمانستان','Turkmenistan','🇹🇲'],['طاجيكستان','Tajikistan','🇹🇯'],['قيرغيزستان','Kyrgyzstan','🇰🇬'],['كوريا الشمالية','North Korea','🇰🇵'],['هونج كونج','Hong Kong','🇭🇰'],['الفلبين','Philippines','🇵🇭'],['سنغافورة','Singapore','🇸🇬'],['ميانمار','Myanmar','🇲🇲'],['نيبال','Nepal','🇳🇵'],['بنجلاديش','Bangladesh','🇧🇩'],['سريلانكا','Sri Lanka','🇱🇰'],
+  ['اليابان','Japan','🇯🇵'],['كوريا الجنوبية','South Korea','🇰🇷'],['أستراليا','Australia','🇦🇺'],['إيران','Iran','🇮🇷'],['الصين','China','🇨🇳'],['أوزبكستان','Uzbekistan','🇺🇿'],['فيتنام','Vietnam','🇻🇳'],['تايلاند','Thailand','🇹🇭'],['إندونيسيا','Indonesia','🇮🇩'],['ماليزيا','Malaysia','🇲🇾'],['الهند','India','🇮🇳'],['باكستان','Pakistan','🇵🇰'],['أفغانستان','Afghanistan','🇦🇫'],['تركمانستان','Turkmenistan','🇹🇲'],['طاجيكستان','Tajikistan','🇹🇯'],['قيرغيزستان','Kyrgyzstan','🇰🇬'],['كوريا الشمالية','North Korea','🇰🇵'],['هونج كونج','Hong Kong','🇭🇰'],['الفلبين','Philippines','🇵🇭'],['سنغافورة','Singapore','🇸🇬'],['ميانمار','Myanmar','🇲🇲'],['نيبال','Nepal','🇳🇵'],['بنجلاديش','Bangladesh','🇧🇩'],['سريلانكا','Sri Lanka','🇱🇰'],
   ['نيوزيلندا','New Zealand','🇳🇿'],['فيجي','Fiji','🇫🇯'],['بابوا غينيا الجديدة','Papua New Guinea','🇵🇬'],['جزر سليمان','Solomon Islands','🇸🇧'],['فانواتو','Vanuatu','🇻🇺']
 ];
+
 /* ===== 🚩 إصلاح الأعلام المكسورة (19 علم) ===== */
 (function () {
   try {
@@ -768,9 +771,9 @@ async function showNational(en, ar, flag) {
 }
 
 const CHAMPIONS = {
-  "الدوري الإنجليزي 🏴󠁥󠁮": [["مانشستر يونايتد", 20], ["ليفربول", 20], ["أرسنال", 13], ["مانشستر سيتي", 10], ["إيفرتون", 9], ["أستون فيلا", 7], ["تشيلسي", 6]],
+  "الدوري الإنجليزي 🏴󠁧󠁢󠁥󠁮󠁧󠁿": [["مانشستر يونايتد", 20], ["ليفربول", 20], ["أرسنال", 13], ["مانشستر سيتي", 10], ["إيفرتون", 9], ["أستون فيلا", 7], ["تشيلسي", 6]],
   "الدوري الإسباني 🇪🇸": [["ريال مدريد", 36], ["برشلونة", 27], ["أتلتيكو مدريد", 11], ["أتلتيك بلباو", 8], ["فالنسيا", 6]],
-  "الدوري الإيطالي 🇮": [["يوفنتوس", 36], ["إنتر ميلان", 20], ["ميلان", 19], ["جنوى", 9], ["تورينو", 7], ["نابولي", 4]],
+  "الدوري الإيطالي 🇮🇹": [["يوفنتوس", 36], ["إنتر ميلان", 20], ["ميلان", 19], ["جنوى", 9], ["تورينو", 7], ["نابولي", 4]],
   "الدوري الألماني 🇩🇪": [["بايرن ميونخ", 33], ["نورنبيرج", 9], ["بوروسيا دورتموند", 8], ["شالكه", 7], ["هامبورج", 6]],
   "الدوري الفرنسي 🇫🇷": [["باريس سان جيرمان", 12], ["سانت إيتيان", 10], ["مارسيليا", 10], ["موناكو", 8], ["نانت", 8], ["ليون", 7]],
   "الدوري السعودي 🇸🇦": [["الهلال", 19], ["الاتحاد", 9], ["النصر", 9], ["الشباب", 6], ["الأهلي", 3]],
@@ -825,7 +828,7 @@ function renderStats() {
   el.innerHTML = html || '<div class="card">مفيش بيانات كافية دلوقتي 🔄</div>';
 }
 
-/* ===== 🔍 البحث الشامل المحسّن — تطبيع عربي + نتائج مجمعة + كل النتائج قابلة للضغط ===== */
+/* ===== 🔍 البحث الشامل المحسّن ===== */
 function normAr(s) {
   return (s === null || s === undefined ? '' : String(s))
     .replace(/[\u064B-\u065F\u0670\u0640]/g, '')
@@ -860,7 +863,6 @@ function runGlobalSearch(q) {
   if (q.length < 2) { el.innerHTML = ''; return; }
   const nq = normAr(q);
   const hit = function (s) { return normAr(s).indexOf(nq) > -1; };
-
   const groups = [
     { icon: '⚽', title: 'مباريات', items: [] },
     { icon: '🏟️', title: 'فرق', items: [] },
@@ -870,8 +872,6 @@ function runGlobalSearch(q) {
     { icon: '🌍', title: 'عالمية', items: [] }
   ];
   const gMatch = groups[0], gTeam = groups[1], gPlayer = groups[2], gNat = groups[3], gNews = groups[4], gWorld = groups[5];
-
-  /* مباريات */
   (DATA.matches || []).forEach(g => (g.items || []).forEach(m => {
     if (hit(m.home) || hit(m.away)) {
       const state = m.state === 'in' ? '🔴 مباشر' : (m.state === 'post' ? '🏁 انتهت ' + m.hs + '-' + m.as : '🕐 ' + m.time);
@@ -882,8 +882,6 @@ function runGlobalSearch(q) {
       });
     }
   }));
-
-  /* فرق من جداول الترتيب */
   const seenTeams = {};
   Object.entries(DATA.tables || {}).forEach(([league, rows]) => {
     (rows || []).forEach(r => {
@@ -897,8 +895,6 @@ function runGlobalSearch(q) {
       }
     });
   });
-
-  /* لاعبون (الهدافون + نجوم الفانتازي) */
   const seenPlayers = {};
   const pool = (typeof fantasyPool === 'function') ? fantasyPool() : [];
   pool.forEach(p => {
@@ -914,8 +910,6 @@ function runGlobalSearch(q) {
       }
     });
   });
-
-  /* منتخبات */
   const nats = (typeof NATIONALS !== 'undefined') ? NATIONALS : [];
   nats.forEach(n => {
     if (hit(n[0]) || hit(n[1])) {
@@ -926,32 +920,25 @@ function runGlobalSearch(q) {
       });
     }
   });
-
-  /* أخبار */
   (DATA.news || []).forEach(n => {
     if (hit(n.t)) {
       gNews.items.push({ text: n.t, sub: 'خبر', fn: function () { showNewsDetail(n.t, n.full || n.t); } });
     }
   });
-
-  /* عالمية */
   (DATA.world || []).forEach(n => {
     if (hit(n.t)) {
       gWorld.items.push({ text: n.t, sub: 'خبر عالمي', fn: function () { showNewsDetail(n.t, n.full || n.t); } });
     }
   });
-
   const total = groups.reduce((s, g) => s + g.items.length, 0);
   if (!total) {
     el.innerHTML = '<div style="background:#1e293b;border-radius:10px;padding:12px;opacity:.7;">مفيش نتايج لـ "' + q + '" 🔍 جرب اسم تاني أو اختصر البحث</div>';
     return;
   }
-
   const PER_GROUP = 6;
   const flat = [];
   groups.forEach(g => g.items.slice(0, PER_GROUP).forEach(it => flat.push(it)));
   window._gsResults = flat;
-
   let idx = 0;
   let html = '<div style="background:#1e293b;border:1px solid #334155;border-radius:12px;max-height:340px;overflow:auto;box-shadow:0 10px 30px rgba(0,0,0,.4);">';
   groups.forEach(g => {
@@ -982,11 +969,8 @@ function runGlobalSearch(q) {
     }
   });
 })();
-/* ===== ⚡ التحديث الذكي: كل 5 دقايق + عند رجوعك للتبويب + مفيش رسم لو مفيش تغيير ===== */
-let _lastDataRaw = '';
-let _lastRefresh = 0;
 
-/* ===== ⚡ التحديث الذكي: كل 5 دقايق + عند رجوعك للتبويب + مفيش رسم لو مفيش تغيير ===== */
+/* ===== ⚡ التحديث الذكي ===== */
 let _lastDataRaw = '';
 let _lastRefresh = 0;
 
@@ -995,7 +979,6 @@ async function loadData() {
   try {
     const r = await fetch('site/data.json?t=' + Date.now(), { cache: 'no-store' });
     const raw = await r.text();
-    /* الداتا متغيرتش حرف؟ نمشي — من غير أي إعادة رسم */
     if (raw && raw === _lastDataRaw) return;
     _lastDataRaw = raw;
     DATA = JSON.parse(raw);
@@ -1014,7 +997,7 @@ async function loadData() {
     renderPlayers();
     fillTeamSelects();
     renderStats();
-        document.getElementById('newsContainer').innerHTML = (DATA.news || []).length
+    document.getElementById('newsContainer').innerHTML = (DATA.news || []).length
       ? DATA.news.map(n => {
           const t = typeof n === 'string' ? n : (n.t || '');
           const full = typeof n === 'string' ? n : (n.full || n.t || '');
@@ -1051,17 +1034,37 @@ async function loadData() {
 
 loadData();
 
-/* ⏰ كل 5 دقايق بدل كل دقيقة — البوت بيتحدث كل 30 دقيقة أصلًا */
 setInterval(loadData, 300000);
 
-/* 👀 رجعت للتبويب بعد غياب دقيقتين أو أكتر → حدّث فورًا */
 document.addEventListener('visibilitychange', function () {
   if (document.visibilityState === 'visible' && Date.now() - _lastRefresh > 120000) {
     loadData();
   }
 });
 
-/* 🌐 رجع النت بعد انقطاع → حدّث */
 window.addEventListener('online', function () {
   setTimeout(loadData, 1500);
 });
+
+let deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const b = document.getElementById('installBtn');
+  if (b) b.style.display = 'inline-block';
+});
+
+function installApp() {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function (choice) {
+      if (choice.outcome === 'accepted') {
+        const b = document.getElementById('installBtn');
+        if (b) b.style.display = 'none';
+      }
+      deferredPrompt = null;
+    });
+  } else {
+    alert('افتح قايمة المتصفح (⋮) واختار "تثبيت التطبيق" 📲');
+  }
+}
