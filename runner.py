@@ -526,7 +526,7 @@ def build_schedule(today):
                 continue
     if total == 0: return None
     return "\n".join(lines) + "\n\n⚽ Edge Football"
-    def post_engagement(state):
+def post_engagement(state):
     idx = state.get("engagement_index", 0) % len(ENGAGEMENTS)
     item = ENGAGEMENTS[idx]
     ok = send_poll(item["q"], item["options"]) if item["type"] == "poll" else send_tg(item["t"] + "\n\n⚽ Edge Football")
