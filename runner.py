@@ -297,6 +297,7 @@ def ai_process(title, content, is_english, forbidden=None):
         if result and "SKIP" not in result[:20]:
             return result
     return None
+    
 def fetch_scoreboard(slug):
     try:
         r = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard", timeout=8)
@@ -525,6 +526,7 @@ def build_schedule(today):
                 continue
     if total == 0: return None
     return "\n".join(lines) + "\n\n⚽ Edge Football"
+
 def post_engagement(state):
     idx = state.get("engagement_index", 0) % len(ENGAGEMENTS)
     item = ENGAGEMENTS[idx]
