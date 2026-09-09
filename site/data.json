@@ -1,6 +1,21 @@
 {
-  "updated_at": "2026-09-09 04:36 PM",
+  "updated_at": "2026-09-09 05:22 PM",
   "news": [
+    {
+      "t": "⚽ معلق مباراة برشلونة وفينورد في دوري أبطال أوروبا.. وكيفية المشاهدة - Masrawy",
+      "full": "⚽ معلق مباراة برشلونة وفينورد في دوري أبطال أوروبا.. وكيفية المشاهدة - Masrawy\n\nمعلق مباراة برشلونة وفينورد في دوري أبطال أوروبا.. وكيفية المشاهدة  Masrawy",
+      "img": ""
+    },
+    {
+      "t": "⚽ أين يحتل باريس مكانه بين أعظم سلالات كرة القدم في أوروبا؟ - اخبارك نت",
+      "full": "⚽ أين يحتل باريس مكانه بين أعظم سلالات كرة القدم في أوروبا؟ - اخبارك نت\n\nأين يحتل باريس مكانه بين أعظم سلالات كرة القدم في أوروبا؟  اخبارك نت",
+      "img": ""
+    },
+    {
+      "t": "⚽ موقف حمزة.. تشكيل برشلونة المتوقع لمواجهة فينورد في دوري أبطال أوروبا - يلاكورة",
+      "full": "⚽ موقف حمزة.. تشكيل برشلونة المتوقع لمواجهة فينورد في دوري أبطال أوروبا - يلاكورة\n\nموقف حمزة.. تشكيل برشلونة المتوقع لمواجهة فينورد في دوري أبطال أوروبا  يلاكورة",
+      "img": ""
+    },
     {
       "t": "⚽ صراع القمة يشتعل في ختام الجولة الرابعة بالدوري.. الأهلي وبيراميدز يطاردان الزمالك على الصدارة.. 1",
       "full": "⚽ صراع القمة يشتعل في ختام الجولة الرابعة بالدوري.. الأهلي وبيراميدز يطاردان الزمالك على الصدارة.. 13 لاعبا خارج قائمة الأحمر أمام المقاولون.. و5 نجوم يغيبون عن السماوي بمواجهة الجونة - فيتو\n\nصراع القمة يشتعل في ختام الجولة الرابعة بالدوري.. الأهلي وبيراميدز يطاردان الزمالك على الصدارة.. 13 لاعبا خارج قائمة الأحمر أمام المقاولون.. و5 نجوم يغيبون عن السماوي بمواجهة الجونة  فيتو",
@@ -84,21 +99,6 @@
     {
       "t": "⚽ السفارة الأمريكية بالقاهرة تطلق بطولة «نجوم الدلتا» لكرة القدم للشباب فى المنصورة - المصري اليوم",
       "full": "⚽ السفارة الأمريكية بالقاهرة تطلق بطولة «نجوم الدلتا» لكرة القدم للشباب فى المنصورة - المصري اليوم\n\nالسفارة الأمريكية بالقاهرة تطلق بطولة «نجوم الدلتا» لكرة القدم للشباب فى المنصورة  المصري اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ \"الشوارع لن تنسى\".. عادل تاعرابت يعلن اعتزاله كرة القدم - اخبارك نت",
-      "full": "⚽ \"الشوارع لن تنسى\".. عادل تاعرابت يعلن اعتزاله كرة القدم - اخبارك نت\n\n\"الشوارع لن تنسى\".. عادل تاعرابت يعلن اعتزاله كرة القدم  اخبارك نت",
-      "img": ""
-    },
-    {
-      "t": "⚽ شركة الأهلى لكرة القدم تقرر تعيين سعد شلبى مستشارا استثماريا وتجاريا - اليوم السابع",
-      "full": "⚽ شركة الأهلى لكرة القدم تقرر تعيين سعد شلبى مستشارا استثماريا وتجاريا - اليوم السابع\n\nشركة الأهلى لكرة القدم تقرر تعيين سعد شلبى مستشارا استثماريا وتجاريا  اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ كيف علق ايمن الرمادي على رسائل الدعم المؤثرة من جماهير نادي الزمالك - الزمالك اليوم",
-      "full": "⚽ كيف علق ايمن الرمادي على رسائل الدعم المؤثرة من جماهير نادي الزمالك - الزمالك اليوم\n\nكيف علق ايمن الرمادي على رسائل الدعم المؤثرة من جماهير نادي الزمالك  الزمالك اليوم",
       "img": ""
     }
   ],
@@ -261,6 +261,93 @@
           "hs": "0",
           "as": "0",
           "time": "10:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": true
+    },
+    {
+      "league": "الدوري الإنجليزي",
+      "slug": "eng.1",
+      "items": [
+        {
+          "home": "AFC Bournemouth",
+          "away": "Brentford",
+          "eid": "401879285",
+          "slug": "eng.1",
+          "homeId": "349",
+          "awayId": "337",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/349.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/337.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "05:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "أستون فيلا",
+          "away": "Nottingham Forest",
+          "eid": "401879284",
+          "slug": "eng.1",
+          "homeId": "362",
+          "awayId": "393",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/393.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "05:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "تشيلسي",
+          "away": "Hull City",
+          "eid": "401879283",
+          "slug": "eng.1",
+          "homeId": "363",
+          "awayId": "306",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/363.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/306.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "05:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Crystal Palace",
+          "away": "Ipswich Town",
+          "eid": "401879281",
+          "slug": "eng.1",
+          "homeId": "384",
+          "awayId": "373",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/384.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/373.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "05:00 PM",
+          "state": "pre",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "ليفربول",
+          "away": "Fulham",
+          "eid": "401879279",
+          "slug": "eng.1",
+          "homeId": "364",
+          "awayId": "370",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/370.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "05:00 PM",
           "state": "pre",
           "detail": "Scheduled"
         }
@@ -1097,16 +1184,20 @@
       "img": "https://a.espncdn.com/photo/2026/0905/r1711693_1296x729_16-9.jpg"
     },
     {
+      "t": "Michael Carrick: Man United not in Champions League 'to just enjoy the occasion'",
+      "img": "https://a.espncdn.com/photo/2026/0909/r1713722_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Man United's Champions League return: What does success look like?",
+      "img": "https://a.espncdn.com/photo/2026/0909/r1713598_1296x729_16-9.jpg"
+    },
+    {
       "t": "Jude Bellingham takes responsibility for Real Madrid not thrashing Inter Milan: 'Two sitters'",
       "img": "https://a.espncdn.com/photo/2026/0909/r1713663_1296x729_16-9.jpg"
     },
     {
-      "t": "Mourinho: This is just the start of my work at Real Madrid",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0909/dm_260909_Mourinho_This_is_just_the_start_of_my_work_at_Real_Madrid/dm_260909_Mourinho_This_is_just_the_start_of_my_work_at_Real_Madrid.jpg"
-    },
-    {
-      "t": "Kylian Mbappé: Want Champions League win 'more than anything,' more important than Ballon d'Or",
-      "img": "https://a.espncdn.com/photo/2026/0909/r1713659_1296x729_16-9.jpg"
+      "t": "Man United's Champions League return: What does success look like?",
+      "img": "https://a.espncdn.com/photo/2026/0909/r1713598_1296x729_16-9.jpg"
     },
     {
       "t": "Ryan Giggs: Attempted to sway Elliot Anderson to Man United in chance holiday meeting",
@@ -1115,10 +1206,6 @@
     {
       "t": "Premier League panel: Harry Maguire goal vs. Ipswich right to stand, Arsenal deserved penalty vs. Aston Villa",
       "img": "https://a.espncdn.com/photo/2026/0830/r1709133_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Marcus Rashford returns to training ahead of Manchester United's Champions League clash",
-      "img": "https://a.espncdn.com/photo/2026/0909/r1713674_1296x729_16-9.jpg"
     },
     {
       "t": "Real Madrid goalkeeper Thibaut Courtois to step away from Belgium's Nations League campaign",
