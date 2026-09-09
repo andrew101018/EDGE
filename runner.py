@@ -297,14 +297,13 @@ def ai_process(title, content, is_english, forbidden=None):
         if result and "SKIP" not in result[:20]:
             return result
     return None
-    def fetch_scoreboard(slug):
+def fetch_scoreboard(slug):
     try:
         r = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard", timeout=8)
         if r.ok: return r.json()
     except Exception as e:
         print("scoreboard error:", slug, e)
     return None
-
 def fetch_standings(slug):
     try:
         r = requests.get(f"https://site.api.espn.com/apis/v2/sports/soccer/{slug}/standings", timeout=8)
