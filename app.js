@@ -619,16 +619,44 @@ async function showTeam(slug, teamId, teamName) {
 
 function closeTeam() { const b = document.getElementById('teamModal'); if (b) b.style.display = 'none'; }
 
+function matchShareButton(slug, eid, title) {
+  try {
+    let m = null;
+    (DATA.matches || []).forEach(g => (g.items || []).forEach(x => {
+      if (String(x.eid) === String(eid)) m = Object.assign({}, x, { league: g.league });
+    }));
+    let t1 = '', t2 = '';
+    const parts = (title || '').split('×');
+    if (parts.length >= 2) { t1 = parts[0].trim(); t2 = parts[1].trim(); }
+    if (m) { t1 = m.home || t1; t2 = m.away || t2; }
+    if (!t1 || !t2) return '';
+    const hasScore = m && (m.state === 'post' || m.state === 'in');
+    const st = m ? (m.state === 'in' ? 'جارية الآن' : (m.state === 'post' ? 'انتهت' : m.time)) : 'مباراة';
+    const p = new URLSearchParams();
+    p.set('t1', t1);
+    p.set('t2', t2);
+    if (hasScore) { p.set('s1', m.hs); p.set('s2', m.as); }
+    if (m && m.league) p.set('lg', m.league);
+    p.set('st', st);
+    if (m && m.homeLogo) p.set('l1', m.homeLogo);
+    if (m && m.awayLogo) p.set('l2', m.awayLogo);
+    return '<a class="btn" style="display:flex;justify-content:center;align-items:center;margin-bottom:14px;" target="_blank" rel="noopener" href="share.html?' + p.toString() + '">🖼️ شارك كارت المباراة</a>';
+  } catch (e) {
+    return '';
+  }
+}
+
 async function showMatch(slug, eid, title) {
   const box = document.getElementById('matchModal');
   box.style.cssText = 'display:block;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;overflow:auto;';
   box.firstElementChild.style.cssText = 'max-width:640px;margin:40px auto;background:#1e293b;border-radius:12px;padding:20px;';
   document.getElementById('matchModalTitle').textContent = '⚽ ' + title;
   document.getElementById('matchModalBody').innerHTML = 'جاري تحميل التفاصيل...';
+  const shareHtml = matchShareButton(slug, eid, title);
   try {
     const r = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/summary?event=${eid}`);
     const d = await r.json();
-    let html = '';
+    let html = shareHtml;
     const events = d.scoringPlays || d.keyEvents || [];
     if (events.length) {
       html += '<div class="pos-box"><b>⚽ الأهداف واللحظات:</b>' + events.map(ev => {
@@ -645,10 +673,9 @@ async function showMatch(slug, eid, title) {
     }
     document.getElementById('matchModalBody').innerHTML = html || 'التفاصيل مش متاحة للمباراة دي حالياً';
   } catch (e) {
-    document.getElementById('matchModalBody').innerHTML = 'تعذر تحميل التفاصيل';
+    document.getElementById('matchModalBody').innerHTML = shareHtml + 'تعذر تحميل التفاصيل';
   }
 }
-
 function closeMatch() { const b = document.getElementById('matchModal'); if (b) b.style.display = 'none'; }
 
 const NATIONALS = [
