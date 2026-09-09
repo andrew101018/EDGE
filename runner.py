@@ -130,6 +130,7 @@ def parse_rss(content):
                 "summary": it.findtext("a:summary", default="", namespaces=ns) or "",
                 "published_parsed": None, "img": ""})
     return entries
+
 ENGAGEMENTS = [
     {"type": "poll", "q": "مين أحسن مهاجم في العالم دلوقتي؟ 🔥", "options": ["هالاند", "مبابي", "محمد صلاح", "فينيسيوس"]},
     {"type": "poll", "q": "مين الأعظم في التاريخ؟ 🐐", "options": ["ميسي", "رونالدو", "الاتنين في قلبي"]},
@@ -223,6 +224,7 @@ def send_tg_photo(text, img):
     except Exception as e:
         print("📷 photo error:", e)
     return send_tg(text)
+
 def send_poll(question, options):
     try:
         r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendPoll",
@@ -295,8 +297,7 @@ def ai_process(title, content, is_english, forbidden=None):
         if result and "SKIP" not in result[:20]:
             return result
     return None
-
-def fetch_scoreboard(slug):
+    def fetch_scoreboard(slug):
     try:
         r = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard", timeout=8)
         if r.ok: return r.json()
@@ -362,7 +363,7 @@ def collect_news(state):
             print("fetch error:", source["name"], ex)
     print(f"🚫 قديمة: {skipped_old} | مكررة: {skipped_dup}")
     return fresh, posted, recent_titles
-    
+
 def finish_text(home, hs, away, as_, name):
     home, away = ar_team(home), ar_team(away)
     hs, as_ = int(hs), int(as_)
@@ -525,8 +526,7 @@ def build_schedule(today):
                 continue
     if total == 0: return None
     return "\n".join(lines) + "\n\n⚽ Edge Football"
-
-def post_engagement(state):
+    def post_engagement(state):
     idx = state.get("engagement_index", 0) % len(ENGAGEMENTS)
     item = ENGAGEMENTS[idx]
     ok = send_poll(item["q"], item["options"]) if item["type"] == "poll" else send_tg(item["t"] + "\n\n⚽ Edge Football")
@@ -626,7 +626,7 @@ def build_site_data(state, today):
                     if m in label: return False
         return True
 
-    # ===== ⏰ جلب الهدافين مرتين في اليوم بس (من 384 لـ 16 طلب) =====
+    # ===== ⏰ جلب الهدافين مرتين في اليوم بس =====
     def scorers_window(h):
         if 6 <= h <= 11: return "am"
         if 17 <= h <= 23: return "pm"
@@ -712,6 +712,7 @@ def build_site_data(state, today):
     with open("site/data.json", "w", encoding="utf-8") as f:
         json.dump(site_data, f, ensure_ascii=False, indent=2)
     print("🌐 تم تحديث بيانات الموقع")
+
 def make_publish_package(news_lines):
     prompt = f"""انت خبير سوشيال ميديا رياضي. اكتب باقة نشر جاهزة لفيديو كورة عن الأخبار دي:
 {news_lines}
@@ -747,7 +748,6 @@ def main():
             print("⚠️ تجاوز:", item["title"][:40])
             posted.add(item["hash"])
             continue
-               #content += f"\n\n📡 المصدر: {item['source']}"
         img = (item.get("img") or "").strip()
         if send_tg_photo(content, img):
             print("✅ نُشر:", title[:40])
@@ -755,6 +755,7 @@ def main():
             recent_titles.append(item["nt"])
             openers.append(content.splitlines()[0][:80])
             state.setdefault("site_news", []).append({"t": content.splitlines()[0][:100], "full": content, "img": img})
+            state.setdefault("daily_news", []).append({"d": today, "t": content.splitlines()[0][:80]})
             count += 1
             time.sleep(5)
     report.append(f"📰 أخبار: {count}")
