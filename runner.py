@@ -85,6 +85,24 @@ def is_dup_title(nt, recent):
         if abs(len(nt) - len(p)) < 12 and SequenceMatcher(None, nt, p).ratio() > 0.9: return True
     return False
 
+MEDIA_NS = {"media": "http://search.yahoo.com/mrss/"}
+
+def extract_image(el, raw_desc):
+    try:
+        for tag in ("media:content", "media:thumbnail"):
+            m = el.find(tag, MEDIA_NS)
+            if m is not None and m.get("url"):
+                return m.get("url")
+    except Exception:
+        pass
+    try:
+        m = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', raw_desc or "", re.I)
+        if m:
+            return m.group(1)
+    except Exception:
+        pass
+    return ""
+
 def parse_rss(content):
     entries = []
     try:
@@ -99,9 +117,10 @@ def parse_rss(content):
                 pp = time.gmtime(email.utils.mktime_tz(email.utils.parsedate_tz(pub)))
             except Exception:
                 pp = None
+        raw_desc = it.findtext("description") or ""
         entries.append({"title": (it.findtext("title") or "").strip(),
             "link": (it.findtext("link") or "").strip(),
-            "summary": it.findtext("description") or "", "published_parsed": pp})
+            "summary": raw_desc, "published_parsed": pp, "img": extract_image(it, raw_desc)})
     if not entries:
         ns = {"a": "http://www.w3.org/2005/Atom"}
         for it in root.findall(".//a:entry", ns):
@@ -109,9 +128,8 @@ def parse_rss(content):
             entries.append({"title": (it.findtext("a:title", default="", namespaces=ns) or "").strip(),
                 "link": link_el.get("href", "") if link_el is not None else "",
                 "summary": it.findtext("a:summary", default="", namespaces=ns) or "",
-                "published_parsed": None})
+                "published_parsed": None, "img": ""})
     return entries
-
 ENGAGEMENTS = [
     {"type": "poll", "q": "مين أحسن مهاجم في العالم دلوقتي؟ 🔥", "options": ["هالاند", "مبابي", "محمد صلاح", "فينيسيوس"]},
     {"type": "poll", "q": "مين الأعظم في التاريخ؟ 🐐", "options": ["ميسي", "رونالدو", "الاتنين في قلبي"]},
@@ -171,16 +189,40 @@ def translate(text):
     except Exception:
         return None
 
+def tg_html(text):
+    safe = str(text).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    lines = safe.split("\n")
+    if lines:
+        lines[0] = "<b>" + lines[0] + "</b>"
+    return "\n".join(lines)
+
 def send_tg(text):
     try:
         r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage",
+            json={"chat_id": TG_CHANNEL, "text": tg_html(text), "parse_mode": "HTML"}, timeout=15)
+        if r.ok: return True
+        print("❌ Telegram error:", r.status_code)
+        r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage",
             json={"chat_id": TG_CHANNEL, "text": text}, timeout=15)
-        if not r.ok: print("❌ Telegram error:", r.status_code)
         return r.ok
     except Exception as e:
         print("❌ Telegram exception:", e)
         return False
 
+def send_tg_photo(text, img):
+    if not img:
+        return send_tg(text)
+    try:
+        r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendPhoto",
+            json={"chat_id": TG_CHANNEL, "photo": img, "caption": tg_html(text[:1000]), "parse_mode": "HTML"}, timeout=25)
+        if r.ok: return True
+        print("📷 photo status:", r.status_code)
+        r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendPhoto",
+            json={"chat_id": TG_CHANNEL, "photo": img, "caption": text[:1024]}, timeout=25)
+        if r.ok: return True
+    except Exception as e:
+        print("📷 photo error:", e)
+    return send_tg(text)
 def send_poll(question, options):
     try:
         r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendPoll",
@@ -315,7 +357,7 @@ def collect_news(state):
                 if is_dup_title(nt, recent_titles):
                     skipped_dup += 1
                     continue
-                fresh.append({"title": title, "url": url, "summary": summary, "source": source["name"], "en": is_en, "hash": h, "nt": nt})
+                                fresh.append({"title": title, "url": url, "summary": summary, "source": source["name"], "en": is_en, "hash": h, "nt": nt, "img": e.get("img") or ""})
         except Exception as ex:
             print("fetch error:", source["name"], ex)
     print(f"🚫 قديمة: {skipped_old} | مكررة: {skipped_dup}")
@@ -706,13 +748,13 @@ def main():
             posted.add(item["hash"])
             continue
         #content += f"\n\n📡 المصدر: {item['source']}"
-        if send_tg(content):
+               img = (item.get("img") or "").strip()
+        if send_tg_photo(content, img):
             print("✅ نُشر:", title[:40])
             posted.add(item["hash"])
             recent_titles.append(item["nt"])
             openers.append(content.splitlines()[0][:80])
-            state.setdefault("site_news", []).append({"t": content.splitlines()[0][:100], "full": content, "img": ""})
-            state.setdefault("daily_news", []).append({"d": today, "t": content.splitlines()[0][:80]})
+            state.setdefault("site_news", []).append({"t": content.splitlines()[0][:100], "full": content, "img": img})
             count += 1
             time.sleep(5)
     report.append(f"📰 أخبار: {count}")
