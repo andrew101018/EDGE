@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-09-10 06:34 PM",
+  "updated_at": "2026-09-10 08:24 PM",
   "news": [
+    {
+      "t": "⚽ الأشعة تكشف إصابة عمرو الجزار لاعب الأهلي بقطع في الرباط الصليبي - اليوم السابع",
+      "full": "⚽ الأشعة تكشف إصابة عمرو الجزار لاعب الأهلي بقطع في الرباط الصليبي - اليوم السابع\n\nالأشعة تكشف إصابة عمرو الجزار لاعب الأهلي بقطع في الرباط الصليبي  اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ تجاهل ميسي.. بوتشيتينو يرشح نجمًا أوروبيًا للكرة الذهبية - Kooora",
+      "full": "⚽ تجاهل ميسي.. بوتشيتينو يرشح نجمًا أوروبيًا للكرة الذهبية - Kooora\n\nتجاهل ميسي.. بوتشيتينو يرشح نجمًا أوروبيًا للكرة الذهبية  Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ موقف فتوح وغياب ثنائي لمدة 20 يوما.. إصابات الزمالك قبل مواجهة بطل جيبوتي - يلاكورة",
+      "full": "⚽ موقف فتوح وغياب ثنائي لمدة 20 يوما.. إصابات الزمالك قبل مواجهة بطل جيبوتي - يلاكورة\n\nموقف فتوح وغياب ثنائي لمدة 20 يوما.. إصابات الزمالك قبل مواجهة بطل جيبوتي  يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ من البناء إلى الضغط بشراسة.. كيف وسّع رودري خيارات برشلونة التكتيكية؟ - aljazeera.net",
+      "full": "⚽ من البناء إلى الضغط بشراسة.. كيف وسّع رودري خيارات برشلونة التكتيكية؟ - aljazeera.net\n\nمن البناء إلى الضغط بشراسة.. كيف وسّع رودري خيارات برشلونة التكتيكية؟  aljazeera.net",
+      "img": ""
+    },
     {
       "t": "⚽ إتحاد أوروبى جديد يعلن سحب تأييد إنفانتينو - الزمالك اليوم",
       "full": "⚽ إتحاد أوروبى جديد يعلن سحب تأييد إنفانتينو - الزمالك اليوم\n\nإتحاد أوروبى جديد يعلن سحب تأييد إنفانتينو  الزمالك اليوم",
@@ -80,26 +100,6 @@
       "t": "⚽ عرضان للرحيل ونفي ومحادثة واتساب.. أزمة جديدة تضرب أحمد فتوح في الزمالك - يلاكورة",
       "full": "⚽ عرضان للرحيل ونفي ومحادثة واتساب.. أزمة جديدة تضرب أحمد فتوح في الزمالك - يلاكورة\n\nعرضان للرحيل ونفي ومحادثة واتساب.. أزمة جديدة تضرب أحمد فتوح في الزمالك  يلاكورة",
       "img": ""
-    },
-    {
-      "t": "⚽ مدة كبيرة : مدة الغياب المتوقعة لمحمد السيد عن الملاعب - الزمالك اليوم",
-      "full": "⚽ مدة كبيرة : مدة الغياب المتوقعة لمحمد السيد عن الملاعب - الزمالك اليوم\n\nمدة كبيرة : مدة الغياب المتوقعة لمحمد السيد عن الملاعب  الزمالك اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ الزمالك يطبق لائحة العقوبات على أحمد فتوح.. اعرف التفاصيل - اليوم السابع",
-      "full": "⚽ الزمالك يطبق لائحة العقوبات على أحمد فتوح.. اعرف التفاصيل - اليوم السابع\n\nالزمالك يطبق لائحة العقوبات على أحمد فتوح.. اعرف التفاصيل  اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ موعد مباريات الأندية المصرية في بطولات أفريقيا - اليوم السابع",
-      "full": "⚽ موعد مباريات الأندية المصرية في بطولات أفريقيا - اليوم السابع\n\nموعد مباريات الأندية المصرية في بطولات أفريقيا  اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ حقيقة اقتراب كباكا من تجديد عقده مع الأهلي - اليوم السابع",
-      "full": "⚽ حقيقة اقتراب كباكا من تجديد عقده مع الأهلي - اليوم السابع\n\nحقيقة اقتراب كباكا من تجديد عقده مع الأهلي  اليوم السابع",
-      "img": ""
     }
   ],
   "results": [
@@ -129,6 +129,7 @@
           "as": "0",
           "time": "06:25 PM",
           "state": "pre",
+          "date": "2026-09-11T18:25:00+03:00",
           "detail": "Scheduled"
         },
         {
@@ -145,6 +146,7 @@
           "as": "0",
           "time": "06:45 PM",
           "state": "pre",
+          "date": "2026-09-11T18:45:00+03:00",
           "detail": "Scheduled"
         },
         {
@@ -161,6 +163,7 @@
           "as": "0",
           "time": "09:00 PM",
           "state": "pre",
+          "date": "2026-09-11T21:00:00+03:00",
           "detail": "Scheduled"
         }
       ],
@@ -183,8 +186,9 @@
           "hs": "0",
           "as": "0",
           "time": "07:45 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "date": "2026-09-10T19:45:00+03:00",
+          "detail": "38'"
         },
         {
           "home": "آيندهوفن",
@@ -199,8 +203,9 @@
           "hs": "0",
           "as": "0",
           "time": "07:45 PM",
-          "state": "pre",
-          "detail": "Scheduled"
+          "state": "in",
+          "date": "2026-09-10T19:45:00+03:00",
+          "detail": "38'"
         },
         {
           "home": "بايرن ميونخ",
@@ -216,6 +221,7 @@
           "as": "0",
           "time": "10:00 PM",
           "state": "pre",
+          "date": "2026-09-10T22:00:00+03:00",
           "detail": "Scheduled"
         },
         {
@@ -232,6 +238,7 @@
           "as": "0",
           "time": "10:00 PM",
           "state": "pre",
+          "date": "2026-09-10T22:00:00+03:00",
           "detail": "Scheduled"
         },
         {
@@ -248,6 +255,7 @@
           "as": "0",
           "time": "10:00 PM",
           "state": "pre",
+          "date": "2026-09-10T22:00:00+03:00",
           "detail": "Scheduled"
         },
         {
@@ -264,6 +272,7 @@
           "as": "0",
           "time": "10:00 PM",
           "state": "pre",
+          "date": "2026-09-10T22:00:00+03:00",
           "detail": "Scheduled"
         }
       ],
@@ -287,6 +296,7 @@
           "as": "0",
           "time": "05:00 PM",
           "state": "pre",
+          "date": "2026-09-12T17:00:00+03:00",
           "detail": "Scheduled"
         },
         {
@@ -303,6 +313,7 @@
           "as": "0",
           "time": "05:00 PM",
           "state": "pre",
+          "date": "2026-09-12T17:00:00+03:00",
           "detail": "Scheduled"
         },
         {
@@ -319,6 +330,7 @@
           "as": "0",
           "time": "05:00 PM",
           "state": "pre",
+          "date": "2026-09-12T17:00:00+03:00",
           "detail": "Scheduled"
         },
         {
@@ -335,6 +347,7 @@
           "as": "0",
           "time": "05:00 PM",
           "state": "pre",
+          "date": "2026-09-12T17:00:00+03:00",
           "detail": "Scheduled"
         },
         {
@@ -351,6 +364,7 @@
           "as": "0",
           "time": "05:00 PM",
           "state": "pre",
+          "date": "2026-09-12T17:00:00+03:00",
           "detail": "Scheduled"
         },
         {
@@ -367,6 +381,7 @@
           "as": "0",
           "time": "10:00 PM",
           "state": "pre",
+          "date": "2026-09-12T22:00:00+03:00",
           "detail": "Scheduled"
         }
       ],
@@ -390,6 +405,7 @@
           "as": "0",
           "time": "10:00 PM",
           "state": "pre",
+          "date": "2026-09-11T22:00:00+03:00",
           "detail": "Scheduled"
         }
       ],
@@ -413,6 +429,7 @@
           "as": "0",
           "time": "09:45 PM",
           "state": "pre",
+          "date": "2026-09-11T21:45:00+03:00",
           "detail": "Scheduled"
         }
       ],
@@ -436,6 +453,7 @@
           "as": "0",
           "time": "09:45 PM",
           "state": "pre",
+          "date": "2026-09-11T21:45:00+03:00",
           "detail": "Scheduled"
         }
       ],
@@ -1203,7 +1221,7 @@
     },
     {
       "t": "UEFA Champions League live updates: Roma take on Fenerbahce",
-      "img": "https://a.espncdn.com/photo/2026/0905/r1711592_1296x729_16-9.jpg"
+      "img": "https://a.espncdn.com/photo/2026/0910/r1714374_1296x729_16-9.jpg"
     },
     {
       "t": "Sabah FK coach has full-circle moment ahead of club's UCL debut vs. Man Utd",
@@ -1214,16 +1232,20 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0910/dm_260910_BodoGlimt_coach_praises_Bayern_Munich_as_best_team_in_the_world/dm_260910_BodoGlimt_coach_praises_Bayern_Munich_as_best_team_in_the_world.jpg"
     },
     {
-      "t": "Hull's Sergej Jakirovic: Best way to stop Chelsea is 'to kick them'",
+      "t": "Weekend predictions: Can Wrexham get a win? Who wins Manchester derby? Elversberg over Bayern?",
+      "img": "https://a.espncdn.com/photo/2026/0910/r1714342_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Premier League confirms return of traditional Boxing Day fixtures",
+      "img": "https://a.espncdn.com/photo/2026/0910/r1714363_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Hull's Sergej Jakirovic jokes about plan stop Chelsea: 'Kick them'",
       "img": "https://a.espncdn.com/photo/2026/0910/r1714351_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer rumors, news: Man United, Tottenham eye Club Brugge striker",
-      "img": "https://a.espncdn.com/photo/2026/0910/r1714230_1296x729_16-9.jpg"
-    },
-    {
-      "t": "2026 Ballon d'Or: Full men's, women's short lists, host city change, more",
-      "img": "https://a.espncdn.com/photo/2026/0908/r1713144_2_1296x729_16-9.jpg"
+      "t": "Weekend predictions: Can Wrexham get a win? Who wins Manchester derby? Elversberg over Bayern?",
+      "img": "https://a.espncdn.com/photo/2026/0910/r1714342_1296x729_16-9.jpg"
     },
     {
       "t": "2026 Ballon d'Or: Full men's, women's short lists, host city change, more",
@@ -1234,8 +1256,8 @@
       "img": "https://a.espncdn.com/photo/2026/0910/r1714239_1296x729_16-9.jpg"
     },
     {
-      "t": "LaLiga president honoured Lionel Messi, Cristiano Ronaldo investing in Spanish clubs",
-      "img": "https://a.espncdn.com/photo/2026/0910/r1714237_1296x729_16-9.jpg"
+      "t": "Weekend predictions: Can Wrexham get a win? Who wins Manchester derby? Elversberg over Bayern?",
+      "img": "https://a.espncdn.com/photo/2026/0910/r1714342_1296x729_16-9.jpg"
     },
     {
       "t": "2026 Ballon d'Or: Full men's, women's short lists, host city change, more",
@@ -1246,11 +1268,11 @@
       "img": "https://a.espncdn.com/photo/2026/0909/r1713538_1296x729_16-9.jpg"
     },
     {
-      "t": "Napoli's Scott McTominay undergoes successful heart surgery",
-      "img": "https://a.espncdn.com/photo/2026/0908/r1713214_1296x729_16-9.jpg"
+      "t": "Weekend predictions: Can Wrexham get a win? Who wins Manchester derby? Elversberg over Bayern?",
+      "img": "https://a.espncdn.com/photo/2026/0910/r1714342_1296x729_16-9.jpg"
     },
     {
-      "t": "Bayern Munich Ballon d'Or nominees Michael Olise, Luis Díaz get behind Harry Kane in award bid",
+      "t": "Bayern Munich Ballon d'Or nominees Michael Olise, Luis Díaz back Harry Kane",
       "img": "https://a.espncdn.com/photo/2026/0713/r1688823_1296x729_16-9.jpg"
     },
     {
@@ -1258,8 +1280,8 @@
       "img": "https://a.espncdn.com/photo/2026/0908/r1713144_2_1296x729_16-9.jpg"
     },
     {
-      "t": "Vincent Kompany sets out Bayern Champions League title aim as new campaign begins",
-      "img": "https://a.espncdn.com/photo/2026/0909/r1713698_1296x729_16-9.jpg"
+      "t": "Weekend predictions: Can Wrexham get a win? Who wins Manchester derby? Elversberg over Bayern?",
+      "img": "https://a.espncdn.com/photo/2026/0910/r1714342_1296x729_16-9.jpg"
     },
     {
       "t": "2026 Ballon d'Or: Full men's, women's short lists, host city change, more",
@@ -1268,10 +1290,6 @@
     {
       "t": "Ousmane Dembélé says Harry Kane a Ballon d'Or candidate - but predicts award will go to PSG player",
       "img": "https://a.espncdn.com/photo/2026/0908/r1713123_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Giovanni Reyna scores first goal since move to Strasbourg",
-      "img": "https://a.espncdn.com/photo/2026/0906/r1712519_1296x729_16-9.jpg"
     }
   ],
   "highlights": [],
