@@ -1,17 +1,27 @@
 {
-  "name": "Edge Football - الكورة بتبدأ من هنا",
-  "short_name": "Edge⚽",
-  "description": "كل حاجة في الكورة.. أخبار، مباريات لايف، هدافين، فانتازي",
-  "start_url": "/EDGE/",
-  "scope": "/EDGE/",
-  "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#f59e0b",
-  "dir": "rtl",
+  "name": "Edge Football",
+  "short_name": "Edge",
+  "description": "كل حاجة في الكورة قبل أي حد تاني — أخبار ونتائج ولايف وترتيب وهدافين",
   "lang": "ar",
+  "dir": "rtl",
+  "start_url": "../",
+  "scope": "../",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#f59e0b",
   "orientation": "portrait",
   "icons": [
-    { "src": "https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg", "sizes": "192x192", "type": "image/jpeg", "purpose": "any" },
-    { "src": "https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg", "sizes": "512x512", "type": "image/jpeg", "purpose": "any maskable" }
+    {
+      "src": "https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
   ]
 }
