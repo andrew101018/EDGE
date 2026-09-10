@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-09-10 04:18 AM",
+  "updated_at": "2026-09-10 09:13 AM",
   "news": [
+    {
+      "t": "⚽ موعد مباريات الأندية المصرية في بطولات أفريقيا - اليوم السابع",
+      "full": "⚽ موعد مباريات الأندية المصرية في بطولات أفريقيا - اليوم السابع\n\nموعد مباريات الأندية المصرية في بطولات أفريقيا  اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ حقيقة اقتراب كباكا من تجديد عقده مع الأهلي - اليوم السابع",
+      "full": "⚽ حقيقة اقتراب كباكا من تجديد عقده مع الأهلي - اليوم السابع\n\nحقيقة اقتراب كباكا من تجديد عقده مع الأهلي  اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ ريال مدريد وبرشلونة على القمة.. أكثر الأندية تتويجًا بالكرة الذهبية عبر التاريخ - اليوم السابع",
+      "full": "⚽ ريال مدريد وبرشلونة على القمة.. أكثر الأندية تتويجًا بالكرة الذهبية عبر التاريخ - اليوم السابع\n\nريال مدريد وبرشلونة على القمة.. أكثر الأندية تتويجًا بالكرة الذهبية عبر التاريخ  اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ حسام حسن يبحث عن بدائل تريزيجيه بعد تأكد غيابه عن معسكر منتخب مصر للإصابة - اليوم السابع",
+      "full": "⚽ حسام حسن يبحث عن بدائل تريزيجيه بعد تأكد غيابه عن معسكر منتخب مصر للإصابة - اليوم السابع\n\nحسام حسن يبحث عن بدائل تريزيجيه بعد تأكد غيابه عن معسكر منتخب مصر للإصابة  اليوم السابع",
+      "img": ""
+    },
     {
       "t": "⚽ تقارير إعلامية تنقل تصريحات على لسان أحمد فتوح حول وضعه الحالي.. وموقفه من الأهلي وبيراميدز - zama",
       "full": "⚽ تقارير إعلامية تنقل تصريحات على لسان أحمد فتوح حول وضعه الحالي.. وموقفه من الأهلي وبيراميدز - zamalektoday.com\n\nتقارير إعلامية تنقل تصريحات على لسان أحمد فتوح حول وضعه الحالي.. وموقفه من الأهلي وبيراميدز  zamalektoday.com",
@@ -80,26 +100,6 @@
       "t": "⚽ تشكيل الأهلي.. الشناوي أساسيًا لأول مرة.. وإمام عاشور بديلًا أمام المقاولون العرب - yallakora.com",
       "full": "⚽ تشكيل الأهلي.. الشناوي أساسيًا لأول مرة.. وإمام عاشور بديلًا أمام المقاولون العرب - yallakora.com\n\nتشكيل الأهلي.. الشناوي أساسيًا لأول مرة.. وإمام عاشور بديلًا أمام المقاولون العرب  yallakora.com",
       "img": ""
-    },
-    {
-      "t": "⚽ مصير فتوح من البقاء في الزمالك وحقيقة انتقاله للأهلي أو بيراميدز - elbalad.news",
-      "full": "⚽ مصير فتوح من البقاء في الزمالك وحقيقة انتقاله للأهلي أو بيراميدز - elbalad.news\n\nمصير فتوح من البقاء في الزمالك وحقيقة انتقاله للأهلي أو بيراميدز  elbalad.news",
-      "img": ""
-    },
-    {
-      "t": "⚽ أسسه مشجعو برشلونة.. ماذا نعرف عن نادي ميسي الجديد؟ - Kooora",
-      "full": "⚽ أسسه مشجعو برشلونة.. ماذا نعرف عن نادي ميسي الجديد؟ - Kooora\n\nأسسه مشجعو برشلونة.. ماذا نعرف عن نادي ميسي الجديد؟  Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ لماذا وافق الزمالك على بيع بيزيرا؟.. مصدر يجيب - اليوم السابع",
-      "full": "⚽ لماذا وافق الزمالك على بيع بيزيرا؟.. مصدر يجيب - اليوم السابع\n\nلماذا وافق الزمالك على بيع بيزيرا؟.. مصدر يجيب  اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ مصير فتوح من البقاء في الزمالك وحقيقة انتقاله للأهلي أو بيراميدز - صدى البلد",
-      "full": "⚽ مصير فتوح من البقاء في الزمالك وحقيقة انتقاله للأهلي أو بيراميدز - صدى البلد\n\nمصير فتوح من البقاء في الزمالك وحقيقة انتقاله للأهلي أو بيراميدز  صدى البلد",
-      "img": ""
     }
   ],
   "results": [
@@ -116,52 +116,52 @@
       "slug": "ksa.1",
       "items": [
         {
-          "home": "Al Kholood",
-          "away": "الشباب",
-          "eid": "401900359",
+          "home": "القادسية",
+          "away": "الاتفاق",
+          "eid": "401900920",
           "slug": "ksa.1",
-          "homeId": "22028",
-          "awayId": "793",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22028.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/793.png",
+          "homeId": "22022",
+          "awayId": "8363",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22022.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8363.png",
           "tv": "SSC / شاهد",
-          "hs": "2",
-          "as": "1",
-          "time": "06:55 PM",
-          "state": "post",
-          "detail": "FT"
+          "hs": "0",
+          "as": "0",
+          "time": "06:25 PM",
+          "state": "pre",
+          "detail": "Scheduled"
         },
         {
-          "home": "الفتح",
-          "away": "Al Diriyah",
-          "eid": "401900358",
+          "home": "Al Faisaly",
+          "away": "الاتحاد",
+          "eid": "401900451",
           "slug": "ksa.1",
-          "homeId": "13033",
-          "awayId": "131746",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/13033.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131746.png",
+          "homeId": "21446",
+          "awayId": "2276",
+          "homeLogo": "",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2276.png",
           "tv": "SSC / شاهد",
-          "hs": "1",
-          "as": "2",
-          "time": "09:00 PM",
-          "state": "post",
-          "detail": "FT"
+          "hs": "0",
+          "as": "0",
+          "time": "06:45 PM",
+          "state": "pre",
+          "detail": "Scheduled"
         },
         {
-          "home": "النصر",
-          "away": "Abha",
-          "eid": "401900357",
+          "home": "الأهلي السعودي",
+          "away": "Al Hazem",
+          "eid": "401900922",
           "slug": "ksa.1",
-          "homeId": "817",
-          "awayId": "21833",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/817.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21833.png",
+          "homeId": "8346",
+          "awayId": "21964",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/8346.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21964.png",
           "tv": "SSC / شاهد",
-          "hs": "2",
-          "as": "1",
+          "hs": "0",
+          "as": "0",
           "time": "09:00 PM",
-          "state": "post",
-          "detail": "FT"
+          "state": "pre",
+          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -1019,6 +1019,46 @@
     ]
   },
   "leaders": {
+    "الدوري السعودي": {
+      "أهداف آخر الجولات ⚽": [
+        {
+          "name": "Ivan Toney",
+          "team": "الأهلي السعودي",
+          "value": "8 ⚽",
+          "face": ""
+        },
+        {
+          "name": "George Ilenikhena",
+          "team": "الاتحاد",
+          "value": "4 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Mateo Retegui",
+          "team": "القادسية",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Moussa Dembélé",
+          "team": "الاتفاق",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Abdulaziz Aldhuwayhi",
+          "team": "Al Hazem",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Alexandre Mendy",
+          "team": "Al Faisaly",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
     "الدوري الإنجليزي": {
       "أهداف آخر الجولات ⚽": [
         {
@@ -1162,16 +1202,16 @@
       "img": "https://a.espncdn.com/photo/2026/0304/r1622848_1296x729_16-9.jpg"
     },
     {
-      "t": "Mac Allister stunner gives Liverpool win amid contract sadness",
-      "img": "https://a.espncdn.com/photo/2026/0909/r1714067_1296x729_16-9.jpg"
+      "t": "Ødegaard scores 75th-minute match-winner for Arsenal",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0910/dm_260910_Soccer_HIGHLIGHT_Odegaard_scores_75th_minute_match_winner_for_Arsenal_20260910_AUS/dm_260910_Soccer_HIGHLIGHT_Odegaard_scores_75th_minute_match_winner_for_Arsenal_20260910_AUS.jpg"
     },
     {
-      "t": "Moreno hails Barcelona's Raphinha for 'No. 9 clinic'",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0909/dm_260909_COM_SOC_Analysis_Moreno_hails_Barcelonas_Raphinha_for_No_9_clinic_20260909_GLOBAL/dm_260909_COM_SOC_Analysis_Moreno_hails_Barcelonas_Raphinha_for_No_9_clinic_20260909_GLOBAL.jpg"
+      "t": "Liverpool recover from early deficit for 2-1 win",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0910/dm_260910_Soccer_HIGHLIGHT_Liverpool_recover_from_early_deficit_for_2_1_win_20260910_AUS/dm_260910_Soccer_HIGHLIGHT_Liverpool_recover_from_early_deficit_for_2_1_win_20260910_AUS.jpg"
     },
     {
-      "t": "Moreno: Odegaard goals a 'necessity' for Arsenal",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0909/dm_260909_COM_SOC_Analysis_Moreno_Odegaard_goals_a_necessity_for_Arsenal_20260909_GLOBAL/dm_260909_COM_SOC_Analysis_Moreno_Odegaard_goals_a_necessity_for_Arsenal_20260909_GLOBAL.jpg"
+      "t": "UCL talking points: Mourinho's blueprint to win the Champions League",
+      "img": "https://a.espncdn.com/photo/2026/0910/r1714132_1296x729_16-9.jpg"
     },
     {
       "t": "Tottenham's Mykhailo Mudryk out until at least October with ankle injury - sources\"",
