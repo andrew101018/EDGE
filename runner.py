@@ -16,6 +16,8 @@ GROQ_KEY = os.environ.get("GROQ_KEY", "")
 DEEPSEEK_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 FORCE = os.environ.get("FORCE", "") == "1"
 VAPID_PRIVATE = os.environ.get("VAPID_PRIVATE", "")
+FB_PAGE_ID = os.environ.get("FB_PAGE_ID", "")
+FB_PAGE_TOKEN = os.environ.get("FB_PAGE_TOKEN", "")
 STATE_FILE = "posted.json"
 MAX_PER_RUN = 4
 FRESH_HOURS = 8
@@ -300,6 +302,26 @@ def send_push_all(title, body):
         print("push error:", ex)
         return 0
         
+
+def send_fb(text, img=None):
+    """ينشر على صفحة فيسبوك تلقائياً"""
+    if not FB_PAGE_ID or not FB_PAGE_TOKEN:
+        return False
+    try:
+        if img:
+            r = requests.post(f"https://graph.facebook.com/v18.0/{FB_PAGE_ID}/photos",
+                data={"caption": text[:2000], "url": img, "access_token": FB_PAGE_TOKEN}, timeout=20)
+        else:
+            r = requests.post(f"https://graph.facebook.com/v18.0/{FB_PAGE_ID}/feed",
+                data={"message": text, "access_token": FB_PAGE_TOKEN}, timeout=20)
+        if r.ok:
+            print("📘 نُشر على فيسبوك")
+            return True
+        print("FB status:", r.status_code, r.text[:200])
+        return False
+    except Exception as e:
+        print("FB error:", e)
+        return False
 def send_poll(question, options):
     try:
         r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendPoll",
@@ -829,6 +851,7 @@ def main():
         img = (item.get("img") or "").strip()
         if send_tg_photo(content, img):
             print("✅ نُشر:", title[:40])
+            send_fb(content, img)
             posted.add(item["hash"])
             recent_titles.append(item["nt"])
             openers.append(content.splitlines()[0][:80])
@@ -861,6 +884,7 @@ def main():
         if a_sent >= 3: break
         if send_tg(text):
             a_sent += 1
+            send_fb(text)
             time.sleep(4)
     report.append(f"🟢 لايف: {a_sent}")
 
@@ -871,6 +895,7 @@ def main():
         if sent >= 4: break
         if send_tg(full):
             print("✅ نُشرت نتيجة")
+            send_fb(full)
             send_push_all("🏁 انتهت المباراة", short)
             reported.add(eid)
             state.setdefault("daily_results", []).append({"d": today, "t": short})
