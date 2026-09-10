@@ -707,7 +707,7 @@ def build_site_data(state, today):
             matches.append(group)
     tables = {}
     for slug in PRIORITY:
-        t = top_table(slug, 8)
+        t = top_table(slug, 25)
         if t: tables[LEAGUES[slug]] = t
 
     # ===== 🛡️ حماية الهدافين: قراءة آخر بيانات رسمية محفوظة =====
