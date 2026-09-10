@@ -698,6 +698,7 @@ def build_site_data(state, today):
                     "homeLogo": home["team"].get("logo", ""), "awayLogo": away["team"].get("logo", ""),
                     "tv": BROADCASTERS.get(slug, ""), "hs": home["score"], "as": away["score"],
                     "time": dt.strftime("%I:%M %p"), "state": st,
+                    "date": dt.isoformat(),
                     "detail": comp["status"]["type"].get("shortDetail", "")})
             except Exception:
                 continue
