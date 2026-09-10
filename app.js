@@ -125,6 +125,87 @@ document.addEventListener('click', function (e) {
   }
 })();
 
+
+/* ===== ⭐ مباراة القمة بعدّاد تنازلي ===== */
+let _featTarget = null;
+let _featTimer = null;
+
+function countdownInner(target) {
+  const diff = target - Date.now();
+  if (diff <= 0) return '🎯 جارية الآن!';
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const mn = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  const pad = function (n) { return String(n).padStart(2, '0'); };
+  const parts = [];
+  if (d > 0) parts.push('<b>' + d + '</b> يوم');
+  parts.push('<b>' + pad(h) + '</b> ساعة');
+  parts.push('<b>' + pad(mn) + '</b> دقيقة');
+  parts.push('<b>' + pad(s) + '</b> ثانية');
+  return parts.join('<span class="feat-sep">:</span>');
+}
+
+function renderFeaturedMatch() {
+  const el = document.getElementById('featuredMatch');
+  if (!el) return;
+  const all = [];
+  MATCHES.forEach(g => (g.items || []).forEach(m => all.push(Object.assign({}, m, { league: g.league, big: g.big }))));
+  const live = all.filter(m => m.state === 'in');
+  const upcoming = all.filter(m => m.state === 'pre');
+  let m = null, mode = null;
+  if (live.length) {
+    m = (live.filter(x => x.big)[0] || live[0]);
+    mode = 'live';
+  } else {
+    const bigs = upcoming.filter(x => x.big);
+    const pool = bigs.length ? bigs : upcoming;
+    if (pool.length) {
+      pool.sort((a, b) => String(a.date || '9999').localeCompare(String(b.date || '9999')));
+      m = pool[0];
+      mode = 'pre';
+    }
+  }
+  if (!m) { el.innerHTML = ''; _featTarget = null; return; }
+  const tag = m.eid + '|' + m.slug + '|' + m.home + ' × ' + m.away;
+  if (mode === 'live') {
+    _featTarget = null;
+    el.innerHTML = `<div class="feat-card" data-match="${tag}">
+      <div class="feat-league">🔴 ${m.league}</div>
+      <div class="feat-teams">
+        <div class="feat-team">${teamLogo(m.homeLogo)}<span>${m.home}</span></div>
+        <div class="feat-score">${m.hs} - ${m.as}<small>${m.detail}</small></div>
+        <div class="feat-team">${teamLogo(m.awayLogo)}<span>${m.away}</span></div>
+      </div>
+      <div class="feat-cta">🔴 مباشر الآن — اضغط لمتابعة المباراة</div>
+    </div>`;
+  } else {
+    const target = m.date ? new Date(m.date) : null;
+    const valid = target && !isNaN(target.getTime());
+    _featTarget = valid ? target : null;
+    el.innerHTML = `<div class="feat-card" data-match="${tag}">
+      <div class="feat-league">⭐ ${m.league}</div>
+      <div class="feat-teams">
+        <div class="feat-team">${teamLogo(m.homeLogo)}<span>${m.home}</span></div>
+        <div class="feat-vs">VS</div>
+        <div class="feat-team">${teamLogo(m.awayLogo)}<span>${m.away}</span></div>
+      </div>
+      <div class="feat-cd">${valid ? countdownInner(target) : '🕐 ' + m.time}</div>
+      <div class="feat-cta">📺 ${m.tv || 'اضغط لمتابعة المباراة'}</div>
+    </div>`;
+    if (valid && !_featTimer) {
+      _featTimer = setInterval(function () {
+        try {
+          const cdEl = document.querySelector('#featuredMatch .feat-cd');
+          if (cdEl && _featTarget) {
+            cdEl.innerHTML = countdownInner(_featTarget);
+            if (_featTarget - Date.now() <= 0) renderFeaturedMatch();
+          }
+        } catch (e) {}
+      }, 1000);
+    }
+  }
+}
 function matchRow(m) {
   let score = '';
   if (m.state === 'in') score = `<div class="m-score live">${m.hs} - ${m.as}<span class="m-status">🔴 ${m.detail}</span></div>`;
@@ -997,6 +1078,7 @@ async function loadData() {
     renderPlayers();
     fillTeamSelects();
     renderStats();
+    renderFeaturedMatch();
     document.getElementById('newsContainer').innerHTML = (DATA.news || []).length
       ? DATA.news.map(n => {
           const t = typeof n === 'string' ? n : (n.t || '');
