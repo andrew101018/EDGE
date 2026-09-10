@@ -1,32 +1,79 @@
-const CACHE = 'edge-v5';
-const ASSETS = ['/EDGE/', '/EDGE/index.html', '/EDGE/app.js', '/EDGE/style.css',
-  'https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg'];
+/* =====================================================
+   EDGE FOOTBALL — sw.js
+   Network-First: التحديثات بتظهر فورًا لكل الزوار
+   والكاش بيشتغل كخطة احتياطية لما النت مقطوع
+   ===================================================== */
+const CACHE = 'edge-football-v1';
 
-self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).catch(() => {}));
-  self.skipWaiting();
+const CORE = ['./', 'index.html'];
+
+self.addEventListener('install', (e) => {
+  e.waitUntil(
+    caches.open(CACHE).then((c) => c.addAll(CORE)).then(() => self.skipWaiting())
+  );
 });
-self.addEventListener('activate', e => {
-  e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))));
-  self.clients.claim();
+
+self.addEventListener('activate', (e) => {
+  e.waitUntil(
+    caches.keys()
+      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+      .then(() => self.clients.claim())
+  );
 });
-self.addEventListener('fetch', e => {
+
+/* ⚡ شبكة أولًا → كاش احتياطي (بمفتاح نظيف بدون query عشان الكاش ميتكدسش) */
+self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET') return;
-  e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
+  const url = new URL(e.request.url);
+  if (url.origin !== location.origin) return;
+  const clean = new URL(e.request.url);
+  clean.search = '';
+  const cacheKey = clean.toString();
+  e.respondWith(
+    fetch(e.request)
+      .then((res) => {
+        if (res && res.ok) {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put(cacheKey, copy)).catch(() => {});
+        }
+        return res;
+      })
+      .catch(() => caches.match(cacheKey).then((r) => r || caches.match('./')))
+  );
 });
-self.addEventListener('push', e => {
-  let d = {title: '⚽ Edge Football', body: 'في جديد عندك!', url: '/EDGE/'};
-  try { if (e.data) d = Object.assign(d, e.data.json()); } catch (err) {}
-  e.waitUntil(self.registration.showNotification(d.title, {
-    body: d.body, icon: 'https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg',
-    badge: 'https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg', data: {url: d.url}
-  }));
+
+/* 🔔 إشعارات Push (متوافقة مع كل الصيغ) */
+self.addEventListener('push', (e) => {
+  let d = {};
+  try { d = e.data.json(); } catch (err) {
+    d = { title: 'Edge Football', body: (e.data && e.data.text()) || '' };
+  }
+  const title = d.title || (d.data && d.data.title) || '⚽ Edge Football';
+  const body = d.body || (d.data && d.data.body) || 'تحديث جديد!';
+  const url = d.url || (d.data && d.data.url) || './';
+  e.waitUntil(
+    self.registration.showNotification(title, {
+      body: body,
+      icon: 'https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg',
+      badge: 'https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg',
+      tag: d.tag || 'edge-football',
+      dir: 'rtl',
+      lang: 'ar',
+      data: { url: url }
+    })
+  );
 });
-self.addEventListener('notificationclick', e => {
+
+/* الضغط على الإشعار */
+self.addEventListener('notificationclick', (e) => {
   e.notification.close();
-  const url = (e.notification.data && e.notification.data.url) || '/EDGE/';
-  e.waitUntil(clients.matchAll({type: 'window'}).then(cs => {
-    for (const c of cs) if (c.url.includes(url) && 'focus' in c) return c.focus();
-    return clients.openWindow(url);
-  }));
+  const url = (e.notification.data && e.notification.data.url) || './';
+  e.waitUntil(
+    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((list) => {
+      for (let i = 0; i < list.length; i++) {
+        if ('focus' in list[i]) { list[i].focus(); return; }
+      }
+      return self.clients.openWindow(url);
+    })
+  );
 });
