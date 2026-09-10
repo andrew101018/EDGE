@@ -271,3 +271,22 @@ button:focus-visible, a:focus-visible { outline: 2px solid #f59e0b; outline-offs
 [data-theme="light"] .table-box { box-shadow: 0 4px 18px rgba(0,0,0,.08); }
 [data-theme="light"] .tv-card:hover { box-shadow: 0 10px 26px rgba(0,0,0,.12); }
 [data-theme="light"] .live-block { box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+
+/* ---------- ⭐ كارت مباراة القمة ---------- */
+.feat-card { background: linear-gradient(135deg, #7f1d1d, #1a1040); border: 1px solid #f59e0b; border-radius: 16px; padding: 18px; margin-bottom: 20px; cursor: pointer; box-shadow: 0 10px 30px rgba(245,158,11,.15); transition: transform .18s, box-shadow .18s; }
+.feat-card:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(245,158,11,.28); }
+.feat-league { text-align: center; color: #fbbf24; font-weight: 800; font-size: .9em; margin-bottom: 12px; letter-spacing: .5px; }
+.feat-teams { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.feat-team { flex: 1; text-align: center; font-weight: 800; font-size: 1.05em; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.feat-team img { width: 44px; height: 44px; object-fit: contain; }
+.feat-vs { font-weight: 900; color: #94a3b8; font-size: 1.2em; }
+.feat-score { font-size: 1.8em; font-weight: 900; color: #fbbf24; text-align: center; min-width: 110px; }
+.feat-score small { display: block; font-size: .4em; color: #f87171; animation: pulse 1.5s infinite; }
+.feat-cd { text-align: center; margin-top: 12px; font-size: 1.15em; color: #e2e8f0; }
+.feat-cd b { color: #fbbf24; font-size: 1.25em; }
+.feat-sep { opacity: .5; margin: 0 6px; }
+.feat-time { color: #fbbf24; font-weight: 800; }
+.feat-cta { text-align: center; margin-top: 10px; opacity: .75; font-size: .82em; }
+[data-theme="light"] .feat-card { background: linear-gradient(135deg, #fff, #fef3c7); }
+[data-theme="light"] .feat-team { color: #1e293b; }
+[data-theme="light"] .feat-cd { color: #334155; }
