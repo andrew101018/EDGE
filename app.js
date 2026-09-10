@@ -200,6 +200,7 @@ function renderFeaturedMatch() {
           if (cdEl && _featTarget) {
             cdEl.innerHTML = countdownInner(_featTarget);
             if (_featTarget - Date.now() <= 0) renderFeaturedMatch();
+            refreshLiveScores();
           }
         } catch (e) {}
       }, 1000);
@@ -1173,6 +1174,11 @@ window.addEventListener('online', function () {
   setTimeout(loadData, 1500);
 });
 
+
+/* 🔴 تحديث لايف كل دقيقة (بس لما يكون فيه مباريات شغالة والتبويب مفتوح) */
+setInterval(function () {
+  if (document.visibilityState === 'visible') refreshLiveScores();
+}, 60000);
 let deferredPrompt = null;
 window.addEventListener('beforeinstallprompt', e => {
   e.preventDefault();
