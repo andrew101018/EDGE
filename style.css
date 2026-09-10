@@ -290,3 +290,12 @@ button:focus-visible, a:focus-visible { outline: 2px solid #f59e0b; outline-offs
 [data-theme="light"] .feat-card { background: linear-gradient(135deg, #fff, #fef3c7); }
 [data-theme="light"] .feat-team { color: #1e293b; }
 [data-theme="light"] .feat-cd { color: #334155; }
+
+/* ---------- 📱 جداول الترتيب على الموبايل ---------- */
+@media (max-width: 768px) {
+  .table-box { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .stand { font-size: .8em; }
+  .stand th, .stand td { padding: 7px 4px; }
+  #tablesContainer .stand th:nth-child(3), #tablesContainer .stand td:nth-child(3),
+  #tablesContainer .stand th:nth-child(5), #tablesContainer .stand td:nth-child(5) { display: none; }
+}
