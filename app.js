@@ -206,6 +206,51 @@ function renderFeaturedMatch() {
     }
   }
 }
+
+/* ===== 🔴 النتايج اللايف — تحديث مباشر من ESPN كل دقيقة ===== */
+function refreshLiveScores() {
+  const liveSlugs = {};
+  MATCHES.forEach(g => (g.items || []).forEach(m => {
+    if (m.state === 'in') liveSlugs[m.slug] = 1;
+  }));
+  const slugs = Object.keys(liveSlugs);
+  if (!slugs.length) return;
+  Promise.all(slugs.map(slug =>
+    fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/' + slug + '/scoreboard')
+      .then(r => r.ok ? r.json() : null)
+      .catch(() => null)
+  )).then(results => {
+    let changed = false;
+    results.forEach(data => {
+      if (!data || !data.events) return;
+      data.events.forEach(ev => {
+        try {
+          const comp = ev.competitions[0];
+          const comps = comp.competitors || [];
+          const home = comps.find(c => c.homeAway === 'home');
+          const away = comps.find(c => c.homeAway === 'away');
+          const st = comp.status && comp.status.type ? comp.status.type.state : null;
+          const detail = comp.status && comp.status.type ? comp.status.type.shortDetail : '';
+          MATCHES.forEach(g => (g.items || []).forEach(m => {
+            if (String(m.eid) === String(ev.id)) {
+              if (home && away) {
+                if (m.hs !== home.score || m.as !== away.score) changed = true;
+                m.hs = home.score;
+                m.as = away.score;
+              }
+              if (detail && m.detail !== detail) { m.detail = detail; changed = true; }
+              if (st && m.state !== st) { m.state = st; changed = true; }
+            }
+          }));
+        } catch (e) {}
+      });
+    });
+    if (changed) {
+      renderMatches();
+      renderFeaturedMatch();
+    }
+  }).catch(() => {});
+}
 function matchRow(m) {
   let score = '';
   if (m.state === 'in') score = `<div class="m-score live">${m.hs} - ${m.as}<span class="m-status">🔴 ${m.detail}</span></div>`;
