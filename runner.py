@@ -1,5 +1,7 @@
 import os, json, hashlib, time, re, random, traceback, email.utils
 import requests
+import base64
+from pywebpush import webpush, WebPushException
 from bs4 import BeautifulSoup
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -13,6 +15,7 @@ GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "")
 GROQ_KEY = os.environ.get("GROQ_KEY", "")
 DEEPSEEK_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 FORCE = os.environ.get("FORCE", "") == "1"
+VAPID_PRIVATE = os.environ.get("VAPID_PRIVATE", "")
 STATE_FILE = "posted.json"
 MAX_PER_RUN = 4
 FRESH_HOURS = 8
@@ -225,6 +228,78 @@ def send_tg_photo(text, img):
         print("📷 photo error:", e)
     return send_tg(text)
 
+
+def _push_key_variants():
+    key = VAPID_PRIVATE.strip().strip('"').strip("'").strip()
+    if "-----BEGIN" in key:
+        return [key.replace("\\n", "\n")]
+    variants = [key]
+    try:
+        raw = base64.urlsafe_b64decode(key + "=" * (-len(key) % 4))
+        if len(raw) == 32:
+            der = bytes.fromhex("303C020101301306072A8648CE3D020106082A8648CE3D03010704220420") + raw
+            b64 = base64.b64encode(der).decode()
+            lines = [b64[i:i + 64] for i in range(0, len(b64), 64)]
+            variants.append("-----BEGIN PRIVATE KEY-----\n" + "\n".join(lines) + "\n-----END PRIVATE KEY-----")
+    except Exception:
+        pass
+    return variants
+
+def send_push_all(title, body):
+    """يبعت إشعار push لكل المشتركين"""
+    try:
+        key = os.environ.get("SUPABASE_ANON_KEY", "")
+        if not key or not VAPID_PRIVATE:
+            return 0
+        r = requests.get("https://ejfdqvjfzgsjtztzvhem.supabase.co/rest/v1/push_subs",
+            params={"select": "id,subscription"},
+            headers={"apikey": key, "Authorization": f"Bearer {key}"}, timeout=10)
+        if not r.ok:
+            print("push_subs status:", r.status_code)
+            return 0
+        subs = r.json()
+        sent = 0
+        dead_ids = []
+        for row in subs:
+            sub = row.get("subscription") or {}
+            if not isinstance(sub, dict) or "endpoint" not in sub:
+                continue
+            delivered = False
+            for vkey in _push_key_variants():
+                try:
+                    webpush(
+                        subscription_info=sub,
+                        data=json.dumps({"title": title, "body": body, "url": "https://andrew101018.github.io/EDGE/"}),
+                        vapid_private_key=vkey,
+                        vapid_claims={"sub": "https://andrew101018.github.io/EDGE/"},
+                        ttl=600
+                    )
+                    delivered = True
+                    break
+                except WebPushException as e:
+                    resp = getattr(e, "response", None)
+                    code = getattr(resp, "status_code", None)
+                    if code in (404, 410):
+                        dead_ids.append(row.get("id"))
+                        break
+                except Exception:
+                    pass
+            if delivered:
+                sent += 1
+        for rid in dead_ids:
+            try:
+                requests.delete("https://ejfdqvjfzgsjtztzvhem.supabase.co/rest/v1/push_subs",
+                    params={"id": f"eq.{rid}"},
+                    headers={"apikey": key, "Authorization": f"Bearer {key}"}, timeout=10)
+            except Exception:
+                pass
+        if sent:
+            print(f"🔔 push وصل لـ {sent} مشترك")
+        return sent
+    except Exception as ex:
+        print("push error:", ex)
+        return 0
+        
 def send_poll(question, options):
     try:
         r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendPoll",
@@ -421,8 +496,10 @@ def check_live(state):
                 new_live[eid] = key
                 if prev is None:
                     alerts.append(f"🟢 انطلقت المباراة!\n{hn} × {an} ({name})\nياللا بينا.. الليلة ليلة 🔥\n\n⚽ Edge Football")
+                    send_push_all("🟢 انطلقت المباراة!", f"{hn} × {an} — {name}")
                 elif prev != key:
                     alerts.append(f"⚠️ جوووول!\n{hn} {hs} - {as_} {an} ({name})\nالمباراة شغالة والجو نار 🔥\n\n⚽ Edge Football")
+                    send_push_all("⚽ جووووول!", f"{hn} {hs} - {as_} {an} ({name})")
             except Exception:
                 continue
     state["live_scores"] = new_live
@@ -794,6 +871,7 @@ def main():
         if sent >= 4: break
         if send_tg(full):
             print("✅ نُشرت نتيجة")
+            send_push_all("🏁 انتهت المباراة", short)
             reported.add(eid)
             state.setdefault("daily_results", []).append({"d": today, "t": short})
             sent += 1
