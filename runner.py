@@ -793,7 +793,7 @@ def build_site_data(state, today):
             wd["tries"] = (wd.get("tries") or 0) + 1
             if leaders: wd["ok"] = True
             state["scorers_meta"] = meta
-                        print("📊 scorers:", w, "| ok:", wd.get("ok"), "| tries:", wd.get("tries"))
+            print("📊 scorers:", w, "| ok:", wd.get("ok"), "| tries:", wd.get("tries"))
             try:
                 send_owner("🎯 الهدافين (" + w + "): " + ("✅ نجح — " + str(len(leaders)) + " دوريات رسمية" if leaders else "❌ API فشل — شغّل Test Scorers وابعت النتيجة"))
             except Exception:
