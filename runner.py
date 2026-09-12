@@ -23,6 +23,8 @@ MAX_PER_RUN = 4
 FRESH_HOURS = 8
 CAIRO = ZoneInfo("Africa/Cairo")
 SITE = "https://andrew101018.github.io/EDGE"
+def send_fb(text, img=None):
+    return False
 
 ARABIC_SOURCES = [
     {"name": "جوجل أخبار - كرة القدم", "url": "https://news.google.com/rss/search?q=%D9%83%D8%B1%D8%A9%20%D8%A7%D9%84%D9%82%D8%AF%D9%85&hl=ar&gl=EG&ceid=AR:eg"},
@@ -239,6 +241,97 @@ def send_tg_photo(text, img, buttons=True):
     except Exception as e:
         print("📷 photo error:", e)
     return send_tg(text, buttons)
+
+def _push_key_variants():
+    key = VAPID_PRIVATE.strip().strip('"').strip("'").strip()
+    if "-----BEGIN" in key:
+        return [key.replace("\\n", "\n")]
+    variants = [key]
+    try:
+        raw = base64.urlsafe_b64decode(key + "=" * (-len(key) % 4))
+        if len(raw) == 32:
+            der = bytes.fromhex("303C020101301306072A8648CE3D020106082A8648CE3D03010704220420") + raw
+            b64 = base64.b64encode(der).decode()
+            lines = [b64[i:i + 64] for i in range(0, len(b64), 64)]
+            variants.append("-----BEGIN PRIVATE KEY-----\n" + "\n".join(lines) + "\n-----END PRIVATE KEY-----")
+    except Exception:
+        pass
+    return variants
+
+def send_push_all(title, body):
+    """يبعت إشعار push لكل المشتركين"""
+    try:
+        key = os.environ.get("SUPABASE_ANON_KEY", "")
+        if not key or not VAPID_PRIVATE:
+            return 0
+        r = requests.get("https://ejfdqvjfzgsjtztzvhem.supabase.co/rest/v1/push_subs",
+            params={"select": "id,subscription"},
+            headers={"apikey": key, "Authorization": f"Bearer {key}"}, timeout=10)
+        if not r.ok:
+            print("push_subs status:", r.status_code)
+            return 0
+        subs = r.json()
+        sent = 0
+        dead_ids = []
+        for row in subs:
+            sub = row.get("subscription") or {}
+            if not isinstance(sub, dict) or "endpoint" not in sub:
+                continue
+            delivered = False
+            for vkey in _push_key_variants():
+                try:
+                    webpush(
+                        subscription_info=sub,
+                        data=json.dumps({"title": title, "body": body, "url": "https://andrew101018.github.io/EDGE/"}),
+                        vapid_private_key=vkey,
+                        vapid_claims={"sub": "https://andrew101018.github.io/EDGE/"},
+                        ttl=600
+                    )
+                    delivered = True
+                    break
+                except WebPushException as e:
+                    resp = getattr(e, "response", None)
+                    code = getattr(resp, "status_code", None)
+                    if code in (404, 410):
+                        dead_ids.append(row.get("id"))
+                        break
+                except Exception:
+                    pass
+            if delivered:
+                sent += 1
+        for rid in dead_ids:
+            try:
+                requests.delete("https://ejfdqvjfzgsjtztzvhem.supabase.co/rest/v1/push_subs",
+                    params={"id": f"eq.{rid}"},
+                    headers={"apikey": key, "Authorization": f"Bearer {key}"}, timeout=10)
+            except Exception:
+                pass
+        if sent:
+            print(f"🔔 push وصل لـ {sent} مشترك")
+        return sent
+    except Exception as ex:
+        print("push error:", ex)
+        return 0
+
+def send_fb(text, img=None):
+    """ينشر على صفحة فيسبوك (بيفشل في صمت لو التوكن ميّت)"""
+    if not FB_PAGE_ID or not FB_PAGE_TOKEN:
+        return False
+    try:
+        if img:
+            r = requests.post(f"https://graph.facebook.com/v18.0/{FB_PAGE_ID}/photos",
+                data={"caption": text[:2000], "url": img, "access_token": FB_PAGE_TOKEN}, timeout=20)
+        else:
+            r = requests.post(f"https://graph.facebook.com/v18.0/{FB_PAGE_ID}/feed",
+                data={"message": text, "access_token": FB_PAGE_TOKEN}, timeout=20)
+        if r.ok:
+            print("📘 نُشر على فيسبوك")
+            return True
+        print("FB status:", r.status_code, r.text[:200])
+        return False
+    except Exception as e:
+        print("FB error:", e)
+        return False
 def send_poll(question, options):
     try:
         r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendPoll",
