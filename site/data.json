@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-09-14 11:22 AM",
+  "updated_at": "2026-09-14 06:08 PM",
   "news": [
+    {
+      "t": "⚽ ليس من برشلونة.. بيكيه يختار مرشحه المفضل للكرة الذهبية - Kooora",
+      "full": "⚽ ليس من برشلونة.. بيكيه يختار مرشحه المفضل للكرة الذهبية - Kooora\n\nليس من برشلونة.. بيكيه يختار مرشحه المفضل للكرة الذهبية  Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ من أكاديمية أرسنال إلى قمة أوروبا.. القصة الخفية وراء صعود أوليس - الاتحاد للأخبار",
+      "full": "⚽ من أكاديمية أرسنال إلى قمة أوروبا.. القصة الخفية وراء صعود أوليس - الاتحاد للأخبار\n\nمن أكاديمية أرسنال إلى قمة أوروبا.. القصة الخفية وراء صعود أوليس  الاتحاد للأخبار",
+      "img": ""
+    },
+    {
+      "t": "⚽ ذا صن: لجنة الحكام تقر بعدم صحة هدف هالاند أمام مانشستر يونايتد - يلاكورة",
+      "full": "⚽ ذا صن: لجنة الحكام تقر بعدم صحة هدف هالاند أمام مانشستر يونايتد - يلاكورة\n\nذا صن: لجنة الحكام تقر بعدم صحة هدف هالاند أمام مانشستر يونايتد  يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ خوان بيزيرا مع الزمالك فى 24 ساعة.. وصول وبيان اعتذار وغرامة - اليوم السابع",
+      "full": "⚽ خوان بيزيرا مع الزمالك فى 24 ساعة.. وصول وبيان اعتذار وغرامة - اليوم السابع\n\nخوان بيزيرا مع الزمالك فى 24 ساعة.. وصول وبيان اعتذار وغرامة  اليوم السابع",
+      "img": ""
+    },
     {
       "t": "⚽ أنا ابن الزمالك.. حسام عبدالمجيد يحسم موقفه من الأهلي - صدى البلد",
       "full": "⚽ أنا ابن الزمالك.. حسام عبدالمجيد يحسم موقفه من الأهلي - صدى البلد\n\nأنا ابن الزمالك.. حسام عبدالمجيد يحسم موقفه من الأهلي  صدى البلد",
@@ -79,26 +99,6 @@
     {
       "t": "⚽ \"عاجل\" نص اعتذار بيزيرا للزمالك تمهيداً للرحيل.. ويكشف سبب تمسكه بتلك الرغبة - الزمالك اليوم",
       "full": "⚽ \"عاجل\" نص اعتذار بيزيرا للزمالك تمهيداً للرحيل.. ويكشف سبب تمسكه بتلك الرغبة - الزمالك اليوم\n\n\"عاجل\" نص اعتذار بيزيرا للزمالك تمهيداً للرحيل.. ويكشف سبب تمسكه بتلك الرغبة  الزمالك اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ هالاند بعد هدفه في الديربي: \"شعرت بالإهانة\" - Kooora",
-      "full": "⚽ هالاند بعد هدفه في الديربي: \"شعرت بالإهانة\" - Kooora\n\nهالاند بعد هدفه في الديربي: \"شعرت بالإهانة\"  Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ هالاند يطلق رصاصة الحسم في ديربي مانشستر - سكاي نيوز عربية",
-      "full": "⚽ هالاند يطلق رصاصة الحسم في ديربي مانشستر - سكاي نيوز عربية\n\nهالاند يطلق رصاصة الحسم في ديربي مانشستر  سكاي نيوز عربية",
-      "img": ""
-    },
-    {
-      "t": "⚽ البطاقة السوداء تدخل عالم كرة القدم - يلاكورة",
-      "full": "⚽ البطاقة السوداء تدخل عالم كرة القدم - يلاكورة\n\nالبطاقة السوداء تدخل عالم كرة القدم  يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ حسام حسن يعلن قائمة منتخب مصر الأربعاء المقبل - اليوم السابع",
-      "full": "⚽ حسام حسن يعلن قائمة منتخب مصر الأربعاء المقبل - اليوم السابع\n\nحسام حسن يعلن قائمة منتخب مصر الأربعاء المقبل  اليوم السابع",
       "img": ""
     }
   ],
@@ -249,23 +249,6 @@
       "slug": "ger.1",
       "items": [
         {
-          "home": "RB Leipzig",
-          "away": "Hamburg SV",
-          "eid": "401884798",
-          "slug": "ger.1",
-          "homeId": "11420",
-          "awayId": "127",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11420.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/127.png",
-          "tv": "beIN Sports",
-          "hs": "5",
-          "as": "0",
-          "time": "04:30 PM",
-          "state": "post",
-          "date": "2026-09-13T16:30:00+03:00",
-          "detail": "FT"
-        },
-        {
           "home": "SV Elversberg",
           "away": "بايرن ميونخ",
           "eid": "401884791",
@@ -289,23 +272,6 @@
       "league": "الدوري الفرنسي",
       "slug": "fra.1",
       "items": [
-        {
-          "home": "Lille",
-          "away": "Troyes",
-          "eid": "401876462",
-          "slug": "fra.1",
-          "homeId": "166",
-          "awayId": "170",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/166.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/170.png",
-          "tv": "beIN Sports",
-          "hs": "2",
-          "as": "0",
-          "time": "04:00 PM",
-          "state": "post",
-          "date": "2026-09-13T16:00:00+03:00",
-          "detail": "FT"
-        },
         {
           "home": "Le Mans",
           "away": "Lens",
@@ -1832,28 +1798,28 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0911/dm_260911_Dalot_I_want_to_put_Manchester_United_back_on_top/dm_260911_Dalot_I_want_to_put_Manchester_United_back_on_top.jpg"
     },
     {
-      "t": "Maresca: Fernandes should have been sent off with Foden",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0914/dm_260914_Maresca_Fernandes_should_have_been_sent_off_with_Foden/dm_260914_Maresca_Fernandes_should_have_been_sent_off_with_Foden.jpg"
+      "t": "Roberto De Zerbi leaves Richarlison out of Spurs' Carabao Cup squad for Liverpool clash",
+      "img": "https://a.espncdn.com/photo/2026/0906/r1712441_1296x729_16-9.jpg"
     },
     {
-      "t": "Carrick fumes over 'worrying' officiating standards after VAR mistake",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0914/dm_260914_COM_SOC_Presser_Carrick_fumes_over_worrying_officiating_standards_after_VAR_mistake_20260914_G/dm_260914_COM_SOC_Presser_Carrick_fumes_over_worrying_officiating_standards_after_VAR_mistake_20260914_G.jpg"
+      "t": "Iraola: Fulham draw was a step back for Liverpool",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0914/dm_260914_Iraola_Fulham_draw_was_a_step_back_for_Liverpool/dm_260914_Iraola_Fulham_draw_was_a_step_back_for_Liverpool.jpg"
     },
     {
-      "t": "Transfer rumors, news: Arsenal keeping tabs on Liverpool teen Ngumoha",
-      "img": "https://a.espncdn.com/photo/2026/0411/r1641945_1296x729_16-9.jpg"
+      "t": "Ex-Man United striker Wayne Rooney: 'Baffling' that VAR awarded Erling Haaland goal",
+      "img": "https://a.espncdn.com/photo/2026/0914/r1716456_1296x729_16-9.jpg"
     },
     {
-      "t": "Jonathan David scores first Atlético goal, gives team 'something different'",
-      "img": "https://a.espncdn.com/photo/2026/0913/r1716255_1296x729_16-9.jpg"
+      "t": "Pierre-Emerick Aubameyang scores in first five LaLiga games, joins exclusive club",
+      "img": "https://a.espncdn.com/photo/2026/0914/r1716472_1296x729_16-9.jpg"
     },
     {
-      "t": "Burley: Barcelona were 'chaotic' and 'sloppy' against Levante",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0913/dm_260913_Burley_Barcelona_were_chaotic_and_sloppy_against_Levante/dm_260913_Burley_Barcelona_were_chaotic_and_sloppy_against_Levante.jpg"
+      "t": "Mourinho: Real Madrid are missing Vinícius Jr. at his best",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0914/dm_260914_Mourinho_Real_Madrid_are_missing_Vinicius_Jr_at_his_best/dm_260914_Mourinho_Real_Madrid_are_missing_Vinicius_Jr_at_his_best.jpg"
     },
     {
-      "t": "Atlético Madrid strike late to pull away from Real Sociedad",
-      "img": "https://a.espncdn.com/photo/2026/0913/r1716204_1296x729_16-9.jpg"
+      "t": "Real Madrid's José Mourinho questions Barcelona, Atlético Madrid penalty decisions",
+      "img": "https://a.espncdn.com/photo/2026/0914/r1716470_1296x729_16-9.jpg"
     },
     {
       "t": "Juventus concede deep in added time to fall 3-2 at Sassuolo",
@@ -1868,16 +1834,16 @@
       "img": "https://a.espncdn.com/photo/2026/0912/r1715451_1296x729_16-9.jpg"
     },
     {
+      "t": "Bayern Munich's 2026-27 Oktoberfest kit is their wildest yet!",
+      "img": "https://a.espncdn.com/photo/2026/0914/r1716478_4_1296x729_16-9.jpg"
+    },
+    {
       "t": "Transfer rumors, news: Bayern eye move for Liverpool's Wirtz",
       "img": "https://a.espncdn.com/photo/2026/0823/r1705865_1296x729_16-9.jpg"
     },
     {
       "t": "Harry Kane goal seals Bayern Munich win over Elversberg",
       "img": "https://a.espncdn.com/photo/2026/0913/r1716005_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Elversberg coach cleared to face Bayern after ref admits error",
-      "img": "https://a.espncdn.com/photo/2026/0911/r1715005_1296x729_16-9.jpg"
     },
     {
       "t": "Ferran Torres strikes again to earn PSG first Ligue 1 win",
