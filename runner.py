@@ -735,9 +735,10 @@ def build_site_data(state, today):
                             team = ar_team(p.get("team", {}).get("displayName", ""))
                         except Exception:
                             team = ""
+                                                dv = str(p.get("displayValue", "0"))
                         out.append({"name": a.get("displayName", ""),
                             "team": team or ar_team(a.get("team", {}).get("displayName", "")),
-                            "value": f"{p.get("displayValue", "0")} ⚽",
+                            "value": dv + " ⚽",
                             "face": ((a.get("headshot", {}) or {}).get("href", ""))})
             return out
         except Exception as ex:
