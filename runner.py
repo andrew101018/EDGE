@@ -727,8 +727,8 @@ def build_site_data(state, today):
             start = f"{y}0801"
             end = now.strftime("%Y%m%d")
             rr = requests.get(
-                f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard",
-                params={"dates": f"{start}-{end}", "limit": 500}, timeout=25)
+                f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard?dates={start}-{end}&limit=400",
+                timeout=25)
             if not rr.ok:
                 print("season sb status", slug, rr.status_code)
                 return []
