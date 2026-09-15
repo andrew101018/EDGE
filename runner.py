@@ -750,7 +750,7 @@ def build_site_data(state, today):
         if rows:
             leaders[LEAGUES[slug]] = {"الهدافون 🏆": rows}
             print("✅ espn scorers", slug, len(rows))
-      if not leaders:
+        if not leaders:
         for slug, agg in scorer_agg.items():
             rows = sorted([v for v in agg.values() if v["g"] > 0], key=lambda x: -x["g"])[:15]
             if rows:
