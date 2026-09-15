@@ -767,7 +767,7 @@ def build_site_data(state, today):
                                     "team": ar_team((c.get("team", {}) or {}).get("displayName", "")),
                                     "g": g, "face": ((a.get("headshot", {}) or {}).get("href", ""))}
                 if st == "post" and hrs > 24: continue
-                if st == "pre" and hrs < -72: continue
+                if st == "pre" and hrs < -24: continue
                 group["items"].append({
                     "home": ar_team(home["team"]["displayName"]), "away": ar_team(away["team"]["displayName"]),
                     "eid": ev.get("id"), "slug": slug, "homeId": home["team"].get("id", ""),
