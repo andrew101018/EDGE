@@ -33,7 +33,7 @@ ARABIC_SOURCES = [
 ]
 ENGLISH_SOURCES = [
     {"name": "BBC Football", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"},
-    {"name": "ESPN FC", "url": "https://www.espn.com/espn/rss/soccer/news"},
+    {"name": "Sky Sports Football", "url": "https://www.skysports.com/rss/12040"},
 ]
 EXCLUDE = ["cricket", "كريكت", "wimbledon", "ويمبلدون", "tennis", "كرة المضرب", "boxing", "الملاكمة",
     "formula 1", "فورمولا", "rugby", "الرجبي", "baseball", "البيسبول", "hockey", "الهوكي",
