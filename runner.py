@@ -23,8 +23,7 @@ MAX_PER_RUN = 4
 FRESH_HOURS = 8
 CAIRO = ZoneInfo("Africa/Cairo")
 SITE = "https://andrew101018.github.io/EDGE"
-def send_fb(text, img=None):
-    return False
+
 
 ARABIC_SOURCES = [
     {"name": "جوجل أخبار - كرة القدم", "url": "https://news.google.com/rss/search?q=%D9%83%D8%B1%D8%A9%20%D8%A7%D9%84%D9%82%D8%AF%D9%85&hl=ar&gl=EG&ceid=AR:eg"},
@@ -751,22 +750,14 @@ def build_site_data(state, today):
         if rows:
             leaders[LEAGUES[slug]] = {"الهدافون 🏆": rows}
             print("✅ espn scorers", slug, len(rows))
-    # ===== 🧩 ممنوع الكتابة فوق الأرقام الكويسة بأرقام فاشلة =====
-    if leaders:
-        if leaders_is_good(old_leaders):
-            old_leaders.update(leaders)
-            leaders = old_leaders
-        print("🏆 الهدافين: بيانات رسمية ✅")
-    elif old_leaders and leaders_is_good(old_leaders):
-        leaders = old_leaders
-        print("♻️ تم الاحتفاظ بآخر أرقام رسمية صحيحة للهدافين")
-    if not leaders:
+      if not leaders:
         for slug, agg in scorer_agg.items():
             rows = sorted([v for v in agg.values() if v["g"] > 0], key=lambda x: -x["g"])[:15]
             if rows:
                 leaders[LEAGUES[slug]] = {"أهداف آخر الجولات ⚽": [
                     {"name": r["name"], "team": r["team"], "value": f"{r['g']} ⚽", "face": r["face"]} for r in rows]}
-        if leaders: print("⚠️ مفيش بيانات رسمية — استخدم أهداف آخر الجولات")
+        if leaders: print("⚠️ ESPN فشل — استخدم أهداف آخر الجولات")
+
 
     site_data = {
         "updated_at": now.strftime("%Y-%m-%d %I:%M %p"),
@@ -850,7 +841,6 @@ def main():
         if a_sent >= 3: break
         if send_tg(text):
             a_sent += 1
-            send_fb(text)
             time.sleep(4)
     report.append(f"🟢 لايف: {a_sent}")
 
