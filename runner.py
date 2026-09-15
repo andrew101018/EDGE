@@ -721,13 +721,22 @@ def build_site_data(state, today):
 
     # ===== 👑 الهدافين الرسميين من ESPN (الموسم الحالي — بدون كوتة نهائية) =====
     def espn_scorers(slug, n=10):
-        try:
-            r = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/leaders", timeout=10)
-            if not r.ok: return []
-            out = []
-            for cat in (r.json() or {}).get("leaders", []):
-                cat_name = (cat.get("name") or cat.get("displayName") or "").lower()
-                if "goal" in cat_name:
+        urls = [
+            f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/leaders",
+            f"https://site.web.api.espn.com/apis/common/v3/sports/soccer/{slug}/leaders",
+            f"https://site.api.espn.com/apis/common/v3/sports/soccer/{slug}/leaders",
+        ]
+        for u in urls:
+            try:
+                r = requests.get(u, timeout=10)
+                if not r.ok:
+                    continue
+                out = []
+                cats = (r.json() or {}).get("leaders", [])
+                for cat in cats:
+                    cat_name = (cat.get("name") or cat.get("displayName") or "").lower()
+                    if "goal" not in cat_name:
+                        continue
                     for p in (cat.get("leaders") or [])[:n]:
                         a = p.get("athlete", {}) or {}
                         try:
@@ -739,11 +748,16 @@ def build_site_data(state, today):
                             "team": team,
                             "value": dv + " ⚽",
                             "face": ((a.get("headshot", {}) or {}).get("href", ""))})
-            return out
-        except Exception as ex:
-            print("esp scorers error:", slug, ex)
-            return []
-
+                if out:
+                    print("✅ espn scorers", slug, len(out), "|", u.split("/apis/")[0])
+                    return out
+            except Exception as ex:
+                print("esp try error:", str(ex)[:80])
+        try:
+            send_owner("🔬 espn_scorers فشل على " + slug + " — هبعتلك الأشكال لو الرسالة دي اتكررت")
+        except Exception:
+            pass
+        return []
     leaders = {}
     for slug in PRIORITY:
         rows = espn_scorers(slug)
