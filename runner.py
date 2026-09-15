@@ -720,50 +720,57 @@ def build_site_data(state, today):
         if t: tables[LEAGUES[slug]] = t
 
     # ===== 👑 الهدافين الرسميين من ESPN (الموسم الحالي — بدون كوتة نهائية) =====
-    def espn_scorers(slug, n=10):
-        urls = [
-            f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/leaders",
-            f"https://site.web.api.espn.com/apis/common/v3/sports/soccer/{slug}/leaders",
-            f"https://site.api.espn.com/apis/common/v3/sports/soccer/{slug}/leaders",
-        ]
-        for u in urls:
-            try:
-                r = requests.get(u, timeout=10)
-                if not r.ok:
-                    continue
-                out = []
-                cats = (r.json() or {}).get("leaders", [])
-                for cat in cats:
-                    cat_name = (cat.get("name") or cat.get("displayName") or "").lower()
-                    if "goal" not in cat_name:
-                        continue
-                    for p in (cat.get("leaders") or [])[:n]:
-                        a = p.get("athlete", {}) or {}
-                        try:
-                            team = ar_team(p.get("team", {}).get("displayName", ""))
-                        except Exception:
-                            team = ""
-                        dv = str(p.get("displayValue", "0"))
-                        out.append({"name": a.get("displayName", ""),
-                            "team": team,
-                            "value": dv + " ⚽",
-                            "face": ((a.get("headshot", {}) or {}).get("href", ""))})
-                if out:
-                    print("✅ espn scorers", slug, len(out), "|", u.split("/apis/")[0])
-                    return out
-            except Exception as ex:
-                print("esp try error:", str(ex)[:80])
+    # ===== 👑 الهدافين — تجميع الموسم كامل من نفس مصدر المباريات =====
+    def season_scorers(slug, n=15):
         try:
-            send_owner("🔬 espn_scorers فشل على " + slug + " — هبعتلك الأشكال لو الرسالة دي اتكررت")
-        except Exception:
-            pass
-        return []
+            y = now.year if now.month >= 8 else now.year - 1
+            start = f"{y}0801"
+            end = now.strftime("%Y%m%d")
+            rr = requests.get(
+                f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard",
+                params={"dates": f"{start}-{end}", "limit": 500}, timeout=25)
+            if not rr.ok:
+                print("season sb status", slug, rr.status_code)
+                return []
+            agg = {}
+            for ev in (rr.json() or {}).get("events", []):
+                try:
+                    comp = ev["competitions"][0]
+                    for c in comp["competitors"]:
+                        for l in c.get("leaders", []):
+                            if "goals" not in (l.get("name") or "").lower():
+                                continue
+                            for p in l.get("leaders", []):
+                                a = p.get("athlete", {}) or {}
+                                try:
+                                    g = int(float(p.get("value", 0) or 0))
+                                except Exception:
+                                    g = 0
+                                if g <= 0:
+                                    continue
+                                key = a.get("id") or a.get("displayName")
+                                if key not in agg or agg[key]["g"] < g:
+                                    agg[key] = {
+                                        "name": a.get("displayName", ""),
+                                        "team": ar_team((c.get("team", {}) or {}).get("displayName", "")),
+                                        "g": g,
+                                        "face": ((a.get("headshot", {}) or {}).get("href", "")),
+                                    }
+                except Exception:
+                    continue
+            rows = sorted(agg.values(), key=lambda x: -x["g"])[:n]
+            out = [{"name": x["name"], "team": x["team"], "value": f"{x['g']} ⚽", "face": x["face"]} for x in rows if x.get("name")]
+            return out
+        except Exception as ex:
+            print("season scorers error:", slug, str(ex)[:80])
+            return []
+
     leaders = {}
     for slug in PRIORITY:
-        rows = espn_scorers(slug)
+        rows = season_scorers(slug)
         if rows:
             leaders[LEAGUES[slug]] = {"الهدافون 🏆": rows}
-            print("✅ espn scorers", slug, len(rows))
+            print("✅ season scorers", slug, len(rows))
 
     if not leaders:
         for slug, agg in scorer_agg.items():
