@@ -605,11 +605,20 @@ function showNewsDetail(title, full, img) {
   box.style.cssText = 'display:block;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;overflow:auto;';
   if (box.firstElementChild) box.firstElementChild.style.cssText = 'max-width:680px;margin:40px auto;background:#1e293b;border-radius:12px;padding:20px;';
   document.getElementById('teamModalTitle').textContent = '📰 خبر';
+  
+  // تنظيف التكرار: لو النص بيبدأ بنفس العنوان، نشيله من أول النص
+  let clean = (full || title).trim();
+  const t = (title || '').trim();
+  if (t && clean.startsWith(t)) clean = clean.slice(t.length).trim();
+  if (t && clean.startsWith('-')) clean = clean.slice(1).trim();
+  clean = clean.replace(t + '\\n', '').replace(t + ' ', ' ').trim();
+  
   document.getElementById('teamModalBody').innerHTML =
     (img ? `<img src="${img}" style="width:100%;max-height:320px;object-fit:cover;border-radius:10px;margin-bottom:14px;" onerror="this.style.display='none'">` : '') +
-    '<h3 style="color:#fbbf24;margin-bottom:12px;">' + title + '</h3><div style="line-height:2;white-space:pre-wrap;font-size:1.05em;">' + (full || title) + '</div>';
+    '<h3 style="color:#fbbf24;margin-bottom:12px;">' + title + '</h3>' +
+    '<div style="line-height:2;white-space:pre-wrap;font-size:1.05em;">' + (clean || t) + '</div>' +
+    (clean && clean.length < 50 ? '<div style="opacity:.6;font-size:.85em;margin-top:14px;">💡 التفاصيل الكاملة متاحة من المصدر — البيانات بتتحسن مع المصادر الجديدة</div>' : '');
 }
-
 function allTeams() {
   const map = {};
   Object.entries(DATA.tables || {}).forEach(([league, rows]) => {
