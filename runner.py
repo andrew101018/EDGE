@@ -726,9 +726,16 @@ def build_site_data(state, today):
             y = now.year if now.month >= 8 else now.year - 1
             start = f"{y}0801"
             end = now.strftime("%Y%m%d")
-            rr = requests.get(
-                f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard?dates={start}-{end}&limit=400",
-                timeout=25)
+            url = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard?dates={start}-{end}&limit=400"
+            try:
+                rr = requests.get(url, timeout=25)
+                if not rr.ok:
+                    rr = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard?season={y}", timeout=25)
+            except Exception:
+                rr = None
+            if not rr or not rr.ok:
+                print("season sb status", slug, rr.status_code if rr else "none")
+                return []
             if not rr.ok:
                 print("season sb status", slug, rr.status_code)
                 return []
