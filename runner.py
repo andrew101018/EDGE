@@ -720,85 +720,36 @@ def build_site_data(state, today):
         t = top_table(slug, 25)
         if t: tables[LEAGUES[slug]] = t
 
-    # ===== 🛡️ حماية الهدافين: قراءة آخر بيانات رسمية محفوظة =====
-    old_leaders = {}
-    try:
-        with open("site/data.json", encoding="utf-8") as f:
-            old_leaders = json.load(f).get("leaders") or {}
-    except Exception:
-        pass
-
-    BAD_MARKS = ("أهداف آخر الجولات", "الموسم الحالي")
-    def leaders_is_good(L):
-        if not L: return False
-        for cats in L.values():
-            for label in (cats or {}):
-                for m in BAD_MARKS:
-                    if m in label: return False
-        return True
-
-    # ===== ⏰ جلب الهدافين مرتين في اليوم بس =====
-    def scorers_window(h):
-        if 6 <= h <= 11: return "am"
-        if 17 <= h <= 23: return "pm"
-        return None
-
-    w = scorers_window(now.hour)
-    meta = state.get("scorers_meta", {})
-    do_fetch = FORCE
-    if w and not do_fetch:
-        wd = meta.get(w, {}) or {}
-        if wd.get("date") != today:
-            do_fetch = True
-        elif not wd.get("ok") and wd.get("tries", 0) < 3:
-            do_fetch = True
+    # ===== 🛡️ الهدافين الرسميين من ESPN (الموسم الحالي — بدون كوتة) =====
+    def espn_scorers(slug, n=10):
+        try:
+            r = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/leaders", timeout=10)
+            if not r.ok: return []
+            out = []
+            for cat in (r.json() or {}).get("leaders", []):
+                if "goal" in (cat.get("name") or cat.get("displayName") or "").lower():
+                    for p in (cat.get("leaders") or [])[:n]:
+                        a = p.get("athlete", {}) or {}
+                        team = ""
+                        try:
+                            team = ar_team(p.get("team", {}).get("displayName", ""))
+                        except Exception:
+                            team = ""
+                        out.append({"name": a.get("displayName", ""),
+                            "team": team or ar_team(a.get("team", {}).get("displayName", "")),
+                            "value": f"{p.get("displayValue", "0")} ⚽",
+                            "face": ((a.get("headshot", {}) or {}).get("href", ""))})
+            return out
+        except Exception as ex:
+            print("esp scorers error:", slug, ex)
+            return []
 
     leaders = {}
-    if do_fetch:
-        for slug in PRIORITY:
-            lid = {"eng.1": 39, "esp.1": 140, "ita.1": 135, "ger.1": 78, "fra.1": 61, "ksa.1": 307, "egy.1": 233, "uefa.champions": 2}.get(slug)
-            if not lid: continue
-            try:
-                r = requests.get("https://v3.football.api-sports.io/players/topscorers",
-                    headers={"x-apisports-key": os.environ.get("API_FOOTBALL_KEY", "")},
-                    params={"league": lid, "season": 2026}, timeout=12)
-                if not r.ok:
-                    print("scorers status", slug, r.status_code)
-                    continue
-                resp = r.json().get("response") or []
-                rows = []
-                for e in resp[:15]:
-                    p = e.get("player") or {}
-                    st = (e.get("statistics") or [{}])[0]
-                    goals = (st.get("goals") or {}).get("total") or 0
-                    assists = (st.get("goals") or {}).get("assists") or 0
-                    team_name = ar_team(((st.get("team") or {}).get("name") or ""))
-                    if goals > 0:
-                        rows.append({"name": p.get("name", ""), "team": team_name,
-                            "value": f"{goals} ⚽", "face": p.get("photo") or "", "assists": assists})
-                if rows:
-                    leaders[LEAGUES[slug]] = {
-                        "الهدافون 🏆": [{"name": x["name"], "team": x["team"], "value": x["value"], "face": x["face"]} for x in rows],
-                        "صناعة الأهداف 🎯": [{"name": x["name"], "team": x["team"], "value": f"{x['assists']} 🅰️", "face": x["face"]} for x in sorted(rows, key=lambda a: -(a.get("assists") or 0)) if x.get("assists")]
-                    }
-                    print("✅ scorers", slug, len(rows))
-            except Exception as ex:
-                print("scorers error", slug, ex)
-        if w:
-            wd = meta.setdefault(w, {})
-            if wd.get("date") != today:
-                wd["date"] = today
-                wd["tries"] = 0
-                wd["ok"] = False
-            wd["tries"] = (wd.get("tries") or 0) + 1
-            if leaders: wd["ok"] = True
-            state["scorers_meta"] = meta
-            print("📊 scorers:", w, "| ok:", wd.get("ok"), "| tries:", wd.get("tries"))
-            try:
-                send_owner("🎯 الهدافين (" + w + "): " + ("✅ نجح — " + str(len(leaders)) + " دوريات رسمية" if leaders else "❌ API فشل — شغّل Test Scorers وابعت النتيجة"))
-            except Exception:
-                pass
-
+    for slug in PRIORITY:
+        rows = espn_scorers(slug)
+        if rows:
+            leaders[LEAGUES[slug]] = {"الهدافون 🏆": rows}
+            print("✅ espn scorers", slug, len(rows))
     # ===== 🧩 ممنوع الكتابة فوق الأرقام الكويسة بأرقام فاشلة =====
     if leaders:
         if leaders_is_good(old_leaders):
@@ -866,7 +817,6 @@ def main():
         img = (item.get("img") or "").strip()
         if send_tg_photo(content, img):
             print("✅ نُشر:", title[:40])
-            send_fb(content, img)
             posted.add(item["hash"])
             recent_titles.append(item["nt"])
             openers.append(content.splitlines()[0][:80])
@@ -910,8 +860,6 @@ def main():
         if sent >= 4: break
         if send_tg(full):
             print("✅ نُشرت نتيجة")
-            send_fb(full)
-            send_push_all("🏁 انتهت المباراة", short)
             reported.add(eid)
             state.setdefault("daily_results", []).append({"d": today, "t": short})
             sent += 1
