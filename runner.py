@@ -716,10 +716,10 @@ def build_site_data(state, today):
             matches.append(group)
     tables = {}
     for slug in PRIORITY:
-        t = top_table(slug, 25)
+        t = top_table(slug, 30)
         if t: tables[LEAGUES[slug]] = t
 
-    # ===== 🛡️ الهدافين الرسميين من ESPN (الموسم الحالي — بدون كوتة) =====
+    # ===== 👑 الهدافين الرسميين من ESPN (الموسم الحالي — بدون كوتة نهائية) =====
     def espn_scorers(slug, n=10):
         try:
             r = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/leaders", timeout=10)
@@ -730,34 +730,34 @@ def build_site_data(state, today):
                 if "goal" in cat_name:
                     for p in (cat.get("leaders") or [])[:n]:
                         a = p.get("athlete", {}) or {}
-                        team = ""
                         try:
                             team = ar_team(p.get("team", {}).get("displayName", ""))
                         except Exception:
                             team = ""
                         dv = str(p.get("displayValue", "0"))
                         out.append({"name": a.get("displayName", ""),
-                            "team": team or ar_team(a.get("team", {}).get("displayName", "")),
+                            "team": team,
                             "value": dv + " ⚽",
                             "face": ((a.get("headshot", {}) or {}).get("href", ""))})
             return out
         except Exception as ex:
             print("esp scorers error:", slug, ex)
             return []
+
     leaders = {}
     for slug in PRIORITY:
         rows = espn_scorers(slug)
         if rows:
             leaders[LEAGUES[slug]] = {"الهدافون 🏆": rows}
             print("✅ espn scorers", slug, len(rows))
-        if not leaders:
+
+    if not leaders:
         for slug, agg in scorer_agg.items():
             rows = sorted([v for v in agg.values() if v["g"] > 0], key=lambda x: -x["g"])[:15]
             if rows:
                 leaders[LEAGUES[slug]] = {"أهداف آخر الجولات ⚽": [
                     {"name": r["name"], "team": r["team"], "value": f"{r['g']} ⚽", "face": r["face"]} for r in rows]}
         if leaders: print("⚠️ ESPN فشل — استخدم أهداف آخر الجولات")
-
 
     site_data = {
         "updated_at": now.strftime("%Y-%m-%d %I:%M %p"),
@@ -770,7 +770,6 @@ def build_site_data(state, today):
     with open("site/data.json", "w", encoding="utf-8") as f:
         json.dump(site_data, f, ensure_ascii=False, indent=2)
     print("🌐 تم تحديث بيانات الموقع")
-
 def make_publish_package(news_lines):
     prompt = f"""انت خبير سوشيال ميديا رياضي. اكتب باقة نشر جاهزة لفيديو كورة عن الأخبار دي:
 {news_lines}
