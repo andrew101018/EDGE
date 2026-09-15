@@ -437,6 +437,27 @@ def fetch_lineups(slug, event_id):
     except Exception:
         return None
 
+def fetch_article(url):
+    """يجيب المحتوى الكامل من صفحة الخبر نفسها"""
+    try:
+        r = requests.get(url, timeout=12, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"})
+        if not r.ok: return ""
+        soup = BeautifulSoup(r.text, "html.parser")
+        for tag in soup(["script", "style", "nav", "footer", "header", "aside", "form", "iframe"]):
+            tag.decompose()
+        # أول ما نلاقي مقال حقيقي فيه فقرات كتيرة — نمسكه
+        best = ""
+        for tag in soup.find_all(["article", "main", "div"]):
+            ps = tag.find_all("p")
+            if len(ps) >= 3:
+                txt = " ".join(p.get_text(" ", strip=True) for p in ps[:8])
+                if len(txt) > len(best):
+                    best = txt
+        best = re.sub(r"\s+", " ", best).strip()
+        return best[:2500]
+    except Exception:
+        return ""
+        
 def collect_news(state):
     posted = set(state.get("posted", []))
     recent_titles = state.get("posted_titles", [])
@@ -457,6 +478,7 @@ def collect_news(state):
                     skipped_old += 1
                     continue
                 summary = BeautifulSoup(e.get("summary", ""), "html.parser").get_text().strip()
+                full = fetch_article(url) or summary
                 if not is_football(title, summary): continue
                 h = hash_id(title, url)
                 if h in posted: continue
@@ -464,7 +486,7 @@ def collect_news(state):
                 if is_dup_title(nt, recent_titles):
                     skipped_dup += 1
                     continue
-                fresh.append({"title": title, "url": url, "summary": summary, "source": source["name"], "en": is_en, "hash": h, "nt": nt, "img": e.get("img") or ""})
+                fresh.append({"title": title, "url": url, "summary": summary, "full": full, "source": source["name"], "en": is_en, "hash": h, "nt": nt, "img": e.get("img") or ""})
         except Exception as ex:
             print("fetch error:", source["name"], ex)
     print(f"🚫 قديمة: {skipped_old} | مكررة: {skipped_dup}")
@@ -831,10 +853,10 @@ def main():
         if item["en"]:
             title = translate(title) or title
             summary = translate(summary) or summary
-        content = ai_process(title, summary, item["en"], openers)
+        content = ai_process(title, item.get("full") or summary, item["en"], openers)
         if not content and not item["en"]:
-            content = f"⚽ {title}\n\n{summary[:300]}"
-        if not content:
+            content = f"⚽ {title}\n\n{(item.get('full') or summary)[:800]}"
+            if not content:
             print("⚠️ تجاوز:", item["title"][:40])
             posted.add(item["hash"])
             continue
