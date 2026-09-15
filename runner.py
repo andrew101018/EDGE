@@ -856,8 +856,10 @@ def main():
         content = ai_process(title, item.get("full") or summary, item["en"], openers)
         if not content and not item["en"]:
             content = f"⚽ {title}\n\n{(item.get('full') or summary)[:800]}"
-            if not content:
+        if not content:
             print("⚠️ تجاوز:", item["title"][:40])
+            posted.add(item["hash"])
+            continue
             posted.add(item["hash"])
             continue
         img = (item.get("img") or "").strip()
