@@ -1,6 +1,21 @@
 {
-  "updated_at": "2026-09-16 12:40 AM",
+  "updated_at": "2026-09-16 12:55 AM",
   "news": [
+    {
+      "t": "⚽ نتنياهو وكاتس: استهدفنا قائد لواء رفح في كتائب القسام و\"لا إرهابي محصّن\"",
+      "full": "⚽ نتنياهو وكاتس: استهدفنا قائد لواء رفح في كتائب القسام و\"لا إرهابي محصّن\"\n\nقُتل خمسة أشخاص وأصيب آخرون في غارات إسرائيلية على قطاع غزة، بحسب الدفاع المدني ومستشفيات في القطاع.\nوأعلنت إسرائيل مقتل نائل أبو عبيد، قائد لواء رفح في كتائب القسام، في ثالث عملية تستهدف قيادياً بارزاً في الحركة خلال أيام.",
+      "img": "https://ichef.bbci.co.uk/ace/ws/240/cpsprodpb/0797/live/a0b412b0-b14d-11f1-b1d1-571ed4d7ff2c.jpg"
+    },
+    {
+      "t": "⚽ ستوري نجوم كرة القدم.. زوجة زيزو تشيد بأدائه وصلاح يستمتع بأجواء تركيا - Masrawy",
+      "full": "⚽ ستوري نجوم كرة القدم.. زوجة زيزو تشيد بأدائه وصلاح يستمتع بأجواء تركيا - Masrawy\n\nستوري نجوم كرة القدم.. زوجة زيزو تشيد بأدائه وصلاح يستمتع بأجواء تركيا  Masrawy",
+      "img": ""
+    },
+    {
+      "t": "⚽ حسام حسن وشوقي غريب يحضران اجتماع اتحاد الكرة - اخبارك نت",
+      "full": "⚽ حسام حسن وشوقي غريب يحضران اجتماع اتحاد الكرة - اخبارك نت\n\nحسام حسن وشوقي غريب يحضران اجتماع اتحاد الكرة  اخبارك نت",
+      "img": ""
+    },
     {
       "t": "⚽ رسميًا.. الأرجنتين تستدعي ميسي لليلة الوداع - Kooora",
       "full": "⚽ رسميًا.. الأرجنتين تستدعي ميسي لليلة الوداع - Kooora\n\nرسميًا.. الأرجنتين تستدعي ميسي لليلة الوداع  Kooora",
@@ -84,21 +99,6 @@
     {
       "t": "⚽ رؤية غريب وميكنة الخدمات.. 7 قرارات هامة صادرة من اتحاد الكرة - يلاكورة",
       "full": "⚽ رؤية غريب وميكنة الخدمات.. 7 قرارات هامة صادرة من اتحاد الكرة - يلاكورة\n\nرؤية غريب وميكنة الخدمات.. 7 قرارات هامة صادرة من اتحاد الكرة  يلاكورةكرة نسائية - رغم الفوز برباعية.. اتحاد الكرة يعتمد فوز رع على بالم هيلز بسبب خطأ إداري  FilGoalتعرف على قرارات مجلس إدارة اتحاد الكرة فى اجتماع اليوم  اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ برشلونة يستعد لمواجهة ضيفه راسينغ سانتادير - beIN SPORTS",
-      "full": "⚽ برشلونة يستعد لمواجهة ضيفه راسينغ سانتادير - beIN SPORTS\n\nبرشلونة يستعد لمواجهة ضيفه راسينغ سانتادير  beIN SPORTS",
-      "img": ""
-    },
-    {
-      "t": "⚽ تيباس يخالف برشلونة في ملف الكرة الذهبية.. ويدلي بتصريحات قوية ضد المغرب وإنفانتينو - Kooora",
-      "full": "⚽ تيباس يخالف برشلونة في ملف الكرة الذهبية.. ويدلي بتصريحات قوية ضد المغرب وإنفانتينو - Kooora\n\nتيباس يخالف برشلونة في ملف الكرة الذهبية.. ويدلي بتصريحات قوية ضد المغرب وإنفانتينو  Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ اجتماع معتمد وتخفيف الأحمال.. تفاصيل مران الزمالك الختامي قبل مواجهة غزل المحلة - يلاكورة",
-      "full": "⚽ اجتماع معتمد وتخفيف الأحمال.. تفاصيل مران الزمالك الختامي قبل مواجهة غزل المحلة - يلاكورة\n\nاجتماع معتمد وتخفيف الأحمال.. تفاصيل مران الزمالك الختامي قبل مواجهة غزل المحلة  يلاكورة",
       "img": ""
     }
   ],
@@ -1718,8 +1718,202 @@
     ]
   },
   "leaders": {
+    "الدوري السعودي": {
+      "الهدافون 🏆": [
+        {
+          "name": "Ivan Toney",
+          "team": "الأهلي السعودي",
+          "value": "10 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Alexandre Lacazette",
+          "team": "Neom SC",
+          "value": "5 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Iker Kortajarena",
+          "team": "Al Kholood",
+          "value": "4 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Mateo Retegui",
+          "team": "القادسية",
+          "value": "4 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Sergej Milinkovic-Savic",
+          "team": "الهلال",
+          "value": "4 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Ângelo Gabriel",
+          "team": "النصر",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Darwin Núñez",
+          "team": "Al Diriyah",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Moussa Dembélé",
+          "team": "الاتفاق",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Teddy Okou",
+          "team": "Al Riyadh",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Abdulaziz Aldhuwayhi",
+          "team": "Al Hazem",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Hugo Moura",
+          "team": "الفيحاء",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Théo Bongonda",
+          "team": "Al Faisaly",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Yannick Carrasco",
+          "team": "الشباب",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Abderrazak Hamdallah",
+          "team": "التعاون",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Lukás Haraslín",
+          "team": "الفتح",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
+    "دوري أبطال أوروبا": {
+      "الهدافون 🏆": [
+        {
+          "name": "Ferran Torres",
+          "team": "باريس سان جيرمان",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Ermedin Demirovic",
+          "team": "VfB Stuttgart",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Danijel Sturm",
+          "team": "Slavia Prague",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Raphinha",
+          "team": "برشلونة",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Michael Olise",
+          "team": "بايرن ميونخ",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Serhou Guirassy",
+          "team": "بوروسيا دورتموند",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Erling Haaland",
+          "team": "مانشستر سيتي",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Marc Bartra",
+          "team": "Real Betis",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Florian Thauvin",
+          "team": "Lens",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Geny Catamo",
+          "team": "سبورتينج لشبونة",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Martin Ødegaard",
+          "team": "أرسنال",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Alexsandro",
+          "team": "Lille",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Marcos Llorente",
+          "team": "أتلتيكو مدريد",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Bruno Fernandes",
+          "team": "مانشستر يونايتد",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Carlos Augusto",
+          "team": "Internazionale",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
     "الدوري الإنجليزي": {
       "الهدافون 🏆": [
+        {
+          "name": "Erling Haaland",
+          "team": "مانشستر سيتي",
+          "value": "4 ⚽",
+          "face": ""
+        },
         {
           "name": "Kevin Schade",
           "team": "Brentford",
@@ -1731,11 +1925,195 @@
           "team": "تشيلسي",
           "value": "3 ⚽",
           "face": ""
+        },
+        {
+          "name": "Bukayo Saka",
+          "team": "أرسنال",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Marcus Tavernier",
+          "team": "AFC Bournemouth",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Alexander Isak",
+          "team": "ليفربول",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Bruno Fernandes",
+          "team": "مانشستر يونايتد",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Pascal Gross",
+          "team": "Brighton & Hove Albion",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Leif Davis",
+          "team": "Ipswich Town",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Anthony Elanga",
+          "team": "نيوكاسل",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Mohamed Belloumi",
+          "team": "Hull City",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Dominic Calvert-Lewin",
+          "team": "Leeds United",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Tyrick Mitchell",
+          "team": "Crystal Palace",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Josh King",
+          "team": "Fulham",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Alysson",
+          "team": "أستون فيلا",
+          "value": "1 ⚽",
+          "face": ""
+        }
+      ]
+    },
+    "الدوري الإسباني": {
+      "الهدافون 🏆": [
+        {
+          "name": "Raphinha",
+          "team": "برشلونة",
+          "value": "6 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Sergio Camello",
+          "team": "Rayo Vallecano",
+          "value": "6 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Kylian Mbappé",
+          "team": "ريال مدريد",
+          "value": "6 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Pierre-Emerick Aubameyang",
+          "team": "Deportivo",
+          "value": "5 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Yassir Zabiri",
+          "team": "Racing Santander",
+          "value": "5 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Roberto Fernández",
+          "team": "Espanyol",
+          "value": "5 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Ante Budimir",
+          "team": "Osasuna",
+          "value": "4 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Lucas Boyé",
+          "team": "Alavés",
+          "value": "4 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Álex Baena",
+          "team": "أتلتيكو مدريد",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Roger Brugué",
+          "team": "Levante",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Robert Navarro",
+          "team": "Athletic Club",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Rodrigo Riquelme",
+          "team": "Real Betis",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Nicolas Pépé",
+          "team": "Villarreal",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Fernando Niño",
+          "team": "Elche",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Luka Sucic",
+          "team": "Real Sociedad",
+          "value": "2 ⚽",
+          "face": ""
         }
       ]
     },
     "الدوري الإيطالي": {
       "الهدافون 🏆": [
+        {
+          "name": "Antonio Raimondo",
+          "team": "Frosinone",
+          "value": "4 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Davide Frattesi",
+          "team": "Lazio",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Franco Mastantuono",
+          "team": "Fiorentina",
+          "value": "3 ⚽",
+          "face": ""
+        },
         {
           "name": "Gustavo Varela",
           "team": "Monza",
@@ -1747,14 +2125,152 @@
           "team": "Sassuolo",
           "value": "2 ⚽",
           "face": ""
+        },
+        {
+          "name": "Ché Adams",
+          "team": "Torino",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Hassane Kamara",
+          "team": "Udinese",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Daniel Maldini",
+          "team": "Cagliari",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Rasmus Højlund",
+          "team": "نابولي",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Edon Zhegrova",
+          "team": "يوفنتوس",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Alphadjo Cissè",
+          "team": "ميلان",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Lassana Coulibaly",
+          "team": "Lecce",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Pio Esposito",
+          "team": "Internazionale",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Roberto Piccoli",
+          "team": "Bologna",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Antoine Hainaut",
+          "team": "Venezia",
+          "value": "1 ⚽",
+          "face": ""
         }
       ]
     },
     "الدوري الألماني": {
       "الهدافون 🏆": [
         {
+          "name": "Phillip Tietz",
+          "team": "Mainz",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Younes Ebnoutalib",
+          "team": "Eintracht Frankfurt",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Igor Matanovic",
+          "team": "SC Freiburg",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Michael Gregoritsch",
+          "team": "FC Augsburg",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Patrik Schick",
+          "team": "Bayer Leverkusen",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Maurice Krattenmacher",
+          "team": "SV Elversberg",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
           "name": "Tim Skarke",
           "team": "1. FC Union Berlin",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Hugo Bolin",
+          "team": "Borussia Mönchengladbach",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Thijs Dallinga",
+          "team": "FC Cologne",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Niclas Füllkrug",
+          "team": "Werder Bremen",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Josha Vagnoman",
+          "team": "VfB Stuttgart",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Serhou Guirassy",
+          "team": "بوروسيا دورتموند",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Antonio Nusa",
+          "team": "RB Leipzig",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Adam Hlozek",
+          "team": "TSG Hoffenheim",
           "value": "2 ⚽",
           "face": ""
         },
@@ -1769,6 +2285,24 @@
     "الدوري الفرنسي": {
       "الهدافون 🏆": [
         {
+          "name": "Lassine Sinayoko",
+          "team": "Paris FC",
+          "value": "4 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Kamory Doumbia",
+          "team": "Brest",
+          "value": "4 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Amine Gouiri",
+          "team": "Marseille",
+          "value": "4 ⚽",
+          "face": ""
+        },
+        {
           "name": "Paris Brunner",
           "team": "AS Monaco",
           "value": "3 ⚽",
@@ -1778,6 +2312,66 @@
           "name": "Florian Thauvin",
           "team": "Lens",
           "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Louis Mafouta",
+          "team": "Le Mans",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Esteban Lepaul",
+          "team": "Stade Rennais",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Ferran Torres",
+          "team": "باريس سان جيرمان",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Gessime Yassine",
+          "team": "Strasbourg",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Cameron Archer",
+          "team": "AJ Auxerre",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Tiago Santos",
+          "team": "Lille",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Jean-Victor Makengo",
+          "team": "Lorient",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Zachary Athekame",
+          "team": "Lyon",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Christ Tapé",
+          "team": "Toulouse",
+          "value": "1 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Mbwana Samatta",
+          "team": "Le Havre AC",
+          "value": "1 ⚽",
           "face": ""
         }
       ]
@@ -1821,16 +2415,16 @@
       "img": "https://a.espncdn.com/photo/2026/0913/r1716042_1296x729_16-9.jpg"
     },
     {
+      "t": "Kylian Mbappé scores, sets up winner as Real Madrid top Elche",
+      "img": "https://a.espncdn.com/photo/2026/0915/r1717241_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Elche vs. Real Madrid - Game Highlights",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0915/b8ffe4af-f2a2-446c-b858-dc3b1df8e2c5/b8ffe4af-f2a2-446c-b858-dc3b1df8e2c5.jpg"
+    },
+    {
       "t": "Transfer rumors, news: Balde to leave Barcelona in January?",
       "img": "https://a.espncdn.com/photo/2026/0915/r1717218_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Alavés vs. Valencia - Game Highlights",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0915/e76b23e1-bf50-4c3d-87d5-ddb2aa20e8bc/e76b23e1-bf50-4c3d-87d5-ddb2aa20e8bc.jpg"
-    },
-    {
-      "t": "Rayo Vallecano vs. Espanyol - Game Highlights",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0915/d7c4bebe-e39f-48ed-b442-3519054da8b0/d7c4bebe-e39f-48ed-b442-3519054da8b0.jpg"
     },
     {
       "t": "Keller: Pulisic needs to 'reprove himself' at AC Milan",
