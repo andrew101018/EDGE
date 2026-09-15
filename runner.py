@@ -727,7 +727,8 @@ def build_site_data(state, today):
             if not r.ok: return []
             out = []
             for cat in (r.json() or {}).get("leaders", []):
-                if "goal" in (cat.get("name") or cat.get("displayName") or "").lower():
+                cat_name = (cat.get("name") or cat.get("displayName") or "").lower()
+                if "goal" in cat_name:
                     for p in (cat.get("leaders") or [])[:n]:
                         a = p.get("athlete", {}) or {}
                         team = ""
@@ -735,7 +736,7 @@ def build_site_data(state, today):
                             team = ar_team(p.get("team", {}).get("displayName", ""))
                         except Exception:
                             team = ""
-                                                dv = str(p.get("displayValue", "0"))
+                        dv = str(p.get("displayValue", "0"))
                         out.append({"name": a.get("displayName", ""),
                             "team": team or ar_team(a.get("team", {}).get("displayName", "")),
                             "value": dv + " ⚽",
@@ -744,7 +745,6 @@ def build_site_data(state, today):
         except Exception as ex:
             print("esp scorers error:", slug, ex)
             return []
-
     leaders = {}
     for slug in PRIORITY:
         rows = espn_scorers(slug)
