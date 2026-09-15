@@ -170,6 +170,51 @@ LONG_SCRIPT_PROMPT = """أنت كاتب سيناريوهات فيديوهات ك
 أخبار اليوم:
 """
 
+# ===== 📜 مواضيع السكريبتات التاريخية (40+ موضوع — بتلف من غير تكرار) =====
+HISTORY_TOPICS = [
+    "قصة ماردونا وهدف القرن ضد إنجلترا 1986",
+    "ليلة إستنبول 2005 — عودة ليفربول المستحيلة من 3-0",
+    "أسطورة الأهلي ونادي القرن الأفريقي — تاريخ كاسح",
+    "الجالاكتيكوس — عصر نجوم ريال مدريد (زيدان، رونالدو، بيكهام، فيجو)",
+    "ماجيكو جونزاليس — الأسطورة السلفادورية اللي أدهش مصر",
+    "كأس العالم 2010 في جنوب أفريقيا — إسبانيا تكسر الحدود",
+    "مانشستر يونايتد الثلاثية التاريخية 1999 — ليلة برشلونة المجنونة",
+    "قصة كرستيانو رونالدو من حارة ماديرا لعرش العالم",
+    "ليونيل ميسي — القزم اللي حكم الكورة 15 سنة",
+    "الزمالك وقصة اللقب التاريخي على ريال مدريد 2002",
+    "باريس سان جيرمان من نادي حي لقوة أوروبية — قصة النفط والكورة",
+    "ميلان الإيطالي العظيم — عصر الهولنديين الثلاثة",
+    "البرسا الأرجنتيني — فريق الأحلام 2009-2011 اللي غيّر الكورة",
+    "كأس العالم 2002 — رونالدو يرجع من الإصابة ويخطف البطولة",
+    "حرب الكلاسيكو — الريال والبرسا أكتر من مجرد ماتش",
+    "الهلال السعودي — آسياوية بلا منازع",
+    "لا ليغا الأرجنتيني والحرب بين بوكا وريفر — السوبر كلاسيكو",
+    "قصة تشيلسي 2012 — الفريق اللي رفض يموت",
+    "أسطورة ميدو وحسن شحاتة وزمن الكورة المصرية الذهبية",
+    "يوفنتوس التسعينات — البيانكونيرو والدفاع الحديدي",
+    "مانشستر سيتي تحت قيادة جوارديولا — الفريق اللي كسر كل الأرقام",
+    "قصة إمام عاشور من ضياع المستقبل لنجم الأولمبياد والأهلي",
+    "محمد صلاح — الملك المصري اللي غيّر تاريخ ليفربول",
+    "بيل والتحول من الجناح الأسطوري لصانع التاريخ",
+    "الكرة الذهبية — التاريخ الكامل والجدل الأبدي",
+    "أسطورة حارس المرمى — بوفون وأعظم 25 سنة حراسة",
+    "قصة دوري أبطال أوروبا — من البداية لعصر الهيمنة",
+    "التجي التونسي والوداد المغربي — صراع عربي أفريقي تاريخي",
+    "رونالدينيو — الساحر اللي ورّث العالم مبتسمًا",
+    "عصر مارادونا في نابولي — المدينة اللي عبدت الأسطورة",
+    "الأهلي والزمالك — أقدم ديربي في أفريقيا وقصته كاملة",
+    "هالاند — الآلة النرويجية من سالزبورج لمانشستر",
+    "كاسيميرو ومودريتش — قلب ريال مدريد الذهبي",
+    "قصة الحكم السعودي لنهائي كأس العالم 2022 — لحظة تاريخية عربية",
+    "المونديال 2022 في قطر — أفضل كأس عالم في التاريخ",
+    "فينيسيوس جونيور — من شوارع ريو لنجمة ريال مدريد",
+    "انتقال نيمار الأغلى في التاريخ وتبعاته على باريس",
+    "الكرة الشهيرة توتي — رمز الوفاء الكروي",
+    "أرسنال العظيم 2004 — الفريق اللي ماخسرش ماتش",
+    "قصة توتنهام وهاري كين — الوفاء اللي ماخلصش بلقب",
+    "الرياضة المصرية والزمن الجميل — من ميدو لأحمد حسن",
+]
+
 def hash_id(title, url):
     return hashlib.md5((title + url).encode()).hexdigest()
 
@@ -331,6 +376,7 @@ def send_fb(text, img=None):
     except Exception as e:
         print("FB error:", e)
         return False
+
 def send_poll(question, options):
     try:
         r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendPoll",
@@ -404,6 +450,26 @@ def ai_process(title, content, is_english, forbidden=None):
             return result
     return None
     
+def fetch_article(url):
+    """يجيب المحتوى الكامل من صفحة الخبر نفسها"""
+    try:
+        r = requests.get(url, timeout=12, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"})
+        if not r.ok: return ""
+        soup = BeautifulSoup(r.text, "html.parser")
+        for tag in soup(["script", "style", "nav", "footer", "header", "aside", "form", "iframe"]):
+            tag.decompose()
+        best = ""
+        for tag in soup.find_all(["article", "main", "div"]):
+            ps = tag.find_all("p")
+            if len(ps) >= 3:
+                txt = " ".join(p.get_text(" ", strip=True) for p in ps[:8])
+                if len(txt) > len(best):
+                    best = txt
+        best = re.sub(r"\s+", " ", best).strip()
+        return best[:2500]
+    except Exception:
+        return ""
+
 def fetch_scoreboard(slug):
     try:
         r = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard", timeout=8)
@@ -411,6 +477,7 @@ def fetch_scoreboard(slug):
     except Exception as e:
         print("scoreboard error:", slug, e)
     return None
+
 def fetch_standings(slug):
     try:
         r = requests.get(f"https://site.api.espn.com/apis/v2/sports/soccer/{slug}/standings", timeout=8)
@@ -437,27 +504,6 @@ def fetch_lineups(slug, event_id):
     except Exception:
         return None
 
-def fetch_article(url):
-    """يجيب المحتوى الكامل من صفحة الخبر نفسها"""
-    try:
-        r = requests.get(url, timeout=12, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"})
-        if not r.ok: return ""
-        soup = BeautifulSoup(r.text, "html.parser")
-        for tag in soup(["script", "style", "nav", "footer", "header", "aside", "form", "iframe"]):
-            tag.decompose()
-        # أول ما نلاقي مقال حقيقي فيه فقرات كتيرة — نمسكه
-        best = ""
-        for tag in soup.find_all(["article", "main", "div"]):
-            ps = tag.find_all("p")
-            if len(ps) >= 3:
-                txt = " ".join(p.get_text(" ", strip=True) for p in ps[:8])
-                if len(txt) > len(best):
-                    best = txt
-        best = re.sub(r"\s+", " ", best).strip()
-        return best[:2500]
-    except Exception:
-        return ""
-        
 def collect_news(state):
     posted = set(state.get("posted", []))
     recent_titles = state.get("posted_titles", [])
@@ -478,7 +524,6 @@ def collect_news(state):
                     skipped_old += 1
                     continue
                 summary = BeautifulSoup(e.get("summary", ""), "html.parser").get_text().strip()
-                full = fetch_article(url) or summary
                 if not is_football(title, summary): continue
                 h = hash_id(title, url)
                 if h in posted: continue
@@ -486,6 +531,7 @@ def collect_news(state):
                 if is_dup_title(nt, recent_titles):
                     skipped_dup += 1
                     continue
+                full = fetch_article(url) or summary
                 fresh.append({"title": title, "url": url, "summary": summary, "full": full, "source": source["name"], "en": is_en, "hash": h, "nt": nt, "img": e.get("img") or ""})
         except Exception as ex:
             print("fetch error:", source["name"], ex)
@@ -689,7 +735,7 @@ def fetch_world():
         except Exception:
             pass
     return out
-
+    
 def build_site_data(state, today):
     now = datetime.now(CAIRO)
     matches = []
@@ -741,7 +787,6 @@ def build_site_data(state, today):
         t = top_table(slug, 30)
         if t: tables[LEAGUES[slug]] = t
 
-    # ===== 👑 الهدافين الرسميين من ESPN (الموسم الحالي — بدون كوتة نهائية) =====
     # ===== 👑 الهدافين — تجميع الموسم كامل من نفس مصدر المباريات =====
     def season_scorers(slug, n=15):
         try:
@@ -799,6 +844,7 @@ def build_site_data(state, today):
         except Exception as ex:
             print("season scorers error:", slug, str(ex)[:80])
             return []
+
     leaders = {}
     for slug in PRIORITY:
         rows = season_scorers(slug)
@@ -825,8 +871,9 @@ def build_site_data(state, today):
     with open("site/data.json", "w", encoding="utf-8") as f:
         json.dump(site_data, f, ensure_ascii=False, indent=2)
     print("🌐 تم تحديث بيانات الموقع")
+
 def make_publish_package(news_lines):
-    prompt = f"""انت خبير سوشيال ميديا رياضي. اكتب باقة نشر جاهزة لفيديو كورة عن الأخبار دي:
+    prompt = f"""انت خبير سوشيال ميديا رياضي. اكتب باقة نشر جاهزة لفيديو كورة عن الموضوع ده:
 {news_lines}
 
 بالشكل ده بالظبط:
@@ -835,6 +882,94 @@ def make_publish_package(news_lines):
 📝 وصف: سطرين + دعوة للاشتراك
 #️⃣ هاشتاجات: 12 هاشتاج عربي وإنجليزي بمسافات"""
     return call_gemini(prompt, 0.9) or call_groq(prompt, 0.9)
+
+# ===== 📜 سكريبت تاريخي يومي — بمواضيع انتشار عالي + حساسية موسمية =====
+def build_history_script(state, today):
+    """يختار موضوع مختلف كل يوم: 60% مواضيع انتشار مضمون + 40% موسمية حسب الشهر"""
+    evergreen = [
+        "قصة ماردونا وهدف القرن ضد إنجلترا 1986",
+        "ليلة إستنبول 2005 — عودة ليفربول المستحيلة من 3-0",
+        "أسطورة الأهلي ونادي القرن الأفريقي",
+        "الجالاكتيكوس — عصر نجوم ريال مدريد",
+        "ماجيكو جونزاليس — الأسطورة اللي أدهش مصر",
+        "مانشستر يونايتد الثلاثية التاريخية 1999",
+        "قصة كرستيانو رونالدو من حارة ماديرا لعرش العالم",
+        "ليونيل ميسي — القزم اللي حكم الكورة 15 سنة",
+        "الزمالك وقصة اللقب التاريخي على ريال مدريد",
+        "البرسا الأرجنتيني — فريق الأحلام 2009-2011",
+        "كأس العالم 2002 — رونالدو يرجع ويخطف البطولة",
+        "حرب الكلاسيكو — الريال والبرسا أكتر من ماتش",
+        "قصة تشيلسي 2012 — الفريق اللي رفض يموت",
+        "محمد صلاح — الملك المصري اللي غيّر ليفربول",
+        "رونالدينيو — الساحر اللي ورّث العالم مبتسمًا",
+        "عصر مارادونا في نابولي — المدينة اللي عبدت الأسطورة",
+        "الأهلي والزمالك — أقدم ديربي في أفريقيا",
+        "أرسنال العظيم 2004 — الفريق اللي ماخسرش ماتش",
+        "التجي والوداد — صراع عربي أفريقي تاريخي",
+        "هالاند ومبابي — جيل جديد بيكتب التاريخ",
+        "الكرة الذهبية — التاريخ الكامل والجدل الأبدي",
+        "بوفون — أعظم 25 سنة حراسة في التاريخ",
+        "انتقال نيمار الأغلى وتبعاته على باريس",
+        "توتي — رمز الوفاء الكروي الأبدي",
+    ]
+    month = datetime.now(CAIRO).month
+    seasonal = {
+        6: ["مونديال 2010 في جنوب أفريقيا — إسبانيا تكسر الحدود",
+             "كوبا أمريكا وأساطير أمريكا الجنوبية",
+             "تاريخ انتقالات الصيف المجنونة — من رونالدو لنيمار"],
+        7: ["انتقالات الصيف — أكبر صفقات التاريخ وأغربها",
+             "بريايسيزن الأبطال قبل بداية الموسم",
+             "قصة ميركاتو جنوة — اكتشاف المواهب"],
+        8: ["بدايات المواسم الأسطورية — أول جولة غيّرت التاريخ",
+             "الدرعي الخيرية والسوبرات — بدايات المواسم",
+             "قصة جولة افتتاحية حسمت اللقب مبكرًا"],
+        9: ["دوري الأبطال — أرقى ليالي أوروبا عبر التاريخ",
+             "مجموعات الموت في الشامبيونزليج",
+             "أعظم عودة في تاريخ دوري الأبطال"],
+        10: ["الكلاسيكو عبر الزمن — من دي ستيفانو لميسي",
+              "مواسم الأرقام القياسية — أكتوبر المجنون",
+              "أساطير السنة الكروية والكرة الذهبية"],
+        11: ["الكرة الذهبية — أعظم الجدل في تاريخ الكورة",
+              "جوائز الفيفا وأساطير التتويج",
+              "أفضل حارس في التاريخ — الجدل الأبدي"],
+        12: ["أعظم نهائيات كأس العالم عبر التاريخ",
+              "المونديال الشتوي في قطر 2022 — أفضل نسخة",
+              "حكايات كرسماس الكروية والصورة الكاملة"],
+        1: ["سوق الانتقالات الشتوي — أشهر صفقات يناير",
+             "كأس العرب وكأس أفريقيا — أمجاد المنتخبات",
+             "الإحصائيات النصف موسمية والمعجزات"],
+        2: ["كأس أفريقيا — تاريخ أمجاد القارة السمراء",
+             "الفراعنة وكأس أفريقيا — سجل ذهبي",
+             "أعظم نهائيات كأس الأمم الأفريقية"],
+        3: ["سلسلة إخراج الديربي في إيطاليا",
+             "شهر الجنون في أوروبا — شهر القرارات",
+             "تاريخ أطول سلسلة انتصارات"],
+        4: ["نهايات المواسم المجنونة — لقب من فم الحرمان",
+             "الريمونتادا التاريخية — قصص العودة",
+             "أعظم سباق على اللقب في التاريخ"],
+        5: ["نهاية الموسم — أقوى حالات فقدان اللقب",
+             "دوري الأبطال — ليلات ختامية مجنونة",
+             "التتويجات التاريخية في الشهر الأخير"],
+    }
+    pool = evergreen + seasonal.get(month, [])
+    idx = state.get("history_index", random.randint(0, max(len(pool) - 1, 0))) % len(pool)
+    topic = pool[idx]
+    state["history_index"] = idx + 1
+    prompt = f"""أنت كاتب سيناريوهات يوتيوب رياضية محترف ومصري.
+اكتب سكريبت فيديو (4-5 دقائق) بالعامية المصرية عن: {topic}
+
+الشكل:
+🎬 [العنوان:] عنوان فيروسي يجذب النقرات
+🎙️ [المقدمة:] 20 ثانية تخلي المشاهد مستحيل يسكرول
+📚 [القصة:] 4-5 فقرات مشوقة — كل فقرة: [المشهد:] وصف لقطة / [التعليق:] الكلام بصوتك
+💡 [المعلومة الصادمة:] رقم أو حقيقة تنكسر كتعليقات
+🎯 [الخاتمة:] سؤال للجمهور + دعوة اشتراك
+
+القواعد: معلومات حقيقية 100% — أرقام وأسماء دقيقة — عامية مصرية جذابة — بدون حشو"""
+    script = call_gemini(prompt, 1.0) or call_groq(prompt, 1.0)
+    if not script: return None, topic
+    pkg = make_publish_package(topic)
+    return script, pkg
 
 def main():
     state = load_state()
@@ -860,8 +995,6 @@ def main():
             print("⚠️ تجاوز:", item["title"][:40])
             posted.add(item["hash"])
             continue
-            posted.add(item["hash"])
-            continue
         img = (item.get("img") or "").strip()
         if send_tg_photo(content, img):
             print("✅ نُشر:", title[:40])
@@ -878,8 +1011,11 @@ def main():
     state["last_openers"] = openers[-5:]
     state["site_news"] = state.get("site_news", [])[-20:]
 
-    if FORCE or (18 <= now.hour <= 23 and state.get("last_long_date") != today):
+    # ===== 🎬 سكريبت أخبار اليوم (9-11 م) =====
+    if FORCE or (20 <= now.hour <= 23 and state.get("last_long_date") != today):
         news_today = [x["t"] for x in state.get("daily_news", []) if x["d"] == today]
+        if not news_today:
+            news_today = [x["t"] for x in state.get("site_news", [])[-6:]]
         if news_today:
             prompt = LONG_SCRIPT_PROMPT + "\n".join(f"- {t}" for t in news_today[:6])
             script = call_gemini(prompt, 1.0) or call_groq(prompt, 1.0)
@@ -889,6 +1025,17 @@ def main():
                 if pkg and send_owner("📦 باقة النشر (تيك توك + يوتيوب):\n\n" + pkg):
                     print("📦 اتبعتت باقة النشر")
                 if not FORCE: state["last_long_date"] = today
+
+    # ===== 📜 السكريبت التاريخي اليومي (2-3 عصرًا) — مواضيع انتشار موسمية =====
+    if FORCE or (14 <= now.hour <= 16 and state.get("last_history_date") != today):
+        script, topic = build_history_script(state, today)
+        if script:
+            if send_owner(f"📜 سكريبت تاريخي جديد | {topic}:\n\n" + script):
+                print("📩 اتبعت السكريبت التاريخي")
+                pkg = make_publish_package(topic)
+                if pkg and send_owner(f"📦 باقة نشر السكريبت التاريخي ({topic}):\n\n" + pkg):
+                    print("📦 اتبعتت باقة النشر التاريخية")
+                if not FORCE: state["last_history_date"] = today
 
     alerts = check_live(state)
     print(f"🟢 تنبيهات لايف: {len(alerts)}")
