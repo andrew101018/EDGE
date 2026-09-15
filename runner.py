@@ -726,52 +726,57 @@ def build_site_data(state, today):
             y = now.year if now.month >= 8 else now.year - 1
             start = f"{y}0801"
             end = now.strftime("%Y%m%d")
-            url = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard?dates={start}-{end}&limit=400"
-            try:
-                rr = requests.get(url, timeout=25)
-                if not rr.ok:
-                    rr = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard?season={y}", timeout=25)
-            except Exception:
-                rr = None
-            if not rr or not rr.ok:
-                print("season sb status", slug, rr.status_code if rr else "none")
-                return []
-            if not rr.ok:
-                print("season sb status", slug, rr.status_code)
-                return []
-            agg = {}
-            for ev in (rr.json() or {}).get("events", []):
+            rows_found = []
+            date_ranges = [
+                f"{start}-{end}",
+                f"{y}",
+                f"{y + 1}",
+            ]
+            for dr in date_ranges:
                 try:
-                    comp = ev["competitions"][0]
-                    for c in comp["competitors"]:
-                        for l in c.get("leaders", []):
-                            if "goals" not in (l.get("name") or "").lower():
-                                continue
-                            for p in l.get("leaders", []):
-                                a = p.get("athlete", {}) or {}
-                                try:
-                                    g = int(float(p.get("value", 0) or 0))
-                                except Exception:
-                                    g = 0
-                                if g <= 0:
-                                    continue
-                                key = a.get("id") or a.get("displayName")
-                                if key not in agg or agg[key]["g"] < g:
-                                    agg[key] = {
-                                        "name": a.get("displayName", ""),
-                                        "team": ar_team((c.get("team", {}) or {}).get("displayName", "")),
-                                        "g": g,
-                                        "face": ((a.get("headshot", {}) or {}).get("href", "")),
-                                    }
-                except Exception:
+                    rr = requests.get(
+                        f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard?dates={dr}&limit=400",
+                        timeout=25)
+                    if not rr.ok:
+                        continue
+                    agg = {}
+                    for ev in (rr.json() or {}).get("events", []):
+                        try:
+                            comp = ev["competitions"][0]
+                            for c in comp["competitors"]:
+                                for l in c.get("leaders", []):
+                                    if "goals" not in (l.get("name") or "").lower():
+                                        continue
+                                    for p in l.get("leaders", []):
+                                        a = p.get("athlete", {}) or {}
+                                        try:
+                                            g = int(float(p.get("value", 0) or 0))
+                                        except Exception:
+                                            g = 0
+                                        if g <= 0:
+                                            continue
+                                        key = a.get("id") or a.get("displayName")
+                                        if key not in agg or agg[key]["g"] < g:
+                                            agg[key] = {
+                                                "name": a.get("displayName", ""),
+                                                "team": ar_team((c.get("team", {}) or {}).get("displayName", "")),
+                                                "g": g,
+                                                "face": ((a.get("headshot", {}) or {}).get("href", "")),
+                                            }
+                        except Exception:
+                            continue
+                    if len(agg) >= len(rows_found):
+                        rows_found = sorted(agg.values(), key=lambda x: -x["g"])[:n]
+                    if len(rows_found) >= 10:
+                        break
+                except Exception as ex:
+                    print("season try error", slug, str(ex)[:60])
                     continue
-            rows = sorted(agg.values(), key=lambda x: -x["g"])[:n]
-            out = [{"name": x["name"], "team": x["team"], "value": f"{x['g']} ⚽", "face": x["face"]} for x in rows if x.get("name")]
+            out = [{"name": x["name"], "team": x["team"], "value": f"{x['g']} ⚽", "face": x["face"]} for x in rows_found if x.get("name")]
             return out
         except Exception as ex:
             print("season scorers error:", slug, str(ex)[:80])
             return []
-
     leaders = {}
     for slug in PRIORITY:
         rows = season_scorers(slug)
