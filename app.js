@@ -285,7 +285,12 @@ function renderMatches() {
   html += MATCHES.map(g => {
     const items = g.items.filter(m => m.state !== 'in');
     if (!items.length) return '';
-    return `<div class="league-box"><div class="league-title">🏆 ${g.league}</div>${items.map(matchRow).join('')}</div>`;
+    const byState = { pre: [], post: [] };
+    items.forEach(m => byState[m.state] && byState[m.state].push(m));
+    return `<div class="league-box"><div class="league-title">🏆 ${g.league}</div>` +
+      (byState.post.length ? `<div style="padding:6px 10px;font-size:.75em;opacity:.6;background:#0f172a;">🏁 مباريات انتهت</div>` + byState.post.map(matchRow).join('') : '') +
+      (byState.pre.length ? `<div style="padding:6px 10px;font-size:.75em;opacity:.6;background:#0f172a;">🕐 مباريات قادمة</div>` + byState.pre.map(matchRow).join('') : '') +
+      `</div>`;
   }).join('');
   if (DATA.results && DATA.results.length) {
     html += '<h2 style="margin-top:24px;">🏁 نتائج اليوم</h2><div class="list">' + DATA.results.map(t => `<div class="result-item">🏁 ${t}</div>`).join('') + '</div>';
