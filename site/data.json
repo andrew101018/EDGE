@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-09-17 08:04 AM",
+  "updated_at": "2026-09-17 01:11 PM",
   "news": [
+    {
+      "t": "⚽ فليك يعلق على خطأ تشيزني.. ويشيد بنجم برشلونة بعد تجاوز \"الفترة الصعبة\" - Kooora",
+      "full": "⚽ فليك يعلق على خطأ تشيزني.. ويشيد بنجم برشلونة بعد تجاوز \"الفترة الصعبة\" - Kooora\n\nفليك يعلق على خطأ تشيزني.. ويشيد بنجم برشلونة بعد تجاوز \"الفترة الصعبة\"  Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ مفاجأة كلوب الأولى.. 16 وجها جديدا وقائمة قياسية لمنتخب ألمانيا - الجزيرة نت",
+      "full": "⚽ مفاجأة كلوب الأولى.. 16 وجها جديدا وقائمة قياسية لمنتخب ألمانيا - الجزيرة نت\n\nمفاجأة كلوب الأولى.. 16 وجها جديدا وقائمة قياسية لمنتخب ألمانيا  الجزيرة نت",
+      "img": ""
+    },
+    {
+      "t": "⚽ مزدوجو الجنسية.. ريان أبو الناى جوهرة وسط مصرية تتصارع عليه 3 منتخبات - اليوم السابع",
+      "full": "⚽ مزدوجو الجنسية.. ريان أبو الناى جوهرة وسط مصرية تتصارع عليه 3 منتخبات - اليوم السابع\n\nمزدوجو الجنسية.. ريان أبو الناى جوهرة وسط مصرية تتصارع عليه 3 منتخبات  اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ رضا عبد العال يتحدث عن: السعيد ـ بيزيرا - الزمالك اليوم",
+      "full": "⚽ رضا عبد العال يتحدث عن: السعيد ـ بيزيرا - الزمالك اليوم\n\nرضا عبد العال يتحدث عن: السعيد ـ بيزيرا  الزمالك اليوم",
+      "img": ""
+    },
     {
       "t": "⚽ القمة 133.. موعد مباراة الأهلى والزمالك فى الدورى والقناة الناقلة - اليوم السابع",
       "full": "⚽ القمة 133.. موعد مباراة الأهلى والزمالك فى الدورى والقناة الناقلة - اليوم السابع\n\nالقمة 133.. موعد مباراة الأهلى والزمالك فى الدورى والقناة الناقلة  اليوم السابع",
@@ -80,26 +100,6 @@
       "t": "⚽ الأخبار - الاتحاد المصري لكرة القدم",
       "full": "⚽ الأخبار - الاتحاد المصري لكرة القدم\n\nالأخبار  الاتحاد المصري لكرة القدم",
       "img": ""
-    },
-    {
-      "t": "⚽ 3 أسماء قد تظهر للمرة الأولى مع حسام حسن فى منتخب مصر - المصري اليوم",
-      "full": "⚽ 3 أسماء قد تظهر للمرة الأولى مع حسام حسن فى منتخب مصر - المصري اليوم\n\n3 أسماء قد تظهر للمرة الأولى مع حسام حسن فى منتخب مصر  المصري اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ ممدوح عيد: الصراع على البطولات المحلية كان ينحصر بين ناديين كبيرين قبل دخول بيراميدز - صدى البلد",
-      "full": "⚽ ممدوح عيد: الصراع على البطولات المحلية كان ينحصر بين ناديين كبيرين قبل دخول بيراميدز - صدى البلد\n\nممدوح عيد: الصراع على البطولات المحلية كان ينحصر بين ناديين كبيرين قبل دخول بيراميدز  صدى البلد",
-      "img": ""
-    },
-    {
-      "t": "⚽ تيباس ينتقد ثلاثي الريال: دعم سبتة ليس رأيًا شخصيًا - Kooora",
-      "full": "⚽ تيباس ينتقد ثلاثي الريال: دعم سبتة ليس رأيًا شخصيًا - Kooora\n\nتيباس ينتقد ثلاثي الريال: دعم سبتة ليس رأيًا شخصيًا  Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ مريم مقدم تحكي ليلا كورة رحلتها في العلاج الفيزيائي وكرة القدم - يلاكورة",
-      "full": "⚽ مريم مقدم تحكي ليلا كورة رحلتها في العلاج الفيزيائي وكرة القدم - يلاكورة\n\nمريم مقدم تحكي ليلا كورة رحلتها في العلاج الفيزيائي وكرة القدم  يلاكورة",
-      "img": ""
     }
   ],
   "results": [
@@ -112,72 +112,38 @@
       "slug": "esp.1",
       "items": [
         {
-          "home": "أتلتيكو مدريد",
-          "away": "Osasuna",
-          "eid": "401882875",
+          "home": "Real Betis",
+          "away": "Getafe",
+          "eid": "401882874",
           "slug": "esp.1",
-          "homeId": "1068",
-          "awayId": "97",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/97.png",
-          "tv": "beIN Sports",
-          "hs": "4",
-          "as": "0",
-          "time": "08:00 PM",
-          "state": "post",
-          "date": "2026-09-16T20:00:00+03:00",
-          "detail": "FT"
-        },
-        {
-          "home": "Deportivo",
-          "away": "Sevilla",
-          "eid": "401882873",
-          "slug": "esp.1",
-          "homeId": "90",
-          "awayId": "243",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/90.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/243.png",
+          "homeId": "244",
+          "awayId": "2922",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/244.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2922.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "1",
+          "as": "0",
           "time": "08:00 PM",
-          "state": "post",
-          "date": "2026-09-16T20:00:00+03:00",
-          "detail": "FT"
+          "state": "pre",
+          "date": "2026-09-17T20:00:00+03:00",
+          "detail": "Scheduled"
         },
         {
-          "home": "برشلونة",
-          "away": "Racing Santander",
-          "eid": "401882871",
+          "home": "Málaga",
+          "away": "Villarreal",
+          "eid": "401882869",
           "slug": "esp.1",
-          "homeId": "83",
-          "awayId": "87",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/87.png",
-          "tv": "beIN Sports",
-          "hs": "7",
-          "as": "2",
-          "time": "10:30 PM",
-          "state": "post",
-          "date": "2026-09-16T22:30:00+03:00",
-          "detail": "FT"
-        },
-        {
-          "home": "Levante",
-          "away": "Athletic Club",
-          "eid": "401882870",
-          "slug": "esp.1",
-          "homeId": "1538",
-          "awayId": "93",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1538.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/93.png",
+          "homeId": "99",
+          "awayId": "102",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/99.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/102.png",
           "tv": "beIN Sports",
           "hs": "0",
           "as": "0",
           "time": "10:30 PM",
-          "state": "post",
-          "date": "2026-09-16T22:30:00+03:00",
-          "detail": "Postponed"
+          "state": "pre",
+          "date": "2026-09-17T22:30:00+03:00",
+          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -1925,6 +1891,12 @@
     "الدوري الإسباني": {
       "الهدافون 🏆": [
         {
+          "name": "Raphinha",
+          "team": "برشلونة",
+          "value": "9 ⚽",
+          "face": ""
+        },
+        {
           "name": "Kylian Mbappé",
           "team": "ريال مدريد",
           "value": "7 ⚽",
@@ -1943,15 +1915,9 @@
           "face": ""
         },
         {
-          "name": "Raphinha",
-          "team": "برشلونة",
-          "value": "6 ⚽",
-          "face": ""
-        },
-        {
           "name": "Yassir Zabiri",
           "team": "Racing Santander",
-          "value": "5 ⚽",
+          "value": "6 ⚽",
           "face": ""
         },
         {
@@ -1973,14 +1939,14 @@
           "face": ""
         },
         {
-          "name": "Fer Niño",
-          "team": "Elche",
-          "value": "3 ⚽",
+          "name": "Álex Baena",
+          "team": "أتلتيكو مدريد",
+          "value": "4 ⚽",
           "face": ""
         },
         {
-          "name": "Álex Baena",
-          "team": "أتلتيكو مدريد",
+          "name": "Fer Niño",
+          "team": "Elche",
           "value": "3 ⚽",
           "face": ""
         },
@@ -2009,8 +1975,8 @@
           "face": ""
         },
         {
-          "name": "Luka Sucic",
-          "team": "Real Sociedad",
+          "name": "Miguel Sierra",
+          "team": "Sevilla",
           "value": "2 ⚽",
           "face": ""
         }
@@ -2301,16 +2267,16 @@
   },
   "world": [
     {
+      "t": "Cristiano Ronaldo could cash in under new Saudi Pro League streaming model",
+      "img": "https://a.espncdn.com/photo/2026/0917/r1717969_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Mamelodi Sundowns vs. Al-Ahli - Kick-off time, how to watch Intercontinental Cup clash",
+      "img": "https://a.espncdn.com/photo/2026/0917/r1717951_1296x729_16-9.jpg"
+    },
+    {
       "t": "Saudi Pro League club fined, fans given stadium ban for Diogo Jota chants",
       "img": "https://a.espncdn.com/photo/2026/0916/r1717451_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Cristiano Ronaldo calls for lifetime bans after Rúben Neves taunted by Diogo Jota chants",
-      "img": "https://a.espncdn.com/photo/2026/0913/r1715861_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Cristiano Ronaldo scores 979th goal, named MOTM as Al Nassr bounce back with win",
-      "img": "https://a.espncdn.com/photo/2026/0910/r1714240_1296x729_16-9.jpg"
     },
     {
       "t": "Borussia Dortmund teenager Konstantinos Karetsas returns to training after Champions League health scare",
@@ -2325,28 +2291,28 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0915/dm_260915_Flick_Yamal_wants_to_win_the_Ballon_dOr/dm_260915_Flick_Yamal_wants_to_win_the_Ballon_dOr.jpg"
     },
     {
+      "t": "Andy Burnham watches Everton with Canadian PM Mark Carney",
+      "img": "https://a.espncdn.com/photo/2026/0917/r1717967_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Transfer rumors, news: Arsenal still keen on Real Madrid winger Rodrygo",
+      "img": "https://a.espncdn.com/photo/2026/0427/r1649941_3_1296x729_16-9.jpg"
+    },
+    {
       "t": "Man United will be 'careful' with Gabriel future, Carrick says",
-      "img": "sportscenter://x-callback-url/showStory?uid=49950304"
+      "img": "https://a.espncdn.com/photo/2026/0915/r1717007_1296x729_16-9.jpg"
     },
     {
-      "t": "Man United's collapse puts Carrick under pressure for first time",
-      "img": "https://a.espncdn.com/photo/2026/0916/r1717818_1296x729_16-9.jpg"
+      "t": "Flick: Barcelona played really good football vs. Racing Santander",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0917/dm_260917_COM_SOC_Analysis_Flick3A_Barcelona_played_really_good_football_vs_Racing_Santander_GLOBAL_2026-09-/dm_260917_COM_SOC_Analysis_Flick3A_Barcelona_played_really_good_football_vs_Racing_Santander_GLOBAL_2026-09-.jpg"
     },
     {
-      "t": "Boehly, Walter sell Chelsea stakes as Clearlake takes full control",
-      "img": "https://a.espncdn.com/photo/2026/0916/r1717842_1296x729_16-9.jpg"
+      "t": "Transfer rumors, news: Arsenal still keen on Real Madrid winger Rodrygo",
+      "img": "https://a.espncdn.com/photo/2026/0427/r1649941_3_1296x729_16-9.jpg"
     },
     {
-      "t": "Raphinha bags hat trick as Barcelona score 7 to set record start",
-      "img": "https://a.espncdn.com/photo/2026/0916/r1717763_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Barcelona vs. Racing Santander - Game Highlights",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0916/51ff16c4-752f-4305-aa56-bef2f3843d49/51ff16c4-752f-4305-aa56-bef2f3843d49.jpg"
-    },
-    {
-      "t": "Raphinha hat trick in Barcelona's 7-goal rout of Santander",
-      "img": "https://a.espncdn.com/photo/2026/0916/r1717768_1296x729_16-9.jpg"
+      "t": "Is Raphinha currently the best No. 9 in the world?",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0917/dm_260917_COM_SOC_Analysis_Is_Raphinha_currently_the_best_No_9_in_the_world3F_GLOBAL_2026-09-17/dm_260917_COM_SOC_Analysis_Is_Raphinha_currently_the_best_No_9_in_the_world3F_GLOBAL_2026-09-17.jpg"
     },
     {
       "t": "Keller: Pulisic needs to 'reprove himself' at AC Milan",
