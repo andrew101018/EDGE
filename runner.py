@@ -805,7 +805,7 @@ def build_site_data(state, today):
             except Exception:
                 continue
         if group["items"]:
-            group["items"].sort(key=lambda x: {"in": 0, "post": 1, "pre": 2}.get(x["state"], 3))
+            group["items"].sort(key=lambda x: {"in": 0, "post": 1, "pre": 2}.get(x.get("state"), 3))
             matches.append(group)
     tables = {}
     for slug in PRIORITY:
