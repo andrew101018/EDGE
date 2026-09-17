@@ -63,9 +63,7 @@ BROADCASTERS = {"eng.1": "beIN Sports", "esp.1": "beIN Sports", "ita.1": "beIN S
     "uefa.europa": "beIN Sports", "uefa.europa.conf": "beIN Sports", "por.1": "beIN Sports",
     "ned.1": "beIN Sports", "tur.1": "beIN Sports", "fifa.world": "beIN Sports",
     "fifa.worldq.uefa": "beIN Sports", "uefa.nations": "beIN Sports",
-    "ksa.1": "SSC / شاهد", "egy.1": "أون تايم سبورتس", "usa.1": "beIN Sports", "mex.1": "beIN Sports"}BROADCASTERS = {"eng.1": "beIN Sports", "esp.1": "beIN Sports", "ita.1": "beIN Sports",
-    "fra.1": "beIN Sports", "ger.1": "beIN Sports", "uefa.champions": "beIN Sports",
-    "ksa.1": "SSC / شاهد", "egy.1": "أون تايم سبورتس"}
+    "ksa.1": "SSC / شاهد", "egy.1": "أون تايم سبورتس", "usa.1": "beIN Sports", "mex.1": "beIN Sports"}
 TEAM_AR = {"Real Madrid": "ريال مدريد", "Barcelona": "برشلونة", "Liverpool": "ليفربول",
     "Manchester City": "مانشستر سيتي", "Manchester United": "مانشستر يونايتد", "Chelsea": "تشيلسي",
     "Arsenal": "أرسنال", "Tottenham Hotspur": "توتنهام", "Paris Saint-Germain": "باريس سان جيرمان",
