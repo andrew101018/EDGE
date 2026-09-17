@@ -801,16 +801,14 @@ def build_site_data(state, today):
                     "tv": BROADCASTERS.get(slug, ""), "hs": home["score"], "as": away["score"],
                     "time": dt.strftime("%I:%M"),
                     "day": dt.strftime("%A"),
-                    "dateAr": dt.strftime("%d/%m"),
-                    "day": dt.strftime("%A"),
-                    "dateAr": dt.strftime("%d/%m"),                   
+                    "dateAr": dt.strftime("%d/%m"),               
                     "date": dt.isoformat(),
                     "detail": comp["status"]["type"].get("shortDetail", "")})
             except Exception:
                 continue
         if group["items"]:
-         group["items"].sort(key=lambda x: {"in": 0, "post": 1, "pre": 2}.get(x.get("state"), 3))
-         matches.append(group)
+            group["items"].sort(key=lambda x: {"in": 0, "post": 1, "pre": 2}.get(x.get("state"), 3))
+            matches.append(group)
     tables = {}
     for slug in PRIORITY:
         t = top_table(slug, 30)
