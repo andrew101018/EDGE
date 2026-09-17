@@ -806,7 +806,7 @@ def build_site_data(state, today):
                 continue
         if group["items"]:
          group["items"].sort(key=lambda x: {"in": 0, "post": 1, "pre": 2}.get(x.get("state"), 3))
-            matches.append(group)
+         matches.append(group)
     tables = {}
     for slug in PRIORITY:
         t = top_table(slug, 30)
