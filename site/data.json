@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-09-17 01:11 PM",
+  "updated_at": "2026-09-17 05:56 PM",
   "news": [
+    {
+      "t": "⚽ \"لا أحد يفعل ذلك غيره\".. بيكهام يكشف مرشحه للكرة الذهبية - Kooora",
+      "full": "⚽ \"لا أحد يفعل ذلك غيره\".. بيكهام يكشف مرشحه للكرة الذهبية - Kooora\n\n\"لا أحد يفعل ذلك غيره\".. بيكهام يكشف مرشحه للكرة الذهبية  Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ ميسي يسجل هدفه الـ 100 مع إنتر ميامي ويقوده للفوز بكأس الأبطال - beIN SPORTS",
+      "full": "⚽ ميسي يسجل هدفه الـ 100 مع إنتر ميامي ويقوده للفوز بكأس الأبطال - beIN SPORTS\n\nميسي يسجل هدفه الـ 100 مع إنتر ميامي ويقوده للفوز بكأس الأبطال  beIN SPORTS",
+      "img": ""
+    },
+    {
+      "t": "⚽ الإصابة تحرم لاعب بيراميدز من الانضمام لمعسكر بلده في التوقف الدولي - بطولات",
+      "full": "⚽ الإصابة تحرم لاعب بيراميدز من الانضمام لمعسكر بلده في التوقف الدولي - بطولات\n\nالإصابة تحرم لاعب بيراميدز من الانضمام لمعسكر بلده في التوقف الدولي  بطولات",
+      "img": ""
+    },
+    {
+      "t": "⚽ بيراميدز يستعرض تجربته الاستثمارية في قمة كرة القدم العالمية بمدريد - يلاكورة",
+      "full": "⚽ بيراميدز يستعرض تجربته الاستثمارية في قمة كرة القدم العالمية بمدريد - يلاكورة\n\nبيراميدز يستعرض تجربته الاستثمارية في قمة كرة القدم العالمية بمدريد  يلاكورة",
+      "img": ""
+    },
     {
       "t": "⚽ فليك يعلق على خطأ تشيزني.. ويشيد بنجم برشلونة بعد تجاوز \"الفترة الصعبة\" - Kooora",
       "full": "⚽ فليك يعلق على خطأ تشيزني.. ويشيد بنجم برشلونة بعد تجاوز \"الفترة الصعبة\" - Kooora\n\nفليك يعلق على خطأ تشيزني.. ويشيد بنجم برشلونة بعد تجاوز \"الفترة الصعبة\"  Kooora",
@@ -80,26 +100,6 @@
       "t": "⚽ حسام حسن يعلن قائمة منتخب مصر استعدادًا لأنجولا وجنوب السودان وجنوب أفريقيا - اليوم السابع",
       "full": "⚽ حسام حسن يعلن قائمة منتخب مصر استعدادًا لأنجولا وجنوب السودان وجنوب أفريقيا - اليوم السابع\n\nحسام حسن يعلن قائمة منتخب مصر استعدادًا لأنجولا وجنوب السودان وجنوب أفريقيا  اليوم السابع",
       "img": ""
-    },
-    {
-      "t": "⚽ صدمة لأنشيلوتي.. إصابة غامضة تطيح بـ\"المنحوس\" من قائمة البرازيل - Kooora",
-      "full": "⚽ صدمة لأنشيلوتي.. إصابة غامضة تطيح بـ\"المنحوس\" من قائمة البرازيل - Kooora\n\nصدمة لأنشيلوتي.. إصابة غامضة تطيح بـ\"المنحوس\" من قائمة البرازيل  Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ الأخوان رحيمي يدخلان قائمة نادرة.. أشقاء هزوا الشباك في مباراة واحدة - الجزيرة نت",
-      "full": "⚽ الأخوان رحيمي يدخلان قائمة نادرة.. أشقاء هزوا الشباك في مباراة واحدة - الجزيرة نت\n\nالأخوان رحيمي يدخلان قائمة نادرة.. أشقاء هزوا الشباك في مباراة واحدة  الجزيرة نت",
-      "img": ""
-    },
-    {
-      "t": "⚽ مجددا.. الاتحاد التركي يحيل طرابزون سبور إلى اللجنة التأديبية - yallakora.com",
-      "full": "⚽ مجددا.. الاتحاد التركي يحيل طرابزون سبور إلى اللجنة التأديبية - yallakora.com\n\nمجددا.. الاتحاد التركي يحيل طرابزون سبور إلى اللجنة التأديبية  yallakora.com",
-      "img": ""
-    },
-    {
-      "t": "⚽ الأخبار - الاتحاد المصري لكرة القدم",
-      "full": "⚽ الأخبار - الاتحاد المصري لكرة القدم\n\nالأخبار  الاتحاد المصري لكرة القدم",
-      "img": ""
     }
   ],
   "results": [
@@ -111,6 +111,57 @@
       "league": "الدوري الإسباني",
       "slug": "esp.1",
       "items": [
+        {
+          "home": "أتلتيكو مدريد",
+          "away": "Osasuna",
+          "eid": "401882875",
+          "slug": "esp.1",
+          "homeId": "1068",
+          "awayId": "97",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/97.png",
+          "tv": "beIN Sports",
+          "hs": "4",
+          "as": "0",
+          "time": "08:00 PM",
+          "state": "post",
+          "date": "2026-09-16T20:00:00+03:00",
+          "detail": "FT"
+        },
+        {
+          "home": "Deportivo",
+          "away": "Sevilla",
+          "eid": "401882873",
+          "slug": "esp.1",
+          "homeId": "90",
+          "awayId": "243",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/90.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/243.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "1",
+          "time": "08:00 PM",
+          "state": "post",
+          "date": "2026-09-16T20:00:00+03:00",
+          "detail": "FT"
+        },
+        {
+          "home": "برشلونة",
+          "away": "Racing Santander",
+          "eid": "401882871",
+          "slug": "esp.1",
+          "homeId": "83",
+          "awayId": "87",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/87.png",
+          "tv": "beIN Sports",
+          "hs": "7",
+          "as": "2",
+          "time": "10:30 PM",
+          "state": "post",
+          "date": "2026-09-16T22:30:00+03:00",
+          "detail": "FT"
+        },
         {
           "home": "Real Betis",
           "away": "Getafe",
@@ -2291,16 +2342,20 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0915/dm_260915_Flick_Yamal_wants_to_win_the_Ballon_dOr/dm_260915_Flick_Yamal_wants_to_win_the_Ballon_dOr.jpg"
     },
     {
-      "t": "Andy Burnham watches Everton with Canadian PM Mark Carney",
-      "img": "https://a.espncdn.com/photo/2026/0917/r1717967_1296x729_16-9.jpg"
+      "t": "Fabian Hürzeler urges Brighton to stay humble despite impressive comeback win over Man United",
+      "img": "https://a.espncdn.com/photo/2026/0917/r1718073_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer rumors, news: Arsenal still keen on Real Madrid winger Rodrygo",
-      "img": "https://a.espncdn.com/photo/2026/0427/r1649941_3_1296x729_16-9.jpg"
+      "t": "Chelsea boss Xabi Alonso thanks Todd Boehly, Mark Walter after sale",
+      "img": "https://a.espncdn.com/photo/2024/0904/r1381813_1296x729_16-9.jpg"
     },
     {
-      "t": "Man United will be 'careful' with Gabriel future, Carrick says",
-      "img": "https://a.espncdn.com/photo/2026/0915/r1717007_1296x729_16-9.jpg"
+      "t": "Frank Lampard urges Coventry to stay positive amid four-game losing streak",
+      "img": "https://a.espncdn.com/photo/2026/0917/r1718005_1296x729_16-9.jpg"
+    },
+    {
+      "t": "World soccer's hottest men's teams right now: Can anyone stop Barcelona?",
+      "img": "https://a.espncdn.com/photo/2026/0916/r1717661_1296x729_16-9.jpg"
     },
     {
       "t": "Flick: Barcelona played really good football vs. Racing Santander",
@@ -2311,8 +2366,8 @@
       "img": "https://a.espncdn.com/photo/2026/0427/r1649941_3_1296x729_16-9.jpg"
     },
     {
-      "t": "Is Raphinha currently the best No. 9 in the world?",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0917/dm_260917_COM_SOC_Analysis_Is_Raphinha_currently_the_best_No_9_in_the_world3F_GLOBAL_2026-09-17/dm_260917_COM_SOC_Analysis_Is_Raphinha_currently_the_best_No_9_in_the_world3F_GLOBAL_2026-09-17.jpg"
+      "t": "World soccer's hottest men's teams right now: Can anyone stop Barcelona?",
+      "img": "https://a.espncdn.com/photo/2026/0916/r1717661_1296x729_16-9.jpg"
     },
     {
       "t": "Keller: Pulisic needs to 'reprove himself' at AC Milan",
@@ -2323,8 +2378,8 @@
       "img": "https://a.espncdn.com/photo/2026/0915/r1716915_1296x729_16-9.jpg"
     },
     {
-      "t": "Inter Milan, Roma both win to stay perfect atop Serie A",
-      "img": ""
+      "t": "World soccer's hottest men's teams right now: Can anyone stop Barcelona?",
+      "img": "https://a.espncdn.com/photo/2026/0916/r1717661_1296x729_16-9.jpg"
     },
     {
       "t": "Transfer rumors, news: Barcelona keeping tabs on possible move for Kane",
@@ -2335,8 +2390,8 @@
       "img": "https://a.espncdn.com/photo/2026/0916/r1717603_1296x729_16-9.jpg"
     },
     {
-      "t": "Borussia Dortmund teenager Konstantinos Karetsas returns to training after Champions League health scare",
-      "img": "https://a.espncdn.com/photo/2026/0916/r1717509_1296x729_16-9.jpg"
+      "t": "World soccer's hottest men's teams right now: Can anyone stop Barcelona?",
+      "img": "https://a.espncdn.com/photo/2026/0916/r1717661_1296x729_16-9.jpg"
     },
     {
       "t": "Ousmane Dembélé: 'Never the chosen one,' but hard work at 'back of the class' earned Ballon d'Or",
@@ -2345,10 +2400,6 @@
     {
       "t": "Ferran Torres strikes again to earn PSG first Ligue 1 win",
       "img": "https://a.espncdn.com/photo/2026/0913/r1716180_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Monaco's Lamine Camara says he has 'turned the page' after failed Chelsea move",
-      "img": "https://a.espncdn.com/photo/2026/0911/r1714932_1296x729_16-9.jpg"
     }
   ],
   "highlights": [],
