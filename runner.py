@@ -471,13 +471,26 @@ def fetch_article(url):
         return ""
 
 def fetch_scoreboard(slug):
+    """يجيب مباريات 3 أيام: امبارح + النهاردة + بكره (صريح بالتواريخ)"""
     try:
-        r = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard", timeout=8)
+        base = "https://site.api.espn.com/apis/site/v2/sports/soccer/" + slug + "/scoreboard"
+        results = []
+        today = datetime.now(CAIRO).date()
+        for offset in (-1, 0, 1):
+            d = today.fromordinal(today.toordinal() + offset)
+            r = requests.get(base + "?dates=" + d.strftime("%Y%m%d"), timeout=8)
+            if r.ok:
+                data = r.json()
+                if data.get("events"):
+                    results.extend(data["events"])
+        if results:
+            merged = {"events": results}
+            return merged
+        r = requests.get(base, timeout=8)
         if r.ok: return r.json()
     except Exception as e:
         print("scoreboard error:", slug, e)
     return None
-
 def fetch_standings(slug):
     try:
         r = requests.get(f"https://site.api.espn.com/apis/v2/sports/soccer/{slug}/standings", timeout=8)
