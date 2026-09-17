@@ -799,7 +799,7 @@ def build_site_data(state, today):
                     "awayId": away["team"].get("id", ""),
                     "homeLogo": home["team"].get("logo", ""), "awayLogo": away["team"].get("logo", ""),
                     "tv": BROADCASTERS.get(slug, ""), "hs": home["score"], "as": away["score"],
-                    "time": dt.strftime("%I:%M %p"), "state": st,
+                    "time": dt.strftime("%I:%M %p").replace("AM", "ص").replace("PM", "م"),
                     "date": dt.isoformat(),
                     "detail": comp["status"]["type"].get("shortDetail", "")})
             except Exception:
