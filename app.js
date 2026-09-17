@@ -268,23 +268,6 @@ function matchDateBadge(m) {
   return dayLabel ? `<div class="m-day">${dayLabel}</div>` : '';
 }
 
-function matchRow(m) {
-  let score = '';
-  if (m.state === 'in') score = `<div class="m-score live">${m.hs} - ${m.as}<span class="m-status">🔴 ${m.detail}</span></div>`;
-  else if (m.state === 'post') score = `<div class="m-score post">${m.hs} - ${m.as}<span class="m-status">انتهت</span></div>`;
-  else score = `<div class="m-score pre">${m.time}${m.detail && /PM|AM|م|ص/.test(m.time) ? '' : ' ' + (m.detail || '')}<span class="m-status">لم تبدأ</span></div>`;
-  const tvHtml = m.tv ? `<div class="tv-line">${m.tvUrl ? `<a href="${m.tvUrl}" target="_blank">📺 يُذاع عبر: ${m.tv}</a>` : `📺 ${m.tv}`}</div>` : '';
-  return `<div class="match-card">
-    <div class="match-row" style="cursor:pointer;" data-match="${m.eid}|${m.slug}|${m.home} × ${m.away}">
-      ${matchDateBadge(m)}
-      <div class="m-teams-row">
-        <div class="m-team team-link" data-team="${m.slug}|${m.homeId}|${m.home}">${teamLogo(m.homeLogo)} ${m.home}</div>
-        ${score}
-        <div class="m-team team-link" data-team="${m.slug}|${m.awayId}|${m.away}">${m.away} ${teamLogo(m.awayLogo)}</div>
-      </div>
-    </div>${tvHtml}
-  </div>`;
-}
 function renderMatches() {
   const el = document.getElementById('matchesContainer');
   const liveItems = [];
