@@ -299,3 +299,14 @@ button:focus-visible, a:focus-visible { outline: 2px solid #f59e0b; outline-offs
   #tablesContainer .stand th:nth-child(3), #tablesContainer .stand td:nth-child(3),
   #tablesContainer .stand th:nth-child(5), #tablesContainer .stand td:nth-child(5) { display: none; }
 }
+
+/* ---------- 🃏 كروت المباريات الجديدة ---------- */
+.match-card { background: #16213a; border-radius: 10px; margin-bottom: 8px; border: 1px solid #24344f; overflow: hidden; transition: border-color .15s, transform .15s; }
+.match-card:hover { border-color: #f59e0b; transform: translateY(-2px); }
+.match-card .match-row { display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; align-items: stretch; }
+.m-day { text-align: center; font-size: 0.72em; font-weight: bold; color: #fbbf24; background: rgba(245, 158, 11, 0.12); border-radius: 20px; padding: 3px 10px; align-self: center; margin-bottom: 4px; }
+.m-teams-row { display: flex; justify-content: center; align-items: center; gap: 14px; }
+.match-card .m-team { flex: 0 1 240px; }
+.match-card .tv-line { border-radius: 0 0 10px 10px; border-top: 1px solid #24344f; }
+[data-theme="light"] .match-card { background: #fff; }
+[data-theme="light"] .m-day { color: #b45309; }
