@@ -48,10 +48,22 @@ FOOT = ["كرة", "كورة", "football", "soccer", "دوري", "ملعب", "م�
 
 LEAGUES = {"eng.1": "الدوري الإنجليزي", "esp.1": "الدوري الإسباني", "ita.1": "الدوري الإيطالي",
     "ger.1": "الدوري الألماني", "fra.1": "الدوري الفرنسي", "ksa.1": "الدوري السعودي",
-    "egy.1": "الدوري المصري", "uefa.champions": "دوري أبطال أوروبا"}
-PRIORITY = ["egy.1", "ksa.1", "uefa.champions", "eng.1", "esp.1", "ita.1", "ger.1", "fra.1"]
-BIG_LEAGUES = ["eng.1", "esp.1", "uefa.champions", "egy.1", "ksa.1"]
+    "egy.1": "الدوري المصري", "uefa.champions": "دوري أبطال أوروبا", "uefa.europa": "الدوري الأوروبي",
+    "uefa.europa.conf": "دوري المؤتمرات", "usa.1": "الدوري الأمريكي", "mex.1": "الدوري المكسيكي",
+    "por.1": "الدوري البرتغالي", "ned.1": "الدوري الهولندي", "tur.1": "الدوري التركي",
+    "uefa.nations": "دوري الأمم الأوروبية", "fifa.world": "كأس العالم", "fifa.worldq.uefa": "تصفيات أوروبا",
+    "afa.san": "تصفيات أمريكا الجنوبية", "concacaf.wq": "تصفيات الكونكاف", "caf.wq": "تصفيات أفريقيا",
+    "afc.wq": "تصفيات آسيا"}
+PRIORITY = ["uefa.champions", "uefa.europa", "uefa.europa.conf", "fifa.world", "fifa.worldq.uefa",
+    "eng.1", "esp.1", "ita.1", "ger.1", "fra.1", "ksa.1", "egy.1", "usa.1", "mex.1",
+    "por.1", "ned.1", "tur.1", "uefa.nations", "afa.san", "concacaf.wq", "caf.wq", "afc.wq"]
+BIG_LEAGUES = ["uefa.champions", "eng.1", "esp.1", "egy.1", "ksa.1", "fifa.world", "uefa.nations"]
 BROADCASTERS = {"eng.1": "beIN Sports", "esp.1": "beIN Sports", "ita.1": "beIN Sports",
+    "fra.1": "beIN Sports", "ger.1": "beIN Sports", "uefa.champions": "beIN Sports",
+    "uefa.europa": "beIN Sports", "uefa.europa.conf": "beIN Sports", "por.1": "beIN Sports",
+    "ned.1": "beIN Sports", "tur.1": "beIN Sports", "fifa.world": "beIN Sports",
+    "fifa.worldq.uefa": "beIN Sports", "uefa.nations": "beIN Sports",
+    "ksa.1": "SSC / شاهد", "egy.1": "أون تايم سبورتس", "usa.1": "beIN Sports", "mex.1": "beIN Sports"}BROADCASTERS = {"eng.1": "beIN Sports", "esp.1": "beIN Sports", "ita.1": "beIN Sports",
     "fra.1": "beIN Sports", "ger.1": "beIN Sports", "uefa.champions": "beIN Sports",
     "ksa.1": "SSC / شاهد", "egy.1": "أون تايم سبورتس"}
 TEAM_AR = {"Real Madrid": "ريال مدريد", "Barcelona": "برشلونة", "Liverpool": "ليفربول",
@@ -470,22 +482,24 @@ def fetch_article(url):
     except Exception:
         return ""
 
-def fetch_scoreboard(slug):
+def fetch_scoreboard(slug, days=(-1, 0, 1)):
     """يجيب مباريات 3 أيام: امبارح + النهاردة + بكره (صريح بالتواريخ)"""
     try:
         base = "https://site.api.espn.com/apis/site/v2/sports/soccer/" + slug + "/scoreboard"
         results = []
         today = datetime.now(CAIRO).date()
-        for offset in (-1, 0, 1):
+        seen = set()
+        for offset in days:
             d = today.fromordinal(today.toordinal() + offset)
             r = requests.get(base + "?dates=" + d.strftime("%Y%m%d"), timeout=8)
-            if r.ok:
-                data = r.json()
-                if data.get("events"):
-                    results.extend(data["events"])
+            if not r.ok: continue
+            for ev in (r.json() or {}).get("events", []):
+                eid = ev.get("id")
+                if eid and eid not in seen:
+                    seen.add(eid)
+                    results.append(ev)
         if results:
-            merged = {"events": results}
-            return merged
+            return {"events": results}
         r = requests.get(base, timeout=8)
         if r.ok: return r.json()
     except Exception as e:
