@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-09-18 01:22 AM",
+  "updated_at": "2026-09-18 03:32 AM",
   "news": [
+    {
+      "t": "⚽ الزمالك يحقق في تسريب عقد خوان بيزيرا - صدى البلد",
+      "full": "⚽ الزمالك يحقق في تسريب عقد خوان بيزيرا - صدى البلد\n\nالزمالك يحقق في تسريب عقد خوان بيزيرا  صدى البلد",
+      "img": ""
+    },
+    {
+      "t": "⚽ طلب حمزة علاء ومفاجأة لمنصف بقرار.. ماذا حدث في الأهلي اليوم الخميس؟ - Masrawy",
+      "full": "⚽ طلب حمزة علاء ومفاجأة لمنصف بقرار.. ماذا حدث في الأهلي اليوم الخميس؟ - Masrawy\n\nطلب حمزة علاء ومفاجأة لمنصف بقرار.. ماذا حدث في الأهلي اليوم الخميس؟  Masrawy",
+      "img": ""
+    },
+    {
+      "t": "⚽ موعد مباراة منتخب مصر أمام أنجولا فى تصفيات أمم أفريقيا 2027 - اليوم السابع",
+      "full": "⚽ موعد مباراة منتخب مصر أمام أنجولا فى تصفيات أمم أفريقيا 2027 - اليوم السابع\n\nموعد مباراة منتخب مصر أمام أنجولا فى تصفيات أمم أفريقيا 2027  اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ قرارات قوية من مجلس إدارة المصري بعد تراجع النتائج - صدى البلد",
+      "full": "⚽ قرارات قوية من مجلس إدارة المصري بعد تراجع النتائج - صدى البلد\n\nقرارات قوية من مجلس إدارة المصري بعد تراجع النتائج  صدى البلد",
+      "img": ""
+    },
     {
       "t": "⚽ خالد الغندور يعلق على نغمة التوفيق والحظ يساندون الزمالك .. ويقارن مع الاهلي - الزمالك اليوم",
       "full": "⚽ خالد الغندور يعلق على نغمة التوفيق والحظ يساندون الزمالك .. ويقارن مع الاهلي - الزمالك اليوم\n\nخالد الغندور يعلق على نغمة التوفيق والحظ يساندون الزمالك .. ويقارن مع الاهلي  الزمالك اليوم",
@@ -79,26 +99,6 @@
     {
       "t": "⚽ مصدر من اتحاد الكرة يكشف لـ في الجول حقيقة التواصل مع بنتايك لتمثيل مصر - FilGoal",
       "full": "⚽ مصدر من اتحاد الكرة يكشف لـ في الجول حقيقة التواصل مع بنتايك لتمثيل مصر - FilGoal\n\nمصدر من اتحاد الكرة يكشف لـ في الجول حقيقة التواصل مع بنتايك لتمثيل مصر  FilGoal",
-      "img": ""
-    },
-    {
-      "t": "⚽ موعد مباراتي الأهلي وكيتارا الأوغندي في دور الـ32 بالكونفدرالية - صدى البلد",
-      "full": "⚽ موعد مباراتي الأهلي وكيتارا الأوغندي في دور الـ32 بالكونفدرالية - صدى البلد\n\nموعد مباراتي الأهلي وكيتارا الأوغندي في دور الـ32 بالكونفدرالية  صدى البلد",
-      "img": ""
-    },
-    {
-      "t": "⚽ حقيقة انسحاب الأهلي من كأس السوبر المصري (تفاصيل) - المصري اليوم",
-      "full": "⚽ حقيقة انسحاب الأهلي من كأس السوبر المصري (تفاصيل) - المصري اليوم\n\nحقيقة انسحاب الأهلي من كأس السوبر المصري (تفاصيل)  المصري اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ من الخماسية إلى أول هدف للأبيض.. ماذا تقول مواجهات الأهلي والزمالك في دوري السيدات؟ - يلاكورة",
-      "full": "⚽ من الخماسية إلى أول هدف للأبيض.. ماذا تقول مواجهات الأهلي والزمالك في دوري السيدات؟ - يلاكورة\n\nمن الخماسية إلى أول هدف للأبيض.. ماذا تقول مواجهات الأهلي والزمالك في دوري السيدات؟  يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ مدرب إنتر ميامي: يجب أن يفوز ميسي بالكرة الذهبية.. لا مثيل له - Kooora",
-      "full": "⚽ مدرب إنتر ميامي: يجب أن يفوز ميسي بالكرة الذهبية.. لا مثيل له - Kooora\n\nمدرب إنتر ميامي: يجب أن يفوز ميسي بالكرة الذهبية.. لا مثيل له  Kooora",
       "img": ""
     }
   ],
@@ -438,6 +438,31 @@
           "day": "Friday",
           "dateAr": "18/09",
           "date": "2026-09-18T21:45:00+03:00",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": true
+    },
+    {
+      "league": "الدوري الأمريكي",
+      "slug": "usa.1",
+      "items": [
+        {
+          "home": "New York City FC",
+          "away": "Red Bull New York",
+          "eid": "761815",
+          "slug": "usa.1",
+          "homeId": "17606",
+          "awayId": "190",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17606.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/190.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "02:30",
+          "day": "Saturday",
+          "dateAr": "19/09",
+          "date": "2026-09-19T02:30:00+03:00",
           "detail": "Scheduled"
         }
       ],
@@ -4683,16 +4708,16 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0916/dm_260916_Abdelkarim_praises_Norwegian_striker_accepts_Haaland_of_the_Nile_comparison/dm_260916_Abdelkarim_praises_Norwegian_striker_accepts_Haaland_of_the_Nile_comparison.jpg"
     },
     {
+      "t": "Marco Rose proud of 'Bournemouth football' in European debut win over Real Sociedad",
+      "img": "https://a.espncdn.com/photo/2026/0917/r1718306_1296x729_16-9.jpg"
+    },
+    {
       "t": "Bournemouth make statement in European debut ",
       "img": "https://a.espncdn.com/photo/2026/0917/r1718259_1296x729_16-9.jpg"
     },
     {
       "t": "Crystal Palace win rout Lech Poznan in long-awaited UEL debut",
       "img": "https://a.espncdn.com/photo/2026/0917/r1718260_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Ultimate underdogs: What's it like when lower-league teams qualify for Europe?",
-      "img": "https://a.espncdn.com/photo/2026/0917/r1717962_1296x729_16-9.jpg"
     },
     {
       "t": "Folarin Balogun omitted from Monaco Conference League squad after Everton saga",
@@ -4731,16 +4756,16 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0724/dm_260724_COM_SOC_Presser_Klopp_When_you_dont_want_me_as_Germany_coach_Im_gone_20260724_GLOBAL/dm_260724_COM_SOC_Presser_Klopp_When_you_dont_want_me_as_Germany_coach_Im_gone_20260724_GLOBAL.jpg"
     },
     {
+      "t": "Maresca has been pushing all the right buttons in perfect Man City start",
+      "img": "https://a.espncdn.com/photo/2026/0917/r1718300_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Marco Rose proud of 'Bournemouth football' in European debut win over Real Sociedad",
+      "img": "https://a.espncdn.com/photo/2026/0917/r1718306_1296x729_16-9.jpg"
+    },
+    {
       "t": "Man City's 17-year-old Floyd Samba: Debut brace vs. Norwich was 'mind-blowing'",
       "img": "https://a.espncdn.com/photo/2026/0917/r1718297_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Hislop: I do not see Chelsea beating Brentford",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0917/dm_260917_COM_SOC_analysis_Hislop_I_do_not_see_Chelsea_beating_Brentford_20260917_GLOBAL/dm_260917_COM_SOC_analysis_Hislop_I_do_not_see_Chelsea_beating_Brentford_20260917_GLOBAL.jpg"
-    },
-    {
-      "t": "Phil Jones: Old Trafford has a 'massive effect' on the players",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0917/dm_260917_COM_SOC_analysis_Phil_Jones_Old_Trafford_has_a_massive_effect_on_the_players_20260917_GLOBAL/dm_260917_COM_SOC_analysis_Phil_Jones_Old_Trafford_has_a_massive_effect_on_the_players_20260917_GLOBAL.jpg"
     },
     {
       "t": "Burley not sure Vinicius Jr. is ready to step up if Mbappe falters",
