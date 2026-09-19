@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-19 08:21 AM",
+  "updated_at": "2026-09-19 12:39 PM",
   "news": [
     {
       "t": "⚽ معتمد جمال يجهز مفاجأة للأهلي في مباراة القمة.. ما الجديد؟ - صدى البلد",
@@ -4382,6 +4382,12 @@
           "face": ""
         },
         {
+          "name": "Fer Niño",
+          "team": "Elche",
+          "value": "5 ⚽",
+          "face": ""
+        },
+        {
           "name": "Ante Budimir",
           "team": "Osasuna",
           "value": "4 ⚽",
@@ -4408,12 +4414,6 @@
         {
           "name": "Roger Brugué",
           "team": "Levante",
-          "value": "3 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Fer Niño",
-          "team": "Elche",
           "value": "3 ⚽",
           "face": ""
         },
@@ -4446,6 +4446,12 @@
           "face": ""
         },
         {
+          "name": "Gustavo Varela",
+          "team": "Monza",
+          "value": "4 ⚽",
+          "face": ""
+        },
+        {
           "name": "Davide Frattesi",
           "team": "Lazio",
           "value": "3 ⚽",
@@ -4454,6 +4460,12 @@
         {
           "name": "Franco Mastantuono",
           "team": "Fiorentina",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Vasilije Adzic",
+          "team": "Sassuolo",
           "value": "3 ⚽",
           "face": ""
         },
@@ -4506,18 +4518,6 @@
           "face": ""
         },
         {
-          "name": "Gustavo Varela",
-          "team": "Monza",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Vasilije Adzic",
-          "team": "Sassuolo",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
           "name": "Roberto Piccoli",
           "team": "Bologna",
           "value": "1 ⚽",
@@ -4533,6 +4533,12 @@
     },
     "الدوري الألماني": {
       "الهدافون 🏆": [
+        {
+          "name": "Michael Olise",
+          "team": "بايرن ميونخ",
+          "value": "4 ⚽",
+          "face": ""
+        },
         {
           "name": "Phillip Tietz",
           "team": "Mainz",
@@ -4616,12 +4622,6 @@
           "team": "1. FC Union Berlin",
           "value": "2 ⚽",
           "face": ""
-        },
-        {
-          "name": "Adil Aouchiche",
-          "team": "Schalke 04",
-          "value": "1 ⚽",
-          "face": ""
         }
       ]
     },
@@ -4646,6 +4646,12 @@
           "face": ""
         },
         {
+          "name": "Paris Brunner",
+          "team": "AS Monaco",
+          "value": "4 ⚽",
+          "face": ""
+        },
+        {
           "name": "Louis Mafouta",
           "team": "Le Mans",
           "value": "3 ⚽",
@@ -4666,12 +4672,6 @@
         {
           "name": "Florian Thauvin",
           "team": "Lens",
-          "value": "3 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Paris Brunner",
-          "team": "AS Monaco",
           "value": "3 ⚽",
           "face": ""
         },
@@ -4870,14 +4870,14 @@
           "face": ""
         },
         {
-          "name": "Sergi Solans",
-          "team": "Real Salt Lake",
-          "value": "9 ⚽",
+          "name": "Julian Hall",
+          "team": "Red Bull New York",
+          "value": "10 ⚽",
           "face": ""
         },
         {
-          "name": "Julian Hall",
-          "team": "Red Bull New York",
+          "name": "Sergi Solans",
+          "team": "Real Salt Lake",
           "value": "9 ⚽",
           "face": ""
         },
@@ -4918,6 +4918,12 @@
         {
           "name": "Lucas Ocampos",
           "team": "Monterrey",
+          "value": "5 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Óscar Estupiñán",
+          "team": "FC Juarez",
           "value": "5 ⚽",
           "face": ""
         },
@@ -4984,12 +4990,6 @@
         {
           "name": "Eduardo Mustre",
           "team": "Puebla",
-          "value": "3 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Óscar Estupiñán",
-          "team": "FC Juarez",
           "value": "3 ⚽",
           "face": ""
         },
@@ -5100,12 +5100,6 @@
         {
           "name": "Ro-Zangelo Daal",
           "team": "AZ Alkmaar",
-          "value": "4 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Brynjólfur Willumsson",
-          "team": "FC Groningen",
           "value": "4 ⚽",
           "face": ""
         },
@@ -5286,16 +5280,16 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0724/dm_260724_COM_SOC_Presser_Klopp_When_you_dont_want_me_as_Germany_coach_Im_gone_20260724_GLOBAL/dm_260724_COM_SOC_Presser_Klopp_When_you_dont_want_me_as_Germany_coach_Im_gone_20260724_GLOBAL.jpg"
     },
     {
-      "t": "Arsenal, Mikel Arteta open to Max Dowman loan move",
-      "img": "https://a.espncdn.com/photo/2026/0915/r1717224_1296x729_16-9.jpg"
+      "t": "Liverpool's Andoni Iraola admits Bournemouth will be aware of his tactics ahead of 'tricky' return",
+      "img": "https://a.espncdn.com/photo/2026/0531/r1666241_1296x729_16-9.jpg"
     },
     {
-      "t": "Xabi Alonso says Chelsea were 'out of control' in Brentford loss",
-      "img": "https://a.espncdn.com/photo/2026/0918/r1718798_1296x729_16-9.jpg"
+      "t": "Transfer rumors, news: Arsenal's Madueke eyed by Premier League rivals",
+      "img": "https://a.espncdn.com/photo/2026/0919/r1718883_1296x729_16-9.jpg"
     },
     {
-      "t": "How can erratic Chelsea find stability? For starters: Look to Brentford",
-      "img": "https://a.espncdn.com/photo/2026/0918/r1718755_1296x729_16-9.jpg"
+      "t": "Brentford upset Chelsea in historic win at home",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0919/dm_260919_Soccer_HIGHLIGHT_Brentford_upset_Chelsea_in_historic_win_at_home_20260919_AUS/dm_260919_Soccer_HIGHLIGHT_Brentford_upset_Chelsea_in_historic_win_at_home_20260919_AUS.jpg"
     },
     {
       "t": "Source: Former Mexico boss Aguirre close to taking over struggling Valencia",
@@ -5310,16 +5304,16 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/0918/8db12e66-afb4-4840-b691-3756c6c01c32/8db12e66-afb4-4840-b691-3756c6c01c32.jpg"
     },
     {
+      "t": "Inter Milan, Italy great Sandro Mazzola dies at 83: 'An eternal symbol'",
+      "img": "https://a.espncdn.com/photo/2026/0919/r1718884_1296x729_16-9.jpg"
+    },
+    {
       "t": "As San Siro turns 100, AC Milan and Inter prepare to build a new home",
       "img": "https://a.espncdn.com/photo/2026/0917/r1718227_1296x729_16-9.jpg"
     },
     {
       "t": "Weekend predictions: Madrid derby heats up LaLiga, Brighton to stun Arsenal?",
       "img": "https://a.espncdn.com/photo/2026/0917/r1718195_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Costacurta: There will be many tears saying goodbye to San Siro",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0917/dm_260917_COM_SOC_Interview_Costacurta_There_will_be_many_tears_saying_goodbye_to_San_Siro_20260917_GLOBA/dm_260917_COM_SOC_Interview_Costacurta_There_will_be_many_tears_saying_goodbye_to_San_Siro_20260917_GLOBA.jpg"
     },
     {
       "t": "Olise nets hat trick, Kane makes history in Bayern rout",
@@ -5418,16 +5412,16 @@
       "img": "https://a.espncdn.com/photo/2026/0907/r1712693_1296x729_16-9.jpg"
     },
     {
+      "t": "Bitter pill for Phil: Six eye-opening omissions from England's Nations League squad",
+      "img": "https://a.espncdn.com/photo/2026/0401/r1637260_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Why are England playing four games in 11 days? Extended international break explained",
+      "img": "https://a.espncdn.com/photo/2026/0915/r1716958_1296x729_16-9.jpg"
+    },
+    {
       "t": "Mancini names 8 newcomers in 1st Italy squad since returning",
       "img": "https://a.espncdn.com/photo/2026/0918/r1718701_1296x729_16-9.jpg"
-    },
-    {
-      "t": "After England's World Cup post-mortem, Thomas Tuchel is ready for a little chaos in bid for Euro 2028 redemption",
-      "img": "https://a.espncdn.com/photo/2026/0918/r1718541_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Tuchel: No point in torturing ourselves over World Cup exit",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0918/dm_260918_Tuchel_No_point_in_torturing_ourselves_over_World_Cup_exit/dm_260918_Tuchel_No_point_in_torturing_ourselves_over_World_Cup_exit.jpg"
     }
   ],
   "highlights": [],
