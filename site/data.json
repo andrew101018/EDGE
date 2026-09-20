@@ -1,6 +1,21 @@
 {
-  "updated_at": "2026-09-20 02:49 AM",
+  "updated_at": "2026-09-20 05:35 AM",
   "news": [
+    {
+      "t": "⚽ «قمة السيدات» تشعل أزمة بين الأهلي والزمالك - المصري اليوم",
+      "full": "⚽ «قمة السيدات» تشعل أزمة بين الأهلي والزمالك - المصري اليوم\n\n«قمة السيدات» تشعل أزمة بين الأهلي والزمالك  المصري اليوم",
+      "img": ""
+    },
+    {
+      "t": "⚽ الزمالك الأول وبيراميدز الثاني .. أحمد صالح يُثير قلق جماهير الأهلي بشأن جدول الدوري - صدى البلد",
+      "full": "⚽ الزمالك الأول وبيراميدز الثاني .. أحمد صالح يُثير قلق جماهير الأهلي بشأن جدول الدوري - صدى البلد\n\nالزمالك الأول وبيراميدز الثاني .. أحمد صالح يُثير قلق جماهير الأهلي بشأن جدول الدوري  صدى البلد",
+      "img": ""
+    },
+    {
+      "t": "⚽ عبد الناصر محمد: اعتزلت كرة القدم بـ«مزاجي».. وأخشى ظلم اللاعبين - صدى البلد",
+      "full": "⚽ عبد الناصر محمد: اعتزلت كرة القدم بـ«مزاجي».. وأخشى ظلم اللاعبين - صدى البلد\n\nعبد الناصر محمد: اعتزلت كرة القدم بـ«مزاجي».. وأخشى ظلم اللاعبين  صدى البلد",
+      "img": ""
+    },
     {
       "t": "⚽ موعد مباراة الأهلى القادمة بعد انتهاء التوقف الدولي - youm7.com",
       "full": "⚽ موعد مباراة الأهلى القادمة بعد انتهاء التوقف الدولي - youm7.com\n\nموعد مباراة الأهلى القادمة بعد انتهاء التوقف الدولي  youm7.com",
@@ -85,32 +100,19 @@
       "t": "⚽ حسام حسن يكثف تدريباته فى اليوم الثالث بمعسكر المنتخب ويترقب وصول المحترفين - اليوم السابع",
       "full": "⚽ حسام حسن يكثف تدريباته فى اليوم الثالث بمعسكر المنتخب ويترقب وصول المحترفين - اليوم السابع\n\nحسام حسن يكثف تدريباته فى اليوم الثالث بمعسكر المنتخب ويترقب وصول المحترفين  اليوم السابع",
       "img": ""
-    },
-    {
-      "t": "⚽ يامال: هزمت مبابي في كل شيء.. وتألقي تخطى ميسي ورونالدو - kooora.com",
-      "full": "⚽ يامال: هزمت مبابي في كل شيء.. وتألقي تخطى ميسي ورونالدو - kooora.com\n\nيامال: هزمت مبابي في كل شيء.. وتألقي تخطى ميسي ورونالدو  kooora.com",
-      "img": ""
-    },
-    {
-      "t": "⚽ انتهت الرحلة.. الزمالك يعلن رحيل بيزيرا إلى شباب أهلي دبي - يلاكورة",
-      "full": "⚽ انتهت الرحلة.. الزمالك يعلن رحيل بيزيرا إلى شباب أهلي دبي - يلاكورة\n\nانتهت الرحلة.. الزمالك يعلن رحيل بيزيرا إلى شباب أهلي دبي  يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ بعد اعتراف وكيله.. خبير قانوني يكشف لكووورة: هل يحق لنجم المغرب تمثيل منتخب مصر؟ - kooora.com",
-      "full": "⚽ بعد اعتراف وكيله.. خبير قانوني يكشف لكووورة: هل يحق لنجم المغرب تمثيل منتخب مصر؟ - kooora.com\n\nبعد اعتراف وكيله.. خبير قانوني يكشف لكووورة: هل يحق لنجم المغرب تمثيل منتخب مصر؟  kooora.com",
-      "img": ""
     }
   ],
   "results": [
+    "Le Mans 2 - 1 Lorient",
+    "Angers 2 - 0 Troyes",
+    "Paris FC 2 - 1 Strasbourg",
+    "VfB Stuttgart 0 - 1 بوروسيا دورتموند",
     "Werder Bremen 3 - 2 FC Augsburg",
     "Hamburg SV 2 - 1 FC Cologne",
     "Eintracht Frankfurt 2 - 2 SC Freiburg",
     "Borussia Mönchengladbach 3 - 4 Mainz",
     "Venezia 0 - 2 Lazio",
-    "AS Roma 2 - 2 Internazionale",
-    "Udinese 0 - 1 Cagliari",
-    "Sevilla 1 - 3 برشلونة"
+    "AS Roma 2 - 2 Internazionale"
   ],
   "matches": [
     {
@@ -919,12 +921,12 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/183.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "0",
+          "as": "2",
           "time": "02:30",
           "day": "Sunday",
           "dateAr": "20/09",
           "date": "2026-09-20T02:30:00+03:00",
-          "detail": "9'"
+          "detail": "FT"
         },
         {
           "home": "D.C. United",
@@ -936,13 +938,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/193.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21300.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "1",
+          "as": "2",
           "time": "02:30",
           "day": "Sunday",
           "dateAr": "20/09",
           "date": "2026-09-20T02:30:00+03:00",
-          "detail": "9'"
+          "detail": "FT"
         },
         {
           "home": "New England Revolution",
@@ -954,13 +956,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/189.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/12011.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "4",
+          "as": "2",
           "time": "02:30",
           "day": "Sunday",
           "dateAr": "20/09",
           "date": "2026-09-20T02:30:00+03:00",
-          "detail": "8'"
+          "detail": "FT"
         },
         {
           "home": "San Jose Earthquakes",
@@ -972,13 +974,31 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/191.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18966.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "2",
+          "as": "2",
           "time": "02:30",
           "day": "Sunday",
           "dateAr": "20/09",
           "date": "2026-09-20T02:30:00+03:00",
-          "detail": "9'"
+          "detail": "FT"
+        },
+        {
+          "home": "FC Dallas",
+          "away": "Austin FC",
+          "eid": "761822",
+          "slug": "usa.1",
+          "homeId": "185",
+          "awayId": "20906",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/185.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20906.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "03:30",
+          "day": "Sunday",
+          "dateAr": "20/09",
+          "date": "2026-09-20T03:30:00+03:00",
+          "detail": "90'+3'"
         },
         {
           "home": "Houston Dynamo FC",
@@ -990,13 +1010,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6077.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18267.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "2",
+          "as": "1",
           "time": "03:30",
           "day": "Sunday",
           "dateAr": "20/09",
           "date": "2026-09-20T03:30:00+03:00",
-          "detail": "Scheduled"
+          "detail": "90'+3'"
         },
         {
           "home": "Minnesota United FC",
@@ -1008,13 +1028,103 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17362.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/187.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "2",
+          "as": "3",
+          "time": "03:30",
+          "day": "Sunday",
+          "dateAr": "20/09",
+          "date": "2026-09-20T03:30:00+03:00",
+          "detail": "90'+3'"
+        },
+        {
+          "home": "Sporting Kansas City",
+          "away": "Philadelphia Union",
+          "eid": "761823",
+          "slug": "usa.1",
+          "homeId": "186",
+          "awayId": "10739",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/186.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10739.png",
+          "tv": "beIN Sports",
+          "hs": "3",
+          "as": "4",
+          "time": "03:30",
+          "day": "Sunday",
+          "dateAr": "20/09",
+          "date": "2026-09-20T03:30:00+03:00",
+          "detail": "90'+3'"
+        },
+        {
+          "home": "St. Louis CITY SC",
+          "away": "Toronto FC",
+          "eid": "761824",
+          "slug": "usa.1",
+          "homeId": "21812",
+          "awayId": "7318",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21812.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7318.png",
+          "tv": "beIN Sports",
+          "hs": "3",
           "as": "0",
           "time": "03:30",
           "day": "Sunday",
           "dateAr": "20/09",
           "date": "2026-09-20T03:30:00+03:00",
-          "detail": "Scheduled"
+          "detail": "90'+5'"
+        },
+        {
+          "home": "Colorado Rapids",
+          "away": "Seattle Sounders FC",
+          "eid": "761826",
+          "slug": "usa.1",
+          "homeId": "184",
+          "awayId": "9726",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/184.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9726.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "04:30",
+          "day": "Sunday",
+          "dateAr": "20/09",
+          "date": "2026-09-20T04:30:00+03:00",
+          "detail": "6'"
+        },
+        {
+          "home": "Nashville SC",
+          "away": "Chicago Fire FC",
+          "eid": "761827",
+          "slug": "usa.1",
+          "homeId": "18986",
+          "awayId": "182",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18986.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/182.png",
+          "tv": "beIN Sports",
+          "hs": "1",
+          "as": "0",
+          "time": "04:30",
+          "day": "Sunday",
+          "dateAr": "20/09",
+          "date": "2026-09-20T04:30:00+03:00",
+          "detail": "HT"
+        },
+        {
+          "home": "Real Salt Lake",
+          "away": "Vancouver Whitecaps",
+          "eid": "761825",
+          "slug": "usa.1",
+          "homeId": "4771",
+          "awayId": "9727",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4771.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9727.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "2",
+          "time": "04:30",
+          "day": "Sunday",
+          "dateAr": "20/09",
+          "date": "2026-09-20T04:30:00+03:00",
+          "detail": "HT"
         },
         {
           "home": "Portland Timbers",
@@ -1051,13 +1161,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/216.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/233.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "1",
           "time": "02:00",
           "day": "Sunday",
           "dateAr": "20/09",
           "date": "2026-09-20T02:00:00+03:00",
-          "detail": "45'+4'"
+          "detail": "FT"
         },
         {
           "home": "Atlético de San Luis",
@@ -1069,13 +1179,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/15720.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/229.png",
           "tv": "beIN Sports",
-          "hs": "1",
+          "hs": "3",
           "as": "1",
           "time": "02:00",
           "day": "Sunday",
           "dateAr": "20/09",
           "date": "2026-09-20T02:00:00+03:00",
-          "detail": "HT"
+          "detail": "FT"
         },
         {
           "home": "Monterrey",
@@ -1087,13 +1197,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/220.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/218.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "0",
           "time": "04:10",
           "day": "Sunday",
           "dateAr": "20/09",
           "date": "2026-09-20T04:10:00+03:00",
-          "detail": "Scheduled"
+          "detail": "59'"
         },
         {
           "home": "América",
@@ -1111,6 +1221,42 @@
           "day": "Sunday",
           "dateAr": "20/09",
           "date": "2026-09-20T06:15:00+03:00",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Pachuca",
+          "away": "Tijuana",
+          "eid": "401876967",
+          "slug": "mex.1",
+          "homeId": "234",
+          "awayId": "10125",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/234.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/10125.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "03:00",
+          "day": "Monday",
+          "dateAr": "21/09",
+          "date": "2026-09-21T03:00:00+03:00",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Querétaro",
+          "away": "León",
+          "eid": "401876965",
+          "slug": "mex.1",
+          "homeId": "222",
+          "awayId": "228",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/222.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/228.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "05:10",
+          "day": "Monday",
+          "dateAr": "21/09",
+          "date": "2026-09-21T05:10:00+03:00",
           "detail": "Scheduled"
         }
       ],
@@ -3654,6 +3800,16 @@
       },
       {
         "rank": 2,
+        "team": "New England Revolution",
+        "logo": "",
+        "gp": 26.0,
+        "w": 14.0,
+        "d": 4.0,
+        "l": 8.0,
+        "pts": 46.0
+      },
+      {
+        "rank": 3,
         "team": "Inter Miami CF",
         "logo": "",
         "gp": 25.0,
@@ -3663,24 +3819,14 @@
         "pts": 45.0
       },
       {
-        "rank": 3,
-        "team": "New England Revolution",
-        "logo": "",
-        "gp": 25.0,
-        "w": 13.0,
-        "d": 4.0,
-        "l": 8.0,
-        "pts": 43.0
-      },
-      {
         "rank": 4,
         "team": "Charlotte FC",
         "logo": "",
-        "gp": 25.0,
-        "w": 11.0,
+        "gp": 26.0,
+        "w": 12.0,
         "d": 7.0,
         "l": 7.0,
-        "pts": 40.0
+        "pts": 43.0
       },
       {
         "rank": 5,
@@ -3696,10 +3842,10 @@
         "rank": 6,
         "team": "Orlando City SC",
         "logo": "",
-        "gp": 25.0,
+        "gp": 26.0,
         "w": 10.0,
         "d": 4.0,
-        "l": 11.0,
+        "l": 12.0,
         "pts": 34.0
       },
       {
@@ -3744,17 +3890,17 @@
       },
       {
         "rank": 11,
-        "team": "D.C. United",
+        "team": "Toronto FC",
         "logo": "",
-        "gp": 24.0,
+        "gp": 25.0,
         "w": 6.0,
         "d": 11.0,
-        "l": 7.0,
+        "l": 8.0,
         "pts": 29.0
       },
       {
         "rank": 12,
-        "team": "Toronto FC",
+        "team": "D.C. United",
         "logo": "",
         "gp": 25.0,
         "w": 6.0,
@@ -3766,11 +3912,11 @@
         "rank": 13,
         "team": "Columbus Crew",
         "logo": "",
-        "gp": 25.0,
-        "w": 6.0,
+        "gp": 26.0,
+        "w": 7.0,
         "d": 5.0,
         "l": 14.0,
-        "pts": 23.0
+        "pts": 26.0
       },
       {
         "rank": 14,
@@ -3786,10 +3932,10 @@
         "rank": 15,
         "team": "CF Montréal",
         "logo": "",
-        "gp": 25.0,
+        "gp": 26.0,
         "w": 5.0,
         "d": 6.0,
-        "l": 14.0,
+        "l": 15.0,
         "pts": 21.0
       }
     ],
@@ -3846,6 +3992,16 @@
       },
       {
         "rank": 6,
+        "team": "Atlas",
+        "logo": "",
+        "gp": 9.0,
+        "w": 4.0,
+        "d": 2.0,
+        "l": 3.0,
+        "pts": 14.0
+      },
+      {
+        "rank": 7,
         "team": "Querétaro",
         "logo": "",
         "gp": 7.0,
@@ -3855,7 +4011,7 @@
         "pts": 13.0
       },
       {
-        "rank": 7,
+        "rank": 8,
         "team": "León",
         "logo": "",
         "gp": 8.0,
@@ -3865,7 +4021,7 @@
         "pts": 13.0
       },
       {
-        "rank": 8,
+        "rank": 9,
         "team": "Tijuana",
         "logo": "",
         "gp": 7.0,
@@ -3875,28 +4031,18 @@
         "pts": 13.0
       },
       {
-        "rank": 9,
-        "team": "Atlas",
-        "logo": "",
-        "gp": 8.0,
-        "w": 4.0,
-        "d": 1.0,
-        "l": 3.0,
-        "pts": 13.0
-      },
-      {
         "rank": 10,
-        "team": "Pachuca",
+        "team": "Pumas UNAM",
         "logo": "",
-        "gp": 8.0,
+        "gp": 9.0,
         "w": 3.0,
-        "d": 2.0,
+        "d": 3.0,
         "l": 3.0,
-        "pts": 11.0
+        "pts": 12.0
       },
       {
         "rank": 11,
-        "team": "Pumas UNAM",
+        "team": "Pachuca",
         "logo": "",
         "gp": 8.0,
         "w": 3.0,
@@ -3916,13 +4062,13 @@
       },
       {
         "rank": 13,
-        "team": "Necaxa",
+        "team": "Atlético de San Luis",
         "logo": "",
-        "gp": 8.0,
+        "gp": 9.0,
         "w": 2.0,
-        "d": 2.0,
+        "d": 3.0,
         "l": 4.0,
-        "pts": 8.0
+        "pts": 9.0
       },
       {
         "rank": 14,
@@ -3936,6 +4082,16 @@
       },
       {
         "rank": 15,
+        "team": "Necaxa",
+        "logo": "",
+        "gp": 9.0,
+        "w": 2.0,
+        "d": 2.0,
+        "l": 5.0,
+        "pts": 8.0
+      },
+      {
+        "rank": 16,
         "team": "Tigres UANL",
         "logo": "",
         "gp": 9.0,
@@ -3943,16 +4099,6 @@
         "d": 4.0,
         "l": 4.0,
         "pts": 7.0
-      },
-      {
-        "rank": 16,
-        "team": "Atlético de San Luis",
-        "logo": "",
-        "gp": 8.0,
-        "w": 1.0,
-        "d": 3.0,
-        "l": 4.0,
-        "pts": 6.0
       },
       {
         "rank": 17,
@@ -5326,20 +5472,20 @@
           "face": ""
         },
         {
-          "name": "Sam Surridge",
-          "team": "Nashville SC",
-          "value": "15 ⚽",
-          "face": ""
-        },
-        {
           "name": "Nicolás Fernández",
           "team": "New York City FC",
           "value": "15 ⚽",
           "face": ""
         },
         {
-          "name": "Guilherme Augusto",
-          "team": "Houston Dynamo FC",
+          "name": "Sam Surridge",
+          "team": "Nashville SC",
+          "value": "15 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Prince Owusu",
+          "team": "CF Montréal",
           "value": "13 ⚽",
           "face": ""
         },
@@ -5350,14 +5496,14 @@
           "face": ""
         },
         {
-          "name": "Kelvin Yeboah",
-          "team": "Minnesota United FC",
+          "name": "Guilherme Augusto",
+          "team": "Houston Dynamo FC",
           "value": "13 ⚽",
           "face": ""
         },
         {
-          "name": "Prince Owusu",
-          "team": "CF Montréal",
+          "name": "Kelvin Yeboah",
+          "team": "Minnesota United FC",
           "value": "13 ⚽",
           "face": ""
         },
@@ -5383,12 +5529,6 @@
           "name": "Kristoffer Velde",
           "team": "Portland Timbers",
           "value": "8 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Marco Reus",
-          "team": "LA Galaxy",
-          "value": "6 ⚽",
           "face": ""
         },
         {
@@ -5450,12 +5590,6 @@
           "face": ""
         },
         {
-          "name": "Ángel Márquez",
-          "team": "Cruz Azul",
-          "value": "3 ⚽",
-          "face": ""
-        },
-        {
           "name": "Henry Martín",
           "team": "América",
           "value": "3 ⚽",
@@ -5470,6 +5604,12 @@
         {
           "name": "Daniel Arcila",
           "team": "León",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Ángel Márquez",
+          "team": "Cruz Azul",
           "value": "3 ⚽",
           "face": ""
         },
@@ -5778,16 +5918,16 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0724/dm_260724_COM_SOC_Presser_Klopp_When_you_dont_want_me_as_Germany_coach_Im_gone_20260724_GLOBAL/dm_260724_COM_SOC_Presser_Klopp_When_you_dont_want_me_as_Germany_coach_Im_gone_20260724_GLOBAL.jpg"
     },
     {
+      "t": "Tottenham's horror start continues with home loss to Villa",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0919/dm_260919_EPL_Highlight_Tottenhams_horror_start_continues_with_home_loss_to_Villa_20260920_AUS_ONLY/dm_260919_EPL_Highlight_Tottenhams_horror_start_continues_with_home_loss_to_Villa_20260920_AUS_ONLY.jpg"
+    },
+    {
+      "t": "Brighton shatter Arsenal's perfect start",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0919/dm_260919_EPL_Highlight_Brighton_shatter_Arsenals_perfect_start__20260920_AUS_ONLY/dm_260919_EPL_Highlight_Brighton_shatter_Arsenals_perfect_start__20260920_AUS_ONLY.jpg"
+    },
+    {
       "t": "Keller: Tottenham don't have the ownership they need",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0919/dm_260919_Keller_Tottenham_dont_have_the_ownership_they_need/dm_260919_Keller_Tottenham_dont_have_the_ownership_they_need.jpg"
-    },
-    {
-      "t": "Hislop: Arsenal have lost one game, there's no need to panic",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0919/dm_260919_Hislop_Arsenal_have_lost_one_game_theres_no_need_to_panic/dm_260919_Hislop_Arsenal_have_lost_one_game_theres_no_need_to_panic.jpg"
-    },
-    {
-      "t": "Frank Lampard values Coventry's hard work after first Premier League win in 25 years",
-      "img": "https://a.espncdn.com/photo/2026/0919/r1719129_1296x729_16-9.jpg"
     },
     {
       "t": "Sevilla's Luis García: 'It's a joke' Raphinha not Ballon d'Or nominee after another Barcelona hat trick",
