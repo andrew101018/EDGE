@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-09-24 03:34 PM",
+  "updated_at": "2026-09-24 08:40 PM",
   "news": [
+    {
+      "t": "⚽ سيسيه: منتخب الفراعنة شرَّف أفريقيا.. وتلقيت عروضا من الأندية المصرية - اليوم السابع",
+      "full": "⚽ سيسيه: منتخب الفراعنة شرَّف أفريقيا.. وتلقيت عروضا من الأندية المصرية - اليوم السابع\n\nسيسيه: منتخب الفراعنة شرَّف أفريقيا.. وتلقيت عروضا من الأندية المصرية  اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ إسبانيا تتصدر والمغرب يتقدم.. أفضل 10 منتخبات في تصنيف فيفا (صور) - يلاكورة",
+      "full": "⚽ إسبانيا تتصدر والمغرب يتقدم.. أفضل 10 منتخبات في تصنيف فيفا (صور) - يلاكورة\n\nإسبانيا تتصدر والمغرب يتقدم.. أفضل 10 منتخبات في تصنيف فيفا (صور)  يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ من مارادونا إلى بوغبا.. حين تهوي المنشطات بمسيرة نجوم الكرة - aljazeera.net",
+      "full": "⚽ من مارادونا إلى بوغبا.. حين تهوي المنشطات بمسيرة نجوم الكرة - aljazeera.net\n\nمن مارادونا إلى بوغبا.. حين تهوي المنشطات بمسيرة نجوم الكرة  aljazeera.net",
+      "img": ""
+    },
+    {
+      "t": "⚽ عضو مجلس إدارة طرابزون سبور يتغنى بمحمد صلاح - الزمالك اليوم",
+      "full": "⚽ عضو مجلس إدارة طرابزون سبور يتغنى بمحمد صلاح - الزمالك اليوم\n\nعضو مجلس إدارة طرابزون سبور يتغنى بمحمد صلاح  الزمالك اليوم",
+      "img": ""
+    },
     {
       "t": "⚽ \"من كنيسة مارادونا لصخرة صلاح\".. أماكن خلدت أسماء نجوم كرة القدم خارج الملعب - masrawy.com",
       "full": "⚽ \"من كنيسة مارادونا لصخرة صلاح\".. أماكن خلدت أسماء نجوم كرة القدم خارج الملعب - masrawy.com\n\n\"من كنيسة مارادونا لصخرة صلاح\".. أماكن خلدت أسماء نجوم كرة القدم خارج الملعب  masrawy.com",
@@ -80,26 +100,6 @@
       "t": "⚽ عاشور التقي وأول تعليق عقب تصعيد نجله للفريق الأول لكرة القدم بنادي الزمالك - الزمالك اليوم",
       "full": "⚽ عاشور التقي وأول تعليق عقب تصعيد نجله للفريق الأول لكرة القدم بنادي الزمالك - الزمالك اليوم\n\nعاشور التقي وأول تعليق عقب تصعيد نجله للفريق الأول لكرة القدم بنادي الزمالك  الزمالك اليوم",
       "img": ""
-    },
-    {
-      "t": "⚽ قبل دخول عهد جديد مع نايكي.. منتخب ألمانيا يظهر بقميصه الأخير من أديداس - FilGoal",
-      "full": "⚽ قبل دخول عهد جديد مع نايكي.. منتخب ألمانيا يظهر بقميصه الأخير من أديداس - FilGoal\n\nقبل دخول عهد جديد مع نايكي.. منتخب ألمانيا يظهر بقميصه الأخير من أديداس  FilGoal",
-      "img": ""
-    },
-    {
-      "t": "⚽ عمرو سماكة يعلن عودته للأهلي - يلاكورة",
-      "full": "⚽ عمرو سماكة يعلن عودته للأهلي - يلاكورة\n\nعمرو سماكة يعلن عودته للأهلي  يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ وزير الرياضة يؤازر المنتخب قبل مواجهة أنجولا وينقل تحيات الرئيس للاعبين - اليوم السابع",
-      "full": "⚽ وزير الرياضة يؤازر المنتخب قبل مواجهة أنجولا وينقل تحيات الرئيس للاعبين - اليوم السابع\n\nوزير الرياضة يؤازر المنتخب قبل مواجهة أنجولا وينقل تحيات الرئيس للاعبين  اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ جواو فيليكس عن سباق \"البالون دور\": يامال هو كرة القدم - Kooora",
-      "full": "⚽ جواو فيليكس عن سباق \"البالون دور\": يامال هو كرة القدم - Kooora\n\nجواو فيليكس عن سباق \"البالون دور\": يامال هو كرة القدم  Kooora",
-      "img": ""
     }
   ],
   "results": [
@@ -145,13 +145,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/and.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/mlt.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "1",
+          "as": "1",
           "time": "07:00",
           "day": "Thursday",
           "dateAr": "24/09",
           "date": "2026-09-24T19:00:00+03:00",
-          "detail": "Scheduled"
+          "detail": "81'"
         },
         {
           "home": "Austria",
@@ -277,6 +277,42 @@
           "day": "Thursday",
           "dateAr": "24/09",
           "date": "2026-09-24T21:45:00+03:00",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Armenia",
+          "away": "Latvia",
+          "eid": "401861050",
+          "slug": "uefa.nations",
+          "homeId": "579",
+          "awayId": "456",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/fifa.armenia.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/lva.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "07:00",
+          "day": "Friday",
+          "dateAr": "25/09",
+          "date": "2026-09-25T19:00:00+03:00",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Georgia",
+          "away": "Northern Ireland",
+          "eid": "401861049",
+          "slug": "uefa.nations",
+          "homeId": "584",
+          "awayId": "586",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/geo.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/nir.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "07:00",
+          "day": "Friday",
+          "dateAr": "25/09",
+          "date": "2026-09-25T19:00:00+03:00",
           "detail": "Scheduled"
         }
       ],
@@ -4557,6 +4593,10 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0724/dm_260724_COM_SOC_Presser_Klopp_When_you_dont_want_me_as_Germany_coach_Im_gone_20260724_GLOBAL/dm_260724_COM_SOC_Presser_Klopp_When_you_dont_want_me_as_Germany_coach_Im_gone_20260724_GLOBAL.jpg"
     },
     {
+      "t": "Former England forward Andy Carroll says he was sexually assaulted by a man in 2021",
+      "img": "https://a.espncdn.com/photo/2026/0924/r1721325_1296x729_16-9.jpg"
+    },
+    {
       "t": "Is Sullivan the next Olise? Comparisons for USMNT's top young stars",
       "img": "https://a.espncdn.com/photo/2026/0923/r1720961_1296x729_16-9.jpg"
     },
@@ -4565,16 +4605,12 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0923/dm_260923_COM_SOC_Analysis_Nicol_and_Burley_clash_over_PalmerE28099s_injury__GLOBAL_2026-09-23/dm_260923_COM_SOC_Analysis_Nicol_and_Burley_clash_over_PalmerE28099s_injury__GLOBAL_2026-09-23.jpg"
     },
     {
-      "t": "UK PM Burnham wants 'outdated' football drinking ban scrapped",
-      "img": "https://a.espncdn.com/photo/2026/0923/r1721065_1296x729_16-9.jpg"
+      "t": "Transfer rumors, news: Bayern's Karl to get 'dream' Real Madrid move?",
+      "img": "https://a.espncdn.com/photo/2026/0605/r1668673_1296x729_16-9.jpg"
     },
     {
       "t": "Marc Cucurella 'sent a subtle message' to try to tempt Rodri into Real Madrid move",
       "img": "https://a.espncdn.com/photo/2026/0924/r1721200_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Transfer rumors, news: Bayern's Karl to get 'dream' Real Madrid move?",
-      "img": "https://a.espncdn.com/photo/2026/0605/r1668673_1296x729_16-9.jpg"
     },
     {
       "t": "Nicol: I have sympathy for Mourinho after Madrid derby",
@@ -4593,12 +4629,12 @@
       "img": "https://a.espncdn.com/photo/2026/0916/r1717453_1296x729_16-9.jpg"
     },
     {
-      "t": "Is Sullivan the next Olise? Comparisons for USMNT's top young stars",
-      "img": "https://a.espncdn.com/photo/2026/0923/r1720961_1296x729_16-9.jpg"
-    },
-    {
       "t": "Transfer rumors, news: Bayern's Karl to get 'dream' Real Madrid move?",
       "img": "https://a.espncdn.com/photo/2026/0605/r1668673_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Is Sullivan the next Olise? Comparisons for USMNT's top young stars",
+      "img": "https://a.espncdn.com/photo/2026/0923/r1720961_1296x729_16-9.jpg"
     },
     {
       "t": "Transfer rumors, news: Man United want Guirassy as potential Zirkzee replacement",
@@ -4689,16 +4725,16 @@
       "img": "https://a.espncdn.com/photo/2026/0912/r1715493_1296x729_16-9.jpg"
     },
     {
+      "t": "Tuchel's England dilemma: Emulate Spain or embrace Premier League 'chaos'?",
+      "img": "https://a.espncdn.com/photo/2026/0924/r1721229_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Harry Kane on verge of earning joint-most caps in England's history: 'Hard to take it in'",
+      "img": "https://a.espncdn.com/photo/2026/0924/r1721226_1296x729_16-9.jpg"
+    },
+    {
       "t": "Man United's Leny Yoro handed surprise France call-up after Ibrahima Konaté injury",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0922/dm_260922_Lacroix_We_watched_Zidane_on_TV_now_we_can_train_with_him/dm_260922_Lacroix_We_watched_Zidane_on_TV_now_we_can_train_with_him.jpg"
-    },
-    {
-      "t": "Gordon: Scar from England's World Cup exit will never heal",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0924/dm_260924_Gordon_Scar_from_Englands_World_Cup_exit_will_never_heal/dm_260924_Gordon_Scar_from_Englands_World_Cup_exit_will_never_heal.jpg"
-    },
-    {
-      "t": "Connelly's must-see international soccer: Klopp vs. Xavi",
-      "img": "https://a.espncdn.com/photo/2026/0924/r1721155_1295x729_16-9.png"
     }
   ],
   "highlights": [],
