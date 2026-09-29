@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-09-29 03:05 AM",
+  "updated_at": "2026-09-29 08:57 AM",
   "news": [
+    {
+      "t": "⚽ إقالة المدرب الأرجنتيني لكوستايكا باتيستا بعد ستة أشهر - مونت كارلو الدولية",
+      "full": "⚽ إقالة المدرب الأرجنتيني لكوستايكا باتيستا بعد ستة أشهر - مونت كارلو الدولية\n\nإقالة المدرب الأرجنتيني لكوستايكا باتيستا بعد ستة أشهر  مونت كارلو الدولية",
+      "img": ""
+    },
+    {
+      "t": "⚽ ستوري نجوم الكرة.. زوجة إمام تحتفل و رونالدو في مران البرتغال - Masrawy",
+      "full": "⚽ ستوري نجوم الكرة.. زوجة إمام تحتفل و رونالدو في مران البرتغال - Masrawy\n\nستوري نجوم الكرة.. زوجة إمام تحتفل و رونالدو في مران البرتغال  Masrawy",
+      "img": ""
+    },
+    {
+      "t": "⚽ حطم جميع الأرقام.. أوزيل: كريستيانو رونالدو أعظم لاعب في تاريخ كرة القدم - صدى البلد",
+      "full": "⚽ حطم جميع الأرقام.. أوزيل: كريستيانو رونالدو أعظم لاعب في تاريخ كرة القدم - صدى البلد\n\nحطم جميع الأرقام.. أوزيل: كريستيانو رونالدو أعظم لاعب في تاريخ كرة القدم  صدى البلد",
+      "img": ""
+    },
+    {
+      "t": "⚽ حتى 2028.. الشناوي مستمر في قيادة الأهلي - اليوم السابع",
+      "full": "⚽ حتى 2028.. الشناوي مستمر في قيادة الأهلي - اليوم السابع\n\nحتى 2028.. الشناوي مستمر في قيادة الأهلي  اليوم السابع",
+      "img": ""
+    },
     {
       "t": "⚽ دوري الأمم الأوروبية: البديل أوليسيه يمنح زيدان فوزا قاتلا أمام بلجيكا - مونت كارلو الدولية",
       "full": "⚽ دوري الأمم الأوروبية: البديل أوليسيه يمنح زيدان فوزا قاتلا أمام بلجيكا - مونت كارلو الدولية\n\nدوري الأمم الأوروبية: البديل أوليسيه يمنح زيدان فوزا قاتلا أمام بلجيكا  مونت كارلو الدولية",
@@ -80,78 +100,16 @@
       "t": "⚽ قدم.. رفض أيرلندي لمصافحة لاعبي إسرائيل في دوري أمم أوروبا - Anadolu Ajansı",
       "full": "⚽ قدم.. رفض أيرلندي لمصافحة لاعبي إسرائيل في دوري أمم أوروبا - Anadolu Ajansı\n\nقدم.. رفض أيرلندي لمصافحة لاعبي إسرائيل في دوري أمم أوروبا  Anadolu Ajansı",
       "img": ""
-    },
-    {
-      "t": "⚽ قرار مفاجئ من مدرب الزمالك قبل قمة الأهلي - المصري اليوم",
-      "full": "⚽ قرار مفاجئ من مدرب الزمالك قبل قمة الأهلي - المصري اليوم\n\nقرار مفاجئ من مدرب الزمالك قبل قمة الأهلي  المصري اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ مواعيد مباريات الأهلى والزمالك فى الجولة الأولى بكأس عاصمة مصر - اليوم السابع",
-      "full": "⚽ مواعيد مباريات الأهلى والزمالك فى الجولة الأولى بكأس عاصمة مصر - اليوم السابع\n\nمواعيد مباريات الأهلى والزمالك فى الجولة الأولى بكأس عاصمة مصر  اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ موعد مباراة فلسطين ضد طاجيكستان الودية - الجزيرة نت",
-      "full": "⚽ موعد مباراة فلسطين ضد طاجيكستان الودية - الجزيرة نت\n\nموعد مباراة فلسطين ضد طاجيكستان الودية  الجزيرة نت",
-      "img": ""
-    },
-    {
-      "t": "⚽ الأهلي يكشف موقف أشرف بن شرقي من القمة أمام الزمالك - الزمالك اليوم",
-      "full": "⚽ الأهلي يكشف موقف أشرف بن شرقي من القمة أمام الزمالك - الزمالك اليوم\n\nالأهلي يكشف موقف أشرف بن شرقي من القمة أمام الزمالك  الزمالك اليوم",
-      "img": ""
     }
   ],
   "results": [
+    "Türkiye 1 - 4 Italy",
     "Sweden 3 - 1 Poland",
     "Romania 2 - 4 Bosnia-Herzegovina",
     "Northern Ireland 0 - 0 Hungary",
     "Belgium 0 - 1 France"
   ],
   "matches": [
-    {
-      "league": "الدوري المكسيكي",
-      "slug": "mex.1",
-      "items": [
-        {
-          "home": "León",
-          "away": "FC Juarez",
-          "eid": "401876957",
-          "slug": "mex.1",
-          "homeId": "228",
-          "awayId": "17851",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/228.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17851.png",
-          "tv": "beIN Sports",
-          "hs": "2",
-          "as": "1",
-          "time": "04:00",
-          "day": "Monday",
-          "dateAr": "28/09",
-          "date": "2026-09-28T04:00:00+03:00",
-          "detail": "FT"
-        },
-        {
-          "home": "Necaxa",
-          "away": "América",
-          "eid": "401876956",
-          "slug": "mex.1",
-          "homeId": "229",
-          "awayId": "227",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/229.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/227.png",
-          "tv": "beIN Sports",
-          "hs": "2",
-          "as": "4",
-          "time": "06:10",
-          "day": "Monday",
-          "dateAr": "28/09",
-          "date": "2026-09-28T06:10:00+03:00",
-          "detail": "FT"
-        }
-      ],
-      "big": true
-    },
     {
       "league": "دوري الأمم الأوروبية",
       "slug": "uefa.nations",
@@ -4908,16 +4866,16 @@
       "img": "https://a.espncdn.com/photo/2026/0912/r1715493_1296x729_16-9.jpg"
     },
     {
+      "t": "Zidane goes wild over Olise's wonder goal in France's late victory",
+      "img": "https://a.espncdn.com/photo/2026/0929/r1723243_1296x729_16-9.jpg"
+    },
+    {
       "t": "Leboeuf: Olise showed his talent vs. Belgium",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0928/dm_260928_COM_SOC_Analysis_Leboeuf3A_Olise_showed_his_talent_vs_Belgium__GLOBAL_2026-09-28/dm_260928_COM_SOC_Analysis_Leboeuf3A_Olise_showed_his_talent_vs_Belgium__GLOBAL_2026-09-28.jpg"
     },
     {
       "t": "Was Ødegaard wrong to criticise Silva's tackle?",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0928/dm_260928_COM_SOC_Analysis_Was_C398degaard_wrong_to_criticise_SilvaE28099s_tackle3F_GLOBAL_2026-09-28/dm_260928_COM_SOC_Analysis_Was_C398degaard_wrong_to_criticise_SilvaE28099s_tackle3F_GLOBAL_2026-09-28.jpg"
-    },
-    {
-      "t": "Does Tuchel need to rest players over the UEFA Nations League?",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0928/dm_260928_COM_SOC_Analysis_Does_Tuchel_need_to_rest_players_over_the_UEFA_National_League3F_GLOBAL_2026-09-28/dm_260928_COM_SOC_Analysis_Does_Tuchel_need_to_rest_players_over_the_UEFA_National_League3F_GLOBAL_2026-09-28.jpg"
     }
   ],
   "highlights": [],
