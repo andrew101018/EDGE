@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-09-30 03:52 PM",
+  "updated_at": "2026-09-30 09:14 PM",
   "news": [
+    {
+      "t": "⚽ البرتغاليون يطالبون باستبعاد رونالدو - alarabiya.net",
+      "full": "⚽ البرتغاليون يطالبون باستبعاد رونالدو - alarabiya.net\n\nالبرتغاليون يطالبون باستبعاد رونالدو  alarabiya.net",
+      "img": ""
+    },
+    {
+      "t": "⚽ عاجل: التمرد مستمر.. رونالدو يترك التدريبات ردًا على تصريحات جيسوس - kooora.com",
+      "full": "⚽ عاجل: التمرد مستمر.. رونالدو يترك التدريبات ردًا على تصريحات جيسوس - kooora.com\n\nعاجل: التمرد مستمر.. رونالدو يترك التدريبات ردًا على تصريحات جيسوس  kooora.com",
+      "img": ""
+    },
+    {
+      "t": "⚽ بينهم رئيس النادي.. إحالة 13 شخصا من طرابزون سبور للانضباط بسبب المراهنات - يلاكورة",
+      "full": "⚽ بينهم رئيس النادي.. إحالة 13 شخصا من طرابزون سبور للانضباط بسبب المراهنات - يلاكورة\n\nبينهم رئيس النادي.. إحالة 13 شخصا من طرابزون سبور للانضباط بسبب المراهنات  يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ إحالة رئيس طرابزون سبور التركي للتحقيق - الزمالك اليوم",
+      "full": "⚽ إحالة رئيس طرابزون سبور التركي للتحقيق - الزمالك اليوم\n\nإحالة رئيس طرابزون سبور التركي للتحقيق  الزمالك اليوم",
+      "img": ""
+    },
     {
       "t": "⚽ باكتساح كرواتيا.. منتخب إسبانيا يعيد كتابة تاريخ كرة القدم - يلاكورة",
       "full": "⚽ باكتساح كرواتيا.. منتخب إسبانيا يعيد كتابة تاريخ كرة القدم - يلاكورة\n\nباكتساح كرواتيا.. منتخب إسبانيا يعيد كتابة تاريخ كرة القدم  يلاكورة",
@@ -80,26 +100,6 @@
       "t": "⚽ لاعب الزمالك بات قريبا من العودة بعد غياب طويل - الزمالك اليوم",
       "full": "⚽ لاعب الزمالك بات قريبا من العودة بعد غياب طويل - الزمالك اليوم\n\nلاعب الزمالك بات قريبا من العودة بعد غياب طويل  الزمالك اليوم",
       "img": ""
-    },
-    {
-      "t": "⚽ رداً على على القيعى .. ما حد يقولنا الـ 200 مليون دول منين .. الاهلى يصرف 200 مليون للاعبين - الزم",
-      "full": "⚽ رداً على على القيعى .. ما حد يقولنا الـ 200 مليون دول منين .. الاهلى يصرف 200 مليون للاعبين - الزمالك اليوم\n\nرداً على على القيعى .. ما حد يقولنا الـ 200 مليون دول منين .. الاهلى يصرف 200 مليون للاعبين  الزمالك اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ تيباس ينفجر: يجب سحق مانشستر سيتي.. وما حدث فضيحة ممتدة منذ 2009 - Kooora",
-      "full": "⚽ تيباس ينفجر: يجب سحق مانشستر سيتي.. وما حدث فضيحة ممتدة منذ 2009 - Kooora\n\nتيباس ينفجر: يجب سحق مانشستر سيتي.. وما حدث فضيحة ممتدة منذ 2009  Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ الدوري الإنجليزي: مانشستر سيتي مذنب في جميع التهم.. وموعد التقدم بالاستئناف - FilGoal",
-      "full": "⚽ الدوري الإنجليزي: مانشستر سيتي مذنب في جميع التهم.. وموعد التقدم بالاستئناف - FilGoal\n\nالدوري الإنجليزي: مانشستر سيتي مذنب في جميع التهم.. وموعد التقدم بالاستئناف  FilGoal",
-      "img": ""
-    },
-    {
-      "t": "⚽ رابطة الدوري الإنجليزي تدين مانشستر سيتي - beIN SPORTS",
-      "full": "⚽ رابطة الدوري الإنجليزي تدين مانشستر سيتي - beIN SPORTS\n\nرابطة الدوري الإنجليزي تدين مانشستر سيتي  beIN SPORTS",
-      "img": ""
     }
   ],
   "results": [
@@ -119,42 +119,6 @@
       "league": "دوري الأمم الأوروبية",
       "slug": "uefa.nations",
       "items": [
-        {
-          "home": "Finland",
-          "away": "Belarus",
-          "eid": "401861089",
-          "slug": "uefa.nations",
-          "homeId": "458",
-          "awayId": "583",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/fin.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/blr.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "07:00",
-          "day": "Tuesday",
-          "dateAr": "29/09",
-          "date": "2026-09-29T19:00:00+03:00",
-          "detail": "FT"
-        },
-        {
-          "home": "Moldova",
-          "away": "Faroe Islands",
-          "eid": "401861090",
-          "slug": "uefa.nations",
-          "homeId": "483",
-          "awayId": "447",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/mda.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/fro.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "1",
-          "time": "07:00",
-          "day": "Tuesday",
-          "dateAr": "29/09",
-          "date": "2026-09-29T19:00:00+03:00",
-          "detail": "FT"
-        },
         {
           "home": "Bulgaria",
           "away": "Estonia",
@@ -298,6 +262,24 @@
           "dateAr": "29/09",
           "date": "2026-09-29T21:45:00+03:00",
           "detail": "FT"
+        },
+        {
+          "home": "Azerbaijan",
+          "away": "Liechtenstein",
+          "eid": "401861093",
+          "slug": "uefa.nations",
+          "homeId": "581",
+          "awayId": "589",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/aze.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/lie.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "07:00",
+          "day": "Thursday",
+          "dateAr": "01/10",
+          "date": "2026-10-01T19:00:00+03:00",
+          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -4595,16 +4577,16 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0724/dm_260724_COM_SOC_Presser_Klopp_When_you_dont_want_me_as_Germany_coach_Im_gone_20260724_GLOBAL/dm_260724_COM_SOC_Presser_Klopp_When_you_dont_want_me_as_Germany_coach_Im_gone_20260724_GLOBAL.jpg"
     },
     {
-      "t": "Pep Guardiola after Man City guilty verdict: 'I am behind my club'",
-      "img": "https://a.espncdn.com/photo/2026/0721/r1692093_1296x729_16-9.jpg"
+      "t": "Which Premier League players got injured in the international break?",
+      "img": "https://a.espncdn.com/photo/2026/0930/r1723797_1296x729_16-9.jpg"
     },
     {
-      "t": "Does Man City's guilty verdict impact Pep Guardiola's legacy as an all-time coaching great?",
-      "img": "https://a.espncdn.com/photo/2026/0930/r1723842_1296x729_16-9.jpg"
+      "t": "Independent Football Regulator chief: Man City guilty verdict 'raises serious issues'",
+      "img": "https://a.espncdn.com/photo/2026/0930/r1723915_1296x729_16-9.jpg"
     },
     {
-      "t": "Ex-Man City chairman calls for club's directors to resign after Premier League guilty verdict",
-      "img": "https://a.espncdn.com/photo/2026/0930/r1723837_1296x729_16-9.jpg"
+      "t": "FA charges Fulham boss Álvaro Arbeloa with misconduct for comments after Man United draw",
+      "img": "https://a.espncdn.com/photo/2026/0930/r1723891_1296x729_16-9.jpg"
     },
     {
       "t": "Raphinha returns to Barcelona after injury on Brazil duty",
@@ -4615,8 +4597,8 @@
       "img": "https://a.espncdn.com/photo/2026/0513/r1657780_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer rumors, news: Real Madrid eye Van Dijk on free transfer at end of season",
-      "img": "https://a.espncdn.com/photo/2026/0824/r1706130_1296x729_16-9.jpg"
+      "t": "Harry Kane on Anthony Gordon: 'Going to big club gives you confidence'",
+      "img": "https://a.espncdn.com/photo/2026/0930/r1723825_1296x729_16-9.jpg"
     },
     {
       "t": "Transfer rumors, news: USMNT defender Richards to move to Inter?",
@@ -4667,16 +4649,16 @@
       "img": "https://a.espncdn.com/photo/2026/0917/r1717951_1296x729_16-9.jpg"
     },
     {
+      "t": "Philadelphia Union, USMNT's Cavan Sullivan becomes youngest MLS Player of the Month",
+      "img": "https://a.espncdn.com/photo/2026/0903/r1711097_1296x729_16-9.jpg"
+    },
+    {
       "t": "Does Inter Miami have problems moving into the post-season?",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0930/dm_260930_COM_SOC_Analysis_Does_Inter_Miami_have_problems_moving_into_the_post-season3F__GLOBAL_2026-09-30/dm_260930_COM_SOC_Analysis_Does_Inter_Miami_have_problems_moving_into_the_post-season3F__GLOBAL_2026-09-30.jpg"
     },
     {
       "t": "Five stats: Why USMNT should be excited about Cavan Sullivan",
       "img": "https://a.espncdn.com/photo/2026/0928/r1723197_1296x729_16-9.jpg"
-    },
-    {
-      "t": "MLS Power Rankings: No Cavan? No problem for surging Philadelphia",
-      "img": "https://a.espncdn.com/photo/2026/0928/r1722956_1296x729_16-9.jpg"
     },
     {
       "t": "Mexico launches antitrust probe over pro/rel, monopolies in game",
@@ -4727,16 +4709,16 @@
       "img": "https://a.espncdn.com/photo/2026/0918/r1718443_1296x729_16-9.jpg"
     },
     {
-      "t": "England, Scotland, Wales, Northern Ireland in Nations League: How are Home Nations faring?",
-      "img": "https://a.espncdn.com/photo/2026/0930/r1723824_1296x729_16-9.jpg"
+      "t": "Portugal coach set to bench Ronaldo again: I make the decisions",
+      "img": "https://a.espncdn.com/photo/2026/0930/r1724024_1296x729_16-9.jpg"
     },
     {
-      "t": "Republic of Ireland boss: 'I must focus on football,' Israel game will go ahead",
-      "img": "https://a.espncdn.com/photo/2026/0930/r1723829_1296x729_16-9.jpg"
+      "t": "France's Koné 'shocked' by coach Zidane's ability in training",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0928/dm_260928_COM_SOC_Analysis_Leboeuf3A_Olise_showed_his_talent_vs_Belgium__GLOBAL_2026-09-28/dm_260928_COM_SOC_Analysis_Leboeuf3A_Olise_showed_his_talent_vs_Belgium__GLOBAL_2026-09-28.jpg"
     },
     {
-      "t": "Harry Kane on Anthony Gordon: 'Going to big club gives you confidence'",
-      "img": "https://a.espncdn.com/photo/2026/0930/r1723825_1296x729_16-9.jpg"
+      "t": "Nations League explained: What is the format? How can teams qualify for Euro 2028?",
+      "img": "https://a.espncdn.com/photo/2026/0930/r1723910_1296x729_16-9.jpg"
     }
   ],
   "highlights": [],
