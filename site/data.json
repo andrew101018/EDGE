@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-09-30 09:14 PM",
+  "updated_at": "2026-10-01 01:27 AM",
   "news": [
+    {
+      "t": "⚽ ميسي يتلقى الدكتوراه الفخرية من جامعة بوينس أيرس - beIN SPORTS",
+      "full": "⚽ ميسي يتلقى الدكتوراه الفخرية من جامعة بوينس أيرس - beIN SPORTS\n\nميسي يتلقى الدكتوراه الفخرية من جامعة بوينس أيرس  beIN SPORTS",
+      "img": ""
+    },
+    {
+      "t": "⚽ \"زمنك قد مضى\".. كريستيانو رونالدو في مرمى سهام الصحافة البرتغالية - Kooora",
+      "full": "⚽ \"زمنك قد مضى\".. كريستيانو رونالدو في مرمى سهام الصحافة البرتغالية - Kooora\n\n\"زمنك قد مضى\".. كريستيانو رونالدو في مرمى سهام الصحافة البرتغالية  Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ تقارير.. رونالدو يقرر اعتزال اللعب الدولى مع البرتغال - اليوم السابع",
+      "full": "⚽ تقارير.. رونالدو يقرر اعتزال اللعب الدولى مع البرتغال - اليوم السابع\n\nتقارير.. رونالدو يقرر اعتزال اللعب الدولى مع البرتغال  اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ الاتحاد البرتغالي يصدر بيانا بشأن أزمة كريستيانو رونالدو - يلاكورة",
+      "full": "⚽ الاتحاد البرتغالي يصدر بيانا بشأن أزمة كريستيانو رونالدو - يلاكورة\n\nالاتحاد البرتغالي يصدر بيانا بشأن أزمة كريستيانو رونالدو  يلاكورة",
+      "img": ""
+    },
     {
       "t": "⚽ البرتغاليون يطالبون باستبعاد رونالدو - alarabiya.net",
       "full": "⚽ البرتغاليون يطالبون باستبعاد رونالدو - alarabiya.net\n\nالبرتغاليون يطالبون باستبعاد رونالدو  alarabiya.net",
@@ -80,189 +100,14 @@
       "t": "⚽ البيع ولكن.. نوردشيلاند يكشف خطته المستقبلية مع إبراهيم عادل - يلاكورة",
       "full": "⚽ البيع ولكن.. نوردشيلاند يكشف خطته المستقبلية مع إبراهيم عادل - يلاكورة\n\nالبيع ولكن.. نوردشيلاند يكشف خطته المستقبلية مع إبراهيم عادل  يلاكورة",
       "img": ""
-    },
-    {
-      "t": "⚽ سأظل ممتنا له.. لويس سواريز يكشف دور مدرب الأهلي الأسبق معه - يلاكورة",
-      "full": "⚽ سأظل ممتنا له.. لويس سواريز يكشف دور مدرب الأهلي الأسبق معه - يلاكورة\n\nسأظل ممتنا له.. لويس سواريز يكشف دور مدرب الأهلي الأسبق معه  يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ بث مباشر.. مشاهدة مباراة العراق والسعودية الآن في خليجي 27 - 365Scores",
-      "full": "⚽ بث مباشر.. مشاهدة مباراة العراق والسعودية الآن في خليجي 27 - 365Scores\n\nبث مباشر.. مشاهدة مباراة العراق والسعودية الآن في خليجي 27  365Scores",
-      "img": ""
-    },
-    {
-      "t": "⚽ خالف لوائح الفيفا.. هل ظلم اتحاد الخليج منتخب العراق بقرعة عمان؟ - Kooora",
-      "full": "⚽ خالف لوائح الفيفا.. هل ظلم اتحاد الخليج منتخب العراق بقرعة عمان؟ - Kooora\n\nخالف لوائح الفيفا.. هل ظلم اتحاد الخليج منتخب العراق بقرعة عمان؟  Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ لاعب الزمالك بات قريبا من العودة بعد غياب طويل - الزمالك اليوم",
-      "full": "⚽ لاعب الزمالك بات قريبا من العودة بعد غياب طويل - الزمالك اليوم\n\nلاعب الزمالك بات قريبا من العودة بعد غياب طويل  الزمالك اليوم",
-      "img": ""
     }
   ],
-  "results": [
-    "Spain 4 - 1 Croatia",
-    "Slovenia 2 - 0 North Macedonia",
-    "Slovakia 2 - 1 Kazakhstan",
-    "Scotland 0 - 3 Switzerland",
-    "San Marino 0 - 3 Albania",
-    "Luxembourg 0 - 3 Iceland",
-    "Czechia 0 - 2 England",
-    "Bulgaria 0 - 0 Estonia",
-    "Moldova 1 - 1 Faroe Islands",
-    "Finland 0 - 0 Belarus"
-  ],
+  "results": [],
   "matches": [
     {
       "league": "دوري الأمم الأوروبية",
       "slug": "uefa.nations",
       "items": [
-        {
-          "home": "Bulgaria",
-          "away": "Estonia",
-          "eid": "401861083",
-          "slug": "uefa.nations",
-          "homeId": "462",
-          "awayId": "444",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/bul.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/est.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "09:45",
-          "day": "Tuesday",
-          "dateAr": "29/09",
-          "date": "2026-09-29T21:45:00+03:00",
-          "detail": "FT"
-        },
-        {
-          "home": "Czechia",
-          "away": "England",
-          "eid": "401861092",
-          "slug": "uefa.nations",
-          "homeId": "450",
-          "awayId": "448",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/cze.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/eng.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "2",
-          "time": "09:45",
-          "day": "Tuesday",
-          "dateAr": "29/09",
-          "date": "2026-09-29T21:45:00+03:00",
-          "detail": "FT"
-        },
-        {
-          "home": "Luxembourg",
-          "away": "Iceland",
-          "eid": "401861086",
-          "slug": "uefa.nations",
-          "homeId": "582",
-          "awayId": "470",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/lux.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/isl.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "3",
-          "time": "09:45",
-          "day": "Tuesday",
-          "dateAr": "29/09",
-          "date": "2026-09-29T21:45:00+03:00",
-          "detail": "FT"
-        },
-        {
-          "home": "San Marino",
-          "away": "Albania",
-          "eid": "401861088",
-          "slug": "uefa.nations",
-          "homeId": "588",
-          "awayId": "585",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/smr.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/alb.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "3",
-          "time": "09:45",
-          "day": "Tuesday",
-          "dateAr": "29/09",
-          "date": "2026-09-29T21:45:00+03:00",
-          "detail": "FT"
-        },
-        {
-          "home": "Scotland",
-          "away": "Switzerland",
-          "eid": "401861091",
-          "slug": "uefa.nations",
-          "homeId": "580",
-          "awayId": "475",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/sco.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/sui.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "3",
-          "time": "09:45",
-          "day": "Tuesday",
-          "dateAr": "29/09",
-          "date": "2026-09-29T21:45:00+03:00",
-          "detail": "FT"
-        },
-        {
-          "home": "Slovakia",
-          "away": "Kazakhstan",
-          "eid": "401861085",
-          "slug": "uefa.nations",
-          "homeId": "468",
-          "awayId": "2619",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/svk.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/kaz.png",
-          "tv": "beIN Sports",
-          "hs": "2",
-          "as": "1",
-          "time": "09:45",
-          "day": "Tuesday",
-          "dateAr": "29/09",
-          "date": "2026-09-29T21:45:00+03:00",
-          "detail": "FT"
-        },
-        {
-          "home": "Slovenia",
-          "away": "North Macedonia",
-          "eid": "401861087",
-          "slug": "uefa.nations",
-          "homeId": "472",
-          "awayId": "463",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/svn.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/mkd.png",
-          "tv": "beIN Sports",
-          "hs": "2",
-          "as": "0",
-          "time": "09:45",
-          "day": "Tuesday",
-          "dateAr": "29/09",
-          "date": "2026-09-29T21:45:00+03:00",
-          "detail": "FT"
-        },
-        {
-          "home": "Spain",
-          "away": "Croatia",
-          "eid": "401861084",
-          "slug": "uefa.nations",
-          "homeId": "164",
-          "awayId": "477",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/esp.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/cro.png",
-          "tv": "beIN Sports",
-          "hs": "4",
-          "as": "1",
-          "time": "09:45",
-          "day": "Tuesday",
-          "dateAr": "29/09",
-          "date": "2026-09-29T21:45:00+03:00",
-          "detail": "FT"
-        },
         {
           "home": "Azerbaijan",
           "away": "Liechtenstein",
@@ -279,6 +124,114 @@
           "day": "Thursday",
           "dateAr": "01/10",
           "date": "2026-10-01T19:00:00+03:00",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Denmark",
+          "away": "Portugal",
+          "eid": "401861096",
+          "slug": "uefa.nations",
+          "homeId": "479",
+          "awayId": "482",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/den.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/por.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "09:45",
+          "day": "Thursday",
+          "dateAr": "01/10",
+          "date": "2026-10-01T21:45:00+03:00",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Germany",
+          "away": "Serbia",
+          "eid": "401861097",
+          "slug": "uefa.nations",
+          "homeId": "481",
+          "awayId": "6757",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/ger.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/sba.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "09:45",
+          "day": "Thursday",
+          "dateAr": "01/10",
+          "date": "2026-10-01T21:45:00+03:00",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Israel",
+          "away": "Kosovo",
+          "eid": "401861095",
+          "slug": "uefa.nations",
+          "homeId": "461",
+          "awayId": "18272",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/isr.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/kosovo.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "09:45",
+          "day": "Thursday",
+          "dateAr": "01/10",
+          "date": "2026-10-01T21:45:00+03:00",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Malta",
+          "away": "Gibraltar",
+          "eid": "401861099",
+          "slug": "uefa.nations",
+          "homeId": "453",
+          "awayId": "16721",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/mlt.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/gib.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "09:45",
+          "day": "Thursday",
+          "dateAr": "01/10",
+          "date": "2026-10-01T21:45:00+03:00",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Republic of Ireland",
+          "away": "Austria",
+          "eid": "401861094",
+          "slug": "uefa.nations",
+          "homeId": "476",
+          "awayId": "474",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/irl.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/aut.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "09:45",
+          "day": "Thursday",
+          "dateAr": "01/10",
+          "date": "2026-10-01T21:45:00+03:00",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Wales",
+          "away": "Norway",
+          "eid": "401861100",
+          "slug": "uefa.nations",
+          "homeId": "578",
+          "awayId": "464",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/wal.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/nor.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "09:45",
+          "day": "Thursday",
+          "dateAr": "01/10",
+          "date": "2026-10-01T21:45:00+03:00",
           "detail": "Scheduled"
         }
       ],
@@ -4231,7 +4184,7 @@
           "face": ""
         },
         {
-          "name": "Barbero",
+          "name": "Iván Martínez",
           "team": "Arouca",
           "value": "4 ⚽",
           "face": ""
@@ -4517,6 +4470,10 @@
   },
   "world": [
     {
+      "t": "Late penalty drama as Arsenal draw with Paris FC in UWCL",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0930/dm_260930_Late_penalty_drama_as_Arsenal_draw_with_Paris_FC_in_UWCL/dm_260930_Late_penalty_drama_as_Arsenal_draw_with_Paris_FC_in_UWCL.jpg"
+    },
+    {
       "t": "PSG chief Al-Khelaifi has 'zero interest' in FIFA presidency",
       "img": "https://a.espncdn.com/photo/2026/0929/r1723629_1296x729_16-9.jpg"
     },
@@ -4525,8 +4482,8 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0929/dm_260929_The_biggest_sporting_cheating_scandal_ever_Man_City_guilty_of_115_charges/dm_260929_The_biggest_sporting_cheating_scandal_ever_Man_City_guilty_of_115_charges.jpg"
     },
     {
-      "t": "Olley: Man City's titles will have an asterisk if guilty after appeal",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0929/dm_260929_COM_SOC_Analysis_Olley_Man_Citys_titles_will_have_an_asterisk_if_guilty_after_appeal_20260929/dm_260929_COM_SOC_Analysis_Olley_Man_Citys_titles_will_have_an_asterisk_if_guilty_after_appeal_20260929.jpg"
+      "t": "Late penalty drama as Arsenal draw with Paris FC in UWCL",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0930/dm_260930_Late_penalty_drama_as_Arsenal_draw_with_Paris_FC_in_UWCL/dm_260930_Late_penalty_drama_as_Arsenal_draw_with_Paris_FC_in_UWCL.jpg"
     },
     {
       "t": "Olley: Man City's titles will have an asterisk if guilty after appeal",
@@ -4535,10 +4492,6 @@
     {
       "t": "Marco Rose proud of 'Bournemouth football' in European debut win over Real Sociedad",
       "img": "https://a.espncdn.com/photo/2026/0917/r1718306_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Bournemouth make statement in European debut ",
-      "img": "https://a.espncdn.com/photo/2026/0917/r1718259_1296x729_16-9.jpg"
     },
     {
       "t": "Folarin Balogun omitted from Monaco Conference League squad after Everton saga",
@@ -4577,16 +4530,16 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0724/dm_260724_COM_SOC_Presser_Klopp_When_you_dont_want_me_as_Germany_coach_Im_gone_20260724_GLOBAL/dm_260724_COM_SOC_Presser_Klopp_When_you_dont_want_me_as_Germany_coach_Im_gone_20260724_GLOBAL.jpg"
     },
     {
-      "t": "Which Premier League players got injured in the international break?",
-      "img": "https://a.espncdn.com/photo/2026/0930/r1723797_1296x729_16-9.jpg"
+      "t": "What does the future hold for Manchester City's players?",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0930/dm_260930_COM_SOC_Analysis_What_does_the_future_hold_for_Manchester_Citys_players_20260930_GLOBAL/dm_260930_COM_SOC_Analysis_What_does_the_future_hold_for_Manchester_Citys_players_20260930_GLOBAL.jpg"
     },
     {
-      "t": "Independent Football Regulator chief: Man City guilty verdict 'raises serious issues'",
-      "img": "https://a.espncdn.com/photo/2026/0930/r1723915_1296x729_16-9.jpg"
+      "t": "Klopp not preparing for more titles after verdict against Man City",
+      "img": "https://a.espncdn.com/photo/2026/0930/r1724108_1296x729_16-9.jpg"
     },
     {
-      "t": "FA charges Fulham boss Álvaro Arbeloa with misconduct for comments after Man United draw",
-      "img": "https://a.espncdn.com/photo/2026/0930/r1723891_1296x729_16-9.jpg"
+      "t": "Transfer rumors, news: Liverpool eye move for Mexico's Mora",
+      "img": "https://a.espncdn.com/photo/2026/0930/r1724106_1296x729_16-9.jpg"
     },
     {
       "t": "Raphinha returns to Barcelona after injury on Brazil duty",
@@ -4661,16 +4614,16 @@
       "img": "https://a.espncdn.com/photo/2026/0928/r1723197_1296x729_16-9.jpg"
     },
     {
+      "t": "Transfer rumors, news: Liverpool eye move for Mexico's Mora",
+      "img": "https://a.espncdn.com/photo/2026/0930/r1724106_1296x729_16-9.jpg"
+    },
+    {
       "t": "Mexico launches antitrust probe over pro/rel, monopolies in game",
       "img": "https://a.espncdn.com/photo/2026/0914/r1716671_1296x729_16-9.jpg"
     },
     {
       "t": "Dani Alves to pay Pumas $2.25M after CAS ruling upheld",
       "img": "https://a.espncdn.com/photo/2026/0831/r1709385_1296x729_16-9.jpg"
-    },
-    {
-      "t": "MLS' Leagues Cup implosion reveals how much work league has left to do",
-      "img": "https://a.espncdn.com/photo/2026/0828/r1708196_1296x729_16-9.jpg"
     },
     {
       "t": "Weekend predictions: Madrid derby heats up LaLiga, Brighton to stun Arsenal?",
@@ -4709,16 +4662,16 @@
       "img": "https://a.espncdn.com/photo/2026/0918/r1718443_1296x729_16-9.jpg"
     },
     {
-      "t": "Portugal coach set to bench Ronaldo again: I make the decisions",
+      "t": "Leboeuf: Ronaldo deserves a final tribute like Messi",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0930/dm_260930_Leboeuf_Ronaldo_deserves_a_final_tribute_like_Messi/dm_260930_Leboeuf_Ronaldo_deserves_a_final_tribute_like_Messi.jpg"
+    },
+    {
+      "t": "Cristiano Ronaldo leaves Portugal camp after coach says he'd be benched again",
       "img": "https://a.espncdn.com/photo/2026/0930/r1724024_1296x729_16-9.jpg"
     },
     {
       "t": "France's Koné 'shocked' by coach Zidane's ability in training",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0928/dm_260928_COM_SOC_Analysis_Leboeuf3A_Olise_showed_his_talent_vs_Belgium__GLOBAL_2026-09-28/dm_260928_COM_SOC_Analysis_Leboeuf3A_Olise_showed_his_talent_vs_Belgium__GLOBAL_2026-09-28.jpg"
-    },
-    {
-      "t": "Nations League explained: What is the format? How can teams qualify for Euro 2028?",
-      "img": "https://a.espncdn.com/photo/2026/0930/r1723910_1296x729_16-9.jpg"
     }
   ],
   "highlights": [],
