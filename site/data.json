@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-10-01 10:24 AM",
+  "updated_at": "2026-10-01 05:39 PM",
   "news": [
+    {
+      "t": "⚽ موعد مباراة الأهلي والزمالك في قمة بطولة الدوري الممتاز - اليوم السابع",
+      "full": "⚽ موعد مباراة الأهلي والزمالك في قمة بطولة الدوري الممتاز - اليوم السابع\n\nموعد مباراة الأهلي والزمالك في قمة بطولة الدوري الممتاز  اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ أخر مستجدات ملف حكام القمة .. عائق لحضور طاقم من النخبة - الزمالك اليوم",
+      "full": "⚽ أخر مستجدات ملف حكام القمة .. عائق لحضور طاقم من النخبة - الزمالك اليوم\n\nأخر مستجدات ملف حكام القمة .. عائق لحضور طاقم من النخبة  الزمالك اليوم",
+      "img": ""
+    },
+    {
+      "t": "⚽ رسميًا.. كيروش يرحل عن تدريب منتخب غانا - يلاكورة",
+      "full": "⚽ رسميًا.. كيروش يرحل عن تدريب منتخب غانا - يلاكورة\n\nرسميًا.. كيروش يرحل عن تدريب منتخب غانا  يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ من حذاء اللاعب إلى مقعد الإدارة.. أين ذهب باتو موهبة ميلان الضائعة؟ - يلاكورة",
+      "full": "⚽ من حذاء اللاعب إلى مقعد الإدارة.. أين ذهب باتو موهبة ميلان الضائعة؟ - يلاكورة\n\nمن حذاء اللاعب إلى مقعد الإدارة.. أين ذهب باتو موهبة ميلان الضائعة؟  يلاكورة",
+      "img": ""
+    },
     {
       "t": "⚽ القمة وصدام أفريقي.. تعرف على مباريات الأهلي في شهر أكتوبر - يلاكورة",
       "full": "⚽ القمة وصدام أفريقي.. تعرف على مباريات الأهلي في شهر أكتوبر - يلاكورة\n\nالقمة وصدام أفريقي.. تعرف على مباريات الأهلي في شهر أكتوبر  يلاكورة",
@@ -79,26 +99,6 @@
     {
       "t": "⚽ إحالة رئيس طرابزون سبور التركي للتحقيق - الزمالك اليوم",
       "full": "⚽ إحالة رئيس طرابزون سبور التركي للتحقيق - الزمالك اليوم\n\nإحالة رئيس طرابزون سبور التركي للتحقيق  الزمالك اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ باكتساح كرواتيا.. منتخب إسبانيا يعيد كتابة تاريخ كرة القدم - يلاكورة",
-      "full": "⚽ باكتساح كرواتيا.. منتخب إسبانيا يعيد كتابة تاريخ كرة القدم - يلاكورة\n\nباكتساح كرواتيا.. منتخب إسبانيا يعيد كتابة تاريخ كرة القدم  يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ المغرب يعادل إنجاز نيجيريا التاريخي في تصنيف فيفا ويحتل المركز الخامس عالميًا - البوابة نيوز",
-      "full": "⚽ المغرب يعادل إنجاز نيجيريا التاريخي في تصنيف فيفا ويحتل المركز الخامس عالميًا - البوابة نيوز\n\nالمغرب يعادل إنجاز نيجيريا التاريخي في تصنيف فيفا ويحتل المركز الخامس عالميًا  البوابة نيوز",
-      "img": ""
-    },
-    {
-      "t": "⚽ تمرد مفاجئ.. حقيقة إلغاء مباراة المغرب وغانا - Kooora",
-      "full": "⚽ تمرد مفاجئ.. حقيقة إلغاء مباراة المغرب وغانا - Kooora\n\nتمرد مفاجئ.. حقيقة إلغاء مباراة المغرب وغانا  Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ عاجل : مصدر فى الجبلاية يكشف أخر تطورات ملف السوبر المصرى - الزمالك اليوم",
-      "full": "⚽ عاجل : مصدر فى الجبلاية يكشف أخر تطورات ملف السوبر المصرى - الزمالك اليوم\n\nعاجل : مصدر فى الجبلاية يكشف أخر تطورات ملف السوبر المصرى  الزمالك اليوم",
       "img": ""
     }
   ],
@@ -257,6 +257,24 @@
           "day": "Thursday",
           "dateAr": "01/10",
           "date": "2026-10-01T21:45:00+03:00",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Kazakhstan",
+          "away": "Moldova",
+          "eid": "401861101",
+          "slug": "uefa.nations",
+          "homeId": "2619",
+          "awayId": "483",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/kaz.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/mda.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "05:00",
+          "day": "Friday",
+          "dateAr": "02/10",
+          "date": "2026-10-02T17:00:00+03:00",
           "detail": "Scheduled"
         }
       ],
@@ -4209,7 +4227,7 @@
           "face": ""
         },
         {
-          "name": "Iván Martínez",
+          "name": "Barbero",
           "team": "Arouca",
           "value": "4 ⚽",
           "face": ""
@@ -4559,24 +4577,28 @@
       "img": "https://a.espncdn.com/photo/2026/0930/r1723797_1296x729_16-9.jpg"
     },
     {
-      "t": "Premier League depth charts for most popular teams: Who is key?",
-      "img": "https://a.espncdn.com/photo/2026/0929/r1723309_1296x729_16-9.jpg"
+      "t": "Second Hull player flips car outside training ground - reports",
+      "img": "https://a.espncdn.com/photo/2026/1001/r1724396_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer rumors, news: Real Madrid eye former Liverpool defender Quansah",
-      "img": "https://a.espncdn.com/photo/2025/1011/r1558673_1296x729_16-9.jpg"
+      "t": "Spain's Víctor Muñoz on Liverpool switch: Premier League more physical than LaLiga",
+      "img": "https://a.espncdn.com/photo/2026/0829/r1708487_1296x729_16-9.jpg"
     },
     {
-      "t": "Raphinha returns to Barcelona after injury on Brazil duty",
-      "img": "https://a.espncdn.com/photo/2026/0930/r1723833_1296x729_16-9.jpg"
+      "t": "Spain's Víctor Muñoz on Liverpool switch: Premier League more physical than LaLiga",
+      "img": "https://a.espncdn.com/photo/2026/0829/r1708487_1296x729_16-9.jpg"
     },
     {
-      "t": "Barcelona chief explains how Lautaro Martínez pursuit ended over a phone call",
-      "img": "https://a.espncdn.com/photo/2026/0513/r1657780_1296x729_16-9.jpg"
+      "t": "Portugal, Man United, Real Madrid: Cristiano Ronaldo's long history of rows with coaches",
+      "img": "https://a.espncdn.com/photo/2026/1001/r1724373_1296x729_16-9.jpg"
     },
     {
-      "t": "Harry Kane on Anthony Gordon: 'Going to big club gives you confidence'",
-      "img": "https://a.espncdn.com/photo/2026/0930/r1723825_1296x729_16-9.jpg"
+      "t": "Clásico match ball for Barcelona vs. Real Madrid LaLiga clashes unveiled",
+      "img": "https://a.espncdn.com/photo/2026/1001/r1724348_819x461_16-9.jpg"
+    },
+    {
+      "t": "Portugal, Man United, Real Madrid: Cristiano Ronaldo's long history of rows with coaches",
+      "img": "https://a.espncdn.com/photo/2026/1001/r1724373_1296x729_16-9.jpg"
     },
     {
       "t": "Transfer rumors, news: USMNT defender Richards to move to Inter?",
@@ -4585,10 +4607,6 @@
     {
       "t": "Soccer's best 2025-26 kits: The most stylish jerseys you probably missed",
       "img": "https://a.espncdn.com/photo/2026/0904/r1711227_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Parma part ways with ex-Arsenal assistant Carlos Cuesta",
-      "img": "https://a.espncdn.com/photo/2026/0927/r1722502_1296x729_16-9.jpg"
     },
     {
       "t": "Transfer rumors, news: Real Madrid eye former Liverpool defender Quansah",
@@ -4615,16 +4633,16 @@
       "img": "https://a.espncdn.com/photo/2026/0922/r1720348_1296x729_16-9.jpg"
     },
     {
+      "t": "Portugal, Man United, Real Madrid: Cristiano Ronaldo's long history of rows with coaches",
+      "img": "https://a.espncdn.com/photo/2026/1001/r1724373_1296x729_16-9.jpg"
+    },
+    {
       "t": "João Félix: I want to assist Cristiano Ronaldo's 1000th goal",
       "img": "https://a.espncdn.com/photo/2026/0928/r1722898_1296x729_16-9.jpg"
     },
     {
       "t": "Cristiano Ronaldo goal tracker: Road to 1,000 career goals",
       "img": "https://a.espncdn.com/photo/2026/0624/r1678599_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Mamelodi Sundowns vs. Al-Ahli - Kick-off time, how to watch Intercontinental Cup clash",
-      "img": "https://a.espncdn.com/photo/2026/0917/r1717951_1296x729_16-9.jpg"
     },
     {
       "t": "St. Louis up to 2nd place with unbeaten run now at 17 games",
@@ -4687,16 +4705,16 @@
       "img": "https://a.espncdn.com/photo/2026/0918/r1718443_1296x729_16-9.jpg"
     },
     {
-      "t": "Leboeuf: Ronaldo deserves a final tribute like Messi",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0930/dm_260930_Leboeuf_Ronaldo_deserves_a_final_tribute_like_Messi/dm_260930_Leboeuf_Ronaldo_deserves_a_final_tribute_like_Messi.jpg"
+      "t": "Portugal, Man United, Real Madrid: Cristiano Ronaldo's long history of rows with coaches",
+      "img": "https://a.espncdn.com/photo/2026/1001/r1724373_1296x729_16-9.jpg"
     },
     {
-      "t": "Cristiano Ronaldo leaves Portugal camp after coach says he'd be benched again",
-      "img": "https://a.espncdn.com/photo/2026/0930/r1724024_1296x729_16-9.jpg"
+      "t": "Nations League explained: What is the format? How can teams qualify for Euro 2028?",
+      "img": "https://a.espncdn.com/photo/2026/0930/r1723910_1296x729_16-9.jpg"
     },
     {
-      "t": "France's Koné 'shocked' by coach Zidane's ability in training",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0928/dm_260928_COM_SOC_Analysis_Leboeuf3A_Olise_showed_his_talent_vs_Belgium__GLOBAL_2026-09-28/dm_260928_COM_SOC_Analysis_Leboeuf3A_Olise_showed_his_talent_vs_Belgium__GLOBAL_2026-09-28.jpg"
+      "t": "England, Scotland, Wales, Northern Ireland in Nations League: How are Home Nations faring?",
+      "img": "https://a.espncdn.com/photo/2026/0930/r1723893_1296x729_16-9.jpg"
     }
   ],
   "highlights": [],
