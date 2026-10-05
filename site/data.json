@@ -1,6 +1,11 @@
 {
-  "updated_at": "2026-10-05 12:20 PM",
+  "updated_at": "2026-10-05 09:40 PM",
   "news": [
+    {
+      "t": "⚽ سانشيز يدعو لانتخابات مبكرة في إسبانيا بعد أزمة السكن، فلماذا تعثرت تدابير الحكومة؟",
+      "full": "⚽ سانشيز يدعو لانتخابات مبكرة في إسبانيا بعد أزمة السكن، فلماذا تعثرت تدابير الحكومة؟\n\nصدر الصورة، Getty Images دعا رئيس الوزراء الإسباني بيدرو سانشيز إلى إجراء انتخابات مبكرة في 29 نوفمبر/تشرين الثاني، بعدما رفض البرلمان تدابير حكومية لمعالجة أزمة السكن التي دفعت عشرات الآلاف إلى التظاهر. ويسعى سانشيز إلى الحصول على دعم برلماني أوسع، رغم تقدم المعارضة المحافظة في استطلاعات الرأي. وقال سانشيز في كلمة متلفزة من قصر مونكلوا، الاثنين: \"نحتاج إلى تجديد دعم الشعب لنا\"، داعياً إلى تحقيق أغلبية تقدمية أكبر تسمح لحكومته بتنفيذ الإصلاحات. وأقر رئيس الوزراء، الذي يتولى السلطة منذ عام 2018، بارتكابه أخطاء وإخفاقه في الوفاء بوعود انتخابية، قائلاً: \"أدرك أيضاً أن جزءاً من هذه الأغلبية الاجتماعية غير راضٍ اليوم\". تصاعد الغضب بشأن أزمة السكن الشهر الماضي، بعد إجبار ماريكارمن أباسكال، البالغة 87 عاما، على مغادرة شقتها في مدريد، حيث عاشت لأكثر من سبعة عقود. وبحسب ناشطين في مجال الإسكان، استح",
+      "img": "https://ichef.bbci.co.uk/ace/ws/240/cpsprodpb/4d22/live/5997e490-c0e0-11f1-8cf3-7dbc6a5861dd.jpg"
+    },
     {
       "t": "⚽ الأهلي يسابق الزمن لتجهيز ياسر إبراهيم قبل مواجهة الزمالك - صدى البلد",
       "full": "⚽ الأهلي يسابق الزمن لتجهيز ياسر إبراهيم قبل مواجهة الزمالك - صدى البلد\n\nالأهلي يسابق الزمن لتجهيز ياسر إبراهيم قبل مواجهة الزمالك  صدى البلد",
@@ -95,14 +100,10 @@
       "t": "⚽ رد فعل حسام حسن بعد تصريحات خالد الدرندلي - المصري اليوم",
       "full": "⚽ رد فعل حسام حسن بعد تصريحات خالد الدرندلي - المصري اليوم\n\nرد فعل حسام حسن بعد تصريحات خالد الدرندلي  المصري اليوم",
       "img": ""
-    },
-    {
-      "t": "⚽ اتجاه معاكس أم بداية صدام؟.. صورة باهتة لعلاقة حسام حسن واتحاد الكرة - يلاكورة",
-      "full": "⚽ اتجاه معاكس أم بداية صدام؟.. صورة باهتة لعلاقة حسام حسن واتحاد الكرة - يلاكورة\n\nاتجاه معاكس أم بداية صدام؟.. صورة باهتة لعلاقة حسام حسن واتحاد الكرة  يلاكورة",
-      "img": ""
     }
   ],
   "results": [
+    "Cyprus 2 - 1 Latvia",
     "Wales 0 - 1 Denmark",
     "Republic of Ireland 1 - 1 Israel",
     "Portugal 2 - 1 Norway",
@@ -114,60 +115,6 @@
       "league": "دوري الأمم الأوروبية",
       "slug": "uefa.nations",
       "items": [
-        {
-          "home": "Azerbaijan",
-          "away": "Lithuania",
-          "eid": "401861119",
-          "slug": "uefa.nations",
-          "homeId": "581",
-          "awayId": "460",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/aze.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/ltu.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "0",
-          "time": "04:00",
-          "day": "Sunday",
-          "dateAr": "04/10",
-          "date": "2026-10-04T16:00:00+03:00",
-          "detail": "FT"
-        },
-        {
-          "home": "Kosovo",
-          "away": "Austria",
-          "eid": "401861121",
-          "slug": "uefa.nations",
-          "homeId": "18272",
-          "awayId": "474",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/kosovo.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/aut.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "1",
-          "time": "07:00",
-          "day": "Sunday",
-          "dateAr": "04/10",
-          "date": "2026-10-04T19:00:00+03:00",
-          "detail": "FT"
-        },
-        {
-          "home": "Malta",
-          "away": "Andorra",
-          "eid": "401861120",
-          "slug": "uefa.nations",
-          "homeId": "453",
-          "awayId": "587",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/mlt.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/and.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "0",
-          "time": "07:00",
-          "day": "Sunday",
-          "dateAr": "04/10",
-          "date": "2026-10-04T19:00:00+03:00",
-          "detail": "FT"
-        },
         {
           "home": "Greece",
           "away": "Germany",
@@ -268,13 +215,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/cyp.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/lva.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "2",
+          "as": "1",
           "time": "07:00",
           "day": "Monday",
           "dateAr": "05/10",
           "date": "2026-10-05T19:00:00+03:00",
-          "detail": "Scheduled"
+          "detail": "FT"
         },
         {
           "home": "Bosnia-Herzegovina",
@@ -382,6 +329,24 @@
           "day": "Monday",
           "dateAr": "05/10",
           "date": "2026-10-05T21:45:00+03:00",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Kazakhstan",
+          "away": "Faroe Islands",
+          "eid": "401861135",
+          "slug": "uefa.nations",
+          "homeId": "2619",
+          "awayId": "447",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/countries/500/kaz.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/countries/500/fro.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "05:00",
+          "day": "Tuesday",
+          "dateAr": "06/10",
+          "date": "2026-10-06T17:00:00+03:00",
           "detail": "Scheduled"
         }
       ],
@@ -4620,16 +4585,16 @@
   },
   "world": [
     {
+      "t": "State of each position in 2026: What are the biggest tactical trends?",
+      "img": "https://a.espncdn.com/photo/2026/1005/r1726394_1296x729_16-9.jpg"
+    },
+    {
       "t": "Tuchel: Man City charges are a big topic in England camp",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1002/dm_261002_Tuchel_Man_City_charges_are_a_big_topic_in_England_camp/dm_261002_Tuchel_Man_City_charges_are_a_big_topic_in_England_camp.jpg"
     },
     {
       "t": "UEFA receives Real Madrid dossier on Barcelona-Negreira case",
       "img": "https://a.espncdn.com/photo/2026/0617/r1674789_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Late penalty drama as Arsenal draw with Paris FC in UWCL",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0930/dm_260930_Late_penalty_drama_as_Arsenal_draw_with_Paris_FC_in_UWCL/dm_260930_Late_penalty_drama_as_Arsenal_draw_with_Paris_FC_in_UWCL.jpg"
     },
     {
       "t": "Late penalty drama as Arsenal draw with Paris FC in UWCL",
@@ -4680,28 +4645,28 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0728/dm_260728_Zidane_Ive_been_waiting_five_years_to_become_Frances_head_coach/dm_260728_Zidane_Ive_been_waiting_five_years_to_become_Frances_head_coach.jpg"
     },
     {
-      "t": "Which Premier League players got injured in the international break?",
-      "img": "https://a.espncdn.com/photo/2026/1005/r1726227_1296x729_16-9.jpg"
+      "t": "JJ Gabriel representatives demanded game time at Manchester United - sources",
+      "img": "https://a.espncdn.com/photo/2026/0918/r1718455_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer rumors, news: Arsenal among clubs chasing winger Yildiz",
-      "img": "https://a.espncdn.com/photo/2026/0823/r1705543_1296x729_16-9.jpg"
+      "t": "State of each position in 2026: What are the biggest tactical trends?",
+      "img": "https://a.espncdn.com/photo/2026/1005/r1726394_1296x729_16-9.jpg"
     },
     {
-      "t": "Who most deserves the Ballon d'Or? Whittling down the 30-man short list",
-      "img": "https://a.espncdn.com/photo/2025/0922/r1549234_1296x729_16-9.jpg"
+      "t": "Ledley King backs Tottenham form to 'turn around very quickly'",
+      "img": "https://a.espncdn.com/photo/2026/0525/r1663333_1296x729_16-9.jpg"
     },
     {
       "t": "Transfer rumors, news: Bayern brace for tough contract talks with Olise",
       "img": "https://a.espncdn.com/photo/2026/0907/r1712702_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer rumors, news: Arsenal among clubs chasing winger Yildiz",
-      "img": "https://a.espncdn.com/photo/2026/0823/r1705543_1296x729_16-9.jpg"
+      "t": "Kylian Mbappé goes cycling despite José Mourinho warning",
+      "img": "https://a.espncdn.com/photo/2026/1005/r1726250_1296x729_16-9.jpg"
     },
     {
-      "t": "Who most deserves the Ballon d'Or? Whittling down the 30-man short list",
-      "img": "https://a.espncdn.com/photo/2025/0922/r1549234_1296x729_16-9.jpg"
+      "t": "Transfer rumors, news: Arsenal among clubs chasing winger Yildiz",
+      "img": "https://a.espncdn.com/photo/2026/0823/r1705543_1296x729_16-9.jpg"
     },
     {
       "t": "Transfer rumors, news: Arsenal among clubs chasing winger Yildiz",
@@ -4720,12 +4685,16 @@
       "img": "https://a.espncdn.com/photo/2026/0907/r1712702_1296x729_16-9.jpg"
     },
     {
+      "t": "Tuchel: There are no words left to describe Kane",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1005/dm_261005_Tuchel_There_are_no_words_left_to_describe_Kane/dm_261005_Tuchel_There_are_no_words_left_to_describe_Kane.jpg"
+    },
+    {
       "t": "Transfer rumors, news: Arsenal among clubs chasing winger Yildiz",
       "img": "https://a.espncdn.com/photo/2026/0823/r1705543_1296x729_16-9.jpg"
     },
     {
-      "t": "Who most deserves the Ballon d'Or? Whittling down the 30-man short list",
-      "img": "https://a.espncdn.com/photo/2025/0922/r1549234_1296x729_16-9.jpg"
+      "t": "Folarin Balogun reopens door to Premier League despite failed Everton move",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0902/dm_260902_COM_SOC_ANALYSIS_Why_Folarin_Baloguns_Everton_movebroke_down_2026_9_2/dm_260902_COM_SOC_ANALYSIS_Why_Folarin_Baloguns_Everton_movebroke_down_2026_9_2.jpg"
     },
     {
       "t": "2026 Ballon d'Or: Full men's, women's short lists, host city change, more",
@@ -4734,10 +4703,6 @@
     {
       "t": "Soccer's best 2025-26 kits: The most stylish jerseys you probably missed",
       "img": "https://a.espncdn.com/photo/2026/0904/r1711227_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Barcelona's start to season is best in Europe's top 5 leagues for almost 100 years",
-      "img": "https://a.espncdn.com/photo/2026/0926/r1721963_1296x729_16-9.jpg"
     },
     {
       "t": "Portugal, Man United, Real Madrid: Cristiano Ronaldo's long history of rows with coaches",
@@ -4812,16 +4777,16 @@
       "img": "https://a.espncdn.com/photo/2026/0918/r1718443_1296x729_16-9.jpg"
     },
     {
-      "t": "Alex Scott, Ezri Konsa withdraw from England squad to face Czechia",
-      "img": "https://a.espncdn.com/photo/2026/1004/r1725728_1296x729_16-9.jpg"
+      "t": "Harry Kane best person to match Peter Shilton's record - Thomas Tuchel",
+      "img": "https://a.espncdn.com/photo/2026/1005/r1726301_1296x729_16-9.jpg"
     },
     {
-      "t": "Cristiano Ronaldo door open for Portugal return - Jorge Jesus",
-      "img": "https://a.espncdn.com/photo/2026/1005/r1726232_1296x729_16-9.jpg"
+      "t": "Tuchel: There are no words left to describe Kane",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1005/dm_261005_Tuchel_There_are_no_words_left_to_describe_Kane/dm_261005_Tuchel_There_are_no_words_left_to_describe_Kane.jpg"
     },
     {
-      "t": "Nations League explained: What is the format? How can teams qualify for Euro 2028?",
-      "img": "https://a.espncdn.com/photo/2026/0930/r1723910_1296x729_16-9.jpg"
+      "t": "Jorge Jesus denies placing blame on Ronaldo after Portugal national team fallout",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1005/dm_261005_Jorge_Jesus_denies_placing_blame_on_Ronaldo_after_Portugal_national_team_fallout/dm_261005_Jorge_Jesus_denies_placing_blame_on_Ronaldo_after_Portugal_national_team_fallout.jpg"
     }
   ],
   "highlights": [],
