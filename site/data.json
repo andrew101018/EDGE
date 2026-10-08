@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-10-08 07:42 PM",
+  "updated_at": "2026-10-09 12:41 AM",
   "news": [
+    {
+      "t": "⚽ بعد عامين من الاعتزال.. توني كروس يبدأ خطواته نحو التدريب - يلاكورة",
+      "full": "⚽ بعد عامين من الاعتزال.. توني كروس يبدأ خطواته نحو التدريب - يلاكورة\n\nبعد عامين من الاعتزال.. توني كروس يبدأ خطواته نحو التدريب  يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ الأخبار - الاتحاد المصري لكرة القدم",
+      "full": "⚽ الأخبار - الاتحاد المصري لكرة القدم\n\nالأخبار  الاتحاد المصري لكرة القدم",
+      "img": ""
+    },
+    {
+      "t": "⚽ من العبقرية إلى زمن \"الرياضي الخارق\".. كيف تبدلت جينات النجومية في كرة القدم؟ - الجزيرة نت",
+      "full": "⚽ من العبقرية إلى زمن \"الرياضي الخارق\".. كيف تبدلت جينات النجومية في كرة القدم؟ - الجزيرة نت\n\nمن العبقرية إلى زمن \"الرياضي الخارق\".. كيف تبدلت جينات النجومية في كرة القدم؟  الجزيرة نت",
+      "img": ""
+    },
+    {
+      "t": "⚽ عصام سالم يكشسف الحل الأمثل للخروج من أزمات الزمالك.. وغياب أفشة مكسب للأبيض - الزمالك اليوم",
+      "full": "⚽ عصام سالم يكشسف الحل الأمثل للخروج من أزمات الزمالك.. وغياب أفشة مكسب للأبيض - الزمالك اليوم\n\nعصام سالم يكشسف الحل الأمثل للخروج من أزمات الزمالك.. وغياب أفشة مكسب للأبيض  الزمالك اليوم",
+      "img": ""
+    },
     {
       "t": "⚽ مدافع توتنام السابق يعلن ترشحه للتنافس مع إنفانتينو على رئاسة فيفا - FilGoal",
       "full": "⚽ مدافع توتنام السابق يعلن ترشحه للتنافس مع إنفانتينو على رئاسة فيفا - FilGoal\n\nمدافع توتنام السابق يعلن ترشحه للتنافس مع إنفانتينو على رئاسة فيفا  FilGoal",
@@ -80,30 +100,85 @@
       "t": "⚽ اللائحة تجيب.. هل يغيب إبراهيم صلاح عن الزمالك في القمة؟ - يلاكورة",
       "full": "⚽ اللائحة تجيب.. هل يغيب إبراهيم صلاح عن الزمالك في القمة؟ - يلاكورة\n\nاللائحة تجيب.. هل يغيب إبراهيم صلاح عن الزمالك في القمة؟  يلاكورة",
       "img": ""
-    },
-    {
-      "t": "⚽ بعد اعتزاله في 2023.. ديفيد سيلفا يعلن عودته لكرة القدم - بوابة الشروق",
-      "full": "⚽ بعد اعتزاله في 2023.. ديفيد سيلفا يعلن عودته لكرة القدم - بوابة الشروق\n\nبعد اعتزاله في 2023.. ديفيد سيلفا يعلن عودته لكرة القدم  بوابة الشروق",
-      "img": ""
-    },
-    {
-      "t": "⚽ على طريقة رونالدينيو.. ديفيد سيلفا يعود من الاعتزال في صفقة مفاجئة - Kooora",
-      "full": "⚽ على طريقة رونالدينيو.. ديفيد سيلفا يعود من الاعتزال في صفقة مفاجئة - Kooora\n\nعلى طريقة رونالدينيو.. ديفيد سيلفا يعود من الاعتزال في صفقة مفاجئة  Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ ديفيد سيلفا يعود إلى كرة القدم من بوابة هونج كونج - يلاكورة",
-      "full": "⚽ ديفيد سيلفا يعود إلى كرة القدم من بوابة هونج كونج - يلاكورة\n\nديفيد سيلفا يعود إلى كرة القدم من بوابة هونج كونج  يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ الاتحاد الإنجليزي يعلن عقوبة مدرب ساوثامبتون بعد اتهامه بالتجسس - FilGoal",
-      "full": "⚽ الاتحاد الإنجليزي يعلن عقوبة مدرب ساوثامبتون بعد اتهامه بالتجسس - FilGoal\n\nالاتحاد الإنجليزي يعلن عقوبة مدرب ساوثامبتون بعد اتهامه بالتجسس  FilGoal",
-      "img": ""
     }
   ],
   "results": [],
   "matches": [
+    {
+      "league": "الدوري الإسباني",
+      "slug": "esp.1",
+      "items": [
+        {
+          "home": "Málaga",
+          "away": "Espanyol",
+          "eid": "401882851",
+          "slug": "esp.1",
+          "homeId": "99",
+          "awayId": "88",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/99.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/88.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "10:00",
+          "day": "Friday",
+          "dateAr": "09/10",
+          "date": "2026-10-09T22:00:00+03:00",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": true
+    },
+    {
+      "league": "الدوري الألماني",
+      "slug": "ger.1",
+      "items": [
+        {
+          "home": "بوروسيا دورتموند",
+          "away": "Werder Bremen",
+          "eid": "401884781",
+          "slug": "ger.1",
+          "homeId": "124",
+          "awayId": "137",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/124.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/137.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "09:30",
+          "day": "Friday",
+          "dateAr": "09/10",
+          "date": "2026-10-09T21:30:00+03:00",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": true
+    },
+    {
+      "league": "الدوري الفرنسي",
+      "slug": "fra.1",
+      "items": [
+        {
+          "home": "Lens",
+          "away": "Lyon",
+          "eid": "401876447",
+          "slug": "fra.1",
+          "homeId": "175",
+          "awayId": "167",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/175.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/167.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "09:45",
+          "day": "Friday",
+          "dateAr": "09/10",
+          "date": "2026-10-09T21:45:00+03:00",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": true
+    },
     {
       "league": "الدوري السعودي",
       "slug": "ksa.1",
@@ -142,6 +217,92 @@
           "day": "Friday",
           "dateAr": "09/10",
           "date": "2026-10-09T17:55:00+03:00",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "النصر",
+          "away": "Al Diriyah",
+          "eid": "401900907",
+          "slug": "ksa.1",
+          "homeId": "817",
+          "awayId": "131746",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/817.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/131746.png",
+          "tv": "SSC / شاهد",
+          "hs": "0",
+          "as": "0",
+          "time": "09:00",
+          "day": "Friday",
+          "dateAr": "09/10",
+          "date": "2026-10-09T21:00:00+03:00",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": true
+    },
+    {
+      "league": "الدوري البرتغالي",
+      "slug": "por.1",
+      "items": [
+        {
+          "home": "Moreirense",
+          "away": "Gil Vicente",
+          "eid": "401885423",
+          "slug": "por.1",
+          "homeId": "3696",
+          "awayId": "3699",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3696.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3699.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "08:45",
+          "day": "Friday",
+          "dateAr": "09/10",
+          "date": "2026-10-09T20:45:00+03:00",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Braga",
+          "away": "سبورتينج لشبونة",
+          "eid": "401885427",
+          "slug": "por.1",
+          "homeId": "2994",
+          "awayId": "2250",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2994.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "10:15",
+          "day": "Friday",
+          "dateAr": "09/10",
+          "date": "2026-10-09T22:15:00+03:00",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": true
+    },
+    {
+      "league": "الدوري التركي",
+      "slug": "tur.1",
+      "items": [
+        {
+          "home": "جالاطا سراي",
+          "away": "Kasimpasa",
+          "eid": "401888280",
+          "slug": "tur.1",
+          "homeId": "432",
+          "awayId": "6870",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/432.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6870.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "08:00",
+          "day": "Friday",
+          "dateAr": "09/10",
+          "date": "2026-10-09T20:00:00+03:00",
           "detail": "Scheduled"
         }
       ],
@@ -4416,16 +4577,16 @@
       "img": "https://a.espncdn.com/photo/2026/0828/r1708048_1296x729_16-9.jpg"
     },
     {
+      "t": "Sources: Infantino reelection path clear as Montagliani plans Concacaf stay",
+      "img": "https://a.espncdn.com/photo/2026/1008/r1727909_1296x729_16-9.jpg"
+    },
+    {
       "t": "Where does Messi rank in the top five players of all time?",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1008/dm_261008_COM_SOC_Analysis_Where_does_Messi_rank_in_the_top_five_players_of_all_time__20261008_GLOBAL/dm_261008_COM_SOC_Analysis_Where_does_Messi_rank_in_the_top_five_players_of_all_time__20261008_GLOBAL.jpg"
     },
     {
       "t": "Ex-Tottenham defender Ramon Vega to challenge FIFA president Gianni Infantino",
       "img": "https://a.espncdn.com/photo/2026/1007/r1727457_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Messi tracker: Goals, assists, key moments in 2026",
-      "img": "https://a.espncdn.com/photo/2026/1007/r1727271_1296x729_16-9.jpg"
     },
     {
       "t": "Zidane: 'Not proud, but no regrets' over 2006 World Cup final clash with Materazzi",
@@ -4440,16 +4601,20 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0728/dm_260728_Zidane_Ive_been_waiting_five_years_to_become_Frances_head_coach/dm_260728_Zidane_Ive_been_waiting_five_years_to_become_Frances_head_coach.jpg"
     },
     {
-      "t": "Erling Haaland calls on Man City to 'stay positive' amid Premier League charges case",
-      "img": "https://a.espncdn.com/photo/2026/1008/r1727856_1296x729_16-9.jpg"
+      "t": "Moreno: Man Utd vs. Spurs a 'must not lose' for both sides",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1008/dm_261008_Moreno_Man_Utd_vs_Spurs_a_must_not_lose_for_both_sides/dm_261008_Moreno_Man_Utd_vs_Spurs_a_must_not_lose_for_both_sides.jpg"
     },
     {
-      "t": "What's next for Man City? Appeals, possible punishments, how long it could take",
-      "img": "https://a.espncdn.com/photo/2026/1008/r1727809_1296x729_16-9.jpg"
+      "t": "Maresca: Man City players' focus is on Liverpool, not charges",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1008/dm_261008_Maresca_Man_City_players_focus_is_on_Liverpool_not_charges/dm_261008_Maresca_Man_City_players_focus_is_on_Liverpool_not_charges.jpg"
     },
     {
-      "t": "Everton's Martin Sherif fined for breaching FA betting rules",
-      "img": "https://a.espncdn.com/photo/2026/1008/r1727813_1296x729_16-9.jpg"
+      "t": "UK PM Burnham denies downplaying seriousness of Man City findings",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1008/dm_261008_UK_PM_Burnham_denies_downplaying_seriousness_of_Man_City_findings/dm_261008_UK_PM_Burnham_denies_downplaying_seriousness_of_Man_City_findings.jpg"
+    },
+    {
+      "t": "Thunder's Gilegous-Alexander buys stake in Atlético Madrid",
+      "img": "https://a.espncdn.com/photo/2026/0518/r1659754_1296x729_16-9.jpg"
     },
     {
       "t": "Raúl Asencio on drink driving conviction: 'I'm at Real Madrid, that can't happen again'",
@@ -4458,10 +4623,6 @@
     {
       "t": "Transfer rumors, news: Mbappé future at Real Madrid in doubt?",
       "img": "https://a.espncdn.com/photo/2026/0918/r1718524_1296x729_16-9.jpg"
-    },
-    {
-      "t": "England teammates praise Kane, 'it's definitely possible' he could win the Ballon d'Or",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1007/dm_261007_England_teammates_praise_Kane_its_definitely_possible_he_could_win_the_Ballon_dOr/dm_261007_England_teammates_praise_Kane_its_definitely_possible_he_could_win_the_Ballon_dOr.jpg"
     },
     {
       "t": "Scott McTominay back in Napoli training after heart procedure",
