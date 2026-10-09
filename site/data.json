@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-10-09 04:35 AM",
+  "updated_at": "2026-10-09 11:13 AM",
   "news": [
+    {
+      "t": "⚽ مفاجآت كبرى في تشكيل الأهلي والزمالك بالدوري المصري - إرم نيوز",
+      "full": "⚽ مفاجآت كبرى في تشكيل الأهلي والزمالك بالدوري المصري - إرم نيوز\n\nمفاجآت كبرى في تشكيل الأهلي والزمالك بالدوري المصري  إرم نيوز",
+      "img": ""
+    },
+    {
+      "t": "⚽ صباحك أوروبي.. دعم جيرارد.. رسالة هالاند.. ومستقبل أوليسي - يلاكورة",
+      "full": "⚽ صباحك أوروبي.. دعم جيرارد.. رسالة هالاند.. ومستقبل أوليسي - يلاكورة\n\nصباحك أوروبي.. دعم جيرارد.. رسالة هالاند.. ومستقبل أوليسي  يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ \"المنتخب المنبوذ\".. نصف قرن من العزلة لكرة القدم الإسرائيلية - الجزيرة نت",
+      "full": "⚽ \"المنتخب المنبوذ\".. نصف قرن من العزلة لكرة القدم الإسرائيلية - الجزيرة نت\n\n\"المنتخب المنبوذ\".. نصف قرن من العزلة لكرة القدم الإسرائيلية  الجزيرة نت",
+      "img": ""
+    },
+    {
+      "t": "⚽ مفاجأة مدوية.. كريستيانو رونالدو يتلقى طعنة عائلية! - Kooora",
+      "full": "⚽ مفاجأة مدوية.. كريستيانو رونالدو يتلقى طعنة عائلية! - Kooora\n\nمفاجأة مدوية.. كريستيانو رونالدو يتلقى طعنة عائلية!  Kooora",
+      "img": ""
+    },
     {
       "t": "⚽ الزمالك يوضح موقف محترفيه قبل القمة..وتعليق على تأخير شيكوبانزا - الزمالك اليوم",
       "full": "⚽ الزمالك يوضح موقف محترفيه قبل القمة..وتعليق على تأخير شيكوبانزا - الزمالك اليوم\n\nالزمالك يوضح موقف محترفيه قبل القمة..وتعليق على تأخير شيكوبانزا  الزمالك اليوم",
@@ -79,26 +99,6 @@
     {
       "t": "⚽ مصدر ليلا كورة: شيكو بانزا يصل القاهرة خلال 48 ساعة استعدادا لمباراة الأهلي - يلاكورة",
       "full": "⚽ مصدر ليلا كورة: شيكو بانزا يصل القاهرة خلال 48 ساعة استعدادا لمباراة الأهلي - يلاكورة\n\nمصدر ليلا كورة: شيكو بانزا يصل القاهرة خلال 48 ساعة استعدادا لمباراة الأهلي  يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ بمشاركة مصرية، انطلاق ورشة عمل \"فيفا\" في تونس لمناقشة تطوير كرة القدم - فيتو",
-      "full": "⚽ بمشاركة مصرية، انطلاق ورشة عمل \"فيفا\" في تونس لمناقشة تطوير كرة القدم - فيتو\n\nبمشاركة مصرية، انطلاق ورشة عمل \"فيفا\" في تونس لمناقشة تطوير كرة القدم  فيتو",
-      "img": ""
-    },
-    {
-      "t": "⚽ ماهر غريب عن خسارة الزمالك أمام زد: مباراة في كرة القدم عادي - صدى البلد",
-      "full": "⚽ ماهر غريب عن خسارة الزمالك أمام زد: مباراة في كرة القدم عادي - صدى البلد\n\nماهر غريب عن خسارة الزمالك أمام زد: مباراة في كرة القدم عادي  صدى البلد",
-      "img": ""
-    },
-    {
-      "t": "⚽ نجوم كرة القدم المدخنون.. مفاجآت لا تُصدق من تشيزني إلى فيراتي وبوفون - اليوم السابع",
-      "full": "⚽ نجوم كرة القدم المدخنون.. مفاجآت لا تُصدق من تشيزني إلى فيراتي وبوفون - اليوم السابع\n\nنجوم كرة القدم المدخنون.. مفاجآت لا تُصدق من تشيزني إلى فيراتي وبوفون  اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ ناقد رياضي يعلق على الرسالة من حضور أحمد فتوح مباراة زد - الزمالك اليوم",
-      "full": "⚽ ناقد رياضي يعلق على الرسالة من حضور أحمد فتوح مباراة زد - الزمالك اليوم\n\nناقد رياضي يعلق على الرسالة من حضور أحمد فتوح مباراة زد  الزمالك اليوم",
       "img": ""
     }
   ],
@@ -260,6 +260,24 @@
           "day": "Saturday",
           "dateAr": "10/10",
           "date": "2026-10-10T04:00:00+03:00",
+          "detail": "Scheduled"
+        },
+        {
+          "home": "Tigres UANL",
+          "away": "Toluca",
+          "eid": "401876953",
+          "slug": "mex.1",
+          "homeId": "232",
+          "awayId": "223",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/232.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/223.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "06:00",
+          "day": "Saturday",
+          "dateAr": "10/10",
+          "date": "2026-10-10T06:00:00+03:00",
           "detail": "Scheduled"
         }
       ],
@@ -4626,16 +4644,20 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0728/dm_260728_Zidane_Ive_been_waiting_five_years_to_become_Frances_head_coach/dm_260728_Zidane_Ive_been_waiting_five_years_to_become_Frances_head_coach.jpg"
     },
     {
-      "t": "Moreno: Man Utd vs. Spurs a 'must not lose' for both sides",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1008/dm_261008_Moreno_Man_Utd_vs_Spurs_a_must_not_lose_for_both_sides/dm_261008_Moreno_Man_Utd_vs_Spurs_a_must_not_lose_for_both_sides.jpg"
+      "t": "Premier League reranked: Have we found Arsenal's fatal flaw?",
+      "img": "https://a.espncdn.com/photo/2026/1009/r1728081_1296x729_16-9.jpg"
     },
     {
-      "t": "Maresca: Man City players' focus is on Liverpool, not charges",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1008/dm_261008_Maresca_Man_City_players_focus_is_on_Liverpool_not_charges/dm_261008_Maresca_Man_City_players_focus_is_on_Liverpool_not_charges.jpg"
+      "t": "Everton put up for sale by Friedkin Group",
+      "img": "https://a.espncdn.com/photo/2023/0915/r1224694_1296x729_16-9.jpg"
     },
     {
-      "t": "UK PM Burnham denies downplaying seriousness of Man City findings",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1008/dm_261008_UK_PM_Burnham_denies_downplaying_seriousness_of_Man_City_findings/dm_261008_UK_PM_Burnham_denies_downplaying_seriousness_of_Man_City_findings.jpg"
+      "t": "Was epic Man City-Liverpool rivalry all a sham after cheating scandal?",
+      "img": "https://a.espncdn.com/photo/2026/1008/r1727969_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Transfer rumors, news: Real Madrid eye McTominay as Napoli talks stall",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709929_1296x729_16-9.jpg"
     },
     {
       "t": "Thunder's Gilegous-Alexander buys stake in Atlético Madrid",
@@ -4646,8 +4668,8 @@
       "img": "https://a.espncdn.com/photo/2026/1008/r1727758_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer rumors, news: Mbappé future at Real Madrid in doubt?",
-      "img": "https://a.espncdn.com/photo/2026/0918/r1718524_1296x729_16-9.jpg"
+      "t": "Transfer rumors, news: Real Madrid eye McTominay as Napoli talks stall",
+      "img": "https://a.espncdn.com/photo/2026/0901/r1709929_1296x729_16-9.jpg"
     },
     {
       "t": "Scott McTominay back in Napoli training after heart procedure",
@@ -4656,10 +4678,6 @@
     {
       "t": "Transfer rumors, news: Atleti, Juve eye loan move for Arsenal's Madueke",
       "img": "https://a.espncdn.com/photo/2026/1006/r1726964_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Portugal, Man United, Real Madrid: Cristiano Ronaldo's long history of rows with coaches",
-      "img": "https://a.espncdn.com/photo/2026/1001/r1724373_1296x729_16-9.jpg"
     },
     {
       "t": "England teammates praise Kane, 'it's definitely possible' he could win the Ballon d'Or",
