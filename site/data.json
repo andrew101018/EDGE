@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-11-02 01:16 AM",
+  "updated_at": "2026-11-02 04:40 AM",
   "news": [
+    {
+      "t": "⚽ معروف وجمال.. حكما مباراتي الأهلي والزمالك في الجولة 2 من كأس عاصمة مصر - FilGoal",
+      "full": "⚽ معروف وجمال.. حكما مباراتي الأهلي والزمالك في الجولة 2 من كأس عاصمة مصر - FilGoal\n\nمعروف وجمال.. حكما مباراتي الأهلي والزمالك في الجولة 2 من كأس عاصمة مصر  FilGoal",
+      "img": ""
+    },
+    {
+      "t": "⚽ مبابي وماو.. كيف تحوّل ميم ساخر إلى أزمة تتجاوز كرة القدم؟ - اليوم السابع",
+      "full": "⚽ مبابي وماو.. كيف تحوّل ميم ساخر إلى أزمة تتجاوز كرة القدم؟ - اليوم السابع\n\nمبابي وماو.. كيف تحوّل ميم ساخر إلى أزمة تتجاوز كرة القدم؟  اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ شركة الكرة في الزمالك.. الحقيقة الغائبة في الملف الشائك - صدى البلد",
+      "full": "⚽ شركة الكرة في الزمالك.. الحقيقة الغائبة في الملف الشائك - صدى البلد\n\nشركة الكرة في الزمالك.. الحقيقة الغائبة في الملف الشائك  صدى البلد",
+      "img": ""
+    },
+    {
+      "t": "⚽ مصر.. مقتل لاعب كرة قدم طعنًا أمام منزله - العربية",
+      "full": "⚽ مصر.. مقتل لاعب كرة قدم طعنًا أمام منزله - العربية\n\nمصر.. مقتل لاعب كرة قدم طعنًا أمام منزله  العربية",
+      "img": ""
+    },
     {
       "t": "⚽ الأهلي يعلن.. منح مروان عطية راحة من التدريبات الجماعية - يلاكورة",
       "full": "⚽ الأهلي يعلن.. منح مروان عطية راحة من التدريبات الجماعية - يلاكورة\n\nالأهلي يعلن.. منح مروان عطية راحة من التدريبات الجماعية  يلاكورة",
@@ -80,29 +100,13 @@
       "t": "⚽ فيديو: فعل فاضح.. طرد مشين لنجم نيوكاسل والأهلي السابق - Kooora",
       "full": "⚽ فيديو: فعل فاضح.. طرد مشين لنجم نيوكاسل والأهلي السابق - Kooora\n\nفيديو: فعل فاضح.. طرد مشين لنجم نيوكاسل والأهلي السابق  Kooora",
       "img": ""
-    },
-    {
-      "t": "⚽ أخبار | الخطيب: الأهلي يستحق بذل أقصى جهد لأنه نادي القرن الإفريقي والعربي - FilGoal",
-      "full": "⚽ أخبار | الخطيب: الأهلي يستحق بذل أقصى جهد لأنه نادي القرن الإفريقي والعربي - FilGoal\n\nأخبار | الخطيب: الأهلي يستحق بذل أقصى جهد لأنه نادي القرن الإفريقي والعربي  FilGoal",
-      "img": ""
-    },
-    {
-      "t": "⚽ ملف يلا كورة.. تحركات الأهلي في ملف ياسر إبراهيم وهاني.. وضوابط شركة الكرة بالزمالك - يلاكورة",
-      "full": "⚽ ملف يلا كورة.. تحركات الأهلي في ملف ياسر إبراهيم وهاني.. وضوابط شركة الكرة بالزمالك - يلاكورة\n\nملف يلا كورة.. تحركات الأهلي في ملف ياسر إبراهيم وهاني.. وضوابط شركة الكرة بالزمالك  يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ «كاف»: أمم أفريقيا ستقام كل عامين - المصري اليوم",
-      "full": "⚽ «كاف»: أمم أفريقيا ستقام كل عامين - المصري اليوم\n\n«كاف»: أمم أفريقيا ستقام كل عامين  المصري اليوم",
-      "img": ""
-    },
-    {
-      "t": "⚽ ستوري نجوم كرة القدم.. صلاح في مران طرابزون.. واحتفال محمد عبد المنعم مع نيس - Masrawy",
-      "full": "⚽ ستوري نجوم كرة القدم.. صلاح في مران طرابزون.. واحتفال محمد عبد المنعم مع نيس - Masrawy\n\nستوري نجوم كرة القدم.. صلاح في مران طرابزون.. واحتفال محمد عبد المنعم مع نيس  Masrawy",
-      "img": ""
     }
   ],
   "results": [
+    "Marseille 2 - 0 Toulouse",
+    "Paris FC 3 - 1 AS Monaco",
+    "Lyon 2 - 0 Angers",
+    "Eintracht Frankfurt 3 - 1 Hamburg SV",
     "يوفنتوس 2 - 0 نابولي",
     "Lecce 1 - 2 Genoa",
     "Lazio 2 - 1 Cagliari",
@@ -555,12 +559,12 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7318.png",
           "tv": "beIN Sports",
           "hs": "3",
-          "as": "0",
+          "as": "1",
           "time": "11:30",
           "day": "Sunday",
           "dateAr": "01/11",
           "date": "2026-11-01T23:30:00+02:00",
-          "detail": "77'"
+          "detail": "FT"
         },
         {
           "home": "Nashville SC",
@@ -572,13 +576,49 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18986.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/190.png",
           "tv": "beIN Sports",
-          "hs": "1",
+          "hs": "3",
           "as": "2",
           "time": "11:30",
           "day": "Sunday",
           "dateAr": "01/11",
           "date": "2026-11-01T23:30:00+02:00",
-          "detail": "70'"
+          "detail": "FT"
+        },
+        {
+          "home": "New England Revolution",
+          "away": "Inter Miami CF",
+          "eid": "761932",
+          "slug": "usa.1",
+          "homeId": "189",
+          "awayId": "20232",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/189.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20232.png",
+          "tv": "beIN Sports",
+          "hs": "1",
+          "as": "2",
+          "time": "02:00",
+          "day": "Monday",
+          "dateAr": "02/11",
+          "date": "2026-11-02T02:00:00+02:00",
+          "detail": "FT"
+        },
+        {
+          "home": "لوس أنجلوس FC",
+          "away": "Minnesota United FC",
+          "eid": "761921",
+          "slug": "usa.1",
+          "homeId": "18966",
+          "awayId": "17362",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/18966.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17362.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "2",
+          "time": "03:30",
+          "day": "Monday",
+          "dateAr": "02/11",
+          "date": "2026-11-02T03:30:00+02:00",
+          "detail": "HT"
         },
         {
           "home": "Portland Timbers",
@@ -615,13 +655,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/225.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/229.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "0",
           "time": "01:00",
           "day": "Monday",
           "dateAr": "02/11",
           "date": "2026-11-02T01:00:00+02:00",
-          "detail": "16'"
+          "detail": "FT"
         },
         {
           "home": "Cruz Azul",
@@ -633,13 +673,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/218.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/228.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "0",
           "time": "03:10",
           "day": "Monday",
           "dateAr": "02/11",
           "date": "2026-11-02T03:10:00+02:00",
-          "detail": "Scheduled"
+          "detail": "66'"
         }
       ],
       "big": true
@@ -3066,31 +3106,31 @@
         "rank": 1,
         "team": "Nashville SC",
         "logo": "",
-        "gp": 32.0,
-        "w": 21.0,
+        "gp": 33.0,
+        "w": 22.0,
         "d": 8.0,
         "l": 3.0,
-        "pts": 71.0
+        "pts": 74.0
       },
       {
         "rank": 2,
-        "team": "New England Revolution",
+        "team": "Inter Miami CF",
         "logo": "",
-        "gp": 32.0,
-        "w": 18.0,
-        "d": 4.0,
-        "l": 10.0,
-        "pts": 58.0
+        "gp": 33.0,
+        "w": 16.0,
+        "d": 11.0,
+        "l": 6.0,
+        "pts": 59.0
       },
       {
         "rank": 3,
-        "team": "Inter Miami CF",
+        "team": "New England Revolution",
         "logo": "",
-        "gp": 32.0,
-        "w": 15.0,
-        "d": 11.0,
-        "l": 6.0,
-        "pts": 56.0
+        "gp": 33.0,
+        "w": 18.0,
+        "d": 4.0,
+        "l": 11.0,
+        "pts": 58.0
       },
       {
         "rank": 4,
@@ -3156,10 +3196,10 @@
         "rank": 10,
         "team": "Red Bull New York",
         "logo": "",
-        "gp": 32.0,
+        "gp": 33.0,
         "w": 11.0,
         "d": 6.0,
-        "l": 15.0,
+        "l": 16.0,
         "pts": 39.0
       },
       {
@@ -3176,14 +3216,24 @@
         "rank": 12,
         "team": "Toronto FC",
         "logo": "",
-        "gp": 32.0,
+        "gp": 33.0,
         "w": 9.0,
         "d": 12.0,
-        "l": 11.0,
+        "l": 12.0,
         "pts": 39.0
       },
       {
         "rank": 13,
+        "team": "Atlanta United FC",
+        "logo": "",
+        "gp": 33.0,
+        "w": 9.0,
+        "d": 6.0,
+        "l": 18.0,
+        "pts": 33.0
+      },
+      {
+        "rank": 14,
         "team": "D.C. United",
         "logo": "",
         "gp": 33.0,
@@ -3191,16 +3241,6 @@
         "d": 12.0,
         "l": 14.0,
         "pts": 33.0
-      },
-      {
-        "rank": 14,
-        "team": "Atlanta United FC",
-        "logo": "",
-        "gp": 32.0,
-        "w": 8.0,
-        "d": 6.0,
-        "l": 18.0,
-        "pts": 30.0
       },
       {
         "rank": 15,
@@ -3286,6 +3326,16 @@
       },
       {
         "rank": 8,
+        "team": "سانتوس",
+        "logo": "",
+        "gp": 15.0,
+        "w": 7.0,
+        "d": 1.0,
+        "l": 7.0,
+        "pts": 22.0
+      },
+      {
+        "rank": 9,
         "team": "Monterrey",
         "logo": "",
         "gp": 14.0,
@@ -3295,7 +3345,7 @@
         "pts": 21.0
       },
       {
-        "rank": 9,
+        "rank": 10,
         "team": "Pumas UNAM",
         "logo": "",
         "gp": 15.0,
@@ -3305,7 +3355,7 @@
         "pts": 20.0
       },
       {
-        "rank": 10,
+        "rank": 11,
         "team": "Querétaro",
         "logo": "",
         "gp": 14.0,
@@ -3315,23 +3365,13 @@
         "pts": 20.0
       },
       {
-        "rank": 11,
+        "rank": 12,
         "team": "Pachuca",
         "logo": "",
         "gp": 15.0,
         "w": 5.0,
         "d": 4.0,
         "l": 6.0,
-        "pts": 19.0
-      },
-      {
-        "rank": 12,
-        "team": "سانتوس",
-        "logo": "",
-        "gp": 14.0,
-        "w": 6.0,
-        "d": 1.0,
-        "l": 7.0,
         "pts": 19.0
       },
       {
@@ -3378,10 +3418,10 @@
         "rank": 17,
         "team": "Necaxa",
         "logo": "",
-        "gp": 14.0,
+        "gp": 15.0,
         "w": 2.0,
         "d": 4.0,
-        "l": 8.0,
+        "l": 9.0,
         "pts": 10.0
       },
       {
@@ -4882,18 +4922,6 @@
           "face": ""
         },
         {
-          "name": "Nicolás Ibáñez",
-          "team": "Cruz Azul",
-          "value": "5 ⚽",
-          "face": ""
-        },
-        {
-          "name": "José Alvarado",
-          "team": "León",
-          "value": "5 ⚽",
-          "face": ""
-        },
-        {
           "name": "Tahiel Jiménez",
           "team": "سانتوس",
           "value": "5 ⚽",
@@ -4902,6 +4930,18 @@
         {
           "name": "Luís Esteves",
           "team": "Atlas",
+          "value": "5 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Nicolás Ibáñez",
+          "team": "Cruz Azul",
+          "value": "5 ⚽",
+          "face": ""
+        },
+        {
+          "name": "José Alvarado",
+          "team": "León",
           "value": "5 ⚽",
           "face": ""
         },
@@ -5316,16 +5356,16 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0728/dm_260728_Zidane_Ive_been_waiting_five_years_to_become_Frances_head_coach/dm_260728_Zidane_Ive_been_waiting_five_years_to_become_Frances_head_coach.jpg"
     },
     {
+      "t": "Havertz's close-range finish puts Arsenal on top",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1101/Int_261101_Soccer_HIGHLIGHT_Havertzs_close-range_finish_puts_Arsenal_on_top_2026211_AUS/Int_261101_Soccer_HIGHLIGHT_Havertzs_close-range_finish_puts_Arsenal_on_top_2026211_AUS.jpg"
+    },
+    {
       "t": "Ex-Liverpool, Man City star Milner runs NYC Marathon in just over three hours",
       "img": "https://a.espncdn.com/photo/2026/1101/r1739636_1296x729_16-9.png"
     },
     {
       "t": "Arteta says Arsenal 'loved the mission' in first Anfield win since 2012",
       "img": "https://a.espncdn.com/photo/2026/1101/r1739642_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Did VAR get Liverpool's penalty calls wrong against Arsenal?",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1101/dm_261101_COM_SOC_ANALYSIS_Did_VAR_get_Liverpoos_penalty_calls_wrong_against_Arsenal_2026_11_1/dm_261101_COM_SOC_ANALYSIS_Did_VAR_get_Liverpoos_penalty_calls_wrong_against_Arsenal_2026_11_1.jpg"
     },
     {
       "t": "Athletic Club vs. Real Sociedad - Game Highlights",
@@ -5376,6 +5416,10 @@
       "img": "https://a.espncdn.com/photo/2026/1029/r1738253_1296x729_16-9.jpg"
     },
     {
+      "t": "Ronaldo off Al Nassr's ACL squad due to Saudi security concerns",
+      "img": "https://a.espncdn.com/photo/2026/1012/r1729835_1296x729_16-9.jpg"
+    },
+    {
       "t": "Why Cristiano Ronaldo's 982nd career goal should be an own goal",
       "img": "https://a.espncdn.com/photo/2026/1030/r1738521_1296x729_16-9.jpg"
     },
@@ -5384,8 +5428,8 @@
       "img": "https://a.espncdn.com/photo/2026/1012/r1729835_1296x729_16-9.jpg"
     },
     {
-      "t": "Cristiano Ronaldo reaches 985 career goals with hat trick for Al Nassr",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1029/ss_20261029_175915553_3716095/ss_20261029_175915553_3716095.jpg"
+      "t": "Nashville ties Miami's single-season points record, ends Red Bulls playoff push",
+      "img": "https://a.espncdn.com/photo/2026/1101/r1739837_1296x729_16-9.jpg"
     },
     {
       "t": "Colorado Rapids vs. Chicago Fire FC - Game Highlights",
@@ -5394,10 +5438,6 @@
     {
       "t": "Spooky scheduling: How MLS ensures fans, players don't have horror Halloween",
       "img": "https://a.espncdn.com/photo/2026/1030/r1738627_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Messi eligible for crunch Miami game with Revs despite yellow card haul",
-      "img": "https://a.espncdn.com/photo/2026/1024/r1735701_1296x729_16-9.jpg"
     },
     {
       "t": "Club América to honour retired Mexico legend Guillermo Ochoa",
