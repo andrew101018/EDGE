@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-11-03 04:32 AM",
+  "updated_at": "2026-11-03 12:20 PM",
   "news": [
+    {
+      "t": "⚽ سيتى كلوب تتصدر مسابقات الناشئين والبراعم فى كرة القدم - اليوم السابع",
+      "full": "⚽ سيتى كلوب تتصدر مسابقات الناشئين والبراعم فى كرة القدم - اليوم السابع\n\nسيتى كلوب تتصدر مسابقات الناشئين والبراعم فى كرة القدم  اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ رسميا.. تأجيل كأس آسيا 2027 - يلاكورة",
+      "full": "⚽ رسميا.. تأجيل كأس آسيا 2027 - يلاكورة\n\nرسميا.. تأجيل كأس آسيا 2027  يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ تأجيل كأس آسيا 2027 بالسعودية لمدة عام.. اعرف الموعد الجديد - اليوم السابع",
+      "full": "⚽ تأجيل كأس آسيا 2027 بالسعودية لمدة عام.. اعرف الموعد الجديد - اليوم السابع\n\nتأجيل كأس آسيا 2027 بالسعودية لمدة عام.. اعرف الموعد الجديد  اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ تأجيل كأس أمم آسيا إلى ديسمبر 2027 - سكاي نيوز عربية",
+      "full": "⚽ تأجيل كأس أمم آسيا إلى ديسمبر 2027 - سكاي نيوز عربية\n\nتأجيل كأس أمم آسيا إلى ديسمبر 2027  سكاي نيوز عربية",
+      "img": ""
+    },
     {
       "t": "⚽ كيف علق شيكابالا على تألق عمر عبد العزيز في ظهوره الأول مع فريق الزمالك - الزمالك اليوم",
       "full": "⚽ كيف علق شيكابالا على تألق عمر عبد العزيز في ظهوره الأول مع فريق الزمالك - الزمالك اليوم\n\nكيف علق شيكابالا على تألق عمر عبد العزيز في ظهوره الأول مع فريق الزمالك  الزمالك اليوم",
@@ -79,26 +99,6 @@
     {
       "t": "⚽ مصر.. مقتل لاعب كرة قدم طعنًا أمام منزله - العربية",
       "full": "⚽ مصر.. مقتل لاعب كرة قدم طعنًا أمام منزله - العربية\n\nمصر.. مقتل لاعب كرة قدم طعنًا أمام منزله  العربية",
-      "img": ""
-    },
-    {
-      "t": "⚽ الأهلي يعلن.. منح مروان عطية راحة من التدريبات الجماعية - يلاكورة",
-      "full": "⚽ الأهلي يعلن.. منح مروان عطية راحة من التدريبات الجماعية - يلاكورة\n\nالأهلي يعلن.. منح مروان عطية راحة من التدريبات الجماعية  يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ وزارة الرياضة تكشف تفاصيل مراجعة ملف شركة الزمالك وموقفها من تعديل نسب الشراكة - اليوم السابع",
-      "full": "⚽ وزارة الرياضة تكشف تفاصيل مراجعة ملف شركة الزمالك وموقفها من تعديل نسب الشراكة - اليوم السابع\n\nوزارة الرياضة تكشف تفاصيل مراجعة ملف شركة الزمالك وموقفها من تعديل نسب الشراكة  اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ بورسعيد تستقبل عمالقة الكرة الشاطئية.. 8 منتخبات تتنافس على كأس العرب - اخبارك نت",
-      "full": "⚽ بورسعيد تستقبل عمالقة الكرة الشاطئية.. 8 منتخبات تتنافس على كأس العرب - اخبارك نت\n\nبورسعيد تستقبل عمالقة الكرة الشاطئية.. 8 منتخبات تتنافس على كأس العرب  اخبارك نت",
-      "img": ""
-    },
-    {
-      "t": "⚽ كاراجر يشيد بنجم آرسنال: الأفضل في البريميرليج - Kooora",
-      "full": "⚽ كاراجر يشيد بنجم آرسنال: الأفضل في البريميرليج - Kooora\n\nكاراجر يشيد بنجم آرسنال: الأفضل في البريميرليج  Kooora",
       "img": ""
     }
   ],
@@ -355,31 +355,6 @@
           "day": "Monday",
           "dateAr": "02/11",
           "date": "2026-11-02T21:45:00+02:00",
-          "detail": "FT"
-        }
-      ],
-      "big": true
-    },
-    {
-      "league": "الدوري الأمريكي",
-      "slug": "usa.1",
-      "items": [
-        {
-          "home": "Portland Timbers",
-          "away": "Houston Dynamo FC",
-          "eid": "761933",
-          "slug": "usa.1",
-          "homeId": "9723",
-          "awayId": "6077",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9723.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6077.png",
-          "tv": "beIN Sports",
-          "hs": "3",
-          "as": "1",
-          "time": "04:45",
-          "day": "Monday",
-          "dateAr": "02/11",
-          "date": "2026-11-02T04:45:00+02:00",
           "detail": "FT"
         }
       ],
@@ -3836,15 +3811,15 @@
           "face": ""
         },
         {
-          "name": "Bryan Mbeumo",
-          "team": "مانشستر يونايتد",
+          "name": "Thierno Barry",
+          "team": "Everton",
           "value": "4 ⚽",
           "face": ""
         },
         {
-          "name": "Thierno Barry",
-          "team": "Everton",
-          "value": "3 ⚽",
+          "name": "Bryan Mbeumo",
+          "team": "مانشستر يونايتد",
+          "value": "4 ⚽",
           "face": ""
         },
         {
@@ -3920,7 +3895,7 @@
         {
           "name": "Ante Budimir",
           "team": "Osasuna",
-          "value": "7 ⚽",
+          "value": "8 ⚽",
           "face": ""
         },
         {
@@ -4056,6 +4031,12 @@
         {
           "name": "Franco Mastantuono",
           "team": "Fiorentina",
+          "value": "4 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Simone Lontani",
+          "team": "Parma",
           "value": "3 ⚽",
           "face": ""
         },
@@ -4074,12 +4055,6 @@
         {
           "name": "Tiago Gabriel",
           "team": "Lecce",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Simone Lontani",
-          "team": "Parma",
           "value": "2 ⚽",
           "face": ""
         }
@@ -4230,7 +4205,7 @@
           "face": ""
         },
         {
-          "name": "Kamory Doumbia",
+          "name": "Ludovic Ajorque",
           "team": "Brest",
           "value": "4 ⚽",
           "face": ""
@@ -4792,16 +4767,16 @@
   },
   "world": [
     {
+      "t": "Man City relegated from Premier League but win Champions League? How it could play out",
+      "img": "https://a.espncdn.com/photo/2026/1103/r1740300_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Liverpool's $500m forward line is failing. Can they turn it around?",
+      "img": "https://a.espncdn.com/photo/2026/1103/r1740417_1296x729_16-9.jpg"
+    },
+    {
       "t": "Melchiot: Martínez would leave Manchester United with his head down",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1102/dm_261102_Melchiot_Martinez_would_leave_Manchester_United_with_his_head_down/dm_261102_Melchiot_Martinez_would_leave_Manchester_United_with_his_head_down.jpg"
-    },
-    {
-      "t": "Flick '100% convinced' Barcelona can win Champions League and LaLiga",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1102/dm_261102_Flick_100_convinced_Barcelona_can_win_Champions_League_and_LaLiga/dm_261102_Flick_100_convinced_Barcelona_can_win_Champions_League_and_LaLiga.jpg"
-    },
-    {
-      "t": "Carrick 'can't wait' for Roma game and disregards sack talk",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1102/dm_261102_Carrick_cant_wait_for_Roma_game_and_disregards_sack_talk/dm_261102_Carrick_cant_wait_for_Roma_game_and_disregards_sack_talk.jpg"
     },
     {
       "t": "Ten Hag: Ronaldo's time was 'over' at Juventus",
@@ -4852,16 +4827,20 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0728/dm_260728_Zidane_Ive_been_waiting_five_years_to_become_Frances_head_coach/dm_260728_Zidane_Ive_been_waiting_five_years_to_become_Frances_head_coach.jpg"
     },
     {
-      "t": "Moyes after 2nd Everton win over Newcastle: 'Not an easy thing'",
-      "img": "https://a.espncdn.com/photo/2026/1103/r1740279_1296x729_16-9.jpg"
+      "t": "Man City relegated from Premier League but win Champions League? How it could play out",
+      "img": "https://a.espncdn.com/photo/2026/1103/r1740300_1296x729_16-9.jpg"
     },
     {
-      "t": "Barry leads Everton to second win over Newcastle in four days",
-      "img": "https://a.espncdn.com/photo/2026/1102/r1740227_1296x729_16-9.jpg"
+      "t": "Liverpool's $500m forward line is failing. Can they turn it around?",
+      "img": "https://a.espncdn.com/photo/2026/1103/r1740417_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer rumors, news: Both Manchester clubs eye move for USMNT's Freeman",
-      "img": "https://a.espncdn.com/photo/2026/1102/r1740188_1296x729_16-9.jpg"
+      "t": "Transfer rumors, news: Real Madrid tracking Arsenal's Calafiori",
+      "img": "https://a.espncdn.com/photo/2026/1010/r1728635_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Barcelona lift ban on supporters' group for Aston Villa clash",
+      "img": "https://a.espncdn.com/photo/2023/0615/r1186743_1296x729_16-9.jpg"
     },
     {
       "t": "Deportivo La Coruña vs. Osasuna - Game Highlights",
@@ -4870,10 +4849,6 @@
     {
       "t": "Athletic Club vs. Real Sociedad - Game Highlights",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/1101/d7548940-ef17-4dfb-96d2-cf72cf695535/d7548940-ef17-4dfb-96d2-cf72cf695535.jpg"
-    },
-    {
-      "t": "Elche vs. Valencia - Game Highlights",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/1101/b38b6466-cf86-48ef-9e87-2110ead15329/b38b6466-cf86-48ef-9e87-2110ead15329.jpg"
     },
     {
       "t": "Kerim Alajbegovic and Jérémie Boga hit stunners as Juventus beat 10-man Napoli",
@@ -4900,6 +4875,10 @@
       "img": "https://a.espncdn.com/photo/2026/0909/r1713698_1296x729_16-9.jpg"
     },
     {
+      "t": "Achraf Hakimi's historic hat-trick all but secures another African player of the year gong",
+      "img": "https://a.espncdn.com/photo/2026/1030/r1738690_1296x729_16-9.jpg"
+    },
+    {
       "t": "Achraf Hakimi scores 1st career hat trick as Luis Enrique makes PSG history",
       "img": "https://a.espncdn.com/photo/2026/1030/r1738690_1296x729_16-9.jpg"
     },
@@ -4908,8 +4887,8 @@
       "img": "https://a.espncdn.com/photo/2026/1030/r1738425_1296x729_16-9.jpg"
     },
     {
-      "t": "Transfer rumors, news: Liverpool in contact over Monaco's Camara",
-      "img": "https://a.espncdn.com/photo/2026/1029/r1738253_1296x729_16-9.jpg"
+      "t": "Asian Football Confederation postpones 2027 Asian Cup in Saudi Arabia",
+      "img": "https://a.espncdn.com/photo/2026/1103/r1740341_1296x729_16-9.jpg"
     },
     {
       "t": "Ronaldo off Al Nassr's ACL squad due to Saudi security concerns",
@@ -4918,10 +4897,6 @@
     {
       "t": "Why Cristiano Ronaldo's 982nd career goal should be an own goal",
       "img": "https://a.espncdn.com/photo/2026/1030/r1738521_1296x729_16-9.jpg"
-    },
-    {
-      "t": "AC Milan's U.S. owner considering buying Cristiano Ronaldo's Al Nassr",
-      "img": "https://a.espncdn.com/photo/2026/1012/r1729835_1296x729_16-9.jpg"
     },
     {
       "t": "MLS Power Rankings: Miami finds its feet with Decision Day coming up",
