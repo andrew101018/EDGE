@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-11-05 02:37 PM",
+  "updated_at": "2026-11-05 10:26 PM",
   "news": [
+    {
+      "t": "⚽ الأخبار - الاتحاد المصري لكرة القدم",
+      "full": "⚽ الأخبار - الاتحاد المصري لكرة القدم\n\nالأخبار  الاتحاد المصري لكرة القدم",
+      "img": ""
+    },
+    {
+      "t": "⚽ الاتحاد المصري يستقر على إقالة حسام حسن - Kooora",
+      "full": "⚽ الاتحاد المصري يستقر على إقالة حسام حسن - Kooora\n\nالاتحاد المصري يستقر على إقالة حسام حسن  Kooora",
+      "img": ""
+    },
+    {
+      "t": "⚽ اتحاد الكرة يستقر على إقالة حسام حسن.. ومفاجأة بشأن البديل (خاص) - المصري اليوم",
+      "full": "⚽ اتحاد الكرة يستقر على إقالة حسام حسن.. ومفاجأة بشأن البديل (خاص) - المصري اليوم\n\nاتحاد الكرة يستقر على إقالة حسام حسن.. ومفاجأة بشأن البديل (خاص)  المصري اليوم",
+      "img": ""
+    },
+    {
+      "t": "⚽ رسميًا.. استقالة في الجهاز الفني لمنتخب مصر - يلاكورة",
+      "full": "⚽ رسميًا.. استقالة في الجهاز الفني لمنتخب مصر - يلاكورة\n\nرسميًا.. استقالة في الجهاز الفني لمنتخب مصر  يلاكورة",
+      "img": ""
+    },
     {
       "t": "⚽ طرابزون سبور ضد فرايبورج.. موعد مباراة محمد صلاح اليوم والقناة الناقلة - اليوم السابع",
       "full": "⚽ طرابزون سبور ضد فرايبورج.. موعد مباراة محمد صلاح اليوم والقناة الناقلة - اليوم السابع\n\nطرابزون سبور ضد فرايبورج.. موعد مباراة محمد صلاح اليوم والقناة الناقلة  اليوم السابع",
@@ -80,230 +100,25 @@
       "t": "⚽ تقارير: قطر تقترب من استضافة السوبر المصري - يلاكورة",
       "full": "⚽ تقارير: قطر تقترب من استضافة السوبر المصري - يلاكورة\n\nتقارير: قطر تقترب من استضافة السوبر المصري  يلاكورة",
       "img": ""
-    },
-    {
-      "t": "⚽ وفاة لاعب كرة القدم الإسباني خيسوس دي ميغيل بعد اصطدام مروع أنهى حياته - مجلة سيدتي",
-      "full": "⚽ وفاة لاعب كرة القدم الإسباني خيسوس دي ميغيل بعد اصطدام مروع أنهى حياته - مجلة سيدتي\n\nوفاة لاعب كرة القدم الإسباني خيسوس دي ميغيل بعد اصطدام مروع أنهى حياته  مجلة سيدتي",
-      "img": ""
-    },
-    {
-      "t": "⚽ الزمالك مرشح لجائزة أفضل نادي في إفريقيا - FilGoal",
-      "full": "⚽ الزمالك مرشح لجائزة أفضل نادي في إفريقيا - FilGoal\n\nالزمالك مرشح لجائزة أفضل نادي في إفريقيا  FilGoal",
-      "img": ""
-    },
-    {
-      "t": "⚽ منتخب مصر ينافس كبار أفريقيا على جائزة الأفضل فى 2026 - اليوم السابع",
-      "full": "⚽ منتخب مصر ينافس كبار أفريقيا على جائزة الأفضل فى 2026 - اليوم السابع\n\nمنتخب مصر ينافس كبار أفريقيا على جائزة الأفضل فى 2026  اليوم السابع",
-      "img": ""
-    },
-    {
-      "t": "⚽ سيطرة مغربية وممثل وحيد لمصر.. كاف يعلن المرشحين لجائزة أفضل ناد في أفريقيا - يلاكورة",
-      "full": "⚽ سيطرة مغربية وممثل وحيد لمصر.. كاف يعلن المرشحين لجائزة أفضل ناد في أفريقيا - يلاكورة\n\nسيطرة مغربية وممثل وحيد لمصر.. كاف يعلن المرشحين لجائزة أفضل ناد في أفريقيا  يلاكورة",
-      "img": ""
     }
   ],
   "results": [
+    "Levski Sofia 1 - 0 Jagiellonia Bialystok",
+    "Crystal Palace 1 - 1 TSG Hoffenheim",
+    "Anderlecht 2 - 0 RB Salzburg",
+    "ميلان 0 - 2 Ferencvaros",
     "Lens 1 - 9 Como",
     "FC Porto 4 - 1 نابولي",
     "بوروسيا دورتموند 2 - 1 Real Betis",
     "Fenerbahce 3 - 2 ليفربول",
     "AEK Athens 2 - 3 ريال مدريد",
-    "الاتحاد 0 - 0 Neom SC",
-    "Al Hazem 0 - 0 النصر",
-    "الفتح 0 - 0 Al Riyadh"
+    "الاتحاد 0 - 0 Neom SC"
   ],
   "matches": [
-    {
-      "league": "دوري أبطال أوروبا",
-      "slug": "uefa.champions",
-      "items": [
-        {
-          "home": "AEK Athens",
-          "away": "ريال مدريد",
-          "eid": "401915383",
-          "slug": "uefa.champions",
-          "homeId": "887",
-          "awayId": "86",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/887.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
-          "tv": "beIN Sports",
-          "hs": "2",
-          "as": "3",
-          "time": "07:45",
-          "day": "Wednesday",
-          "dateAr": "04/11",
-          "date": "2026-11-04T19:45:00+02:00",
-          "detail": "FT"
-        },
-        {
-          "home": "Fenerbahce",
-          "away": "ليفربول",
-          "eid": "401915382",
-          "slug": "uefa.champions",
-          "homeId": "436",
-          "awayId": "364",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/436.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
-          "tv": "beIN Sports",
-          "hs": "3",
-          "as": "2",
-          "time": "07:45",
-          "day": "Wednesday",
-          "dateAr": "04/11",
-          "date": "2026-11-04T19:45:00+02:00",
-          "detail": "FT"
-        },
-        {
-          "home": "بوروسيا دورتموند",
-          "away": "Real Betis",
-          "eid": "401915304",
-          "slug": "uefa.champions",
-          "homeId": "124",
-          "awayId": "244",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/124.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/244.png",
-          "tv": "beIN Sports",
-          "hs": "2",
-          "as": "1",
-          "time": "10:00",
-          "day": "Wednesday",
-          "dateAr": "04/11",
-          "date": "2026-11-04T22:00:00+02:00",
-          "detail": "FT"
-        },
-        {
-          "home": "FC Porto",
-          "away": "نابولي",
-          "eid": "401915301",
-          "slug": "uefa.champions",
-          "homeId": "437",
-          "awayId": "114",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/437.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/114.png",
-          "tv": "beIN Sports",
-          "hs": "4",
-          "as": "1",
-          "time": "10:00",
-          "day": "Wednesday",
-          "dateAr": "04/11",
-          "date": "2026-11-04T22:00:00+02:00",
-          "detail": "FT"
-        },
-        {
-          "home": "Lens",
-          "away": "Como",
-          "eid": "401915305",
-          "slug": "uefa.champions",
-          "homeId": "175",
-          "awayId": "2572",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/175.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "9",
-          "time": "10:00",
-          "day": "Wednesday",
-          "dateAr": "04/11",
-          "date": "2026-11-04T22:00:00+02:00",
-          "detail": "FT"
-        },
-        {
-          "home": "آيندهوفن",
-          "away": "Club Brugge",
-          "eid": "401915303",
-          "slug": "uefa.champions",
-          "homeId": "148",
-          "awayId": "570",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/148.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/570.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "2",
-          "time": "10:00",
-          "day": "Wednesday",
-          "dateAr": "04/11",
-          "date": "2026-11-04T22:00:00+02:00",
-          "detail": "FT"
-        },
-        {
-          "home": "RB Leipzig",
-          "away": "مانشستر سيتي",
-          "eid": "401915306",
-          "slug": "uefa.champions",
-          "homeId": "11420",
-          "awayId": "382",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11420.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
-          "tv": "beIN Sports",
-          "hs": "2",
-          "as": "3",
-          "time": "10:00",
-          "day": "Wednesday",
-          "dateAr": "04/11",
-          "date": "2026-11-04T22:00:00+02:00",
-          "detail": "FT"
-        },
-        {
-          "home": "Slavia Prague",
-          "away": "أرسنال",
-          "eid": "401915381",
-          "slug": "uefa.champions",
-          "homeId": "494",
-          "awayId": "359",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/494.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png",
-          "tv": "beIN Sports",
-          "hs": "1",
-          "as": "2",
-          "time": "10:00",
-          "day": "Wednesday",
-          "dateAr": "04/11",
-          "date": "2026-11-04T22:00:00+02:00",
-          "detail": "FT"
-        },
-        {
-          "home": "Viking FK",
-          "away": "Sabah FK",
-          "eid": "401915302",
-          "slug": "uefa.champions",
-          "homeId": "510",
-          "awayId": "21922",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/510.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21922.png",
-          "tv": "beIN Sports",
-          "hs": "4",
-          "as": "1",
-          "time": "10:00",
-          "day": "Wednesday",
-          "dateAr": "04/11",
-          "date": "2026-11-04T22:00:00+02:00",
-          "detail": "FT"
-        }
-      ],
-      "big": true
-    },
     {
       "league": "الدوري الأوروبي",
       "slug": "uefa.europa",
       "items": [
-        {
-          "home": "Stade Rennais",
-          "away": "Olympiacos",
-          "eid": "401915551",
-          "slug": "uefa.europa",
-          "homeId": "169",
-          "awayId": "435",
-          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png",
-          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/435.png",
-          "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
-          "time": "05:30",
-          "day": "Wednesday",
-          "dateAr": "04/11",
-          "date": "2026-11-04T17:30:00+02:00",
-          "detail": "FT"
-        },
         {
           "home": "ميلان",
           "away": "Ferencvaros",
@@ -315,12 +130,12 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/622.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "0",
+          "as": "2",
           "time": "07:45",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T19:45:00+02:00",
-          "detail": "Scheduled"
+          "detail": "FT"
         },
         {
           "home": "Anderlecht",
@@ -332,13 +147,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/441.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2790.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "2",
           "as": "0",
           "time": "07:45",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T19:45:00+02:00",
-          "detail": "Scheduled"
+          "detail": "FT"
         },
         {
           "home": "Crystal Palace",
@@ -350,13 +165,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/384.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7911.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "1",
+          "as": "1",
           "time": "07:45",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T19:45:00+02:00",
-          "detail": "Scheduled"
+          "detail": "FT"
         },
         {
           "home": "Levski Sofia",
@@ -368,13 +183,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/490.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11505.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "0",
           "time": "07:45",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T19:45:00+02:00",
-          "detail": "Scheduled"
+          "detail": "FT"
         },
         {
           "home": "Lillestrom",
@@ -387,12 +202,30 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11706.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "0",
+          "as": "1",
           "time": "07:45",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T19:45:00+02:00",
-          "detail": "Scheduled"
+          "detail": "FT"
+        },
+        {
+          "home": "NEC Nijmegen",
+          "away": "Omonia Nicosia",
+          "eid": "401915535",
+          "slug": "uefa.europa",
+          "homeId": "147",
+          "awayId": "617",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/147.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/617.png",
+          "tv": "beIN Sports",
+          "hs": "3",
+          "as": "1",
+          "time": "07:45",
+          "day": "Thursday",
+          "dateAr": "05/11",
+          "date": "2026-11-05T19:45:00+02:00",
+          "detail": "FT"
         },
         {
           "home": "Real Sociedad",
@@ -404,13 +237,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/167.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "1",
+          "as": "1",
           "time": "07:45",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T19:45:00+02:00",
-          "detail": "Scheduled"
+          "detail": "FT"
         },
         {
           "home": "Sparta Prague",
@@ -422,13 +255,31 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/433.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/349.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "1",
+          "as": "3",
           "time": "07:45",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T19:45:00+02:00",
-          "detail": "Scheduled"
+          "detail": "FT"
+        },
+        {
+          "home": "AZ Alkmaar",
+          "away": "يوفنتوس",
+          "eid": "401915529",
+          "slug": "uefa.europa",
+          "homeId": "140",
+          "awayId": "111",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/140.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/111.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "1",
+          "time": "10:00",
+          "day": "Thursday",
+          "dateAr": "05/11",
+          "date": "2026-11-05T22:00:00+02:00",
+          "detail": "24'"
         },
         {
           "home": "Bayer Leverkusen",
@@ -446,7 +297,25 @@
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T22:00:00+02:00",
-          "detail": "Scheduled"
+          "detail": "24'"
+        },
+        {
+          "home": "بنفيكا",
+          "away": "Lech Poznan",
+          "eid": "401915525",
+          "slug": "uefa.europa",
+          "homeId": "1929",
+          "awayId": "2990",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1929.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2990.png",
+          "tv": "beIN Sports",
+          "hs": "1",
+          "as": "0",
+          "time": "10:00",
+          "day": "Thursday",
+          "dateAr": "05/11",
+          "date": "2026-11-05T22:00:00+02:00",
+          "detail": "24'"
         },
         {
           "home": "Celta Vigo",
@@ -458,13 +327,31 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/85.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/5807.png",
           "tv": "beIN Sports",
+          "hs": "1",
+          "as": "0",
+          "time": "10:00",
+          "day": "Thursday",
+          "dateAr": "05/11",
+          "date": "2026-11-05T22:00:00+02:00",
+          "detail": "25'"
+        },
+        {
+          "home": "Celtic",
+          "away": "Besiktas",
+          "eid": "401915522",
+          "slug": "uefa.europa",
+          "homeId": "256",
+          "awayId": "1895",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/256.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1895.png",
+          "tv": "beIN Sports",
           "hs": "0",
           "as": "0",
           "time": "10:00",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T22:00:00+02:00",
-          "detail": "Scheduled"
+          "detail": "24'"
         },
         {
           "home": "Hapoel Be'er",
@@ -482,7 +369,7 @@
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T22:00:00+02:00",
-          "detail": "Scheduled"
+          "detail": "25'"
         },
         {
           "home": "SK Sturm Graz",
@@ -500,7 +387,7 @@
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T22:00:00+02:00",
-          "detail": "Scheduled"
+          "detail": "25'"
         },
         {
           "home": "Sunderland",
@@ -513,12 +400,12 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/597.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "0",
+          "as": "1",
           "time": "10:00",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T22:00:00+02:00",
-          "detail": "Scheduled"
+          "detail": "24'"
         },
         {
           "home": "Torreense",
@@ -530,13 +417,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/21615.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20024.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "0",
           "time": "10:00",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T22:00:00+02:00",
-          "detail": "Scheduled"
+          "detail": "25'"
         }
       ],
       "big": true
@@ -561,7 +448,7 @@
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T19:45:00+02:00",
-          "detail": "Scheduled"
+          "detail": "FT"
         },
         {
           "home": "Atalanta",
@@ -573,13 +460,31 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/105.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2528.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "1",
+          "as": "1",
           "time": "07:45",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T19:45:00+02:00",
-          "detail": "Scheduled"
+          "detail": "FT"
+        },
+        {
+          "home": "FC Midtjylland",
+          "away": "Ajax Amsterdam",
+          "eid": "401915829",
+          "slug": "uefa.europa.conf",
+          "homeId": "572",
+          "awayId": "139",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/572.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/139.png",
+          "tv": "beIN Sports",
+          "hs": "1",
+          "as": "6",
+          "time": "07:45",
+          "day": "Thursday",
+          "dateAr": "05/11",
+          "date": "2026-11-05T19:45:00+02:00",
+          "detail": "FT"
         },
         {
           "home": "FC Thun",
@@ -591,13 +496,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3024.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/262.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "3",
+          "as": "1",
           "time": "07:45",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T19:45:00+02:00",
-          "detail": "Scheduled"
+          "detail": "FT"
         },
         {
           "home": "KuPS Kuopio",
@@ -615,7 +520,7 @@
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T19:45:00+02:00",
-          "detail": "Scheduled"
+          "detail": "FT"
         },
         {
           "home": "Lincoln Red Imps",
@@ -627,13 +532,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17856.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/489.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "1",
           "as": "0",
           "time": "07:45",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T19:45:00+02:00",
-          "detail": "Scheduled"
+          "detail": "FT"
         },
         {
           "home": "Mjällby AIF",
@@ -645,13 +550,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20301.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20710.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "2",
           "as": "0",
           "time": "07:45",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T19:45:00+02:00",
-          "detail": "Scheduled"
+          "detail": "FT"
         },
         {
           "home": "Red Star Belgrade",
@@ -663,13 +568,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2290.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20703.png",
           "tv": "beIN Sports",
-          "hs": "0",
-          "as": "0",
+          "hs": "2",
+          "as": "1",
           "time": "07:45",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T19:45:00+02:00",
-          "detail": "Scheduled"
+          "detail": "FT"
         },
         {
           "home": "Trabzonspor",
@@ -682,12 +587,12 @@
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/126.png",
           "tv": "beIN Sports",
           "hs": "0",
-          "as": "0",
+          "as": "1",
           "time": "07:45",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T19:45:00+02:00",
-          "detail": "Scheduled"
+          "detail": "FT"
         },
         {
           "home": "AS Monaco",
@@ -705,7 +610,7 @@
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T22:00:00+02:00",
-          "detail": "Scheduled"
+          "detail": "24'"
         },
         {
           "home": "CSU Craiova",
@@ -723,7 +628,7 @@
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T22:00:00+02:00",
-          "detail": "Scheduled"
+          "detail": "26'"
         },
         {
           "home": "F.C. København",
@@ -735,13 +640,13 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/909.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20025.png",
           "tv": "beIN Sports",
-          "hs": "0",
+          "hs": "2",
           "as": "0",
           "time": "10:00",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T22:00:00+02:00",
-          "detail": "Scheduled"
+          "detail": "26'"
         },
         {
           "home": "FC Lugano",
@@ -753,13 +658,31 @@
           "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7672.png",
           "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20028.png",
           "tv": "beIN Sports",
+          "hs": "1",
+          "as": "0",
+          "time": "10:00",
+          "day": "Thursday",
+          "dateAr": "05/11",
+          "date": "2026-11-05T22:00:00+02:00",
+          "detail": "24'"
+        },
+        {
+          "home": "FC Twente",
+          "away": "Pafos",
+          "eid": "401915822",
+          "slug": "uefa.europa.conf",
+          "homeId": "152",
+          "awayId": "22281",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/152.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/22281.png",
+          "tv": "beIN Sports",
           "hs": "0",
           "as": "0",
           "time": "10:00",
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T22:00:00+02:00",
-          "detail": "Scheduled"
+          "detail": "24'"
         },
         {
           "home": "Getafe",
@@ -777,7 +700,7 @@
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T22:00:00+02:00",
-          "detail": "Scheduled"
+          "detail": "25'"
         },
         {
           "home": "Panathinaikos",
@@ -795,7 +718,7 @@
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T22:00:00+02:00",
-          "detail": "Scheduled"
+          "detail": "25'"
         },
         {
           "home": "Riga FC",
@@ -813,7 +736,7 @@
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T22:00:00+02:00",
-          "detail": "Scheduled"
+          "detail": "25'"
         },
         {
           "home": "Sint-Truidense",
@@ -831,6 +754,81 @@
           "day": "Thursday",
           "dateAr": "05/11",
           "date": "2026-11-05T22:00:00+02:00",
+          "detail": "24'"
+        }
+      ],
+      "big": true
+    },
+    {
+      "league": "الدوري الإنجليزي",
+      "slug": "eng.1",
+      "items": [
+        {
+          "home": "Everton",
+          "away": "Coventry City",
+          "eid": "401879242",
+          "slug": "eng.1",
+          "homeId": "368",
+          "awayId": "388",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/368.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/388.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "10:00",
+          "day": "Friday",
+          "dateAr": "06/11",
+          "date": "2026-11-06T22:00:00+02:00",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": true
+    },
+    {
+      "league": "الدوري الإسباني",
+      "slug": "esp.1",
+      "items": [
+        {
+          "home": "Sevilla",
+          "away": "Alavés",
+          "eid": "401882809",
+          "slug": "esp.1",
+          "homeId": "243",
+          "awayId": "96",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/243.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/96.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "10:00",
+          "day": "Friday",
+          "dateAr": "06/11",
+          "date": "2026-11-06T22:00:00+02:00",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": true
+    },
+    {
+      "league": "الدوري الفرنسي",
+      "slug": "fra.1",
+      "items": [
+        {
+          "home": "Toulouse",
+          "away": "Strasbourg",
+          "eid": "401876405",
+          "slug": "fra.1",
+          "homeId": "179",
+          "awayId": "180",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/179.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/180.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "09:45",
+          "day": "Friday",
+          "dateAr": "06/11",
+          "date": "2026-11-06T21:45:00+02:00",
           "detail": "Scheduled"
         }
       ],
@@ -947,6 +945,31 @@
           "dateAr": "06/11",
           "date": "2026-11-06T22:00:00+02:00",
           "detail": "Postponed"
+        }
+      ],
+      "big": true
+    },
+    {
+      "league": "الدوري التركي",
+      "slug": "tur.1",
+      "items": [
+        {
+          "home": "Gaziantep FK",
+          "away": "Kasimpasa",
+          "eid": "401888256",
+          "slug": "tur.1",
+          "homeId": "20070",
+          "awayId": "6870",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20070.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6870.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "07:00",
+          "day": "Friday",
+          "dateAr": "06/11",
+          "date": "2026-11-06T19:00:00+02:00",
+          "detail": "Scheduled"
         }
       ],
       "big": true
@@ -1258,6 +1281,26 @@
     "الدوري الأوروبي": [
       {
         "rank": 1,
+        "team": "AFC Bournemouth",
+        "logo": "",
+        "gp": 4.0,
+        "w": 4.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 12.0
+      },
+      {
+        "rank": 2,
+        "team": "Ferencvaros",
+        "logo": "",
+        "gp": 4.0,
+        "w": 4.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 12.0
+      },
+      {
+        "rank": 3,
         "team": "Olympiacos",
         "logo": "",
         "gp": 4.0,
@@ -1267,7 +1310,7 @@
         "pts": 10.0
       },
       {
-        "rank": 2,
+        "rank": 4,
         "team": "بنفيكا",
         "logo": "",
         "gp": 3.0,
@@ -1277,28 +1320,8 @@
         "pts": 9.0
       },
       {
-        "rank": 3,
-        "team": "Bayer Leverkusen",
-        "logo": "",
-        "gp": 3.0,
-        "w": 3.0,
-        "d": 0.0,
-        "l": 0.0,
-        "pts": 9.0
-      },
-      {
-        "rank": 4,
-        "team": "AFC Bournemouth",
-        "logo": "",
-        "gp": 3.0,
-        "w": 3.0,
-        "d": 0.0,
-        "l": 0.0,
-        "pts": 9.0
-      },
-      {
         "rank": 5,
-        "team": "Ferencvaros",
+        "team": "Bayer Leverkusen",
         "logo": "",
         "gp": 3.0,
         "w": 3.0,
@@ -1348,6 +1371,36 @@
       },
       {
         "rank": 10,
+        "team": "Levski Sofia",
+        "logo": "",
+        "gp": 4.0,
+        "w": 2.0,
+        "d": 1.0,
+        "l": 1.0,
+        "pts": 7.0
+      },
+      {
+        "rank": 11,
+        "team": "NEC Nijmegen",
+        "logo": "",
+        "gp": 4.0,
+        "w": 2.0,
+        "d": 1.0,
+        "l": 1.0,
+        "pts": 7.0
+      },
+      {
+        "rank": 12,
+        "team": "Lyon",
+        "logo": "",
+        "gp": 4.0,
+        "w": 2.0,
+        "d": 1.0,
+        "l": 1.0,
+        "pts": 7.0
+      },
+      {
+        "rank": 13,
         "team": "AZ Alkmaar",
         "logo": "",
         "gp": 3.0,
@@ -1357,17 +1410,17 @@
         "pts": 6.0
       },
       {
-        "rank": 11,
-        "team": "Omonia Nicosia",
+        "rank": 14,
+        "team": "Anderlecht",
         "logo": "",
-        "gp": 3.0,
+        "gp": 4.0,
         "w": 2.0,
         "d": 0.0,
-        "l": 1.0,
+        "l": 2.0,
         "pts": 6.0
       },
       {
-        "rank": 12,
+        "rank": 15,
         "team": "Stade Rennais",
         "logo": "",
         "gp": 4.0,
@@ -1377,57 +1430,57 @@
         "pts": 6.0
       },
       {
-        "rank": 13,
-        "team": "Lyon",
+        "rank": 16,
+        "team": "Omonia Nicosia",
         "logo": "",
-        "gp": 3.0,
+        "gp": 4.0,
         "w": 2.0,
         "d": 0.0,
-        "l": 1.0,
+        "l": 2.0,
         "pts": 6.0
       },
       {
-        "rank": 14,
+        "rank": 17,
         "team": "Real Sociedad",
         "logo": "",
-        "gp": 3.0,
+        "gp": 4.0,
         "w": 1.0,
-        "d": 1.0,
+        "d": 2.0,
         "l": 1.0,
-        "pts": 4.0
-      },
-      {
-        "rank": 15,
-        "team": "Crystal Palace",
-        "logo": "",
-        "gp": 3.0,
-        "w": 1.0,
-        "d": 1.0,
-        "l": 1.0,
-        "pts": 4.0
-      },
-      {
-        "rank": 16,
-        "team": "Sparta Prague",
-        "logo": "",
-        "gp": 3.0,
-        "w": 1.0,
-        "d": 1.0,
-        "l": 1.0,
-        "pts": 4.0
-      },
-      {
-        "rank": 17,
-        "team": "Levski Sofia",
-        "logo": "",
-        "gp": 3.0,
-        "w": 1.0,
-        "d": 1.0,
-        "l": 1.0,
-        "pts": 4.0
+        "pts": 5.0
       },
       {
         "rank": 18,
+        "team": "Crystal Palace",
+        "logo": "",
+        "gp": 4.0,
+        "w": 1.0,
+        "d": 2.0,
+        "l": 1.0,
+        "pts": 5.0
+      },
+      {
+        "rank": 19,
+        "team": "Sparta Prague",
+        "logo": "",
+        "gp": 4.0,
+        "w": 1.0,
+        "d": 1.0,
+        "l": 2.0,
+        "pts": 4.0
+      },
+      {
+        "rank": 20,
+        "team": "TSG Hoffenheim",
+        "logo": "",
+        "gp": 4.0,
+        "w": 1.0,
+        "d": 1.0,
+        "l": 2.0,
+        "pts": 4.0
+      },
+      {
+        "rank": 21,
         "team": "Dinamo Zagreb",
         "logo": "",
         "gp": 3.0,
@@ -1437,7 +1490,7 @@
         "pts": 4.0
       },
       {
-        "rank": 19,
+        "rank": 22,
         "team": "SK Sturm Graz",
         "logo": "",
         "gp": 3.0,
@@ -1447,57 +1500,17 @@
         "pts": 4.0
       },
       {
-        "rank": 20,
-        "team": "NEC Nijmegen",
-        "logo": "",
-        "gp": 3.0,
-        "w": 1.0,
-        "d": 1.0,
-        "l": 1.0,
-        "pts": 4.0
-      },
-      {
-        "rank": 21,
+        "rank": 23,
         "team": "RB Salzburg",
         "logo": "",
-        "gp": 3.0,
+        "gp": 4.0,
         "w": 1.0,
         "d": 1.0,
-        "l": 1.0,
+        "l": 2.0,
         "pts": 4.0
-      },
-      {
-        "rank": 22,
-        "team": "Anderlecht",
-        "logo": "",
-        "gp": 3.0,
-        "w": 1.0,
-        "d": 0.0,
-        "l": 2.0,
-        "pts": 3.0
-      },
-      {
-        "rank": 23,
-        "team": "TSG Hoffenheim",
-        "logo": "",
-        "gp": 3.0,
-        "w": 1.0,
-        "d": 0.0,
-        "l": 2.0,
-        "pts": 3.0
       },
       {
         "rank": 24,
-        "team": "ميلان",
-        "logo": "",
-        "gp": 3.0,
-        "w": 1.0,
-        "d": 0.0,
-        "l": 2.0,
-        "pts": 3.0
-      },
-      {
-        "rank": 25,
         "team": "Celta Vigo",
         "logo": "",
         "gp": 3.0,
@@ -1507,7 +1520,7 @@
         "pts": 3.0
       },
       {
-        "rank": 26,
+        "rank": 25,
         "team": "OFI Crete",
         "logo": "",
         "gp": 3.0,
@@ -1517,17 +1530,17 @@
         "pts": 3.0
       },
       {
-        "rank": 27,
-        "team": "Jagiellonia Bialystok",
+        "rank": 26,
+        "team": "ميلان",
         "logo": "",
-        "gp": 3.0,
+        "gp": 4.0,
         "w": 1.0,
         "d": 0.0,
-        "l": 2.0,
+        "l": 3.0,
         "pts": 3.0
       },
       {
-        "rank": 28,
+        "rank": 27,
         "team": "Torreense",
         "logo": "",
         "gp": 3.0,
@@ -1537,18 +1550,28 @@
         "pts": 3.0
       },
       {
-        "rank": 29,
-        "team": "NK Celje",
+        "rank": 28,
+        "team": "Jagiellonia Bialystok",
         "logo": "",
-        "gp": 3.0,
-        "w": 0.0,
-        "d": 1.0,
-        "l": 2.0,
-        "pts": 1.0
+        "gp": 4.0,
+        "w": 1.0,
+        "d": 0.0,
+        "l": 3.0,
+        "pts": 3.0
+      },
+      {
+        "rank": 29,
+        "team": "Viktoria Plzen",
+        "logo": "",
+        "gp": 4.0,
+        "w": 1.0,
+        "d": 0.0,
+        "l": 3.0,
+        "pts": 3.0
       },
       {
         "rank": 30,
-        "team": "Hapoel Be'er",
+        "team": "NK Celje",
         "logo": "",
         "gp": 3.0,
         "w": 0.0,
@@ -1560,6 +1583,26 @@
     "دوري المؤتمرات": [
       {
         "rank": 1,
+        "team": "Mjällby AIF",
+        "logo": "",
+        "gp": 3.0,
+        "w": 2.0,
+        "d": 1.0,
+        "l": 0.0,
+        "pts": 7.0
+      },
+      {
+        "rank": 2,
+        "team": "Ajax Amsterdam",
+        "logo": "",
+        "gp": 3.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 1.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 3,
         "team": "Panathinaikos",
         "logo": "",
         "gp": 2.0,
@@ -1569,7 +1612,7 @@
         "pts": 6.0
       },
       {
-        "rank": 2,
+        "rank": 4,
         "team": "FC Lugano",
         "logo": "",
         "gp": 2.0,
@@ -1579,7 +1622,7 @@
         "pts": 6.0
       },
       {
-        "rank": 3,
+        "rank": 5,
         "team": "SK Brann",
         "logo": "",
         "gp": 2.0,
@@ -1589,17 +1632,7 @@
         "pts": 6.0
       },
       {
-        "rank": 4,
-        "team": "Trabzonspor",
-        "logo": "",
-        "gp": 2.0,
-        "w": 2.0,
-        "d": 0.0,
-        "l": 0.0,
-        "pts": 6.0
-      },
-      {
-        "rank": 5,
+        "rank": 6,
         "team": "FC Twente",
         "logo": "",
         "gp": 2.0,
@@ -1609,7 +1642,7 @@
         "pts": 6.0
       },
       {
-        "rank": 6,
+        "rank": 7,
         "team": "AS Monaco",
         "logo": "",
         "gp": 2.0,
@@ -1619,7 +1652,17 @@
         "pts": 6.0
       },
       {
-        "rank": 7,
+        "rank": 8,
+        "team": "Trabzonspor",
+        "logo": "",
+        "gp": 3.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 1.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 9,
         "team": "Sint-Truidense",
         "logo": "",
         "gp": 2.0,
@@ -1629,17 +1672,27 @@
         "pts": 6.0
       },
       {
-        "rank": 8,
+        "rank": 10,
         "team": "Hajduk Split",
         "logo": "",
-        "gp": 2.0,
+        "gp": 3.0,
         "w": 2.0,
         "d": 0.0,
-        "l": 0.0,
+        "l": 1.0,
         "pts": 6.0
       },
       {
-        "rank": 9,
+        "rank": 11,
+        "team": "SC Freiburg",
+        "logo": "",
+        "gp": 3.0,
+        "w": 2.0,
+        "d": 0.0,
+        "l": 1.0,
+        "pts": 6.0
+      },
+      {
+        "rank": 12,
         "team": "Brighton & Hove Albion",
         "logo": "",
         "gp": 2.0,
@@ -1649,7 +1702,7 @@
         "pts": 4.0
       },
       {
-        "rank": 10,
+        "rank": 13,
         "team": "F.C. København",
         "logo": "",
         "gp": 2.0,
@@ -1659,7 +1712,7 @@
         "pts": 4.0
       },
       {
-        "rank": 11,
+        "rank": 14,
         "team": "CSU Craiova",
         "logo": "",
         "gp": 2.0,
@@ -1669,77 +1722,77 @@
         "pts": 4.0
       },
       {
-        "rank": 12,
-        "team": "Mjällby AIF",
+        "rank": 15,
+        "team": "Red Star Belgrade",
         "logo": "",
-        "gp": 2.0,
+        "gp": 3.0,
         "w": 1.0,
         "d": 1.0,
-        "l": 0.0,
+        "l": 1.0,
         "pts": 4.0
       },
       {
-        "rank": 13,
-        "team": "Ajax Amsterdam",
-        "logo": "",
-        "gp": 2.0,
-        "w": 1.0,
-        "d": 0.0,
-        "l": 1.0,
-        "pts": 3.0
-      },
-      {
-        "rank": 14,
-        "team": "Borac Banja Luka",
-        "logo": "",
-        "gp": 2.0,
-        "w": 1.0,
-        "d": 0.0,
-        "l": 1.0,
-        "pts": 3.0
-      },
-      {
-        "rank": 15,
+        "rank": 16,
         "team": "Atalanta",
         "logo": "",
-        "gp": 2.0,
+        "gp": 3.0,
         "w": 1.0,
-        "d": 0.0,
+        "d": 1.0,
         "l": 1.0,
-        "pts": 3.0
-      },
-      {
-        "rank": 16,
-        "team": "Braga",
-        "logo": "",
-        "gp": 2.0,
-        "w": 1.0,
-        "d": 0.0,
-        "l": 1.0,
-        "pts": 3.0
+        "pts": 4.0
       },
       {
         "rank": 17,
-        "team": "KAA Gent",
+        "team": "Braga",
         "logo": "",
-        "gp": 2.0,
+        "gp": 3.0,
         "w": 1.0,
-        "d": 0.0,
+        "d": 1.0,
         "l": 1.0,
-        "pts": 3.0
+        "pts": 4.0
       },
       {
         "rank": 18,
-        "team": "SC Freiburg",
+        "team": "KAA Gent",
         "logo": "",
-        "gp": 2.0,
+        "gp": 3.0,
         "w": 1.0,
-        "d": 0.0,
+        "d": 1.0,
         "l": 1.0,
-        "pts": 3.0
+        "pts": 4.0
       },
       {
         "rank": 19,
+        "team": "FC Thun",
+        "logo": "",
+        "gp": 3.0,
+        "w": 1.0,
+        "d": 0.0,
+        "l": 2.0,
+        "pts": 3.0
+      },
+      {
+        "rank": 20,
+        "team": "Borac Banja Luka",
+        "logo": "",
+        "gp": 3.0,
+        "w": 1.0,
+        "d": 0.0,
+        "l": 2.0,
+        "pts": 3.0
+      },
+      {
+        "rank": 21,
+        "team": "Lincoln Red Imps",
+        "logo": "",
+        "gp": 3.0,
+        "w": 1.0,
+        "d": 0.0,
+        "l": 2.0,
+        "pts": 3.0
+      },
+      {
+        "rank": 22,
         "team": "FC Nordsjælland",
         "logo": "",
         "gp": 2.0,
@@ -1749,7 +1802,7 @@
         "pts": 2.0
       },
       {
-        "rank": 20,
+        "rank": 23,
         "team": "Egnatia",
         "logo": "",
         "gp": 2.0,
@@ -1759,7 +1812,7 @@
         "pts": 2.0
       },
       {
-        "rank": 21,
+        "rank": 24,
         "team": "Riga FC",
         "logo": "",
         "gp": 2.0,
@@ -1769,17 +1822,27 @@
         "pts": 2.0
       },
       {
-        "rank": 22,
-        "team": "Red Star Belgrade",
+        "rank": 25,
+        "team": "AGF",
         "logo": "",
-        "gp": 2.0,
+        "gp": 3.0,
         "w": 0.0,
-        "d": 1.0,
+        "d": 2.0,
         "l": 1.0,
-        "pts": 1.0
+        "pts": 2.0
       },
       {
-        "rank": 23,
+        "rank": 26,
+        "team": "Kairat Almaty",
+        "logo": "",
+        "gp": 3.0,
+        "w": 0.0,
+        "d": 2.0,
+        "l": 1.0,
+        "pts": 2.0
+      },
+      {
+        "rank": 27,
         "team": "CSKA Sofia",
         "logo": "",
         "gp": 2.0,
@@ -1789,7 +1852,7 @@
         "pts": 1.0
       },
       {
-        "rank": 24,
+        "rank": 28,
         "team": "Jablonec",
         "logo": "",
         "gp": 2.0,
@@ -1799,27 +1862,7 @@
         "pts": 1.0
       },
       {
-        "rank": 25,
-        "team": "FC Midtjylland",
-        "logo": "",
-        "gp": 2.0,
-        "w": 0.0,
-        "d": 1.0,
-        "l": 1.0,
-        "pts": 1.0
-      },
-      {
-        "rank": 26,
-        "team": "AGF",
-        "logo": "",
-        "gp": 2.0,
-        "w": 0.0,
-        "d": 1.0,
-        "l": 1.0,
-        "pts": 1.0
-      },
-      {
-        "rank": 27,
+        "rank": 29,
         "team": "Pafos",
         "logo": "",
         "gp": 2.0,
@@ -1829,28 +1872,8 @@
         "pts": 1.0
       },
       {
-        "rank": 28,
-        "team": "Heart of Midlothian",
-        "logo": "",
-        "gp": 2.0,
-        "w": 0.0,
-        "d": 1.0,
-        "l": 1.0,
-        "pts": 1.0
-      },
-      {
-        "rank": 29,
-        "team": "Iberia 1999",
-        "logo": "",
-        "gp": 2.0,
-        "w": 0.0,
-        "d": 1.0,
-        "l": 1.0,
-        "pts": 1.0
-      },
-      {
         "rank": 30,
-        "team": "Getafe",
+        "team": "Iberia 1999",
         "logo": "",
         "gp": 2.0,
         "w": 0.0,
@@ -4116,14 +4139,14 @@
     "الدوري الأوروبي": {
       "الهدافون 🏆": [
         {
-          "name": "Alphadjo Cissè",
-          "team": "ميلان",
+          "name": "Dion Drena Beljo",
+          "team": "Dinamo Zagreb",
           "value": "3 ⚽",
           "face": ""
         },
         {
-          "name": "Kristoffer Zachariassen",
-          "team": "Ferencvaros",
+          "name": "Alphadjo Cissè",
+          "team": "ميلان",
           "value": "3 ⚽",
           "face": ""
         },
@@ -4140,8 +4163,8 @@
           "face": ""
         },
         {
-          "name": "Dion Drena Beljo",
-          "team": "Dinamo Zagreb",
+          "name": "Kristoffer Zachariassen",
+          "team": "Ferencvaros",
           "value": "3 ⚽",
           "face": ""
         },
@@ -4152,26 +4175,8 @@
           "face": ""
         },
         {
-          "name": "Mihajlo Cvetkovic",
-          "team": "Anderlecht",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Reinaldo",
-          "team": "Levski Sofia",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Thomas Lehne Olsen",
-          "team": "Lillestrom",
-          "value": "2 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Tobias Guddal",
-          "team": "Sparta Prague",
+          "name": "Javi Rodríguez",
+          "team": "Celta Vigo",
           "value": "2 ⚽",
           "face": ""
         },
@@ -4188,8 +4193,14 @@
           "face": ""
         },
         {
-          "name": "Javi Rodríguez",
-          "team": "Celta Vigo",
+          "name": "Reinaldo",
+          "team": "Levski Sofia",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Armando González",
+          "team": "Olympiacos",
           "value": "2 ⚽",
           "face": ""
         },
@@ -4200,8 +4211,20 @@
           "face": ""
         },
         {
-          "name": "Mika Baur",
-          "team": "Celtic",
+          "name": "Thomas Lehne Olsen",
+          "team": "Lillestrom",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Mihajlo Cvetkovic",
+          "team": "Anderlecht",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Tobias Guddal",
+          "team": "Sparta Prague",
           "value": "2 ⚽",
           "face": ""
         }
@@ -4209,12 +4232,6 @@
     },
     "دوري المؤتمرات": {
       "الهدافون 🏆": [
-        {
-          "name": "Franculino Djú",
-          "team": "Trabzonspor",
-          "value": "3 ⚽",
-          "face": ""
-        },
         {
           "name": "Albian Ajeti",
           "team": "FC Lugano",
@@ -4234,9 +4251,9 @@
           "face": ""
         },
         {
-          "name": "Timi Elsnik",
-          "team": "Red Star Belgrade",
-          "value": "2 ⚽",
+          "name": "Franculino Djú",
+          "team": "Trabzonspor",
+          "value": "3 ⚽",
           "face": ""
         },
         {
@@ -4288,14 +4305,20 @@
           "face": ""
         },
         {
-          "name": "James Bogere",
-          "team": "AGF",
+          "name": "Timi Elsnik",
+          "team": "Red Star Belgrade",
+          "value": "2 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Jemali-Giorgi Jinjolava",
+          "team": "Iberia 1999",
           "value": "1 ⚽",
           "face": ""
         },
         {
-          "name": "Víctor Gómez",
-          "team": "Braga",
+          "name": "Renan Oliveira",
+          "team": "Kauno Zalgiris",
           "value": "1 ⚽",
           "face": ""
         }
@@ -4816,12 +4839,6 @@
           "face": ""
         },
         {
-          "name": "Alexandre Mendy",
-          "team": "Al Faisaly",
-          "value": "5 ⚽",
-          "face": ""
-        },
-        {
           "name": "Joshua King",
           "team": "الخليج",
           "value": "5 ⚽",
@@ -4846,6 +4863,12 @@
           "face": ""
         },
         {
+          "name": "Théo Bongonda",
+          "team": "Al Faisaly",
+          "value": "3 ⚽",
+          "face": ""
+        },
+        {
           "name": "Lukás Haraslín",
           "team": "الفتح",
           "value": "3 ⚽",
@@ -4861,6 +4884,100 @@
           "name": "Sofiane Bendebka",
           "team": "Al Hazem",
           "value": "3 ⚽",
+          "face": ""
+        }
+      ]
+    },
+    "الدوري المكسيكي": {
+      "الهدافون 🏆": [
+        {
+          "name": "Salomón Rondón",
+          "team": "Pachuca",
+          "value": "15 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Henry Martín",
+          "team": "América",
+          "value": "10 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Juninho",
+          "team": "Pumas UNAM",
+          "value": "9 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Juan Brunetta",
+          "team": "Tigres UANL",
+          "value": "8 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Federico Viñas",
+          "team": "Toluca",
+          "value": "8 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Óscar Estupiñán",
+          "team": "FC Juárez",
+          "value": "7 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Lucas Ocampos",
+          "team": "Monterrey",
+          "value": "7 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Ali Avila",
+          "team": "Querétaro",
+          "value": "6 ⚽",
+          "face": ""
+        },
+        {
+          "name": "José Alvarado",
+          "team": "León",
+          "value": "6 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Tahiel Jiménez",
+          "team": "سانتوس",
+          "value": "5 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Luís Esteves",
+          "team": "Atlas",
+          "value": "5 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Nicolás Ibáñez",
+          "team": "Cruz Azul",
+          "value": "5 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Roberto Alvarado",
+          "team": "Guadalajara",
+          "value": "5 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Gilberto Mora",
+          "team": "Tijuana",
+          "value": "5 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Rafa Llorente",
+          "team": "Atlético de San Luis",
+          "value": "4 ⚽",
           "face": ""
         }
       ]
@@ -5196,28 +5313,28 @@
   },
   "world": [
     {
+      "t": "Soccer's main characters: Man United, Como, PSG, Donnarumma",
+      "img": "https://a.espncdn.com/photo/2026/1105/r1741544_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Mikel Arteta: Viktor Gyökeres 'really needed' a good Arsenal performance",
+      "img": "https://a.espncdn.com/photo/2026/1105/r1741509_1296x729_16-9.jpg"
+    },
+    {
       "t": "Gianluigi Donnarumma's Man City form 'no concern' - Enzo Maresca",
       "img": "https://a.espncdn.com/photo/2026/1105/r1741436_1296x729_16-9.jpg"
     },
     {
-      "t": "Ogden: Time catches up with everyone, even Cristiano Ronaldo",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1105/dm_261105_Ogden_Time_catches_up_with_everyone_even_Cristiano_Ronaldo/dm_261105_Ogden_Time_catches_up_with_everyone_even_Cristiano_Ronaldo.jpg"
+      "t": "Pulisic, Milan in Europa League peril after home loss to Ferencvaros",
+      "img": "https://a.espncdn.com/photo/2026/1105/r1741660_1296x729_16-9.jpg"
     },
     {
-      "t": "Champions League talking points: Are Como the real deal?",
-      "img": "https://a.espncdn.com/photo/2026/1105/r1741315_1296x729_16-9.jpg"
+      "t": "Adam Wharton sees red as Crystal Palace rescue Europa League draw with Hoffenheim",
+      "img": "https://a.espncdn.com/photo/2026/1105/r1741661_1296x729_16-9.jpg"
     },
     {
-      "t": "Ogden: Time catches up with everyone, even Cristiano Ronaldo",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1105/dm_261105_Ogden_Time_catches_up_with_everyone_even_Cristiano_Ronaldo/dm_261105_Ogden_Time_catches_up_with_everyone_even_Cristiano_Ronaldo.jpg"
-    },
-    {
-      "t": "Ruben Amorim not satisfied with Milan's start: 'We can do better'",
-      "img": "https://a.espncdn.com/photo/2026/1104/r1741080_1296x729_16-9.jpg"
-    },
-    {
-      "t": "UEFA moves Europa League game date in Rennes amid protests",
-      "img": "https://a.espncdn.com/photo/2026/1018/r1732486_1296x729_16-9.jpg"
+      "t": "Bournemouth rally to beat Sparta Prague, remain perfect in Europa League",
+      "img": "https://a.espncdn.com/photo/2026/1105/r1741649_2_1296x729_16-9.jpg"
     },
     {
       "t": "Monaco add USMNT's Balogun to Conference League squad after goal",
@@ -5232,16 +5349,20 @@
       "img": "https://a.espncdn.com/photo/2026/1016/r1731504_1296x729_16-9.jpg"
     },
     {
-      "t": "Ogden: Time catches up with everyone, even Cristiano Ronaldo",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1105/dm_261105_Ogden_Time_catches_up_with_everyone_even_Cristiano_Ronaldo/dm_261105_Ogden_Time_catches_up_with_everyone_even_Cristiano_Ronaldo.jpg"
+      "t": "Ronaldo's Portugal career ended in shame, but at his peak he was a dominant force",
+      "img": "https://a.espncdn.com/photo/2026/1105/r1741457_1296x729_16-9.jpg"
     },
     {
-      "t": "FIFA Council's Tashima to challenge Infantino in March elections - reports",
-      "img": "https://a.espncdn.com/photo/2020/0317/r680435_1296x729_16-9.jpg"
+      "t": "Marcotti: Ronaldo was one of the greatest of all time",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1105/dm_261105_Marcotti_Ronaldo_was_one_of_the_greatest_of_all_time/dm_261105_Marcotti_Ronaldo_was_one_of_the_greatest_of_all_time.jpg"
     },
     {
-      "t": "Source: FIFA to open World Cup private equity plan files following UEFA demands",
-      "img": "https://a.espncdn.com/photo/2026/0908/r1713266_1296x729_16-9.jpg"
+      "t": "Cristiano Ronaldo's Portugal career: Best moments, key stats after his retirement from international soccer",
+      "img": "https://a.espncdn.com/photo/2026/1105/r1741455_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Marcotti: Ronaldo was one of the greatest of all time",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1105/dm_261105_Marcotti_Ronaldo_was_one_of_the_greatest_of_all_time/dm_261105_Marcotti_Ronaldo_was_one_of_the_greatest_of_all_time.jpg"
     },
     {
       "t": "Ogden: Time catches up with everyone, even Cristiano Ronaldo",
@@ -5252,47 +5373,43 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1002/dm_261002_Zidane_Not_proud_but_no_regrets_over_2006_World_Cup_final_clash_with_Materazzi/dm_261002_Zidane_Not_proud_but_no_regrets_over_2006_World_Cup_final_clash_with_Materazzi.jpg"
     },
     {
-      "t": "De Jong: Netherlands 'tried to get Guardiola and Slot before Xavi'",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/0826/dm_260826_De_Jong_Netherlands_tried_to_get_Guardiola_and_Slot_before_Xavi/dm_260826_De_Jong_Netherlands_tried_to_get_Guardiola_and_Slot_before_Xavi.jpg"
+      "t": "Mikel Arteta: Viktor Gyökeres 'really needed' a good Arsenal performance",
+      "img": "https://a.espncdn.com/photo/2026/1105/r1741509_1296x729_16-9.jpg"
     },
     {
-      "t": "Portugal, Man United, Real Madrid: Cristiano Ronaldo's long history of rows with coaches",
-      "img": "https://a.espncdn.com/photo/2026/1001/r1724373_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Run, Man United, run: How preseason fitness can hinder Premier League form",
-      "img": "https://a.espncdn.com/photo/2026/1101/r1739427_1296x729_16-9.jpg"
+      "t": "Jack Grealish won't return for Everton this weekend - David Moyes",
+      "img": "https://a.espncdn.com/photo/2026/1105/r1741504_1296x729_16-9.jpg"
     },
     {
       "t": "Transfer rumors, news: Premier League clubs line up for Como defender",
       "img": "https://a.espncdn.com/photo/2026/1105/r1741400_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Jude Bellingham visits Atlanta Falcons training session",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1105/dm_261105_Jude_Bellingham_visits_Atlanta_Falcons_training_session/dm_261105_Jude_Bellingham_visits_Atlanta_Falcons_training_session.jpg"
+    },
+    {
+      "t": "All of Anthony Gordon's goals and assists in LALIGA so far",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1105/dm_261105_All_of_Anthony_Gordons_goals_and_assists_in_LALIGA_so_far/dm_261105_All_of_Anthony_Gordons_goals_and_assists_in_LALIGA_so_far.jpg"
     },
     {
       "t": "Raphinha signs new Barcelona contract until 2030",
       "img": "https://a.espncdn.com/photo/2026/1006/r1726779_1296x729_16-9.jpg"
     },
     {
-      "t": "Ogden: Time catches up with everyone, even Cristiano Ronaldo",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1105/dm_261105_Ogden_Time_catches_up_with_everyone_even_Cristiano_Ronaldo/dm_261105_Ogden_Time_catches_up_with_everyone_even_Cristiano_Ronaldo.jpg"
-    },
-    {
-      "t": "Portugal, Man United, Real Madrid: Cristiano Ronaldo's long history of rows with coaches",
-      "img": "https://a.espncdn.com/photo/2026/1001/r1724373_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Portugal, Man United, Real Madrid: Cristiano Ronaldo's long history of rows with coaches",
-      "img": "https://a.espncdn.com/photo/2026/1001/r1724373_1296x729_16-9.jpg"
-    },
-    {
       "t": "Transfer rumors, news: Premier League clubs line up for Como defender",
       "img": "https://a.espncdn.com/photo/2026/1105/r1741400_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Portugal, Man United, Real Madrid: Cristiano Ronaldo's long history of rows with coaches",
+      "img": "https://a.espncdn.com/photo/2026/1001/r1724373_1296x729_16-9.jpg"
     },
     {
       "t": "Transfer rumors, news: Juventus eye moves for Šeško, Balogun",
       "img": "https://a.espncdn.com/photo/2026/1104/r1741190_1296x729_16-9.jpg"
     },
     {
-      "t": "Kane: Were are on the verge of something really special at Bayern",
+      "t": "Kane: We're on the verge of something really special at Bayern",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1105/dm_261105_Kane_Were_are_on_the_verge_of_something_really_special_at_Bayern/dm_261105_Kane_Were_are_on_the_verge_of_something_really_special_at_Bayern.jpg"
     },
     {
@@ -5388,16 +5505,16 @@
       "img": "https://a.espncdn.com/photo/2026/1027/r1736895_1296x729_16-9.jpg"
     },
     {
-      "t": "Ogden: Time catches up with everyone, even Cristiano Ronaldo",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1105/dm_261105_Ogden_Time_catches_up_with_everyone_even_Cristiano_Ronaldo/dm_261105_Ogden_Time_catches_up_with_everyone_even_Cristiano_Ronaldo.jpg"
+      "t": "Seamus Coleman recalled for Republic of Ireland in 'hybrid role,' blends coaching and playing opportunities",
+      "img": "https://a.espncdn.com/photo/2026/1105/r1741527_1296x729_16-9.jpg"
     },
     {
-      "t": "Portugal, Man United, Real Madrid: Cristiano Ronaldo's long history of rows with coaches",
-      "img": "https://a.espncdn.com/photo/2026/1001/r1724373_1296x729_16-9.jpg"
+      "t": "Ronaldo's Portugal career ended in shame, but at his peak he was a dominant force",
+      "img": "https://a.espncdn.com/photo/2026/1105/r1741457_1296x729_16-9.jpg"
     },
     {
-      "t": "Wales pick Joe Rodon in Nations League squad despite two-month injury absence",
-      "img": "https://a.espncdn.com/photo/2025/1013/r1559690_1296x729_16-9.jpg"
+      "t": "Marcotti: Ronaldo was one of the greatest of all time",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1105/dm_261105_Marcotti_Ronaldo_was_one_of_the_greatest_of_all_time/dm_261105_Marcotti_Ronaldo_was_one_of_the_greatest_of_all_time.jpg"
     }
   ],
   "highlights": [],
