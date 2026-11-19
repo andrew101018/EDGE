@@ -1,6 +1,26 @@
 {
-  "updated_at": "2026-11-19 07:31 PM",
+  "updated_at": "2026-11-20 01:44 AM",
   "news": [
+    {
+      "t": "⚽ هيمنة في الديربي.. كيف اكتسح الأهلي الزمالك بنتيجة 15-0؟ - يلاكورة",
+      "full": "⚽ هيمنة في الديربي.. كيف اكتسح الأهلي الزمالك بنتيجة 15-0؟ - يلاكورة\n\nهيمنة في الديربي.. كيف اكتسح الأهلي الزمالك بنتيجة 15-0؟  يلاكورة",
+      "img": ""
+    },
+    {
+      "t": "⚽ بيان بشأن زيزو وقرار برحيل لاعب.. ماذا حدث في الزمالك اليوم الخميس؟ - Masrawy",
+      "full": "⚽ بيان بشأن زيزو وقرار برحيل لاعب.. ماذا حدث في الزمالك اليوم الخميس؟ - Masrawy\n\nبيان بشأن زيزو وقرار برحيل لاعب.. ماذا حدث في الزمالك اليوم الخميس؟  Masrawy",
+      "img": ""
+    },
+    {
+      "t": "⚽ ظافر العابدين: إصابة وتر أخيل أبعدتني عن كرة القدم 9 أشهر.. وجسمي بيقولي خلاص بالراحة شوية - اليوم",
+      "full": "⚽ ظافر العابدين: إصابة وتر أخيل أبعدتني عن كرة القدم 9 أشهر.. وجسمي بيقولي خلاص بالراحة شوية - اليوم السابع\n\nظافر العابدين: إصابة وتر أخيل أبعدتني عن كرة القدم 9 أشهر.. وجسمي بيقولي خلاص بالراحة شوية  اليوم السابع",
+      "img": ""
+    },
+    {
+      "t": "⚽ الأخبار - الاتحاد المصري لكرة القدم",
+      "full": "⚽ الأخبار - الاتحاد المصري لكرة القدم\n\nالأخبار  الاتحاد المصري لكرة القدم",
+      "img": ""
+    },
     {
       "t": "⚽ بث مباشر نتيجة مباراة الشمال والأهلي في الدوري القطري 2026-27 - winwin",
       "full": "⚽ بث مباشر نتيجة مباراة الشمال والأهلي في الدوري القطري 2026-27 - winwin\n\nبث مباشر نتيجة مباراة الشمال والأهلي في الدوري القطري 2026-27  winwin",
@@ -80,30 +100,85 @@
       "t": "⚽ تجديد طويل.. برشلونة يحدد موعد توقيع عقد نجمه - Kooora",
       "full": "⚽ تجديد طويل.. برشلونة يحدد موعد توقيع عقد نجمه - Kooora\n\nتجديد طويل.. برشلونة يحدد موعد توقيع عقد نجمه  Kooora",
       "img": ""
-    },
-    {
-      "t": "⚽ هدف قاتل ومشاركة مثيرة للجدل.. حصاد محترفي الأهلي والزمالك في التوقف الدولي - يلاكورة",
-      "full": "⚽ هدف قاتل ومشاركة مثيرة للجدل.. حصاد محترفي الأهلي والزمالك في التوقف الدولي - يلاكورة\n\nهدف قاتل ومشاركة مثيرة للجدل.. حصاد محترفي الأهلي والزمالك في التوقف الدولي  يلاكورة",
-      "img": ""
-    },
-    {
-      "t": "⚽ تقرير - رجال مالاوي يتعثرون وسيداتها يحكمن أفريقيا ويطرقن أبواب الكرة العالمية - بوابة الشروق",
-      "full": "⚽ تقرير - رجال مالاوي يتعثرون وسيداتها يحكمن أفريقيا ويطرقن أبواب الكرة العالمية - بوابة الشروق\n\nتقرير - رجال مالاوي يتعثرون وسيداتها يحكمن أفريقيا ويطرقن أبواب الكرة العالمية  بوابة الشروق",
-      "img": ""
-    },
-    {
-      "t": "⚽ خلاف في الغرف المغلقة.. فليك وديكو لا يتفقان على مدافع برشلونة الجديد - Kooora",
-      "full": "⚽ خلاف في الغرف المغلقة.. فليك وديكو لا يتفقان على مدافع برشلونة الجديد - Kooora\n\nخلاف في الغرف المغلقة.. فليك وديكو لا يتفقان على مدافع برشلونة الجديد  Kooora",
-      "img": ""
-    },
-    {
-      "t": "⚽ الأهلي ينافس الريال وليفربول على جائزة النادي التاريخي في جلوب سوكر 2026 - اليوم السابع",
-      "full": "⚽ الأهلي ينافس الريال وليفربول على جائزة النادي التاريخي في جلوب سوكر 2026 - اليوم السابع\n\nالأهلي ينافس الريال وليفربول على جائزة النادي التاريخي في جلوب سوكر 2026  اليوم السابع",
-      "img": ""
     }
   ],
   "results": [],
   "matches": [
+    {
+      "league": "الدوري الإسباني",
+      "slug": "esp.1",
+      "items": [
+        {
+          "home": "Athletic Club",
+          "away": "Espanyol",
+          "eid": "401882805",
+          "slug": "esp.1",
+          "homeId": "93",
+          "awayId": "88",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/93.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/88.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "10:00",
+          "day": "Friday",
+          "dateAr": "20/11",
+          "date": "2026-11-20T22:00:00+02:00",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": true
+    },
+    {
+      "league": "الدوري الألماني",
+      "slug": "ger.1",
+      "items": [
+        {
+          "home": "بايرن ميونخ",
+          "away": "FC Cologne",
+          "eid": "401884736",
+          "slug": "ger.1",
+          "homeId": "132",
+          "awayId": "122",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/122.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "09:30",
+          "day": "Friday",
+          "dateAr": "20/11",
+          "date": "2026-11-20T21:30:00+02:00",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": true
+    },
+    {
+      "league": "الدوري الفرنسي",
+      "slug": "fra.1",
+      "items": [
+        {
+          "home": "Troyes",
+          "away": "Le Havre AC",
+          "eid": "401876395",
+          "slug": "fra.1",
+          "homeId": "170",
+          "awayId": "3236",
+          "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/170.png",
+          "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/3236.png",
+          "tv": "beIN Sports",
+          "hs": "0",
+          "as": "0",
+          "time": "09:45",
+          "day": "Friday",
+          "dateAr": "20/11",
+          "date": "2026-11-20T21:45:00+02:00",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": true
+    },
     {
       "league": "الدوري السعودي",
       "slug": "ksa.1",
@@ -4398,16 +4473,16 @@
       "img": "https://a.espncdn.com/photo/2026/1022/r1734649_1296x729_16-9.jpg"
     },
     {
+      "t": "Infantino calls for 'fair play' in upcoming FIFA elections",
+      "img": "https://a.espncdn.com/photo/2026/1119/r1748039_1296x729_16-9.jpg"
+    },
+    {
       "t": "UEFA pressures FIFA for World Cup sell-off plan documents",
       "img": "https://a.espncdn.com/photo/2021/1215/r951691_1296x729_16-9.jpg"
     },
     {
       "t": "FIFA confirms Infantino rivals as Diallo, Tashima for 2027 election",
       "img": "https://a.espncdn.com/photo/2026/1110/r1743884_1296x729_16-9.jpg"
-    },
-    {
-      "t": "2030 World Cup Power Rankings: Who are the top 15 nations in the men's game?",
-      "img": "https://a.espncdn.com/photo/2026/1118/r1747490_1296x729_16-9.jpg"
     },
     {
       "t": "Marcotti: Ronaldo was one of the greatest of all time",
@@ -4422,16 +4497,20 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1002/dm_261002_Zidane_Not_proud_but_no_regrets_over_2006_World_Cup_final_clash_with_Materazzi/dm_261002_Zidane_Not_proud_but_no_regrets_over_2006_World_Cup_final_clash_with_Materazzi.jpg"
     },
     {
-      "t": "Transfer rumors, news: Premier League clubs eye Cristiano Ronaldo successor Forbs",
-      "img": "https://a.espncdn.com/photo/2026/1118/r1747358_1296x729_16-9.jpg"
+      "t": "Thomas Frank eager to avoid repeat of Arsenal coffee cup controversy at Palace",
+      "img": "https://a.espncdn.com/photo/2026/1119/r1748314_1296x729_16-9.jpg"
     },
     {
-      "t": "Valentín Barco on Chelsea career so far: 'I think I can give a lot more'",
-      "img": "https://a.espncdn.com/photo/2026/1119/r1748049_1296x729_16-9.jpg"
+      "t": "Transfer rumors, news: Jarrad Branthwaite to join Manchester United?",
+      "img": "https://a.espncdn.com/photo/2026/1119/r1748257_1296x729_16-9.jpg"
     },
     {
-      "t": "Messi vs. Ronaldo, Man Utd hire Moyes: GTA V came out in a different soccer world",
-      "img": "https://a.espncdn.com/photo/2026/1119/r1748037_2_1296x729_16-9.jpg"
+      "t": "Mauricio Pochettino's 1st Man United training session filmed by drone operator",
+      "img": "https://a.espncdn.com/photo/2026/1119/r1748242_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Will Vinícius Júnior or Diomandé start for Real Madrid vs. Celta Vigo?",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1119/dm_261119_COM_SOC_Analysis_Will_VinC3ADcius_JCBAni1087/dm_261119_COM_SOC_Analysis_Will_VinC3ADcius_JCBAni1087.jpg"
     },
     {
       "t": "Messi vs. Ronaldo, Man Utd hire Moyes: GTA V came out in a different soccer world",
@@ -4440,10 +4519,6 @@
     {
       "t": "Barcelona chief Deco keen for Liverpool to make Ronald Araujo loan permanent",
       "img": "https://a.espncdn.com/photo/2026/1119/r1748034_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Arda Güler signs new six-year Real Madrid contract",
-      "img": "https://a.espncdn.com/photo/2026/0116/r1601367_1296x729_16-9.jpg"
     },
     {
       "t": "How fallen giants and their fans bounce back from scandal, relegation",
@@ -4494,16 +4569,16 @@
       "img": "https://a.espncdn.com/photo/2026/1001/r1724373_1296x729_16-9.jpg"
     },
     {
+      "t": "Messi leads way as MLS salaries rise; Union's Sullivan checks in at $614K",
+      "img": "https://a.espncdn.com/photo/2026/1011/r1728980_1296x729_16-9.jpg"
+    },
+    {
       "t": "Sources: MLS side FC Cincy nearing deal to acquire NWSL's Racing",
       "img": "https://a.espncdn.com/photo/2026/1117/r1747236_1024x576_16-9.jpg"
     },
     {
       "t": "MLS wild card predictions: Who will emerge from Orlando-Cincinnati, Seattle-RSL?",
       "img": "https://a.espncdn.com/photo/2026/1117/r1747073_1296x729_16-9.jpg"
-    },
-    {
-      "t": "MLS Cup playoff Power Rankings: Can history-making Nashville be stopped?",
-      "img": "https://a.espncdn.com/photo/2026/0831/r1709551_1296x729_16-9.jpg"
     },
     {
       "t": "Club América to honour retired Mexico legend Guillermo Ochoa",
