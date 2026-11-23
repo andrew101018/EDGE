@@ -1,6 +1,6 @@
 import os, json, hashlib, time, re, random, traceback, email.utils
 import requests
-from edge_editorial import valid_news_time, rank_news, parse_rewrite, format_news, news_record
+from edge_editorial import valid_news_time, rank_news, parse_rewrite, format_news, news_record, safe_source_url
 import base64
 from pywebpush import webpush, WebPushException
 from bs4 import BeautifulSoup
@@ -265,11 +265,15 @@ def tg_html(text):
 def site_btn():
     return {"inline_keyboard": [[{"text": "🌐 الكورة بتبدأ من هنا", "url": SITE}]]}
 
-def send_tg(text, buttons=True):
+def send_tg(text, buttons=True, src_url=None):
     try:
         payload = {"chat_id": TG_CHANNEL, "text": tg_html(text), "parse_mode": "HTML"}
         if buttons:
-            payload["reply_markup"] = site_btn()
+            rows = []
+            if src_url:
+                rows.append([{"text": "🔗 اقرأ من المصدر", "url": src_url}])
+            rows += site_btn()["inline_keyboard"]
+            payload["reply_markup"] = {"inline_keyboard": rows}
         r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage", json=payload, timeout=15)
         if r.ok: return True
         print("❌ Telegram error:", r.status_code)
@@ -1123,7 +1127,7 @@ def main():
             continue
         content = rewrite["text"]
         img = (item.get("img") or "").strip()
-        if send_tg(format_news(content, item)):
+        if send_tg(format_news(content, item), src_url=safe_source_url(item.get("url", ""))):
             print("✅ نُشر:", title[:40])
             if fb_ok:
                 send_fb(content + "\n\n⚽ Edge Football\n🌐 https://andrew101018.github.io/EDGE/", img or None)
