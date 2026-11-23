@@ -1,0 +1,18 @@
+name: TG Admin
+on:
+  workflow_dispatch:
+    inputs:
+      message_id:
+        description: "Telegram message ID to delete from the channel"
+        required: true
+jobs:
+  tg-delete:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete channel message
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/deleteMessage" \
+            -d "chat_id=${TELEGRAM_CHANNEL_ID}" -d "message_id=${{ inputs.message_id }}"
