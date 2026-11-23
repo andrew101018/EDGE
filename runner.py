@@ -1,5 +1,6 @@
 import os, json, hashlib, time, re, random, traceback, email.utils
 import requests
+from edge_editorial import valid_news_time, rank_news, parse_rewrite, format_news, news_record
 import base64
 from pywebpush import webpush, WebPushException
 from bs4 import BeautifulSoup
@@ -137,7 +138,7 @@ def parse_rss(content):
         raw_desc = it.findtext("description") or ""
         entries.append({"title": (it.findtext("title") or "").strip(),
             "link": (it.findtext("link") or "").strip(),
-            "summary": raw_desc, "published_parsed": pp, "img": extract_image(it, raw_desc)})
+            "summary": raw_desc, "published_parsed": pp, "publisher": (it.findtext("source") or "").strip(), "img": extract_image(it, raw_desc)})
     if not entries:
         ns = {"a": "http://www.w3.org/2005/Atom"}
         for it in root.findall(".//a:entry", ns):
@@ -441,8 +442,8 @@ def call_deepseek(prompt, temp):
     return None
 
 def ai_process(title, content, is_english, forbidden=None):
-    style = random.choice(STYLES)
-    temp = round(random.uniform(0.9, 1.3), 2)
+    style = {"p": "اكتب خبرًا واضحًا بالعامية المصرية الهادية: عنوان دقيق ثم ملخص قصير. بدون تهويل، أو رأي، أو سؤال إجباري. انسب التصريحات والادعاءات لمصدرها. لا تحول الشائعات إلى حقائق."}
+    temp = 0.2
     fb = ""
     if forbidden:
         fb = "\nممنوع تفتح الخبر بأي من الجمل دي (اتستخدمت قبل كده):\n" + "\n".join(f"- {f}" for f in forbidden[-5:])
@@ -456,9 +457,10 @@ def ai_process(title, content, is_english, forbidden=None):
 المحتوى: {content[:1500]}"""
     for engine in [call_gemini, call_groq, call_deepseek]:
         result = engine(prompt, temp)
-        if result and "SKIP" not in result[:20]:
-            return result
-    return None
+        parsed = parse_rewrite(result)
+        if parsed["status"] in ("ready", "rejected"):
+            return parsed
+    return {"status": "failed", "text": ""}
     
 def fetch_article(url):
     """يجيب المحتوى الكامل من صفحة الخبر نفسها"""
@@ -545,7 +547,7 @@ def collect_news(state):
                 if not pp:
                     skipped_old += 1
                     continue
-                if time.time() - time.mktime(pp) > FRESH_HOURS * 3600:
+                if not valid_news_time(pp, time.time(), FRESH_HOURS):
                     skipped_old += 1
                     continue
                 summary = BeautifulSoup(e.get("summary", ""), "html.parser").get_text().strip()
@@ -557,18 +559,18 @@ def collect_news(state):
                     skipped_dup += 1
                     continue
                 full = fetch_article(url) or summary
-                fresh.append({"title": title, "url": url, "summary": summary, "full": full, "source": source["name"], "en": is_en, "hash": h, "nt": nt, "img": e.get("img") or ""})
+                fresh.append({"title": title, "url": url, "summary": summary, "full": full, "source": source["name"], "en": is_en, "hash": h, "nt": nt, "img": e.get("img") or "", "publisher": e.get("publisher") or source["name"], "published_parsed": pp})
         except Exception as ex:
             print("fetch error:", source["name"], ex)
     print(f"🚫 قديمة: {skipped_old} | مكررة: {skipped_dup}")
-    return fresh, posted, recent_titles
+    return rank_news(fresh, time.time()), posted, recent_titles
 
 def finish_text(home, hs, away, as_, name):
     home, away = ar_team(home), ar_team(away)
     hs, as_ = int(hs), int(as_)
-    if hs > as_: line = f"{home} خطفها وخد التلات نقاط 💪"
-    elif as_ > hs: line = f"{away} قلبها وخد التلات نقاط 🔥"
-    else: line = "تعادل مثير.. ولا واحد رضي بالتاني 😅"
+    if hs > as_: line = f"فوز {home}"
+    elif as_ > hs: line = f"فوز {away}"
+    else: line = "انتهت المباراة بالتعادل"
     short = f"{home} {hs} - {as_} {away}"
     return f"🏁 نهاية المباراة | {name}\n{short}\n{line}\n\n⚽ Edge Football", short
 
@@ -1015,20 +1017,19 @@ def main():
         if item["en"]:
             title = translate(title) or title
             summary = translate(summary) or summary
-        content = ai_process(title, item.get("full") or summary, item["en"], openers)
-        if not content and not item["en"]:
-            content = f"⚽ {title}\n\n{(item.get('full') or summary)[:800]}"
-        if not content:
-            print("⚠️ تجاوز:", item["title"][:40])
-            posted.add(item["hash"])
+        rewrite = ai_process(title, item.get("full") or summary, item["en"], openers)
+        if rewrite["status"] != "ready":
+            # Never publish raw text after a rejection or a failed rewrite.
+            print("held news:", rewrite["status"], item["hash"])
             continue
+        content = rewrite["text"]
         img = (item.get("img") or "").strip()
-        if send_tg_photo(content, img):
+        if send_tg(format_news(content, item)):
             print("✅ نُشر:", title[:40])
             posted.add(item["hash"])
             recent_titles.append(item["nt"])
             openers.append(content.splitlines()[0][:80])
-            state.setdefault("site_news", []).append({"t": content.splitlines()[0][:100], "full": content, "img": img})
+            state.setdefault("site_news", []).append(news_record(content, item))
             state.setdefault("daily_news", []).append({"d": today, "t": content.splitlines()[0][:80]})
             count += 1
             time.sleep(5)
