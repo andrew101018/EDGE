@@ -68,8 +68,7 @@ def format_news(content, item):
     footer = "المصدر: " + publisher
     if stamp:
         footer += " | " + stamp + " بتوقيت القاهرة"
-    url = safe_source_url(item.get("url", ""))
-    return content.strip() + "\n\n" + footer + ("\n" + url if url else "")
+    return content.strip() + "\n\n" + footer
 
 def news_record(content, item):
     stamp = published_epoch(item.get("published_parsed"))
