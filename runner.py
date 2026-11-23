@@ -465,7 +465,7 @@ def call_openrouter(prompt, temp):
         try:
             r = requests.post("https://openrouter.ai/api/v1/chat/completions",
                 headers={"Authorization": f"Bearer {OPENROUTER_KEY}"},
-                json={"model": model, "temperature": temp, "messages": [{"role": "user", "content": prompt}]}, timeout=25)
+                json={"model": model, "temperature": temp, "max_price": {"prompt": 0, "completion": 0}, "messages": [{"role": "user", "content": prompt}]}, timeout=25)
             if r.ok: return r.json()["choices"][0]["message"]["content"]
             print("OpenRouter status:", model, r.status_code)
         except Exception as e:
@@ -498,7 +498,7 @@ def ai_process(title, content, is_english, forbidden=None):
 {task} أعد صياغة الخبر ده:
 العنوان: {title}
 المحتوى: {content[:1500]}"""
-    for engine in [call_gemini, call_groq, call_openrouter, call_deepseek]:
+    for engine in [call_openrouter]:  # free-only gate: other engines rejoin once their plans are verified free
         result = engine(prompt, temp)
         parsed = parse_rewrite(result)
         if parsed["status"] in ("ready", "rejected"):
