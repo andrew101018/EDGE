@@ -1,0 +1,44 @@
+name: IG container test (no publish)
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: draft release tag holding reel.mp4
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  container:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+      IG_ID: "17841433464530081"
+    steps:
+      - name: Create container, upload bytes, poll status (no media_publish)
+        run: |
+          set -e
+          ASSET_API=$(gh api "repos/$GITHUB_REPOSITORY/releases" --jq '.[] | select(.tag_name=="${{ inputs.release_tag }}") | .assets[] | select(.name=="reel.mp4") | .url')
+          test -n "$ASSET_API"
+          curl -sSL -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/octet-stream" -o reel.mp4 "$ASSET_API"
+          SIZE=$(stat -c %s reel.mp4); echo "size=$SIZE"
+          R=$(curl -sS -X POST "https://graph.facebook.com/v21.0/$IG_ID/media" \
+            --data-urlencode "media_type=REELS" --data-urlencode "upload_type=resumable" \
+            --data-urlencode "caption=test container (not published)" \
+            --data-urlencode "access_token=$FB_PAGE_TOKEN")
+          echo "$R" | sed "s/$FB_PAGE_TOKEN/***/g"
+          CID=$(echo "$R" | python3 -c 'import sys,json;print(json.load(sys.stdin)["id"])')
+          U=$(echo "$R" | python3 -c 'import sys,json;print(json.load(sys.stdin)["uri"])')
+          curl -sS -X POST "$U" -H "Authorization: OAuth $FB_PAGE_TOKEN" -H "offset: 0" -H "file_size: $SIZE" --data-binary @reel.mp4
+          echo
+          for i in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            S=$(curl -sS "https://graph.facebook.com/v21.0/$CID?fields=status_code,status&access_token=$FB_PAGE_TOKEN")
+            echo "poll $i: $S"
+            echo "$S" | grep -q FINISHED && break
+            echo "$S" | grep -q ERROR && break
+            sleep 10
+          done
