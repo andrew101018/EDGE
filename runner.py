@@ -489,7 +489,7 @@ def call_deepseek(prompt, temp):
     return None
 
 def ai_process(title, content, is_english, forbidden=None):
-    style = {"p": "اكتب خبرًا واضحًا بالعامية المصرية الهادية: عنوان دقيق ثم ملخص قصير. بدون تهويل، أو رأي، أو سؤال إجباري. انسب التصريحات والادعاءات لمصدرها. لا تحول الشائعات إلى حقائق."}
+    style = {"p": "اكتب خبرًا واضحًا بالعامية المصرية الهادية: عنوان دقيق ثم ملخص قصير. بدون تهويل، أو رأي، أو سؤال إجباري. انسب التصريحات والادعاءات لمصدرها. لا تحول الشائعات إلى حقائق. ممنوع منعًا باتًا تضيف أي حقيقة أو تاريخ أو موعد أو نتيجة مش موجودة في نص المصدر. لو المصدر قائمة مباريات بمواعيدها، اعرضها كقائمة كما هي، ولا تحولها إلى ادعاء جديد (مثل: سيُتحدد موعد لاحقًا). لو المصدر لا يذكر القنوات الناقلة لا تذكرها."}
     temp = 0.2
     fb = ""
     if forbidden:
@@ -1121,6 +1121,17 @@ def main():
             title = translate(title) or title
             summary = translate(summary) or summary
         rewrite = ai_process(title, item.get("full") or summary, item["en"], openers)
+        if rewrite["status"] == "ready":
+            src_txt = title + " " + (item.get("full") or summary)
+            body = rewrite["text"]
+            future_verbs = re.findall(r"هيتحدد|هيتقرر|سيُ?تحدد|سيُ?تقرر|سيتم تحديد|لم يتحدد", body)
+            if any(v not in src_txt for v in future_verbs):
+                rewrite = {"status": "held_semantic", "text": ""}
+            else:
+                src_dates = set(re.findall(r"\d{1,2}[/-]\d{1,2}(?:[/-]\d{2,4})?|\d{1,2}\s+(?:يناير|فبراير|مارس|أبريل|ابريل|مايو|يونيو|يوليو|أغسطس|اغسطس|سبتمبر|أكتوبر|اكتوبر|نوفمبر|ديسمبر)", src_txt))
+                body_dates = set(re.findall(r"\d{1,2}[/-]\d{1,2}(?:[/-]\d{2,4})?|\d{1,2}\s+(?:يناير|فبراير|مارس|أبريل|ابريل|مايو|يونيو|يوليو|أغسطس|اغسطس|سبتمبر|أكتوبر|اكتوبر|نوفمبر|ديسمبر)", body))
+                if not body_dates <= src_dates:
+                    rewrite = {"status": "held_date", "text": ""}
         if rewrite["status"] != "ready":
             # Never publish raw text after a rejection or a failed rewrite.
             print("held news:", rewrite["status"], item["hash"])
