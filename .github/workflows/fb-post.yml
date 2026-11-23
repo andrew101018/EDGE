@@ -1,0 +1,52 @@
+name: FB Post (manual, text only)
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "Owner-approved Facebook text. Use ' || ' for line breaks. Text only."
+        required: true
+jobs:
+  fb-post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Post text to the Page (allowlist output)
+        env:
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+          MESSAGE: ${{ inputs.message }}
+          PAGE_ID: "412961341902191"
+        run: |
+          python3 - <<'PY'
+          import os, json, urllib.request, urllib.parse, urllib.error
+          tok = os.environ["FB_PAGE_TOKEN"]
+          print("::add-mask::" + tok)
+          page = os.environ["PAGE_ID"]
+          msg = os.environ["MESSAGE"].replace(" || ", "\n").strip()
+          if not msg or len(msg) > 2000:
+              raise SystemExit("message empty or too long")
+          def call(url, data=None):
+              try:
+                  r = urllib.request.urlopen(urllib.request.Request(url, data=data), timeout=60)
+                  return r.status, json.loads(r.read().decode())
+              except urllib.error.HTTPError as e:
+                  try:
+                      return e.code, json.loads(e.read().decode())
+                  except Exception:
+                      return e.code, {}
+          g = "https://graph.facebook.com/v21.0/"
+          code, d = call(g + "me/accounts?" + urllib.parse.urlencode({"fields": "id,access_token", "access_token": tok}))
+          ptok = None
+          for p in (d.get("data", []) if code == 200 else []):
+              if p.get("id") == page:
+                  ptok = p.get("access_token")
+          if not ptok:
+              print("no page token for target page, http", code)
+              raise SystemExit(1)
+          print("::add-mask::" + ptok)
+          code, d = call(g + page + "/feed", urllib.parse.urlencode({"message": msg, "access_token": ptok}).encode())
+          er = d.get("error")
+          if isinstance(er, dict):
+              print("post failed http", code, "code", er.get("code"), "subcode", er.get("error_subcode"))
+              raise SystemExit(1)
+          print("post ok id", d.get("id"))
+          PY
