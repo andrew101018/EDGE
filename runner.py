@@ -19,7 +19,7 @@ OPENROUTER_KEY = os.environ.get("OPENROUTER_KEY", "")
 FORCE = os.environ.get("FORCE", "") == "1"
 VAPID_PRIVATE = os.environ.get("VAPID_PRIVATE", "")
 FB_PAGE_ID = os.environ.get("FB_PAGE_ID", "")
-FB_PAGE_TOKEN = os.environ.get("FB_PAGE_TOKEN", "")
+FB_PAGE_TOKEN = ""  # INCIDENT GATE (Nov 23 2026): Facebook calls disabled until main clears the exposed-token incident; was os.environ.get("FB_PAGE_TOKEN", "")
 STATE_FILE = "posted.json"
 MAX_PER_RUN = 4
 FRESH_HOURS = 8
