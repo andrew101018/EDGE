@@ -45,6 +45,24 @@ jobs:
           cap = os.environ["CAPTION"].replace("\\n", "\n")
           size = os.path.getsize("reel.mp4"); data = open("reel.mp4","rb").read()
           G = "https://graph.facebook.com/v21.0"
+          def safe(t):
+              try:
+                  d = json.loads(t)
+              except Exception:
+                  return "non-json response"
+              out = {}
+              for k in ("id","video_id","post_id","status_code","success","permalink","permalink_url","media_product_type"):
+                  if isinstance(d, dict) and isinstance(d.get(k), (str,int,bool)) and k != "access_token":
+                      out[k] = d[k]
+              st = d.get("status") if isinstance(d, dict) else None
+              if isinstance(st, str): out["status"] = st[:80]
+              if isinstance(st, dict):
+                  out["video_status"] = st.get("video_status")
+                  out["publish_status"] = (st.get("publishing_phase") or {}).get("publish_status")
+              er = d.get("error") if isinstance(d, dict) else None
+              if isinstance(er, dict):
+                  out["error"] = {"code": er.get("code"), "subcode": er.get("error_subcode"), "type": er.get("type")}
+              return json.dumps(out)
           def call(url, params=None, method="POST", headers=None, body=None):
               h = dict(headers or {})
               if params is not None:
@@ -54,7 +72,7 @@ jobs:
                   r = urllib.request.urlopen(req, timeout=300); t = r.read().decode()
               except urllib.error.HTTPError as e:
                   t = e.read().decode()
-              print(url.split("?")[0], "->", re.sub(r'"access_token"\s*:\s*"[^"]*"', '"access_token":"***"', t).replace(tok, "***")[:600])
+              print(url.split("?")[0].split("/v")[0][:60], "->", safe(t))
               return json.loads(t)
           if plat == "ig":
               r = call(f"{G}/{os.environ['IG_ID']}/media", {"media_type":"REELS","upload_type":"resumable","caption":cap,"is_ai_generated":"true","access_token":tok})
