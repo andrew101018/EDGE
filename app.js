@@ -264,7 +264,7 @@ function renderHomeMatches() {
   const live = dayAll.filter(m => matchState(m) === 'in');
   const upcoming = dayAll.filter(m => matchState(m) === 'pre').sort((a, b) => ts(a) - ts(b));
   const finished = dayAll.filter(m => matchState(m) === 'post').sort((a, b) => ts(b) - ts(a));
-  const ordered = live.concat(upcoming, finished).slice(0, 12);
+  const ordered = live.concat(upcoming, finished).slice(0, 40);
   el.innerHTML = ordered.map(m => {
     let center;
     if (matchState(m) === 'in') {
@@ -471,7 +471,7 @@ function renderPredict() {
     el.innerHTML = '<div class="card">لا توجد مباريات قادمة للتوقع حالياً</div>';
     return;
   }
-  el.innerHTML = upcoming.slice(0, 12).map(m => {
+  el.innerHTML = upcoming.slice(0, 40).map(m => {
     const v = saved[m.eid] || ['', ''];
     return `<div class="pred-row" data-eid="${m.eid}">
       <div class="pred-teams">${teamLogo(m.homeLogo)} ${m.home} × ${m.away} ${teamLogo(m.awayLogo)}</div>
