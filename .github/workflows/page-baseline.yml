@@ -1,0 +1,48 @@
+name: Page posts baseline (read-only)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Read-only list of recent Page posts (allowlist output)
+        env:
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import os, json, urllib.request, urllib.parse, urllib.error
+          tok = os.environ["FB_PAGE_TOKEN"]
+          print("::add-mask::" + tok)
+          def get(path, params):
+              params = dict(params, access_token=tok)
+              url = "https://graph.facebook.com/v21.0/" + path + "?" + urllib.parse.urlencode(params)
+              try:
+                  r = urllib.request.urlopen(url, timeout=60)
+                  return r.status, json.loads(r.read().decode())
+              except urllib.error.HTTPError as e:
+                  try:
+                      return e.code, json.loads(e.read().decode())
+                  except Exception:
+                      return e.code, {}
+          code, d = get("me/accounts", {"fields": "id,name,access_token"})
+          pages = d.get("data", []) if code == 200 else []
+          print("me/accounts http", code, "pages", [p.get("id") for p in pages])
+          for p in pages:
+              ptok = p.get("access_token")
+              if not ptok:
+                  print("page", p.get("id"), "no page token returned"); continue
+              print("::add-mask::" + ptok)
+              tok = ptok
+              code, d = get(p["id"] + "/published_posts", {"fields": "id,created_time,permalink_url", "limit": "25"})
+              er = d.get("error")
+              if isinstance(er, dict):
+                  print("published_posts http", code, "error", {"code": er.get("code"), "subcode": er.get("error_subcode"), "type": er.get("type")})
+              else:
+                  rows = d.get("data", [])
+                  print("published_posts http", code, "count", len(rows))
+                  for x in rows:
+                      print(x.get("created_time"), x.get("id"), x.get("permalink_url"))
+          PY
