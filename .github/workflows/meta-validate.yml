@@ -8,14 +8,33 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
-      - name: Read-only Graph checks
+      - name: Read-only Graph checks (allowlist output)
         env:
           FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
         run: |
-          set -e
-          echo "== /me/accounts =="
-          curl -sS "https://graph.facebook.com/v21.0/me/accounts?fields=id,name,instagram_business_account&access_token=${FB_PAGE_TOKEN}"
-          echo
-          echo "== /me/permissions =="
-          curl -sS "https://graph.facebook.com/v21.0/me/permissions?access_token=${FB_PAGE_TOKEN}"
-          echo
+          python3 - <<'PY'
+          import os, json, urllib.request, urllib.parse, urllib.error
+          tok = os.environ["FB_PAGE_TOKEN"]
+          def get(path, fields):
+              q = urllib.parse.urlencode({"fields": fields, "access_token": tok})
+              try:
+                  r = urllib.request.urlopen("https://graph.facebook.com/v21.0/" + path + "?" + q, timeout=60)
+                  code, t = r.status, r.read().decode()
+              except urllib.error.HTTPError as e:
+                  code, t = e.code, e.read().decode()
+              try:
+                  d = json.loads(t)
+              except Exception:
+                  print(path, "http", code, "non-json"); return
+              er = d.get("error")
+              if isinstance(er, dict):
+                  print(path, "http", code, "error", {"code": er.get("code"), "subcode": er.get("error_subcode"), "type": er.get("type")})
+              else:
+                  rows = d.get("data", [])
+                  if path.endswith("accounts"):
+                      print(path, "http", code, "ok pages:", [{"id": x.get("id"), "name": x.get("name"), "ig": (x.get("instagram_business_account") or {}).get("id")} for x in rows])
+                  else:
+                      print(path, "http", code, "ok perms:", [(x.get("permission"), x.get("status")) for x in rows])
+          get("me/accounts", "id,name,instagram_business_account")
+          get("me/permissions", "permission,status")
+          PY
