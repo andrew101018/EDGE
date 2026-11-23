@@ -1114,9 +1114,14 @@ def main():
     print(f"📥 أخبار جديدة: {len(fresh)}")
     count = 0
     fb_ok = fb_check()
+    fix_pat = re.compile(r"مواعيد مباريات|مباريات اليوم|جدول مباريات")
     for item in fresh:
         if count >= MAX_PER_RUN: break
         title, summary = item["title"], item["summary"]
+        if fix_pat.search(title) and any(fix_pat.search(x.get("t", "")) for x in state.get("daily_news", []) if x.get("d") == today):
+            print("held fixture-dup:", title[:50])
+            posted.add(item["hash"])
+            continue
         if item["en"]:
             title = translate(title) or title
             summary = translate(summary) or summary
