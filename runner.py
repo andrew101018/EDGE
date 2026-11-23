@@ -388,6 +388,23 @@ def send_fb(text, img=None):
         print("FB error:", e)
         return False
 
+def fb_check():
+    """فحص قراءة فقط: بيتأكد إن توكن الصفحة شغال من غير ما ينشر حاجة"""
+    if not FB_PAGE_ID or not FB_PAGE_TOKEN:
+        print("FB: secrets ناقصة")
+        return False
+    try:
+        r = requests.get(f"https://graph.facebook.com/v18.0/{FB_PAGE_ID}",
+            params={"fields": "name", "access_token": FB_PAGE_TOKEN}, timeout=15)
+        if r.ok:
+            print("FB page ready:", r.json().get("name"))
+            return True
+        print("FB check status:", r.status_code)
+        return False
+    except Exception as e:
+        print("FB check error:", type(e).__name__)
+        return False
+
 def send_poll(question, options):
     try:
         r = requests.post(f"https://api.telegram.org/bot{TG_TOKEN}/sendPoll",
@@ -1011,6 +1028,7 @@ def main():
     fresh, posted, recent_titles = collect_news(state)
     print(f"📥 أخبار جديدة: {len(fresh)}")
     count = 0
+    fb_ok = fb_check()
     for item in fresh:
         if count >= MAX_PER_RUN: break
         title, summary = item["title"], item["summary"]
@@ -1026,6 +1044,8 @@ def main():
         img = (item.get("img") or "").strip()
         if send_tg(format_news(content, item)):
             print("✅ نُشر:", title[:40])
+            if fb_ok:
+                send_fb(content + "\n\n⚽ Edge Football\n🌐 https://andrew101018.github.io/EDGE/", img or None)
             posted.add(item["hash"])
             recent_titles.append(item["nt"])
             openers.append(content.splitlines()[0][:80])
