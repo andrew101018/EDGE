@@ -146,13 +146,41 @@ function countdownInner(target) {
   return parts.join('<span class="feat-sep">:</span>');
 }
 
+/* حالة المباراة مشتقة من التفاصيل/الوقت عندما لا يخزنها العدّاء */
+function fmtCairoTime(m) {
+  const t = Date.parse(m.date || '');
+  if (Number.isNaN(t)) return m.time || '';
+  return new Intl.DateTimeFormat('ar-EG', { timeZone: 'Africa/Cairo', hour: 'numeric', minute: '2-digit' }).format(new Date(t));
+}
+
+function matchState(m) {
+  if (m.state) return m.state;                 // حالة مؤكدة من ESPN عبر التحديث المباشر
+  if (m.detail === 'FT') return 'post';        // انتهاء موثق من العدّاء
+  return 'pre';                                // مجدولة/غير مؤكدة — لا نفترض البدء أو الانتهاء
+}
+function statusNote(m) {
+  if (m.state === 'in') return 'مباشر';
+  if (m.detail === 'FT' || m.state === 'post') return 'انتهت';
+  const t = Date.parse(m.date || '');
+  if (!Number.isNaN(t) && t <= Date.now()) return 'غير مؤكد'; // لا نعرف: تأجيل/إلغاء/انتهاء محتمل
+  return 'مجدولة';
+}
+
+function needsLivePoll(m) {
+  if (m.state || m.detail === 'FT') return false;
+  const t = Date.parse(m.date || '');
+  if (Number.isNaN(t)) return false;
+  const now = Date.now();
+  return t <= now && now - t <= 3 * 3600 * 1000; // نافذة استعلام فقط، وليست حالة عرض
+}
+
 function renderFeaturedMatch() {
   const el = document.getElementById('featuredMatch');
   if (!el) return;
   const all = [];
   MATCHES.forEach(g => (g.items || []).forEach(m => all.push(Object.assign({}, m, { league: g.league, big: g.big }))));
   const live = all.filter(m => m.state === 'in');
-  const upcoming = all.filter(m => m.state === 'pre');
+  const upcoming = all.filter(m => { const t = Date.parse(m.date || ''); return !Number.isNaN(t) && t > Date.now(); });
   let m = null, mode = null;
   if (live.length) {
     m = (live.filter(x => x.big)[0] || live[0]);
@@ -191,7 +219,7 @@ function renderFeaturedMatch() {
         <div class="feat-team">${teamLogo(m.awayLogo)}<span>${m.away}</span></div>
       </div>
       <div class="feat-cd">${valid ? countdownInner(target) : '🕐 ' + m.time}</div>
-      <div class="feat-cta">📺 ${m.tv || 'اضغط لمتابعة المباراة'}</div>
+      <div class="feat-cta">اضغط لمتابعة المباراة</div>
     </div>`;
     if (valid && !_featTimer) {
       _featTimer = setInterval(function () {
@@ -208,11 +236,60 @@ function renderFeaturedMatch() {
   }
 }
 
+
+/* ===== الرئيسية: شريط المباريات (تصور المرحلة الأولى) — بيانات ESPN الحقيقية فقط ===== */
+var edgeHomeDay = 0;
+function edgeMatchDay(d) {
+  edgeHomeDay = d;
+  document.querySelectorAll('#homeMatchTabs .edge-mtab').forEach(b => b.classList.toggle('active', Number(b.dataset.day) === d));
+  renderHomeMatches();
+}
+function edgeCairoDay(offset) {
+  const fmt = new Intl.DateTimeFormat('en-CA', { timeZone: 'Africa/Cairo', year: 'numeric', month: '2-digit', day: '2-digit' });
+  return fmt.format(new Date(Date.now() + offset * 86400000));
+}
+function renderHomeMatches() {
+  const el = document.getElementById('homeMatches');
+  if (!el) return;
+  const all = [];
+  MATCHES.forEach(g => (g.items || []).forEach(m => all.push(Object.assign({}, m, { league: g.league }))));
+  if (!all.length) { el.innerHTML = '<div class="card">لا توجد مباريات مسجلة حاليًا</div>'; return; }
+  const wanted = edgeCairoDay(edgeHomeDay);
+  const inDay = m => { const t = Date.parse(m.date || ''); if (Number.isNaN(t)) return false;
+    return new Intl.DateTimeFormat('en-CA', { timeZone: 'Africa/Cairo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(t)) === wanted; };
+  const dayAll = all.filter(inDay);
+  if (!dayAll.length) { el.innerHTML = '<div class="card">لا توجد مباريات مسجلة في هذا اليوم</div>'; return; }
+  const now = Date.now();
+  const ts = m => { const t = Date.parse(m.date || ''); return Number.isNaN(t) ? 0 : t; };
+  const live = dayAll.filter(m => matchState(m) === 'in');
+  const upcoming = dayAll.filter(m => matchState(m) === 'pre').sort((a, b) => ts(a) - ts(b));
+  const finished = dayAll.filter(m => matchState(m) === 'post').sort((a, b) => ts(b) - ts(a));
+  const ordered = live.concat(upcoming, finished).slice(0, 12);
+  el.innerHTML = ordered.map(m => {
+    let center;
+    if (matchState(m) === 'in') {
+      center = `<div class="edge-mscore edge-live">${m.hs != null ? m.hs + ' - ' + m.as : ''}</div><div class="edge-mstatus">🔴 مباشر ${m.detail || ''}</div>`;
+    } else if (m.detail === 'FT' && m.hs != null) {
+      center = `<div class="edge-mscore">${m.hs} - ${m.as}</div><div class="edge-mstatus">انتهت ${m.dateAr || ''}</div>`;
+    } else {
+      const tstr = fmtCairoTime(m);
+      const note = statusNote(m);
+      center = `<div class="edge-mscore edge-pre">${tstr}</div><div class="edge-mstatus">${note}${m.dateAr ? ' — ' + m.dateAr : ''}</div>`;
+    }
+    return `<div class="edge-mcard" onclick="goMulti(['matches','tv'], null)">
+      <div class="edge-mleague">${m.league}</div>
+      <div class="edge-mrow">${teamLogo(m.homeLogo)} ${m.home}</div>
+      <div class="edge-mrow">${teamLogo(m.awayLogo)} ${m.away}</div>
+      ${center}
+    </div>`;
+  }).join('');
+}
+
 /* ===== 🔴 النتايج اللايف — تحديث مباشر من ESPN كل دقيقة ===== */
 function refreshLiveScores() {
   const liveSlugs = {};
   MATCHES.forEach(g => (g.items || []).forEach(m => {
-    if (m.state === 'in') liveSlugs[m.slug] = 1;
+    if (m.state === 'in' || needsLivePoll(m)) liveSlugs[m.slug] = 1;
   }));
   const slugs = Object.keys(liveSlugs);
   if (!slugs.length) return;
@@ -268,34 +345,42 @@ function matchDateBadge(m) {
   return dayLabel ? `<div class="m-day">${dayLabel}</div>` : '';
 }
 
+function matchRow(m) {
+  const timeStr = fmtCairoTime(m);
+  const center = (m.detail === 'FT' && m.hs != null)
+    ? `<span class="live-score">${m.hs} - ${m.as}</span>`
+    : `<span class="live-score" style="color:#94a3b8;font-size:1.05em;">${timeStr}</span>`;
+  return `<div class="live-card"><div class="live-teams"><span class="team-link" data-team="${m.slug}|${m.homeId}|${m.home}">${teamLogo(m.homeLogo)} ${m.home}</span>${center}<span class="team-link" data-team="${m.slug}|${m.awayId}|${m.away}">${m.away} ${teamLogo(m.awayLogo)}</span></div><div class="live-meta">${statusNote(m)}${m.dateAr ? ' — ' + m.dateAr : ''}</div></div>`;
+}
+
 function renderMatches() {
   const el = document.getElementById('matchesContainer');
   const liveItems = [];
   const preItems = [];
   MATCHES.forEach(g => g.items.forEach(m => {
     if (m.state === 'in') liveItems.push(Object.assign({}, m, { league: g.league }));
-    if (m.state === 'pre') preItems.push(Object.assign({}, m, { league: g.league }));
+    const t0 = Date.parse(m.date || '');
+    if (!Number.isNaN(t0) && t0 > Date.now() && t0 - Date.now() <= 24 * 3600 * 1000) preItems.push(Object.assign({}, m, { league: g.league }));
   }));
   let html = '';
   if (liveItems.length) {
-    html += '<div class="live-block"><div class="live-title">🔴 مباشر الآن</div>' + liveItems.map(m => `<div class="live-card"><div class="live-teams"><span class="team-link" data-team="${m.slug}|${m.homeId}|${m.home}">${teamLogo(m.homeLogo)} ${m.home}</span><span class="live-score">${m.hs} - ${m.as}</span><span class="team-link" data-team="${m.slug}|${m.awayId}|${m.away}">${m.away} ${teamLogo(m.awayLogo)}</span></div><div class="live-meta">⏱️ ${m.detail} | ${m.league}${m.tv ? ' | 📺 ' + m.tv : ''}</div></div>`).join('') + '</div>';
+    html += '<div class="live-block"><div class="live-title">🔴 مباشر الآن</div>' + liveItems.map(m => `<div class="live-card"><div class="live-teams"><span class="team-link" data-team="${m.slug}|${m.homeId}|${m.home}">${teamLogo(m.homeLogo)} ${m.home}</span><span class="live-score">${m.hs} - ${m.as}</span><span class="team-link" data-team="${m.slug}|${m.awayId}|${m.away}">${m.away} ${teamLogo(m.awayLogo)}</span></div><div class="live-meta">⏱️ ${m.detail} | ${m.league}</div></div>`).join('') + '</div>';
   }
   if (preItems.length) {
-    html += '<div class="live-block" style="background:linear-gradient(135deg,#0f172a,#1e293b);border:1px solid #334155;"><div class="live-title" style="color:#fbbf24;animation:none;">🕐 مباريات خلال 24 ساعة</div>' + preItems.slice(0, 6).map(m => `<div class="live-card"><div class="live-teams"><span class="team-link" data-team="${m.slug}|${m.homeId}|${m.home}">${teamLogo(m.homeLogo)} ${m.home}</span><span class="live-score" style="color:#94a3b8;font-size:1.05em;">${m.time}</span><span class="team-link" data-team="${m.slug}|${m.awayId}|${m.away}">${m.away} ${teamLogo(m.awayLogo)}</span></div><div class="live-meta">🏆 ${m.league}${m.tv ? ' | 📺 ' + m.tv : ''}</div></div>`).join('') + '</div>';
+    html += '<div class="live-block" style="background:linear-gradient(135deg,#0f172a,#1e293b);border:1px solid #334155;"><div class="live-title" style="color:#fbbf24;animation:none;">🕐 مباريات خلال 24 ساعة</div>' + preItems.slice(0, 6).map(m => `<div class="live-card"><div class="live-teams"><span class="team-link" data-team="${m.slug}|${m.homeId}|${m.home}">${teamLogo(m.homeLogo)} ${m.home}</span><span class="live-score" style="color:#94a3b8;font-size:1.05em;">${fmtCairoTime(m)}</span><span class="team-link" data-team="${m.slug}|${m.awayId}|${m.away}">${m.away} ${teamLogo(m.awayLogo)}</span></div><div class="live-meta">🏆 ${m.league}</div></div>`).join('') + '</div>';
   }
   html += MATCHES.map(g => {
-    const items = g.items.filter(m => m.state !== 'in');
+    const items = g.items.filter(m => matchState(m) !== 'in');
     if (!items.length) return '';
     const byState = { pre: [], post: [] };
-    items.forEach(m => byState[m.state] && byState[m.state].push(m));
+    items.forEach(m => { const s = matchState(m); if (byState[s]) byState[s].push(m); });
     return `<div class="league-box"><div class="league-title">🏆 ${g.league}</div>` +
       (byState.post.length ? `<div style="padding:6px 10px;font-size:.75em;opacity:.6;background:#0f172a;">🏁 مباريات انتهت</div>` + byState.post.map(matchRow).join('') : '') +
-      (byState.pre.length ? `<div style="padding:6px 10px;font-size:.75em;opacity:.6;background:#0f172a;">🕐 مباريات قادمة</div>` + byState.pre.map(matchRow).join('') : '') +
+      (byState.pre.length ? `<div style="padding:6px 10px;font-size:.75em;opacity:.6;background:#0f172a;">🕐 مباريات مجدولة</div>` + byState.pre.map(matchRow).join('') : '') +
       `</div>`;
   }).join('');
-  if (DATA.results && DATA.results.length) {
-    html += '<h2 style="margin-top:24px;">🏁 نتائج اليوم</h2><div class="list">' + DATA.results.map(t => `<div class="result-item">🏁 ${t}</div>`).join('') + '</div>';
-  }
+  // نتائج موثقة فقط: القائمة النصية القديمة DATA.results لا تُعرض لأنها غير قابلة للتحقق؛
+  // النتائج المعروضة أعلاه مأخوذة من بيانات المباريات المنظمة (ESPN ±24 ساعة) لكل دوري.
   el.innerHTML = html || '<div class="card">لا توجد مباريات حالياً</div>';
 }
 
@@ -352,14 +437,13 @@ function renderPlayers() {
 function renderTv() {
   const el = document.getElementById('tvContainer');
   const rows = [];
-  (DATA.matches || []).forEach(g => g.items.forEach(m => {
-    if (m.tv && m.state !== 'post') rows.push(m);
+  (DATA.matches || []).forEach(g => (g.items || []).forEach(m => {
+    if (matchState(m) !== 'post') rows.push(Object.assign({}, m, { league: g.league }));
   }));
   el.innerHTML = rows.length ? rows.map(m => `<div class="tv-card">
     <div class="tv-teams">${teamLogo(m.homeLogo)} ${m.home} × ${m.away} ${teamLogo(m.awayLogo)}</div>
-    <div class="tv-info">${m.state === 'in' ? '🔴 الآن' : '🕐 ' + m.time} | ${m.league}</div>
-    ${m.tvUrl ? `<a class="btn" href="${m.tvUrl}" target="_blank">📺 ${m.tv}</a>` : `<span>📺 ${m.tv}</span>`}
-  </div>`).join('') : '<div class="card">لا توجد مباريات مذاعة قريباً</div>';
+    <div class="tv-info">${statusNote(m)} — ${fmtCairoTime(m)} | ${m.league}</div>
+  </div>`).join('') : '<div class="card">لا توجد مباريات مجدولة قريباً</div>';
 }
 
 function renderPredict() {
@@ -1140,10 +1224,9 @@ async function loadData() {
     fillTeamSelects();
     renderStats();
     renderFeaturedMatch();
-    renderEditorialNews(DATA.news || []);
-    document.getElementById('resultsContainer').innerHTML = (DATA.results || []).length
-      ? DATA.results.map(t => `<div class="result-item">🏁 ${t}</div>`).join('')
-      : '<div class="card">لا توجد نتائج اليوم</div>';
+    renderHomeMatches();
+    renderEditorialNews((DATA.news || []).slice(0, 4));
+    var hmUp = document.getElementById('homeMatchesUpdate'); if (hmUp) hmUp.textContent = DATA.updated_at || 'غير متاح';
     document.getElementById('tablesContainer').innerHTML = Object.entries(DATA.tables || {})
       .filter(([name, rows]) => rows && rows.length)
       .map(([name, rows]) => {
@@ -1187,6 +1270,8 @@ window.addEventListener('beforeinstallprompt', e => {
   deferredPrompt = e;
   const b = document.getElementById('installBtn');
   if (b) b.style.display = 'inline-block';
+  const bm = document.getElementById('installBtnMobile');
+  if (bm) bm.style.display = 'inline-block';
 });
 
 function installApp() {
@@ -1220,25 +1305,37 @@ function renderEditorialNews(items) {
     const n = typeof raw === 'string' ? {t: raw, full: raw} : raw;
     const card = document.createElement('article');
     card.className = 'news-card';
-    card.style.display = 'block';
-    card.style.padding = '18px';
+    const thumb = document.createElement('span');
+    thumb.className = 'edge-nthumb';
+    thumb.textContent = 'EDGE';
+    const wrap = document.createElement('div');
+    wrap.className = 'edge-nwrap';
     const title = document.createElement('h3');
     title.className = 'news-title';
     title.textContent = n.t || '';
     const body = document.createElement('p');
-    body.style.lineHeight = '1.8';
+    body.className = 'edge-nexcerpt';
     const full = (n.full || n.t || '').trim();
     const first = (n.t || '').trim();
-    const brief = full.startsWith(first) ? full.slice(first.length).trim() : full;
-    body.textContent = brief.length > 220 ? brief.slice(0, 220) + '…' : brief;
+    let brief = full.startsWith(first) ? full.slice(first.length).trim() : full;
+    const norm = s => s.replace(/[^\u0621-\u064Aa-zA-Z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
+    const nb = norm(brief), nt = norm(first);
+    if (!nb || nt.startsWith(nb.slice(0, 50)) || nb.startsWith(nt.slice(0, 50))) brief = '';
+    if (brief) body.textContent = brief.length > 140 ? brief.slice(0, 140) + '…' : brief;
     const meta = document.createElement('p');
-    meta.style.cssText = 'font-size:.85em;opacity:.75;line-height:1.8';
+    meta.className = 'edge-nmeta';
     let date = '';
     if (n.published_at && !Number.isNaN(Date.parse(n.published_at))) {
-      date = new Intl.DateTimeFormat('ar-EG', {timeZone:'Africa/Cairo', dateStyle:'medium', timeStyle:'short'}).format(new Date(n.published_at)) + ' بتوقيت القاهرة';
+      date = new Intl.DateTimeFormat('ar-EG', {timeZone:'Africa/Cairo', dateStyle:'medium', timeStyle:'short'}).format(new Date(n.published_at));
     }
-    meta.textContent = (n.source || 'المصدر غير محفوظ للخبر القديم') + (date ? ' | ' + date : ' | وقت الخبر غير محفوظ');
-    card.append(title, body, meta);
+    const parts = [];
+    parts.push(n.source || 'المصدر غير محفوظ');
+    if (date) parts.push(date);
+    meta.textContent = parts.join(' — ');
+    wrap.appendChild(title);
+    if (brief) wrap.appendChild(body);
+    wrap.appendChild(meta);
+    card.append(thumb, wrap);
     if (n.url) {
       try {
         const url = new URL(n.url);
@@ -1249,7 +1346,7 @@ function renderEditorialNews(items) {
           link.rel = 'noopener noreferrer';
           link.textContent = 'اقرأ عند المصدر';
           link.style.cssText = 'display:inline-block;min-height:44px;padding-block:10px';
-          card.appendChild(link);
+          wrap.appendChild(link);
         }
       } catch (_) { /* An invalid source URL is not rendered. */ }
     }

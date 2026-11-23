@@ -54,7 +54,7 @@
   },
   "sameAs": [
     "https://t.me/edgefootballplatform",
-    "https://youtube.com/@andygmall",
+    "https://youtube.com/@andygamall",
     "https://www.facebook.com/share/1Gohnia7GU/",
     "https://www.tiktok.com/@andr8w_10",
     "https://www.instagram.com/edge_footballl",
@@ -73,7 +73,7 @@
     <p class="subtitle">الكورة بتبدأ من هنا 🔥 كل حاجة في الكورة.. قبل أي حد تاني ⚡</p>
     <div class="socials">
       <a href="https://t.me/edgefootballplatform" target="_blank" rel="noopener">📲 تيليجرام</a>
-      <a href="https://youtube.com/@andygmall?si=scJTXJgee0gtMZar" target="_blank" rel="noopener">📺 يوتيوب</a>
+      <a href="https://youtube.com/@andygamall" target="_blank" rel="noopener">📺 يوتيوب</a>
       <a href="https://www.facebook.com/share/1Gohnia7GU/" target="_blank" rel="noopener">📘 فيسبوك</a>
       <a href="https://www.tiktok.com/@andr8w_10?_r=1&_t=ZS-99DBAk3ILae" target="_blank" rel="noopener">🎵 تيك توك</a>
       <a href="https://www.instagram.com/edge_footballl?igsi=cHU5dGY0ZTZvdmN4" target="_blank" rel="noopener">📸 إنستجرام</a>
@@ -85,6 +85,7 @@
         oninput="globalSearch(this.value)" onfocus="this.style.borderColor='#f59e0b'" onblur="this.style.borderColor='#334155'">
       <div id="globalResults" style="margin-top:8px;"></div>
     </div>
+    <button id="installBtnMobile" class="install-mobile" type="button" onclick="installApp()" style="display:none">📲 تثبيت التطبيق</button>
     <div class="last-update" id="lastUpdate"></div>
   </div>
 </header>
@@ -127,11 +128,21 @@
 <main class="container">
 
   <section id="sec-home" class="page active">
+    <h2 class="edge-hm-title">⚽ المباريات <span class="edge-hm-more" onclick="goMulti(['matches','tv'], null)">كل المباريات</span></h2>
+    <p class="edge-hm-update">المواعيد بتوقيت القاهرة · آخر تحديث للبيانات: <span id="homeMatchesUpdate">…</span></p>
+    <div class="edge-mtabs" id="homeMatchTabs">
+      <button class="edge-mtab active" data-day="0" onclick="edgeMatchDay(0)">اليوم</button>
+      <button class="edge-mtab" data-day="-1" onclick="edgeMatchDay(-1)">أمس</button>
+      <button class="edge-mtab" data-day="1" onclick="edgeMatchDay(1)">غداً</button>
+    </div>
+    <div id="homeMatches" class="edge-mstrip"></div>
     <div id="featuredMatch"></div>
-    <h2>📰 آخر الأخبار</h2>
+    <h2 class="edge-hm-title">📰 آخر الأخبار <span class="edge-hm-more" onclick="edgeGo('archive')">كل الأخبار</span></h2>
     <div id="newsContainer" class="list"></div>
-    <h2 class="results-heading">🏁 نتائج اليوم</h2>
-    <div id="resultsContainer" class="list"></div>
+    <h2 class="results-heading edge-hm-title">🎬 فيديوهات <span class="edge-hm-more" onclick="window.open('https://youtube.com/@andygamall','_blank','noopener')">القناة</span></h2>
+    <div class="list">
+      <a class="edge-video-link" href="https://youtube.com/@andygamall" target="_blank" rel="noopener"><span class="edge-play">▶</span><span class="edge-video-text">شاهد آخر الملخصات والحلقات على قناة EDGE في يوتيوب</span></a>
+    </div>
   </section>
 
   <section id="sec-matches" class="page">
@@ -150,8 +161,8 @@
   </section>
 
   <section id="sec-tv" class="page">
-    <h2>📺 دليل المشاهدة</h2>
-    <p class="tv-description">اعرف كل مباراة بتتذاع فين رسمياً</p>
+    <h2>🕐 جدول المباريات</h2>
+    <p class="tv-description">كل المباريات المجدولة — المواعيد بتوقيت القاهرة</p>
     <div id="tvContainer" class="grid"></div>
   </section>
 
@@ -274,6 +285,29 @@
 <script src="mobile.js" defer></script>
 <script src="badges.js" defer></script>
 <a class="share-wa" target="_blank" rel="noopener" href="https://wa.me/?text=🔥 أخبار كورة لحظياً + مباريات لايف + فانتازي — الكورة بتبدأ من هنا ⚽ https://andrew101018.github.io/EDGE/">💬</a>
+<nav class="edge-bottombar" aria-label="التنقل السفلي">
+  <button type="button" class="ebb active" onclick="edgeGo(['home'], this)">الرئيسية</button>
+  <button type="button" class="ebb" onclick="edgeGo(['matches','tv'], this)">المباريات</button>
+  <button type="button" class="ebb" onclick="edgeGo(['world','transfers'], this)">الأخبار</button>
+  <button type="button" class="ebb" onclick="edgeGo(['predict','fantasy'], this)">الألعاب</button>
+  <button type="button" class="ebb" onclick="edgeMore()">المزيد</button>
+</nav>
+<script>
+function edgeGo(ids, el) {
+  document.querySelectorAll('.ebb').forEach(function (b) { b.classList.remove('active'); });
+  if (el) el.classList.add('active');
+  navigateTo(ids, null);
+}
+function edgeMore() {
+  var mt = document.querySelector('.menu-toggle');
+  if (mt) mt.click();
+}
+document.addEventListener('click', function (e) {
+  if (e.target.closest('.top-nav .nav-btn')) {
+    document.querySelectorAll('.ebb').forEach(function (b) { b.classList.remove('active'); });
+  }
+});
+</script>
 <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');</script>
 </body>
 </html>

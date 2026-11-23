@@ -310,3 +310,72 @@ button:focus-visible, a:focus-visible { outline: 2px solid #f59e0b; outline-offs
 .match-card .tv-line { border-radius: 0 0 10px 10px; border-top: 1px solid #24344f; }
 [data-theme="light"] .match-card { background: #fff; }
 [data-theme="light"] .m-day { color: #b45309; }
+
+/* ===== EDGE Phase 1 — شكل التطبيق على الموبايل (تصور معتمد ٢٣ نوفمبر ٢٠٢٦) ===== */
+.edge-bottombar { display: none; position: fixed; bottom: 0; right: 0; left: 0; z-index: 80; background: #0e1420; border-top: 1px solid #1d2530; padding: 4px 4px 10px; justify-content: space-around; }
+.ebb { background: none; border: none; color: #8b93a1; font-family: inherit; font-size: 12px; font-weight: 700; padding: 8px 10px 4px; border-top: 2px solid transparent; cursor: pointer; touch-action: manipulation; }
+.ebb.active { color: #eebf63; border-top-color: #eebf63; }
+.install-mobile { margin: 10px auto 0; background: #eebf63; color: #0b0f16; border: none; border-radius: 20px; padding: 8px 18px; font-weight: 800; font-size: 0.85em; font-family: inherit; cursor: pointer; }
+.edge-video-link { display: block; text-decoration: none; color: #e2e8f0; }
+
+/* توحيد الهوية مع التصور: ذهبي أساسي بدل الأحمر للعناوين والتمييز */
+h2 { color: #eebf63; border-bottom-color: #eebf63; }
+.list .news-item, .list .result-item { border-right-color: #eebf63; }
+.nav-btn.active { background: #eebf63; border-color: #eebf63; color: #0b0f16; }
+
+@media (max-width: 768px) {
+  body { padding-bottom: 62px; }
+  header { padding: 12px 0 10px; }
+  header h1 { font-size: 1.25em; }
+  header img { height: 40px !important; width: 40px !important; }
+  .subtitle { display: none; }
+  .socials { display: none; }
+  .edge-bottombar { display: flex; }
+}
+
+/* Phase 1: هيدر كحلي غامق بهوية التصور بدل التدرج الأحمر */
+header { background: linear-gradient(135deg, #0b0f16, #16213a); border-bottom: 1px solid #1d2530; }
+
+/* Phase 1: كروت الأخبار بالحد الذهبي */
+.news-card { border-right-color: #eebf63; }
+.news-card:hover { border-right-color: #ffd98a; }
+
+/* Phase 1 v2: شريط مباريات الرئيسية + هوية زر المنيو */
+.edge-hm-title { display: flex; justify-content: space-between; align-items: baseline; }
+.edge-hm-more { font-size: 0.55em; color: #eebf63; cursor: pointer; font-weight: 700; }
+.edge-mstrip { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 18px; scrollbar-width: none; }
+.edge-mstrip::-webkit-scrollbar { display: none; }
+.edge-mcard { flex: 0 0 165px; background: #121826; border: 1px solid #1d2530; border-radius: 14px; padding: 10px 12px; cursor: pointer; }
+.edge-mleague { color: #8b93a1; font-size: 0.68em; margin-bottom: 8px; }
+.edge-mrow { font-size: 0.8em; font-weight: 700; margin: 4px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.edge-mscore { text-align: center; color: #eebf63; font-weight: 800; margin-top: 8px; background: #1a2230; border-radius: 8px; padding: 4px; font-size: 0.85em; }
+.edge-mscore.edge-pre { color: #94a3b8; }
+.edge-mscore.edge-live { color: #ef4444; }
+.edge-mstatus { text-align: center; font-size: 0.65em; color: #8b93a1; margin-top: 3px; }
+.menu-toggle { background: #16213a; border: 1px solid #1d2530; }
+.menu-toggle span { background: #eebf63; }
+
+/* Phase 1 v3: خطوط الأقسام ذهبية بدل الأحمر المتبقي */
+h2::after { background: linear-gradient(to left, #d4a24e, rgba(212,162,78,0)); }
+.edge-hm-update { color: #8b93a1; font-size: 0.72em; margin: -8px 0 12px; }
+/* Phase 1 v3: توحيد الهوية الذهبية على أزرار الرئيسية */
+#sec-home .btn, .section.telegram .btn { background: #eebf63; color: #0b0f16; }
+
+/* Phase 1 v4: تباين وبطاقات وبنية الأخبار حسب المفهوم المعتمد */
+.news-card { background: #1a2338; padding: 14px; gap: 12px; align-items: stretch; }
+.news-title { color: #f2f5fa; font-size: 0.98em; margin: 0 0 6px; line-height: 1.7; }
+.edge-nthumb { flex: 0 0 74px; min-height: 74px; background: #232f4d; border-radius: 10px; color: #eebf63; font-weight: 800; font-size: 0.72em; display: flex; align-items: center; justify-content: center; letter-spacing: 1px; }
+.edge-nwrap { flex: 1; min-width: 0; }
+.edge-nexcerpt { color: #b9c2d0; font-size: 0.82em; line-height: 1.75; margin: 0 0 6px; }
+.edge-nmeta { color: #c9a45c; font-size: 0.72em; margin: 0; opacity: 0.85; }
+.result-item { background: #1a2338; }
+.edge-mtabs { display: flex; gap: 8px; margin: 0 0 10px; }
+.edge-mtab { background: #141c2e; color: #b9c2d0; border: 1px solid #1d2530; border-radius: 18px; padding: 6px 16px; font-family: inherit; font-size: 0.8em; font-weight: 700; cursor: pointer; }
+.edge-mtab.active { background: #eebf63; color: #0b0f16; border-color: #eebf63; }
+.edge-mcard { background: #1a2338; }
+.edge-video-link { display: flex; align-items: center; gap: 14px; background: #1a2338; border: 1px solid #1d2530; border-radius: 14px; padding: 16px; text-decoration: none; color: #e2e8f0; font-weight: 700; }
+.edge-play { flex: 0 0 52px; height: 52px; border-radius: 50%; background: #eebf63; color: #0b0f16; display: flex; align-items: center; justify-content: center; font-size: 1.1em; }
+.edge-video-text { line-height: 1.8; }
+
+/* Phase 1 v5: بطاقة المباراة المميزة بهوية كحلي/ذهبي بدل الأحمر */
+.feat-card { background: linear-gradient(135deg, #1a2338, #232f4d); border: 1px solid #d4a24e; }
