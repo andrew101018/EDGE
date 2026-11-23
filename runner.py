@@ -15,6 +15,7 @@ OWNER_CHAT_ID = os.environ.get("OWNER_CHAT_ID", "")
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "")
 GROQ_KEY = os.environ.get("GROQ_KEY", "")
 DEEPSEEK_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
+OPENROUTER_KEY = os.environ.get("OPENROUTER_KEY", "")
 FORCE = os.environ.get("FORCE", "") == "1"
 VAPID_PRIVATE = os.environ.get("VAPID_PRIVATE", "")
 FB_PAGE_ID = os.environ.get("FB_PAGE_ID", "")
@@ -447,14 +448,28 @@ def call_gemini(prompt, temp):
 
 def call_groq(prompt, temp):
     if not GROQ_KEY: return None
-    for model in ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"]:
+    for model in ["openai/gpt-oss-120b", "openai/gpt-oss-20b"]:
         try:
             r = requests.post("https://api.groq.com/openai/v1/chat/completions",
                 headers={"Authorization": f"Bearer {GROQ_KEY}"},
                 json={"model": model, "temperature": temp, "messages": [{"role": "user", "content": prompt}]}, timeout=25)
             if r.ok: return r.json()["choices"][0]["message"]["content"]
-        except Exception:
-            pass
+            print("Groq status:", model, r.status_code)
+        except Exception as e:
+            print("Groq:", model, e)
+    return None
+
+def call_openrouter(prompt, temp):
+    if not OPENROUTER_KEY: return None
+    for model in ["google/gemma-4-31b-it:free", "google/gemma-4-26b-a4b-it:free"]:
+        try:
+            r = requests.post("https://openrouter.ai/api/v1/chat/completions",
+                headers={"Authorization": f"Bearer {OPENROUTER_KEY}"},
+                json={"model": model, "temperature": temp, "messages": [{"role": "user", "content": prompt}]}, timeout=25)
+            if r.ok: return r.json()["choices"][0]["message"]["content"]
+            print("OpenRouter status:", model, r.status_code)
+        except Exception as e:
+            print("OpenRouter:", model, e)
     return None
 
 def call_deepseek(prompt, temp):
@@ -464,8 +479,9 @@ def call_deepseek(prompt, temp):
             headers={"Authorization": f"Bearer {DEEPSEEK_KEY}"},
             json={"model": "deepseek-chat", "temperature": temp, "messages": [{"role": "user", "content": prompt}]}, timeout=25)
         if r.ok: return r.json()["choices"][0]["message"]["content"]
-    except Exception:
-        pass
+        print("DeepSeek status:", r.status_code)
+    except Exception as e:
+        print("DeepSeek:", e)
     return None
 
 def ai_process(title, content, is_english, forbidden=None):
@@ -482,7 +498,7 @@ def ai_process(title, content, is_english, forbidden=None):
 {task} أعد صياغة الخبر ده:
 العنوان: {title}
 المحتوى: {content[:1500]}"""
-    for engine in [call_gemini, call_groq, call_deepseek]:
+    for engine in [call_gemini, call_groq, call_openrouter, call_deepseek]:
         result = engine(prompt, temp)
         parsed = parse_rewrite(result)
         if parsed["status"] in ("ready", "rejected"):
