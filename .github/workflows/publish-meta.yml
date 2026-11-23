@@ -40,7 +40,7 @@ jobs:
       - name: Publish
         run: |
           python3 - <<'PY'
-          import os, json, time, urllib.request, urllib.parse, urllib.error
+          import os, re, json, time, urllib.request, urllib.parse, urllib.error
           tok = os.environ["FB_PAGE_TOKEN"]; plat = os.environ["PLATFORM"]
           cap = os.environ["CAPTION"].replace("\\n", "\n")
           size = os.path.getsize("reel.mp4"); data = open("reel.mp4","rb").read()
@@ -54,7 +54,7 @@ jobs:
                   r = urllib.request.urlopen(req, timeout=300); t = r.read().decode()
               except urllib.error.HTTPError as e:
                   t = e.read().decode()
-              print(url.split("?")[0], "->", t.replace(tok, "***")[:600])
+              print(url.split("?")[0], "->", re.sub(r'"access_token"\s*:\s*"[^"]*"', '"access_token":"***"', t).replace(tok, "***")[:600])
               return json.loads(t)
           if plat == "ig":
               r = call(f"{G}/{os.environ['IG_ID']}/media", {"media_type":"REELS","upload_type":"resumable","caption":cap,"is_ai_generated":"true","access_token":tok})
