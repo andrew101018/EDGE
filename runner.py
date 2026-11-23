@@ -49,16 +49,17 @@ FOOT = ["كرة", "كورة", "football", "soccer", "دوري", "ملعب", "م�
 
 LEAGUES = {"eng.1": "الدوري الإنجليزي", "esp.1": "الدوري الإسباني", "ita.1": "الدوري الإيطالي",
     "ger.1": "الدوري الألماني", "fra.1": "الدوري الفرنسي", "ksa.1": "الدوري السعودي",
-    "egy.1": "الدوري المصري", "uefa.champions": "دوري أبطال أوروبا", "uefa.europa": "الدوري الأوروبي",
+    "egy.1": "الدوري المصري", "caf.champions": "دوري أبطال أفريقيا", "caf.confed": "كأس الكونفدرالية الأفريقية",
+    "uefa.champions": "دوري أبطال أوروبا", "uefa.europa": "الدوري الأوروبي",
     "uefa.europa.conf": "دوري المؤتمرات", "usa.1": "الدوري الأمريكي", "mex.1": "الدوري المكسيكي",
     "por.1": "الدوري البرتغالي", "ned.1": "الدوري الهولندي", "tur.1": "الدوري التركي",
     "uefa.nations": "دوري الأمم الأوروبية", "fifa.world": "كأس العالم", "fifa.worldq.uefa": "تصفيات أوروبا",
     "afa.san": "تصفيات أمريكا الجنوبية", "concacaf.wq": "تصفيات الكونكاف", "caf.wq": "تصفيات أفريقيا",
     "afc.wq": "تصفيات آسيا"}
 PRIORITY = ["uefa.champions", "uefa.europa", "uefa.europa.conf", "fifa.world", "fifa.worldq.uefa",
-    "eng.1", "esp.1", "ita.1", "ger.1", "fra.1", "ksa.1", "egy.1", "usa.1", "mex.1",
+    "eng.1", "esp.1", "ita.1", "ger.1", "fra.1", "ksa.1", "egy.1", "caf.champions", "caf.confed", "usa.1", "mex.1",
     "por.1", "ned.1", "tur.1", "uefa.nations", "afa.san", "concacaf.wq", "caf.wq", "afc.wq"]
-BIG_LEAGUES = ["uefa.champions", "eng.1", "esp.1", "egy.1", "ksa.1", "fifa.world", "uefa.nations"]
+BIG_LEAGUES = ["uefa.champions", "caf.champions", "eng.1", "esp.1", "egy.1", "ksa.1", "fifa.world", "uefa.nations"]
 BROADCASTERS = {"eng.1": "beIN Sports", "esp.1": "beIN Sports", "ita.1": "beIN Sports",
     "fra.1": "beIN Sports", "ger.1": "beIN Sports", "uefa.champions": "beIN Sports",
     "uefa.europa": "beIN Sports", "uefa.europa.conf": "beIN Sports", "por.1": "beIN Sports",
@@ -591,6 +592,53 @@ def finish_text(home, hs, away, as_, name):
     short = f"{home} {hs} - {as_} {away}"
     return f"🏁 نهاية المباراة | {name}\n{short}\n{line}\n\n⚽ Edge Football", short
 
+KOOORA_COMPS = {
+    # مصدر بديل لما ESPN مبيكونش عنده بيانات للمسابقة (زي الدوري المصري حالياً)
+    "egy.1": ("الدوري المصري", "https://www.kooora.com/%D9%83%D8%B1%D8%A9-%D8%A7%D9%84%D9%82%D8%AF%D9%85/%D9%85%D8%B3%D8%A7%D8%A8%D9%82%D8%A9/%D8%A7%D9%84%D8%AF%D9%88%D8%B1%D9%8A-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A-%D8%A7%D9%84%D9%85%D9%85%D8%AA%D8%A7%D8%B2/8k1xcsyvxapl4jlsluh3eomre"),
+}
+
+def fetch_kooora_matches(url, slug):
+    """يجيب مباريات من صفحة مسابقة كوره ويحوّلها لنفس شكل عناصر ESPN"""
+    try:
+        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}, timeout=15)
+        if not r.ok:
+            print("kooora status:", r.status_code)
+            return []
+        m = re.search(r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>', r.text, re.S)
+        if not m: return []
+        data = json.loads(m.group(1))
+        sm = (((data.get("props") or {}).get("pageProps") or {}).get("data") or {}).get("summaryMatches") or []
+        now = datetime.now(CAIRO)
+        out = []
+        for ev in sm:
+            try:
+                st = {"FIXTURE": "pre", "RESULT": "post", "LIVE": "in", "PLAYING": "in"}.get((ev.get("status") or "").upper(), "pre")
+                dt = datetime.fromisoformat(ev["startDate"].replace("Z", "+00:00")).astimezone(CAIRO)
+                hrs = (now - dt).total_seconds() / 3600
+                if st == "post" and hrs > 24: continue
+                if st == "pre" and hrs < -24: continue
+                ta, tb = ev.get("teamA") or {}, ev.get("teamB") or {}
+                sc = ev.get("score") or {}
+                out.append({
+                    "home": ta.get("name", ""), "away": tb.get("name", ""),
+                    "eid": "kz-" + str(ev.get("id") or ""), "slug": slug,
+                    "homeId": ta.get("id", ""), "awayId": tb.get("id", ""),
+                    "homeLogo": (ta.get("image") or {}).get("url", ""), "awayLogo": (tb.get("image") or {}).get("url", ""),
+                    "tv": BROADCASTERS.get(slug, ""), "hs": sc.get("teamA", ""), "as": sc.get("teamB", ""),
+                    "state": st,
+                    "time": dt.strftime("%I:%M"),
+                    "day": dt.strftime("%A"),
+                    "dateAr": dt.strftime("%d/%m"),
+                    "date": dt.isoformat(),
+                    "detail": (ev.get("gameset") or {}).get("name", "")})
+            except Exception:
+                continue
+        out.sort(key=lambda x: {"in": 0, "post": 1, "pre": 2}.get(x.get("state"), 3))
+        return out
+    except Exception as e:
+        print("kooora error:", type(e).__name__)
+        return []
+
 def collect_finished(state, now):
     reported = set(state.get("reported_matches", []))
     found = []
@@ -828,6 +876,12 @@ def build_site_data(state, today):
         if group["items"]:
             group["items"].sort(key=lambda x: {"in": 0, "post": 1, "pre": 2}.get(x.get("state"), 3))
             matches.append(group)
+    for kslug, (kname, kurl) in KOOORA_COMPS.items():
+        if any(g.get("slug") == kslug for g in matches): continue
+        kitems = fetch_kooora_matches(kurl, kslug)
+        if kitems:
+            matches.append({"league": kname, "slug": kslug, "items": kitems, "big": True})
+            print(f"📰 كوره: {kname} {len(kitems)} مباراة")
     tables = {}
     for slug in PRIORITY:
         t = top_table(slug, 30)
