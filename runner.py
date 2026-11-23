@@ -498,7 +498,7 @@ def ai_process(title, content, is_english, forbidden=None):
 {task} أعد صياغة الخبر ده:
 العنوان: {title}
 المحتوى: {content[:1500]}"""
-    for engine in [call_openrouter]:  # free-only gate: other engines rejoin once their plans are verified free
+    for engine in [call_groq, call_openrouter]:  # free-only: Groq account verified Free-plan $0 (no billing enrolled); OpenRouter guarded by max_price=0. Gemini/DeepSeek stay out until verified.
         result = engine(prompt, temp)
         parsed = parse_rewrite(result)
         if parsed["status"] in ("ready", "rejected"):
