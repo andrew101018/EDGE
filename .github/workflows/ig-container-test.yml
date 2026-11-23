@@ -22,7 +22,8 @@ jobs:
       - name: Create container, upload bytes, poll status (no media_publish)
         run: |
           set -e
-          ASSET_API=$(gh api "repos/$GITHUB_REPOSITORY/releases" --jq '.[] | select(.name=="${{ inputs.release_tag }}") | .assets[] | select(.name=="reel.mp4") | .url')
+          ASSET_API=$(gh api "repos/$GITHUB_REPOSITORY/releases" --jq '.[] | select(.name=="${{ inputs.release_tag }}") | .assets[] | select(.name|test("reel\\.mp4$")) | .url')
+          gh api "repos/$GITHUB_REPOSITORY/releases" --jq '.[] | {rel:.name, draft, assets:[.assets[]|{id,name,state,size}]}'
           test -n "$ASSET_API"
           curl -sSL -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/octet-stream" -o reel.mp4 "$ASSET_API"
           SIZE=$(stat -c %s reel.mp4); echo "size=$SIZE"
