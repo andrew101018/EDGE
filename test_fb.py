@@ -7,7 +7,7 @@ import os
 import requests
 
 FB_PAGE_ID = os.environ.get("FB_PAGE_ID", "")
-FB_PAGE_TOKEN = os.environ.get("FB_PAGE_TOKEN", "")
+FB_PAGE_TOKEN = ""  # INCIDENT GATE (Nov 23 2026): Facebook calls disabled until main clears the exposed-token incident; was os.environ.get("FB_PAGE_TOKEN", "")
 TG_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 OWNER = os.environ.get("OWNER_CHAT_ID", "")
 LOGO = "https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg"
