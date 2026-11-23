@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-23 06:55 AM",
+  "updated_at": "2026-11-23 12:09 PM",
   "news": [
     {
       "t": "⚽ إقالة وشيكة داخل المنتخب البرازيلي بعد أزمة رافينيا - Kooora",
@@ -103,14 +103,16 @@
     }
   ],
   "results": [
+    "Querétaro 2 - 2 Necaxa",
+    "Guadalajara 1 - 0 Cruz Azul",
+    "Vancouver Whitecaps 2 - 0 Real Salt Lake",
+    "Chicago Fire FC 1 - 2 Charlotte FC",
     "Nashville SC 0 - 1 FC Cincinnati",
     "Marseille 2 - 3 Le Mans",
     "Atalanta 4 - 4 Internazionale",
     "ميلان 5 - 1 Frosinone",
     "Bologna 1 - 1 Udinese",
-    "Getafe 0 - 3 أتلتيكو مدريد",
-    "Osasuna 1 - 0 Málaga",
-    "ليفربول 4 - 0 مانشستر يونايتد"
+    "Getafe 0 - 3 أتلتيكو مدريد"
   ],
   "matches": [
     {
@@ -491,6 +493,31 @@
       "big": true
     },
     {
+      "league": "كأس الكونفدرالية الأفريقية",
+      "slug": "caf.confed",
+      "items": [
+        {
+          "home": "Douanes",
+          "away": "CR Belouizdad",
+          "eid": "401912247",
+          "slug": "caf.confed",
+          "homeId": "133116",
+          "awayId": "20853",
+          "homeLogo": "",
+          "awayLogo": "",
+          "tv": "",
+          "hs": "0",
+          "as": "0",
+          "time": "07:00",
+          "day": "Monday",
+          "dateAr": "23/11",
+          "date": "2026-11-23T19:00:00+02:00",
+          "detail": "Scheduled"
+        }
+      ],
+      "big": true
+    },
+    {
       "league": "الدوري الأمريكي",
       "slug": "usa.1",
       "items": [
@@ -766,6 +793,70 @@
           "dateAr": "23/11",
           "date": "2026-11-23T19:00:00+02:00",
           "detail": "Scheduled"
+        }
+      ],
+      "big": true
+    },
+    {
+      "league": "الدوري المصري",
+      "slug": "egy.1",
+      "items": [
+        {
+          "home": "الجونة",
+          "away": "الزمالك",
+          "eid": "kz-BIF8hlqbEAujwfoz05g69",
+          "slug": "egy.1",
+          "homeId": "cb5ih2ull94awko6tr4mpwkiz",
+          "awayId": "2c1lvho9eqtqfqf4t3cv0f237",
+          "homeLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/fKhtCS6yK--zfnA9a-bz3.png",
+          "awayLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/l22L9qjeS-jOBuS_QnBv5.png",
+          "tv": "أون تايم سبورتس",
+          "hs": "",
+          "as": "",
+          "state": "pre",
+          "time": "05:00",
+          "day": "Monday",
+          "dateAr": "23/11",
+          "date": "2026-11-23T17:00:00+02:00",
+          "detail": "الجولة 9"
+        },
+        {
+          "home": "وادي دجلة",
+          "away": "الاتحاد",
+          "eid": "kz-hUSBU3JE_3GG3lJEJr4k1",
+          "slug": "egy.1",
+          "homeId": "7lsa4shved5oswsk8y4w0zk62",
+          "awayId": "87zdolahphujsbgcu4wyyew7n",
+          "homeLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/OvlHLXMqBBQGmD9B0RCoT.png",
+          "awayLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/pLMXEK0kpdKtg60w3rhBU.png",
+          "tv": "أون تايم سبورتس",
+          "hs": "",
+          "as": "",
+          "state": "pre",
+          "time": "05:00",
+          "day": "Monday",
+          "dateAr": "23/11",
+          "date": "2026-11-23T17:00:00+02:00",
+          "detail": "الجولة 9"
+        },
+        {
+          "home": "الأهلي",
+          "away": "بيراميدز",
+          "eid": "kz-I5L4FI8YOSrTBg5hgwkli",
+          "slug": "egy.1",
+          "homeId": "1q2hx9pw8c7x88utqunk4e6xl",
+          "awayId": "a5hh43fi88rchrm37263600hu",
+          "homeLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/o0K-aXi0FsiLx9BJ3AgTv.png",
+          "awayLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/JTf73VVwEf8AlNOdmNtN5.png",
+          "tv": "أون تايم سبورتس",
+          "hs": "",
+          "as": "",
+          "state": "pre",
+          "time": "08:00",
+          "day": "Monday",
+          "dateAr": "23/11",
+          "date": "2026-11-23T20:00:00+02:00",
+          "detail": "الجولة 9"
         }
       ],
       "big": true
@@ -2914,6 +3005,90 @@
         "pts": 3.0
       }
     ],
+    "دوري أبطال أفريقيا": [
+      {
+        "rank": 1,
+        "team": "Esperance Sportive de Tunis",
+        "logo": "",
+        "gp": 0.0,
+        "w": 0.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 0.0
+      },
+      {
+        "rank": 2,
+        "team": "FC Nouadhibou",
+        "logo": "",
+        "gp": 0.0,
+        "w": 0.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 0.0
+      },
+      {
+        "rank": 3,
+        "team": "Petro de Luanda",
+        "logo": "",
+        "gp": 0.0,
+        "w": 0.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 0.0
+      },
+      {
+        "rank": 4,
+        "team": "Wiliete SC",
+        "logo": "",
+        "gp": 0.0,
+        "w": 0.0,
+        "d": 0.0,
+        "l": 0.0,
+        "pts": 0.0
+      }
+    ],
+    "كأس الكونفدرالية الأفريقية": [
+      {
+        "rank": 1,
+        "team": "USM Alger",
+        "logo": "",
+        "gp": 6.0,
+        "w": 4.0,
+        "d": 2.0,
+        "l": 0.0,
+        "pts": 14.0
+      },
+      {
+        "rank": 2,
+        "team": "Olympic Safi",
+        "logo": "",
+        "gp": 6.0,
+        "w": 4.0,
+        "d": 1.0,
+        "l": 1.0,
+        "pts": 13.0
+      },
+      {
+        "rank": 3,
+        "team": "Djoliba",
+        "logo": "",
+        "gp": 6.0,
+        "w": 1.0,
+        "d": 1.0,
+        "l": 4.0,
+        "pts": 4.0
+      },
+      {
+        "rank": 4,
+        "team": "San Pédro",
+        "logo": "",
+        "gp": 6.0,
+        "w": 1.0,
+        "d": 0.0,
+        "l": 5.0,
+        "pts": 3.0
+      }
+    ],
     "الدوري الأمريكي": [
       {
         "rank": 1,
@@ -4177,6 +4352,12 @@
           "face": ""
         },
         {
+          "name": "Oliver McBurnie",
+          "team": "Hull City",
+          "value": "4 ⚽",
+          "face": ""
+        },
+        {
           "name": "Kevin Schade",
           "team": "Brentford",
           "value": "3 ⚽",
@@ -4197,12 +4378,6 @@
         {
           "name": "Harvey Barnes",
           "team": "نيوكاسل",
-          "value": "3 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Mohamed Belloumi",
-          "team": "Hull City",
           "value": "3 ⚽",
           "face": ""
         },
@@ -4231,13 +4406,13 @@
         {
           "name": "Yassir Zabiri",
           "team": "Racing Santander",
-          "value": "9 ⚽",
+          "value": "11 ⚽",
           "face": ""
         },
         {
           "name": "Ante Budimir",
           "team": "Osasuna",
-          "value": "8 ⚽",
+          "value": "9 ⚽",
           "face": ""
         },
         {
@@ -4259,6 +4434,12 @@
           "face": ""
         },
         {
+          "name": "Álex Baena",
+          "team": "أتلتيكو مدريد",
+          "value": "6 ⚽",
+          "face": ""
+        },
+        {
           "name": "Lucas Boyé",
           "team": "Alavés",
           "value": "6 ⚽",
@@ -4273,12 +4454,6 @@
         {
           "name": "Adrián Niño",
           "team": "Málaga",
-          "value": "5 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Álex Baena",
-          "team": "أتلتيكو مدريد",
           "value": "5 ⚽",
           "face": ""
         },
@@ -4329,20 +4504,26 @@
           "face": ""
         },
         {
-          "name": "Marcus Thuram",
+          "name": "Pio Esposito",
           "team": "Internazionale",
+          "value": "6 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Milutin Osmajic",
+          "team": "Genoa",
+          "value": "6 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Alphadjo Cissè",
+          "team": "ميلان",
           "value": "6 ⚽",
           "face": ""
         },
         {
           "name": "Daniel Maldini",
           "team": "Cagliari",
-          "value": "5 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Adrien Rabiot",
-          "team": "ميلان",
           "value": "5 ⚽",
           "face": ""
         },
@@ -4355,12 +4536,6 @@
         {
           "name": "Ché Adams",
           "team": "Torino",
-          "value": "4 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Milutin Osmajic",
-          "team": "Genoa",
           "value": "4 ⚽",
           "face": ""
         },
@@ -4407,13 +4582,19 @@
         {
           "name": "Niclas Füllkrug",
           "team": "Werder Bremen",
-          "value": "9 ⚽",
+          "value": "10 ⚽",
           "face": ""
         },
         {
           "name": "Patrik Schick",
           "team": "Bayer Leverkusen",
           "value": "9 ⚽",
+          "face": ""
+        },
+        {
+          "name": "Michael Gregoritsch",
+          "team": "FC Augsburg",
+          "value": "7 ⚽",
           "face": ""
         },
         {
@@ -4449,12 +4630,6 @@
         {
           "name": "Igor Matanovic",
           "team": "SC Freiburg",
-          "value": "5 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Michael Gregoritsch",
-          "team": "FC Augsburg",
           "value": "5 ⚽",
           "face": ""
         },
@@ -4507,7 +4682,7 @@
         {
           "name": "Amine Gouiri",
           "team": "Marseille",
-          "value": "7 ⚽",
+          "value": "8 ⚽",
           "face": ""
         },
         {
@@ -4547,6 +4722,12 @@
           "face": ""
         },
         {
+          "name": "Louis Mafouta",
+          "team": "Le Mans",
+          "value": "5 ⚽",
+          "face": ""
+        },
+        {
           "name": "Ferran Torres",
           "team": "باريس سان جيرمان",
           "value": "5 ⚽",
@@ -4561,12 +4742,6 @@
         {
           "name": "Gessime Yassine",
           "team": "Strasbourg",
-          "value": "4 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Louis Mafouta",
-          "team": "Le Mans",
           "value": "4 ⚽",
           "face": ""
         },
@@ -4793,15 +4968,15 @@
           "face": ""
         },
         {
-          "name": "Irakli Yegoian",
-          "team": "Excelsior",
+          "name": "Devin Haen",
+          "team": "Willem II",
           "value": "4 ⚽",
           "face": ""
         },
         {
-          "name": "Devin Haen",
-          "team": "Willem II",
-          "value": "3 ⚽",
+          "name": "Irakli Yegoian",
+          "team": "Excelsior",
+          "value": "4 ⚽",
           "face": ""
         }
       ]
@@ -4809,20 +4984,26 @@
     "الدوري التركي": {
       "الهدافون 🏆": [
         {
+          "name": "Dusan Vlahovic",
+          "team": "Besiktas",
+          "value": "11 ⚽",
+          "face": ""
+        },
+        {
           "name": "Gift Orban",
           "team": "Amed SFK",
           "value": "10 ⚽",
           "face": ""
         },
         {
-          "name": "Mohamed Salah",
-          "team": "Trabzonspor",
+          "name": "Adrian Benedyczak",
+          "team": "Kasimpasa",
           "value": "9 ⚽",
           "face": ""
         },
         {
-          "name": "Dusan Vlahovic",
-          "team": "Besiktas",
+          "name": "Mohamed Salah",
+          "team": "Trabzonspor",
           "value": "9 ⚽",
           "face": ""
         },
@@ -4836,12 +5017,6 @@
           "name": "Eldor Shomurodov",
           "team": "Istanbul Basaksehir",
           "value": "8 ⚽",
-          "face": ""
-        },
-        {
-          "name": "Adrian Benedyczak",
-          "team": "Kasimpasa",
-          "value": "7 ⚽",
           "face": ""
         },
         {
@@ -4997,16 +5172,16 @@
   },
   "world": [
     {
+      "t": "Lamine Yamal out of Barcelona's Champions League game at Sabah",
+      "img": "https://a.espncdn.com/photo/2026/1031/r1739203_1296x729_16-9.jpg"
+    },
+    {
       "t": "DiBernardo joins Rapinoe, Pulisic in pantheon of great Olimpicos",
       "img": "https://a.espncdn.com/photo/2026/1122/r1749419_1296x729_16-9.jpg"
     },
     {
       "t": "Champions League upstarts Como suffer Moise Kean injury blow",
       "img": "https://a.espncdn.com/photo/2026/1120/r1748599_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Harry Kane sets sights on Champions League, England trophy after Ballon d'Or win",
-      "img": "https://a.espncdn.com/photo/2026/1102/r1739991_1296x729_16-9.jpg"
     },
     {
       "t": "Olley: Manchester United have lacked culture, togetherness and desire",
@@ -5057,28 +5232,32 @@
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1002/dm_261002_Zidane_Not_proud_but_no_regrets_over_2006_World_Cup_final_clash_with_Materazzi/dm_261002_Zidane_Not_proud_but_no_regrets_over_2006_World_Cup_final_clash_with_Materazzi.jpg"
     },
     {
-      "t": "Rough start for Pochettino at Manchester United",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1122/dm_261122_Soccer_HIGHLIGHT_Rough_start_for_Pochettino_at_Manchester_United_20261123_AUS/dm_261122_Soccer_HIGHLIGHT_Rough_start_for_Pochettino_at_Manchester_United_20261123_AUS.jpg"
+      "t": "Man United need big January transfer spend to avoid Premier League relegation",
+      "img": "https://a.espncdn.com/photo/2026/1123/r1750067_1296x729_16-9.jpg"
     },
     {
-      "t": "Bruno Fernandes disputes Leny Yoro red card in Liverpool's rout of Man United",
-      "img": "https://a.espncdn.com/photo/2026/1122/r1749810_1296x729_16-9.jpg"
+      "t": "Man United in a relegation battle? Jamie Carragher explains 'problem' they face",
+      "img": "https://a.espncdn.com/photo/2026/1123/r1750067_1296x729_16-9.jpg"
     },
     {
-      "t": "Pochettino: Isak wasn't in control of the ball for Yoro red card",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1122/dm_261122_COM_SOC_Presser_Pochettino_Isak_wasnt_in_control_of_the_ball_for_Yoro_red_card_20261122_GLOBAL/dm_261122_COM_SOC_Presser_Pochettino_Isak_wasnt_in_control_of_the_ball_for_Yoro_red_card_20261122_GLOBAL.jpg"
+      "t": "Transfer rumors, news: AC Milan to land Liverpool defender Virgil van Dijk?",
+      "img": "https://a.espncdn.com/photo/2026/1030/r1738605_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Lamine Yamal out of Barcelona's Champions League game at Sabah",
+      "img": "https://a.espncdn.com/photo/2026/1031/r1739203_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Barcelona stun Villarreal after second-half comeback",
+      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1123/dm_261123_COM_SOC_Highlight_Barcelona_stun_Villarreal_after_second_half_comeback_20261123_UK_IRE/dm_261123_COM_SOC_Highlight_Barcelona_stun_Villarreal_after_second_half_comeback_20261123_UK_IRE.jpg"
     },
     {
       "t": "USMNT's Cardoso scores as Atlético ease to win over Getafe",
       "img": "https://a.espncdn.com/photo/2026/1122/r1749840_1296x729_16-9.jpg"
     },
     {
-      "t": "Getafe vs. Atletico Madrid - Game Highlights",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/1122/8802b1c0-130a-4d86-bcd1-b121dce5f5f2/8802b1c0-130a-4d86-bcd1-b121dce5f5f2.jpg"
-    },
-    {
-      "t": "Pedri leads Barça's comeback win over Villarreal",
-      "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1122/dm_261122_Pedri_leads_Barcas_comeback_win_over_Villarreal/dm_261122_Pedri_leads_Barcas_comeback_win_over_Villarreal.jpg"
+      "t": "Transfer rumors, news: AC Milan to land Liverpool defender Virgil van Dijk?",
+      "img": "https://a.espncdn.com/photo/2026/1030/r1738605_1296x729_16-9.jpg"
     },
     {
       "t": "Milan into top four as classy Pulisic solo goal caps Serie A rout",
@@ -5087,10 +5266,6 @@
     {
       "t": "Scott McTominay sinks Torino to end Napoli's three-game winless streak",
       "img": "https://a.espncdn.com/photo/2026/1121/r1749217_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Transfer rumors, news: Liverpool, Man United want Scalvini",
-      "img": "https://a.espncdn.com/photo/2026/1121/r1749172_1296x729_16-9.jpg"
     },
     {
       "t": "FIFPRO slams Bayern Munich's treatment of Jamal Musiala: Club has 'duty of care'",
@@ -5129,6 +5304,30 @@
       "img": "https://a.espncdn.com/photo/2026/0521/r1661609_1296x729_16-9.jpg"
     },
     {
+      "t": "Mamelodi Sundowns vs. USM Alger - CAF Super Cup kick-off time, team news, how to watch",
+      "img": "https://a.espncdn.com/photo/2026/1106/r1741913_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Samson Adamu confirmed as first Nigerian CAF general secretary",
+      "img": "https://a.espncdn.com/photo/2026/1103/r1740410_1296x729_16-9.jpg"
+    },
+    {
+      "t": "Can Orlando Pirates save South Africa's CAF campaign after Sundowns and Chiefs crash out?",
+      "img": "https://a.espncdn.com/photo/2026/1027/r1736907_810x456_16-9.png"
+    },
+    {
+      "t": "Can Orlando Pirates save South Africa's CAF campaign after Sundowns and Chiefs crash out?",
+      "img": "https://a.espncdn.com/photo/2026/1027/r1736907_810x456_16-9.png"
+    },
+    {
+      "t": "Mamelodi Sundowns vs. Espérance de Tunis - Kick-off time, team news, how to watch",
+      "img": "https://a.espncdn.com/photo/2026/0205/r1610696_1296x729_16-9.png"
+    },
+    {
+      "t": "Kaizer Chiefs vs. TS Galaxy: Kick-off time, team news, how to watch",
+      "img": "https://a.espncdn.com/photo/2025/0805/r1528009_1296x729_16-9.jpg"
+    },
+    {
       "t": "Vancouver Whitecaps vs. Real Salt Lake - Game Highlights",
       "img": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/1123/c6f7bc61-7151-4d3a-8ce8-f32b6afaeae5/c6f7bc61-7151-4d3a-8ce8-f32b6afaeae5.jpg"
     },
@@ -5165,6 +5364,10 @@
       "img": "https://a.espncdn.com/photo/2026/0917/r1718195_1296x729_16-9.jpg"
     },
     {
+      "t": "Sport on ESPN in Africa this festive - What to watch on DStv, Disney+ in December",
+      "img": "https://a.espncdn.com/photo/2025/1203/r1584273_1296x729_16-9.jpg"
+    },
+    {
       "t": "Soccer's best 2026-27 kits: The most stylish jerseys you probably missed",
       "img": "https://a.espncdn.com/photo/2026/0904/r1711227_1296x729_16-9.jpg"
     },
@@ -5173,8 +5376,8 @@
       "img": "https://a.espncdn.com/photo/2026/0920/r1719409_1296x729_16-9.jpg"
     },
     {
-      "t": "Ajax's Thilo Kehrer using his success to help Burundi's children",
-      "img": "https://a.espncdn.com/photo/2026/0911/r1714790_1296x729_16-9.jpg"
+      "t": "Sport on ESPN in Africa this festive - What to watch on DStv, Disney+ in December",
+      "img": "https://a.espncdn.com/photo/2025/1203/r1584273_1296x729_16-9.jpg"
     },
     {
       "t": "Transfer rumors, news: Manchester United's Matthijs de Ligt on Besiktas' radar",
@@ -5183,10 +5386,6 @@
     {
       "t": "Dirk Kuyt leaves Fenerbahce a week after defeating Liverpool",
       "img": "https://a.espncdn.com/photo/2026/1103/r1740583_1296x729_16-9.jpg"
-    },
-    {
-      "t": "Injured Victor Osimhen an obvious Nigeria absentee for AFCON qualifying, but Kelechi Iheanacho's absence is baffling",
-      "img": "https://a.espncdn.com/photo/2024/0122/r1280712_1296x729_16-9.jpg"
     },
     {
       "t": "England given suspended supporter ban for chants in Spain",
