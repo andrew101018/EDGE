@@ -1,0 +1,85 @@
+name: Publish reel to Meta (IG or FB)
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: draft release NAME holding reel.mp4
+        required: true
+      platform:
+        description: ig or fb (one per run)
+        required: true
+      caption:
+        description: caption (use \n for new lines)
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+      FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+      IG_ID: "17841433464530081"
+      REL: ${{ inputs.release_tag }}
+      PLATFORM: ${{ inputs.platform }}
+      CAPTION: ${{ inputs.caption }}
+    steps:
+      - name: Download asset
+        run: |
+          set -e
+          echo "::add-mask::$FB_PAGE_TOKEN"
+          ASSET_API=$(gh api "repos/$GITHUB_REPOSITORY/releases" --jq ".[] | select(.name==\"$REL\") | .assets[] | select(.name|test(\"reel\\\\.mp4$\")) | .url")
+          test -n "$ASSET_API"
+          curl -sSL -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/octet-stream" -o reel.mp4 "$ASSET_API"
+          stat -c 'size=%s' reel.mp4; sha256sum reel.mp4
+      - name: Publish
+        run: |
+          python3 - <<'PY'
+          import os, json, time, urllib.request, urllib.parse, urllib.error
+          tok = os.environ["FB_PAGE_TOKEN"]; plat = os.environ["PLATFORM"]
+          cap = os.environ["CAPTION"].replace("\\n", "\n")
+          size = os.path.getsize("reel.mp4"); data = open("reel.mp4","rb").read()
+          G = "https://graph.facebook.com/v21.0"
+          def call(url, params=None, method="POST", headers=None, body=None):
+              h = dict(headers or {})
+              if params is not None:
+                  body = urllib.parse.urlencode(params).encode()
+              req = urllib.request.Request(url, data=body if method=="POST" else None, headers=h, method=method)
+              try:
+                  r = urllib.request.urlopen(req, timeout=300); t = r.read().decode()
+              except urllib.error.HTTPError as e:
+                  t = e.read().decode()
+              print(url.split("?")[0], "->", t.replace(tok, "***")[:600])
+              return json.loads(t)
+          if plat == "ig":
+              r = call(f"{G}/{os.environ['IG_ID']}/media", {"media_type":"REELS","upload_type":"resumable","caption":cap,"is_ai_generated":"true","access_token":tok})
+              cid, uri = r["id"], r["uri"]
+              call(uri, method="POST", headers={"Authorization":"OAuth "+tok,"offset":"0","file_size":str(size)}, body=data)
+              ok = False
+              for i in range(30):
+                  s = call(f"{G}/{cid}?fields=status_code,status&access_token={tok}", method="GET")
+                  if s.get("status_code") == "FINISHED": ok = True; break
+                  if s.get("status_code") == "ERROR": break
+                  time.sleep(10)
+              assert ok, "container not FINISHED; NOT publishing"
+              p = call(f"{G}/{os.environ['IG_ID']}/media_publish", {"creation_id":cid,"access_token":tok})
+              mid = p["id"]
+              call(f"{G}/{mid}?fields=permalink,media_product_type&access_token={tok}", method="GET")
+          else:
+              pid = os.environ["FB_PAGE_ID"]
+              pt = call(f"{G}/{pid}?fields=access_token&access_token={tok}", method="GET").get("access_token", tok)
+              print("::add-mask::" + pt)
+              r = call(f"{G}/{pid}/video_reels", {"upload_phase":"start","access_token":pt})
+              vid, up = r["video_id"], r["upload_url"]
+              call(up, method="POST", headers={"Authorization":"OAuth "+pt,"offset":"0","file_size":str(size)}, body=data)
+              f = call(f"{G}/{pid}/video_reels", {"upload_phase":"finish","video_id":vid,"video_state":"PUBLISHED","description":cap,"is_ai_generated":"true","access_token":pt})
+              for i in range(18):
+                  s = call(f"{G}/{vid}?fields=status,permalink_url&access_token={pt}", method="GET")
+                  if s.get("status", {}).get("video_status") in ("ready","error","expired"): break
+                  time.sleep(10)
+          PY
