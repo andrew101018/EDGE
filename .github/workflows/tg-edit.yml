@@ -1,0 +1,39 @@
+name: TG Edit
+on:
+  workflow_dispatch:
+    inputs:
+      message_id:
+        description: "Telegram channel message ID to edit (digits only)"
+        required: true
+      new_text:
+        description: "Full new text. Use ' || ' for line breaks. Owner-approved wording only."
+        required: true
+jobs:
+  tg-edit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Edit channel message
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+          MSG_ID: ${{ inputs.message_id }}
+          NEW_TEXT: ${{ inputs.new_text }}
+        run: |
+          python3 - <<'PY'
+          import os, re, json, urllib.request, urllib.parse
+          mid = os.environ["MSG_ID"].strip()
+          if not re.fullmatch(r"\d{1,9}", mid):
+              raise SystemExit("bad message id")
+          text = os.environ["NEW_TEXT"].replace(" || ", "\n")
+          data = urllib.parse.urlencode({"chat_id": os.environ["TELEGRAM_CHANNEL_ID"], "message_id": mid, "text": text}).encode()
+          url = "https://api.telegram.org/bot" + os.environ["TELEGRAM_BOT_TOKEN"] + "/editMessageText"
+          try:
+              r = json.load(urllib.request.urlopen(urllib.request.Request(url, data=data), timeout=30))
+              print("edit ok:", r.get("ok"))
+          except urllib.error.HTTPError as e:
+              try:
+                  print("edit failed, telegram code:", json.load(e).get("error_code"))
+              except Exception:
+                  print("edit failed, http", e.code)
+              raise SystemExit(1)
+          PY
