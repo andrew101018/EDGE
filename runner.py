@@ -624,8 +624,9 @@ def fetch_kooora_matches(url, slug):
                 st = {"FIXTURE": "pre", "RESULT": "post", "LIVE": "in", "PLAYING": "in"}.get((ev.get("status") or "").upper(), "pre")
                 dt = datetime.fromisoformat(ev["startDate"].replace("Z", "+00:00")).astimezone(CAIRO)
                 hrs = (now - dt).total_seconds() / 3600
-                if st == "post" and hrs > 24: continue
-                if st == "pre" and hrs < -24: continue
+                from datetime import timedelta as _td
+                if st == "post" and dt.date() < (now.date() - _td(days=1)): continue
+                if st == "pre" and dt.date() > (now.date() + _td(days=1)): continue
                 ta, tb = ev.get("teamA") or {}, ev.get("teamB") or {}
                 sc = ev.get("score") or {}
                 out.append({
@@ -867,8 +868,9 @@ def build_site_data(state, today):
                                 cur[key] = {"name": a.get("displayName", ""),
                                     "team": ar_team((c.get("team", {}) or {}).get("displayName", "")),
                                     "g": g, "face": ((a.get("headshot", {}) or {}).get("href", ""))}
-                if st == "post" and hrs > 24: continue
-                if st == "pre" and hrs < -24: continue
+                from datetime import timedelta as _td
+                if st == "post" and dt.date() < (now.date() - _td(days=1)): continue
+                if st == "pre" and dt.date() > (now.date() + _td(days=1)): continue
                 group["items"].append({
                     "home": ar_team(home["team"]["displayName"]), "away": ar_team(away["team"]["displayName"]),
                     "eid": ev.get("id"), "slug": slug, "homeId": home["team"].get("id", ""),
