@@ -1140,20 +1140,7 @@ async function loadData() {
     fillTeamSelects();
     renderStats();
     renderFeaturedMatch();
-    document.getElementById('newsContainer').innerHTML = (DATA.news || []).length
-      ? DATA.news.map(n => {
-          const t = typeof n === 'string' ? n : (n.t || '');
-          const full = typeof n === 'string' ? n : (n.full || n.t || '');
-          const img = (n && typeof n === 'object' && n.img) ? n.img : '';
-          return `<div class="news-card" onclick="showNewsDetail('${esc(t)}','${esc(full)}','${esc(img)}')">
-            ${img ? `<img class="news-img" src="${img}" loading="lazy" onerror="this.style.display='none'">` : ''}
-            <div class="news-body">
-              <div class="news-title">${t}</div>
-              <div class="news-hint">👆 اضغط لقراءة الخبر كامل</div>
-            </div>
-          </div>`;
-        }).join('')
-      : '<div class="card">لا توجد أخبار جديدة حالياً</div>';
+    renderEditorialNews(DATA.news || []);
     document.getElementById('resultsContainer').innerHTML = (DATA.results || []).length
       ? DATA.results.map(t => `<div class="result-item">🏁 ${t}</div>`).join('')
       : '<div class="card">لا توجد نتائج اليوم</div>';
@@ -1215,4 +1202,57 @@ function installApp() {
   } else {
     alert('افتح قايمة المتصفح (⋮) واختار "تثبيت التطبيق" 📲');
   }
+}
+
+
+// Draft: source-aware cards; legacy news remain readable without inventing provenance.
+function renderEditorialNews(items) {
+  const container = document.getElementById('newsContainer');
+  container.replaceChildren();
+  if (!items.length) {
+    const empty = document.createElement('div');
+    empty.className = 'card';
+    empty.textContent = 'لا توجد أخبار جديدة حالياً';
+    container.appendChild(empty);
+    return;
+  }
+  items.forEach(raw => {
+    const n = typeof raw === 'string' ? {t: raw, full: raw} : raw;
+    const card = document.createElement('article');
+    card.className = 'news-card';
+    card.style.display = 'block';
+    card.style.padding = '18px';
+    const title = document.createElement('h3');
+    title.className = 'news-title';
+    title.textContent = n.t || '';
+    const body = document.createElement('p');
+    body.style.lineHeight = '1.8';
+    const full = (n.full || n.t || '').trim();
+    const first = (n.t || '').trim();
+    const brief = full.startsWith(first) ? full.slice(first.length).trim() : full;
+    body.textContent = brief.length > 220 ? brief.slice(0, 220) + '…' : brief;
+    const meta = document.createElement('p');
+    meta.style.cssText = 'font-size:.85em;opacity:.75;line-height:1.8';
+    let date = '';
+    if (n.published_at && !Number.isNaN(Date.parse(n.published_at))) {
+      date = new Intl.DateTimeFormat('ar-EG', {timeZone:'Africa/Cairo', dateStyle:'medium', timeStyle:'short'}).format(new Date(n.published_at)) + ' بتوقيت القاهرة';
+    }
+    meta.textContent = (n.source || 'المصدر غير محفوظ للخبر القديم') + (date ? ' | ' + date : ' | وقت الخبر غير محفوظ');
+    card.append(title, body, meta);
+    if (n.url) {
+      try {
+        const url = new URL(n.url);
+        if (['https:', 'http:'].includes(url.protocol)) {
+          const link = document.createElement('a');
+          link.href = url.href;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = 'اقرأ عند المصدر';
+          link.style.cssText = 'display:inline-block;min-height:44px;padding-block:10px';
+          card.appendChild(link);
+        }
+      } catch (_) { /* An invalid source URL is not rendered. */ }
+    }
+    container.appendChild(card);
+  });
 }
