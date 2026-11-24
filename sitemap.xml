@@ -5,4 +5,24 @@
     <changefreq>hourly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/articles/van-gaal-fa-cup.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/articles/choose-a-football.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/articles/city-100-united-81.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/articles/ucl-league-phase-36.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <priority>0.6</priority>
+  </url>
 </urlset>
