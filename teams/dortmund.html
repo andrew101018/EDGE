@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوروسيا دورتموند: النتائج والمباريات القادمة والترتيب | Edge Football</title>
+<meta name="description" content="نتائج بوروسيا دورتموند وماتشاته الجاية وترتيبه في الدوري والبطولات وهدافيه — الصفحة بتتحدث تلقائيًا مع كل ماتش على Edge Football.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://andrew101018.github.io/EDGE/teams/dortmund.html">
+<meta property="og:site_name" content="Edge Football">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:type" content="website">
+<meta property="og:title" content="بوروسيا دورتموند: النتائج والمباريات القادمة والترتيب">
+<meta property="og:description" content="كل ماتشات ونتائج وترتيب بوروسيا دورتموند في مكان واحد، تحديث تلقائي.">
+<meta property="og:url" content="https://andrew101018.github.io/EDGE/teams/dortmund.html">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#f59e0b">
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b1220;color:#e2e8f0;font-family:'Cairo','Segoe UI',Tahoma,sans-serif;line-height:1.8}
+main{max-width:760px;margin:0 auto;padding:20px 16px 48px}
+a{color:#fbbf24}
+nav{padding:14px 16px;background:#16213a;border-bottom:1px solid #24344f;text-align:center}
+nav a{font-weight:bold;text-decoration:none}
+.team-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.team-head img{width:56px;height:56px;object-fit:contain;background:#fff;border-radius:12px;padding:4px}
+.team-head h1{font-size:1.5em;margin:0;color:#fbbf24}
+.team-head p{margin:2px 0 0;opacity:.7;font-size:.85em}
+.card{background:#16213a;border:1px solid #24344f;border-radius:12px;padding:14px 16px;margin-bottom:12px}
+.card h2{color:#fbbf24;font-size:1.05em;margin:0 0 8px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #24344f;font-size:.92em}
+.row:last-child{border-bottom:none}
+.row .mt{flex:1;min-width:0}
+.row .sc{font-weight:800;color:#fbbf24;white-space:nowrap;direction:ltr;unicode-bidi:isolate}
+.row .meta{opacity:.65;font-size:.82em;white-space:nowrap}
+.us{font-weight:800;color:#fbbf24}
+.badge{display:inline-block;background:#dc2626;color:#fff;border-radius:6px;padding:0 8px;font-size:.78em;font-weight:700}
+.empty{opacity:.6;font-size:.88em;padding:6px 0}
+.note{opacity:.65;font-size:.8em;margin-top:16px}
+</style>
+</head>
+<body>
+<nav><a href="https://andrew101018.github.io/EDGE/">Edge Football ⚽ الصفحة الرئيسية</a> · <a href="https://andrew101018.github.io/EDGE/teams/">كل الفرق</a></nav>
+<main>
+<div class="team-head">
+  <img id="teamLogo" alt="شعار بوروسيا دورتموند" style="display:none">
+  <div>
+    <h1>بوروسيا دورتموند</h1>
+    <p>النتائج والماتشات الجاية والترتيب — تحديث تلقائي</p>
+  </div>
+</div>
+
+<div class="card" id="liveCard" style="display:none">
+  <h2>🔴 جارية دلوقتي</h2>
+  <div id="liveList"></div>
+</div>
+
+<div class="card">
+  <h2>الماتشات الجاية</h2>
+  <div id="upcoming"><p class="empty">بنحمّل البيانات...</p></div>
+</div>
+
+<div class="card">
+  <h2>آخر النتائج</h2>
+  <div id="results"><p class="empty">بنحمّل البيانات...</p></div>
+</div>
+
+<div class="card">
+  <h2>الترتيب</h2>
+  <div id="tables"><p class="empty">بنحمّل البيانات...</p></div>
+</div>
+
+<div class="card">
+  <h2>هدافو الفريق</h2>
+  <div id="scorers"><p class="empty">بنحمّل البيانات...</p></div>
+</div>
+
+<p class="note">آخر تحديث للماتشات: <span id="mu">...</span> · الأخبار: <span id="nu"></span></p>
+<p class="note">مصدر البيانات: ESPN وKooora — الصفحة بتقرأ البيانات مباشرة وبتتحدث لوحدها مع كل ماتش.</p>
+</main>
+<script>
+const TEAM = {"name": "بوروسيا دورتموند", "slug": "dortmund", "aliases": ["بوروسيا دورتموند", "دورتموند", "Borussia Dortmund", "Dortmund", "BVB"]};
+const norm = s => (s || '').trim().replace(/[أإآ]/g, 'ا').toLowerCase();
+const ALIASES = new Set(TEAM.aliases.map(norm));
+const isUs = n => ALIASES.has(norm(n));
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function matchRow(m) {
+  const homeUs = isUs(m.home), awayUs = isUs(m.away);
+  const h = homeUs ? `<span class="us">${esc(m.home)}</span>` : esc(m.home);
+  const a = awayUs ? `<span class="us">${esc(m.away)}</span>` : esc(m.away);
+  let mid, meta;
+  if (m.state === 'post') {
+    mid = `${h} <span class="sc" dir="ltr">${esc(m.hs)} - ${esc(m.as)}</span> ${a}`;
+    meta = `انتهت · ${esc(m.dateAr || '')}`;
+  } else if (m.state === 'in') {
+    mid = `${h} <span class="sc" dir="ltr">${esc(m.hs)} - ${esc(m.as)}</span> ${a}`;
+    meta = `<span class="badge">لايف</span> ${esc(m.detail || '')}`;
+  } else {
+    mid = `${h} × ${a}`;
+    meta = `${esc(m.day || '')} ${esc(m.dateAr || '')} · ${esc(m.time || '')}`;
+  }
+  const tv = m.tv ? ` · 📺 ${esc(m.tv)}` : '';
+  return `<div class="row"><span class="mt">${mid}<br><span class="meta">${esc(m.league || '')}${tv}</span></span><span class="meta">${meta}</span></div>`;
+}
+
+(async () => {
+  let d;
+  try {
+    const r = await fetch('../site/data.json?t=' + Date.now(), { cache: 'no-store' });
+    d = await r.json();
+  } catch (e) {
+    for (const id of ['upcoming', 'results', 'tables', 'scorers'])
+      document.getElementById(id).innerHTML = '<p class="empty">مقدرناش نحمّل البيانات دلوقتي، جرّب تاني بعد شوية.</p>';
+    return;
+  }
+
+  const all = [];
+  for (const lg of (d.matches || []))
+    for (const m of (lg.items || []))
+      if (isUs(m.home) || isUs(m.away)) all.push({ ...m, league: lg.league });
+
+  const live = all.filter(m => m.state === 'in');
+  const up = all.filter(m => m.state === 'pre').sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+  const post = all.filter(m => m.state === 'post').sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+  if (live.length) {
+    document.getElementById('liveCard').style.display = '';
+    document.getElementById('liveList').innerHTML = live.map(matchRow).join('');
+  }
+  document.getElementById('upcoming').innerHTML = up.length
+    ? up.map(matchRow).join('')
+    : '<p class="empty">مفيش ماتشات قادمة مسجلة في البيانات الحالية.</p>';
+  document.getElementById('results').innerHTML = post.length
+    ? post.map(matchRow).join('')
+    : '<p class="empty">مفيش نتائج حديثة في البيانات الحالية.</p>';
+
+  let logo = '';
+  for (const lg of (d.matches || []))
+    for (const m of (lg.items || [])) {
+      if (isUs(m.home) && m.homeLogo) { logo = logo || m.homeLogo; }
+      if (isUs(m.away) && m.awayLogo) { logo = logo || m.awayLogo; }
+    }
+  if (logo) {
+    const img = document.getElementById('teamLogo');
+    img.src = logo; img.style.display = '';
+  }
+
+  const trows = [];
+  for (const [league, rows] of Object.entries(d.tables || {}))
+    for (const r of (rows || []))
+      if (isUs(r.team))
+        trows.push(`<div class="row"><span class="mt">${esc(league)}</span><span class="meta">المركز <span class="us">${r.rank}</span> · ${r.pts} نقطة (لعب ${r.gp} · فاز ${r.w} · تعادل ${r.d} · خسر ${r.l})</span></div>`);
+  document.getElementById('tables').innerHTML = trows.length
+    ? trows.join('')
+    : '<p class="empty">مفيش ترتيب متاح للفريق في البيانات الحالية.</p>';
+
+  const srows = [];
+  for (const [league, groups] of Object.entries(d.leaders || {}))
+    for (const p of ((groups || {})['الهدافون 🏆'] || []))
+      if (isUs(p.team))
+        srows.push(`<div class="row"><span class="mt">${esc(p.name)}</span><span class="meta">${esc(p.value)} · ${esc(league)}</span></div>`);
+  document.getElementById('scorers').innerHTML = srows.length
+    ? srows.join('')
+    : '<p class="empty">مفيش هدافين من الفريق في القوائم الحالية.</p>';
+
+  document.getElementById('mu').textContent = d.matches_updated_at || '—';
+  document.getElementById('nu').textContent = d.updated_at || '—';
+})();
+</script>
+</body>
+</html>
