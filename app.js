@@ -172,7 +172,7 @@ function needsLivePoll(m) {
   const t = Date.parse(m.date || '');
   if (Number.isNaN(t)) return false;
   const now = Date.now();
-  return t <= now && now - t <= 3 * 3600 * 1000; // نافذة استعلام فقط، وليست حالة عرض
+  return t <= now && now - t <= 36 * 3600 * 1000; // نافذة استعلام فقط، وليست حالة عرض
 }
 
 function renderFeaturedMatch() {
@@ -293,7 +293,7 @@ function refreshLiveScores() {
     if (m.state === 'in' || needsLivePoll(m)) {
       let q = '';
       const t1 = Date.parse(m.date || '');
-      if (m._stale && !Number.isNaN(t1)) q = '?dates=' + new Date(t1).toISOString().slice(0, 10).replace(/-/g, '');
+      if ((m._stale || (!Number.isNaN(t1) && Date.now() - t1 > 3 * 3600 * 1000)) && !Number.isNaN(t1)) q = '?dates=' + new Date(t1).toISOString().slice(0, 10).replace(/-/g, '');
       liveSlugs[m.slug + '|' + q] = 1;
     }
   }));
