@@ -1,5 +1,5 @@
 {
- "updated_at": "2026-11-24 10:39 PM",
+ "updated_at": "2026-11-23 06:53 PM",
  "news": [
   {
    "t": "⚽️ مورينيو: الفلوس سلاح في الكورة ومش ممكن تربط ريال مدريد بنيجريرا  ",
@@ -245,7 +245,7 @@
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "39'",
+     "detail": "43'",
      "state": "in"
     },
     {
@@ -264,7 +264,7 @@
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "37'",
+     "detail": "41'",
      "state": "in"
     },
     {
@@ -283,7 +283,7 @@
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "39'",
+     "detail": "43'",
      "state": "in"
     },
     {
@@ -302,7 +302,7 @@
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "38'",
+     "detail": "42'",
      "state": "in"
     },
     {
@@ -321,7 +321,7 @@
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "36'",
+     "detail": "40'",
      "state": "in"
     },
     {
@@ -340,7 +340,7 @@
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "38'",
+     "detail": "42'",
      "state": "in"
     },
     {
@@ -359,7 +359,7 @@
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "39'",
+     "detail": "43'",
      "state": "in"
     },
     {
@@ -1342,63 +1342,6 @@
    "slug": "egy.1",
    "items": [
     {
-     "home": "الجونة",
-     "away": "الزمالك",
-     "eid": "kz-BIF8hlqbEAujwfoz05g69",
-     "slug": "egy.1",
-     "homeId": "cb5ih2ull94awko6tr4mpwkiz",
-     "awayId": "2c1lvho9eqtqfqf4t3cv0f237",
-     "homeLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/fKhtCS6yK--zfnA9a-bz3.png",
-     "awayLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/l22L9qjeS-jOBuS_QnBv5.png",
-     "tv": "أون تايم سبورتس",
-     "hs": 1,
-     "as": 2,
-     "state": "in",
-     "time": "05:00",
-     "day": "Monday",
-     "dateAr": "23/11",
-     "date": "2026-11-23T17:00:00+02:00",
-     "detail": "الجولة 9"
-    },
-    {
-     "home": "وادي دجلة",
-     "away": "الاتحاد",
-     "eid": "kz-hUSBU3JE_3GG3lJEJr4k1",
-     "slug": "egy.1",
-     "homeId": "7lsa4shved5oswsk8y4w0zk62",
-     "awayId": "87zdolahphujsbgcu4wyyew7n",
-     "homeLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/OvlHLXMqBBQGmD9B0RCoT.png",
-     "awayLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/pLMXEK0kpdKtg60w3rhBU.png",
-     "tv": "أون تايم سبورتس",
-     "hs": 1,
-     "as": 1,
-     "state": "in",
-     "time": "05:00",
-     "day": "Monday",
-     "dateAr": "23/11",
-     "date": "2026-11-23T17:00:00+02:00",
-     "detail": "الجولة 9"
-    },
-    {
-     "home": "الأهلي",
-     "away": "بيراميدز",
-     "eid": "kz-I5L4FI8YOSrTBg5hgwkli",
-     "slug": "egy.1",
-     "homeId": "1q2hx9pw8c7x88utqunk4e6xl",
-     "awayId": "a5hh43fi88rchrm37263600hu",
-     "homeLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/o0K-aXi0FsiLx9BJ3AgTv.png",
-     "awayLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/JTf73VVwEf8AlNOdmNtN5.png",
-     "tv": "أون تايم سبورتس",
-     "hs": "",
-     "as": "",
-     "state": "pre",
-     "time": "08:00",
-     "day": "Monday",
-     "dateAr": "23/11",
-     "date": "2026-11-23T20:00:00+02:00",
-     "detail": "الجولة 9"
-    },
-    {
      "home": "سموحة",
      "away": "البنك الأهلي",
      "eid": "kz-2rozXKA9nvkMF4-C-e_1D",
@@ -1408,13 +1351,108 @@
      "homeLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/OQ23C2z-h-NuAxg_XzwUb.png",
      "awayLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/JWW7CvCe5hMfY9EyPWGku.png",
      "tv": "أون تايم سبورتس",
-     "hs": "",
-     "as": "",
-     "state": "pre",
+     "hs": "1",
+     "as": "1",
+     "state": "post",
      "time": "05:00",
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T17:00:00+02:00",
+     "detail": "FT"
+    },
+    {
+     "home": "المصري",
+     "away": "بترول أسيوط",
+     "eid": "kz-osaIr8SRPqJso4J0u3Wf6",
+     "slug": "egy.1",
+     "homeId": "8fsjv45nwdskm2w1o5iddnwck",
+     "awayId": "8y48y7oigo67a3fgsvik3y8d2",
+     "homeLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/ISuy-eoshHOyLG5mU_Pgn.png",
+     "awayLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/RWgUN1rq0ynQ0yf4c7Pno.png",
+     "tv": "",
+     "hs": "2",
+     "as": "0",
+     "state": "post",
+     "time": "08:00",
+     "day": "Tuesday",
+     "dateAr": "24/11",
+     "date": "2026-11-24T20:00:00+02:00",
+     "detail": "FT"
+    },
+    {
+     "home": "المقاولون العرب",
+     "away": "القناة",
+     "eid": "kz-EvZELQApVvW1n2Q0Ec4OE",
+     "slug": "egy.1",
+     "homeId": "rujv815dna8z56ptdquzovlu",
+     "awayId": "2fsixv19fzfbxld2hbtxzvwe1",
+     "homeLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/y4bxDVoxKuvYwFTagcegm.png",
+     "awayLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/lpn0d_GGdMUzrit3mGhRX.png",
+     "tv": "",
+     "hs": "2",
+     "as": "1",
+     "state": "post",
+     "time": "08:00",
+     "day": "Tuesday",
+     "dateAr": "24/11",
+     "date": "2026-11-24T20:00:00+02:00",
+     "detail": "FT"
+    },
+    {
+     "home": "الجيش",
+     "away": "مودرن سبورت",
+     "eid": "kz-uqjRbxZpRdhJUwRpTIQRy",
+     "slug": "egy.1",
+     "homeId": "22uhz0spcrm9f2ew7fyk9lgvl",
+     "awayId": "emhtnkgwz4rnno5t1ubxrpnje",
+     "homeLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/64yLy__ORjqwK6u3IQL9t.png",
+     "awayLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/04HM4cw9TEvfPz20QVCyI.png",
+     "tv": "",
+     "hs": "",
+     "as": "",
+     "state": "pre",
+     "time": "05:00",
+     "day": "Wednesday",
+     "dateAr": "25/11",
+     "date": "2026-11-25T17:00:00+02:00",
+     "detail": "الجولة 9"
+    },
+    {
+     "home": "غزل المحلة",
+     "away": "السويس بتروجيت",
+     "eid": "kz-0r5KHlITOKMPGWK8XSinY",
+     "slug": "egy.1",
+     "homeId": "92b76dpzspmwf6jr0khodmxi4",
+     "awayId": "bb1dz5zsbd7x9ezu8yrtbzhrj",
+     "homeLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/4LuIEtYxL4j_8SLTlxomO.png",
+     "awayLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/Be2wEQE-GzZ7I1VgyC3l0.png",
+     "tv": "",
+     "hs": "",
+     "as": "",
+     "state": "pre",
+     "time": "08:00",
+     "day": "Wednesday",
+     "dateAr": "25/11",
+     "date": "2026-11-25T20:00:00+02:00",
+     "detail": "الجولة 9"
+    },
+    {
+     "home": "الشرقية إنبي",
+     "away": "سيراميكا كليوباترا",
+     "eid": "kz-RXZesMrnolDVGhg7ENkBr",
+     "slug": "egy.1",
+     "homeId": "2t0cc3y6kaifvrgnp48nf9011",
+     "awayId": "3kcimq8ylw8950rl7mn9euzqi",
+     "homeLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/5xPmFysmpvO-CKasFAT1y.png",
+     "awayLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/lNZ8e6VCerzL440JquYBG.png",
+     "tv": "",
+     "hs": "",
+     "as": "",
+     "state": "pre",
+     "time": "08:00",
+     "day": "Wednesday",
+     "dateAr": "25/11",
+     "date": "2026-11-25T20:00:00+02:00",
      "detail": "الجولة 9"
     }
    ],
@@ -5960,5 +5998,6 @@
   }
  ],
  "highlights": [],
- "squads": {}
+ "squads": {},
+ "matches_updated_at": "2026-11-24 10:43 PM"
 }
