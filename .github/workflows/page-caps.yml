@@ -1,0 +1,59 @@
+name: Page profile check
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: check or tg_set
+        required: true
+      tg_description:
+        description: new Telegram channel description (use \n for new lines)
+        required: false
+        default: ''
+permissions:
+  contents: read
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      TG: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      CH: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+      FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+      FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+      MODE: ${{ inputs.mode }}
+      DESC: ${{ inputs.tg_description }}
+    steps:
+      - name: Run
+        run: |
+          python3 - <<'PY'
+          import os, json, urllib.request, urllib.parse, urllib.error
+          tg = os.environ["TG"]; fb = os.environ["FB_PAGE_TOKEN"]; pid = os.environ["FB_PAGE_ID"]
+          for t in (tg, fb): print("::add-mask::" + t)
+          def call(url, params=None):
+              data = urllib.parse.urlencode(params).encode() if params is not None else None
+              try: t = urllib.request.urlopen(urllib.request.Request(url, data=data), timeout=60).read().decode()
+              except urllib.error.HTTPError as e: t = e.read().decode()
+              return json.loads(t)
+          T = f"https://api.telegram.org/bot{tg}/"
+          ch = os.environ["CH"]
+          me = call(T + "getMe")
+          print("tg bot ok:", me.get("ok"))
+          gc = call(T + "getChat", {"chat_id": ch})
+          print("tg chat:", gc.get("ok"), (gc.get("result") or {}).get("username"), repr((gc.get("result") or {}).get("description")))
+          bid = (me.get("result") or {}).get("id")
+          cm = call(T + "getChatMember", {"chat_id": ch, "user_id": bid})
+          r = cm.get("result") or {}
+          print("tg bot status:", r.get("status"), "can_change_info:", r.get("can_change_info"))
+          perms = call(f"https://graph.facebook.com/v21.0/me/permissions?access_token={fb}")
+          print("fb perms:", [(p.get("permission"), p.get("status")) for p in perms.get("data", [])] or (perms.get("error") or {}).get("message"))
+          pg = call(f"https://graph.facebook.com/v21.0/{pid}?fields=about,website,link&access_token={fb}")
+          print("fb page:", {k: pg.get(k) for k in ("about", "website", "link")}, (pg.get("error") or {}).get("code"))
+          if os.environ["MODE"] == "tg_set":
+              d = os.environ["DESC"].replace("\\n", "\n")
+              assert 0 < len(d) <= 255
+              s = call(T + "setChatDescription", {"chat_id": ch, "description": d})
+              print("tg set:", s.get("ok"), s.get("description"))
+              g2 = call(T + "getChat", {"chat_id": ch})
+              print("tg now:", repr((g2.get("result") or {}).get("description")))
+              if not s.get("ok"): raise SystemExit(1)
+          PY
