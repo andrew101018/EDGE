@@ -382,3 +382,7 @@ h2::after { background: linear-gradient(to left, #d4a24e, rgba(212,162,78,0)); }
 
 /* منع أي إزاحة أفقية للصفحة على الموبايل */
 html, body { overflow-x: hidden; max-width: 100%; }
+
+.news-title, .edge-nexcerpt, .edge-nmeta { overflow-wrap: break-word; max-width: 100%; }
+.news-card a, .edge-nwrap a { color: #eebf63; }
+.news-card { max-width: 100%; overflow: hidden; }
