@@ -1,0 +1,25 @@
+name: TG Post (manual, text only)
+
+on:
+  workflow_dispatch:
+    inputs:
+      text:
+        description: "Reviewed Arabic news text to post to the Telegram channel"
+        required: true
+
+permissions: {}
+
+jobs:
+  tg-post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send channel message
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+          POST_TEXT: ${{ inputs.text }}
+        run: |
+          code=$(curl -s -o /tmp/r.json -w "%{http_code}" -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHANNEL_ID}" --data-urlencode "text=${POST_TEXT}" -d "disable_web_page_preview=true")
+          echo "http=$code"
+          python3 -c "import json;r=json.load(open('/tmp/r.json'));print('ok=',r.get('ok'),'message_id=',(r.get('result') or {}).get('message_id'),'err=',r.get('description'))"
