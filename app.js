@@ -167,6 +167,7 @@ function statusNote(m) {
 }
 
 function needsLivePoll(m) {
+  if (m._stale) return true;
   if (m.state || m.detail === 'FT') return false;
   const t = Date.parse(m.date || '');
   if (Number.isNaN(t)) return false;
@@ -289,12 +290,17 @@ function renderHomeMatches() {
 function refreshLiveScores() {
   const liveSlugs = {};
   MATCHES.forEach(g => (g.items || []).forEach(m => {
-    if (m.state === 'in' || needsLivePoll(m)) liveSlugs[m.slug] = 1;
+    if (m.state === 'in' || needsLivePoll(m)) {
+      let q = '';
+      const t1 = Date.parse(m.date || '');
+      if (m._stale && !Number.isNaN(t1)) q = '?dates=' + new Date(t1).toISOString().slice(0, 10).replace(/-/g, '');
+      liveSlugs[m.slug + '|' + q] = 1;
+    }
   }));
   const slugs = Object.keys(liveSlugs);
   if (!slugs.length) return;
-  Promise.all(slugs.map(slug =>
-    fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/' + slug + '/scoreboard')
+  Promise.all(slugs.map(key =>
+    fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/' + key.split('|')[0] + '/scoreboard' + (key.split('|')[1] || ''))
       .then(r => r.ok ? r.json() : null)
       .catch(() => null)
   )).then(results => {
@@ -318,6 +324,7 @@ function refreshLiveScores() {
               }
               if (detail && m.detail !== detail) { m.detail = detail; changed = true; }
               if (st && m.state !== st) { m.state = st; changed = true; }
+              if (st) m._stale = false;
             }
           }));
         } catch (e) {}
@@ -1210,6 +1217,8 @@ async function loadData() {
     DATA = JSON.parse(raw);
     document.getElementById('lastUpdate').textContent = 'آخر تحديث: ' + DATA.updated_at;
     MATCHES = DATA.matches || [];
+    /* بيانات قديمة: لو الحالة 'مباشر' ومر على موعد المباراة أكتر من 4 ساعات، منعرضهاش مباشرة */
+    MATCHES.forEach(g => (g.items || []).forEach(m => { const t0 = Date.parse(m.date || ''); if (m.state === 'in' && !Number.isNaN(t0) && Date.now() - t0 > 4 * 3600 * 1000) { m._stale = true; m.state = undefined; if (m.detail !== 'FT') m.detail = ''; } }));
     renderMatches();
     renderLeaders();
     renderTv();
