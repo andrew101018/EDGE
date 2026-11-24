@@ -54,8 +54,12 @@ nav a{font-weight:bold;text-decoration:none}
   </div>
 </div>
 
+<div class="card" id="staleCard" style="display:none;border-color:#b45309">
+  <p style="margin:0;color:#fbbf24;font-size:.9em;">⚠️ البيانات دي مش محدثة دلوقتي — آخر تحديث وصل للموقع: <span id="staleTs"></span> بتوقيت القاهرة. النتايج والماتشات ممكن تكون اتغيرت من ساعتها.</p>
+</div>
+
 <div class="card" id="liveCard" style="display:none">
-  <h2>🔴 جارية دلوقتي</h2>
+  <h2 id="liveTitle">🔴 جارية دلوقتي</h2>
   <div id="liveList"></div>
 </div>
 
@@ -79,7 +83,7 @@ nav a{font-weight:bold;text-decoration:none}
   <div id="scorers"><p class="empty">بنحمّل البيانات...</p></div>
 </div>
 
-<p class="note">آخر تحديث للماتشات: <span id="mu">...</span> · الأخبار: <span id="nu"></span></p>
+<p class="note">آخر تحديث للماتشات: <span id="mu">...</span> · الأخبار: <span id="nu"></span> (بتوقيت القاهرة)</p>
 <p class="note">مصدر البيانات: ESPN وKooora — الصفحة بتقرأ البيانات مباشرة وبتتحدث لوحدها مع كل ماتش.</p>
 </main>
 <script>
@@ -99,7 +103,7 @@ function matchRow(m) {
     meta = `انتهت · ${esc(m.dateAr || '')}`;
   } else if (m.state === 'in') {
     mid = `${h} <span class="sc" dir="ltr">${esc(m.hs)} - ${esc(m.as)}</span> ${a}`;
-    meta = `<span class="badge">لايف</span> ${esc(m.detail || '')}`;
+    meta = window.__feedStale ? `آخر نتيجة مسجلة · ${esc(m.detail || '')} ${esc(m.dateAr || '')}` : `<span class="badge">لايف</span> ${esc(m.detail || '')}`;
   } else {
     mid = `${h} × ${a}`;
     meta = `${esc(m.day || '')} ${esc(m.dateAr || '')} · ${esc(m.time || '')}`;
@@ -124,13 +128,32 @@ function matchRow(m) {
     for (const m of (lg.items || []))
       if (isUs(m.home) || isUs(m.away)) all.push({ ...m, league: lg.league });
 
-  const live = all.filter(m => m.state === 'in');
+  // freshness: matches_updated_at is Cairo wall time written by the refresh job
+  let feedStale = true;
+  const muRaw = d.matches_updated_at || '';
+  const pm = muRaw.match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}) (AM|PM)$/);
+  if (pm) {
+    let hh = (+pm[4]) % 12 + (pm[6] === 'PM' ? 12 : 0);
+    const feedUtc = Date.UTC(+pm[1], +pm[2] - 1, +pm[3], hh - 2, +pm[5]);
+    feedStale = (Date.now() - feedUtc) > 30 * 60 * 1000;
+  }
+  window.__feedStale = feedStale;
+  if (feedStale) {
+    document.getElementById('staleCard').style.display = '';
+    document.getElementById('staleTs').textContent = muRaw || 'غير معروف';
+    document.getElementById('liveTitle').textContent = '⏸️ آخر حالة مسجلة (التحديث متوقف حاليًا)';
+  }
+
+  const now = Date.now();
+  const recent = m => m.date && (now - new Date(m.date).getTime()) < 3 * 60 * 60 * 1000;
+  const live = all.filter(m => m.state === 'in' && !feedStale && recent(m));
+  const staleLive = all.filter(m => m.state === 'in' && (feedStale || !recent(m)));
   const up = all.filter(m => m.state === 'pre').sort((a, b) => (a.date || '').localeCompare(b.date || ''));
   const post = all.filter(m => m.state === 'post').sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
-  if (live.length) {
+  if (live.length || staleLive.length) {
     document.getElementById('liveCard').style.display = '';
-    document.getElementById('liveList').innerHTML = live.map(matchRow).join('');
+    document.getElementById('liveList').innerHTML = live.concat(staleLive).map(matchRow).join('');
   }
   document.getElementById('upcoming').innerHTML = up.length
     ? up.map(matchRow).join('')
