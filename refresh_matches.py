@@ -1,16 +1,24 @@
 """Fixtures-only refresh for site/data.json.
 Reads public ESPN scoreboards and updates ONLY the `matches` list and `updated_at`.
 No publishing, no secrets, no news. Existing items outside the window are kept."""
-import json, urllib.request, datetime as dt
+import json, re, urllib.request, datetime as dt
 from zoneinfo import ZoneInfo
 
 CAIRO = ZoneInfo("Africa/Cairo")
 PATH = "site/data.json"
 data = json.load(open(PATH, encoding="utf-8"))
+if "matches_updated_at" not in data:
+    # one-time migration: updated_at is the NEWS timestamp (last bot run). An earlier version of this
+    # job overwrote it on 2026-11-24, so restore the last real news time and track matches separately.
+    data["updated_at"] = "2026-11-23 06:53 PM"
+    data["matches_updated_at"] = data["updated_at"]
+    changed_init = True
+else:
+    changed_init = False
 now = dt.datetime.now(dt.timezone.utc)
 DATES = [(now + dt.timedelta(days=d)).strftime("%Y%m%d") for d in (-1, 0, 1, 2)]
 DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-changed = False
+changed = changed_init
 
 def fetch(slug):
     events, ok = [], False
@@ -23,6 +31,38 @@ def fetch(slug):
         except Exception as e:
             print("fetch failed", slug, d, type(e).__name__)
     return {"events": events} if ok else None
+
+
+KOOORA_EGY = "https://www.kooora.com/%D9%83%D8%B1%D8%A9-%D8%A7%D9%84%D9%82%D8%AF%D9%85/%D9%85%D8%B3%D8%A7%D8%A8%D9%82%D8%A9/%D8%A7%D9%84%D8%AF%D9%88%D8%B1%D9%8A-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A-%D8%A7%D9%84%D9%85%D9%85%D8%AA%D8%A7%D8%B2/8k1xcsyvxapl4jlsluh3eomre"
+
+def fetch_kooora(slug):
+    """Egyptian league from kooora's public page (same source the old bot used)."""
+    try:
+        req = urllib.request.Request(KOOORA_EGY, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
+        txt = urllib.request.urlopen(req, timeout=30).read().decode()
+        m = re.search(r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>', txt, re.S)
+        sm = json.loads(m.group(1))["props"]["pageProps"]["data"]["summaryMatches"]
+    except Exception as e:
+        print("kooora failed", type(e).__name__)
+        return None
+    out = []
+    for ev in sm:
+        try:
+            st = {"FIXTURE": "pre", "RESULT": "post", "LIVE": "in", "PLAYING": "in"}.get((ev.get("status") or "").upper(), "pre")
+            t = dt.datetime.fromisoformat(ev["startDate"].replace("Z", "+00:00")).astimezone(CAIRO)
+            ta, tb, sc = ev.get("teamA") or {}, ev.get("teamB") or {}, ev.get("score") or {}
+            out.append({
+                "home": ta.get("name", ""), "away": tb.get("name", ""),
+                "eid": "kz-" + str(ev.get("id") or ""), "slug": slug,
+                "homeId": ta.get("id", ""), "awayId": tb.get("id", ""),
+                "homeLogo": (ta.get("image") or {}).get("url", ""), "awayLogo": (tb.get("image") or {}).get("url", ""),
+                "tv": "", "hs": "" if sc.get("teamA") is None else str(sc.get("teamA")), "as": "" if sc.get("teamB") is None else str(sc.get("teamB")),
+                "state": st, "time": t.strftime("%I:%M"), "day": DAYS[t.weekday()],
+                "dateAr": t.strftime("%d/%m"), "date": t.isoformat(),
+                "detail": "FT" if st == "post" else ((ev.get("gameset") or {}).get("name", "") if st == "pre" else "")})
+        except Exception:
+            continue
+    return out or None
 
 def build(ev, slug, old):
     comp = ev["competitions"][0]
@@ -57,7 +97,17 @@ def build(ev, slug, old):
 
 for g in data.get("matches", []):
     slug = g.get("slug", "")
-    if not slug or slug == "egy.1":
+    if slug == "egy.1":
+        k = fetch_kooora(slug)
+        if k is not None:
+            old_by = {i.get("eid"): i for i in g.get("items", [])}
+            for i in k:
+                if i["eid"] in old_by and i["tv"] == "":
+                    i["tv"] = old_by[i["eid"]].get("tv", "")
+            if k != g.get("items"):
+                g["items"] = k; changed = True
+        continue
+    if not slug:
         continue
     res = fetch(slug)
     if not res:
@@ -80,7 +130,7 @@ for g in data.get("matches", []):
             items.append(new); changed = True
     items.sort(key=lambda i: i.get("date", ""))
 if changed:
-    data["updated_at"] = dt.datetime.now(CAIRO).strftime("%Y-%m-%d %I:%M %p")
+    data["matches_updated_at"] = dt.datetime.now(CAIRO).strftime("%Y-%m-%d %I:%M %p")
     json.dump(data, open(PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("updated")
 else:
