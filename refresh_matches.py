@@ -33,6 +33,8 @@ def fetch(slug):
     return {"events": events} if ok else None
 
 
+# Canonical club names as used by the Egyptian press (kooora shows merged names for these)
+NAME_FIX = {"الشرقية إنبي": "إنبي", "السويس بتروجيت": "بتروجيت", "الجيش": "طلائع الجيش"}
 KOOORA_EGY = "https://www.kooora.com/%D9%83%D8%B1%D8%A9-%D8%A7%D9%84%D9%82%D8%AF%D9%85/%D9%85%D8%B3%D8%A7%D8%A8%D9%82%D8%A9/%D8%A7%D9%84%D8%AF%D9%88%D8%B1%D9%8A-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A-%D8%A7%D9%84%D9%85%D9%85%D8%AA%D8%A7%D8%B2/8k1xcsyvxapl4jlsluh3eomre"
 
 def fetch_kooora(slug):
@@ -52,7 +54,7 @@ def fetch_kooora(slug):
             t = dt.datetime.fromisoformat(ev["startDate"].replace("Z", "+00:00")).astimezone(CAIRO)
             ta, tb, sc = ev.get("teamA") or {}, ev.get("teamB") or {}, ev.get("score") or {}
             out.append({
-                "home": ta.get("name", ""), "away": tb.get("name", ""),
+                "home": NAME_FIX.get(ta.get("name", ""), ta.get("name", "")), "away": NAME_FIX.get(tb.get("name", ""), tb.get("name", "")),
                 "eid": "kz-" + str(ev.get("id") or ""), "slug": slug,
                 "homeId": ta.get("id", ""), "awayId": tb.get("id", ""),
                 "homeLogo": (ta.get("image") or {}).get("url", ""), "awayLogo": (tb.get("image") or {}).get("url", ""),
