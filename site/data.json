@@ -245,7 +245,7 @@
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "43'",
+     "detail": "HT",
      "state": "in"
     },
     {
@@ -264,7 +264,7 @@
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "41'",
+     "detail": "HT",
      "state": "in"
     },
     {
@@ -283,7 +283,7 @@
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "43'",
+     "detail": "HT",
      "state": "in"
     },
     {
@@ -297,12 +297,12 @@
      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/244.png",
      "tv": "beIN Sports",
      "hs": "0",
-     "as": "0",
+     "as": "1",
      "time": "10:00",
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "42'",
+     "detail": "HT",
      "state": "in"
     },
     {
@@ -321,7 +321,7 @@
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "40'",
+     "detail": "44'",
      "state": "in"
     },
     {
@@ -340,7 +340,7 @@
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "42'",
+     "detail": "45'+1'",
      "state": "in"
     },
     {
@@ -359,7 +359,7 @@
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "43'",
+     "detail": "45'+2'",
      "state": "in"
     },
     {
@@ -1399,7 +1399,7 @@
      "detail": "FT"
     },
     {
-     "home": "الجيش",
+     "home": "طلائع الجيش",
      "away": "مودرن سبورت",
      "eid": "kz-uqjRbxZpRdhJUwRpTIQRy",
      "slug": "egy.1",
@@ -1419,7 +1419,7 @@
     },
     {
      "home": "غزل المحلة",
-     "away": "السويس بتروجيت",
+     "away": "بتروجيت",
      "eid": "kz-0r5KHlITOKMPGWK8XSinY",
      "slug": "egy.1",
      "homeId": "92b76dpzspmwf6jr0khodmxi4",
@@ -1437,7 +1437,7 @@
      "detail": "الجولة 9"
     },
     {
-     "home": "الشرقية إنبي",
+     "home": "إنبي",
      "away": "سيراميكا كليوباترا",
      "eid": "kz-RXZesMrnolDVGhg7ENkBr",
      "slug": "egy.1",
@@ -5999,5 +5999,5 @@
  ],
  "highlights": [],
  "squads": {},
- "matches_updated_at": "2026-11-24 10:43 PM"
+ "matches_updated_at": "2026-11-24 10:47 PM"
 }
