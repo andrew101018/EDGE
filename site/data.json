@@ -240,13 +240,13 @@
      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/124.png",
      "tv": "beIN Sports",
      "hs": "1",
-     "as": "0",
+     "as": "1",
      "time": "10:00",
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "HT",
-     "state": "in"
+     "detail": "FT",
+     "state": "post"
     },
     {
      "home": "مانشستر سيتي",
@@ -258,14 +258,14 @@
      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/114.png",
      "tv": "beIN Sports",
-     "hs": "0",
-     "as": "0",
+     "hs": "2",
+     "as": "2",
      "time": "10:00",
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "HT",
-     "state": "in"
+     "detail": "FT",
+     "state": "post"
     },
     {
      "home": "RB Leipzig",
@@ -277,14 +277,14 @@
      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/11420.png",
      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/175.png",
      "tv": "beIN Sports",
-     "hs": "2",
-     "as": "0",
+     "hs": "3",
+     "as": "1",
      "time": "10:00",
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "HT",
-     "state": "in"
+     "detail": "FT",
+     "state": "post"
     },
     {
      "home": "Slovan Bratislava",
@@ -297,13 +297,13 @@
      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/244.png",
      "tv": "beIN Sports",
      "hs": "0",
-     "as": "1",
+     "as": "2",
      "time": "10:00",
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "HT",
-     "state": "in"
+     "detail": "FT",
+     "state": "post"
     },
     {
      "home": "Como",
@@ -315,14 +315,14 @@
      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/887.png",
      "tv": "",
-     "hs": "0",
+     "hs": "1",
      "as": "0",
      "time": "10:00",
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "44'",
-     "state": "in"
+     "detail": "FT",
+     "state": "post"
     },
     {
      "home": "Feyenoord",
@@ -340,8 +340,8 @@
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "45'+1'",
-     "state": "in"
+     "detail": "FT",
+     "state": "post"
     },
     {
      "home": "Real Madrid",
@@ -353,14 +353,14 @@
      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/148.png",
      "tv": "",
-     "hs": "0",
+     "hs": "5",
      "as": "1",
      "time": "10:00",
      "day": "Tuesday",
      "dateAr": "24/11",
      "date": "2026-11-24T22:00:00+02:00",
-     "detail": "45'+2'",
-     "state": "in"
+     "detail": "FT",
+     "state": "post"
     },
     {
      "home": "Sabah",
@@ -5999,5 +5999,5 @@
  ],
  "highlights": [],
  "squads": {},
- "matches_updated_at": "2026-11-24 10:47 PM"
+ "matches_updated_at": "2026-11-25 01:00 AM"
 }
