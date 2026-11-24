@@ -1218,8 +1218,13 @@ async function loadData() {
     DATA = JSON.parse(raw);
     document.getElementById('lastUpdate').textContent = 'آخر تحديث للأخبار: ' + DATA.updated_at + (DATA.matches_updated_at ? ' · المباريات: ' + DATA.matches_updated_at : '');
     MATCHES = DATA.matches || [];
-    /* بيانات قديمة: لو الحالة 'مباشر' ومر على موعد المباراة أكتر من 4 ساعات، منعرضهاش مباشرة */
-    MATCHES.forEach(g => (g.items || []).forEach(m => { const t0 = Date.parse(m.date || ''); if (m.state === 'in' && !Number.isNaN(t0) && Date.now() - t0 > 4 * 3600 * 1000) { m._stale = true; m.state = undefined; if (m.detail !== 'FT') m.detail = ''; } }));
+    /* حارس الحداثة: لو خلاصة المباريات أقدم من 30 دقيقة أو غير مقروءة، منعرضش "مباشر" من الخلاصة وحدها - الاستعلام المباشر كل دقيقة يرجّع الحالة الحقيقية */
+    let _feedStale = true;
+    const _mu = DATA.matches_updated_at || '';
+    const _pm = _mu.match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}) (AM|PM)$/);
+    if (_pm) { const _hh = (+_pm[4]) % 12 + (_pm[6] === 'PM' ? 12 : 0); _feedStale = (Date.now() - Date.UTC(+_pm[1], +_pm[2] - 1, +_pm[3], _hh - 2, +_pm[5])) > 30 * 60 * 1000; }
+    MATCHES.forEach(g => (g.items || []).forEach(m => { const t0 = Date.parse(m.date || ''); if (m.state === 'in' && (_feedStale || (!Number.isNaN(t0) && Date.now() - t0 > 3 * 3600 * 1000))) { m._stale = true; m.state = undefined; if (m.detail !== 'FT') m.detail = ''; } }));
+    if (_feedStale) document.getElementById('lastUpdate').textContent += ' · ⚠️ تحديث المباريات متأخر';
     renderMatches();
     renderLeaders();
     renderTv();
