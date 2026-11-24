@@ -1,0 +1,41 @@
+name: FB readback (read-only)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  readback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Read-only readback of the newest Page posts (id, time, text only)
+        env:
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import os, json, urllib.request, urllib.parse, urllib.error
+          tok = os.environ["FB_PAGE_TOKEN"]
+          print("::add-mask::" + tok)
+          def get(path, params, t):
+              params = dict(params, access_token=t)
+              url = "https://graph.facebook.com/v21.0/" + path + "?" + urllib.parse.urlencode(params)
+              try:
+                  r = urllib.request.urlopen(url, timeout=60)
+                  return r.status, json.loads(r.read().decode())
+              except urllib.error.HTTPError as e:
+                  try:
+                      return e.code, json.loads(e.read().decode())
+                  except Exception:
+                      return e.code, {}
+          code, d = get("me/accounts", {"fields": "id,access_token"}, tok)
+          for p in (d.get("data", []) if code == 200 else []):
+              ptok = p.get("access_token")
+              if not ptok:
+                  continue
+              print("::add-mask::" + ptok)
+              code, d = get(p["id"] + "/published_posts", {"fields": "id,created_time,message", "limit": "5"}, ptok)
+              print("published_posts http", code)
+              for x in d.get("data", []):
+                  print("POST", x.get("created_time"), x.get("id"))
+                  print("TEXT", json.dumps(x.get("message", ""), ensure_ascii=False))
+          PY
