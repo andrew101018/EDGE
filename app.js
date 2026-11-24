@@ -1215,7 +1215,7 @@ async function loadData() {
     if (raw && raw === _lastDataRaw) return;
     _lastDataRaw = raw;
     DATA = JSON.parse(raw);
-    document.getElementById('lastUpdate').textContent = 'آخر تحديث: ' + DATA.updated_at;
+    document.getElementById('lastUpdate').textContent = 'آخر تحديث للأخبار: ' + DATA.updated_at + (DATA.matches_updated_at ? ' · المباريات: ' + DATA.matches_updated_at : '');
     MATCHES = DATA.matches || [];
     /* بيانات قديمة: لو الحالة 'مباشر' ومر على موعد المباراة أكتر من 4 ساعات، منعرضهاش مباشرة */
     MATCHES.forEach(g => (g.items || []).forEach(m => { const t0 = Date.parse(m.date || ''); if (m.state === 'in' && !Number.isNaN(t0) && Date.now() - t0 > 4 * 3600 * 1000) { m._stale = true; m.state = undefined; if (m.detail !== 'FT') m.detail = ''; } }));
@@ -1235,7 +1235,7 @@ async function loadData() {
     renderFeaturedMatch();
     renderHomeMatches();
     renderEditorialNews((DATA.news || []).slice(0, 4));
-    var hmUp = document.getElementById('homeMatchesUpdate'); if (hmUp) hmUp.textContent = DATA.updated_at || 'غير متاح';
+    var hmUp = document.getElementById('homeMatchesUpdate'); if (hmUp) hmUp.textContent = DATA.matches_updated_at || DATA.updated_at || 'غير متاح';
     document.getElementById('tablesContainer').innerHTML = Object.entries(DATA.tables || {})
       .filter(([name, rows]) => rows && rows.length)
       .map(([name, rows]) => {
@@ -1321,7 +1321,7 @@ function renderEditorialNews(items) {
     wrap.className = 'edge-nwrap';
     const title = document.createElement('h3');
     title.className = 'news-title';
-    title.textContent = n.t || '';
+    title.textContent = (n.t || '').replace(/[\u00a0\u202f]/g, ' ');
     const body = document.createElement('p');
     body.className = 'edge-nexcerpt';
     const full = (n.full || n.t || '').trim();
@@ -1330,6 +1330,7 @@ function renderEditorialNews(items) {
     const norm = s => s.replace(/[^\u0621-\u064Aa-zA-Z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
     const nb = norm(brief), nt = norm(first);
     if (!nb || nt.startsWith(nb.slice(0, 50)) || nb.startsWith(nt.slice(0, 50))) brief = '';
+    brief = brief.replace(/[\u00a0\u202f]/g, ' ');
     if (brief) body.textContent = brief.length > 140 ? brief.slice(0, 140) + '…' : brief;
     const meta = document.createElement('p');
     meta.className = 'edge-nmeta';
