@@ -382,6 +382,7 @@ function renderMatches() {
     const byState = { pre: [], post: [] };
     items.forEach(m => { const s = matchState(m); if (byState[s]) byState[s].push(m); });
     return `<div class="league-box"><div class="league-title">🏆 ${g.league}</div>` +
+      (g.slug === 'egy.1' ? `<div style="padding:6px 10px;font-size:.72em;color:#eebf63;background:#0f172a;">المصدر: كورة (محدّث تلقائيًا). القائمة قد لا تشمل كل مباريات الجولة، والنتائج النهائية مأخوذة من مصدر واحد.</div>` : '') +
       (byState.post.length ? `<div style="padding:6px 10px;font-size:.75em;opacity:.6;background:#0f172a;">🏁 مباريات انتهت</div>` + byState.post.map(matchRow).join('') : '') +
       (byState.pre.length ? `<div style="padding:6px 10px;font-size:.75em;opacity:.6;background:#0f172a;">🕐 مباريات مجدولة</div>` + byState.pre.map(matchRow).join('') : '') +
       `</div>`;
