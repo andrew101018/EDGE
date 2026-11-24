@@ -1,0 +1,33 @@
+name: Matches refresh (fixtures only)
+
+on:
+  schedule:
+    - cron: '*/20 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: matches-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Refresh matches from public ESPN scoreboards
+        run: python refresh_matches.py
+      - name: Commit site/data.json if changed
+        run: |
+          git config user.name "edge-matches"
+          git config user.email "edge-matches@users.noreply.github.com"
+          git add site/data.json
+          git diff --cached --quiet || git commit -m "matches refresh (fixtures only)"
+          git pull --rebase || true
+          git push || echo "push failed"
