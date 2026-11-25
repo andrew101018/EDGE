@@ -93,7 +93,7 @@
     return new Intl.DateTimeFormat('ar-EG', { timeZone: 'Africa/Cairo', day: 'numeric', month: 'long', hour: 'numeric', minute: '2-digit' }).format(d);
   }
   function escH(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
-  function logo(src) { return src ? '<img class="t-logo" src="' + escH(src) + '" onerror="this.style.display=\'none\'">' : ''; }
+  function logo(src) { return src ? '<img loading="lazy" class="t-logo" src="' + escH(src) + '" onerror="this.style.display=\'none\'">' : ''; }
 
   var now = new Date();
   var start = new Date(now.getTime() - 2 * 86400000);
