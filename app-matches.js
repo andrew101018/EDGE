@@ -82,9 +82,9 @@ function renderFeaturedMatch() {
     el.innerHTML = `<div class="feat-card" data-match="${tag}">
       <div class="feat-league">🔴 ${m.league}</div>
       <div class="feat-teams">
-        <div class="feat-team">${teamLogo(m.homeLogo)}<span>${m.home}</span></div>
-        <div class="feat-score">${m.hs} - ${m.as}<small>${m.detail}</small></div>
-        <div class="feat-team">${teamLogo(m.awayLogo)}<span>${m.away}</span></div>
+        <div class="feat-team">${teamLogo(m.homeLogo)}<span>${m.home}</span><bdi dir="ltr" style="display:block;font-size:1.7em;font-weight:800;line-height:1.15;">${m.hs}</bdi></div>
+        <div class="feat-score"><small style="font-size:1em;">${m.detail}</small></div>
+        <div class="feat-team">${teamLogo(m.awayLogo)}<span>${m.away}</span><bdi dir="ltr" style="display:block;font-size:1.7em;font-weight:800;line-height:1.15;">${m.as}</bdi></div>
       </div>
       <div class="feat-cta">🔴 مباشر الآن — اضغط لمتابعة المباراة</div>
     </div>`;
@@ -147,23 +147,33 @@ function renderHomeMatches() {
   const finished = dayAll.filter(m => matchState(m) === 'post').sort((a, b) => ts(b) - ts(a));
   const ordered = live.concat(upcoming, finished).slice(0, 40);
   el.innerHTML = ordered.map(m => {
-    let center;
+    let center, homeRow, awayRow;
+    const sc = v => `<bdi dir="ltr" style="float:left;font-weight:800;">${v}</bdi>`;
+    const hasScore = m.hs != null && m.as != null && m.hs !== '' && m.as !== '';
     if (matchState(m) === 'in') {
-      center = `<div class="edge-mscore edge-live">${m.hs != null ? m.hs + ' - ' + m.as : ''}</div><div class="edge-mstatus">🔴 مباشر ${m.detail || ''}</div>`;
+      homeRow = `<div class="edge-mrow edge-live">${teamLogo(m.homeLogo)} ${m.home}${hasScore ? sc(m.hs) : ''}</div>`;
+      awayRow = `<div class="edge-mrow edge-live">${teamLogo(m.awayLogo)} ${m.away}${hasScore ? sc(m.as) : ''}</div>`;
+      center = `<div class="edge-mstatus">🔴 مباشر ${m.detail || ''}</div>`;
     } else if (m.detail === 'FT' && m.hs != null) {
-      center = `<div class="edge-mscore">${m.hs} - ${m.as}</div><div class="edge-mstatus">انتهت ${m.dateAr || ''}</div>`;
+      homeRow = `<div class="edge-mrow">${teamLogo(m.homeLogo)} ${m.home}${hasScore ? sc(m.hs) : ''}</div>`;
+      awayRow = `<div class="edge-mrow">${teamLogo(m.awayLogo)} ${m.away}${hasScore ? sc(m.as) : ''}</div>`;
+      center = `<div class="edge-mstatus">انتهت ${m.dateAr || ''}</div>`;
     } else if (m._stale && m.hs != null && m.as != null) {
       const ck = lastKnownCheck(m);
-      center = `<div class="edge-mscore edge-pre"><bdi dir="ltr">${m.hs} - ${m.as}</bdi></div><div class="edge-mstatus">⏳ في انتظار تحديث المصدر · آخر نتيجة معروفة${ck ? ' حتى ' + fmtStamp(ck) : ''}</div>`;
+      homeRow = `<div class="edge-mrow" style="color:#94a3b8;">${teamLogo(m.homeLogo)} ${m.home}${sc(m.hs)}</div>`;
+      awayRow = `<div class="edge-mrow" style="color:#94a3b8;">${teamLogo(m.awayLogo)} ${m.away}${sc(m.as)}</div>`;
+      center = `<div class="edge-mstatus">⏳ في انتظار تحديث المصدر · آخر نتيجة معروفة${ck ? ' حتى ' + fmtStamp(ck) : ''}</div>`;
     } else {
       const tstr = fmtCairoTime(m);
       const note = statusNote(m);
+      homeRow = `<div class="edge-mrow">${teamLogo(m.homeLogo)} ${m.home}</div>`;
+      awayRow = `<div class="edge-mrow">${teamLogo(m.awayLogo)} ${m.away}</div>`;
       center = `<div class="edge-mscore edge-pre">${tstr}</div><div class="edge-mstatus">${note}${m.dateAr ? ' — ' + m.dateAr : ''}</div>`;
     }
     return `<div class="edge-mcard" onclick="goMulti(['matches','tv'], null)">
       <div class="edge-mleague">${m.league}</div>
-      <div class="edge-mrow">${teamLogo(m.homeLogo)} ${m.home}</div>
-      <div class="edge-mrow">${teamLogo(m.awayLogo)} ${m.away}</div>
+      ${homeRow}
+      ${awayRow}
       ${center}
     </div>`;
   }).join('');
@@ -221,6 +231,7 @@ function refreshLiveScores() {
       renderMatches();
       renderFeaturedMatch();
       if (typeof renderHomeMatches === 'function') renderHomeMatches();
+      if (typeof renderFreshness === 'function') renderFreshness();
     }
   }).catch(() => {});
 }
@@ -243,13 +254,17 @@ function matchDateBadge(m) {
 function matchRow(m) {
   const timeStr = fmtCairoTime(m);
   const staleKnown = m._stale && m.hs != null && m.as != null;
+  const scored = (m.detail === 'FT' && m.hs != null) || staleKnown;
+  const scStyle = scored && staleKnown ? ' style="font-weight:800;color:#94a3b8;"' : ' style="font-weight:800;"';
+  const hSc = scored ? `<bdi dir="ltr"${scStyle}>${m.hs}</bdi>` : '';
+  const aSc = scored ? `<bdi dir="ltr"${scStyle}>${m.as}</bdi>` : '';
   const center = (m.detail === 'FT' && m.hs != null)
-    ? `<span class="live-score">${m.hs} - ${m.as}</span>`
+    ? `<span class="live-score" style="font-size:.8em;color:#94a3b8;">FT</span>`
     : (staleKnown
-      ? `<span class="live-score" style="color:#94a3b8;"><bdi dir="ltr">${m.hs} - ${m.as}</bdi></span>`
+      ? `<span class="live-score" style="font-size:.8em;color:#94a3b8;">⏳</span>`
       : `<span class="live-score" style="color:#94a3b8;font-size:1.05em;">${timeStr}</span>`);
   const ck = staleKnown ? lastKnownCheck(m) : '';
   const meta = staleKnown ? `⏳ في انتظار تحديث المصدر · آخر نتيجة معروفة${ck ? ' حتى ' + fmtStamp(ck) : ''}` : `${statusNote(m)}${m.dateAr ? ' — ' + m.dateAr : ''}`;
   const shareTxt = (m.detail === 'FT' && m.hs != null) ? `النتيجة: ${m.home} ${m.hs} - ${m.as} ${m.away}` : `${m.home} × ${m.away} — ${statusNote(m)}`;
-  return `<div class="live-card"><div class="live-teams"><span class="team-link" data-team="${m.slug}|${m.homeId}|${m.home}">${teamLogo(m.homeLogo)} ${m.home}</span>${center}<span class="team-link" data-team="${m.slug}|${m.awayId}|${m.away}">${m.away} ${teamLogo(m.awayLogo)}</span></div><div class="live-meta">${meta} ${edgeShareBtn(shareTxt, shareTxt, 'https://andrew101018.github.io/EDGE/')}</div></div>`;
+  return `<div class="live-card"><div class="live-teams"><span class="team-link" data-team="${m.slug}|${m.homeId}|${m.home}">${teamLogo(m.homeLogo)} ${m.home} ${hSc}</span>${center}<span class="team-link" data-team="${m.slug}|${m.awayId}|${m.away}">${aSc} ${m.away} ${teamLogo(m.awayLogo)}</span></div><div class="live-meta">${meta} ${edgeShareBtn(shareTxt, shareTxt, 'https://andrew101018.github.io/EDGE/')}</div></div>`;
 }
