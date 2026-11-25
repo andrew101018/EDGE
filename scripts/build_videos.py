@@ -70,6 +70,7 @@ def video_page(v, reviewed, vertical=False):
         meta = f"نُشر {v['published']} · المدة {dur_ar(v['duration'])} · قناة EDGE - ايدج على يوتيوب"
     else:
         meta = 'شورت من قناة EDGE - ايدج على يوتيوب'
+    article_btn = (f'<a class="vd-btn alt" href="../articles/{v["article"]}">📄 المقال المصاحب</a>' if v.get('article') else '')
     return HEAD + f"""<title>{v['title']} | EDGE</title>
 <meta name="description" content="{v['title']} — فيديو من قناة EDGE - ايدج على يوتيوب">
 <style>{STYLE}</style>
@@ -82,7 +83,7 @@ def video_page(v, reviewed, vertical=False):
 <div class="vd-embed{' short' if vertical else ''}"><iframe src="https://www.youtube-nocookie.com/embed/{v['id']}" title="{v['title']}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 <div class="vd-actions">
 <a class="vd-btn" href="https://www.youtube.com/watch?v={v['id']}" target="_blank" rel="noopener">▶️ شاهد على يوتيوب</a>
-<a class="vd-btn alt" href="index.html">🎬 باقي الفيديوهات</a>
+<a class="vd-btn alt" href="index.html">🎬 باقي الفيديوهات</a>{article_btn}
 </div>
 <div class="sub">المصدر: قناة EDGE - ايدج على يوتيوب · من مكتبة القناة · آخر مراجعة {reviewed}</div>
 </div>
