@@ -344,6 +344,9 @@ header { background: linear-gradient(135deg, #0b0f16, #16213a); border-bottom: 1
 /* Phase 1 v2: شريط مباريات الرئيسية + هوية زر المنيو */
 .edge-hm-title { display: flex; justify-content: space-between; align-items: baseline; padding-inline-start: 52px; scroll-margin-top: 70px; }
 .edge-sec-title { padding-inline-start: 52px; scroll-margin-top: 70px; }
+@media (max-width: 768px) {
+  .edge-hm-title { flex-direction: column; align-items: stretch; gap: 2px; }
+}
 .edge-hm-more { font-size: 0.55em; color: #eebf63; cursor: pointer; font-weight: 700; }
 .edge-mstrip { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 18px; scrollbar-width: none; }
 .edge-mstrip::-webkit-scrollbar { display: none; }
