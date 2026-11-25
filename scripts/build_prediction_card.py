@@ -75,17 +75,23 @@ def main():
         y += 76
     y += 40
 
-    # pick box
+    # pick box: each team name sits directly under its own number
     pick = spec["pick"]
     box = [120, y, W - 120, y + 300]
     d.rounded_rectangle(box, radius=26, outline=GOLD, width=5)
     rtext(d, (W - 160, y + 36), "التوقع", f_small, SUB)
-    score = f'{pick["hs"]} - {pick["as"]}'
-    sw = d.textlength(score, font=f_score)
-    d.text(((W - sw) / 2, y + 110), score, font=f_score, fill=TEXT)  # LTR digits
-    teams = f'{spec["home"]}   {spec["away"]}'
-    tw = d.textlength(teams, font=f_small, **RTL)
-    d.text(((W - tw) / 2, y + 230), teams, font=f_small, fill=SUB, **RTL)
+    hs_s, as_s = str(pick["hs"]), str(pick["as"])
+    # wide fixed columns: each digit and its team name share one column center
+    hs_cx, as_cx = 120 + (W - 240) * 0.28, 120 + (W - 240) * 0.72
+    dash = "-"
+    dd_w = d.textlength(dash, font=f_score)
+    d.text(((W - dd_w) / 2, y + 100), dash, font=f_score, fill=SUB)
+    for digit, cx in ((hs_s, hs_cx), (as_s, as_cx)):
+        dw = d.textlength(digit, font=f_score)
+        d.text((cx - dw / 2, y + 100), digit, font=f_score, fill=TEXT)  # LTR digits
+    for name, cx in ((spec["home"], hs_cx), (spec["away"], as_cx)):
+        nw = d.textlength(name, font=f_small, **RTL)
+        d.text((cx - nw / 2, y + 225), name, font=f_small, fill=SUB, **RTL)
     y += 300 + 60
 
     # status chip
@@ -98,11 +104,24 @@ def main():
 
     res = spec.get("result")
     if status != "pending" and res:
-        label = "النتيجة النهائية:"
-        rtext(d, (right, y), label, f_small, TEXT)
-        lw = d.textlength(label, font=f_small, **RTL)
-        score = f'{res["hs"]} - {res["as"]}'  # LTR digits, drawn as their own run
-        d.text((right - lw - 16 - d.textlength(score, font=f_small), y), score, font=f_small, fill=TEXT)
+        # named score: each digit drawn right after its own team name (RTL order)
+        rtext(d, (right, y), "النتيجة النهائية:", f_small, TEXT)
+        y += 50
+        x = right
+        for name, goals in ((spec["home"], res["hs"]), ("-", None), (spec["away"], res["as"])):
+            if name == "-":
+                sep = "-"
+                x -= d.textlength(sep, font=f_small) + 18
+                d.text((x, y), sep, font=f_small, fill=SUB)
+                x -= 18
+                continue
+            nw = d.textlength(name, font=f_small, **RTL)
+            x -= nw
+            d.text((x, y), name, font=f_small, fill=TEXT, **RTL)
+            g = str(goals)  # LTR digit glued to its own team name
+            x -= d.textlength(g, font=f_small) + 10
+            d.text((x, y), g, font=f_small, fill=GOLD)
+            x -= 22
         y += 56
 
     if spec.get("note"):
