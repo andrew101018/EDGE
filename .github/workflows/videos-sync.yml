@@ -1,0 +1,35 @@
+name: videos-sync
+# Adds new EDGE YouTube uploads (videos + shorts tabs) to the site library.
+# Public data only (yt-dlp flat playlist); commits via the built-in GITHUB_TOKEN.
+on:
+  schedule:
+    - cron: '23 */6 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: videos-sync
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install yt-dlp
+      - run: python3 scripts/build_videos.py --sync
+      - run: python3 scripts/build_fpl.py
+      - name: Commit rebuilt library
+        run: |
+          git config user.name "edge-site-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add videos/ fpl/
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "videos: sync library with YouTube channel"
+            git push
+          fi
