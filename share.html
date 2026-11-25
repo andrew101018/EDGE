@@ -335,10 +335,10 @@ function draw() {
 /* ---------- كروت الترتيب والهدافين ---------- */
 function altLayout() {
   if (H === 1920) {
-    return { pillY: 480, pillSize: 36, updY: 548, updSize: 27,
+    return { pillY: 480, pillSize: 36, updY: 550, updSize: 34,
       hdrY: 655, hdrSize: 30, hdrH: 80, rowH: 95, rowSize: 36, subSize: 25, maxRows: 8 };
   }
-  return { pillY: 335, pillSize: 27, updY: 386, updSize: 21,
+  return { pillY: 335, pillSize: 27, updY: 388, updSize: 26,
     hdrY: 450, hdrSize: 23, hdrH: 50, rowH: 62, rowSize: 27, subSize: 19, maxRows: 6 };
 }
 
@@ -348,7 +348,7 @@ function fmtAr(s) {
   var h = parseInt(m[4], 10) % 12 + (m[6] === "PM" ? 12 : 0);
   var d = new Date(Date.UTC(parseInt(m[1], 10), parseInt(m[2], 10) - 1, parseInt(m[3], 10), h - 2, parseInt(m[5], 10)));
   try {
-    return new Intl.DateTimeFormat("ar-EG", { timeZone: "Africa/Cairo", day: "numeric", month: "long", hour: "numeric", minute: "2-digit" }).format(d);
+    return new Intl.DateTimeFormat("ar-EG", { timeZone: "Africa/Cairo", day: "numeric", month: "long", year: "numeric", hour: "numeric", minute: "2-digit" }).format(d);
   } catch (e) {
     return s;
   }
