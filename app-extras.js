@@ -319,6 +319,7 @@ async function loadData() {
     renderHomeMatches();
     renderEditorialNews((DATA.news || []).slice(0, 4));
     renderEditorialOpinion((DATA.opinion || []).slice(0, 4));
+    renderUpdateInfo();
     var hmUp = document.getElementById('homeMatchesUpdate'); if (hmUp) hmUp.textContent = fmtStamp(DATA.matches_updated_at || DATA.updated_at || '');
     document.getElementById('tablesContainer').innerHTML = Object.entries(DATA.tables || {})
       .filter(([name, rows]) => rows && rows.length)
@@ -546,6 +547,19 @@ function renderEditorialNews(items) {
     const n = typeof raw === 'string' ? {t: raw, full: raw} : raw;
     container.appendChild(buildEditorialCard(n, null));
   });
+}
+// Item 38: when does the site update? Intended cadence vs actual freshness.
+// Only pipeline facts are stated; no content-frequency promises.
+function renderUpdateInfo() {
+  const el = document.getElementById('updateInfo');
+  if (!el) return;
+  const row = (icon, title, desc) => '<div class="card"><div style="font-weight:700;margin-bottom:2px;">' + icon + ' ' + title + '</div><div style="font-size:.85em;color:#b6c2d2;line-height:1.8;">' + desc + '</div></div>';
+  let html = '';
+  html += row('⚽', 'المباريات والنتائج', 'التحديث مضبوط على كل ٥ دقائق من بيانات عامة، لكن التنفيذ الفعلي بيعتمد على جدولة المنصة وممكن يتأخر أو يتخطى أحيانًا. آخر تحديث ناجح: <b>' + esc(fmtStamp(DATA.matches_updated_at || '')) + '</b> — ولو عدّى ٣٠ دقيقة بيظهر تنبيه "تحديث المباريات متأخر" أعلى الصفحة.');
+  html += row('📰', 'الأخبار الموثقة', 'مش تحديث دوري: الخبر بينزل لما يتأكد من مصدرين وتسجيله. آخر تحديث للأخبار: <b>' + esc(fmtStamp(DATA.updated_at || '')) + '</b>.');
+  html += row('🎬', 'فيديوهات القناة', 'مزامنة مجدوَلة كل ٦ ساعات مع قناة يوتيوب — الفيديو الجديد ممكن يوصل متأخر عن القناة، مش لحظي.');
+  html += row('🌍', 'الصحافة العالمية', 'الجمع التلقائي القديم متوقف — بتتجدد بأخبار موثقة من مصادر عالمية عبر نفس مسار التوثيق بمصادره.');
+  el.innerHTML = html;
 }
 // Item 36: separate EDGE opinion section, always labeled as opinion, never news.
 function renderEditorialOpinion(items) {
