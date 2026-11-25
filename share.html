@@ -35,6 +35,7 @@
 </div>
 <p class="note">لو زرار المشاركة مش شغال كصورة على جهازك: حمّل الصورة وابعتها يدوي — هي جاهزة بالمقاس الصح.</p>
 
+<script src="qrcode.min.js"></script>
 <script>
 (function () {
 "use strict";
@@ -330,6 +331,7 @@ function draw() {
   ctx.globalAlpha = 1;
 
   drawFooter(L);
+  drawCardQR();
 }
 
 /* ---------- كروت الترتيب والهدافين ---------- */
@@ -460,17 +462,27 @@ function drawPredictBody(d, A) {
       ctx.fillRect(60, ry - A.rowH / 2 + 4, W - 120, A.rowH - 8);
     }
     ctx.textBaseline = "middle";
-    fitText(p.home + " × " + p.away, 560, A.rowSize, 18, "bold");
+    /* الفريق الأول يمين بنتيجته، والتاني شمال بنتيجته */
+    fitText(String(p.home), 330, A.rowSize, 16, "bold");
     ctx.fillStyle = "#ffffff";
     ctx.textAlign = "right";
-    ctx.fillText(p.home + " × " + p.away, 1005, ry - A.rowSize * 0.35);
+    ctx.fillText(String(p.home), 1005, ry - A.rowSize * 0.35);
+    ctx.font = fontStr("bold", A.rowSize + 4);
+    ctx.fillStyle = "#fbbf24";
+    ctx.fillText(String(p.ph), 1005, ry + A.subSize * 0.95);
+    fitText(String(p.away), 330, A.rowSize, 16, "bold");
+    ctx.fillStyle = "#ffffff";
+    ctx.textAlign = "left";
+    ctx.fillText(String(p.away), 95, ry - A.rowSize * 0.35);
+    ctx.font = fontStr("bold", A.rowSize + 4);
+    ctx.fillStyle = "#fbbf24";
+    ctx.fillText(String(p.pa), 95, ry + A.subSize * 0.95);
     ctx.font = fontStr("normal", A.subSize);
     ctx.fillStyle = "#94a3b8";
-    ctx.fillText(String(p.league || ""), 1005, ry + A.subSize * 0.95);
-    ctx.font = fontStr("bold", A.rowSize + 8);
-    ctx.fillStyle = "#fbbf24";
     ctx.textAlign = "center";
-    ctx.fillText(String(p.ph) + " - " + String(p.pa), 150, ry);
+    fitText(String(p.league || ""), 300, A.subSize, 14, "normal");
+    ctx.fillStyle = "#94a3b8";
+    ctx.fillText(String(p.league || ""), W / 2, ry);
   }
 }
 
@@ -496,6 +508,41 @@ function drawAlt() {
     else drawErrBody(altData);
   }
   drawFooter(L);
+  drawCardQR();
+}
+
+function qrUrl() {
+  var base = "https://andrew101018.github.io/EDGE/";
+  if (CARD_TYPE === "table") return base + "#tablesContainer";
+  if (CARD_TYPE === "scorer") return base + "#leadersContainer";
+  if (CARD_TYPE === "predict") return base + "#predictContainer";
+  return base;
+}
+
+function drawQR(cx, cy, size, url) {
+  try {
+    var qr = qrcode(0, "M");
+    qr.addData(url);
+    qr.make();
+    var n = qr.getModuleCount();
+    var cell = size / (n + 4);
+    var x0 = cx - size / 2, y0 = cy - size / 2;
+    ctx.fillStyle = "#ffffff";
+    rrect(x0, y0, size, size, Math.max(8, size * 0.09));
+    ctx.fill();
+    ctx.fillStyle = "#0b1220";
+    var off = cell * 2;
+    for (var r = 0; r < n; r++) {
+      for (var c = 0; c < n; c++) {
+        if (qr.isDark(r, c)) ctx.fillRect(x0 + off + c * cell, y0 + off + r * cell, cell + 0.6, cell + 0.6);
+      }
+    }
+  } catch (e) {}
+}
+
+function drawCardQR() {
+  if (H === 1920) { drawQR(W / 2, 1845, 130, qrUrl()); }
+  else { drawQR(W - 150, 1015, 90, qrUrl()); }
 }
 
 function drawAll() {
