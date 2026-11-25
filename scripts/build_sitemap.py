@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Rebuild sitemap.xml from the pages actually in the repo (idea #5).
 
-Scans articles/, teams/, players/ plus the homepage, so new pages are
+Scans articles/, teams/, players/, videos/, fpl/ plus the homepage, so new pages are
 picked up automatically when they land on main. lastmod comes from each
 file's last git commit date (truthful modification date), never the run
 date. Run from the repo root:
@@ -59,6 +59,13 @@ def main():
     if os.path.exists("videos/index.html"):
         entries.append(url(SITE + "/videos/", "0.6", lastmod("videos/index.html")))
     for path in sorted(glob.glob("videos/*.html")):
+        if path.endswith("index.html"):
+            continue
+        entries.append(url(f"{SITE}/{path}", "0.5", lastmod(path)))
+
+    if os.path.exists("fpl/index.html"):
+        entries.append(url(SITE + "/fpl/", "0.6", lastmod("fpl/index.html")))
+    for path in sorted(glob.glob("fpl/*.html")):
         if path.endswith("index.html"):
             continue
         entries.append(url(f"{SITE}/{path}", "0.5", lastmod(path)))
