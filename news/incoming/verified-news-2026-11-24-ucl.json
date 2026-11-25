@@ -1,0 +1,136 @@
+{
+ "contract": "verified-news-v1: one record per item; site publishes exact fields only, no rewriting; each record needs full-time state + 2 independent sources checked after FT (results) or 2 sources (other news); sender = EDGE publishing agent; omit unresolved items",
+ "fetched_cairo": "2026-11-25T08:55:00+02:00",
+ "sources": [
+  {
+   "name": "Eurosport.it results (updated 24/11 23:14 CET)",
+   "url": "https://www.eurosport.it/calcio/champions-league/2026-2027/i-risultati-di-martedi-24-novembre-real-madrid-psv-5-1-feyenoord-porto-0-1-lipsia-lens-3-1-slovan-bratislava-real-betis-0-2_sto23358243/story.shtml"
+  },
+  {
+   "name": "UEFA.com round-up",
+   "url": "https://www.uefa.com/uefachampionsleague/news/02ab-222684fc8e44-2b1a32c90a7a-1000--champions-league-round-up-real-madrid-stay-perfect-galat/"
+  },
+  {
+   "name": "ESPN scoreboard uefa.champions 20261124 (all 9 STATUS_FULL_TIME)",
+   "read_at": "2026-11-24T22:35:43Z"
+  }
+ ],
+ "also_confirmed": {
+  "Real Madrid 5-1 PSV": "https://www.realmadrid.com/en-US/news/football/first-team/reports/cronica-real-madrid-psv-j5-champions-league-24-11-2026"
+ },
+ "standings_after_tuesday": {
+  "note": "snapshot after the nine Tuesday matches, not current",
+  "sources": [
+   "https://www.bbc.com/sport/football/live/c6zxvne4nk7wt (last updated 24 Nov 2026 22:52)",
+   "https://sport.sky.it/calcio/champions-league/2026/11/24/champions-league-2026-2027-classifica-5-giornata (24 nov 2026 23:20 CET)"
+  ],
+  "fetched_cairo": "2026-11-25T09:00:00+02:00",
+  "rows": "Real Madrid 15 (5 played), PSG 12 (4), Como 12, Betis 12, Arsenal 11, Man City 10, Dortmund 10, Barcelona 9 (4), Galatasaray 9, Bodo/Glimt 7, Slovan Bratislava 0"
+ },
+ "results": [
+  {
+   "id": "ucl-2026-11-24-1",
+   "type": "result",
+   "competition": "دوري أبطال أوروبا",
+   "round": "الجولة الخامسة",
+   "date": "2026-11-24",
+   "home": "ريال مدريد",
+   "away": "آيندهوفن",
+   "score": "5-1",
+   "status": "FT"
+  },
+  {
+   "id": "ucl-2026-11-24-2",
+   "type": "result",
+   "competition": "دوري أبطال أوروبا",
+   "round": "الجولة الخامسة",
+   "date": "2026-11-24",
+   "home": "مانشستر سيتي",
+   "away": "نابولي",
+   "score": "2-2",
+   "status": "FT"
+  },
+  {
+   "id": "ucl-2026-11-24-3",
+   "type": "result",
+   "competition": "دوري أبطال أوروبا",
+   "round": "الجولة الخامسة",
+   "date": "2026-11-24",
+   "home": "أرسنال",
+   "away": "بوروسيا دورتموند",
+   "score": "1-1",
+   "status": "FT"
+  },
+  {
+   "id": "ucl-2026-11-24-4",
+   "type": "result",
+   "competition": "دوري أبطال أوروبا",
+   "round": "الجولة الخامسة",
+   "date": "2026-11-24",
+   "home": "كومو",
+   "away": "إيك أثينا",
+   "score": "1-0",
+   "status": "FT"
+  },
+  {
+   "id": "ucl-2026-11-24-5",
+   "type": "result",
+   "competition": "دوري أبطال أوروبا",
+   "round": "الجولة الخامسة",
+   "date": "2026-11-24",
+   "home": "غلطة سراي",
+   "away": "أستون فيلا",
+   "score": "1-0",
+   "status": "FT"
+  },
+  {
+   "id": "ucl-2026-11-24-6",
+   "type": "result",
+   "competition": "دوري أبطال أوروبا",
+   "round": "الجولة الخامسة",
+   "date": "2026-11-24",
+   "home": "بودو غليمت",
+   "away": "لاسك",
+   "score": "1-0",
+   "status": "FT"
+  },
+  {
+   "id": "ucl-2026-11-24-7",
+   "type": "result",
+   "competition": "دوري أبطال أوروبا",
+   "round": "الجولة الخامسة",
+   "date": "2026-11-24",
+   "home": "لايبزيج",
+   "away": "لانس",
+   "score": "3-1",
+   "status": "FT"
+  },
+  {
+   "id": "ucl-2026-11-24-8",
+   "type": "result",
+   "competition": "دوري أبطال أوروبا",
+   "round": "الجولة الخامسة",
+   "date": "2026-11-24",
+   "home": "سلوفان براتيسلافا",
+   "away": "ريال بيتيس",
+   "score": "0-2",
+   "status": "FT"
+  },
+  {
+   "id": "ucl-2026-11-24-9",
+   "type": "result",
+   "competition": "دوري أبطال أوروبا",
+   "round": "الجولة الخامسة",
+   "date": "2026-11-24",
+   "home": "فينورد",
+   "away": "بورتو",
+   "score": "0-1",
+   "status": "FT"
+  }
+ ],
+ "caveats": [
+  "Team-name spellings from the Arabic recap script; Eurosport page lists scores Real 5-1 PSV, Feyenoord 0-1 Porto, Leipzig 3-1 Lens, Slovan 0-2 Betis in its URL",
+  "Items in only one source: Real top alone with full points and Bodo 7 pts (Eurosport); Bouaddi first senior goal, Player of the Match names (UEFA): do not publish these",
+  "Egyptian league round 9: not packaged (sources not on file here); will send later"
+ ]
+}
