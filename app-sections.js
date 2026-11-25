@@ -489,50 +489,44 @@ function allPlayers() {
 }
 
 function fillPlayerSelects() {
-  const a = document.getElementById('playerA'), b = document.getElementById('playerB');
+  const a = document.getElementById('playerA'), b = document.getElementById('playerB'), lg = document.getElementById('playerLeague');
   if (!a || a.options.length) return;
   const opts = allPlayers().map(p => `<option value="${p.name.replace(/"/g, '&quot;')}">${p.name}${p.team ? ' — ' + p.team : ''}</option>`).join('');
   a.innerHTML = opts;
   b.innerHTML = opts;
   if (b.options.length > 1) b.selectedIndex = 1;
+  if (lg && !lg.options.length) {
+    lg.innerHTML = Object.keys(DATA.leaders || {}).map(l => `<option>${l}</option>`).join('');
+  }
 }
 
 function renderPlayerCompare() {
   const players = allPlayers();
   const pa = players.find(p => p.name === document.getElementById('playerA').value);
   const pb = players.find(p => p.name === document.getElementById('playerB').value);
-  if (!pa || !pb) return;
-  const row = (label, va, vb) => {
-    const na = Number(va) || 0, nb = Number(vb) || 0;
-    const ca = na > nb ? '#4ade80' : na < nb ? '#f87171' : '#fff';
-    const cb = nb > na ? '#4ade80' : nb < na ? '#f87171' : '#fff';
-    return `<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#0f172a;border-radius:10px;margin-bottom:8px;">
-      <b style="color:${ca};flex:1;text-align:right;">${va}</b>
-      <span style="opacity:.8;flex:1;text-align:center;">${label}</span>
-      <b style="color:${cb};flex:1;text-align:left;">${vb}</b>
-    </div>`;
-  };
-  const txt = (label, va, vb) => `<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#0f172a;border-radius:10px;margin-bottom:8px;">
-      <b style="flex:1;text-align:right;">${va}</b>
-      <span style="opacity:.8;flex:1;text-align:center;">${label}</span>
-      <b style="flex:1;text-align:left;">${vb}</b>
-    </div>`;
+  const lg = document.getElementById('playerLeague').value;
+  if (!pa || !pb || !lg) return;
+  const ga = (pa.leagues.find(x => x.league === lg) || {}).goals;
+  const gb = (pb.leagues.find(x => x.league === lg) || {}).goals;
+  const MISSING = 'غير مسجل';
+  const cell = g => (typeof g === 'number') ? g : `<span style="opacity:.75;font-size:.85em;">${MISSING}</span>`;
+  const bothKnown = (typeof ga === 'number') && (typeof gb === 'number');
+  const ca = bothKnown ? (ga > gb ? '#4ade80' : ga < gb ? '#f87171' : '#fff') : '#fff';
+  const cb = bothKnown ? (gb > ga ? '#4ade80' : gb < ga ? '#f87171' : '#fff') : '#fff';
   const head = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
     <div style="text-align:center;flex:1;"><b>${pa.name}</b><div style="opacity:.7;font-size:.8em;">${pa.team}</div></div>
     <div style="font-size:1.6em;">⚖️</div>
     <div style="text-align:center;flex:1;"><b>${pb.name}</b><div style="opacity:.7;font-size:.8em;">${pb.team}</div></div>
   </div>`;
-  const leagues = [];
-  pa.leagues.forEach(e => { if (!leagues.includes(e.league)) leagues.push(e.league); });
-  pb.leagues.forEach(e => { if (!leagues.includes(e.league)) leagues.push(e.league); });
-  const goalsIn = (p, lg) => {
-    const e = p.leagues.find(x => x.league === lg);
-    return e ? e.goals : '—';
-  };
-  let body = row('إجمالي الأهداف', pa.total, pb.total);
-  leagues.forEach(lg => { body += row(lg, goalsIn(pa, lg), goalsIn(pb, lg)); });
-  const verdict = pa.total === pb.total ? '' : `<div class="card" style="text-align:center;font-weight:bold;color:#fbbf24;">${pa.total > pb.total ? pa.name : pb.name} الأعلى أهدافًا 🔥</div>`;
-  document.getElementById('playerCompareContainer').innerHTML = head + txt('الفريق', pa.team || '—', pb.team || '—') + body + verdict;
+  const row = `<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#0f172a;border-radius:10px;margin-bottom:8px;">
+      <b style="color:${ca};flex:1;text-align:right;">${cell(ga)}</b>
+      <span style="opacity:.8;flex:1;text-align:center;">الأهداف</span>
+      <b style="color:${cb};flex:1;text-align:left;">${cell(gb)}</b>
+    </div>`;
+  document.getElementById('playerCompareContainer').innerHTML = head + row;
+  const upd = DATA.updated_at ? ` — آخر تحديث للموقع: ${DATA.updated_at}` : '';
+  document.getElementById('playerCompareMeta').textContent =
+    `الأرقام من جدول هدافي «${lg}» المسجل عندنا${upd}. «${MISSING}» يعني اللاعب مش ظاهر في الجدول ده في بياناتنا، مش إنه سجل صفر. المقارنة دي لقطة من جداول الهدافين، مش إحصائية موسم كاملة.`;
 }
 
 const AR2EN = {"ريال مدريد":"Real Madrid","برشلونة":"Barcelona","ليفربول":"Liverpool","مانشستر سيتي":"Manchester City","مانشستر يونايتد":"Manchester United","تشيلسي":"Chelsea","أرسنال":"Arsenal","توتنهام":"Tottenham Hotspur","باريس سان جيرمان":"Paris Saint-Germain","بايرن ميونخ":"Bayern Munich","يوفنتوس":"Juventus","إنتر ميلان":"Inter","ميلان":"AC Milan","أتلتيكو مدريد":"Atlético Madrid","بوروسيا دورتموند":"Borussia Dortmund","نابولي":"Napoli","الأهلي":"Al Ahly","الزمالك":"Zamalek","بيراميدز":"Pyramids FC","الهلال":"Al Hilal","النصر":"Al Nassr","الاتحاد":"Al Ittihad","الأهلي السعودي":"Al Ahli","الشباب":"Al Shabab","الاتفاق":"Al Ettifaq","أستون فيلا":"Aston Villa","نيوكاسل":"Newcastle United"};
