@@ -21,10 +21,13 @@
 .eg-meta { color:#94a3b8; font-size:.82em; margin-top:6px; }
 .eg-score { color:#fbbf24; font-weight:bold; }
 .eg-live { color:#4ade80; font-weight:bold; }
+.eg-sb { background:#0f172a; border:1px solid #334155; border-radius:6px; padding:1px 8px; font-weight:bold; }
+.eg-sb.win { background:#fbbf24; color:#0f172a; border-color:#fbbf24; }
+.eg-back { display:inline-block; background:#16213a; border:1px solid #24344f; border-radius:20px; padding:8px 18px; color:#94a3b8; text-decoration:none; margin:14px 14px 4px; font-weight:bold; }
 </style>
 </head>
 <body>
-<nav><a href="https://andrew101018.github.io/EDGE/">Edge Football ⚽ الصفحة الرئيسية</a></nav>
+<nav><a class="eg-back" href="https://andrew101018.github.io/EDGE/">⚽ الصفحة الرئيسية</a></nav>
 <main class="container">
   <h1 style="color:#ef4444;">🇪🇬 الكورة المصرية</h1>
   <p class="eg-stamp" id="egStamp">جاري تحميل البيانات…</p>
@@ -50,15 +53,24 @@
       return d.toLocaleTimeString('ar-EG', { timeZone: 'Africa/Cairo', hour: 'numeric', minute: '2-digit' });
     } catch (e) { return fallback || ''; }
   }
+  /* Score boxes sit next to their OWN team, winner highlighted — never a central ambiguous score string. */
+  function scoreBoxes(hs, as) {
+    var h = +hs, a = +as;
+    var hWin = h > a, aWin = a > h;
+    return {
+      h: '<span class="eg-sb' + (hWin ? ' win' : '') + '">' + esc(hs) + '</span>',
+      a: '<span class="eg-sb' + (aWin ? ' win' : '') + '">' + esc(as) + '</span>'
+    };
+  }
   function matchCard(m) {
-    var score = '';
-    if (m.state === 'post' || m.detail === 'FT') score = '<span class="eg-score">' + esc(m.hs) + ' - ' + esc(m.as) + '</span>';
-    else if (m.state === 'in' || m.state === 'live') score = '<span class="eg-live">مباشر 🔴</span>';
-    else score = '<span class="eg-vs">VS</span>';
-    var meta = esc(m.dateAr || '') + (m.state === 'pre' ? ' · ' + esc(fmtTime(m.date, m.time)) : '') + (m.detail && m.state !== 'pre' ? ' · ' + esc(m.detail) : '');
+    var played = (m.state === 'post' || m.detail === 'FT');
+    var live = (m.state === 'in' || m.state === 'live');
+    var sb = played ? scoreBoxes(m.hs, m.as) : { h: '', a: '' };
+    var mid = played ? '<span class="eg-vs">انتهت</span>' : (live ? '<span class="eg-live">مباشر 🔴</span>' : '<span class="eg-vs">' + esc(fmtTime(m.date, m.time)) + '</span>');
+    var meta = esc(m.dateAr || '') + (m.detail && m.state !== 'pre' ? ' · ' + esc(m.detail) : '');
     return '<div class="eg-mcard"><div class="eg-teams">' +
-      '<span class="eg-team">' + teamImg(m.homeLogo) + esc(m.home) + '</span>' + score +
-      '<span class="eg-team">' + esc(m.away) + teamImg(m.awayLogo) + '</span></div>' +
+      '<span class="eg-team">' + teamImg(m.homeLogo) + esc(m.home) + sb.h + '</span>' + mid +
+      '<span class="eg-team">' + sb.a + esc(m.away) + teamImg(m.awayLogo) + '</span></div>' +
       '<div class="eg-meta">' + meta + '</div></div>';
   }
   function fill(box, cards, emptyText) {
@@ -75,24 +87,28 @@
       return new Date(iso).toLocaleDateString('ar-EG', { timeZone: 'Africa/Cairo', day: 'numeric', month: 'long', year: 'numeric' });
     } catch (e) { return ''; }
   }
+  /* Vetted Arabic names for NT opponents seen in the feeds; unmapped names fall back to ESPN's. */
+  var NT_AR = { 'Egypt': 'مصر', 'Malawi': 'مالاوي', 'South Africa': 'جنوب أفريقيا', 'South Sudan': 'جنوب السودان', 'Angola': 'أنجولا', 'Belgium': 'بلجيكا', 'New Zealand': 'نيوزيلندا', 'Iran': 'إيران', 'Australia': 'أستراليا', 'Argentina': 'الأرجنتين' };
+  function ntName(t) { return NT_AR[t] || t; }
   function ntCard(ev, comp) {
     var c = (ev.competitions && ev.competitions[0]) || {};
     var comps = c.competitors || [];
     var home = comps.filter(function (x) { return x.homeAway === 'home'; })[0] || {};
     var away = comps.filter(function (x) { return x.homeAway === 'away'; })[0] || {};
-    var hn = (home.team && (home.team.displayName || home.team.name)) || '?';
-    var an = (away.team && (away.team.displayName || away.team.name)) || '?';
+    var hn = ntName((home.team && (home.team.displayName || home.team.name)) || '?');
+    var an = ntName((away.team && (away.team.displayName || away.team.name)) || '?');
     var st = (c.status && c.status.type) || {};
+    var played = !!(st.completed || st.state === 'post');
+    var sb = played ? scoreBoxes(home.score && home.score.value, away.score && away.score.value) : { h: '', a: '' };
     var mid;
-    if (st.completed || st.state === 'post') {
-      mid = '<span class="eg-score">' + esc(home.score && home.score.value) + ' - ' + esc(away.score && away.score.value) + '</span>';
-    } else {
+    if (played) mid = '<span class="eg-vs">انتهت</span>';
+    else {
       var d = new Date(ev.date);
       var midnight = d.getUTCHours() === 0 && d.getUTCMinutes() === 0;
       mid = '<span class="eg-vs">' + (midnight ? 'الموعد لسه متحدد' : esc(fmtTime(ev.date))) + '</span>';
     }
     return '<div class="eg-mcard" style="border-right-color:#3b82f6;"><div class="eg-teams">' +
-      '<span class="eg-team">' + esc(hn) + '</span>' + mid + '<span class="eg-team">' + esc(an) + '</span></div>' +
+      '<span class="eg-team">' + esc(hn) + sb.h + '</span>' + mid + '<span class="eg-team">' + sb.a + esc(an) + '</span></div>' +
       '<div class="eg-meta">' + esc(comp) + ' · ' + esc(fmtDayCairo(ev.date)) + '</div></div>';
   }
   function loadNT() {
@@ -111,8 +127,8 @@
         return (st.completed || st.state === 'post') && new Date(e.date) <= now;
       }).sort(function (a, b) { return new Date(b.date) - new Date(a.date); });
       var cards = upcoming.slice(0, 3).map(function (e) { return ntCard(e, e.__comp); });
-      if (!upcoming.length) {
-        /* ESPN schedule API has no dated upcoming NT fixture yet; next window verified on ESPN's fixtures page. Self-heals once the API lists fixtures. */
+      if (!upcoming.length && Date.now() < Date.UTC(2027, 2, 29)) {
+        /* Self-expiring (gone after 28 Mar 2027) and self-healing (gone once the API lists fixtures). */
         cards.push('<div class="eg-mcard" style="border-right-color:#f59e0b;"><div class="eg-meta" style="margin-top:0;line-height:1.9;">أقرب ماتشات جاية للمنتخب حسب جدول ESPN: أنجولا × مصر (24 مارس 2027) ومصر × جنوب السودان (28 مارس 2027) — المواعيد بالتوقيت لسه متحددة.<br>المصدر: ESPN · آخر مراجعة 25 نوفمبر 2026</div></div>');
       }
       cards = cards.concat(played.slice(0, 4).map(function (e) { return ntCard(e, e.__comp); }));
