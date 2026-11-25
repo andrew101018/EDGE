@@ -1,0 +1,37 @@
+name: TG Rights check (read-only)
+on:
+  workflow_dispatch:
+jobs:
+  tg-rights:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show bot role and rights in the channel (no secrets)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+        run: |
+          python3 - <<'PY'
+          import os, json, urllib.request, urllib.parse, urllib.error
+          base = "https://api.telegram.org/bot" + os.environ["TELEGRAM_BOT_TOKEN"] + "/"
+          def call(m, **kw):
+              data = urllib.parse.urlencode(kw).encode()
+              try:
+                  return json.load(urllib.request.urlopen(urllib.request.Request(base + m, data=data), timeout=30))
+              except urllib.error.HTTPError as e:
+                  try:
+                      b = json.load(e)
+                  except Exception:
+                      b = {}
+                  return {"ok": False, "error_code": b.get("error_code", e.code), "description": b.get("description")}
+          me = call("getMe")
+          bot_id = (me.get("result") or {}).get("id")
+          print("getMe ok:", me.get("ok"), "is_bot:", (me.get("result") or {}).get("is_bot"))
+          m = call("getChatMember", chat_id=os.environ["TELEGRAM_CHANNEL_ID"], user_id=bot_id)
+          if not m.get("ok"):
+              print("getChatMember failed:", m.get("error_code"), m.get("description"))
+          else:
+              r = m["result"]
+              print("status:", r.get("status"))
+              for k in ("can_be_edited","can_change_info","can_post_messages","can_edit_messages","can_delete_messages","can_invite_users","can_manage_chat"):
+                  print(k, "=", r.get(k))
+          PY
