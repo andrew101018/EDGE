@@ -7,7 +7,7 @@ let _featTimer = null;
 
 function countdownInner(target) {
   const diff = target - Date.now();
-  if (diff <= 0) return '🎯 جارية الآن!';
+  if (diff <= 0) return '⏳ في انتظار تحديث المصدر'; // لا نستنتج البدء من الساعة - المصدر وحده يؤكد الحالة
   const d = Math.floor(diff / 86400000);
   const h = Math.floor((diff % 86400000) / 3600000);
   const mn = Math.floor((diff % 3600000) / 60000);
@@ -37,7 +37,7 @@ function statusNote(m) {
   if (m.state === 'in') return 'مباشر';
   if (m.detail === 'FT' || m.state === 'post') return 'انتهت';
   const t = Date.parse(m.date || '');
-  if (!Number.isNaN(t) && t <= Date.now()) return 'غير مؤكد'; // لا نعرف: تأجيل/إلغاء/انتهاء محتمل
+  if (!Number.isNaN(t) && t <= Date.now()) return '⏳ في انتظار تحديث المصدر'; // عدّى موعد البداية والمصدر لسه مجدولة - لا نعرف: تأجيل/إلغاء/انتهاء محتمل
   return 'مجدولة';
 }
 
