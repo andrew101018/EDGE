@@ -506,6 +506,9 @@ function renderPlayerCompare() {
   const pb = players.find(p => p.name === document.getElementById('playerB').value);
   const lg = document.getElementById('playerLeague').value;
   if (!pa || !pb || !lg) return;
+  const selA = document.getElementById('playerA'), selB = document.getElementById('playerB');
+  selA.title = selA.options[selA.selectedIndex].text;
+  selB.title = selB.options[selB.selectedIndex].text;
   const ga = (pa.leagues.find(x => x.league === lg) || {}).goals;
   const gb = (pb.leagues.find(x => x.league === lg) || {}).goals;
   const MISSING = 'غير مسجل';
