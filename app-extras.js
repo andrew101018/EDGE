@@ -317,6 +317,7 @@ async function loadData() {
     renderFeaturedMatch();
     renderHomeMatches();
     renderEditorialNews((DATA.news || []).slice(0, 4));
+    renderEditorialOpinion((DATA.opinion || []).slice(0, 4));
     var hmUp = document.getElementById('homeMatchesUpdate'); if (hmUp) hmUp.textContent = fmtStamp(DATA.matches_updated_at || DATA.updated_at || '');
     document.getElementById('tablesContainer').innerHTML = Object.entries(DATA.tables || {})
       .filter(([name, rows]) => rows && rows.length)
@@ -383,6 +384,153 @@ function installApp() {
 
 
 // Draft: source-aware cards; legacy news remain readable without inventing provenance.
+// Bind a trailing score to its team: nbsp glue plus an isolated LTR nowrap
+// span, so a line wrap can never detach the score or flip its digit order.
+const EDITORIAL_RES = /^(.*):[ \t]*(\d+[ \t]*[-\u2013][ \t]*\d+)[ \t]*$/;
+function editorialAppendLine(p, line) {
+  const m = line.match(EDITORIAL_RES);
+  if (!m) { p.appendChild(document.createTextNode(line)); return; }
+  p.appendChild(document.createTextNode(m[1] + ':\u00A0'));
+  const sc = document.createElement('span');
+  sc.dir = 'ltr';
+  sc.style.whiteSpace = 'nowrap';
+  sc.textContent = m[2];
+  p.appendChild(sc);
+}
+function editorialFmtCairo(iso, withTime) {
+  if (!iso) return '';
+  if (/^\d{4}-\d{2}-\d{2}$/.test(iso)) {
+    const [y, m, d] = iso.split('-').map(Number);
+    return new Intl.DateTimeFormat('ar-EG', { timeZone: 'UTC', dateStyle: 'medium' }).format(new Date(Date.UTC(y, m - 1, d)));
+  }
+  if (Number.isNaN(Date.parse(iso))) return '';
+  const opts = { timeZone: 'Africa/Cairo', dateStyle: 'medium' };
+  if (withTime) opts.timeStyle = 'short';
+  return new Intl.DateTimeFormat('ar-EG', opts).format(new Date(iso));
+}
+function buildEditorialCard(n, opts) {
+  const opinion = !!(opts && opts.opinion);
+  const card = document.createElement('article');
+  card.className = 'news-card';
+  const thumb = document.createElement('span');
+  thumb.className = 'edge-nthumb';
+  thumb.textContent = opinion ? 'رأي' : 'EDGE';
+  if (opinion) thumb.style.background = '#7c3aed';
+  const wrap = document.createElement('div');
+  wrap.className = 'edge-nwrap';
+  const title = document.createElement('h3');
+  title.className = 'news-title';
+  title.textContent = (n.t || '').replace(/[\u00a0\u202f]/g, ' ');
+  const body = document.createElement('p');
+  body.className = 'edge-nexcerpt';
+  const full = (n.full || n.t || '').trim();
+  const first = (n.t || '').trim();
+  let brief = full.startsWith(first) ? full.slice(first.length).trim() : full;
+  const norm = s => s.replace(/[^\u0621-\u064Aa-zA-Z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
+  const nb = norm(brief), nt = norm(first);
+  if (!nb || nt.startsWith(nb.slice(0, 50)) || nb.startsWith(nt.slice(0, 50))) brief = '';
+  brief = brief.replace(/[\u00a0\u202f]/g, ' ');
+  if (brief) {
+    let cut = brief;
+    if (cut.length > 140) {
+      const nl = cut.lastIndexOf('\n', 140);
+      cut = (nl > 40 ? cut.slice(0, nl) : cut.slice(0, 140)) + '\u2026';
+    }
+    cut.split('\n').forEach((ln, idx) => {
+      if (idx) body.appendChild(document.createTextNode('\n'));
+      editorialAppendLine(body, ln);
+    });
+  }
+  const meta = document.createElement('p');
+  meta.className = 'edge-nmeta';
+  const date = editorialFmtCairo(n.published_at, true);
+  const parts = [];
+  if (opinion) parts.push('رأي وتحليل — مش خبر موثق');
+  parts.push(n.source || 'المصدر غير محفوظ');
+  if (date) parts.push(date);
+  meta.textContent = parts.join(' — ');
+  wrap.appendChild(title);
+  if (opinion) {
+    const tag = document.createElement('p');
+    tag.style.cssText = 'display:inline-block;margin:2px 0 6px;padding:2px 10px;border-radius:999px;background:#7c3aed;color:#fff;font-size:.72em;font-weight:700;';
+    tag.textContent = 'رأي';
+    wrap.appendChild(tag);
+  }
+  if (brief) wrap.appendChild(body);
+  wrap.appendChild(meta);
+  card.append(thumb, wrap);
+  if (n.url) {
+    try {
+      const url = new URL(n.url);
+      if (['https:', 'http:'].includes(url.protocol)) {
+        const link = document.createElement('a');
+        link.href = url.href;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = opinion ? 'اقرأ الأساس عند المصدر' : 'اقرأ عند المصدر';
+        link.style.cssText = 'display:inline-block;min-height:44px;padding-block:10px';
+        wrap.appendChild(link);
+      }
+    } catch (_) { /* An invalid source URL is not rendered. */ }
+  }
+  // Detail expander: the full verified body, one element per line, plus
+  // verification timestamp and source list. Nothing is rephrased or added.
+  const srcs = Array.isArray(n.sources) ? n.sources.filter(u => /^https?:/.test(u || '')) : [];
+  const checkedStr = editorialFmtCairo(n.checked_at, true);
+  const hasMore = full && full !== first && (full.length > (brief || '').length || srcs.length || checkedStr);
+  if (hasMore) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'edge-ndetails-btn';
+    btn.textContent = 'عرض التفاصيل كاملة';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.style.cssText = 'display:inline-block;min-height:44px;padding:8px 12px;margin-top:6px;background:none;border:1px solid #334155;border-radius:8px;color:#fbbf24;font-size:.85em;cursor:pointer;font-family:inherit;';
+    const det = document.createElement('div');
+    det.className = 'edge-ndetails';
+    det.style.cssText = 'display:none;margin-top:8px;border-top:1px solid #1e293b;padding-top:8px;';
+    full.split('\n').forEach(line => {
+      if (!line.trim()) return;
+      const p = document.createElement('p');
+      p.dir = 'auto';
+      p.style.cssText = 'margin:4px 0;font-size:.9em;line-height:1.7;';
+      editorialAppendLine(p, line.trim());
+      det.appendChild(p);
+    });
+    if (checkedStr) {
+      const chk = document.createElement('p');
+      chk.dir = 'auto';
+      chk.style.cssText = 'margin:10px 0 0;font-size:.78em;color:#94a3b8;';
+      chk.textContent = 'آخر فحص للمصادر: ' + checkedStr;
+      det.appendChild(chk);
+    }
+    if (srcs.length) {
+      const sh = document.createElement('p');
+      sh.style.cssText = 'margin:8px 0 2px;font-size:.78em;color:#94a3b8;';
+      sh.textContent = 'مصادر التحقق:';
+      det.appendChild(sh);
+      srcs.forEach(u => {
+        try {
+          const a = document.createElement('a');
+          a.href = new URL(u).href;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          a.textContent = new URL(u).hostname.replace(/^www\./, '');
+          a.style.cssText = 'display:block;min-height:44px;padding-block:10px;font-size:.85em;color:#7cb3ff;direction:ltr;text-align:right;';
+          det.appendChild(a);
+        } catch (_) { /* An invalid source URL is not rendered. */ }
+      });
+    }
+    btn.addEventListener('click', () => {
+      const open = det.style.display !== 'none';
+      det.style.display = open ? 'none' : 'block';
+      btn.setAttribute('aria-expanded', String(!open));
+      btn.textContent = open ? 'عرض التفاصيل كاملة' : 'إخفاء التفاصيل';
+    });
+    wrap.appendChild(btn);
+    wrap.appendChild(det);
+  }
+  return card;
+}
 function renderEditorialNews(items) {
   const container = document.getElementById('newsContainer');
   container.replaceChildren();
@@ -393,144 +541,26 @@ function renderEditorialNews(items) {
     container.appendChild(empty);
     return;
   }
-  // Bind a trailing score to its team: nbsp glue plus an isolated LTR nowrap
-  // span, so a line wrap can never detach the score or flip its digit order.
-  const RES = /^(.*):[ \t]*(\d+[ \t]*[-\u2013][ \t]*\d+)[ \t]*$/;
-  const appendLine = (p, line) => {
-    const m = line.match(RES);
-    if (!m) { p.appendChild(document.createTextNode(line)); return; }
-    p.appendChild(document.createTextNode(m[1] + ':\u00A0'));
-    const sc = document.createElement('span');
-    sc.dir = 'ltr';
-    sc.style.whiteSpace = 'nowrap';
-    sc.textContent = m[2];
-    p.appendChild(sc);
-  };
-  const fmtCairo = (iso, withTime) => {
-    if (!iso) return '';
-    if (/^\d{4}-\d{2}-\d{2}$/.test(iso)) {
-      const [y, m, d] = iso.split('-').map(Number);
-      return new Intl.DateTimeFormat('ar-EG', { timeZone: 'UTC', dateStyle: 'medium' }).format(new Date(Date.UTC(y, m - 1, d)));
-    }
-    if (Number.isNaN(Date.parse(iso))) return '';
-    const opts = { timeZone: 'Africa/Cairo', dateStyle: 'medium' };
-    if (withTime) opts.timeStyle = 'short';
-    return new Intl.DateTimeFormat('ar-EG', opts).format(new Date(iso));
-  };
   items.forEach(raw => {
     const n = typeof raw === 'string' ? {t: raw, full: raw} : raw;
-    const card = document.createElement('article');
-    card.className = 'news-card';
-    const thumb = document.createElement('span');
-    thumb.className = 'edge-nthumb';
-    thumb.textContent = 'EDGE';
-    const wrap = document.createElement('div');
-    wrap.className = 'edge-nwrap';
-    const title = document.createElement('h3');
-    title.className = 'news-title';
-    title.textContent = (n.t || '').replace(/[\u00a0\u202f]/g, ' ');
-    const body = document.createElement('p');
-    body.className = 'edge-nexcerpt';
-    const full = (n.full || n.t || '').trim();
-    const first = (n.t || '').trim();
-    let brief = full.startsWith(first) ? full.slice(first.length).trim() : full;
-    const norm = s => s.replace(/[^\u0621-\u064Aa-zA-Z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
-    const nb = norm(brief), nt = norm(first);
-    if (!nb || nt.startsWith(nb.slice(0, 50)) || nb.startsWith(nt.slice(0, 50))) brief = '';
-    brief = brief.replace(/[\u00a0\u202f]/g, ' ');
-    if (brief) {
-      let cut = brief;
-      if (cut.length > 140) {
-        const nl = cut.lastIndexOf('\n', 140);
-        cut = (nl > 40 ? cut.slice(0, nl) : cut.slice(0, 140)) + '\u2026';
-      }
-      cut.split('\n').forEach((ln, idx) => {
-        if (idx) body.appendChild(document.createTextNode('\n'));
-        appendLine(body, ln);
-      });
-    }
-    const meta = document.createElement('p');
-    meta.className = 'edge-nmeta';
-    const date = fmtCairo(n.published_at, true);
-    const parts = [];
-    parts.push(n.source || 'المصدر غير محفوظ');
-    if (date) parts.push(date);
-    meta.textContent = parts.join(' — ');
-    wrap.appendChild(title);
-    if (brief) wrap.appendChild(body);
-    wrap.appendChild(meta);
-    card.append(thumb, wrap);
-    if (n.url) {
-      try {
-        const url = new URL(n.url);
-        if (['https:', 'http:'].includes(url.protocol)) {
-          const link = document.createElement('a');
-          link.href = url.href;
-          link.target = '_blank';
-          link.rel = 'noopener noreferrer';
-          link.textContent = 'اقرأ عند المصدر';
-          link.style.cssText = 'display:inline-block;min-height:44px;padding-block:10px';
-          wrap.appendChild(link);
-        }
-      } catch (_) { /* An invalid source URL is not rendered. */ }
-    }
-    // Detail expander: the full verified body, one element per line, plus
-    // verification timestamp and source list. Nothing is rephrased or added.
-    const srcs = Array.isArray(n.sources) ? n.sources.filter(u => /^https?:/.test(u || '')) : [];
-    const checkedStr = fmtCairo(n.checked_at, true);
-    const hasMore = full && full !== first && (full.length > (brief || '').length || srcs.length || checkedStr);
-    if (hasMore) {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'edge-ndetails-btn';
-      btn.textContent = 'عرض التفاصيل كاملة';
-      btn.setAttribute('aria-expanded', 'false');
-      btn.style.cssText = 'display:inline-block;min-height:44px;padding:8px 12px;margin-top:6px;background:none;border:1px solid #334155;border-radius:8px;color:#fbbf24;font-size:.85em;cursor:pointer;font-family:inherit;';
-      const det = document.createElement('div');
-      det.className = 'edge-ndetails';
-      det.style.cssText = 'display:none;margin-top:8px;border-top:1px solid #1e293b;padding-top:8px;';
-      full.split('\n').forEach(line => {
-        if (!line.trim()) return;
-        const p = document.createElement('p');
-        p.dir = 'auto';
-        p.style.cssText = 'margin:4px 0;font-size:.9em;line-height:1.7;';
-        appendLine(p, line.trim());
-        det.appendChild(p);
-      });
-      if (checkedStr) {
-        const chk = document.createElement('p');
-        chk.dir = 'auto';
-        chk.style.cssText = 'margin:10px 0 0;font-size:.78em;color:#94a3b8;';
-        chk.textContent = 'آخر فحص للمصادر: ' + checkedStr;
-        det.appendChild(chk);
-      }
-      if (srcs.length) {
-        const sh = document.createElement('p');
-        sh.style.cssText = 'margin:8px 0 2px;font-size:.78em;color:#94a3b8;';
-        sh.textContent = 'مصادر التحقق:';
-        det.appendChild(sh);
-        srcs.forEach(u => {
-          try {
-            const a = document.createElement('a');
-            a.href = new URL(u).href;
-            a.target = '_blank';
-            a.rel = 'noopener noreferrer';
-            a.textContent = new URL(u).hostname.replace(/^www\./, '');
-            a.style.cssText = 'display:block;min-height:44px;padding-block:10px;font-size:.85em;color:#7cb3ff;direction:ltr;text-align:right;';
-            det.appendChild(a);
-          } catch (_) { /* An invalid source URL is not rendered. */ }
-        });
-      }
-      btn.addEventListener('click', () => {
-        const open = det.style.display !== 'none';
-        det.style.display = open ? 'none' : 'block';
-        btn.setAttribute('aria-expanded', String(!open));
-        btn.textContent = open ? 'عرض التفاصيل كاملة' : 'إخفاء التفاصيل';
-      });
-      wrap.appendChild(btn);
-      wrap.appendChild(det);
-    }
-    container.appendChild(card);
+    container.appendChild(buildEditorialCard(n, null));
+  });
+}
+// Item 36: separate EDGE opinion section, always labeled as opinion, never news.
+function renderEditorialOpinion(items) {
+  const container = document.getElementById('opinionContainer');
+  if (!container) return;
+  container.replaceChildren();
+  if (!items.length) {
+    const empty = document.createElement('div');
+    empty.className = 'card';
+    empty.textContent = 'لسه مفيش آراء منشورة.';
+    container.appendChild(empty);
+    return;
+  }
+  items.forEach(raw => {
+    const n = typeof raw === 'string' ? {t: raw, full: raw} : raw;
+    container.appendChild(buildEditorialCard(n, { opinion: true }));
   });
 }
 
