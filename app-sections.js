@@ -122,7 +122,7 @@ function renderPredict() {
     el.innerHTML = '<div class="card">لا توجد مباريات قادمة للتوقع حالياً</div>';
     return;
   }
-  el.innerHTML = upcoming.slice(0, 40).map(m => {
+  el.innerHTML = `<a class="btn" style="display:flex;justify-content:center;align-items:center;margin-bottom:12px;" target="_blank" rel="noopener" href="share.html?type=predict">🖼️ شارك توقعاتي (ستوري)</a>` + upcoming.slice(0, 40).map(m => {
     const v = saved[m.eid] || ['', ''];
     return `<div class="pred-row" data-eid="${m.eid}">
       <div class="pred-teams">${teamLogo(m.homeLogo)} ${m.home} × ${m.away} ${teamLogo(m.awayLogo)}</div>
