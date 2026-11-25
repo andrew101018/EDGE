@@ -43,7 +43,9 @@ function renderLeaders() {
   }
   let h = '';
   Object.entries(L).forEach(([league, cats]) => {
+    const hasGoals = Object.keys(cats || {}).some(k => (k || '').includes('الهداف'));
     h += `<h3 style="margin:18px 0 8px;color:#fbbf24;">${league}</h3>`;
+    if (hasGoals) h += `<a class="btn" style="display:flex;justify-content:center;align-items:center;margin:0 0 8px;" target="_blank" rel="noopener" href="share.html?type=scorer&lg=${encodeURIComponent(league)}">🖼️ شارك كارت الهدافين</a>`;
     Object.entries(cats).forEach(([label, items]) => {
       h += `<h4 style="margin:8px 0 6px;opacity:.8;">${label}</h4><div class="grid">`;
       (items || []).forEach((p, i) => {
@@ -567,3 +569,4 @@ const NATIONALS = [
   ['اليابان','Japan','🇯🇵'],['كوريا الجنوبية','South Korea','🇰🇷'],['أستراليا','Australia','🇦🇺'],['إيران','Iran','🇮🇷'],['الصين','China','🇨🇳'],['أوزبكستان','Uzbekistan','🇺🇿'],['فيتنام','Vietnam','🇻🇳'],['تايلاند','Thailand','🇹🇭'],['إندونيسيا','Indonesia','🇮🇩'],['ماليزيا','Malaysia','🇲🇾'],['الهند','India','🇮🇳'],['باكستان','Pakistan','🇵🇰'],['أفغانستان','Afghanistan','🇦🇫'],['تركمانستان','Turkmenistan','🇹🇲'],['طاجيكستان','Tajikistan','🇹🇯'],['قيرغيزستان','Kyrgyzstan','🇰🇬'],['كوريا الشمالية','North Korea','🇰🇵'],['هونج كونج','Hong Kong','🇭🇰'],['الفلبين','Philippines','🇵🇭'],['سنغافورة','Singapore','🇸🇬'],['ميانمار','Myanmar','🇲🇲'],['نيبال','Nepal','🇳🇵'],['بنجلاديش','Bangladesh','🇧🇩'],['سريلانكا','Sri Lanka','🇱🇰'],
   ['نيوزيلندا','New Zealand','🇳🇿'],['فيجي','Fiji','🇫🇯'],['بابوا غينيا الجديدة','Papua New Guinea','🇵🇬'],['جزر سليمان','Solomon Islands','🇸🇧'],['فانواتو','Vanuatu','🇻🇺']
 ];
+
