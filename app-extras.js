@@ -305,6 +305,7 @@ async function loadData() {
     renderLeaders();
     renderTv();
     renderPredict();
+    renderPredictArchive();
     renderFantasy();
     loadBoard();
     renderShop();
