@@ -346,6 +346,16 @@
       <button class="btn" onclick="renderCompare()">قارن 🔥</button>
     </div>
     <div id="compareContainer"></div>
+    <hr style="border:none;border-top:1px solid #24344f;margin:22px 0;">
+    <h2>⚖️ قارن لاعبين</h2>
+    <p class="compare-description">اختار أي لاعبين من هدافي الدوريات وشوف مين سجل أكتر</p>
+    <div class="compare-controls">
+      <select id="playerA" title="اختر اللاعب الأول"></select>
+      <span class="compare-divider">×</span>
+      <select id="playerB" title="اختر اللاعب الثاني"></select>
+      <button class="btn" onclick="renderPlayerCompare()">قارن 🔥</button>
+    </div>
+    <div id="playerCompareContainer"></div>
   </section>
 
   <section id="sec-nationals" class="page">
@@ -403,8 +413,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="app-core.js?v=18"></script>
 <script src="app-matches.js?v=16"></script>
-<script src="app-sections.js?v=22"></script>
-<script src="app-extras.js?v=24"></script>
+<script src="app-sections.js?v=23"></script>
+<script src="app-extras.js?v=25"></script>
 <script src="mobile.js" defer></script>
 <script src="badges.js" defer></script>
 <script src="favorite.js?v=2" defer></script>
