@@ -97,23 +97,31 @@ def build(ev, slug, old):
     })
     return item
 
+now_str = dt.datetime.now(CAIRO).strftime("%Y-%m-%d %I:%M %p")
+checked = dict(data.get("matches_checked_by_source", {}))
+all_ok = True
 for g in data.get("matches", []):
     slug = g.get("slug", "")
     if slug == "egy.1":
         k = fetch_kooora(slug)
         if k is not None:
+            checked["egy.1"] = now_str
             old_by = {i.get("eid"): i for i in g.get("items", [])}
             for i in k:
                 if i["eid"] in old_by and i["tv"] == "":
                     i["tv"] = old_by[i["eid"]].get("tv", "")
             if k != g.get("items"):
                 g["items"] = k; changed = True
+        else:
+            all_ok = False
         continue
     if not slug:
         continue
     res = fetch(slug)
     if not res:
+        all_ok = False
         continue
+    checked[slug] = now_str
     items = g.setdefault("items", [])
     by = {str(i.get("eid")): i for i in items}
     for ev in res.get("events", []):
@@ -131,10 +139,12 @@ for g in data.get("matches", []):
         else:
             items.append(new); changed = True
     items.sort(key=lambda i: i.get("date", ""))
-now_str = dt.datetime.now(CAIRO).strftime("%Y-%m-%d %I:%M %p")
-# matches_checked_at = last successful source contact (written every run, so the file
-# changes every run and the workflow commits it). matches_updated_at = last content change only.
-data["matches_checked_at"] = now_str
+# matches_checked_by_source[slug] = last SUCCESSFUL fetch of that slug's source.
+# matches_checked_at = last run where EVERY source fetched successfully.
+# matches_updated_at = last content change only. File changes every run -> workflow commits every run.
+data["matches_checked_by_source"] = checked
+if all_ok:
+    data["matches_checked_at"] = now_str
 if changed:
     data["matches_updated_at"] = now_str
     print("updated")
