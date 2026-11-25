@@ -92,7 +92,7 @@ document.addEventListener('click', function (e) {
 
 function teamLogo(src) {
   if (!src) return '';
-  return `<img class="t-logo" src="${src}" onerror="this.style.display='none'">`;
+  return `<img loading="lazy" class="t-logo" src="${src}" onerror="this.style.display='none'">`;
 }
 
 function esc(s) {
