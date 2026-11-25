@@ -1,0 +1,57 @@
+name: FB strip archive wording (reels)
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "yes to edit, anything else is a dry run"
+        required: false
+        default: "no"
+
+jobs:
+  strip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Remove lines containing archive wording from Page reel descriptions
+        env:
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+          APPLY: ${{ inputs.apply }}
+        run: |
+          python3 - <<'PY'
+          import os, json, re, urllib.request, urllib.parse, urllib.error
+          tok = os.environ["FB_PAGE_TOKEN"]
+          print("::add-mask::" + tok)
+          G = "https://graph.facebook.com/v21.0"
+          def call(url, params=None):
+              data = urllib.parse.urlencode(params).encode() if params is not None else None
+              try:
+                  t = urllib.request.urlopen(urllib.request.Request(url, data=data), timeout=60).read().decode()
+              except urllib.error.HTTPError as e:
+                  t = e.read().decode()
+              return json.loads(t)
+          acc = call(G + "/me/accounts?fields=id,access_token&access_token=" + tok)
+          pat = re.compile("أرشيف|ارشيف|archive", re.I)
+          for p in acc.get("data", []):
+              pt = p["access_token"]
+              print("::add-mask::" + pt)
+              r = call(G + "/" + p["id"] + "/video_reels?fields=id,created_time,description&limit=50&access_token=" + pt)
+              for x in r.get("data", []):
+                  d = x.get("description") or ""
+                  if not pat.search(d):
+                      continue
+                  lines = d.split("\n")
+                  keep = [l for l in lines if not pat.search(l)]
+                  gone = [l for l in lines if pat.search(l)]
+                  new = "\n".join(keep).strip()
+                  print("REEL", x["id"], x.get("created_time"), "lines", len(lines), "->", len(keep))
+                  print("  REMOVED:", json.dumps(gone, ensure_ascii=False))
+                  print("  CREDITS kept:", "commons.wikimedia" in new, "CC" in new, "#EDGE" in new)
+                  if os.environ.get("APPLY") == "yes":
+                      res = call(G + "/" + x["id"], {"description": new, "access_token": pt})
+                      print("  EDIT", res.get("success"), (res.get("error") or {}).get("message"))
+                      chk = call(G + "/" + x["id"] + "?fields=description&access_token=" + pt)
+                      dd = chk.get("description") or ""
+                      print("  READBACK archive_left:", bool(pat.search(dd)), "len", len(dd))
+                      print("  NEW:", json.dumps(dd, ensure_ascii=False)[:900])
+          PY
