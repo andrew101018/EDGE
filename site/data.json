@@ -1481,14 +1481,14 @@
      "homeLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/64yLy__ORjqwK6u3IQL9t.png",
      "awayLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/04HM4cw9TEvfPz20QVCyI.png",
      "tv": "",
-     "hs": "",
-     "as": "",
-     "state": "pre",
+     "hs": "0",
+     "as": "0",
+     "state": "in",
      "time": "05:00",
      "day": "Wednesday",
      "dateAr": "25/11",
      "date": "2026-11-25T17:00:00+02:00",
-     "detail": "الجولة 9"
+     "detail": ""
     },
     {
      "home": "غزل المحلة",
@@ -6072,8 +6072,9 @@
  ],
  "highlights": [],
  "squads": {},
- "matches_updated_at": "2026-11-25 02:53 PM",
+ "matches_updated_at": "2026-11-25 05:11 PM",
  "news_ids": [
   "batch-ucl-2026-11-24-9m"
- ]
-   }
+ ],
+ "matches_checked_at": "2026-11-25 05:11 PM"
+}
