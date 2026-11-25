@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kevin De Bruyne: الأهداف والإحصائيات ونتائج فريقه | Edge Football</title>
+<meta name="description" content="إحصائيات Kevin De Bruyne من قوائم الهدافين وصناع اللعب وآخر نتائج وماتشات فريقه على Edge Football.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://andrew101018.github.io/EDGE/players/kevin-de-bruyne.html">
+<meta property="og:site_name" content="Edge Football">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Kevin De Bruyne: الأهداف والإحصائيات">
+<meta property="og:description" content="أرقام Kevin De Bruyne في قوائم الهدافين وصناع اللعب على الموقع.">
+<meta property="og:url" content="https://andrew101018.github.io/EDGE/players/kevin-de-bruyne.html">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#f59e0b">
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b1220;color:#e2e8f0;font-family:'Cairo','Segoe UI',Tahoma,sans-serif;line-height:1.8}
+main{max-width:760px;margin:0 auto;padding:20px 16px 48px}
+a{color:#fbbf24}
+nav{padding:14px 16px;background:#16213a;border-bottom:1px solid #24344f;text-align:center}
+nav a{font-weight:bold;text-decoration:none}
+.p-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.p-face{width:64px;height:64px;border-radius:50%;background:#16213a;border:1px solid #24344f;display:flex;align-items:center;justify-content:center;font-size:1.8em;overflow:hidden;flex:none}
+.p-face img{width:100%;height:100%;object-fit:cover}
+.p-head h1{font-size:1.5em;margin:0;color:#fbbf24}
+.p-head p{margin:2px 0 0;opacity:.7;font-size:.85em}
+.card{background:#16213a;border:1px solid #24344f;border-radius:12px;padding:14px 16px;margin-bottom:12px}
+.card h2{color:#fbbf24;font-size:1.05em;margin:0 0 8px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #24344f;font-size:.92em}
+.row:last-child{border-bottom:none}
+.row .mt{flex:1;min-width:0}
+.row .sc{font-weight:800;color:#fbbf24;white-space:nowrap;direction:ltr;unicode-bidi:isolate}
+.row .meta{opacity:.65;font-size:.82em;white-space:nowrap}
+.us{font-weight:800;color:#fbbf24}
+.empty{opacity:.6;font-size:.88em;padding:6px 0}
+.note{opacity:.65;font-size:.8em;margin-top:16px}
+.team-link{display:inline-block;background:#0b1220;border:1px solid #24344f;border-radius:8px;padding:6px 12px;margin:4px 4px 0 0;text-decoration:none;font-weight:700}
+</style>
+</head>
+<body>
+<nav><a href="https://andrew101018.github.io/EDGE/">Edge Football ⚽ الصفحة الرئيسية</a> · <a href="https://andrew101018.github.io/EDGE/players/">دليل اللاعبين</a></nav>
+<main>
+<div class="p-head">
+  <div class="p-face" id="pFace">👤</div>
+  <div>
+    <h1 dir="ltr" style="text-align:right">Kevin De Bruyne</h1>
+    <p id="pTeams">الإحصائيات ونتائج الفريق</p>
+  </div>
+</div>
+
+<div class="card" id="staleCard" style="display:none;border-color:#b45309">
+  <p style="margin:0;color:#fbbf24;font-size:.9em;">⚠️ بيانات الماتشات مش محدثة دلوقتي — آخر تحديث وصل للموقع: <span id="staleTs"></span> بتوقيت القاهرة. نتايج الفريق المعروضة تحت ممكن تكون اتغيرت من ساعتها.</p>
+</div>
+
+<div class="card">
+  <h2>الإحصائيات في قوائم المتصدرين</h2>
+  <div id="stats"><p class="empty">بنحمّل البيانات...</p></div>
+  <p class="note" style="margin:8px 0 0">الأرقام دي من قوائم الهدافين على الموقع، واتطابقت مع بيانات FBref للموسم الحالي وقت مراجعتها بتاريخ 25-11-2026.</p>
+</div>
+
+<div class="card" id="teamCard" style="display:none">
+  <h2>فريقه</h2>
+  <div id="teamLinks"></div>
+</div>
+
+<div class="card">
+  <h2>آخر نتائج فريقه</h2>
+  <div id="results"><p class="empty">بنحمّل البيانات...</p></div>
+</div>
+
+<div class="card">
+  <h2>ماتشات فريقه الجاية</h2>
+  <div id="upcoming"><p class="empty">بنحمّل البيانات...</p></div>
+</div>
+
+<div class="card" id="newsCard" style="display:none">
+  <h2>أخبار مرتبطة</h2>
+  <div id="news"></div>
+</div>
+
+<p class="note">آخر تحديث للماتشات: <span id="mu">...</span> · الأخبار: <span id="nu"></span> (بتوقيت القاهرة)</p>
+<p class="note">مصدر البيانات: ESPN وKooora — الصفحة بتعرض البيانات المنشورة على الموقع زي ما هي.</p>
+</main>
+<script>
+const PLAYER = {"name": "Kevin De Bruyne", "slug": "kevin-de-bruyne"};
+const BIG_TEAMS = {"الاهلي": "al-ahly", "al ahly": "al-ahly", "al-ahly": "al-ahly", "al ahly sc": "al-ahly", "الزمالك": "zamalek", "zamalek": "zamalek", "el zamalek": "zamalek", "zamalek sc": "zamalek", "بيراميدز": "pyramids", "pyramids": "pyramids", "pyramids fc": "pyramids", "ارسنال": "arsenal", "arsenal": "arsenal", "arsenal fc": "arsenal", "مانشستر سيتي": "man-city", "manchester city": "man-city", "man city": "man-city", "man. city": "man-city", "مانشستر يونايتد": "man-united", "manchester united": "man-united", "man utd": "man-united", "man united": "man-united", "manchester utd": "man-united", "ليفربول": "liverpool", "liverpool": "liverpool", "liverpool fc": "liverpool", "تشيلسي": "chelsea", "chelsea": "chelsea", "chelsea fc": "chelsea", "توتنهام": "tottenham", "tottenham": "tottenham", "tottenham hotspur": "tottenham", "spurs": "tottenham", "ريال مدريد": "real-madrid", "real madrid": "real-madrid", "real madrid cf": "real-madrid", "برشلونة": "barcelona", "barcelona": "barcelona", "fc barcelona": "barcelona", "اتلتيكو مدريد": "atletico-madrid", "atlético": "atletico-madrid", "atlético madrid": "atletico-madrid", "atletico madrid": "atletico-madrid", "atlético de madrid": "atletico-madrid", "بايرن ميونخ": "bayern", "بايرن ميونيخ": "bayern", "بايرن": "bayern", "bayern": "bayern", "bayern munich": "bayern", "fc bayern": "bayern", "bayern münchen": "bayern", "بوروسيا دورتموند": "dortmund", "دورتموند": "dortmund", "borussia dortmund": "dortmund", "dortmund": "dortmund", "bvb": "dortmund", "يوفنتوس": "juventus", "juventus": "juventus", "juve": "juventus", "انتر": "inter", "انتر ميلان": "inter", "inter": "inter", "inter milan": "inter", "internazionale": "inter", "inter milano": "inter", "ميلان": "milan", "ميلانو": "milan", "milan": "milan", "ac milan": "milan", "a.c. milan": "milan", "نابولي": "napoli", "napoli": "napoli", "ssc napoli": "napoli", "باريس سان جيرمان": "psg", "psg": "psg", "paris saint-germain": "psg", "paris sg": "psg", "paris saint germain": "psg"};
+const norm = s => (s || '').trim().replace(/[أإآ]/g, 'ا').toLowerCase();
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function matchRow(m, isUs) {
+  const h = isUs(m.home) ? `<span class="us">${esc(m.home)}</span>` : esc(m.home);
+  const a = isUs(m.away) ? `<span class="us">${esc(m.away)}</span>` : esc(m.away);
+  let mid, meta;
+  if (m.state === 'post') {
+    mid = `${h} <span class="sc" dir="ltr">${esc(m.hs)} - ${esc(m.as)}</span> ${a}`;
+    meta = `انتهت · ${esc(m.dateAr || '')}`;
+  } else if (m.state === 'in') {
+    mid = `${h} <span class="sc" dir="ltr">${esc(m.hs)} - ${esc(m.as)}</span> ${a}`;
+    meta = window.__feedStale ? `آخر نتيجة مسجلة · ${esc(m.detail || '')} ${esc(m.dateAr || '')}` : `جارية · ${esc(m.detail || '')}`;
+  } else {
+    mid = `${h} × ${a}`;
+    meta = `${esc(m.day || '')} ${esc(m.dateAr || '')} · ${esc(m.time || '')}`;
+  }
+  const tv = m.tv ? ` · 📺 ${esc(m.tv)}` : '';
+  return `<div class="row"><span class="mt">${mid}<br><span class="meta">${esc(m.league || '')}${tv}</span></span><span class="meta">${meta}</span></div>`;
+}
+
+(async () => {
+  let d;
+  try {
+    const r = await fetch('../site/data.json?t=' + Date.now(), { cache: 'no-store' });
+    d = await r.json();
+  } catch (e) {
+    for (const id of ['stats', 'results', 'upcoming'])
+      document.getElementById(id).innerHTML = '<p class="empty">مقدرناش نحمّل البيانات دلوقتي، جرّب تاني بعد شوية.</p>';
+    return;
+  }
+
+  // freshness: matches_updated_at is Cairo wall time written by the refresh job
+  let feedStale = true;
+  const muRaw = d.matches_updated_at || '';
+  const pm = muRaw.match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}) (AM|PM)$/);
+  if (pm) {
+    let hh = (+pm[4]) % 12 + (pm[6] === 'PM' ? 12 : 0);
+    const feedUtc = Date.UTC(+pm[1], +pm[2] - 1, +pm[3], hh - 2, +pm[5]);
+    feedStale = (Date.now() - feedUtc) > 30 * 60 * 1000;
+  }
+  window.__feedStale = feedStale;
+  if (feedStale) {
+    document.getElementById('staleCard').style.display = '';
+    document.getElementById('staleTs').textContent = muRaw || 'غير معروف';
+  }
+
+  const myName = norm(PLAYER.name);
+  const myEntries = [];
+  let face = '';
+  for (const [league, cats] of Object.entries(d.leaders || {}))
+    for (const [label, items] of Object.entries(cats || {}))
+      (items || []).forEach((p, i) => {
+        if (norm(p.name) === myName) {
+          myEntries.push({ league, label, value: p.value || '', team: p.team || '', rank: i + 1 });
+          if (p.face && !face) face = p.face;
+        }
+      });
+
+  if (face) document.getElementById('pFace').innerHTML = `<img src="${esc(face)}" alt="" onerror="this.remove()">`;
+
+  // national-team competitions: label the team as a منتخب, not a club
+  const NATIONAL = new Set(['دوري الأمم الأوروبية', 'تصفيات كأس العالم', 'كأس العالم', 'يورو', 'كأس الأمم الأفريقية', 'كوبا أمريكا']);
+  const natTeams = new Set(myEntries.filter(e => NATIONAL.has(e.league)).map(e => e.team));
+  const teamLabel = t => t + (natTeams.has(t) ? ' (منتخب)' : '');
+  const teams = [...new Set(myEntries.map(e => e.team).filter(Boolean))];
+  if (teams.length) document.getElementById('pTeams').textContent = teams.map(teamLabel).join(' · ');
+
+  document.getElementById('stats').innerHTML = myEntries.length
+    ? myEntries.map(e => `<div class="row"><span class="mt">${esc(e.league)}<br><span class="meta">${esc(e.label)}${e.team ? ' · ' + esc(teamLabel(e.team)) : ''}</span></span><span class="us">${esc(e.value)}</span></div>`).join('')
+    : '<p class="empty">اللاعب مش موجود في قوائم المتصدرين في البيانات الحالية — ممكن تكون اتغيرت مع آخر تحديث.</p>';
+
+  // team links: big-team page when the club has one
+  const links = [];
+  for (const t of teams) {
+    if (natTeams.has(t)) continue; // national teams have no club page
+    const slug = BIG_TEAMS[norm(t)];
+    if (slug) links.push(`<a class="team-link" href="../teams/${slug}.html">${esc(t)} ← صفحة الفريق</a>`);
+  }
+  if (links.length) {
+    document.getElementById('teamCard').style.display = '';
+    document.getElementById('teamLinks').innerHTML = links.join('');
+  }
+
+  // team matches: any of the player's teams appearing in the feed
+  const teamNorms = new Set(teams.map(norm));
+  const isMine = n => teamNorms.has(norm(n));
+  const all = [];
+  for (const lg of (d.matches || []))
+    for (const m of (lg.items || []))
+      if (isMine(m.home) || isMine(m.away)) all.push({ ...m, league: lg.league });
+  const post = all.filter(m => m.state === 'post').sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  const up = all.filter(m => m.state !== 'post').sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+  document.getElementById('results').innerHTML = post.length
+    ? post.slice(0, 8).map(m => matchRow(m, isMine)).join('')
+    : '<p class="empty">مفيش نتائج حديثة لفرق اللاعب في البيانات الحالية.</p>';
+  document.getElementById('upcoming').innerHTML = up.length
+    ? up.slice(0, 8).map(m => matchRow(m, isMine)).join('')
+    : '<p class="empty">مفيش ماتشات قادمة مسجلة لفرق اللاعب في البيانات الحالية.</p>';
+
+  // news mentions: exact name only, no guessing
+  const needle = (PLAYER.name || '').toLowerCase();
+  const hits = (d.news || []).filter(n => ((n.title || '') + ' ' + (n.desc || '')).toLowerCase().includes(needle)).slice(0, 5);
+  if (hits.length) {
+    document.getElementById('newsCard').style.display = '';
+    document.getElementById('news').innerHTML = hits.map(n =>
+      `<div class="row"><span class="mt">${n.link ? `<a href="${esc(n.link)}" target="_blank" rel="noopener">${esc(n.title || '')}</a>` : esc(n.title || '')}</span></div>`).join('');
+  }
+
+  document.getElementById('mu').textContent = d.matches_updated_at || '—';
+  document.getElementById('nu').textContent = d.updated_at || '—';
+})();
+</script>
+</body>
+</html>
