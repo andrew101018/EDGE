@@ -255,14 +255,14 @@
      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",
      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/510.png",
      "tv": "",
-     "hs": "0",
+     "hs": "2",
      "as": "0",
      "time": "10:00",
      "day": "Wednesday",
      "dateAr": "25/11",
      "date": "2026-11-25T22:00:00+02:00",
-     "detail": "Scheduled",
-     "state": "pre"
+     "detail": "90'",
+     "state": "in"
     },
     {
      "home": "Club Brugge",
@@ -275,13 +275,13 @@
      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
      "tv": "",
      "hs": "0",
-     "as": "0",
+     "as": "3",
      "time": "10:00",
      "day": "Wednesday",
      "dateAr": "25/11",
      "date": "2026-11-25T22:00:00+02:00",
-     "detail": "Scheduled",
-     "state": "pre"
+     "detail": "87'",
+     "state": "in"
     },
     {
      "home": "Inter Milan",
@@ -293,14 +293,14 @@
      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/110.png",
      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/134.png",
      "tv": "",
-     "hs": "0",
+     "hs": "2",
      "as": "0",
      "time": "10:00",
      "day": "Wednesday",
      "dateAr": "25/11",
      "date": "2026-11-25T22:00:00+02:00",
-     "detail": "Scheduled",
-     "state": "pre"
+     "detail": "89'",
+     "state": "in"
     },
     {
      "home": "Lille",
@@ -312,14 +312,14 @@
      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/166.png",
      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/132.png",
      "tv": "",
-     "hs": "0",
-     "as": "0",
+     "hs": "2",
+     "as": "1",
      "time": "10:00",
      "day": "Wednesday",
      "dateAr": "25/11",
      "date": "2026-11-25T22:00:00+02:00",
-     "detail": "Scheduled",
-     "state": "pre"
+     "detail": "90'",
+     "state": "in"
     },
     {
      "home": "PSG",
@@ -331,14 +331,14 @@
      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/104.png",
      "tv": "",
-     "hs": "0",
-     "as": "0",
+     "hs": "2",
+     "as": "2",
      "time": "10:00",
      "day": "Wednesday",
      "dateAr": "25/11",
      "date": "2026-11-25T22:00:00+02:00",
-     "detail": "Scheduled",
-     "state": "pre"
+     "detail": "88'",
+     "state": "in"
     },
     {
      "home": "Shakhtar",
@@ -351,13 +351,13 @@
      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/436.png",
      "tv": "",
      "hs": "0",
-     "as": "0",
+     "as": "1",
      "time": "10:00",
      "day": "Wednesday",
      "dateAr": "25/11",
      "date": "2026-11-25T22:00:00+02:00",
-     "detail": "Scheduled",
-     "state": "pre"
+     "detail": "88'",
+     "state": "in"
     },
     {
      "home": "Sporting",
@@ -369,14 +369,14 @@
      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png",
      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/360.png",
      "tv": "",
-     "hs": "0",
-     "as": "0",
+     "hs": "2",
+     "as": "2",
      "time": "10:00",
      "day": "Wednesday",
      "dateAr": "25/11",
      "date": "2026-11-25T22:00:00+02:00",
-     "detail": "Scheduled",
-     "state": "pre"
+     "detail": "89'",
+     "state": "in"
     }
    ],
    "big": true
@@ -1415,25 +1415,6 @@
    "slug": "egy.1",
    "items": [
     {
-     "home": "المقاولون العرب",
-     "away": "القناة",
-     "eid": "kz-EvZELQApVvW1n2Q0Ec4OE",
-     "slug": "egy.1",
-     "homeId": "rujv815dna8z56ptdquzovlu",
-     "awayId": "2fsixv19fzfbxld2hbtxzvwe1",
-     "homeLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/y4bxDVoxKuvYwFTagcegm.png",
-     "awayLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/lpn0d_GGdMUzrit3mGhRX.png",
-     "tv": "",
-     "hs": "2",
-     "as": "1",
-     "state": "post",
-     "time": "08:00",
-     "day": "Tuesday",
-     "dateAr": "24/11",
-     "date": "2026-11-24T20:00:00+02:00",
-     "detail": "FT"
-    },
-    {
      "home": "طلائع الجيش",
      "away": "مودرن سبورت",
      "eid": "kz-uqjRbxZpRdhJUwRpTIQRy",
@@ -1464,12 +1445,12 @@
      "tv": "",
      "hs": "1",
      "as": "0",
-     "state": "in",
+     "state": "post",
      "time": "08:00",
      "day": "Wednesday",
      "dateAr": "25/11",
      "date": "2026-11-25T20:00:00+02:00",
-     "detail": ""
+     "detail": "FT"
     },
     {
      "home": "غزل المحلة",
@@ -1481,14 +1462,14 @@
      "homeLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/4LuIEtYxL4j_8SLTlxomO.png",
      "awayLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/Be2wEQE-GzZ7I1VgyC3l0.png",
      "tv": "",
-     "hs": "0",
+     "hs": "2",
      "as": "0",
-     "state": "in",
+     "state": "post",
      "time": "08:00",
      "day": "Wednesday",
      "dateAr": "25/11",
      "date": "2026-11-25T20:00:00+02:00",
-     "detail": ""
+     "detail": "FT"
     },
     {
      "home": "البنك الأهلي",
@@ -1526,6 +1507,25 @@
      "day": "Tuesday",
      "dateAr": "08/12",
      "date": "2026-12-08T17:00:00+02:00",
+     "detail": "الجولة 10"
+    },
+    {
+     "home": "الاتحاد",
+     "away": "إنبي",
+     "eid": "kz-EMhFn-PiERCy78jiqk65A",
+     "slug": "egy.1",
+     "homeId": "87zdolahphujsbgcu4wyyew7n",
+     "awayId": "2t0cc3y6kaifvrgnp48nf9011",
+     "homeLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/pLMXEK0kpdKtg60w3rhBU.png",
+     "awayLogo": "https://cdn.sportfeeds.io/sdl/images/team/crest/medium/5xPmFysmpvO-CKasFAT1y.png",
+     "tv": "",
+     "hs": "",
+     "as": "",
+     "state": "pre",
+     "time": "08:00",
+     "day": "Tuesday",
+     "dateAr": "08/12",
+     "date": "2026-12-08T20:00:00+02:00",
      "detail": "الجولة 10"
     }
    ],
@@ -6072,23 +6072,23 @@
  ],
  "highlights": [],
  "squads": {},
- "matches_updated_at": "2026-11-25 09:40 PM",
+ "matches_updated_at": "2026-11-25 11:47 PM",
  "news_ids": [
   "batch-ucl-2026-11-24-9m"
  ],
- "matches_checked_at": "2026-11-25 09:40 PM",
+ "matches_checked_at": "2026-11-25 11:47 PM",
  "matches_checked_by_source": {
-  "uefa.champions": "2026-11-25 09:40 PM",
-  "eng.1": "2026-11-25 09:40 PM",
-  "esp.1": "2026-11-25 09:40 PM",
-  "ita.1": "2026-11-25 09:40 PM",
-  "ger.1": "2026-11-25 09:40 PM",
-  "fra.1": "2026-11-25 09:40 PM",
-  "caf.confed": "2026-11-25 09:40 PM",
-  "usa.1": "2026-11-25 09:40 PM",
-  "mex.1": "2026-11-25 09:40 PM",
-  "ned.1": "2026-11-25 09:40 PM",
-  "tur.1": "2026-11-25 09:40 PM",
-  "egy.1": "2026-11-25 09:40 PM"
+  "uefa.champions": "2026-11-25 11:47 PM",
+  "eng.1": "2026-11-25 11:47 PM",
+  "esp.1": "2026-11-25 11:47 PM",
+  "ita.1": "2026-11-25 11:47 PM",
+  "ger.1": "2026-11-25 11:47 PM",
+  "fra.1": "2026-11-25 11:47 PM",
+  "caf.confed": "2026-11-25 11:47 PM",
+  "usa.1": "2026-11-25 11:47 PM",
+  "mex.1": "2026-11-25 11:47 PM",
+  "ned.1": "2026-11-25 11:47 PM",
+  "tur.1": "2026-11-25 11:47 PM",
+  "egy.1": "2026-11-25 11:47 PM"
  }
 }
