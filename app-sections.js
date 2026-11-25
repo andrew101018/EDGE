@@ -97,22 +97,39 @@ function renderTv() {
   </div>`).join('') : '<div class="card">لا توجد مباريات مجدولة قريباً</div>';
 }
 
+/* ISO week key in Africa/Cairo — the same week definition the shared weekly winner would use. */
+function cairoWeekKey(d) {
+  d = d || new Date();
+  const p = new Intl.DateTimeFormat('en-CA', { timeZone: 'Africa/Cairo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(d);
+  const dt = new Date(p + 'T00:00:00Z');
+  dt.setUTCDate(dt.getUTCDate() - ((dt.getUTCDay() + 6) % 7) + 3);
+  const ft = new Date(Date.UTC(dt.getUTCFullYear(), 0, 4));
+  ft.setUTCDate(ft.getUTCDate() - ((ft.getUTCDay() + 6) % 7) + 3);
+  return dt.getUTCFullYear() + '-W' + String(1 + Math.round((dt - ft) / 6048e5)).padStart(2, '0');
+}
+
 function renderPredict() {
   const saved = JSON.parse(localStorage.getItem('edgePredict') || '{}');
   const scored = JSON.parse(localStorage.getItem('edgeScored') || '[]');
   let points = parseInt(localStorage.getItem('edgePoints') || '0');
+  const wk = cairoWeekKey();
+  let week = JSON.parse(localStorage.getItem('edgeWeek') || 'null');
+  if (!week || week.key !== wk) week = { key: wk, pts: 0 };
+  let earned = 0;
   (DATA.matches || []).forEach(g => g.items.forEach(m => {
     if (m.state === 'post' && saved[m.eid] && !scored.includes(m.eid)) {
       const p = saved[m.eid];
       const hh = parseInt(m.hs), aa = parseInt(m.as);
-      if (p[0] === hh && p[1] === aa) points += 3;
-      else if (Math.sign(p[0] - p[1]) === Math.sign(hh - aa)) points += 1;
+      if (p[0] === hh && p[1] === aa) { points += 3; earned += 3; }
+      else if (Math.sign(p[0] - p[1]) === Math.sign(hh - aa)) { points += 1; earned += 1; }
       scored.push(m.eid);
     }
   }));
+  week.pts += earned;
   localStorage.setItem('edgePoints', String(points));
   localStorage.setItem('edgeScored', JSON.stringify(scored));
-  document.getElementById('predictPoints').innerHTML = `⭐ نقاطك: <b>${points}</b> — النتيجة الصح بـ 3 نقاط والاتجاه الصح بنقطة`;
+  localStorage.setItem('edgeWeek', JSON.stringify(week));
+  document.getElementById('predictPoints').innerHTML = `⭐ نقاطك: <b>${points}</b> — النتيجة الصح بـ 3 نقاط والاتجاه الصح بنقطة<br><small>📅 الأسبوع ده: <b>${week.pts}</b> نقطة (رقم شخصي على جهازك بس)</small>`;
   const upcoming = [];
   (DATA.matches || []).forEach(g => g.items.forEach(m => {
     if (m.state === 'pre') upcoming.push(m);
