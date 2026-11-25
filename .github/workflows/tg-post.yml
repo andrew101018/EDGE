@@ -20,6 +20,6 @@ jobs:
           POST_TEXT: ${{ inputs.text }}
         run: |
           code=$(curl -s -o /tmp/r.json -w "%{http_code}" -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-            --data-urlencode "chat_id=${TELEGRAM_CHANNEL_ID}" --data-urlencode "text=${POST_TEXT}" -d "disable_web_page_preview=true")
+            --data-urlencode "chat_id=${TELEGRAM_CHANNEL_ID}" --data-urlencode "text=$(printf '%b' "$POST_TEXT")" -d "disable_web_page_preview=true")
           echo "http=$code"
           python3 -c "import json;r=json.load(open('/tmp/r.json'));print('ok=',r.get('ok'),'message_id=',(r.get('result') or {}).get('message_id'),'err=',r.get('description'))"
