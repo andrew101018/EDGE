@@ -296,10 +296,12 @@ async function loadData() {
     MATCHES = DATA.matches || [];
     /* حارس الحداثة: لو خلاصة المباريات أقدم من 30 دقيقة أو غير مقروءة، منعرضش "مباشر" من الخلاصة وحدها - الاستعلام المباشر كل دقيقة يرجّع الحالة الحقيقية */
     let _feedStale = true;
-    const _mu = DATA.matches_checked_at || DATA.matches_updated_at || '';
-    const _pm = _mu.match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}) (AM|PM)$/);
-    if (_pm) { const _hh = (+_pm[4]) % 12 + (_pm[6] === 'PM' ? 12 : 0); _feedStale = (Date.now() - Date.UTC(+_pm[1], +_pm[2] - 1, +_pm[3], _hh - 2, +_pm[5])) > 30 * 60 * 1000; }
-    MATCHES.forEach(g => (g.items || []).forEach(m => { const t0 = Date.parse(m.date || ''); if (m.state === 'in' && (_feedStale || (!Number.isNaN(t0) && Date.now() - t0 > 3 * 3600 * 1000))) { m._stale = true; m.state = undefined; if (m.detail !== 'FT') m.detail = ''; } }));
+    const _parseMu = s => { const _pm = (s || '').match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}) (AM|PM)$/); if (!_pm) return 0; const _hh = (+_pm[4]) % 12 + (_pm[6] === 'PM' ? 12 : 0); return Date.UTC(+_pm[1], +_pm[2] - 1, +_pm[3], _hh - 2, +_pm[5]); };
+    const _globalTs = _parseMu(DATA.matches_checked_at || '') || _parseMu(DATA.matches_updated_at || '');
+    _feedStale = !_globalTs || (Date.now() - _globalTs) > 30 * 60 * 1000;
+    const _srcMap = DATA.matches_checked_by_source || {};
+    const _srcStale = slug => { const t = _parseMu(_srcMap[slug] || '') || _globalTs; return !t || (Date.now() - t) > 30 * 60 * 1000; };
+    MATCHES.forEach(g => (g.items || []).forEach(m => { const t0 = Date.parse(m.date || ''); if (m.state === 'in' && (_srcStale(g.slug) || (!Number.isNaN(t0) && Date.now() - t0 > 3 * 3600 * 1000))) { m._stale = true; m.state = undefined; if (m.detail !== 'FT') m.detail = ''; } }));
     if (_feedStale) document.getElementById('lastUpdate').innerHTML += '<br>⚠️ تحديث المباريات متأخر';
     renderMatches();
     renderLeaders();
