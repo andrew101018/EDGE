@@ -17,18 +17,18 @@
   .sec-title { color: #fbbf24; font-weight: bold; font-size: 1.1em; margin: 22px 0 10px; border-right: 3px solid #fbbf24; padding-right: 8px; }
   .league-block { background: #1e293b; border: 1px solid #334155; border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
   .league-name { background: #16213a; color: #fbbf24; font-weight: bold; font-size: .9em; padding: 8px 12px; }
-  .mrow { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-top: 1px solid #273449; font-size: .88em; }
+  .mrow { display: flex; align-items: center; gap: 6px; padding: 10px 12px; border-top: 1px solid #273449; font-size: .88em; }
   .mrow:first-of-type { border-top: none; }
   .team { flex: 1; display: flex; align-items: center; gap: 6px; min-width: 0; }
-  .team.away { justify-content: flex-end; text-align: left; }
-  .team span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .team.away { justify-content: flex-start; direction: ltr; }
+  .team span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
   .t-logo { width: 20px; height: 20px; object-fit: contain; flex-shrink: 0; }
-  .center { flex-shrink: 0; text-align: center; min-width: 92px; }
-  .score { color: #fbbf24; font-weight: bold; font-size: 1.05em; }
+  .g { flex-shrink: 0; min-width: 22px; text-align: center; background: #0f172a; border: 1px solid #fbbf24; color: #fbbf24; border-radius: 6px; font-weight: bold; font-size: .95em; padding: 1px 4px; }
+  .g.win { background: #fbbf24; color: #0f172a; }
+  .center { flex-shrink: 0; text-align: center; min-width: 78px; }
   .mtime { color: #e2e8f0; font-weight: bold; font-size: 1em; }
   .mstatus { color: #94a3b8; font-size: .75em; margin-top: 2px; }
-  .live-dot { color: #ef4444; font-weight: bold; }
-  .tv { color: #64748b; font-size: .72em; margin-top: 2px; }
+  .live-dot { color: #ef4444; font-weight: bold; font-size: .8em; }
   .empty { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 16px; text-align: center; color: #94a3b8; font-size: .9em; }
   .video-box { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 12px; }
   .video-frame { position: relative; width: 100%; padding-top: 56.25%; border-radius: 8px; overflow: hidden; background: #000; }
@@ -81,11 +81,15 @@
     if (isNaN(t)) return '';
     return new Intl.DateTimeFormat('ar-EG', { timeZone: 'Africa/Cairo', hour: 'numeric', minute: '2-digit' }).format(t);
   }
-  function fmtStamp(s) {
+  function parseStamp(s) {
     var p = (s || '').match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}) (AM|PM)$/);
-    if (!p) return s || '';
+    if (!p) return null;
     var hh = (+p[4]) % 12 + (p[6] === 'PM' ? 12 : 0);
-    var d = new Date(Date.UTC(+p[1], +p[2] - 1, +p[3], hh - 2, +p[5]));
+    return new Date(Date.UTC(+p[1], +p[2] - 1, +p[3], hh - 2, +p[5]));
+  }
+  function fmtStamp(s) {
+    var d = parseStamp(s);
+    if (!d) return s || '';
     return new Intl.DateTimeFormat('ar-EG', { timeZone: 'Africa/Cairo', day: 'numeric', month: 'long', hour: 'numeric', minute: '2-digit' }).format(d);
   }
   function escH(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
@@ -105,8 +109,12 @@
   fetch('site/data.json?t=' + Date.now(), { cache: 'no-store' })
     .then(function (r) { return r.json(); })
     .then(function (data) {
+      /* الخلاصة لقطة وقتية فقط: نعرض طابعها كما هو ولا نعد بأكثر منه.
+         لو الطابع أقدم من 30 دقيقة، منعرضش حالة "مباشر" من الخلاصة وحدها. */
+      var stamp = parseStamp(data.matches_updated_at || '');
+      var feedStale = !stamp || (Date.now() - stamp.getTime() > 30 * 60 * 1000);
       if (data.matches_updated_at) {
-        document.getElementById('fresh').textContent = 'آخر تحديث للمباريات: ' + fmtStamp(data.matches_updated_at);
+        document.getElementById('fresh').textContent = 'البيانات كما في آخر تحديث للموقع: ' + fmtStamp(data.matches_updated_at) + ' (بتوقيت القاهرة)';
       }
       var groups = [];
       (data.matches || []).forEach(function (g) {
@@ -128,20 +136,26 @@
       }
       box.innerHTML = groups.map(function (g) {
         var rows = g.items.map(function (m) {
-          var center;
-          if (m.state === 'in') {
-            center = '<div class="score live-dot">🔴 ' + (m.hs != null ? m.hs + ' - ' + m.as : '') + '</div><div class="mstatus">مباشر</div>';
-          } else if (m.state === 'post' || m.detail === 'FT') {
-            center = '<div class="score">' + (m.hs != null ? m.hs + ' - ' + m.as : '') + '</div><div class="mstatus">انتهت</div>';
+          var state = m.state;
+          if (feedStale && state === 'in') state = undefined; /* حارس الحداثة */
+          var homeChip = '', awayChip = '', center;
+          if ((state === 'in' || state === 'post' || m.detail === 'FT') && m.hs != null && m.as != null) {
+            var hWin = m.hs > m.as, aWin = m.as > m.hs;
+            homeChip = '<b class="g' + (hWin ? ' win' : '') + '">' + m.hs + '</b>';
+            awayChip = '<b class="g' + (aWin ? ' win' : '') + '">' + m.as + '</b>';
+            center = state === 'in'
+              ? '<div class="live-dot">🔴 مباشر</div>'
+              : '<div class="mstatus">انتهت</div>';
           } else {
+            var t = Date.parse(m.date || '');
+            var passed = !Number.isNaN(t) && t <= Date.now();
             center = '<div class="mtime">' + escH(fmtTime(m.date)) + '</div><div class="mstatus">' +
-              escH(DAYS_AR[m.day] || '') + (m.dateAr ? ' ' + escH(m.dateAr) : '') + '</div>';
+              (passed ? 'غير مؤكد' : (escH(DAYS_AR[m.day] || '') + (m.dateAr ? ' ' + escH(m.dateAr) : ''))) + '</div>';
           }
-          var tv = m.tv ? '<div class="tv">📺 ' + escH(m.tv) + '</div>' : '';
-          return '<div class="mrow">' +
-            '<div class="team">' + logo(m.homeLogo) + '<span>' + escH(m.home) + '</span></div>' +
-            '<div class="center">' + center + tv + '</div>' +
-            '<div class="team away"><span>' + escH(m.away) + '</span>' + logo(m.awayLogo) + '</div>' +
+          return '<div class="mrow" data-eid="' + escH(m.eid || '') + '">' +
+            '<div class="team home">' + logo(m.homeLogo) + '<span>' + escH(m.home) + '</span>' + homeChip + '</div>' +
+            '<div class="center">' + center + '</div>' +
+            '<div class="team away">' + logo(m.awayLogo) + '<span>' + escH(m.away) + '</span>' + awayChip + '</div>' +
             '</div>';
         }).join('');
         return '<div class="league-block"><div class="league-name">🏆 ' + escH(g.league) + '</div>' + rows + '</div>';
