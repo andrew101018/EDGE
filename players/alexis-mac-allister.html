@@ -199,9 +199,10 @@ function matchRow(m, isUs) {
       sport: 'Soccer',
       startDate: m.date,
       homeTeam: { '@type': 'SportsTeam', name: m.home },
-      awayTeam: { '@type': 'SportsTeam', name: m.away },
-      eventStatus: m.state === 'post' ? 'https://schema.org/EventCompleted' : 'https://schema.org/EventScheduled'
+      awayTeam: { '@type': 'SportsTeam', name: m.away }
     };
+    // only assert EventScheduled for a genuinely upcoming match; never assert a completed/unknown state
+    if (m.state === 'pre' && new Date(m.date).getTime() > Date.now()) e.eventStatus = 'https://schema.org/EventScheduled';
     if (m.league) e.isPartOf = { '@type': 'SportsLeague', name: m.league };
     return e;
   });
