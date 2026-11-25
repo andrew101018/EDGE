@@ -3,3 +3,5 @@ client_secret.json
 venv/
 __pycache__/
 edge_football.db
+scripts/assets/
+
