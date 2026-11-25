@@ -41,11 +41,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add 'articles/og-*.jpg'
-          if git diff --cached --quiet; then
-            echo "og images up to date"
-          else
+          ok=""
+          for i in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            python3 scripts/build_og_images.py
+            git add 'articles/og-*.jpg'
+            if git diff --cached --quiet; then echo "already up to date"; ok=done; break; fi
             git commit -m "og images: rebuild article cards"
-            git pull --rebase origin main
-            git push
-          fi
+            if git push; then ok=done; break; fi
+          done
+          if [ -z "$ok" ]; then echo "push failed after retries"; exit 1; fi
