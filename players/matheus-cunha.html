@@ -89,7 +89,7 @@ nav a{font-weight:bold;text-decoration:none}
 <p class="note">مصدر البيانات: ESPN وKooora — الصفحة بتعرض البيانات المنشورة على الموقع زي ما هي.</p>
 </main>
 <script>
-const PLAYER = {"name": "Matheus Cunha", "slug": "matheus-cunha"};
+const PLAYER = {"name": "Matheus Cunha", "slug": "matheus-cunha", "hide": []};
 const BIG_TEAMS = {"الاهلي": "al-ahly", "al ahly": "al-ahly", "al-ahly": "al-ahly", "al ahly sc": "al-ahly", "الزمالك": "zamalek", "zamalek": "zamalek", "el zamalek": "zamalek", "zamalek sc": "zamalek", "بيراميدز": "pyramids", "pyramids": "pyramids", "pyramids fc": "pyramids", "ارسنال": "arsenal", "arsenal": "arsenal", "arsenal fc": "arsenal", "مانشستر سيتي": "man-city", "manchester city": "man-city", "man city": "man-city", "man. city": "man-city", "مانشستر يونايتد": "man-united", "manchester united": "man-united", "man utd": "man-united", "man united": "man-united", "manchester utd": "man-united", "ليفربول": "liverpool", "liverpool": "liverpool", "liverpool fc": "liverpool", "تشيلسي": "chelsea", "chelsea": "chelsea", "chelsea fc": "chelsea", "توتنهام": "tottenham", "tottenham": "tottenham", "tottenham hotspur": "tottenham", "spurs": "tottenham", "ريال مدريد": "real-madrid", "real madrid": "real-madrid", "real madrid cf": "real-madrid", "برشلونة": "barcelona", "barcelona": "barcelona", "fc barcelona": "barcelona", "اتلتيكو مدريد": "atletico-madrid", "atlético": "atletico-madrid", "atlético madrid": "atletico-madrid", "atletico madrid": "atletico-madrid", "atlético de madrid": "atletico-madrid", "بايرن ميونخ": "bayern", "بايرن ميونيخ": "bayern", "بايرن": "bayern", "bayern": "bayern", "bayern munich": "bayern", "fc bayern": "bayern", "bayern münchen": "bayern", "بوروسيا دورتموند": "dortmund", "دورتموند": "dortmund", "borussia dortmund": "dortmund", "dortmund": "dortmund", "bvb": "dortmund", "يوفنتوس": "juventus", "juventus": "juventus", "juve": "juventus", "انتر": "inter", "انتر ميلان": "inter", "inter": "inter", "inter milan": "inter", "internazionale": "inter", "inter milano": "inter", "ميلان": "milan", "ميلانو": "milan", "milan": "milan", "ac milan": "milan", "a.c. milan": "milan", "نابولي": "napoli", "napoli": "napoli", "ssc napoli": "napoli", "باريس سان جيرمان": "psg", "psg": "psg", "paris saint-germain": "psg", "paris sg": "psg", "paris saint germain": "psg"};
 const norm = s => (s || '').trim().replace(/[أإآ]/g, 'ا').toLowerCase();
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -144,7 +144,7 @@ function matchRow(m, isUs) {
   for (const [league, cats] of Object.entries(d.leaders || {}))
     for (const [label, items] of Object.entries(cats || {}))
       (items || []).forEach((p, i) => {
-        if (norm(p.name) === myName) {
+        if (norm(p.name) === myName && !PLAYER.hide.includes(league)) {
           myEntries.push({ league, label, value: p.value || '', team: p.team || '', rank: i + 1 });
           if (p.face && !face) face = p.face;
         }
@@ -190,6 +190,27 @@ function matchRow(m, isUs) {
   document.getElementById('upcoming').innerHTML = up.length
     ? up.slice(0, 8).map(m => matchRow(m, isMine)).join('')
     : '<p class="empty">مفيش ماتشات قادمة مسجلة لفرق اللاعب في البيانات الحالية.</p>';
+
+  // structured data: SportsEvent JSON-LD for the matches rendered on this page (facts visible here only)
+  const evs = all.filter(m => m.date && !isNaN(new Date(m.date).getTime())).map(m => {
+    const e = {
+      '@type': 'SportsEvent',
+      name: m.home + ' × ' + m.away,
+      sport: 'Soccer',
+      startDate: m.date,
+      homeTeam: { '@type': 'SportsTeam', name: m.home },
+      awayTeam: { '@type': 'SportsTeam', name: m.away },
+      eventStatus: m.state === 'post' ? 'https://schema.org/EventCompleted' : 'https://schema.org/EventScheduled'
+    };
+    if (m.league) e.isPartOf = { '@type': 'SportsLeague', name: m.league };
+    return e;
+  });
+  if (evs.length) {
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': evs });
+    document.head.appendChild(s);
+  }
 
   // news mentions: exact name only, no guessing
   const needle = (PLAYER.name || '').toLowerCase();
