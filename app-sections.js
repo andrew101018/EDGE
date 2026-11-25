@@ -524,8 +524,8 @@ function renderPlayerCompare() {
       <b style="color:${cb};flex:1;text-align:left;">${cell(gb)}</b>
     </div>`;
   document.getElementById('playerCompareContainer').innerHTML = head + row;
-  const upd = DATA.updated_at ? ` — آخر تحديث للموقع: ${DATA.updated_at}` : '';
-  document.getElementById('playerCompareMeta').textContent =
+  const upd = DATA.updated_at ? ` — آخر تحديث للموقع: <bdi dir="ltr">${DATA.updated_at}</bdi>` : '';
+  document.getElementById('playerCompareMeta').innerHTML =
     `الأرقام من جدول هدافي «${lg}» المسجل عندنا${upd}. «${MISSING}» يعني اللاعب مش ظاهر في الجدول ده في بياناتنا، مش إنه سجل صفر. المقارنة دي لقطة من جداول الهدافين، مش إحصائية موسم كاملة.`;
 }
 
