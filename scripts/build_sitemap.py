@@ -56,6 +56,13 @@ def main():
             continue
         entries.append(url(f"{SITE}/{path}", "0.7", lastmod(path)))
 
+    if os.path.exists("videos/index.html"):
+        entries.append(url(SITE + "/videos/", "0.6", lastmod("videos/index.html")))
+    for path in sorted(glob.glob("videos/*.html")):
+        if path.endswith("index.html"):
+            continue
+        entries.append(url(f"{SITE}/{path}", "0.5", lastmod(path)))
+
     if os.path.exists("players/index.html"):
         entries.append(url(SITE + "/players/", "0.8", lastmod("players/index.html")))
     for path in sorted(glob.glob("players/*.html")):
