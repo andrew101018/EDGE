@@ -40,15 +40,15 @@ PAGE = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{name}: النتائج والمباريات القادمة والترتيب | Edge Football</title>
-<meta name="description" content="نتائج {name} وماتشاته الجاية وترتيبه في الدوري والبطولات وهدافيه — الصفحة بتتحدث تلقائيًا مع كل ماتش على Edge Football.">
+<title>نتائج وماتشات {name} وترتيبه | Edge Football</title>
+<meta name="description" content="نتائج {name} وماتشاته الجاية وترتيبه وهدافيه على Edge Football، مع تنبيه واضح على الصفحة لو البيانات متأخرة.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="{site}/teams/{slug}.html">
 <meta property="og:site_name" content="Edge Football">
 <meta property="og:locale" content="ar_AR">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{name}: النتائج والمباريات القادمة والترتيب">
-<meta property="og:description" content="كل ماتشات ونتائج وترتيب {name} في مكان واحد، تحديث تلقائي.">
+<meta property="og:description" content="كل ماتشات ونتائج وترتيب {name} في مكان واحد.">
 <meta property="og:url" content="{site}/teams/{slug}.html">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg">
 <meta name="twitter:card" content="summary">
@@ -87,7 +87,7 @@ nav a{{font-weight:bold;text-decoration:none}}
   <img id="teamLogo" alt="شعار {name}" style="display:none">
   <div>
     <h1>{name}</h1>
-    <p>النتائج والماتشات الجاية والترتيب — تحديث تلقائي</p>
+    <p>النتائج والماتشات الجاية والترتيب — مع تنبيه واضح لو البيانات متأخرة</p>
   </div>
 </div>
 
@@ -264,14 +264,14 @@ INDEX = """<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>صفحات الفرق: نتائج وماتشات وترتيب الفرق الكبيرة | Edge Football</title>
-<meta name="description" content="صفحة ثابتة لكل فريق كبير: الأهلي والزمالك وبيراميدز وأرسنال وريال مدريد ومانشستر سيتي وغيرهم — نتائج وماتشات جاية وترتيب، تحديث تلقائي.">
+<meta name="description" content="صفحة ثابتة لكل فريق كبير: الأهلي والزمالك وبيراميدز وأرسنال وريال مدريد ومانشستر سيتي وغيرهم — نتائج وماتشات جاية وترتيب.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="{site}/teams/">
 <meta property="og:site_name" content="Edge Football">
 <meta property="og:locale" content="ar_AR">
 <meta property="og:type" content="website">
 <meta property="og:title" content="صفحات الفرق الكبيرة على Edge Football">
-<meta property="og:description" content="نتائج وماتشات وترتيب كل فريق كبير في صفحة واحدة، تحديث تلقائي.">
+<meta property="og:description" content="نتائج وماتشات وترتيب كل فريق كبير في صفحة واحدة.">
 <meta property="og:url" content="{site}/teams/">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg">
 <meta name="theme-color" content="#f59e0b">
