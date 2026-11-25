@@ -513,10 +513,10 @@ function drawAlt() {
 
 function qrUrl() {
   var base = "https://andrew101018.github.io/EDGE/";
-  if (CARD_TYPE === "table") return base + "#tablesContainer";
-  if (CARD_TYPE === "scorer") return base + "#leadersContainer";
-  if (CARD_TYPE === "predict") return base + "#predictContainer";
-  return base;
+  if (CARD_TYPE === "table") return base + "#tables";
+  if (CARD_TYPE === "scorer") return base + "#leaders,players";
+  if (CARD_TYPE === "predict") return base + "#predict";
+  return base + "#matches,tv";
 }
 
 function drawQR(cx, cy, size, url) {
