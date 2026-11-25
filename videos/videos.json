@@ -1,7 +1,7 @@
 {
  "reviewed": "2026-11-25",
  "channel": "https://www.youtube.com/@andygamall",
- "note": "14 long-form/tab-videos fully covered; 43 Shorts (separate tab) pending batch 2",
+ "note": "14 videos (full /videos tab) + 44 shorts (full /shorts tab, yt-dlp flat-playlist 25 Nov 2026); short pages carry no publish date (not grounded cheaply) — add when verified",
  "videos": [
   {
    "id": "w1xbPtrLdhw",
@@ -86,6 +86,184 @@
    "title": "الجنرال كوندي والقاضية ممكن ❤️💙",
    "published": "2026-01-18",
    "duration": "PT0M24S"
+  }
+ ],
+ "shorts": [
+  {
+   "id": "NkMBz2DJyBI",
+   "title": "دوري أبطال أوروبا: إزاي نظام الـ36 نادي بيشتغل؟"
+  },
+  {
+   "id": "E8SyilUS6Qo",
+   "title": "فان خال: كسب الكأس وبعدها بيومين اتقال؟"
+  },
+  {
+   "id": "fPASNMojbKI",
+   "title": "دوري الأبطال: ماتشات بكرة الأربع وتوقعات EDGE"
+  },
+  {
+   "id": "EFYg3qTG53s",
+   "title": "دوري الأبطال: ماتشات النهارده وتوقعات EDGE"
+  },
+  {
+   "id": "eAAYX8HFwGE",
+   "title": "دوري الأبطال: نتائج الجولة 4 والترتيب"
+  },
+  {
+   "id": "aiyHgpqDKHA",
+   "title": "الزمالك 2-1 الجونة | الجولة 9 من الدوري المصري #Shorts"
+  },
+  {
+   "id": "FLyYwDDPRJo",
+   "title": "أبرز نتائج الجولة 11 من الدوري الإنجليزي #Shorts"
+  },
+  {
+   "id": "LJf_-W1f5aQ",
+   "title": "بيراميدز يهزم الأهلي 2-0 | ملخص سريع #Shorts"
+  },
+  {
+   "id": "G4giwNcJ7Cc",
+   "title": "الأهلي ضد بيراميدز | قمة الدوري المصري الليلة الساعة 8 مساءً"
+  },
+  {
+   "id": "kUpo0LfB3ck",
+   "title": "بيدري"
+  },
+  {
+   "id": "jf70_39fS2w",
+   "title": "يونايتد بعد فيرجسون: مدرب جديد ولا نظام جديد؟"
+  },
+  {
+   "id": "oxYQTZ_md3Y",
+   "title": "- سنواجهه أتليتكو أليس كذالك؟ - نعم= أشعر بأن هُنالك شيئاً ناقص، و كأن شخص عزيزًا ذهب ولم يعُود .."
+  },
+  {
+   "id": "WCCgh2MLADk",
+   "title": "جماهير برشلونة"
+  },
+  {
+   "id": "uYT3Jb4bfAA",
+   "title": "متعليش صوتك ي حسين !"
+  },
+  {
+   "id": "-WO-tlEEpSU",
+   "title": "مفيش الا حريف واحد ♥️✨"
+  },
+  {
+   "id": "kfeTrhfHd0k",
+   "title": "هتراهن على الحريف القديم ولا الجديد ؟"
+  },
+  {
+   "id": "dTDhjgjUfwA",
+   "title": "\"بكرة هنعرف مين ملك العالم.. توقعك مين هيكسب؟"
+  },
+  {
+   "id": "dIT6oqFDUsQ",
+   "title": "لو الف الدنيا ، لو الف العالم ❤️❤️"
+  },
+  {
+   "id": "IjjuXHDvi3g",
+   "title": "‏ثُمّ شَرع يَداهُ مَفتُوحَتان إشَارةً مِنهُ \" انا التّاريخُ كَحدِ ذَاته \"💙💎"
+  },
+  {
+   "id": "L7b0GQX2ouA",
+   "title": "انا مين ! انا بابا ❤️"
+  },
+  {
+   "id": "sxg_Hx0A3GQ",
+   "title": "سنين ومرت 💙العمر عدي ولا لمحته ❤️"
+  },
+  {
+   "id": "ENTKMTv2YvY",
+   "title": "انا طفرة جيلك Icon ❤️"
+  },
+  {
+   "id": "gIn18VBujWo",
+   "title": "ده أنا كنت عيل من يومين ودخلت أنامصحيت لقيت العمر عدى، وماخدنيش معاه"
+  },
+  {
+   "id": "rGNiA5amw2c",
+   "title": "الرابعة ف الطريق لا محالة 💙"
+  },
+  {
+   "id": "hob9Sd-orGU",
+   "title": "جبروت 💙"
+  },
+  {
+   "id": "m5v-BivveMA",
+   "title": "وداعا ليڤا"
+  },
+  {
+   "id": "6oUVPLfaEjQ",
+   "title": "برشلونة علي حافة الهاوية"
+  },
+  {
+   "id": "O31tJNKWY2Y",
+   "title": "ي لامين ي جمال ♥️"
+  },
+  {
+   "id": "m-5eNsukI3E",
+   "title": "الاغنيه الرسمية لبطل العالم 2026 ❤️"
+  },
+  {
+   "id": "h5-O8id3fms",
+   "title": "برشلونة جميل ♥️"
+  },
+  {
+   "id": "PusZtIirMfk",
+   "title": "Master Barca"
+  },
+  {
+   "id": "bK7W1SJUB1E",
+   "title": "من اين لنا بمثلك رسام مهما طال الزمان ي اندريس"
+  },
+  {
+   "id": "eMynzgMV6rg",
+   "title": "عودة المقاتل جافي"
+  },
+  {
+   "id": "EF-LM7HHI50",
+   "title": "the real goat 🐐♥️ @FCBarcelona @LeoMessi"
+  },
+  {
+   "id": "qpQwZZguyeU",
+   "title": "انت تلعب بعقلك وقلوبنا ي بيدري 💎 @FCBarcelona"
+  },
+  {
+   "id": "3A-0lDsT2Ps",
+   "title": "ميسي أنكرا ميسي ankra messi ♥️💎 @FCBarcelona @LeoMessi"
+  },
+  {
+   "id": "xa-t2AxuaRo",
+   "title": "الروبوت ليڤا 🦾 @RobertLewandowskiOfficial"
+  },
+  {
+   "id": "51omYe-TMWg",
+   "title": "Barca… Barca - قلبي كان ينبض"
+  },
+  {
+   "id": "PDKSsoEk-zU",
+   "title": "@realmadrid   تعالي وانا أعلمك تكسب ازاي ♥️... ."
+  },
+  {
+   "id": "JRn6BmXlmxc",
+   "title": "اشياء لا نراها الا في برشلونة 💙❤️"
+  },
+  {
+   "id": "tXJxQsPcLA4",
+   "title": "بطولة تاريخية للاعب تاريخي 💚"
+  },
+  {
+   "id": "gWbr8xko7RI",
+   "title": "بابا الشغلانة"
+  },
+  {
+   "id": "ELMSXmUD7mI",
+   "title": "بعد كل كلاسيكو عامتا 💙♥️"
+  },
+  {
+   "id": "dJsLav8epJo",
+   "title": "TIC … TAC"
   }
  ]
 }
