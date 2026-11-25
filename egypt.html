@@ -110,8 +110,12 @@
         var st = (e.competitions && e.competitions[0] && e.competitions[0].status && e.competitions[0].status.type) || {};
         return (st.completed || st.state === 'post') && new Date(e.date) <= now;
       }).sort(function (a, b) { return new Date(b.date) - new Date(a.date); });
-      var cards = upcoming.slice(0, 3).map(function (e) { return ntCard(e, e.__comp); })
-        .concat(played.slice(0, 4).map(function (e) { return ntCard(e, e.__comp); }));
+      var cards = upcoming.slice(0, 3).map(function (e) { return ntCard(e, e.__comp); });
+      if (!upcoming.length) {
+        /* ESPN schedule API has no dated upcoming NT fixture yet; next window verified on ESPN's fixtures page. Self-heals once the API lists fixtures. */
+        cards.push('<div class="eg-mcard" style="border-right-color:#f59e0b;"><div class="eg-meta" style="margin-top:0;line-height:1.9;">أقرب ماتشات جاية للمنتخب حسب جدول ESPN: أنجولا × مصر (24 مارس 2027) ومصر × جنوب السودان (28 مارس 2027) — المواعيد بالتوقيت لسه متحددة.<br>المصدر: ESPN · آخر مراجعة 25 نوفمبر 2026</div></div>');
+      }
+      cards = cards.concat(played.slice(0, 4).map(function (e) { return ntCard(e, e.__comp); }));
       if (cards.length) {
         cards.push('<div class="eg-stamp" style="margin:8px 0 0;">المصدر: ESPN · بيجي بالبيانات لحظة فتح الصفحة</div>');
         box.innerHTML = cards.join('');
