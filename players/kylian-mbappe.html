@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kylian Mbappé: الأهداف والإحصائيات ونتائج فريقه | Edge Football</title>
-<meta name="description" content="إحصائيات Kylian Mbappé في الدوريات والبطولات (أهداف وصناعة) وآخر نتائج وماتشات فريقه — الصفحة بتتحدث تلقائيًا مع كل جولة على Edge Football.">
+<meta name="description" content="إحصائيات Kylian Mbappé من قوائم الهدافين وصناع اللعب وآخر نتائج وماتشات فريقه على Edge Football.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://andrew101018.github.io/EDGE/players/kylian-mbappe.html">
 <meta property="og:site_name" content="Edge Football">
 <meta property="og:locale" content="ar_AR">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Kylian Mbappé: الأهداف والإحصائيات">
-<meta property="og:description" content="أرقام Kylian Mbappé في قوائم الهدافين وصناع اللعب، تحديث تلقائي.">
+<meta property="og:description" content="أرقام Kylian Mbappé في قوائم الهدافين وصناع اللعب على الموقع.">
 <meta property="og:url" content="https://andrew101018.github.io/EDGE/players/kylian-mbappe.html">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg">
 <meta name="twitter:card" content="summary">
@@ -51,17 +51,18 @@ nav a{font-weight:bold;text-decoration:none}
   <div class="p-face" id="pFace">👤</div>
   <div>
     <h1 dir="ltr" style="text-align:right">Kylian Mbappé</h1>
-    <p id="pTeams">الإحصائيات والنتائج — تحديث تلقائي</p>
+    <p id="pTeams">الإحصائيات ونتائج الفريق</p>
   </div>
 </div>
 
 <div class="card" id="staleCard" style="display:none;border-color:#b45309">
-  <p style="margin:0;color:#fbbf24;font-size:.9em;">⚠️ البيانات دي مش محدثة دلوقتي — آخر تحديث وصل للموقع: <span id="staleTs"></span> بتوقيت القاهرة. الأرقام والنتايج ممكن تكون اتغيرت من ساعتها.</p>
+  <p style="margin:0;color:#fbbf24;font-size:.9em;">⚠️ بيانات الماتشات مش محدثة دلوقتي — آخر تحديث وصل للموقع: <span id="staleTs"></span> بتوقيت القاهرة. نتايج الفريق المعروضة تحت ممكن تكون اتغيرت من ساعتها.</p>
 </div>
 
 <div class="card">
   <h2>الإحصائيات في قوائم المتصدرين</h2>
   <div id="stats"><p class="empty">بنحمّل البيانات...</p></div>
+  <p class="note" style="margin:8px 0 0">الأرقام دي من قوائم الهدافين وصناع اللعب المعروضة على الموقع — ميعاد آخر تحديث ليها غير معروف حاليًا.</p>
 </div>
 
 <div class="card" id="teamCard" style="display:none">
@@ -85,7 +86,7 @@ nav a{font-weight:bold;text-decoration:none}
 </div>
 
 <p class="note">آخر تحديث للماتشات: <span id="mu">...</span> · الأخبار: <span id="nu"></span> (بتوقيت القاهرة)</p>
-<p class="note">مصدر البيانات: ESPN وKooora — الصفحة بتقرأ البيانات مباشرة وبتتحدث لوحدها مع كل جولة.</p>
+<p class="note">مصدر البيانات: ESPN وKooora — الصفحة بتعرض البيانات المنشورة على الموقع زي ما هي.</p>
 </main>
 <script>
 const PLAYER = {"name": "Kylian Mbappé", "slug": "kylian-mbappe"};
@@ -151,16 +152,21 @@ function matchRow(m, isUs) {
 
   if (face) document.getElementById('pFace').innerHTML = `<img src="${esc(face)}" alt="" onerror="this.remove()">`;
 
+  // national-team competitions: label the team as a منتخب, not a club
+  const NATIONAL = new Set(['دوري الأمم الأوروبية', 'تصفيات كأس العالم', 'كأس العالم', 'يورو', 'كأس الأمم الأفريقية', 'كوبا أمريكا']);
+  const natTeams = new Set(myEntries.filter(e => NATIONAL.has(e.league)).map(e => e.team));
+  const teamLabel = t => t + (natTeams.has(t) ? ' (منتخب)' : '');
   const teams = [...new Set(myEntries.map(e => e.team).filter(Boolean))];
-  if (teams.length) document.getElementById('pTeams').textContent = teams.join(' · ');
+  if (teams.length) document.getElementById('pTeams').textContent = teams.map(teamLabel).join(' · ');
 
   document.getElementById('stats').innerHTML = myEntries.length
-    ? myEntries.map(e => `<div class="row"><span class="mt">${esc(e.league)}<br><span class="meta">${esc(e.label)}${e.team ? ' · ' + esc(e.team) : ''}</span></span><span class="meta">المركز ${e.rank} · <span class="us">${esc(e.value)}</span></span></div>`).join('')
+    ? myEntries.map(e => `<div class="row"><span class="mt">${esc(e.league)}<br><span class="meta">${esc(e.label)}${e.team ? ' · ' + esc(teamLabel(e.team)) : ''}</span></span><span class="meta">المركز ${e.rank} · <span class="us">${esc(e.value)}</span></span></div>`).join('')
     : '<p class="empty">اللاعب مش موجود في قوائم المتصدرين في البيانات الحالية — ممكن تكون اتغيرت مع آخر تحديث.</p>';
 
   // team links: big-team page when the club has one
   const links = [];
   for (const t of teams) {
+    if (natTeams.has(t)) continue; // national teams have no club page
     const slug = BIG_TEAMS[norm(t)];
     if (slug) links.push(`<a class="team-link" href="../teams/${slug}.html">${esc(t)} ← صفحة الفريق</a>`);
   }
