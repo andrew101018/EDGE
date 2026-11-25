@@ -9,7 +9,7 @@ this script never fetches or generates news itself.
 Run: python3 scripts/build_news_ingest.py  (from repo root)
 """
 import json, os, glob, re
-from datetime import datetime
+from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -94,8 +94,10 @@ def load_batch(path, r):
         'checked_at': checked,
     }]
 
-def load_prediction(path, r):
-    """prediction-v1: an editorial prediction recorded BEFORE kickoff; resolved later by scripts/resolve_predictions.py."""
+def load_prediction(path, r, existing_log):
+    """prediction-v1: an editorial prediction recorded BEFORE kickoff; resolved later by scripts/resolve_predictions.py.
+    Integrity: kickoff must be in the future at trusted ingest (server) time, and each match
+    accepts one prediction ever, so a pick cannot be submitted or rewritten after the match."""
     for k in ('id', 'eid', 'home', 'away', 'kickoff', 'pick', 'checked_at'):
         if not r.get(k):
             raise SystemExit(f"invalid record {path}: missing {k}")
@@ -106,18 +108,25 @@ def load_prediction(path, r):
     chk = iso(r['checked_at'], 'checked_at', path)
     if ko <= chk:
         raise SystemExit(f"invalid record {path}: kickoff must be after checked_at (predictions are recorded before the match)")
+    now = datetime.now(timezone.utc)
+    if ko <= now:
+        raise SystemExit(f"invalid record {path}: kickoff must be in the future at ingest time (server clock); backdated predictions are rejected")
+    eid = str(r['eid'])
+    if any(p.get('eid') == eid for p in (existing_log or [])):
+        raise SystemExit(f"invalid record {path}: a prediction for this match (eid {eid}) already exists; one prediction per match")
     return [{
         'id': r['id'], 'section': 'predictions_log',
-        'eid': str(r['eid']), 'home': str(r['home']), 'away': str(r['away']),
+        'eid': eid, 'home': str(r['home']), 'away': str(r['away']),
         'kickoff': r['kickoff'], 'pick': [pk['hs'], pk['as']],
         'note': str(r.get('note', '')), 'recorded_at': r['checked_at'],
+        'ingested_at': now.isoformat(timespec='seconds'),
         'status': 'pending', 'actual': None,
     }]
 
-def load(path):
+def load(path, pred_log=None):
     r = json.load(open(path, encoding='utf-8'))
     if r.get('kind') == 'prediction-v1':
-        return load_prediction(path, r)
+        return load_prediction(path, r, pred_log)
     if 'results' in r:
         return load_batch(path, r)
     return load_single(path, r)
@@ -127,10 +136,10 @@ def main():
     if not files:
         print('news ingest: no records')
         return
+    data = json.load(open(DATA, encoding='utf-8'))
     items = []
     for f in files:
-        items += load(f)
-    data = json.load(open(DATA, encoding='utf-8'))
+        items += load(f, data.get('predictions_log') or [])
     seen = set(data.get('news_ids', []))
     added = []
     for it in items:
