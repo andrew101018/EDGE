@@ -2,7 +2,11 @@
   "questions": [
     {
       "q": "مين اللاعب اللي سجل أول هدف في تاريخ كأس العالم؟",
-      "opts": ["لوسيان لوران", "بيليه", "جيوسيبه مياتزا"],
+      "opts": [
+        "لوسيان لوران",
+        "بيليه",
+        "جيوسيبه مياتزا"
+      ],
       "correct": 0,
       "fact": "الفرنسي لوسيان لوران سجل أول هدف في تاريخ المونديال في أول ماتش يوم 13 يوليو 1930.",
       "src": "https://inside.fifa.com/tournaments/mens/worldcup/1930uruguay/news/lucien-laurent-the-first-world-cup-goalscorer",
@@ -10,7 +14,11 @@
     },
     {
       "q": "أكتر منتخب كسب كأس الأمم الأفريقية؟",
-      "opts": ["الكاميرون", "مصر", "غانا"],
+      "opts": [
+        "الكاميرون",
+        "مصر",
+        "غانا"
+      ],
       "correct": 1,
       "fact": "مصر هي الأكثر تتويجًا بسبع بطولات في تاريخ كأس الأمم الأفريقية.",
       "src": "https://www.cafonline.com/afcon2025/news/seven-titles-later-egypt-return-to-afcon-as-history-s-benchmark-and-present-contenders/",
@@ -18,7 +26,11 @@
     },
     {
       "q": "الأهلي وصل لكام لقب دوري أبطال أفريقيا لما كسب «العاشرة» في 2021؟",
-      "opts": ["تمنية", "تسعة", "عشرة"],
+      "opts": [
+        "تمنية",
+        "تسعة",
+        "عشرة"
+      ],
       "correct": 2,
       "fact": "الأهلي كسب لقبه العاشر في دوري أبطال أفريقيا بفوزه على كايزر تشيفز في نهائي كازابلانكا 2021.",
       "src": "https://www.cafonline.com/caf-champions-league/news/al-ahly-secure-al-ashra-with-victory-over-10-man-chiefs/",
@@ -26,7 +38,11 @@
     },
     {
       "q": "في نهائي إسطنبول 2005، ليفربول كان متأخر قدام ميلان بكام هدف بين الشوطين؟",
-      "opts": ["هدفين", "ثلاثة أهداف", "أربعة أهداف"],
+      "opts": [
+        "هدفين",
+        "ثلاثة أهداف",
+        "أربعة أهداف"
+      ],
       "correct": 1,
       "fact": "ليفربول كان متأخر بثلاثية نظيفة قبل ما يعود ويكسب اللقب بركلات الترجيح.",
       "src": "https://www.uefa.com/newsfiles/UCL/2004/1086988_FR.pdf",
@@ -34,7 +50,11 @@
     },
     {
       "q": "مين كسب كأس العالم 2022 في قطر؟",
-      "opts": ["فرنسا", "كرواتيا", "الأرجنتين"],
+      "opts": [
+        "فرنسا",
+        "كرواتيا",
+        "الأرجنتين"
+      ],
       "correct": 2,
       "fact": "الأرجنتين كسبت اللقب بعد نهائي لوسيل الأسطوري أمام فرنسا يوم 18 ديسمبر 2022.",
       "src": "https://www.fifa.com/en/tournaments/mens/worldcup/qatar2022/articles/france-argentina-lionel-messi-kylian-mbappe-fifa-world-cup-qatar-2022",
@@ -42,7 +62,11 @@
     },
     {
       "q": "إسبانيا كسبت أول كأس عالم في تاريخها سنة كام؟",
-      "opts": ["2010", "2006", "2014"],
+      "opts": [
+        "2010",
+        "2006",
+        "2014"
+      ],
       "correct": 0,
       "fact": "إسبانيا اتوجت لأول مرة في جنوب أفريقيا 2010 بهدف إنييستا في نهائي هولندا يوم 11 يوليو.",
       "src": "https://inside.fifa.com/tournaments/mens/worldcup/qatar2022/news/ten-standout-world-cup-matches-from-the-past-decade",
@@ -50,23 +74,35 @@
     },
     {
       "q": "مين سجل هدف فوز ألمانيا في نهائي كأس العالم 2014؟",
-      "opts": ["توماس مولر", "ماريو جوتسه", "ميروسلاف كلوزه"],
+      "opts": [
+        "توماس مولر",
+        "ماريو جوتسه",
+        "ميروسلاف كلوزه"
+      ],
       "correct": 1,
       "fact": "ماريو جوتسه سجل هدف اللقب في الوقت الإضافي في نهائي الماراكانا يوم 13 يوليو 2014.",
-      "src": "https://www.fifa.com/de/match-centre/match/17/251164/255959/300186501",
+      "src": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/mario-gotze-goal-germany-argentina-2014",
       "srcn": "FIFA"
     },
     {
       "q": "ريال مدريد وصل لكام لقب دوري أبطال بعد فوزه على دورتموند في نهائي 2024؟",
-      "opts": ["13", "14", "15"],
+      "opts": [
+        "13",
+        "14",
+        "15"
+      ],
       "correct": 2,
       "fact": "اللقب الـ15 جاء بثنائية كارفاخال وفينيسيوس في ويمبلي يوم 1 يونيو 2024.",
-      "src": "https://www.uefa.com/newsfiles/UCL/2024/2039970_TS.pdf",
+      "src": "https://www.uefa.com/uefachampionsleague/news/028d-1af49188a702-0b0a793b60e6-1000--uefa-champions-league-2023-24-season-in-numbers/",
       "srcn": "UEFA"
     },
     {
       "q": "مين كسب دوري أبطال أوروبا 2025؟",
-      "opts": ["باريس سان جيرمان", "إنتر ميلان", "بايرن ميونخ"],
+      "opts": [
+        "باريس سان جيرمان",
+        "إنتر ميلان",
+        "بايرن ميونخ"
+      ],
       "correct": 0,
       "fact": "باريس اتوج لأول مرة في تاريخه بخماسية في نهائي ميونخ يوم 31 مايو 2025.",
       "src": "https://www.uefa.com/uefachampionsleague/news/0299-1de417608530-15b01ff7b150-1000--paris-win-champions-league-desire-doue-double-helps-secure/",
@@ -74,7 +110,11 @@
     },
     {
       "q": "مانشستر سيتي كسب أول دوري أبطال في تاريخه سنة كام؟",
-      "opts": ["2021", "2023", "2024"],
+      "opts": [
+        "2021",
+        "2023",
+        "2024"
+      ],
       "correct": 1,
       "fact": "السيتي اتوج لأول مرة بهدف رودري في نهائي إسطنبول ويكمل الثلاثية يوم 10 يونيو 2023.",
       "src": "https://www.uefa.com/uefachampionsleague/news/0282-1839b24603ef-36e94e63621d-1000--man-city-win-champions-league-rodri-goal-secures-victory/",
@@ -82,7 +122,11 @@
     },
     {
       "q": "مين سجل هدف تتويج إسبانيا في نهائي كأس العالم 2010؟",
-      "opts": ["أندريس إنييستا", "تشافي هيرنانديز", "ديفيد فيا"],
+      "opts": [
+        "أندريس إنييستا",
+        "تشافي هيرنانديز",
+        "ديفيد فيا"
+      ],
       "correct": 0,
       "fact": "إنييستا سجل هدف اللقب في الوقت الإضافي في نهائي جوهانسبرج على حساب هولندا.",
       "src": "https://inside.fifa.com/tournaments/mens/worldcup/qatar2022/news/ten-standout-world-cup-matches-from-the-past-decade",
@@ -90,7 +134,11 @@
     },
     {
       "q": "في «ماتش القرن» 1953، المجر كسبت إنجلترا في ويمبلي بنتيجة كام؟",
-      "opts": ["أربعة لاتنين", "خمسة لاتنين", "ستة لثلاثة"],
+      "opts": [
+        "أربعة لاتنين",
+        "خمسة لاتنين",
+        "ستة لثلاثة"
+      ],
       "correct": 2,
       "fact": "المجر كسبت بستة أهداف لثلاثة قدام 105 آلاف متفرج يوم 25 نوفمبر 1953.",
       "src": "https://www.bbc.com/sport/av/football/24985250",
@@ -98,7 +146,11 @@
     },
     {
       "q": "الأسطورة دييجو مارادونا توفي سنة كام؟",
-      "opts": ["2019", "2020", "2021"],
+      "opts": [
+        "2019",
+        "2020",
+        "2021"
+      ],
       "correct": 1,
       "fact": "مارادونا توفي يوم 25 نوفمبر 2020 عن 60 عامًا.",
       "src": "https://inside.fifa.com/organisation/president/media-releases/world-of-football-in-mourning-as-diego-maradona-passes-away",
@@ -106,7 +158,11 @@
     },
     {
       "q": "مين كسب كأس العالم 1966؟",
-      "opts": ["ألمانيا الغربية", "البرازيل", "إنجلترا"],
+      "opts": [
+        "ألمانيا الغربية",
+        "البرازيل",
+        "إنجلترا"
+      ],
       "correct": 2,
       "fact": "إنجلترا كسبت لقبها الوحيد بفوزها على ألمانيا الغربية في نهائي ويمبلي يوم 30 يوليو 1966.",
       "src": "https://www.fifa.com/de/match-centre/match/17/26/3478/1633",
@@ -114,7 +170,11 @@
     },
     {
       "q": "الأهلي كسب «العاشرة» الأفريقية 2021 على حساب مين؟",
-      "opts": ["كايزر تشيفز", "الزمالك", "الوداد"],
+      "opts": [
+        "كايزر تشيفز",
+        "الزمالك",
+        "الوداد"
+      ],
       "correct": 0,
       "fact": "الأهلي كسب كايزر تشيفز بثلاثية نظيفة في نهائي كازابلانكا يوم 17 يوليو 2021.",
       "src": "https://www.cafonline.com/caf-champions-league/news/al-ahly-secure-al-ashra-with-victory-over-10-man-chiefs/",
@@ -122,7 +182,11 @@
     },
     {
       "q": "مانشستر يونايتد قلب نهائي 1999 على بايرن ميونخ بهدفين في..",
-      "opts": ["الشوط الأول", "الوقت الإضافي", "الوقت بدل الضائع"],
+      "opts": [
+        "الشوط الأول",
+        "الوقت الإضافي",
+        "الوقت بدل الضائع"
+      ],
       "correct": 2,
       "fact": "يونايتد سجل هدفين في الوقت بدل الضائع ويكمل الثلاثية في كامب نو يوم 26 مايو 1999.",
       "src": "https://www.uefa.com/uefachampionsleague/news/0253-0d800ac7cffa-8147de94780e-1000--the-1999-champions-league-final-20-years-on-most-dramatic/",
@@ -130,7 +194,11 @@
     },
     {
       "q": "فرنسا كسبت كأس العالم الثانية في تاريخها سنة كام؟",
-      "opts": ["2018", "2022", "1998"],
+      "opts": [
+        "2018",
+        "2022",
+        "1998"
+      ],
       "correct": 0,
       "fact": "فرنسا اتوجت بالثانية في موسكو على حساب كرواتيا يوم 15 يوليو 2018.",
       "src": "https://inside.fifa.com/tournaments/mens/worldcup/2018russia/news/formidable-france-secure-second-title",
@@ -138,7 +206,11 @@
     },
     {
       "q": "مصر كسبت كأس الأمم 2006 على أرضها على حساب مين في النهائي؟",
-      "opts": ["السنغال", "كوت ديفوار", "الكاميرون"],
+      "opts": [
+        "السنغال",
+        "كوت ديفوار",
+        "الكاميرون"
+      ],
       "correct": 1,
       "fact": "مصر اتوجت بركلات الترجيح على حساب كوت ديفوار قدام أكتر من 74 ألف متفرج يوم 10 فبراير 2006.",
       "src": "https://www.cafonline.com/afcon2025/news/hassan-and-fae-from-2006-rivals-to-2025-afcon-quarter-final-adversaries/",
