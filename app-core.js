@@ -128,3 +128,26 @@ document.addEventListener('click', function (e) {
   }
 })();
 
+
+/* ===== 📤 مشاركة أصلية (Web Share) مع رجوع للنسخ ===== */
+function edgeShare(title, text, url) {
+  const u = url || location.href;
+  if (navigator.share) { navigator.share({ title: title || document.title, text: text || '', url: u }).catch(function(){}); return; }
+  const full = (text ? text + '\n' : '') + u;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(full).then(function(){ edgeToast('تم نسخ الرابط ✅'); }).catch(function(){ window.prompt('انسخ الرابط:', full); });
+  } else { window.prompt('انسخ الرابط:', full); }
+}
+function edgeToast(msg) {
+  let t = document.getElementById('edgeToast');
+  if (!t) {
+    t = document.createElement('div'); t.id = 'edgeToast';
+    t.style.cssText = 'display:none;position:fixed;bottom:96px;right:50%;transform:translateX(50%);background:#16213a;color:#fbbf24;border:1px solid #fbbf24;padding:8px 16px;border-radius:20px;font-size:.85em;z-index:9999;';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg; t.style.display = 'block';
+  clearTimeout(t._h); t._h = setTimeout(function(){ t.style.display = 'none'; }, 1800);
+}
+function edgeShareBtn(title, text, url) {
+  return `<button type="button" class="edge-share" onclick="event.stopPropagation();edgeShare(this.dataset.t,this.dataset.x,this.dataset.u)" data-t="${esc(title||'')}" data-x="${esc(text||'')}" data-u="${esc(url||location.href)}" style="background:none;border:1px solid #334155;border-radius:8px;color:#fbbf24;font-size:.78em;padding:2px 8px;cursor:pointer;font-family:inherit;">📤 شارك</button>`;
+}
