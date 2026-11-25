@@ -64,6 +64,62 @@
   function fill(box, cards, emptyText) {
     box.innerHTML = cards.length ? cards.join('') : '<div class="eg-empty">' + emptyText + '</div>';
   }
+  /* منتخب مصر: ESPN public team schedule (team 2620), fetched live on page open. */
+  var NT_APIS = [
+    ['تصفيات كأس الأمم الأفريقية 2027', 'https://site.api.espn.com/apis/site/v2/sports/soccer/caf.nations_qual/teams/2620/schedule'],
+    ['مباريات ودية', 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.friendly/teams/2620/schedule'],
+    ['كأس العالم 2026', 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/teams/2620/schedule']
+  ];
+  function fmtDayCairo(iso) {
+    try {
+      return new Date(iso).toLocaleDateString('ar-EG', { timeZone: 'Africa/Cairo', day: 'numeric', month: 'long', year: 'numeric' });
+    } catch (e) { return ''; }
+  }
+  function ntCard(ev, comp) {
+    var c = (ev.competitions && ev.competitions[0]) || {};
+    var comps = c.competitors || [];
+    var home = comps.filter(function (x) { return x.homeAway === 'home'; })[0] || {};
+    var away = comps.filter(function (x) { return x.homeAway === 'away'; })[0] || {};
+    var hn = (home.team && (home.team.displayName || home.team.name)) || '?';
+    var an = (away.team && (away.team.displayName || away.team.name)) || '?';
+    var st = (c.status && c.status.type) || {};
+    var mid;
+    if (st.completed || st.state === 'post') {
+      mid = '<span class="eg-score">' + esc(home.score && home.score.value) + ' - ' + esc(away.score && away.score.value) + '</span>';
+    } else {
+      var d = new Date(ev.date);
+      var midnight = d.getUTCHours() === 0 && d.getUTCMinutes() === 0;
+      mid = '<span class="eg-vs">' + (midnight ? 'الموعد لسه متحدد' : esc(fmtTime(ev.date))) + '</span>';
+    }
+    return '<div class="eg-mcard" style="border-right-color:#3b82f6;"><div class="eg-teams">' +
+      '<span class="eg-team">' + esc(hn) + '</span>' + mid + '<span class="eg-team">' + esc(an) + '</span></div>' +
+      '<div class="eg-meta">' + esc(comp) + ' · ' + esc(fmtDayCairo(ev.date)) + '</div></div>';
+  }
+  function loadNT() {
+    var box = document.getElementById('ntBox');
+    Promise.all(NT_APIS.map(function (a) {
+      return fetch(a[1], { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (j) { return { comp: a[0], events: (j && j.events) || [] }; })
+        .catch(function () { return { comp: a[0], events: [] }; });
+    })).then(function (sets) {
+      var all = [];
+      sets.forEach(function (s) { s.events.forEach(function (e) { e.__comp = s.comp; all.push(e); }); });
+      var now = Date.now();
+      var upcoming = all.filter(function (e) { return new Date(e.date) > now; }).sort(function (a, b) { return new Date(a.date) - new Date(b.date); });
+      var played = all.filter(function (e) {
+        var st = (e.competitions && e.competitions[0] && e.competitions[0].status && e.competitions[0].status.type) || {};
+        return (st.completed || st.state === 'post') && new Date(e.date) <= now;
+      }).sort(function (a, b) { return new Date(b.date) - new Date(a.date); });
+      var cards = upcoming.slice(0, 3).map(function (e) { return ntCard(e, e.__comp); })
+        .concat(played.slice(0, 4).map(function (e) { return ntCard(e, e.__comp); }));
+      if (cards.length) {
+        cards.push('<div class="eg-stamp" style="margin:8px 0 0;">المصدر: ESPN · بيجي بالبيانات لحظة فتح الصفحة</div>');
+        box.innerHTML = cards.join('');
+      } else {
+        box.innerHTML = '<div class="eg-empty">مفيش مباريات لمنتخب مصر في البيانات الحالية — أول ما ماتش للمنتخب ينزل في المصادر هيظهر هنا تلقائيًا.</div>';
+      }
+    });
+  }
   fetch('site/data.json', { cache: 'no-store' })
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (d) {
@@ -78,7 +134,8 @@
           else if (isNT) nt.push(m);
         });
       });
-      fill(document.getElementById('ntBox'), nt.map(matchCard), 'مفيش مباريات لمنتخب مصر في البيانات الحالية — أول ما ماتش للمنتخب ينزل في المصادر هيظهر هنا تلقائيًا.');
+      /* NT section always uses ESPN's team schedule (fixtures + results); the feed rarely carries NT matches. */
+      loadNT();
       fill(document.getElementById('leagueBox'), league.map(matchCard), 'مفيش مباريات دوري مصري في البيانات الحالية.');
       var news = (d.news || []).filter(function (n) { return KW.test((n.title || '') + ' ' + (n.summary || '')); });
       fill(document.getElementById('newsBox'), news.map(function (n) {
