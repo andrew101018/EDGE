@@ -1162,14 +1162,14 @@
      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/191.png",
      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6077.png",
      "tv": "",
-     "hs": "1",
-     "as": "0",
+     "hs": "2",
+     "as": "1",
      "time": "05:00",
      "day": "Wednesday",
      "dateAr": "25/11",
      "date": "2026-11-25T05:00:00+02:00",
-     "detail": "22'",
-     "state": "in"
+     "detail": "FT",
+     "state": "post"
     },
     {
      "home": "Columbus",
@@ -6227,5 +6227,5 @@
  ],
  "highlights": [],
  "squads": {},
- "matches_updated_at": "2026-11-25 05:52 AM"
+ "matches_updated_at": "2026-11-25 02:53 PM"
 }
