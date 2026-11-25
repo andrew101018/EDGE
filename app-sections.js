@@ -527,13 +527,72 @@ function matchShareButton(slug, eid, title) {
   }
 }
 
+function icsEscape(s) {
+  return String(s || '').replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\n/g, '\\n');
+}
+
+function icsDate(d) {
+  const p = n => String(n).padStart(2, '0');
+  return d.getUTCFullYear() + p(d.getUTCMonth() + 1) + p(d.getUTCDate()) + 'T' + p(d.getUTCHours()) + p(d.getUTCMinutes()) + '00Z';
+}
+
+function icsButton(eid) {
+  try {
+    let m = null;
+    (DATA.matches || []).forEach(g => (g.items || []).forEach(x => {
+      if (String(x.eid) === String(eid)) m = x;
+    }));
+    if (!m || m.state !== 'pre') return '';
+    const t = Date.parse(m.date || '');
+    if (Number.isNaN(t)) return '';
+    return '<button class="btn" style="display:flex;justify-content:center;align-items:center;margin-bottom:14px;width:100%;" onclick="downloadIcs(\'' + String(eid) + '\')">📅 أضف المباراة لتقويم موبايلك</button>';
+  } catch (e) {
+    return '';
+  }
+}
+
+function downloadIcs(eid) {
+  try {
+    let m = null, lg = '';
+    (DATA.matches || []).forEach(g => (g.items || []).forEach(x => {
+      if (String(x.eid) === String(eid)) { m = x; lg = g.league || ''; }
+    }));
+    if (!m) return;
+    const t = new Date(m.date);
+    if (Number.isNaN(t.getTime())) return;
+    const end = new Date(t.getTime() + 2 * 60 * 60 * 1000);
+    const lines = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Edge Football//Matches//AR',
+      'BEGIN:VEVENT',
+      'UID:edge-' + eid + '@edgefootball',
+      'DTSTAMP:' + icsDate(new Date()),
+      'DTSTART:' + icsDate(t),
+      'DTEND:' + icsDate(end),
+      'SUMMARY:' + icsEscape('⚽ ' + m.home + ' × ' + m.away + (lg ? ' — ' + lg : '')),
+      'DESCRIPTION:' + icsEscape('الموعد بحسب بيانات Edge Football وقت الإضافة وقد يتغير — تابع الموقع قبل الماتش: https://andrew101018.github.io/EDGE/'),
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ];
+    const blob = new Blob([lines.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'edge-match-' + eid + '.ics';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  } catch (e) {}
+}
+
 async function showMatch(slug, eid, title) {
   const box = document.getElementById('matchModal');
   box.style.cssText = 'display:block;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;overflow:auto;';
   box.firstElementChild.style.cssText = 'max-width:640px;margin:40px auto;background:#1e293b;border-radius:12px;padding:20px;';
   document.getElementById('matchModalTitle').textContent = '⚽ ' + title;
   document.getElementById('matchModalBody').innerHTML = 'جاري تحميل التفاصيل...';
-  const shareHtml = matchShareButton(slug, eid, title);
+  const shareHtml = matchShareButton(slug, eid, title) + icsButton(eid);
   try {
     const r = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/summary?event=${eid}`);
     const d = await r.json();
