@@ -283,13 +283,14 @@ async function loadBoard() {
   const el = document.getElementById('boardContainer');
   if (!el) return;
   if (!supa) { el.innerHTML = '<div class="card">🏅 اللوحة هتشتغل بعد توصيل مفاتيح Supabase</div>'; return; }
+  const inviteBtn = '<div style="margin-bottom:10px">' + edgeShareBtn('لوحة EDGE', 'هتقدر تطلعني من على لوحة EDGE؟ شوف نقاطك ورتبك هنا 🏅', location.origin + location.pathname + '#board') + ' ادعُ أصحابك وشوف مين هيكسب الجون 😄</div>';
   const res = await supa.from('players').select('*').order('total', { ascending: false }).limit(50);
   if (res.error || !res.data || !res.data.length) {
-    el.innerHTML = '<div class="card">لسه مفيش لاعبين — كن أول من يرفع نقاطه! 🚀</div>';
+    el.innerHTML = inviteBtn + '<div class="card">لسه مفيش لاعبين — كن أول من يرفع نقاطه! 🚀</div>';
     return;
   }
   const medals = ['🥇', '🥈', '🥉'];
-  el.innerHTML = '<table class="stand"><tr><th>#</th><th>الاسم</th><th>توقعات</th><th>فانتازي</th><th>الإجمالي</th></tr>' +
+  el.innerHTML = inviteBtn + '<table class="stand"><tr><th>#</th><th>الاسم</th><th>توقعات</th><th>فانتازي</th><th>الإجمالي</th></tr>' +
     res.data.map((r, i) => `<tr><td>${medals[i] || i + 1}</td><td>${r.name}</td><td>${r.pred_points}</td><td>${r.fantasy_points}</td><td class="pts">${r.total}</td></tr>`).join('') +
     '</table>';
 }
@@ -544,7 +545,7 @@ function icsButton(eid) {
     }));
     if (!m || m.state !== 'pre') return '';
     const t = Date.parse(m.date || '');
-    if (Number.isNaN(t)) return '';
+    if (Number.isNaN(t) || t <= Date.now()) return '';
     return '<button class="btn" style="display:flex;justify-content:center;align-items:center;margin-bottom:14px;width:100%;" onclick="downloadIcs(\'' + String(eid) + '\')">📅 أضف المباراة لتقويم موبايلك</button>';
   } catch (e) {
     return '';
@@ -559,7 +560,7 @@ function downloadIcs(eid) {
     }));
     if (!m) return;
     const t = new Date(m.date);
-    if (Number.isNaN(t.getTime())) return;
+    if (Number.isNaN(t.getTime()) || t.getTime() <= Date.now()) return;
     const end = new Date(t.getTime() + 2 * 60 * 60 * 1000);
     const lines = [
       'BEGIN:VCALENDAR',
@@ -571,7 +572,7 @@ function downloadIcs(eid) {
       'DTSTART:' + icsDate(t),
       'DTEND:' + icsDate(end),
       'SUMMARY:' + icsEscape('⚽ ' + m.home + ' × ' + m.away + (lg ? ' — ' + lg : '')),
-      'DESCRIPTION:' + icsEscape('الموعد بحسب بيانات Edge Football وقت الإضافة وقد يتغير — تابع الموقع قبل الماتش: https://andrew101018.github.io/EDGE/'),
+      'DESCRIPTION:' + icsEscape('الموعد بحسب بيانات Edge Football (آخر تحديث المباريات: ' + (DATA.matches_updated_at || 'غير متوفر') + ') وقد يتغير — المدة تقديرية (ساعتان) — تابع الموقع قبل الماتش: https://andrew101018.github.io/EDGE/'),
       'END:VEVENT',
       'END:VCALENDAR'
     ];
@@ -628,4 +629,5 @@ const NATIONALS = [
   ['اليابان','Japan','🇯🇵'],['كوريا الجنوبية','South Korea','🇰🇷'],['أستراليا','Australia','🇦🇺'],['إيران','Iran','🇮🇷'],['الصين','China','🇨🇳'],['أوزبكستان','Uzbekistan','🇺🇿'],['فيتنام','Vietnam','🇻🇳'],['تايلاند','Thailand','🇹🇭'],['إندونيسيا','Indonesia','🇮🇩'],['ماليزيا','Malaysia','🇲🇾'],['الهند','India','🇮🇳'],['باكستان','Pakistan','🇵🇰'],['أفغانستان','Afghanistan','🇦🇫'],['تركمانستان','Turkmenistan','🇹🇲'],['طاجيكستان','Tajikistan','🇹🇯'],['قيرغيزستان','Kyrgyzstan','🇰🇬'],['كوريا الشمالية','North Korea','🇰🇵'],['هونج كونج','Hong Kong','🇭🇰'],['الفلبين','Philippines','🇵🇭'],['سنغافورة','Singapore','🇸🇬'],['ميانمار','Myanmar','🇲🇲'],['نيبال','Nepal','🇳🇵'],['بنجلاديش','Bangladesh','🇧🇩'],['سريلانكا','Sri Lanka','🇱🇰'],
   ['نيوزيلندا','New Zealand','🇳🇿'],['فيجي','Fiji','🇫🇯'],['بابوا غينيا الجديدة','Papua New Guinea','🇵🇬'],['جزر سليمان','Solomon Islands','🇸🇧'],['فانواتو','Vanuatu','🇻🇺']
 ];
+
 
