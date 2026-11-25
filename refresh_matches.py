@@ -131,9 +131,13 @@ for g in data.get("matches", []):
         else:
             items.append(new); changed = True
     items.sort(key=lambda i: i.get("date", ""))
+now_str = dt.datetime.now(CAIRO).strftime("%Y-%m-%d %I:%M %p")
+# matches_checked_at = last successful source contact (written every run, so the file
+# changes every run and the workflow commits it). matches_updated_at = last content change only.
+data["matches_checked_at"] = now_str
 if changed:
-    data["matches_updated_at"] = dt.datetime.now(CAIRO).strftime("%Y-%m-%d %I:%M %p")
-    json.dump(data, open(PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    data["matches_updated_at"] = now_str
     print("updated")
 else:
     print("no change")
+json.dump(data, open(PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
