@@ -108,6 +108,41 @@ function cairoWeekKey(d) {
   return dt.getUTCFullYear() + '-W' + String(1 + Math.round((dt - ft) / 6048e5)).padStart(2, '0');
 }
 
+// Item 37: editorial predictions archive. Every stat is computed from the
+// resolved records shown below it; nothing is asserted by hand.
+function renderPredictArchive() {
+  const el = document.getElementById('predictArchive');
+  if (!el) return;
+  const log = (DATA.predictions_log || []).slice().sort((a, b) => String(b.kickoff).localeCompare(String(a.kickoff)));
+  if (!log.length) {
+    el.innerHTML = '<div class="card">أول توقع هيظهر هنا قبل الماتش — وبعد الماتش بنعرض طلع صح ولا غلط.</div>';
+    return;
+  }
+  const done = log.filter(p => p.status && p.status !== 'pending');
+  const exact = done.filter(p => p.status === 'exact').length;
+  const dirUp = done.filter(p => p.status === 'exact' || p.status === 'direction').length;
+  let html = '';
+  if (done.length) {
+    html += '<div class="card" style="text-align:center;">من ' + done.length + ' توقع اتحسم: النتيجة بالظبط <b>' + Math.round(exact / done.length * 100) + '%</b> · الاتجاه الصح أو بالظبط <b>' + Math.round(dirUp / done.length * 100) + '%</b><br><small>النسب محسوبة من السجل المعروض تحت مباشرة.</small></div>';
+  }
+  const fmtKo = iso => {
+    if (Number.isNaN(Date.parse(iso))) return '';
+    return new Intl.DateTimeFormat('ar-EG', { timeZone: 'Africa/Cairo', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(iso));
+  };
+  html += log.slice(0, 30).map(p => {
+    let res;
+    if (p.status === 'pending') res = '<span style="color:#94a3b8;">⏳ بانتظار الماتش</span>';
+    else if (p.status === 'exact') res = '<span style="color:#4ade80;">✓ النتيجة بالظبط</span>';
+    else if (p.status === 'direction') res = '<span style="color:#4ade80;">✓ الاتجاه صح</span>';
+    else res = '<span style="color:#f87171;">✗ غلط</span>';
+    const actual = Array.isArray(p.actual) ? ' · طلعت <bdi dir="ltr">' + p.actual[0] + '-' + p.actual[1] + '</bdi>' : '';
+    const note = p.note ? '<div style="margin-top:2px;font-size:.8em;color:#94a3b8;">' + esc(p.note) + '</div>' : '';
+    return '<div class="card"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;"><span>' + esc(p.home) + ' × ' + esc(p.away) + '</span>' + res + '</div>' +
+      '<div style="margin-top:4px;font-size:.85em;color:#cbd5e1;">توقعنا <bdi dir="ltr">' + esc(String(p.pick[0])) + '-' + esc(String(p.pick[1])) + '</bdi>' + actual + ' · ' + esc(fmtKo(p.kickoff)) + '</div>' + note + '</div>';
+  }).join('');
+  el.innerHTML = html;
+}
+
 function renderPredict() {
   const saved = JSON.parse(localStorage.getItem('edgePredict') || '{}');
   const scored = JSON.parse(localStorage.getItem('edgeScored') || '[]');
