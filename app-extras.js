@@ -297,8 +297,9 @@ function renderFreshness() {
   const _srcStale = slug => { const t = _parseMu(_srcMap[slug] || '') || _globalTs; return !t || (Date.now() - t) > 30 * 60 * 1000; };
   let demoted = false;
   MATCHES.forEach(g => (g.items || []).forEach(m => { const t0 = Date.parse(m.date || ''); if (m.state === 'in' && !(m._liveAt && Date.now() - m._liveAt < 10 * 60 * 1000) && (_srcStale(g.slug) || (!Number.isNaN(t0) && Date.now() - t0 > 3 * 3600 * 1000))) { m._stale = true; m.state = undefined; if (m.detail !== 'FT') m.detail = ''; demoted = true; } }));
-  if (_feedStale && _lu) _lu.innerHTML += '<br>⚠️ تحديث المباريات متأخر';
-  if (_lu && window._liveOverlayAt && Date.now() - window._liveOverlayAt < 30 * 60 * 1000) { try { _lu.innerHTML += '<br>🔴 تحديث مباشر من المصدر: <bdi>' + new Intl.DateTimeFormat('ar-EG', { timeZone: 'Africa/Cairo', hour: 'numeric', minute: '2-digit', hour12: true }).format(new Date(window._liveOverlayAt)) + '</bdi>'; } catch (e) {} }
+  const _ovFresh = window._liveOverlayAt && Date.now() - window._liveOverlayAt < 30 * 60 * 1000;
+  if (_lu && _ovFresh) { try { _lu.innerHTML += '<br>🔴 النتايج اللايف بتتحدث من المصدر مباشرة دلوقتي · آخر تحديث <bdi>' + new Intl.DateTimeFormat('ar-EG', { timeZone: 'Africa/Cairo', hour: 'numeric', minute: '2-digit', hour12: true }).format(new Date(window._liveOverlayAt)) + '</bdi>'; } catch (e) {} }
+  else if (_feedStale && _lu) _lu.innerHTML += '<br>⚠️ تحديث المباريات متأخر';
   return demoted;
 }
 
