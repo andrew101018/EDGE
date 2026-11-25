@@ -52,6 +52,7 @@ var data = {
   s2: q.get("s2"),
   lg: q.get("lg") || "أهم المباريات",
   st: q.get("st") || "مباراة",
+  dt: q.get("dt") || "",
   l1: q.get("l1"),
   l2: q.get("l2")
 };
@@ -246,7 +247,7 @@ function drawFooter(L) {
   ctx.textAlign = "center";
   ctx.fillStyle = "#fbbf24";
   ctx.font = fontStr("bold", L.footSize);
-  ctx.fillText("EDGE FOOTBALL", W / 2, L.footY);
+  ctx.fillText("EDGE FOOTBALL · #EDGE", W / 2, L.footY);
   ctx.fillStyle = "#94a3b8";
   ctx.font = fontStr("bold", L.urlSize);
   ctx.fillText("andrew101018.github.io/EDGE", W / 2, L.urlY);
@@ -323,10 +324,10 @@ function draw() {
 
   statusPill(data.st, L.statusY, L.statusSize);
   if (!hasScore) {
-    ctx.fillStyle = "#94a3b8";
+    ctx.fillStyle = "#e2e8f0";
     ctx.textAlign = "center";
-    ctx.font = fontStr("normal", Math.round(L.statusSize * 0.72));
-    ctx.fillText("بتوقيت القاهرة — الموعد مبدئي وقابل للتغيير", W / 2, L.statusY + Math.round(L.statusSize * 1.9));
+    ctx.font = fontStr("bold", Math.round(L.statusSize * 0.78));
+    ctx.fillText((data.dt ? data.dt + " · " : "") + "بتوقيت القاهرة — الموعد مبدئي وقابل للتغيير", W / 2, L.statusY + Math.round(L.statusSize * 1.9));
   }
 
   ctx.globalAlpha = 0.05;
@@ -578,7 +579,8 @@ btnStory.addEventListener("click", function () { setMode("story"); });
 btnSquare.addEventListener("click", function () { setMode("square"); });
 
 /* ---------- تحميل ومشاركة ---------- */
-function shareText() {
+function shareText() { return shareTextBase() + "\n#EDGE"; }
+function shareTextBase() {
   if (CARD_TYPE !== "match" && altData) {
     if (altData.kind === "table") {
       return "📊 ترتيب " + altData.lg + "\nالكورة بتبدأ من هنا ⚡ Edge Football";
@@ -705,5 +707,6 @@ if (CARD_TYPE === "match") {
 </script>
 </body>
 </html>
+
 
 
