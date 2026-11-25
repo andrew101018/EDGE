@@ -5,14 +5,14 @@
 
 /* ---------- الأساسيات ---------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #0b1220; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.7; -webkit-tap-highlight-color: transparent; }
+body { background: #0b1220; color: #e2e8f0; font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif; line-height: 1.7; -webkit-tap-highlight-color: transparent; }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 14px; }
 
 /* ---------- الهيدر ---------- */
 header { background: linear-gradient(135deg, #7f1d1d, #0b1220); padding: 26px 0 18px; text-align: center; }
 header h1 { font-size: 1.8em; color: #fff; }
 .subtitle { color: #fbbf24; margin-top: 6px; font-weight: bold; }
-.last-update { font-size: 0.75em; opacity: 0.7; margin-top: 8px; }
+.last-update { font-size: 0.75em; opacity: 0.85; margin-top: 8px; }
 .socials { margin-top: 12px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
 .socials a { color: #fff; text-decoration: none; background: rgba(0,0,0,0.25); padding: 7px 14px; border-radius: 20px; font-size: 0.85em; }
 
@@ -27,7 +27,7 @@ main.container { padding: 20px 14px 60px; }
 h2 { color: #ef4444; border-bottom: 2px solid #ef4444; padding-bottom: 8px; margin-bottom: 16px; }
 .page { display: none; }
 .page.active { display: block; }
-.card { background: #16213a; border-radius: 10px; padding: 16px; text-align: center; opacity: 0.8; }
+.card { background: #16213a; border-radius: 10px; padding: 16px; text-align: center; opacity: 0.95; }
 .list .news-item, .list .result-item { background: #16213a; border-right: 4px solid #ef4444; border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; font-weight: bold; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
 .table-box { background: #16213a; border-radius: 12px; padding: 14px; }
@@ -96,7 +96,7 @@ table.stand { width: 100%; border-collapse: collapse; font-size: 0.9em; }
 /* ---------- تيليجرام وفوتر ---------- */
 .telegram { text-align: center; background: #16213a; border-radius: 12px; padding: 20px; margin-top: 30px; }
 .telegram h2 { border: none; color: #fbbf24; }
-footer { text-align: center; padding: 20px; opacity: 0.7; font-size: 0.85em; }
+footer { text-align: center; padding: 20px; opacity: 0.85; font-size: 0.85em; }
 .goal-line { padding: 6px 4px; border-bottom: 1px dashed #24344f; font-size: 0.9em; }
 .share-wa { position: fixed; bottom: 18px; left: 18px; z-index: 70; background: #25d366; color: #fff; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5em; text-decoration: none; box-shadow: 0 4px 14px rgba(0,0,0,.4); }
 
