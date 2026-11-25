@@ -446,6 +446,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://andrew101018.github.io/EDGE/fpl/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/fpl/gw12.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://andrew101018.github.io/EDGE/players/</loc>
     <lastmod>2026-11-25</lastmod>
     <priority>0.8</priority>
