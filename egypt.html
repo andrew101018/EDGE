@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الكورة المصرية: الدوري المصري ومنتخب مصر | Edge Football</title>
+<meta name="description" content="مباريات الدوري المصري ومنتخب مصر وآخر الأخبار المصرية — بتوقيت القاهرة على Edge Football">
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=8">
+<style>
+.eg-empty { background:#16213a; border-right:4px solid #64748b; border-radius:8px; padding:14px; color:#94a3b8; font-size:.9em; margin-bottom:16px; }
+.eg-stamp { color:#64748b; font-size:.8em; margin:-6px 0 16px; }
+.eg-mcard { background:#16213a; border-right:4px solid #22c55e; border-radius:8px; padding:12px 14px; margin-bottom:10px; }
+.eg-teams { display:flex; align-items:center; justify-content:space-between; gap:8px; font-weight:bold; }
+.eg-team { display:flex; align-items:center; gap:8px; min-width:0; }
+.eg-team img { width:26px; height:26px; object-fit:contain; flex:0 0 auto; }
+.eg-vs { color:#64748b; font-size:.8em; flex:0 0 auto; }
+.eg-meta { color:#94a3b8; font-size:.82em; margin-top:6px; }
+.eg-score { color:#fbbf24; font-weight:bold; }
+.eg-live { color:#4ade80; font-weight:bold; }
+</style>
+</head>
+<body>
+<nav><a href="https://andrew101018.github.io/EDGE/">Edge Football ⚽ الصفحة الرئيسية</a></nav>
+<main class="container">
+  <h1 style="color:#ef4444;">🇪🇬 الكورة المصرية</h1>
+  <p class="eg-stamp" id="egStamp">جاري تحميل البيانات…</p>
+
+  <h2>🇪🇬 منتخب مصر</h2>
+  <div id="ntBox"><div class="eg-empty">جاري التحميل…</div></div>
+
+  <h2>🏆 الدوري المصري</h2>
+  <div id="leagueBox"><div class="eg-empty">جاري التحميل…</div></div>
+
+  <h2>📰 أخبار مصرية</h2>
+  <div id="newsBox"><div class="eg-empty">جاري التحميل…</div></div>
+</main>
+<script>
+(function () {
+  'use strict';
+  var KW = /مصر|صلاح|مرموش|منتخب|الفراعنة|الأهلي|الزمالك/;
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function teamImg(logo) { return logo ? '<img src="' + esc(logo) + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">' : ''; }
+  function fmtTime(iso, fallback) {
+    try {
+      var d = new Date(iso);
+      return d.toLocaleTimeString('ar-EG', { timeZone: 'Africa/Cairo', hour: 'numeric', minute: '2-digit' });
+    } catch (e) { return fallback || ''; }
+  }
+  function matchCard(m) {
+    var score = '';
+    if (m.state === 'post' || m.detail === 'FT') score = '<span class="eg-score">' + esc(m.hs) + ' - ' + esc(m.as) + '</span>';
+    else if (m.state === 'in' || m.state === 'live') score = '<span class="eg-live">مباشر 🔴</span>';
+    else score = '<span class="eg-vs">VS</span>';
+    var meta = esc(m.dateAr || '') + (m.state === 'pre' ? ' · ' + esc(fmtTime(m.date, m.time)) : '') + (m.detail && m.state !== 'pre' ? ' · ' + esc(m.detail) : '');
+    return '<div class="eg-mcard"><div class="eg-teams">' +
+      '<span class="eg-team">' + teamImg(m.homeLogo) + esc(m.home) + '</span>' + score +
+      '<span class="eg-team">' + esc(m.away) + teamImg(m.awayLogo) + '</span></div>' +
+      '<div class="eg-meta">' + meta + '</div></div>';
+  }
+  function fill(box, cards, emptyText) {
+    box.innerHTML = cards.length ? cards.join('') : '<div class="eg-empty">' + emptyText + '</div>';
+  }
+  fetch('site/data.json', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      if (!d) throw 0;
+      document.getElementById('egStamp').textContent = 'المواعيد بتوقيت القاهرة · البيانات كما في آخر تحديث: ' + (d.matches_updated_at || d.updated_at || '—');
+      var groups = d.matches || [];
+      var nt = [], league = [];
+      groups.forEach(function (g) {
+        (g.items || []).forEach(function (m) {
+          var isNT = (m.home === 'مصر' || m.away === 'مصر' || /(^|\s)Egypt(\s|$)/.test(m.home || '') || /(^|\s)Egypt(\s|$)/.test(m.away || ''));
+          if (g.slug === 'egy.1') league.push(m);
+          else if (isNT) nt.push(m);
+        });
+      });
+      fill(document.getElementById('ntBox'), nt.map(matchCard), 'مفيش مباريات لمنتخب مصر في البيانات الحالية — أول ما ماتش للمنتخب ينزل في المصادر هيظهر هنا تلقائيًا.');
+      fill(document.getElementById('leagueBox'), league.map(matchCard), 'مفيش مباريات دوري مصري في البيانات الحالية.');
+      var news = (d.news || []).filter(function (n) { return KW.test((n.title || '') + ' ' + (n.summary || '')); });
+      fill(document.getElementById('newsBox'), news.map(function (n) {
+        var u = n.url || n.link || '';
+        var inner = '<div class="news-item">' + esc(n.title || '') + (n.summary ? '<div class="eg-meta">' + esc(n.summary) + '</div>' : '') + '</div>';
+        return u ? '<a href="' + esc(u) + '" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">' + inner + '</a>' : inner;
+      }), 'مفيش أخبار مصرية في آخر تحديث للأخبار — لو نزل خبر مصري في المصادر هيظهر هنا تلقائيًا.');
+    })
+    .catch(function () {
+      ['ntBox', 'leagueBox', 'newsBox'].forEach(function (id) {
+        document.getElementById(id).innerHTML = '<div class="eg-empty">مشكلة في تحميل البيانات — جرب تحديث الصفحة 🙏</div>';
+      });
+      document.getElementById('egStamp').textContent = '';
+    });
+})();
+</script>
+</body>
+</html>
