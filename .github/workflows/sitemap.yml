@@ -1,0 +1,47 @@
+name: sitemap
+
+# Isolated, website-only job for idea #5: keep sitemap.xml in step with the
+# pages on main. Does not touch any other workflow, bot, or social job.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'articles/**'
+      - 'teams/**'
+      - 'players/**'
+      - 'index.html'
+      - 'scripts/build_sitemap.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sitemap
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Rebuild sitemap.xml
+        run: python3 scripts/build_sitemap.py
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          if git diff --cached --quiet; then
+            echo "sitemap already up to date"
+          else
+            git commit -m "sitemap: auto update"
+            git pull --rebase origin main
+            git push
+          fi
