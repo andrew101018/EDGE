@@ -125,6 +125,7 @@ function renderPredict() {
     return `<div class="pred-row" data-eid="${m.eid}">
       <div class="pred-teams">${teamLogo(m.homeLogo)} ${m.home} × ${m.away} ${teamLogo(m.awayLogo)}</div>
       <div class="pred-inputs"><input type="number" min="0" class="pred-h" value="${v[0]}" placeholder="0"><span>-</span><input type="number" min="0" class="pred-a" value="${v[1]}" placeholder="0"></div>
+      ${edgeShareBtn('توقعي: ' + m.home + ' × ' + m.away, 'توقعي: ' + m.home + ' × ' + m.away + ' — جاي من Edge Football', 'https://andrew101018.github.io/EDGE/')}
     </div>`;
   }).join('');
 }
@@ -335,6 +336,7 @@ function renderWorld() {
     <div class="tv-card" style="text-align:right;cursor:pointer;" onclick="showNewsDetail('${esc(w.t)}','${esc(w.full || w.t)}')">
       ${w.img ? `<img src="${w.img}" style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:8px;" onerror="this.style.display='none'">` : ''}
       <div style="font-weight:bold;font-size:.9em;">${w.t}</div>
+      ${edgeShareBtn(w.t, w.t, w.url || 'https://andrew101018.github.io/EDGE/')}
     </div>`).join('') : '<div class="card">لا توجد أخبار عالمية حالياً</div>';
 }
 
