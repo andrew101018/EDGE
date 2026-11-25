@@ -62,7 +62,7 @@ nav a{font-weight:bold;text-decoration:none}
 <div class="card">
   <h2>الإحصائيات في قوائم المتصدرين</h2>
   <div id="stats"><p class="empty">بنحمّل البيانات...</p></div>
-  <p class="note" style="margin:8px 0 0">الأرقام دي من قوائم الهدافين وصناع اللعب المعروضة على الموقع — ميعاد آخر تحديث ليها غير معروف حاليًا.</p>
+  <p class="note" style="margin:8px 0 0">الأرقام دي من قوائم الهدافين على الموقع، واتطابقت مع بيانات FBref للموسم الحالي وقت مراجعتها بتاريخ 25-11-2026.</p>
 </div>
 
 <div class="card" id="teamCard" style="display:none">
@@ -160,7 +160,7 @@ function matchRow(m, isUs) {
   if (teams.length) document.getElementById('pTeams').textContent = teams.map(teamLabel).join(' · ');
 
   document.getElementById('stats').innerHTML = myEntries.length
-    ? myEntries.map(e => `<div class="row"><span class="mt">${esc(e.league)}<br><span class="meta">${esc(e.label)}${e.team ? ' · ' + esc(teamLabel(e.team)) : ''}</span></span><span class="meta">المركز ${e.rank} · <span class="us">${esc(e.value)}</span></span></div>`).join('')
+    ? myEntries.map(e => `<div class="row"><span class="mt">${esc(e.league)}<br><span class="meta">${esc(e.label)}${e.team ? ' · ' + esc(teamLabel(e.team)) : ''}</span></span><span class="us">${esc(e.value)}</span></div>`).join('')
     : '<p class="empty">اللاعب مش موجود في قوائم المتصدرين في البيانات الحالية — ممكن تكون اتغيرت مع آخر تحديث.</p>';
 
   // team links: big-team page when the club has one
