@@ -1,0 +1,106 @@
+{
+  "events": [
+    {
+      "m": 11, "d": 25, "y": 2020,
+      "t": "وفاة الأسطورة الأرجنتيني دييجو مارادونا عن 60 عامًا.. اليوم اللي بكى فيه عالم الكورة واحدًا من أعظم اللاعبين في التاريخ",
+      "src": "https://inside.fifa.com/organisation/president/media-releases/world-of-football-in-mourning-as-diego-maradona-passes-away",
+      "srcn": "FIFA"
+    },
+    {
+      "m": 11, "d": 25, "y": 1953,
+      "t": "المجر السحرية تفاجئ العالم وتسحق إنجلترا 6-3 في ويمبلي قدام 105 آلاف متفرج، في اللي بقى معروف بماتش القرن",
+      "src": "https://www.bbc.com/sport/av/football/24985250",
+      "srcn": "BBC Sport"
+    },
+    {
+      "m": 11, "d": 27, "y": 2020,
+      "t": "الأهلي يتوج باللقب التاسع لدوري أبطال أفريقيا بعد الفوز على الزمالك في نهائي برج العرب",
+      "src": "https://www.cafonline.com/media/2jqbogzm/press-release-cl-new-dates-eng.pdf",
+      "srcn": "CAF"
+    },
+    {
+      "m": 2, "d": 10, "y": 2006,
+      "t": "مصر تتوج بكأس الأمم الأفريقية على أرضها بعد التفوق بركلات الترجيح 4-2 على كوت ديفوار قدام أكتر من 74 ألف متفرج",
+      "src": "https://www.cafonline.com/afcon2025/news/hassan-and-fae-from-2006-rivals-to-2025-afcon-quarter-final-adversaries/",
+      "srcn": "CAF"
+    },
+    {
+      "m": 5, "d": 25, "y": 2005,
+      "t": "ليفربول يعود من التأخر 0-3 ويكسب نهائي إسطنبول الأسطوري بركلات الترجيح على حساب ميلان",
+      "src": "https://www.uefa.com/newsfiles/UCL/2004/1086988_FR.pdf",
+      "srcn": "UEFA"
+    },
+    {
+      "m": 5, "d": 26, "y": 1999,
+      "t": "مانشستر يونايتد يقلب الطاولة على بايرن ميونخ بهدفين في الوقت بدل الضائع ويكمل الثلاثية في نهائي كامب نو",
+      "src": "https://www.uefa.com/uefachampionsleague/news/0253-0d800ac7cffa-8147de94780e-1000--the-1999-champions-league-final-20-years-on-most-dramatic/",
+      "srcn": "UEFA"
+    },
+    {
+      "m": 5, "d": 31, "y": 2025,
+      "t": "باريس سان جيرمان يتوج بدوري الأبطال للمرة الأولى في تاريخه بخماسية تاريخية في نهائي ميونخ على حساب إنتر",
+      "src": "https://www.uefa.com/uefachampionsleague/news/0299-1de417608530-15b01ff7b150-1000--paris-win-champions-league-desire-doue-double-helps-secure/",
+      "srcn": "UEFA"
+    },
+    {
+      "m": 6, "d": 1, "y": 2024,
+      "t": "ريال مدريد يعزز رقمه القياسي ويتوج باللقب الـ15 لدوري الأبطال بثنائية كارفاخال وفينيسيوس في ويمبلي على حساب دورتموند",
+      "src": "https://www.uefa.com/newsfiles/UCL/2024/2039970_TS.pdf",
+      "srcn": "UEFA"
+    },
+    {
+      "m": 6, "d": 10, "y": 2023,
+      "t": "مانشستر سيتي يتوج بدوري الأبطال للمرة الأولى في تاريخه بهدف رودري ويكمل الثلاثية",
+      "src": "https://www.uefa.com/uefachampionsleague/news/0282-1839b24603ef-36e94e63621d-1000--man-city-win-champions-league-rodri-goal-secures-victory/",
+      "srcn": "UEFA"
+    },
+    {
+      "m": 7, "d": 17, "y": 2021,
+      "t": "الأهلي يتوج بـ«العاشرة» الأفريقية بثلاثية نظيفة على كايزر تشيفز في نهائي كازابلانكا",
+      "src": "https://www.cafonline.com/caf-champions-league/news/al-ahly-secure-al-ashra-with-victory-over-10-man-chiefs/",
+      "srcn": "CAF"
+    },
+    {
+      "m": 7, "d": 13, "y": 1930,
+      "t": "أول ماتش في تاريخ كأس العالم: فرنسا تكسب المكسيك 4-1 ولوسيان لوران يسجل أول هدف في تاريخ المونديال",
+      "src": "https://inside.fifa.com/tournaments/mens/worldcup/1930uruguay/news/lucien-laurent-the-first-world-cup-goalscorer",
+      "srcn": "FIFA"
+    },
+    {
+      "m": 7, "d": 30, "y": 1966,
+      "t": "إنجلترا تتوج بكأس العالم الوحيدة في تاريخها برباعية على ألمانيا الغربية في نهائي ويمبلي",
+      "src": "https://www.fifa.com/de/match-centre/match/17/26/3478/1633",
+      "srcn": "FIFA"
+    },
+    {
+      "m": 7, "d": 9, "y": 2006,
+      "t": "إيطاليا تتوج بكأس العالم بركلات الترجيح على حساب فرنسا في نهائي برلين الشهير",
+      "src": "https://www.plus.fifa.com/en/content/italy-v-france-final-2006-fifa-world-cup-germanytm-highlights/79aa2296-8cd7-4982-8a98-990ac66b287d",
+      "srcn": "FIFA"
+    },
+    {
+      "m": 7, "d": 11, "y": 2010,
+      "t": "إنييستا يسجل هدف التتويج في الوقت الإضافي ويهدي إسبانيا أول كأس عالم في تاريخها على حساب هولندا",
+      "src": "https://inside.fifa.com/tournaments/mens/worldcup/qatar2022/news/ten-standout-world-cup-matches-from-the-past-decade",
+      "srcn": "FIFA"
+    },
+    {
+      "m": 7, "d": 13, "y": 2014,
+      "t": "جوتسه يسجل هدف التتويج في الوقت الإضافي ويهدي ألمانيا رابع كؤوس العالم على حساب الأرجنتين في الماراكانا",
+      "src": "https://www.fifa.com/de/match-centre/match/17/251164/255959/300186501",
+      "srcn": "FIFA"
+    },
+    {
+      "m": 7, "d": 15, "y": 2018,
+      "t": "فرنسا تتوج بكأس العالم الثانية في تاريخها بعد الفوز على كرواتيا 4-2 في نهائي موسكو",
+      "src": "https://inside.fifa.com/tournaments/mens/worldcup/2018russia/news/formidable-france-secure-second-title",
+      "srcn": "FIFA"
+    },
+    {
+      "m": 12, "d": 18, "y": 2022,
+      "t": "ميسي يرفع كأس العالم مع الأرجنتين بعد نهائي لوسيل الأسطوري على حساب فرنسا بركلات الترجيح",
+      "src": "https://www.fifa.com/en/tournaments/mens/worldcup/qatar2022/articles/france-argentina-lionel-messi-kylian-mbappe-fifa-world-cup-qatar-2022",
+      "srcn": "FIFA"
+    }
+  ]
+}
