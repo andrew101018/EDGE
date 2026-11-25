@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Read-only reach and engagement for Page posts and reels
+      - name: Read-only public engagement counts for Page posts and reels
         env:
           FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
         run: |
@@ -27,8 +27,6 @@ jobs:
                       return e.code, json.loads(e.read().decode())
                   except Exception:
                       return e.code, {}
-          def short(o):
-              return json.dumps(o, ensure_ascii=False)[:300]
           code, d = get("me/accounts", {"fields": "id,name,access_token"}, tok)
           for p in (d.get("data", []) if code == 200 else []):
               ptok = p.get("access_token")
@@ -37,24 +35,12 @@ jobs:
               print("::add-mask::" + ptok)
               pid = p["id"]
               print("PAGE", pid, p.get("name"))
-              c, d2 = get(pid, {"fields": "fan_count,followers_count"}, ptok)
-              print("page", c, short(d2))
-              for m in ["page_media_view", "page_views_total", "page_follows", "page_post_engagements", "page_impressions_unique"]:
-                  c, d3 = get(pid + "/insights", {"metric": m, "period": "day", "since": "2026-11-10", "until": "2026-11-26"}, ptok)
-                  vals = [(x.get("end_time", "")[:10], x.get("value")) for x in (d3.get("data") or [{}])[0].get("values", [])] if c == 200 and d3.get("data") else d3
-                  print("PAGEINS", m, c, short(vals))
-              c, d4 = get(pid + "/published_posts", {"fields": "id,created_time,message,shares,reactions.summary(true).limit(0),comments.summary(true).limit(0),attachments{media_type}", "limit": "25"}, ptok)
-              print("posts", c)
+              c, d6 = get(pid + "/video_reels", {"fields": "id,created_time,length,likes.summary(true).limit(0),comments.summary(true).limit(0)", "limit": "25"}, ptok)
+              print("reels", c, json.dumps(d6.get("error", ""))[:200])
+              for x in d6.get("data", []):
+                  print("REEL", x.get("created_time"), x.get("id"), x.get("length"), "likes", (x.get("likes") or {}).get("summary", {}).get("total_count"), "comments", (x.get("comments") or {}).get("summary", {}).get("total_count"))
+              c, d4 = get(pid + "/published_posts", {"fields": "id,created_time,reactions.summary(true).limit(0),comments.summary(true).limit(0)", "limit": "25"}, ptok)
+              print("posts", c, json.dumps(d4.get("error", ""))[:200])
               for x in d4.get("data", []):
-                  att = ((x.get("attachments") or {}).get("data") or [{}])[0].get("media_type")
-                  print("POST", x.get("created_time"), x.get("id"), att, "react", (x.get("reactions") or {}).get("summary", {}).get("total_count"), "com", (x.get("comments") or {}).get("summary", {}).get("total_count"), "sh", (x.get("shares") or {}).get("count"))
-                  for m in ["post_impressions_unique", "post_media_view", "post_video_views", "post_video_avg_time_watched", "blue_reels_play_count", "post_impressions"]:
-                      c, d5 = get(x["id"] + "/insights", {"metric": m}, ptok)
-                      v = (d5.get("data") or [{}])[0].get("values") if c == 200 else None
-                      print("  INS", m, c, short(v) if v is not None else short(d5.get("error", d5)))
-              c, d6 = get(pid + "/video_reels", {"fields": "id,created_time,length,status,description", "limit": "10"}, ptok)
-              print("reels", c, short(d6))
-              for x in d6.get("data", [])[:8]:
-                  c, d7 = get(x["id"] + "/video_insights", {}, ptok)
-                  print("REEL", x.get("created_time"), x.get("id"), x.get("length"), c, short([(i.get("name"), [v.get("value") for v in i.get("values", [])]) for i in d7.get("data", [])] if c == 200 else d7.get("error", d7)))
+                  print("POST", x.get("created_time"), x.get("id"), "react", (x.get("reactions") or {}).get("summary", {}).get("total_count"), "com", (x.get("comments") or {}).get("summary", {}).get("total_count"))
           PY
