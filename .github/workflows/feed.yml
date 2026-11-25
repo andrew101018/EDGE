@@ -1,0 +1,46 @@
+name: feed
+
+# Isolated, website-only job for idea #19: keep feed.xml (RSS) in step with
+# the news in site/data.json and the articles on main. Does not touch any
+# other workflow, bot, or social job. No secrets, no external accounts.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/data.json'
+      - 'articles/**'
+      - 'scripts/build_feed.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: feed
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Rebuild feed.xml
+        run: python3 scripts/build_feed.py
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add feed.xml
+          if git diff --cached --quiet; then
+            echo "feed already up to date"
+          else
+            git commit -m "feed: auto update"
+            git pull --rebase origin main
+            git push
+          fi
