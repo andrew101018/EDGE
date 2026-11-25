@@ -546,7 +546,7 @@ function icsButton(eid) {
     if (!m || m.state !== 'pre') return '';
     const t = Date.parse(m.date || '');
     if (Number.isNaN(t) || t <= Date.now()) return '';
-    return '<button class="btn" style="display:flex;justify-content:center;align-items:center;margin-bottom:14px;width:100%;" onclick="downloadIcs(\'' + String(eid) + '\')">📅 أضف المباراة لتقويم موبايلك</button>';
+    return '<button class="btn" style="display:flex;justify-content:center;align-items:center;margin-bottom:6px;width:100%;" onclick="downloadIcs(\'' + String(eid) + '\')">📅 أضف المباراة لتقويم موبايلك</button><div style="font-size:.75em;opacity:.65;margin:0 0 12px;text-align:center">الموعد مبدئي ومش مؤكد رسميًا — ممكن يتغير أو يتأجل</div>';
   } catch (e) {
     return '';
   }
@@ -572,7 +572,7 @@ function downloadIcs(eid) {
       'DTSTART:' + icsDate(t),
       'DTEND:' + icsDate(end),
       'SUMMARY:' + icsEscape('⚽ ' + m.home + ' × ' + m.away + (lg ? ' — ' + lg : '')),
-      'DESCRIPTION:' + icsEscape('الموعد بحسب بيانات Edge Football (آخر تحديث المباريات: ' + (DATA.matches_updated_at || 'غير متوفر') + ') وقد يتغير — المدة تقديرية (ساعتان) — تابع الموقع قبل الماتش: https://andrew101018.github.io/EDGE/'),
+      'DESCRIPTION:' + icsEscape('الموعد مبدئي ومش مؤكد رسميًا — بحسب بيانات Edge Football (آخر تحديث المباريات: ' + (DATA.matches_updated_at || 'غير متوفر') + ') وقد يتغير أو يتأجل — المدة تقديرية (ساعتان) — تابع الموقع قبل الماتش: https://andrew101018.github.io/EDGE/'),
       'END:VEVENT',
       'END:VCALENDAR'
     ];
