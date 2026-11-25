@@ -158,7 +158,19 @@ function fmtStamp(s) {
   const p = (s || '').match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}) (AM|PM)$/);
   if (!p) return esc(s || '');
   const hh = (+p[4]) % 12 + (p[6] === 'PM' ? 12 : 0);
-  const d = new Date(Date.UTC(+p[1], +p[2] - 1, +p[3], hh - 2, +p[5]));
-  return new Intl.DateTimeFormat('ar-EG', { timeZone: 'Africa/Cairo', day: 'numeric', month: 'long', hour: 'numeric', minute: '2-digit' }).format(d);
+  // The stamp is Cairo wall time. Convert wall -> instant using the real Cairo
+  // offset at that moment (handles DST), never the visitor's locale.
+  const target = Date.UTC(+p[1], +p[2] - 1, +p[3], hh, +p[5]);
+  let guess = target - 2 * 3600 * 1000;
+  const cairo = new Intl.DateTimeFormat('en-CA', { timeZone: 'Africa/Cairo', hour12: false, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+  for (let i = 0; i < 3; i++) {
+    const o = {};
+    cairo.formatToParts(new Date(guess)).forEach(x => { o[x.type] = x.value; });
+    const wall = Date.UTC(+o.year, +o.month - 1, +o.day, +o.hour % 24, +o.minute);
+    const diff = target - wall;
+    if (!diff) break;
+    guess += diff;
+  }
+  return new Intl.DateTimeFormat('ar-EG', { timeZone: 'Africa/Cairo', day: 'numeric', month: 'long', hour: 'numeric', minute: '2-digit' }).format(new Date(guess));
 }
 
