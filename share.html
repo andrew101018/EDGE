@@ -55,7 +55,7 @@ var data = {
   l2: q.get("l2")
 };
 var hasScore = data.s1 !== null && data.s1 !== "" && data.s2 !== null && data.s2 !== "";
-var CARD_TYPE = (q.get("type") === "table" || q.get("type") === "scorer") ? q.get("type") : "match";
+var CARD_TYPE = (q.get("type") === "table" || q.get("type") === "scorer" || q.get("type") === "predict") ? q.get("type") : "match";
 var altData = null; // {kind:"table"|"scorer"|"err", lg, rows/items, cat, updated}
 
 document.getElementById("hint").textContent = data.t1 + " × " + data.t2 + " — " + data.lg;
@@ -251,7 +251,7 @@ function drawFooter(L) {
   ctx.fillText("andrew101018.github.io/EDGE", W / 2, L.urlY);
   ctx.fillStyle = "#fbbf24";
   ctx.font = fontStr("bold", L.tgSize);
-  ctx.fillText("تيليجرام: @edgefootballplatform", W / 2, L.tgY);
+  ctx.fillText("تيليجرام: \u2066@edgefootballplatform\u2069", W / 2, L.tgY);
 }
 
 /* ---------- مقاسات الرسم (ستوري / مربع) ---------- */
@@ -354,6 +354,14 @@ function fmtAr(s) {
   }
 }
 
+function arNum(n) {
+  try { return new Intl.NumberFormat("ar-EG").format(n); } catch (e) { return String(n); }
+}
+
+function topSuffix(total, shown) {
+  return (total > shown) ? (" — أول " + arNum(shown)) : "";
+}
+
 function drawAltHeader(pill, updated, A) {
   goldPill(pill, A.pillY, A.pillSize);
   if (updated) {
@@ -366,7 +374,7 @@ function drawAltHeader(pill, updated, A) {
 }
 
 function drawTableBody(d, A) {
-  drawAltHeader("📊 ترتيب " + d.lg, d.updated, A);
+  drawAltHeader("📊 ترتيب " + d.lg + topSuffix(d.rows.length, Math.min(d.rows.length, A.maxRows)), d.updated, A);
   var y = A.hdrY;
   ctx.font = fontStr("bold", A.hdrSize);
   ctx.fillStyle = "#fbbf24";
@@ -404,7 +412,7 @@ function drawTableBody(d, A) {
 }
 
 function drawScorerBody(d, A) {
-  drawAltHeader("👟 " + (d.cat || "الهدافون") + " — " + d.lg, d.updated, A);
+  drawAltHeader("👟 " + (d.cat || "الهدافون") + " — " + d.lg + topSuffix(d.items.length, Math.min(d.items.length, A.maxRows)), d.updated, A);
   var y = A.hdrY;
   var items = d.items.slice(0, A.maxRows);
   for (var i = 0; i < items.length; i++) {
@@ -432,6 +440,40 @@ function drawScorerBody(d, A) {
   }
 }
 
+function drawPredictBody(d, A) {
+  drawAltHeader("🔮 توقعاتي للجولة" + topSuffix(d.items.length, Math.min(d.items.length, A.maxRows)), d.updated, A);
+  var startY = A.hdrY + 20;
+  if (d.pts > 0) {
+    ctx.fillStyle = "#fbbf24";
+    ctx.font = fontStr("bold", A.hdrSize + 4);
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("⭐ نقاطي: " + d.pts, W / 2, startY);
+    startY += 60;
+  }
+  var items = d.items.slice(0, A.maxRows);
+  for (var i = 0; i < items.length; i++) {
+    var p = items[i];
+    var ry = startY + i * A.rowH + A.rowH / 2;
+    if (i % 2 === 0) {
+      ctx.fillStyle = "rgba(255,255,255,0.05)";
+      ctx.fillRect(60, ry - A.rowH / 2 + 4, W - 120, A.rowH - 8);
+    }
+    ctx.textBaseline = "middle";
+    fitText(p.home + " × " + p.away, 560, A.rowSize, 18, "bold");
+    ctx.fillStyle = "#ffffff";
+    ctx.textAlign = "right";
+    ctx.fillText(p.home + " × " + p.away, 1005, ry - A.rowSize * 0.35);
+    ctx.font = fontStr("normal", A.subSize);
+    ctx.fillStyle = "#94a3b8";
+    ctx.fillText(String(p.league || ""), 1005, ry + A.subSize * 0.95);
+    ctx.font = fontStr("bold", A.rowSize + 8);
+    ctx.fillStyle = "#fbbf24";
+    ctx.textAlign = "center";
+    ctx.fillText(String(p.ph) + " - " + String(p.pa), 150, ry);
+  }
+}
+
 function drawErrBody(d) {
   ctx.fillStyle = "#e2e8f0";
   ctx.font = fontStr("bold", 44);
@@ -450,6 +492,7 @@ function drawAlt() {
     var A = altLayout();
     if (altData.kind === "table") drawTableBody(altData, A);
     else if (altData.kind === "scorer") drawScorerBody(altData, A);
+    else if (altData.kind === "predict") drawPredictBody(altData, A);
     else drawErrBody(altData);
   }
   drawFooter(L);
@@ -489,6 +532,9 @@ function shareText() {
     }
     if (altData.kind === "scorer") {
       return "👟 " + (altData.cat || "الهدافون") + " — " + altData.lg + "\nالكورة بتبدأ من هنا ⚡ Edge Football";
+    }
+    if (altData.kind === "predict") {
+      return "🔮 توقعاتي للجولة ⚽\nالكورة بتبدأ من هنا ⚡ Edge Football";
     }
   }
   var score = hasScore ? (" | " + data.s1 + " - " + data.s2) : "";
@@ -553,6 +599,24 @@ function loadAlt() {
       document.title = "Edge Football — كارت الترتيب";
       document.querySelector("h1").textContent = "🔥 كارت الترتيب القابل للمشاركة";
       document.getElementById("hint").textContent = lg + " — اختار المقاس، حمّل الصورة وابعتها ⚡";
+    } else if (CARD_TYPE === "predict") {
+      var saved = {};
+      try { saved = JSON.parse(localStorage.getItem("edgePredict") || "{}"); } catch (e) {}
+      var pts = 0;
+      try { pts = parseInt(localStorage.getItem("edgePoints") || "0", 10) || 0; } catch (e) {}
+      var preds = [];
+      (D.matches || []).forEach(function (g) {
+        (g.items || []).forEach(function (m) {
+          if (m.state === "pre" && saved[m.eid]) {
+            preds.push({ home: m.home, away: m.away, league: g.league, ph: saved[m.eid][0], pa: saved[m.eid][1] });
+          }
+        });
+      });
+      if (!preds.length) { showErr("مفيش توقعات محفوظة لسه — سجّل توقعاتك من صفحة التوقعات ⚽"); return; }
+      altData = { kind: "predict", items: preds, pts: pts, updated: updated };
+      document.title = "Edge Football — كارت التوقعات";
+      document.querySelector("h1").textContent = "🔥 كارت التوقعات القابل للمشاركة";
+      document.getElementById("hint").textContent = "توقعاتك للجولة — اختار المقاس، حمّل الصورة وابعتها ⚡";
     } else {
       var cats = (D.leaders || {})[lg] || {};
       var cat = Object.keys(cats).filter(function (k) { return k.indexOf("الهداف") !== -1; })[0] || Object.keys(cats)[0];
