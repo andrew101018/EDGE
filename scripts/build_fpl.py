@@ -5,7 +5,9 @@ plus fpl/index.html, from the official FPL API (fantasy.premierleague.com).
 Run before each gameweek:  python3 scripts/build_fpl.py   (from repo root)
 Manual refresh: rerun and commit when a new gameweek approaches.
 """
-import json, os, urllib.request
+import json, os, sys, urllib.request
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from build_videos import socials
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 
@@ -24,6 +26,8 @@ body { background:#0b1220; color:#e2e8f0; font-family:'Segoe UI',Tahoma,sans-ser
 .wrap { max-width:760px; margin:0 auto; padding:0 14px; }
 h1 { color:#fbbf24; font-size:1.5em; margin:18px 0 4px; }
 .sub { color:#94a3b8; font-size:.85em; margin-bottom:18px; }
+.vd-soc { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 4px; }
+.vd-soc a { background:#16213a; border:1px solid #24344f; border-radius:20px; padding:7px 14px; color:#e2e8f0; font-size:.82em; font-weight:bold; text-decoration:none; }
 .vd-back { display:inline-block; background:#16213a; border:1px solid #24344f; border-radius:20px; padding:8px 18px; color:#94a3b8; text-decoration:none; margin:14px 14px 4px; font-weight:bold; }
 .fpl-deadline { background:#3b2f0b; border:1px solid #fbbf24; border-radius:12px; padding:14px 16px; margin:16px 0; }
 .fpl-deadline .t { color:#fbbf24; font-weight:bold; font-size:1.05em; }
@@ -66,6 +70,7 @@ def gw_page(gw, deadline, fixtures, updated):
 <div class="wrap">
 <h1>🔮 الجولة {gw}</h1>
 <div class="sub">فانتازي الدوري الإنجليزي · المواعيد بتوقيت القاهرة</div>
+{socials()}
 <div class="fpl-deadline"><div class="t">⏰ قفل التعديلات: {fmt(deadline)}</div><div class="d">بعد المعاد ده التشكيلة والتبديلات بتتقفل للجولة دي</div></div>
 <h1 style="font-size:1.15em;">📅 ماتشات الجولة</h1>
 {rows}
@@ -88,6 +93,7 @@ def index_page(gws, updated):
 <div class="wrap">
 <h1>🔮 فانتازي الدوري الإنجليزي</h1>
 <div class="sub">صفحة ثابتة لكل جولة · المواعيد بتوقيت القاهرة</div>
+""" + socials() + """
 """ + cards + f"""
 <div class="sub" style="margin-top:16px;">المصدر: الموقع الرسمي لفانتازي الدوري الإنجليزي · آخر تحديث {updated}</div>
 </div>
