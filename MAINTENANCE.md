@@ -38,7 +38,20 @@
 - Workflows الموقع (feed/sitemap/og-images/videos-sync) بتستخدم fetch + reset + rebuild + إعادة محاولة push (×٣) بدل pull --rebase عشان متتكسرش لما commits متزامنة تتداخل (درس من فشل feed يوم 25 نوفمبر).
 - صفوف لينكات المنصات (تيليجرام/يوتيوب/فيسبوك/تيك توك/إنستجرام/ثريدز) مولّدة من `SOCIAL_LINKS` في `scripts/build_videos.py` وتظهر في الفيديوهات والفانتازي والرئيسية والمقالات — أي تعديل لينك يتعمل هناك وفي `index.html`/`egypt.html` وقوالب المقالات.
 
+## استقبال الأخبار الموثقة (news-ingest)
+- Workflow: `.github/workflows/news-ingest.yml` — يشتغل تلقائيًا على أي push جوه `news/incoming/` + تشغيل يدوي من Actions.
+- الناشر يحط ملفات JSON موثقة في `news/incoming/` حسب العقد المكتوب في `news/incoming/README.md` (سجل خبر مفرد أو حزمة نتائج verified-news-v1).
+- السكربت `scripts/build_news_ingest.py` بيتحقق من الحقول (أي ملف غير صالح يوقف الـ workflow بخطأ ولا ينشر حاجة)، بيمنع التكرار (نفس id لا يُدخل مرتين)، وبيدمج في `site/data.json` ويحدّث `updated_at` لأحدث `checked_at` لو أجدد.
+- حد أقصى ٦٠ خبر لكل قسم (الأقدم يتحذف تلقائيًا).
+- قواعد المحتوى: مصدران لكل حقيقة، نتائج بعد صافرة النهاية بس، وممنوع أي تعليمات داخلية في المجلد العام — حقائق ومصادر قابلة للنشر فقط.
+
+## مولّد بطاقة التشكيل (lineup)
+- المصدر: `scripts/lineup.py` + عينة إدخال `scripts/lineup.sample.json` — بطاقة تشكيل PNG مقاس 1080×1350.
+- التشغيل: `python3 scripts/lineup.py match.json out.png` — محتاج على الجهاز `google-chrome` (وضع headless) وخط عربي (`Noto Sans Arabic` أو `Noto Naskh Arabic`).
+- العينة المرفقة تصميم فقط ("مش تشكيل حقيقي"). التشكيل الفعلي لازم مصدر موثق قبل أي نشر.
+
 ## قواعد ثابتة
 - ممنوع لمس workflows الخاصة بالنشر الاجتماعي (fb/tg/meta).
-- ممنوع تعديل `data.json` يدويًا (بتحدثه بايبلاين الماتشات).
+- ممنوع تعديل `site/data.json` يدويًا (بتحدثه بايبلاين الماتشات و news-ingest).
 - المحتوى الرأي/التحليلي مع الناشر، الموقع يعرض حقائق موثقة بس.
+
