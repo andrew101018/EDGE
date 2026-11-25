@@ -99,6 +99,16 @@
     fillOptions(sel);
     sel.addEventListener('change', function () {
       setFav(sel.value);
+      /* Re-render the natural order first, then float the new favorite - so clearing
+         or switching teams never leaves a stale floated order behind. */
+      try { if (typeof window.renderHomeMatches === 'function') window.renderHomeMatches(); } catch (e) {}
+      try { if (typeof window.renderMatches === 'function') window.renderMatches(); } catch (e) {}
+      try {
+        if (typeof window.renderEditorialNews === 'function' && typeof DATA === 'object' && DATA) {
+          window.renderEditorialNews((DATA.news || []).slice(0, 4));
+        }
+      } catch (e) {}
+      /* the wrapped renders above already call applyFav(); call it once more as a safety net */
       applyFav();
       if (typeof edgeToast === 'function') {
         edgeToast(sel.value ? ('تمام! ' + sel.value + ' فريقك ⭐') : 'اتشال الفريق المفضل');
