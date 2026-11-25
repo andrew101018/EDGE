@@ -30,6 +30,26 @@ h1 { color:#fbbf24; font-size:1.5em; margin:18px 0 4px; }
 .vd-btn.alt { background:#16213a; color:#e2e8f0; border:1px solid #24344f; }
 """
 
+TOPICS = {
+    'ucl': 'دوري الأبطال',
+    'egy': 'الدوري المصري',
+    'epl': 'الدوري الإنجليزي',
+    'united': 'مانشستر يونايتد',
+    'barca': 'برشلونة',
+    'madrid': 'ريال مدريد',
+    'legends': 'أساطير وتاريخ',
+    'nt': 'منتخبات وكأس العالم',
+    'misc': 'متنوع',
+}
+TOPIC_ORDER = ['ucl', 'egy', 'epl', 'united', 'barca', 'madrid', 'legends', 'nt', 'misc']
+
+CHIP_CSS = """
+.vd-chips { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 18px; }
+.vd-chip { background:#16213a; border:1px solid #24344f; border-radius:20px; padding:7px 15px; color:#94a3b8; font-size:.82em; font-weight:bold; cursor:pointer; font-family:inherit; }
+.vd-chip.on { background:#fbbf24; color:#0f172a; border-color:#fbbf24; }
+.vd-chip .n { opacity:.65; font-weight:normal; }
+"""
+
 HEAD = """<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -73,19 +93,25 @@ def video_page(v, reviewed, vertical=False):
 def index_page(videos, shorts, reviewed):
     def card(v, short=False):
         meta = 'شورت' if short else f"{v['published']} · {dur_ar(v['duration'])}"
-        return f"""<a class="vd-card" href="{v['id']}.html">
+        topics = ' '.join(v.get('topics', []))
+        return f"""<a class="vd-card" data-topics="{topics}" href="{v['id']}.html">
 <img src="https://i.ytimg.com/vi/{v['id']}/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
 <div><div class="vd-title">{v['title']}</div><div class="vd-meta">{meta}</div></div>
 </a>"""
     sub = f"كل فيديوهات قناة EDGE - ايدج على يوتيوب ({len(videos)} فيديو)"
     sub += ' · الشورتس لسه جاية' if not shorts else f' + {len(shorts)} شورت'
-    body = [f'<div class="sub">{sub}</div>'] + [card(v) for v in videos]
+    allv = videos + shorts
+    counts = {t: sum(1 for v in allv if t in v.get('topics', [])) for t in TOPIC_ORDER}
+    chips = [f'<button class="vd-chip on" data-t="">الكل <span class="n">{len(allv)}</span></button>']
+    chips += [f'<button class="vd-chip" data-t="{t}">{TOPICS[t]} <span class="n">{counts[t]}</span></button>' for t in TOPIC_ORDER if counts[t]]
+    chips_html = '<div class="vd-chips">' + ''.join(chips) + '</div>'
+    body = [f'<div class="sub">{sub}</div>', chips_html] + [card(v) for v in videos]
     if shorts:
         body.append('<h1 style="margin-top:22px;">📱 الشورتس</h1>')
         body += [card(v, short=True) for v in shorts]
     return HEAD + """<title>فيديوهات EDGE | Edge Football</title>
 <meta name="description" content="كل فيديوهات قناة EDGE - ايدج على يوتيوب في مكان واحد">
-<style>""" + STYLE + """</style>
+<style>""" + STYLE + CHIP_CSS + """</style>
 </head>
 <body>
 <nav><a class="vd-back" href=\"""" + BASE + """\">⚽ الصفحة الرئيسية</a></nav>
@@ -94,6 +120,25 @@ def index_page(videos, shorts, reviewed):
 """ + '\n'.join(body) + f"""
 <div class="sub" style="margin-top:16px;">المصدر: <a style="color:#94a3b8;" href="https://www.youtube.com/@andygamall" target="_blank" rel="noopener">قناة EDGE - ايدج على يوتيوب</a> · آخر مراجعة {reviewed}</div>
 </div>
+<script>
+document.querySelectorAll('.vd-chip').forEach(function(c){{
+  c.addEventListener('click',function(){{
+    document.querySelectorAll('.vd-chip').forEach(function(x){{x.classList.remove('on');}});
+    c.classList.add('on');
+    var t=c.getAttribute('data-t');
+    document.querySelectorAll('.vd-card').forEach(function(card){{
+      card.style.display = (!t || (card.getAttribute('data-topics')||'').split(' ').indexOf(t)>-1) ? '' : 'none';
+    }});
+    document.querySelectorAll('h1').forEach(function(h){{
+      if(h.textContent.indexOf('الشورتس')>-1){{
+        var anyVisible=false, el=h.nextElementSibling;
+        while(el && el.classList && el.classList.contains('vd-card')){{ if(el.style.display!=='none') anyVisible=true; el=el.nextElementSibling; }}
+        h.style.display = anyVisible ? '' : 'none';
+      }}
+    }});
+  }});
+}});
+</script>
 </body>
 </html>
 """
