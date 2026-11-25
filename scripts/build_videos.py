@@ -45,8 +45,11 @@ def dur_ar(d):
 def is_short(d):
     return int(d.replace('PT', '').replace('M', ' ').replace('S', '').split()[0]) == 0
 
-def video_page(v, reviewed):
-    dur = dur_ar(v['duration'])
+def video_page(v, reviewed, vertical=False):
+    if v.get('published') and v.get('duration'):
+        meta = f"نُشر {v['published']} · المدة {dur_ar(v['duration'])} · قناة EDGE - ايدج على يوتيوب"
+    else:
+        meta = 'شورت من قناة EDGE - ايدج على يوتيوب'
     return HEAD + f"""<title>{v['title']} | EDGE</title>
 <meta name="description" content="{v['title']} — فيديو من قناة EDGE - ايدج على يوتيوب">
 <style>{STYLE}</style>
@@ -55,8 +58,8 @@ def video_page(v, reviewed):
 <nav><a class="vd-back" href="index.html">🎬 كل الفيديوهات</a><a class="vd-back" href="{BASE}">⚽ الصفحة الرئيسية</a></nav>
 <div class="wrap">
 <h1>{v['title']}</h1>
-<div class="sub">نُشر {v['published']} · المدة {dur} · قناة EDGE - ايدج على يوتيوب</div>
-<div class="vd-embed{' short' if is_short(v['duration']) else ''}"><iframe src="https://www.youtube-nocookie.com/embed/{v['id']}" title="{v['title']}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+<div class="sub">{meta}</div>
+<div class="vd-embed{' short' if vertical else ''}"><iframe src="https://www.youtube-nocookie.com/embed/{v['id']}" title="{v['title']}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 <div class="vd-actions">
 <a class="vd-btn" href="https://www.youtube.com/watch?v={v['id']}" target="_blank" rel="noopener">▶️ شاهد على يوتيوب</a>
 <a class="vd-btn alt" href="index.html">🎬 باقي الفيديوهات</a>
@@ -68,17 +71,18 @@ def video_page(v, reviewed):
 """
 
 def index_page(videos, shorts, reviewed):
-    def card(v):
+    def card(v, short=False):
+        meta = 'شورت' if short else f"{v['published']} · {dur_ar(v['duration'])}"
         return f"""<a class="vd-card" href="{v['id']}.html">
 <img src="https://i.ytimg.com/vi/{v['id']}/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-<div><div class="vd-title">{v['title']}</div><div class="vd-meta">{v['published']} · {dur_ar(v['duration'])}</div></div>
+<div><div class="vd-title">{v['title']}</div><div class="vd-meta">{meta}</div></div>
 </a>"""
     sub = f"كل فيديوهات قناة EDGE - ايدج على يوتيوب ({len(videos)} فيديو)"
     sub += ' · الشورتس لسه جاية' if not shorts else f' + {len(shorts)} شورت'
     body = [f'<div class="sub">{sub}</div>'] + [card(v) for v in videos]
     if shorts:
         body.append('<h1 style="margin-top:22px;">📱 الشورتس</h1>')
-        body += [card(v) for v in shorts]
+        body += [card(v, short=True) for v in shorts]
     return HEAD + """<title>فيديوهات EDGE | Edge Football</title>
 <meta name="description" content="كل فيديوهات قناة EDGE - ايدج على يوتيوب في مكان واحد">
 <style>""" + STYLE + """</style>
@@ -110,8 +114,10 @@ def main():
     videos = data.get('videos', [])
     shorts = data.get('shorts', [])
     os.makedirs(OUT, exist_ok=True)
-    for v in videos + shorts:
-        open(os.path.join(OUT, v['id'] + '.html'), 'w', encoding='utf-8').write(video_page(v, reviewed))
+    for v in videos:
+        open(os.path.join(OUT, v['id'] + '.html'), 'w', encoding='utf-8').write(video_page(v, reviewed, vertical=is_short(v['duration'])))
+    for v in shorts:
+        open(os.path.join(OUT, v['id'] + '.html'), 'w', encoding='utf-8').write(video_page(v, reviewed, vertical=True))
     open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(index_page(videos, shorts, reviewed))
     print(f"built {len(videos) + len(shorts)} video pages + index (reviewed {reviewed})")
 
