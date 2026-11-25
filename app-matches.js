@@ -232,5 +232,6 @@ function matchRow(m) {
   const center = (m.detail === 'FT' && m.hs != null)
     ? `<span class="live-score">${m.hs} - ${m.as}</span>`
     : `<span class="live-score" style="color:#94a3b8;font-size:1.05em;">${timeStr}</span>`;
-  return `<div class="live-card"><div class="live-teams"><span class="team-link" data-team="${m.slug}|${m.homeId}|${m.home}">${teamLogo(m.homeLogo)} ${m.home}</span>${center}<span class="team-link" data-team="${m.slug}|${m.awayId}|${m.away}">${m.away} ${teamLogo(m.awayLogo)}</span></div><div class="live-meta">${statusNote(m)}${m.dateAr ? ' — ' + m.dateAr : ''}</div></div>`;
+  const shareTxt = (m.detail === 'FT' && m.hs != null) ? `النتيجة: ${m.home} ${m.hs} - ${m.as} ${m.away}` : `${m.home} × ${m.away} — ${statusNote(m)}`;
+  return `<div class="live-card"><div class="live-teams"><span class="team-link" data-team="${m.slug}|${m.homeId}|${m.home}">${teamLogo(m.homeLogo)} ${m.home}</span>${center}<span class="team-link" data-team="${m.slug}|${m.awayId}|${m.away}">${m.away} ${teamLogo(m.awayLogo)}</span></div><div class="live-meta">${statusNote(m)}${m.dateAr ? ' — ' + m.dateAr : ''} ${edgeShareBtn(shareTxt, shareTxt, 'https://andrew101018.github.io/EDGE/')}</div></div>`;
 }
