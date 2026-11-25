@@ -132,6 +132,7 @@ document.addEventListener('click', function (e) {
 /* ===== 📤 مشاركة أصلية (Web Share) مع رجوع للنسخ ===== */
 function edgeShare(title, text, url) {
   const u = url || location.href;
+  if (text && text.indexOf('#EDGE') === -1) text = text + ' #EDGE';
   if (navigator.share) { navigator.share({ title: title || document.title, text: text || '', url: u }).catch(function(){}); return; }
   const full = (text ? text + '\n' : '') + u;
   if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -160,3 +161,4 @@ function fmtStamp(s) {
   const d = new Date(Date.UTC(+p[1], +p[2] - 1, +p[3], hh - 2, +p[5]));
   return new Intl.DateTimeFormat('ar-EG', { timeZone: 'Africa/Cairo', day: 'numeric', month: 'long', hour: 'numeric', minute: '2-digit' }).format(d);
 }
+
