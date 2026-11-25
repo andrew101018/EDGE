@@ -94,8 +94,30 @@ def load_batch(path, r):
         'checked_at': checked,
     }]
 
+def load_prediction(path, r):
+    """prediction-v1: an editorial prediction recorded BEFORE kickoff; resolved later by scripts/resolve_predictions.py."""
+    for k in ('id', 'eid', 'home', 'away', 'kickoff', 'pick', 'checked_at'):
+        if not r.get(k):
+            raise SystemExit(f"invalid record {path}: missing {k}")
+    pk = r['pick']
+    if not isinstance(pk, dict) or not isinstance(pk.get('hs'), int) or not isinstance(pk.get('as'), int) or pk['hs'] < 0 or pk['as'] < 0:
+        raise SystemExit(f'invalid record {path}: pick must be {{"hs": int, "as": int}}')
+    ko = iso(r['kickoff'], 'kickoff', path)
+    chk = iso(r['checked_at'], 'checked_at', path)
+    if ko <= chk:
+        raise SystemExit(f"invalid record {path}: kickoff must be after checked_at (predictions are recorded before the match)")
+    return [{
+        'id': r['id'], 'section': 'predictions_log',
+        'eid': str(r['eid']), 'home': str(r['home']), 'away': str(r['away']),
+        'kickoff': r['kickoff'], 'pick': [pk['hs'], pk['as']],
+        'note': str(r.get('note', '')), 'recorded_at': r['checked_at'],
+        'status': 'pending', 'actual': None,
+    }]
+
 def load(path):
     r = json.load(open(path, encoding='utf-8'))
+    if r.get('kind') == 'prediction-v1':
+        return load_prediction(path, r)
     if 'results' in r:
         return load_batch(path, r)
     return load_single(path, r)
@@ -124,7 +146,12 @@ def main():
         print('news ingest: all records already present')
         return
     data['news_ids'] = sorted(seen)
-    latest = max(iso(it['checked_at']) for it in items if it['id'] in added).astimezone(CAIRO)
+    news_added = [it for it in items if it['id'] in added and it['section'] in ('news', 'world', 'opinion')]
+    if not news_added:
+        json.dump(data, open(DATA, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+        print(f"news ingest: added {len(added)} item(s): {', '.join(added)}")
+        return
+    latest = max(iso(it['checked_at']) for it in news_added).astimezone(CAIRO)
     try:
         current = datetime.strptime(data.get('updated_at', ''), FMT)
         if latest.replace(tzinfo=None) > current:
