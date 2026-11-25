@@ -129,7 +129,7 @@ function renderPredict() {
   localStorage.setItem('edgePoints', String(points));
   localStorage.setItem('edgeScored', JSON.stringify(scored));
   localStorage.setItem('edgeWeek', JSON.stringify(week));
-  document.getElementById('predictPoints').innerHTML = `⭐ نقاطك: <b>${points}</b> — النتيجة الصح بـ 3 نقاط والاتجاه الصح بنقطة<br><small>📅 الأسبوع ده: <b>${week.pts}</b> نقطة (رقم شخصي على جهازك بس)</small>`;
+  document.getElementById('predictPoints').innerHTML = `⭐ نقاطك: <b>${points}</b> — النتيجة الصح بـ 3 نقاط والاتجاه الصح بنقطة<br><small>📅 <b>${week.pts}</b> نقطة اتضافت الأسبوع ده (على جهازك بس)</small>`;
   const upcoming = [];
   (DATA.matches || []).forEach(g => g.items.forEach(m => {
     if (m.state === 'pre') upcoming.push(m);
