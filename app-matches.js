@@ -48,7 +48,7 @@ function statusNote(m) {
 
 function needsLivePoll(m) {
   if (m._stale) return true;
-  if (m.state || m.detail === 'FT') return false;
+  if (m.detail === 'FT' || m.state === 'post') return false; // مباراة بدا وقتها ولم تُحسم: تُستعلم مباشرة حتى لو الخلاصة تقول pre
   const t = Date.parse(m.date || '');
   if (Number.isNaN(t)) return false;
   const now = Date.now();
@@ -171,6 +171,8 @@ function renderHomeMatches() {
 
 /* ===== 🔴 النتايج اللايف — تحديث مباشر من ESPN كل دقيقة ===== */
 function refreshLiveScores() {
+  const _rlNow = Date.now();
+  if (_rlNow - (window._liveFetchAt || 0) < 45000) return; // ٤٥ ثانية على الأقل بين طلبات المصدر - نداءات مؤقت العد التنازلي كل ثانية تبقى بلا تكلفة شبكة
   const liveSlugs = {};
   MATCHES.forEach(g => (g.items || []).forEach(m => {
     if (m.state === 'in' || needsLivePoll(m)) {
@@ -182,6 +184,7 @@ function refreshLiveScores() {
   }));
   const slugs = Object.keys(liveSlugs);
   if (!slugs.length) return;
+  window._liveFetchAt = _rlNow;
   Promise.all(slugs.map(key =>
     fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/' + key.split('|')[0] + '/scoreboard' + (key.split('|')[1] || ''))
       .then(r => r.ok ? r.json() : null)
@@ -207,15 +210,17 @@ function refreshLiveScores() {
               }
               if (detail && m.detail !== detail) { m.detail = detail; changed = true; }
               if (st && m.state !== st) { m.state = st; changed = true; }
-              if (st) m._stale = false;
+              if (st) { m._stale = false; m._liveAt = Date.now(); }
             }
           }));
         } catch (e) {}
       });
     });
     if (changed) {
+      window._liveOverlayAt = Date.now();
       renderMatches();
       renderFeaturedMatch();
+      if (typeof renderHomeMatches === 'function') renderHomeMatches();
     }
   }).catch(() => {});
 }
