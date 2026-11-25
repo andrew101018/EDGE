@@ -1,6 +1,22 @@
 {
- "updated_at": "2026-11-23 06:53 PM",
+ "updated_at": "2026-11-25 08:55 AM",
  "news": [
+  {
+   "id": "batch-ucl-2026-11-24-9m",
+   "section": "news",
+   "t": "دوري أبطال أوروبا: نتائج الجولة الخامسة · 24 نوفمبر 2026",
+   "full": "النتائج (بعد صافرة النهاية):\nريال مدريد × آيندهوفن: 5-1\nمانشستر سيتي × نابولي: 2-2\nأرسنال × بوروسيا دورتموند: 1-1\nكومو × إيك أثينا: 1-0\nغلطة سراي × أستون فيلا: 1-0\nبودو غليمت × لاسك: 1-0\nلايبزيج × لانس: 3-1\nسلوفان براتيسلافا × ريال بيتيس: 0-2\nفينورد × بورتو: 0-1\n\nلقطة الترتيب بعد ماتشات 24 نوفمبر 2026 (مش تحديث لحظي):\nReal Madrid 15 (5 played), PSG 12 (4), Como 12, Betis 12, Arsenal 11, Man City 10, Dortmund 10, Barcelona 9 (4), Galatasaray 9, Bodo/Glimt 7, Slovan Bratislava 0\n\nالمصادر: Eurosport.it results + UEFA.com round-up + ESPN scoreboard uefa.champions 20261124",
+   "img": "",
+   "source": "Eurosport.it results (updated 24/11 23:14 CET)",
+   "url": "https://www.eurosport.it/calcio/champions-league/2026-2027/i-risultati-di-martedi-24-novembre-real-madrid-psv-5-1-feyenoord-porto-0-1-lipsia-lens-3-1-slovan-bratislava-real-betis-0-2_sto23358243/story.shtml",
+   "sources": [
+    "https://www.eurosport.it/calcio/champions-league/2026-2027/i-risultati-di-martedi-24-novembre-real-madrid-psv-5-1-feyenoord-porto-0-1-lipsia-lens-3-1-slovan-bratislava-real-betis-0-2_sto23358243/story.shtml",
+    "https://www.uefa.com/uefachampionsleague/news/02ab-222684fc8e44-2b1a32c90a7a-1000--champions-league-round-up-real-madrid-stay-perfect-galat/",
+    "https://www.realmadrid.com/en-US/news/football/first-team/reports/cronica-real-madrid-psv-j5-champions-league-24-11-2026"
+   ],
+   "published_at": "2026-11-24",
+   "checked_at": "2026-11-25T08:55:00+02:00"
+  },
   {
    "t": "⚽️ مورينيو: الفلوس سلاح في الكورة ومش ممكن تربط ريال مدريد بنيجريرا  ",
    "full": "⚽️ مورينيو: الفلوس سلاح في الكورة ومش ممكن تربط ريال مدريد بنيجريرا  \n\nفي تصريح ليلكورة، المدرب جوزيه مورينيو أكد إن الفلوس لها تأثير كبير على كرة القدم، وأضاف إن ربط ريال مدريد بموضوع نيجريرا غير مقبول.",
@@ -6227,5 +6243,8 @@
  ],
  "highlights": [],
  "squads": {},
- "matches_updated_at": "2026-11-25 02:53 PM"
+ "matches_updated_at": "2026-11-25 02:53 PM",
+ "news_ids": [
+  "batch-ucl-2026-11-24-9m"
+ ]
 }
