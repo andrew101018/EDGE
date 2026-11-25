@@ -329,7 +329,8 @@ h2 { color: #eebf63; border-bottom-color: #eebf63; }
   header h1 { font-size: 1.25em; }
   header img { height: 40px !important; width: 40px !important; }
   .subtitle { display: none; }
-  .socials { display: none; }
+  .socials { margin-top: 8px; gap: 8px; }
+  .socials a { font-size: 0.8em; padding: 6px 12px; }
   .edge-bottombar { display: flex; }
 }
 
