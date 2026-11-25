@@ -144,7 +144,11 @@
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (d) {
       if (!d) throw 0;
-      document.getElementById('egStamp').textContent = 'المواعيد بتوقيت القاهرة · البيانات كما في آخر تحديث: ' + (d.matches_updated_at || d.updated_at || '—');
+      /* League results carry their own last-confirmed stamp (per-source check), not the global one,
+         so a frozen league source can never read as freshly checked. Falls back to the global stamp. */
+      var egyChecked = (d.matches_checked_by_source && d.matches_checked_by_source['egy.1']) || '';
+      var pageData = d.matches_updated_at || d.updated_at || '—';
+      document.getElementById('egStamp').textContent = 'المواعيد بتوقيت القاهرة · نتائج الدوري المصري حسب آخر تأكيد: ' + (egyChecked || pageData) + (egyChecked && egyChecked !== pageData ? ' · باقي بيانات الصفحة: ' + pageData : '');
       var groups = d.matches || [];
       var nt = [], league = [];
       groups.forEach(function (g) {
