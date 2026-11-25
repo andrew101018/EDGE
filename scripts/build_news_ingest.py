@@ -4,23 +4,31 @@ Merges verified-news records from news/incoming/*.json into site/data.json.
 No rewriting: texts are stored verbatim from the record; batch files are
 rendered from their exact fields with fixed presentation templates only.
 Each ingested item keeps sources, published_at and checked_at.
-Records are committed by the publishing agent after source verification;
+Records are added to news/incoming/ after source verification;
 this script never fetches or generates news itself.
 Run: python3 scripts/build_news_ingest.py  (from repo root)
 """
 import json, os, glob, re
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, 'site', 'data.json')
 INCOMING = os.path.join(ROOT, 'news', 'incoming')
 FMT = "%Y-%m-%d %I:%M %p"
+CAIRO = ZoneInfo('Africa/Cairo')
 CAP = 60
 MONTHS_AR = {'01': 'يناير', '02': 'فبراير', '03': 'مارس', '04': 'أبريل', '05': 'مايو', '06': 'يونيو',
              '07': 'يوليو', '08': 'أغسطس', '09': 'سبتمبر', '10': 'أكتوبر', '11': 'نوفمبر', '12': 'ديسمبر'}
 
-def iso(s):
-    return datetime.fromisoformat(str(s).replace('Z', '+00:00'))
+def iso(s, field='timestamp', path='record', allow_date=False):
+    raw = str(s)
+    dt = datetime.fromisoformat(raw.replace('Z', '+00:00'))
+    if dt.tzinfo is None:
+        if allow_date and re.fullmatch(r'\d{4}-\d{2}-\d{2}', raw):
+            return dt
+        raise SystemExit(f"invalid {path}: {field} must carry an explicit timezone offset (ISO 8601, e.g. 2026-11-25T14:00:00+02:00)")
+    return dt
 
 def ar_date(d):
     y, m, dd = str(d).split('-')
@@ -34,7 +42,8 @@ def load_single(path, r):
         raise SystemExit(f"invalid record {path}: section must be news|world")
     if not str(r['source_url']).startswith('http'):
         raise SystemExit(f"invalid record {path}: source_url must be a URL")
-    iso(r['published_at']); iso(r['checked_at'])
+    iso(r['published_at'], 'published_at', path, allow_date=True)
+    iso(r['checked_at'], 'checked_at', path)
     return [{
         'id': r['id'], 'section': r['section'],
         't': r['title'], 'full': r['body'], 'img': r.get('image', ''),
@@ -50,7 +59,7 @@ def load_batch(path, r):
     checked = r.get('fetched_cairo')
     if not checked:
         raise SystemExit(f"invalid batch {path}: missing fetched_cairo")
-    iso(checked)
+    iso(checked, 'fetched_cairo', path)
     srcs = [s['url'] for s in r.get('sources', []) if s.get('url')]
     srcs += [u for u in (r.get('also_confirmed') or {}).values()]
     if not srcs:
@@ -113,7 +122,7 @@ def main():
         print('news ingest: all records already present')
         return
     data['news_ids'] = sorted(seen)
-    latest = max(iso(it['checked_at']) for it in items if it['id'] in added)
+    latest = max(iso(it['checked_at']) for it in items if it['id'] in added).astimezone(CAIRO)
     try:
         current = datetime.strptime(data.get('updated_at', ''), FMT)
         if latest.replace(tzinfo=None) > current:
