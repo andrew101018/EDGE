@@ -393,9 +393,19 @@ function renderEditorialNews(items) {
     container.appendChild(empty);
     return;
   }
-  // Bind a trailing score to its team so a line wrap can never detach them:
-  // non-breaking space before the score, word joiners inside it.
-  const bindScores = s => s.replace(/:[ \t]*(\d+)[ \t]*[-\u2013][ \t]*(\d+)[ \t]*$/gm, ':\u00A0$1\u2060-\u2060$2');
+  // Bind a trailing score to its team: nbsp glue plus an isolated LTR nowrap
+  // span, so a line wrap can never detach the score or flip its digit order.
+  const RES = /^(.*):[ \t]*(\d+[ \t]*[-\u2013][ \t]*\d+)[ \t]*$/;
+  const appendLine = (p, line) => {
+    const m = line.match(RES);
+    if (!m) { p.appendChild(document.createTextNode(line)); return; }
+    p.appendChild(document.createTextNode(m[1] + ':\u00A0'));
+    const sc = document.createElement('span');
+    sc.dir = 'ltr';
+    sc.style.whiteSpace = 'nowrap';
+    sc.textContent = m[2];
+    p.appendChild(sc);
+  };
   const fmtCairo = (iso, withTime) => {
     if (!iso) return '';
     if (/^\d{4}-\d{2}-\d{2}$/.test(iso)) {
@@ -434,7 +444,10 @@ function renderEditorialNews(items) {
         const nl = cut.lastIndexOf('\n', 140);
         cut = (nl > 40 ? cut.slice(0, nl) : cut.slice(0, 140)) + '\u2026';
       }
-      body.textContent = bindScores(cut);
+      cut.split('\n').forEach((ln, idx) => {
+        if (idx) body.appendChild(document.createTextNode('\n'));
+        appendLine(body, ln);
+      });
     }
     const meta = document.createElement('p');
     meta.className = 'edge-nmeta';
@@ -481,7 +494,7 @@ function renderEditorialNews(items) {
         const p = document.createElement('p');
         p.dir = 'auto';
         p.style.cssText = 'margin:4px 0;font-size:.9em;line-height:1.7;';
-        p.textContent = bindScores(line.trim());
+        appendLine(p, line.trim());
         det.appendChild(p);
       });
       if (checkedStr) {
