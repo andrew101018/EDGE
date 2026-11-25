@@ -1,6 +1,6 @@
 /* =====================================================
    EDGE FOOTBALL — badges.js
-   نظام البادجات والإنجازات 🎖️ (16 إنجاز)
+   نظام البادجات والإنجازات 🎖️ (16 إنجاز + مستويات)
    ملف مستقل بالكامل — مش بيعدّل أي ملف تاني
    ===================================================== */
 (function () {
@@ -53,6 +53,84 @@
     return safe(function () {
       return ('Notification' in window) && Notification.permission === 'granted';
     }, false);
+  }
+
+  /* ---------- المستويات (فوق الإنجازات) ----------
+     كل الأرقام من إحصائيات الجهاز ده بس (نقاط + توقعات محفوظة). */
+  var LEVELS = [
+    { min: 0, icon: '🌱', title: 'مبتدئ' },
+    { min: 15, icon: '⚡', title: 'مجتهد' },
+    { min: 40, icon: '🎯', title: 'محترف' },
+    { min: 100, icon: '👑', title: 'خبير' },
+    { min: 200, icon: '🏆', title: 'أسطورة' }
+  ];
+  var LEAGUE_TIERS = [
+    { min: 3, title: 'متابع' },
+    { min: 8, title: 'عارف' },
+    { min: 15, title: 'خبير' }
+  ];
+  function totalPts() { return predPoints() + fanPoints(); }
+  function levelFor(pts) {
+    var cur = LEVELS[0];
+    LEVELS.forEach(function (l) { if (pts >= l.min) cur = l; });
+    return { cur: cur, next: LEVELS[LEVELS.indexOf(cur) + 1] || null };
+  }
+  function leagueTierFor(n) {
+    var cur = null;
+    LEAGUE_TIERS.forEach(function (t) { if (n >= t.min) cur = t; });
+    return { cur: cur, next: LEAGUE_TIERS[cur ? LEAGUE_TIERS.indexOf(cur) + 1 : 0] || null };
+  }
+  /* بنسجّل الدوري بتاع كل توقع من الفيد الحالي — التوقعات القديمة اللي خرجت من الفيد مبتتنسبش */
+  function recordPredLeagues() {
+    safe(function () {
+      if (typeof DATA === 'undefined' || !DATA || !DATA.matches) return;
+      var eidLeague = {};
+      DATA.matches.forEach(function (g) {
+        (g.items || []).forEach(function (m) { if (m.eid != null) eidLeague[String(m.eid)] = g.league || ''; });
+      });
+      var saved = ls('edgePredict', {}) || {};
+      var map = ls('edgePredLeague', {}) || {};
+      var changed = false;
+      Object.keys(saved).forEach(function (eid) {
+        if (!map[eid] && eidLeague[eid]) { map[eid] = eidLeague[eid]; changed = true; }
+      });
+      if (changed) localStorage.setItem('edgePredLeague', JSON.stringify(map));
+    });
+  }
+  function leagueCounts() {
+    var map = ls('edgePredLeague', {}) || {};
+    var saved = ls('edgePredict', {}) || {};
+    var counts = {};
+    Object.keys(saved).forEach(function (eid) {
+      var lg = map[eid];
+      if (lg) counts[lg] = (counts[lg] || 0) + 1;
+    });
+    return counts;
+  }
+  function checkLevels() {
+    recordPredLeagues();
+    safe(function () {
+      var prev = ls('edgeLevels', null);
+      var firstRun = !prev;
+      var seen = prev || { overall: -1, leagues: {} };
+      if (!seen.leagues) seen.leagues = {};
+      var toasts = [];
+      var li = LEVELS.indexOf(levelFor(totalPts()).cur);
+      if (!firstRun && li > (seen.overall == null ? -1 : seen.overall)) {
+        toasts.push({ icon: LEVELS[li].icon, title: 'مستوى ' + LEVELS[li].title });
+      }
+      var counts = leagueCounts();
+      Object.keys(counts).forEach(function (lg) {
+        var t = leagueTierFor(counts[lg]).cur;
+        var idx = t ? LEAGUE_TIERS.indexOf(t) : -1;
+        var oldIdx = (seen.leagues[lg] != null) ? seen.leagues[lg] : -1;
+        if (!firstRun && idx > oldIdx && t) toasts.push({ icon: '🎖️', title: t.title + ' ' + lg });
+        seen.leagues[lg] = Math.max(oldIdx, idx);
+      });
+      seen.overall = Math.max(seen.overall == null ? -1 : seen.overall, li);
+      localStorage.setItem('edgeLevels', JSON.stringify(seen));
+      toasts.forEach(function (b, i) { setTimeout(function () { showBadgeToast(b, 'مستوى جديد! 🎉'); }, i * 1000); });
+    });
   }
 
   /* ---------- البادجات (16) ---------- */
@@ -119,11 +197,11 @@
   }
 
   /* ---------- إشعار الإنجاز (توست) ---------- */
-  function showBadgeToast(b) {
+  function showBadgeToast(b, header) {
     safe(function () {
       var t = document.createElement('div');
       t.className = 'badge-toast';
-      t.innerHTML = '<span style="font-size:1.7em;">' + b.icon + '</span><div><div>إنجاز جديد! 🎉</div><div style="font-size:.9em;">' + b.title + '</div></div>';
+      t.innerHTML = '<span style="font-size:1.7em;">' + b.icon + '</span><div><div>' + (header || 'إنجاز جديد! 🎉') + '</div><div style="font-size:.9em;">' + b.title + '</div></div>';
       document.body.appendChild(t);
       setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 4300);
     });
@@ -139,9 +217,28 @@
     var pct = Math.round(count / BADGES.length * 100);
     var sum = document.getElementById('badgesSummary');
     if (sum) {
-      sum.innerHTML = '<div class="points-banner" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">' +
+      var badgesRow = '<div class="points-banner" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">' +
         '<span>🎖️ فتحت <b>' + count + '</b> من ' + BADGES.length + ' إنجاز</span>' +
         '<span><b>' + pct + '%</b> ⚡' + (streak() ? ' | 🔥 سلسلة: ' + streak() + ' يوم' : '') + '</span></div>';
+      var tp = totalPts();
+      var lvl = levelFor(tp);
+      var lvlTxt = lvl.next ? ' — لسه <b>' + (lvl.next.min - tp) + '</b> نقطة لمستوى ' + lvl.next.icon + ' ' + lvl.next.title : ' — وصلت أعلى مستوى 👑';
+      var lvlRow = '<div class="points-banner" style="margin-top:8px;">' + lvl.cur.icon + ' مستواك: <b>' + lvl.cur.title + '</b> (' + tp + ' نقطة)' + lvlTxt + '</div>';
+      var lc = leagueCounts();
+      var lgs = Object.keys(lc).sort(function (a, b) { return lc[b] - lc[a]; }).slice(0, 4);
+      var lgRows = '';
+      if (lgs.length) {
+        lgRows = '<div class="points-banner" style="margin-top:8px;line-height:2;">🏟️ مستوياتك في الدوريات (من توقعاتك المحفوظة):' + lgs.map(function (lg) {
+          var n = lc[lg];
+          var t = leagueTierFor(n);
+          if (t.cur) {
+            var more = t.next ? ' — ' + n + '/' + t.next.min + ' للمستوى الجاي' : ' — أعلى مستوى 🏆';
+            return '<div>🎖️ <b>' + t.cur.title + ' ' + lg + '</b>' + more + '</div>';
+          }
+          return '<div>▫️ ' + lg + ': ' + n + '/' + LEAGUE_TIERS[0].min + ' توقعات لمستوى متابع</div>';
+        }).join('') + '</div>';
+      }
+      sum.innerHTML = badgesRow + lvlRow + lgRows;
     }
     el.innerHTML = BADGES.map(function (b) {
       var isUn = !!unlocked[b.id];
@@ -206,6 +303,7 @@
       newly.forEach(function (b, i) {
         setTimeout(function () { showBadgeToast(b); }, i * 1000);
       });
+      checkLevels();
       renderBadges();
     }, delay || 0);
   }
