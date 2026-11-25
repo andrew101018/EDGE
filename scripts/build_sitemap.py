@@ -40,6 +40,12 @@ def url(loc, priority, mod=None, changefreq=None):
 def main():
     entries = [url(SITE + "/", "1.0", changefreq="hourly")]
 
+    # Other standalone root pages (faq.html, ...) - index.html is the homepage above.
+    for path in sorted(glob.glob("*.html")):
+        if path == "index.html":
+            continue
+        entries.append(url(f"{SITE}/{path}", "0.6", lastmod(path)))
+
     for path in sorted(glob.glob("articles/*.html")):
         entries.append(url(f"{SITE}/{path}", "0.6", lastmod(path)))
 
