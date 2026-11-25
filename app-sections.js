@@ -50,7 +50,7 @@ function renderLeaders() {
       h += `<h4 style="margin:8px 0 6px;opacity:.8;">${label}</h4><div class="grid">`;
       (items || []).forEach((p, i) => {
         h += `<div class="tv-card" style="text-align:center;">
-          ${p.face ? `<img src="${p.face}" style="width:52px;height:52px;border-radius:50%;object-fit:cover;margin:0 auto 6px;display:block;" onerror="this.style.display='none'">` : '<div style="font-size:1.8em;">👤</div>'}
+          ${p.face ? `<img loading="lazy" src="${p.face}" style="width:52px;height:52px;border-radius:50%;object-fit:cover;margin:0 auto 6px;display:block;" onerror="this.style.display='none'">` : '<div style="font-size:1.8em;">👤</div>'}
           <div style="font-weight:bold;">${i + 1}. ${p.name}</div>
           <div style="opacity:.7;font-size:.82em;">${p.team}</div>
           <div style="color:#fbbf24;font-weight:bold;margin-top:4px;">${p.value}</div>
@@ -78,7 +78,7 @@ function renderPlayers() {
   const c = document.getElementById('playersContainer');
   if (!c) return;
   c.innerHTML = items.length ? items.map(p => `<div class="tv-card" style="text-align:center;">
-    ${p.face ? `<img src="${p.face}" style="width:52px;height:52px;border-radius:50%;object-fit:cover;margin:0 auto 6px;display:block;" onerror="this.style.display='none'">` : '<div style="font-size:1.8em;">👤</div>'}
+    ${p.face ? `<img loading="lazy" src="${p.face}" style="width:52px;height:52px;border-radius:50%;object-fit:cover;margin:0 auto 6px;display:block;" onerror="this.style.display='none'">` : '<div style="font-size:1.8em;">👤</div>'}
     <div style="font-weight:bold;">${p.name}</div>
     <div style="opacity:.7;font-size:.82em;">${p.team} | ${p.league}</div>
     <div style="color:#fbbf24;font-weight:bold;margin-top:4px;">⭐ ${p.value}</div>
@@ -262,11 +262,11 @@ function renderFantasy() {
   document.getElementById('fantasyInfo').innerHTML = `⭐ نقاط فريقك: <b>${pts}</b> — الهدف +3 والأسيست +2`;
   document.getElementById('fantasySquad').innerHTML = chosen.length ? chosen.map(n => {
     const p = pool.find(x => x.name === n);
-    return p ? `<span class="p-card">${p.face ? `<img class="p-face" src="${p.face}" onerror="this.style.display='none'">` : '👤'} ${p.name} <small>💰${p.price}</small></span>` : '';
+    return p ? `<span class="p-card">${p.face ? `<img loading="lazy" class="p-face" src="${p.face}" onerror="this.style.display='none'">` : '👤'} ${p.name} <small>💰${p.price}</small></span>` : '';
   }).join('') : '';
   document.getElementById('fantasyPool').innerHTML = pool.sort((a, b) => b.val - a.val).slice(0, 100).map(p => `
     <div class="tv-card" style="cursor:pointer;${chosen.includes(p.name) ? 'border-color:#fbbf24;' : ''}" onclick="toggleFantasy('${p.name.replace(/'/g, '')}')">
-      ${p.face ? `<img class="p-face" style="width:42px;height:42px;" src="${p.face}" onerror="this.style.display='none'">` : '👤'}
+      ${p.face ? `<img loading="lazy" class="p-face" style="width:42px;height:42px;" src="${p.face}" onerror="this.style.display='none'">` : '👤'}
       <div class="tv-teams" style="margin-top:6px;">${p.name}</div>
       <div class="tv-info">${p.team} | ${p.cat}: ${p.val}</div>
       <div style="color:#fbbf24;font-weight:bold;">💰 ${p.price}</div>
@@ -369,7 +369,7 @@ function renderTransfers() {
   const items = all.filter(n => TRANSFER_WORDS.some(w => (n.t || '').toLowerCase().includes(w)));
   document.getElementById('transfersContainer').innerHTML = items.length ? items.map(n => `
     <div class="tv-card" style="text-align:right;cursor:pointer;" onclick="showNewsDetail('${esc(n.t)}','${esc(n.full || n.t)}')">
-      ${n.img ? `<img src="${n.img}" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:8px;" onerror="this.style.display='none'">` : ''}
+      ${n.img ? `<img loading="lazy" src="${n.img}" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:8px;" onerror="this.style.display='none'">` : ''}
       <div style="font-weight:bold;font-size:.9em;">${n.t}</div>
     </div>`).join('') : '<div class="card">مفيش أخبار انتقالات دلوقتي 🔄</div>';
 }
@@ -380,7 +380,7 @@ function renderArchive() {
   const items = q ? all.filter(n => (n.t || '').toLowerCase().includes(q)) : all;
   document.getElementById('archiveContainer').innerHTML = items.length ? items.map(n => `
     <div class="tv-card" style="text-align:right;cursor:pointer;" onclick="showNewsDetail('${esc(n.t)}','${esc(n.full || n.t)}')">
-      ${n.img ? `<img src="${n.img}" style="width:100%;height:110px;object-fit:cover;border-radius:8px;margin-bottom:8px;" onerror="this.style.display='none'">` : ''}
+      ${n.img ? `<img loading="lazy" src="${n.img}" style="width:100%;height:110px;object-fit:cover;border-radius:8px;margin-bottom:8px;" onerror="this.style.display='none'">` : ''}
       <div style="font-weight:bold;font-size:.9em;">${n.t}</div>
     </div>`).join('') : '<div class="card">مفيش نتائج مطابقة 🔍</div>';
 }
@@ -390,7 +390,7 @@ function renderWorld() {
   const W = DATA.world || [];
   el.innerHTML = W.length ? W.map(w => `
     <div class="tv-card" style="text-align:right;cursor:pointer;" onclick="showNewsDetail('${esc(w.t)}','${esc(w.full || w.t)}')">
-      ${w.img ? `<img src="${w.img}" style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:8px;" onerror="this.style.display='none'">` : ''}
+      ${w.img ? `<img loading="lazy" src="${w.img}" style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:8px;" onerror="this.style.display='none'">` : ''}
       <div style="font-weight:bold;font-size:.9em;">${w.t}</div>
       ${edgeShareBtn(w.t, w.t, w.url || 'https://andrew101018.github.io/EDGE/')}
     </div>`).join('') : '<div class="card">لا توجد أخبار عالمية حالياً</div>';
@@ -411,7 +411,7 @@ function showNewsDetail(title, full, img) {
   clean = clean.replace(t + '\\n', '').replace(t + ' ', ' ').trim();
   
   document.getElementById('teamModalBody').innerHTML =
-    (img ? `<img src="${img}" style="width:100%;max-height:320px;object-fit:cover;border-radius:10px;margin-bottom:14px;" onerror="this.style.display='none'">` : '') +
+    (img ? `<img loading="lazy" src="${img}" style="width:100%;max-height:320px;object-fit:cover;border-radius:10px;margin-bottom:14px;" onerror="this.style.display='none'">` : '') +
     '<h3 style="color:#fbbf24;margin-bottom:12px;">' + title + '</h3>' +
     '<div style="line-height:2;white-space:pre-wrap;font-size:1.05em;">' + (clean || t) + '</div>' +
     (clean && clean.length < 50 ? '<div style="opacity:.6;font-size:.85em;margin-top:14px;">💡 التفاصيل الكاملة متاحة من المصدر — البيانات بتتحسن مع المصادر الجديدة</div>' : '');
@@ -458,9 +458,9 @@ function renderCompare() {
     </div>`;
   };
   const head = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-    <div style="text-align:center;flex:1;">${ta.logo ? `<img src="${ta.logo}" style="width:48px;height:48px;object-fit:contain;display:block;margin:0 auto 6px;">` : ''}<b>${ta.team}</b><div style="opacity:.7;font-size:.8em;">${ta.league}</div></div>
+    <div style="text-align:center;flex:1;">${ta.logo ? `<img loading="lazy" src="${ta.logo}" style="width:48px;height:48px;object-fit:contain;display:block;margin:0 auto 6px;">` : ''}<b>${ta.team}</b><div style="opacity:.7;font-size:.8em;">${ta.league}</div></div>
     <div style="font-size:1.6em;">⚖️</div>
-    <div style="text-align:center;flex:1;">${tb.logo ? `<img src="${tb.logo}" style="width:48px;height:48px;object-fit:contain;display:block;margin:0 auto 6px;">` : ''}<b>${tb.team}</b><div style="opacity:.7;font-size:.8em;">${tb.league}</div></div>
+    <div style="text-align:center;flex:1;">${tb.logo ? `<img loading="lazy" src="${tb.logo}" style="width:48px;height:48px;object-fit:contain;display:block;margin:0 auto 6px;">` : ''}<b>${tb.team}</b><div style="opacity:.7;font-size:.8em;">${tb.league}</div></div>
   </div>`;
   const pa = Number(ta.pts) || 0, pb = Number(tb.pts) || 0;
   const verdict = pa === pb ? '' : `<div class="card" style="text-align:center;font-weight:bold;color:#fbbf24;">${pa > pb ? ta.team : tb.team} الأعلى نقاطاً 🔥</div>`;
@@ -576,7 +576,7 @@ async function showTeam(slug, teamId, teamName) {
   if (squad.length) {
     squad.sort((a, b) => (order[a.pos] ?? 5) - (order[b.pos] ?? 5));
     document.getElementById('teamModalBody').innerHTML = `<div style="text-align:center;margin-bottom:12px;"><div style="font-size:2.6em;">⚽</div><div style="font-weight:bold;font-size:1.25em;">${teamName}</div><div style="opacity:.7;">✅ بيانات رسمية من API-Football</div></div><div style="overflow-x:auto;"><table class="stand">${headRow}` +
-      squad.map(p => `<tr><td style="text-align:right;">${p.face ? `<img class="p-face" style="width:24px;height:24px;vertical-align:middle;margin-left:5px;" src="${p.face}" onerror="this.style.display='none'">` : '👤'} ${p.name}</td><td>${p.age}</td><td>${p.nat}</td><td>${p.pos}</td><td>${p.apps}</td><td class="pts">${p.goals}</td><td>${p.assists}</td><td style="color:#fbbf24;font-weight:bold;">${p.rating}</td></tr>`).join('') + `</table></div>`;
+      squad.map(p => `<tr><td style="text-align:right;">${p.face ? `<img loading="lazy" class="p-face" style="width:24px;height:24px;vertical-align:middle;margin-left:5px;" src="${p.face}" onerror="this.style.display='none'">` : '👤'} ${p.name}</td><td>${p.age}</td><td>${p.nat}</td><td>${p.pos}</td><td>${p.apps}</td><td class="pts">${p.goals}</td><td>${p.assists}</td><td style="color:#fbbf24;font-weight:bold;">${p.rating}</td></tr>`).join('') + `</table></div>`;
     return;
   }
   try {
@@ -591,10 +591,10 @@ async function showTeam(slug, teamId, teamName) {
         Object.values(DATA.tables || {}).forEach(rows => (rows || []).forEach(r => {
           if (r && typeof r === 'object' && (r.team === arName || r.team === teamName)) { const g = Number(r.gp) || 0; if (g > gp) gp = g; }
         }));
-        document.getElementById('teamModalBody').innerHTML = `<div style="text-align:center;margin-bottom:12px;">${team.strBadge ? `<img src="${team.strBadge}" style="width:64px;height:64px;object-fit:contain;">` : ''}<div style="font-weight:bold;font-size:1.25em;">${team.strTeam}</div><div style="opacity:.7;">${team.strLeague || ''}</div></div><div style="overflow-x:auto;"><table class="stand">${headRow}` +
+        document.getElementById('teamModalBody').innerHTML = `<div style="text-align:center;margin-bottom:12px;">${team.strBadge ? `<img loading="lazy" src="${team.strBadge}" style="width:64px;height:64px;object-fit:contain;">` : ''}<div style="font-weight:bold;font-size:1.25em;">${team.strTeam}</div><div style="opacity:.7;">${team.strLeague || ''}</div></div><div style="overflow-x:auto;"><table class="stand">${headRow}` +
           players.map(p => {
             const s = statsOf(p.strPlayer);
-            return `<tr><td style="text-align:right;">${p.strCutout || p.strThumb ? `<img class="p-face" style="width:24px;height:24px;vertical-align:middle;margin-left:5px;" src="${p.strCutout || p.strThumb}" onerror="this.style.display='none'">` : '👤'} ${p.strPlayer}</td><td>${ageFrom(p.dateBorn)}</td><td>${p.strNationality || '-'}</td><td>${p.strPosition || '-'}</td><td>${gp || '-'}</td><td class="pts">${s ? s[0] : '-'}</td><td>${s ? s[1] : '-'}</td><td style="color:#fbbf24;font-weight:bold;">${s ? s[2] : '-'}</td></tr>`;
+            return `<tr><td style="text-align:right;">${p.strCutout || p.strThumb ? `<img loading="lazy" class="p-face" style="width:24px;height:24px;vertical-align:middle;margin-left:5px;" src="${p.strCutout || p.strThumb}" onerror="this.style.display='none'">` : '👤'} ${p.strPlayer}</td><td>${ageFrom(p.dateBorn)}</td><td>${p.strNationality || '-'}</td><td>${p.strPosition || '-'}</td><td>${gp || '-'}</td><td class="pts">${s ? s[0] : '-'}</td><td>${s ? s[1] : '-'}</td><td style="color:#fbbf24;font-weight:bold;">${s ? s[2] : '-'}</td></tr>`;
           }).join('') + `</table></div>`;
         return;
       }
