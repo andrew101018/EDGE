@@ -1,0 +1,39 @@
+name: news-ingest
+# Merges publisher-committed verified-news records (news/incoming/*.json) into
+# site/data.json. Facts come only from committed records; no fetching/rewriting.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'news/incoming/**'
+      - 'scripts/build_news_ingest.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: news-ingest
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Ingest verified records
+        run: |
+          git config user.name "edge-site-bot"
+          git config user.email "actions@users.noreply.github.com"
+          ok=""
+          for i in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            python3 scripts/build_news_ingest.py
+            git add site/data.json
+            if git diff --cached --quiet; then echo "news already up to date"; ok=done; break; fi
+            git commit -m "news: verified ingest"
+            if git push; then ok=done; break; fi
+          done
+          if [ -z "$ok" ]; then echo "push failed after retries"; exit 1; fi
