@@ -246,7 +246,7 @@ function drawFooter(L) {
   ctx.textAlign = "center";
   ctx.fillStyle = "#fbbf24";
   ctx.font = fontStr("bold", L.footSize);
-  ctx.fillText("EDGE FOOTBALL", W / 2, L.footY);
+  ctx.fillText("EDGE FOOTBALL · #EDGE", W / 2, L.footY);
   ctx.fillStyle = "#94a3b8";
   ctx.font = fontStr("bold", L.urlSize);
   ctx.fillText("andrew101018.github.io/EDGE", W / 2, L.urlY);
@@ -572,7 +572,8 @@ btnStory.addEventListener("click", function () { setMode("story"); });
 btnSquare.addEventListener("click", function () { setMode("square"); });
 
 /* ---------- تحميل ومشاركة ---------- */
-function shareText() {
+function shareText() { return shareTextBase() + "\n#EDGE"; }
+function shareTextBase() {
   if (CARD_TYPE !== "match" && altData) {
     if (altData.kind === "table") {
       return "📊 ترتيب " + altData.lg + "\nالكورة بتبدأ من هنا ⚡ Edge Football";
@@ -699,4 +700,5 @@ if (CARD_TYPE === "match") {
 </script>
 </body>
 </html>
+
 
