@@ -38,8 +38,8 @@ def load_single(path, r):
     for k in ('id', 'section', 'title', 'body', 'source_name', 'source_url', 'published_at', 'checked_at'):
         if not r.get(k):
             raise SystemExit(f"invalid record {path}: missing {k}")
-    if r['section'] not in ('news', 'world'):
-        raise SystemExit(f"invalid record {path}: section must be news|world")
+    if r['section'] not in ('news', 'world', 'opinion'):
+        raise SystemExit(f"invalid record {path}: section must be news|world|opinion")
     if not str(r['source_url']).startswith('http'):
         raise SystemExit(f"invalid record {path}: source_url must be a URL")
     iso(r['published_at'], 'published_at', path, allow_date=True)
@@ -114,6 +114,8 @@ def main():
     for it in items:
         if it['id'] in seen:
             continue
+        if it['section'] not in data:
+            data[it['section']] = []
         data[it['section']].insert(0, it)
         data[it['section']] = data[it['section']][:CAP]
         seen.add(it['id'])
