@@ -520,6 +520,7 @@ function matchShareButton(slug, eid, title) {
     if (hasScore) { p.set('s1', m.hs); p.set('s2', m.as); }
     if (m && m.league) p.set('lg', m.league);
     p.set('st', st);
+    if (m && m.dateAr) p.set('dt', m.dateAr);
     if (m && m.homeLogo) p.set('l1', m.homeLogo);
     if (m && m.awayLogo) p.set('l2', m.awayLogo);
     return '<a class="btn" style="display:flex;justify-content:center;align-items:center;margin-bottom:14px;" target="_blank" rel="noopener" href="share.html?' + p.toString() + '">🖼️ شارك كارت المباراة</a>';
@@ -629,5 +630,6 @@ const NATIONALS = [
   ['اليابان','Japan','🇯🇵'],['كوريا الجنوبية','South Korea','🇰🇷'],['أستراليا','Australia','🇦🇺'],['إيران','Iran','🇮🇷'],['الصين','China','🇨🇳'],['أوزبكستان','Uzbekistan','🇺🇿'],['فيتنام','Vietnam','🇻🇳'],['تايلاند','Thailand','🇹🇭'],['إندونيسيا','Indonesia','🇮🇩'],['ماليزيا','Malaysia','🇲🇾'],['الهند','India','🇮🇳'],['باكستان','Pakistan','🇵🇰'],['أفغانستان','Afghanistan','🇦🇫'],['تركمانستان','Turkmenistan','🇹🇲'],['طاجيكستان','Tajikistan','🇹🇯'],['قيرغيزستان','Kyrgyzstan','🇰🇬'],['كوريا الشمالية','North Korea','🇰🇵'],['هونج كونج','Hong Kong','🇭🇰'],['الفلبين','Philippines','🇵🇭'],['سنغافورة','Singapore','🇸🇬'],['ميانمار','Myanmar','🇲🇲'],['نيبال','Nepal','🇳🇵'],['بنجلاديش','Bangladesh','🇧🇩'],['سريلانكا','Sri Lanka','🇱🇰'],
   ['نيوزيلندا','New Zealand','🇳🇿'],['فيجي','Fiji','🇫🇯'],['بابوا غينيا الجديدة','Papua New Guinea','🇵🇬'],['جزر سليمان','Solomon Islands','🇸🇧'],['فانواتو','Vanuatu','🇻🇺']
 ];
+
 
 
