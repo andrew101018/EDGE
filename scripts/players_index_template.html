@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دليل اللاعبين: هدافون وصناع لعب وصفحات مختارة | Edge Football</title>
+<meta name="description" content="قوائم الهدافين وصناع اللعب في الدوريات الكبرى، وصفحات مختارة للاعبين من الفرق الكبيرة فيها أرقامهم ونتائج فرقهم.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{site}/players/">
+<meta property="og:site_name" content="Edge Football">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:type" content="website">
+<meta property="og:title" content="دليل اللاعبين على Edge Football">
+<meta property="og:description" content="قوائم الهدافين وصناع اللعب وصفحات لاعبين مختارة.">
+<meta property="og:url" content="{site}/players/">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg">
+<meta name="theme-color" content="#f59e0b">
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/andrew101018/EDGE@main/photo_2024-09-05_19-57-28.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+<style>
+body{{margin:0;background:#0b1220;color:#e2e8f0;font-family:'Cairo','Segoe UI',Tahoma,sans-serif;line-height:1.8}}
+main{{max-width:760px;margin:0 auto;padding:20px 16px 48px}}
+a{{color:#fbbf24;text-decoration:none}}
+nav{{padding:14px 16px;background:#16213a;border-bottom:1px solid #24344f;text-align:center}}
+nav a{{font-weight:bold}}
+h1{{font-size:1.4em;color:#fbbf24}}
+h2{{font-size:1.05em;color:#fbbf24;margin:18px 0 8px}}
+input{{width:100%;box-sizing:border-box;background:#0b1220;border:1px solid #24344f;border-radius:10px;color:#e2e8f0;padding:10px 14px;font-family:inherit;font-size:1em;margin:10px 0}}
+.grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}}
+.grid a{{display:block;background:#16213a;border:1px solid #24344f;border-radius:12px;padding:12px 10px;text-align:center;font-weight:700}}
+.grid a small{{display:block;font-weight:400;opacity:.65;font-size:.78em;margin-top:3px}}
+.grid a:hover{{border-color:#fbbf24}}
+.lg{{background:#16213a;border:1px solid #24344f;border-radius:12px;padding:12px 14px;margin-bottom:10px}}
+.lg h3{{margin:0 0 6px;font-size:.95em;color:#fbbf24}}
+.lg .ps{{font-size:.88em;opacity:.9;line-height:2}}
+.lg .ps a{{font-weight:700}}
+.lg .sep{{opacity:.4;margin:0 4px}}
+.empty{{opacity:.6;font-size:.88em;padding:6px 0}}
+.note{{opacity:.65;font-size:.8em;margin-top:16px}}
+</style>
+</head>
+<body>
+<nav><a href="{site}/">Edge Football ⚽ الصفحة الرئيسية</a></nav>
+<main>
+<h1>دليل اللاعبين</h1>
+<p style="opacity:.75;font-size:.9em;">صفحات مختارة للاعبين من الفرق الكبيرة، وتحتها قوائم الهدافين وصناع اللعب الحالية على الموقع.</p>
+<input id="q" type="search" placeholder="ابحث باسم اللاعب أو الفريق..." oninput="render()">
+<h2>صفحات لاعبين مختارة</h2>
+<div class="grid" id="featured"></div>
+<h2>قوائم الهدافين وصناع اللعب</h2>
+<div id="list"><p class="empty">بنحمّل البيانات...</p></div>
+<p class="note">الأرقام من قوائم الموقع الحالية. الصفحات المختارة اتراجعت أرقامها مقابل بيانات FBref بتاريخ 25-11-2026.</p>
+</main>
+<script>
+const KNOWN = {known_json};
+const norm = s => (s || '').trim().replace(/[أإآ]/g, 'ا').toLowerCase();
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+let ALL = [];
+(async () => {{
+  try {{
+    const r = await fetch('../site/data.json?t=' + Date.now(), {{ cache: 'no-store' }});
+    const d = await r.json();
+    const seen = {{}};
+    for (const [league, cats] of Object.entries(d.leaders || {{}}))
+      for (const [label, items] of Object.entries(cats || {{}}))
+        (items || []).forEach(p => {{
+          const k = norm(p.name);
+          if (!k || seen[k]) return;
+          seen[k] = 1;
+          ALL.push({{ name: p.name, team: p.team || '', value: p.value || '', league, label }});
+        }});
+  }} catch (e) {{}}
+  render();
+}})();
+function render() {{
+  const q = norm(document.getElementById('q').value);
+  const items = ALL.filter(p => !q || norm(p.name).includes(q) || norm(p.team).includes(q));
+  const feat = items.filter(p => KNOWN[norm(p.name)]);
+  document.getElementById('featured').innerHTML = feat.length
+    ? feat.map(p => `<a href="${{KNOWN[norm(p.name)]}}.html">${{esc(p.name)}}<small>${{esc(p.team)}} · ${{esc(p.value)}}</small></a>`).join('')
+    : '<p class="empty">مفيش صفحة جاهزة بالاسم ده لسه.</p>';
+  const el = document.getElementById('list');
+  if (!items.length) {{ el.innerHTML = '<p class="empty">مفيش لاعب بالاسم ده في القوائم الحالية 🔍</p>'; return; }}
+  const groups = {{}};
+  items.forEach(p => {{ (groups[p.league] = groups[p.league] || []).push(p); }});
+  el.innerHTML = Object.entries(groups).map(([league, ps]) =>
+    `<div class="lg"><h3>${{esc(league)}}</h3><div class="ps">` + ps.map(p => {{
+      const slug = KNOWN[norm(p.name)];
+      const txt = `${{esc(p.name)}} (${{esc(p.value)}})`;
+      return slug ? `<a href="${{slug}}.html">${{txt}}</a>` : `<span>${{txt}}</span>`;
+    }}).join('<span class="sep">·</span>') + '</div></div>').join('');
+}}
+</script>
+</body>
+</html>
