@@ -1,0 +1,87 @@
+name: Publish photo or story to the Facebook Page
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: draft release NAME holding photo.png (or photo.jpg)
+        required: true
+      mode:
+        description: post or story (one per run)
+        required: true
+      caption:
+        description: caption for a post (use \n for new lines); ignored for story
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+      REL: ${{ inputs.release_tag }}
+      MODE: ${{ inputs.mode }}
+      CAPTION: ${{ inputs.caption }}
+    steps:
+      - name: Download asset
+        run: |
+          set -e
+          echo "::add-mask::$FB_PAGE_TOKEN"
+          ASSET_API=$(gh api "repos/$GITHUB_REPOSITORY/releases" | jq -r --arg n "$REL" '.[] | select(.name==$n) | .assets[] | select(.name|test("^photo\\.(png|jpg)$")) | .url' | head -1)
+          test -n "$ASSET_API"
+          curl -sSL -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/octet-stream" -o photo.bin "$ASSET_API"
+          stat -c 'size=%s' photo.bin; sha256sum photo.bin
+      - name: Publish
+        run: |
+          python3 - <<'PY'
+          import os, json, uuid, urllib.request, urllib.parse, urllib.error
+          tok = os.environ["FB_PAGE_TOKEN"]; mode = os.environ["MODE"]
+          cap = os.environ["CAPTION"].replace("\\n", "\n")
+          assert mode in ("post", "story")
+          G = "https://graph.facebook.com/v21.0"
+          def safe(t):
+           try:
+            d = json.loads(t)
+           except Exception:
+            return {"raw": "non-json"}
+           out = {k: d[k] for k in ("id", "post_id", "success") if isinstance(d, dict) and isinstance(d.get(k), (str, int, bool))}
+           e = d.get("error") if isinstance(d, dict) else None
+           if isinstance(e, dict):
+            out["error"] = {"code": e.get("code"), "subcode": e.get("error_subcode"), "type": e.get("type")}
+           return out
+          def call(url, params=None, body=None, headers=None, method="POST"):
+           req = urllib.request.Request(url, data=body if params is None else urllib.parse.urlencode(params).encode(), headers=headers or {}, method=method)
+           try:
+            t = urllib.request.urlopen(req, timeout=120).read().decode()
+           except urllib.error.HTTPError as e:
+            t = e.read().decode()
+           s = safe(t); print(url.split("?")[0][:70], "->", json.dumps(s)); return s, t
+          def get(path, params):
+           url = G + "/" + path + "?" + urllib.parse.urlencode(params)
+           try:
+            return json.loads(urllib.request.urlopen(url, timeout=60).read().decode())
+           except urllib.error.HTTPError as e:
+            print("GET error", e.code); return {}
+          pages = get("me/accounts", {"fields": "id,access_token", "access_token": tok}).get("data", [])
+          assert len(pages) >= 1, "no page"
+          pid = pages[0]["id"]; ptok = pages[0]["access_token"]
+          print("::add-mask::" + ptok)
+          data = open("photo.bin", "rb").read()
+          b = uuid.uuid4().hex
+          def part(name, val): return ("--%s\r\nContent-Disposition: form-data; name=\"%s\"\r\n\r\n%s\r\n" % (b, name, val)).encode()
+          fields = {"access_token": ptok, "published": "true" if mode == "post" else "false"}
+          if mode == "post": fields["caption"] = cap
+          body = b"".join(part(k, v) for k, v in fields.items())
+          body += ("--%s\r\nContent-Disposition: form-data; name=\"source\"; filename=\"photo\"\r\nContent-Type: application/octet-stream\r\n\r\n" % b).encode() + data + ("\r\n--%s--\r\n" % b).encode()
+          s, _ = call(G + "/" + pid + "/photos", body=body, headers={"Content-Type": "multipart/form-data; boundary=" + b})
+          assert s.get("id"), "photo upload failed"
+          if mode == "story":
+           s2, _ = call(G + "/" + pid + "/photo_stories", params={"photo_id": s["id"], "access_token": ptok})
+           assert s2.get("success") or s2.get("id"), "story failed"
+          print("DONE", mode, s.get("id"), s.get("post_id", ""))
+          PY
