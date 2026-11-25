@@ -123,7 +123,7 @@ function renderPredictArchive() {
   const dirUp = done.filter(p => p.status === 'exact' || p.status === 'direction').length;
   let html = '';
   if (done.length) {
-    html += '<div class="card" style="text-align:center;">من ' + done.length + ' توقع اتحسم: النتيجة بالظبط <b>' + Math.round(exact / done.length * 100) + '%</b> · الاتجاه الصح أو بالظبط <b>' + Math.round(dirUp / done.length * 100) + '%</b><br><small>النسب محسوبة من السجل المعروض تحت مباشرة.</small></div>';
+    html += '<div class="card" style="text-align:center;line-height:1.9;"><div>من ' + done.length + ' توقع اتحسم:</div><div>النتيجة بالظبط: <b>' + Math.round(exact / done.length * 100) + '%</b></div><div>الاتجاه الصح أو بالظبط: <b>' + Math.round(dirUp / done.length * 100) + '%</b></div><small style="color:#b6c2d2;">النسب محسوبة من السجل المعروض تحت مباشرة.</small></div>';
   }
   const fmtKo = iso => {
     if (Number.isNaN(Date.parse(iso))) return '';
@@ -136,9 +136,10 @@ function renderPredictArchive() {
     else if (p.status === 'direction') res = '<span style="color:#4ade80;">✓ الاتجاه صح</span>';
     else res = '<span style="color:#f87171;">✗ غلط</span>';
     const actual = Array.isArray(p.actual) ? ' · طلعت <bdi dir="ltr">' + p.actual[0] + '-' + p.actual[1] + '</bdi>' : '';
-    const note = p.note ? '<div style="margin-top:2px;font-size:.8em;color:#94a3b8;">' + esc(p.note) + '</div>' : '';
+    const note = p.note ? '<div style="margin-top:2px;font-size:.85em;color:#b6c2d2;">' + esc(p.note) + '</div>' : '';
     return '<div class="card"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;"><span>' + esc(p.home) + ' × ' + esc(p.away) + '</span>' + res + '</div>' +
-      '<div style="margin-top:4px;font-size:.85em;color:#cbd5e1;">توقعنا <bdi dir="ltr">' + esc(String(p.pick[0])) + '-' + esc(String(p.pick[1])) + '</bdi>' + actual + ' · ' + esc(fmtKo(p.kickoff)) + '</div>' + note + '</div>';
+      '<div style="margin-top:4px;font-size:.9em;color:#e2e8f0;line-height:1.8;">توقعنا <bdi dir="ltr">' + esc(String(p.pick[0])) + '-' + esc(String(p.pick[1])) + '</bdi>' + actual + '</div>' +
+      '<div style="font-size:.85em;color:#b6c2d2;line-height:1.8;">الماتش: ' + esc(fmtKo(p.kickoff)) + (p.ingested_at ? ' · سُجل: ' + esc(fmtKo(p.ingested_at)) : '') + '</div>' + note + '</div>';
   }).join('');
   el.innerHTML = html;
 }
