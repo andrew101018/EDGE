@@ -292,11 +292,11 @@ async function loadData() {
     if (raw && raw === _lastDataRaw) return;
     _lastDataRaw = raw;
     DATA = JSON.parse(raw);
-    document.getElementById('lastUpdate').innerHTML = 'آخر تحديث الأخبار: <bdi>' + fmtStamp(DATA.updated_at) + '</bdi>' + (DATA.matches_updated_at ? '<br>آخر تحديث المباريات: <bdi>' + fmtStamp(DATA.matches_updated_at) + '</bdi>' : '');
+    document.getElementById('lastUpdate').innerHTML = 'آخر تحديث الأخبار: <bdi>' + fmtStamp(DATA.updated_at) + '</bdi>' + (DATA.matches_updated_at ? '<br>آخر تغيير بيانات المباريات: <bdi>' + fmtStamp(DATA.matches_updated_at) + '</bdi>' : '') + (DATA.matches_checked_at ? '<br>آخر فحص للمصدر: <bdi>' + fmtStamp(DATA.matches_checked_at) + '</bdi>' : '');
     MATCHES = DATA.matches || [];
     /* حارس الحداثة: لو خلاصة المباريات أقدم من 30 دقيقة أو غير مقروءة، منعرضش "مباشر" من الخلاصة وحدها - الاستعلام المباشر كل دقيقة يرجّع الحالة الحقيقية */
     let _feedStale = true;
-    const _mu = DATA.matches_updated_at || '';
+    const _mu = DATA.matches_checked_at || DATA.matches_updated_at || '';
     const _pm = _mu.match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}) (AM|PM)$/);
     if (_pm) { const _hh = (+_pm[4]) % 12 + (_pm[6] === 'PM' ? 12 : 0); _feedStale = (Date.now() - Date.UTC(+_pm[1], +_pm[2] - 1, +_pm[3], _hh - 2, +_pm[5])) > 30 * 60 * 1000; }
     MATCHES.forEach(g => (g.items || []).forEach(m => { const t0 = Date.parse(m.date || ''); if (m.state === 'in' && (_feedStale || (!Number.isNaN(t0) && Date.now() - t0 > 3 * 3600 * 1000))) { m._stale = true; m.state = undefined; if (m.detail !== 'FT') m.detail = ''; } }));
@@ -321,7 +321,7 @@ async function loadData() {
     renderEditorialNews((DATA.news || []).slice(0, 4));
     renderEditorialOpinion((DATA.opinion || []).slice(0, 4));
     renderUpdateInfo();
-    var hmUp = document.getElementById('homeMatchesUpdate'); if (hmUp) hmUp.textContent = fmtStamp(DATA.matches_updated_at || DATA.updated_at || '');
+    var hmUp = document.getElementById('homeMatchesUpdate'); if (hmUp) hmUp.textContent = fmtStamp(DATA.matches_checked_at || DATA.matches_updated_at || DATA.updated_at || '');
     document.getElementById('tablesContainer').innerHTML = Object.entries(DATA.tables || {})
       .filter(([name, rows]) => rows && rows.length)
       .map(([name, rows]) => {
@@ -556,7 +556,7 @@ function renderUpdateInfo() {
   if (!el) return;
   const row = (icon, title, desc) => '<div class="card"><div style="font-weight:700;margin-bottom:2px;">' + icon + ' ' + title + '</div><div style="font-size:.85em;color:#b6c2d2;line-height:1.8;">' + desc + '</div></div>';
   let html = '';
-  html += row('⚽', 'المباريات والنتائج', 'التحديث مضبوط على كل ٥ دقائق من بيانات عامة، لكن التنفيذ الفعلي بيعتمد على جدولة المنصة وممكن يتأخر أو يتخطى أحيانًا. آخر تحديث ناجح: <b>' + esc(fmtStamp(DATA.matches_updated_at || '')) + '</b> — ولو عدّى ٣٠ دقيقة بيظهر تنبيه "تحديث المباريات متأخر" أعلى الصفحة.');
+  html += row('⚽', 'المباريات والنتائج', 'التحديث مضبوط على كل ٥ دقائق من بيانات عامة، لكن التنفيذ الفعلي بيعتمد على جدولة المنصة وممكن يتأخر ساعات أحيانًا. آخر فحص ناجح للمصدر: <b>' + esc(fmtStamp(DATA.matches_checked_at || '')) + '</b> · آخر تغيير فعلي في بيانات المباريات: <b>' + esc(fmtStamp(DATA.matches_updated_at || '')) + '</b> — ولو عدّى ٣٠ دقيقة عن آخر فحص بيظهر تنبيه "تحديث المباريات متأخر" أعلى الصفحة، وأي ماتش عدّى موعده من غير ما المصدر يحدّث حالته بيظهر "في انتظار تحديث المصدر".');
   html += row('📰', 'الأخبار الموثقة', 'مش تحديث دوري: الخبر بينزل بعد مراجعة مصادره وتسجيلها معاه. آخر تحديث للأخبار: <b>' + esc(fmtStamp(DATA.updated_at || '')) + '</b>.');
   html += row('🎬', 'فيديوهات القناة', 'مزامنة مجدوَلة كل ٦ ساعات مع قناة يوتيوب — الفيديو الجديد ممكن يوصل متأخر عن القناة، مش لحظي.');
   html += row('🌍', 'الصحافة العالمية', 'أرشيف مختارات سابقة من الصحافة العالمية' + (DATA.world_updated_at ? '، آخر تحديث: <b>' + esc(fmtStamp(DATA.world_updated_at)) + '</b>.' : '.'));
