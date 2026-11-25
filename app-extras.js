@@ -326,6 +326,7 @@ async function loadData() {
           return `<div class="table-box"><h3>🏆 ${name}</h3><div class="list">${rows.map(r => `<div class="result-item">📊 ${r}</div>`).join('')}</div></div>`;
         }
         return `<div class="table-box"><h3>🏆 ${name}</h3>
+          <a class="btn" style="display:flex;justify-content:center;align-items:center;margin-bottom:10px;" target="_blank" rel="noopener" href="share.html?type=table&lg=${encodeURIComponent(name)}">🖼️ شارك ترتيب الدوري</a>
           <table class="stand"><tr><th>#</th><th>الفريق</th><th>لعب</th><th>ف</th><th>ت</th><th>خ</th><th>نقاط</th></tr>
           ${rows.map(r => `<tr><td>${r.rank}</td><td class="team-link" data-team="${r.slug || ''}|${r.id || ''}|${r.team}">${teamLogo(r.logo)} ${r.team}</td><td>${r.gp}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td><td class="pts">${r.pts}</td></tr>`).join('')}
           </table></div>`;
@@ -445,3 +446,4 @@ function renderEditorialNews(items) {
     container.appendChild(card);
   });
 }
+
