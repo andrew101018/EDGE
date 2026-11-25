@@ -1,0 +1,51 @@
+name: og-images
+
+# Isolated, website-only job for idea #6: regenerate per-article og:image
+# cards when article pages change. No secrets, no other workflow touched.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'articles/*.html'
+      - 'scripts/build_og_images.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: og-images
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install Pillow (fails loudly without libraqm for Arabic shaping)
+        run: |
+          pip install pillow
+          python3 -c "from PIL import features; assert features.check('raqm'), 'libraqm missing'"
+      - name: Fetch Arabic font
+        run: |
+          mkdir -p scripts/assets
+          curl -sL -o scripts/assets/Cairo.ttf "https://github.com/google/fonts/raw/main/ofl/cairo/Cairo%5Bslnt%2Cwght%5D.ttf"
+          test -s scripts/assets/Cairo.ttf
+      - name: Build og images
+        run: python3 scripts/build_og_images.py
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 'articles/og-*.jpg'
+          if git diff --cached --quiet; then
+            echo "og images up to date"
+          else
+            git commit -m "og images: rebuild article cards"
+            git pull --rebase origin main
+            git push
+          fi
