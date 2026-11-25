@@ -1,269 +1,452 @@
 {
  "reviewed": "2026-11-25",
  "channel": "https://www.youtube.com/@andygamall",
- "note": "14 videos (full /videos tab) + 44 shorts (full /shorts tab, yt-dlp flat-playlist 25 Nov 2026); short pages carry no publish date (not grounded cheaply) — add when verified",
+ "note": "14 videos (full /videos tab) + 44 shorts (full /shorts tab, yt-dlp flat-playlist 25 Nov 2026); short pages carry no publish date (not grounded cheaply) — add when verified · topics: title-grounded tags for library topic filtering (item 32)",
  "videos": [
   {
    "id": "w1xbPtrLdhw",
    "title": "دوري الأبطال: مراجعة الجولة 4 وتوقعات الجولة 5",
    "published": "2026-11-24",
-   "duration": "PT3M3S"
+   "duration": "PT3M3S",
+   "topics": [
+    "ucl"
+   ]
   },
   {
    "id": "KUfZ8VQdUAA",
    "title": "بيراميدز يهزم الأهلي 2-0 | ملخص وأرقام قمة الجولة 9",
    "published": "2026-11-23",
-   "duration": "PT4M51S"
+   "duration": "PT4M51S",
+   "topics": [
+    "egy"
+   ]
   },
   {
    "id": "qMYzUkP2R1I",
    "title": "كيف ضاع مانشستر يونايتد بعد فيرجسون؟ | 13 سنة من التخبط",
    "published": "2026-11-06",
-   "duration": "PT20M35S"
+   "duration": "PT20M35S",
+   "topics": [
+    "united",
+    "legends"
+   ]
   },
   {
    "id": "rYw-7Ty8Sq8",
    "title": "ساهلة و مش مستاهلة",
    "published": "2026-10-25",
-   "duration": "PT0M25S"
+   "duration": "PT0M25S",
+   "topics": [
+    "misc"
+   ]
   },
   {
    "id": "eGiiSHivw5I",
    "title": "ليلة الحسم في أبطال أوروبا: قمة باريس وبرشلونة واختبار آرسنال الصعب!",
    "published": "2026-10-19",
-   "duration": "PT4M53S"
+   "duration": "PT4M53S",
+   "topics": [
+    "ucl"
+   ]
   },
   {
    "id": "MRlXNBYxG5Q",
    "title": "اسبانيا بطل العالم 🔥",
    "published": "2026-07-20",
-   "duration": "PT1M42S"
+   "duration": "PT1M42S",
+   "topics": [
+    "nt"
+   ]
   },
   {
    "id": "K3W9yHGzYSo",
    "title": "يا مصر بتعمليها ازاي ❤️❤️❤️",
    "published": "2026-06-22",
-   "duration": "PT9M9S"
+   "duration": "PT9M9S",
+   "topics": [
+    "nt"
+   ]
   },
   {
    "id": "nQYlg07Ofyo",
    "title": "الحقيقة الكاملة وراء أزمة برشلونة المالية — أرقام بتخوف",
    "published": "2026-04-27",
-   "duration": "PT0M50S"
+   "duration": "PT0M50S",
+   "topics": [
+    "barca"
+   ]
   },
   {
    "id": "nd0wYbx-7uE",
    "title": "من اين لنا بمثلك رسام مهما طال الزمان ♥️",
    "published": "2026-03-08",
-   "duration": "PT1M9S"
+   "duration": "PT1M9S",
+   "topics": [
+    "barca",
+    "legends"
+   ]
   },
   {
    "id": "vI1ltn-WCdc",
    "title": "الأسطورة البرازيلية رونالدينيو | The Brazilian Legend Ronaldinho",
    "published": "2026-02-25",
-   "duration": "PT9M39S"
+   "duration": "PT9M39S",
+   "topics": [
+    "legends"
+   ]
   },
   {
    "id": "Vet-R3ZvCLs",
    "title": "The real goat 🐐♥️ @LeoMessi @FCBarcelona",
    "published": "2026-02-23",
-   "duration": "PT0M30S"
+   "duration": "PT0M30S",
+   "topics": [
+    "barca",
+    "legends"
+   ]
   },
   {
    "id": "uC8joh2qkPk",
    "title": "ڤسكا برسا الي الابد ❤️💙 Visca Barca @FCBarcelona",
    "published": "2026-02-13",
-   "duration": "PT0M30S"
+   "duration": "PT0M30S",
+   "topics": [
+    "barca"
+   ]
   },
   {
    "id": "0DdclpSGDqk",
    "title": "تعالي وانا أعلمك تكسب ازاي ♥️ @realmadrid",
    "published": "2026-01-29",
-   "duration": "PT0M22S"
+   "duration": "PT0M22S",
+   "topics": [
+    "madrid"
+   ]
   },
   {
    "id": "ZHnab-nxRcs",
    "title": "الجنرال كوندي والقاضية ممكن ❤️💙",
    "published": "2026-01-18",
-   "duration": "PT0M24S"
+   "duration": "PT0M24S",
+   "topics": [
+    "barca"
+   ]
   }
  ],
  "shorts": [
   {
    "id": "NkMBz2DJyBI",
-   "title": "دوري أبطال أوروبا: إزاي نظام الـ36 نادي بيشتغل؟"
+   "title": "دوري أبطال أوروبا: إزاي نظام الـ36 نادي بيشتغل؟",
+   "topics": [
+    "ucl"
+   ]
   },
   {
    "id": "E8SyilUS6Qo",
-   "title": "فان خال: كسب الكأس وبعدها بيومين اتقال؟"
+   "title": "فان خال: كسب الكأس وبعدها بيومين اتقال؟",
+   "topics": [
+    "united",
+    "legends"
+   ]
   },
   {
    "id": "fPASNMojbKI",
-   "title": "دوري الأبطال: ماتشات بكرة الأربع وتوقعات EDGE"
+   "title": "دوري الأبطال: ماتشات بكرة الأربع وتوقعات EDGE",
+   "topics": [
+    "ucl"
+   ]
   },
   {
    "id": "EFYg3qTG53s",
-   "title": "دوري الأبطال: ماتشات النهارده وتوقعات EDGE"
+   "title": "دوري الأبطال: ماتشات النهارده وتوقعات EDGE",
+   "topics": [
+    "ucl"
+   ]
   },
   {
    "id": "eAAYX8HFwGE",
-   "title": "دوري الأبطال: نتائج الجولة 4 والترتيب"
+   "title": "دوري الأبطال: نتائج الجولة 4 والترتيب",
+   "topics": [
+    "ucl"
+   ]
   },
   {
    "id": "aiyHgpqDKHA",
-   "title": "الزمالك 2-1 الجونة | الجولة 9 من الدوري المصري #Shorts"
+   "title": "الزمالك 2-1 الجونة | الجولة 9 من الدوري المصري #Shorts",
+   "topics": [
+    "egy"
+   ]
   },
   {
    "id": "FLyYwDDPRJo",
-   "title": "أبرز نتائج الجولة 11 من الدوري الإنجليزي #Shorts"
+   "title": "أبرز نتائج الجولة 11 من الدوري الإنجليزي #Shorts",
+   "topics": [
+    "epl"
+   ]
   },
   {
    "id": "LJf_-W1f5aQ",
-   "title": "بيراميدز يهزم الأهلي 2-0 | ملخص سريع #Shorts"
+   "title": "بيراميدز يهزم الأهلي 2-0 | ملخص سريع #Shorts",
+   "topics": [
+    "egy"
+   ]
   },
   {
    "id": "G4giwNcJ7Cc",
-   "title": "الأهلي ضد بيراميدز | قمة الدوري المصري الليلة الساعة 8 مساءً"
+   "title": "الأهلي ضد بيراميدز | قمة الدوري المصري الليلة الساعة 8 مساءً",
+   "topics": [
+    "egy"
+   ]
   },
   {
    "id": "kUpo0LfB3ck",
-   "title": "بيدري"
+   "title": "بيدري",
+   "topics": [
+    "barca"
+   ]
   },
   {
    "id": "jf70_39fS2w",
-   "title": "يونايتد بعد فيرجسون: مدرب جديد ولا نظام جديد؟"
+   "title": "يونايتد بعد فيرجسون: مدرب جديد ولا نظام جديد؟",
+   "topics": [
+    "united",
+    "legends"
+   ]
   },
   {
    "id": "oxYQTZ_md3Y",
-   "title": "- سنواجهه أتليتكو أليس كذالك؟ - نعم= أشعر بأن هُنالك شيئاً ناقص، و كأن شخص عزيزًا ذهب ولم يعُود .."
+   "title": "- سنواجهه أتليتكو أليس كذالك؟ - نعم= أشعر بأن هُنالك شيئاً ناقص، و كأن شخص عزيزًا ذهب ولم يعُود ..",
+   "topics": [
+    "misc"
+   ]
   },
   {
    "id": "WCCgh2MLADk",
-   "title": "جماهير برشلونة"
+   "title": "جماهير برشلونة",
+   "topics": [
+    "barca"
+   ]
   },
   {
    "id": "uYT3Jb4bfAA",
-   "title": "متعليش صوتك ي حسين !"
+   "title": "متعليش صوتك ي حسين !",
+   "topics": [
+    "misc"
+   ]
   },
   {
    "id": "-WO-tlEEpSU",
-   "title": "مفيش الا حريف واحد ♥️✨"
+   "title": "مفيش الا حريف واحد ♥️✨",
+   "topics": [
+    "misc"
+   ]
   },
   {
    "id": "kfeTrhfHd0k",
-   "title": "هتراهن على الحريف القديم ولا الجديد ؟"
+   "title": "هتراهن على الحريف القديم ولا الجديد ؟",
+   "topics": [
+    "misc"
+   ]
   },
   {
    "id": "dTDhjgjUfwA",
-   "title": "\"بكرة هنعرف مين ملك العالم.. توقعك مين هيكسب؟"
+   "title": "\"بكرة هنعرف مين ملك العالم.. توقعك مين هيكسب؟",
+   "topics": [
+    "nt"
+   ]
   },
   {
    "id": "dIT6oqFDUsQ",
-   "title": "لو الف الدنيا ، لو الف العالم ❤️❤️"
+   "title": "لو الف الدنيا ، لو الف العالم ❤️❤️",
+   "topics": [
+    "misc"
+   ]
   },
   {
    "id": "IjjuXHDvi3g",
-   "title": "‏ثُمّ شَرع يَداهُ مَفتُوحَتان إشَارةً مِنهُ \" انا التّاريخُ كَحدِ ذَاته \"💙💎"
+   "title": "‏ثُمّ شَرع يَداهُ مَفتُوحَتان إشَارةً مِنهُ \" انا التّاريخُ كَحدِ ذَاته \"💙💎",
+   "topics": [
+    "misc"
+   ]
   },
   {
    "id": "L7b0GQX2ouA",
-   "title": "انا مين ! انا بابا ❤️"
+   "title": "انا مين ! انا بابا ❤️",
+   "topics": [
+    "misc"
+   ]
   },
   {
    "id": "sxg_Hx0A3GQ",
-   "title": "سنين ومرت 💙العمر عدي ولا لمحته ❤️"
+   "title": "سنين ومرت 💙العمر عدي ولا لمحته ❤️",
+   "topics": [
+    "misc"
+   ]
   },
   {
    "id": "ENTKMTv2YvY",
-   "title": "انا طفرة جيلك Icon ❤️"
+   "title": "انا طفرة جيلك Icon ❤️",
+   "topics": [
+    "misc"
+   ]
   },
   {
    "id": "gIn18VBujWo",
-   "title": "ده أنا كنت عيل من يومين ودخلت أنامصحيت لقيت العمر عدى، وماخدنيش معاه"
+   "title": "ده أنا كنت عيل من يومين ودخلت أنامصحيت لقيت العمر عدى، وماخدنيش معاه",
+   "topics": [
+    "misc"
+   ]
   },
   {
    "id": "rGNiA5amw2c",
-   "title": "الرابعة ف الطريق لا محالة 💙"
+   "title": "الرابعة ف الطريق لا محالة 💙",
+   "topics": [
+    "misc"
+   ]
   },
   {
    "id": "hob9Sd-orGU",
-   "title": "جبروت 💙"
+   "title": "جبروت 💙",
+   "topics": [
+    "misc"
+   ]
   },
   {
    "id": "m5v-BivveMA",
-   "title": "وداعا ليڤا"
+   "title": "وداعا ليڤا",
+   "topics": [
+    "barca"
+   ]
   },
   {
    "id": "6oUVPLfaEjQ",
-   "title": "برشلونة علي حافة الهاوية"
+   "title": "برشلونة علي حافة الهاوية",
+   "topics": [
+    "barca"
+   ]
   },
   {
    "id": "O31tJNKWY2Y",
-   "title": "ي لامين ي جمال ♥️"
+   "title": "ي لامين ي جمال ♥️",
+   "topics": [
+    "barca"
+   ]
   },
   {
    "id": "m-5eNsukI3E",
-   "title": "الاغنيه الرسمية لبطل العالم 2026 ❤️"
+   "title": "الاغنيه الرسمية لبطل العالم 2026 ❤️",
+   "topics": [
+    "nt"
+   ]
   },
   {
    "id": "h5-O8id3fms",
-   "title": "برشلونة جميل ♥️"
+   "title": "برشلونة جميل ♥️",
+   "topics": [
+    "barca"
+   ]
   },
   {
    "id": "PusZtIirMfk",
-   "title": "Master Barca"
+   "title": "Master Barca",
+   "topics": [
+    "barca"
+   ]
   },
   {
    "id": "bK7W1SJUB1E",
-   "title": "من اين لنا بمثلك رسام مهما طال الزمان ي اندريس"
+   "title": "من اين لنا بمثلك رسام مهما طال الزمان ي اندريس",
+   "topics": [
+    "barca",
+    "legends"
+   ]
   },
   {
    "id": "eMynzgMV6rg",
-   "title": "عودة المقاتل جافي"
+   "title": "عودة المقاتل جافي",
+   "topics": [
+    "barca"
+   ]
   },
   {
    "id": "EF-LM7HHI50",
-   "title": "the real goat 🐐♥️ @FCBarcelona @LeoMessi"
+   "title": "the real goat 🐐♥️ @FCBarcelona @LeoMessi",
+   "topics": [
+    "barca",
+    "legends"
+   ]
   },
   {
    "id": "qpQwZZguyeU",
-   "title": "انت تلعب بعقلك وقلوبنا ي بيدري 💎 @FCBarcelona"
+   "title": "انت تلعب بعقلك وقلوبنا ي بيدري 💎 @FCBarcelona",
+   "topics": [
+    "barca"
+   ]
   },
   {
    "id": "3A-0lDsT2Ps",
-   "title": "ميسي أنكرا ميسي ankra messi ♥️💎 @FCBarcelona @LeoMessi"
+   "title": "ميسي أنكرا ميسي ankra messi ♥️💎 @FCBarcelona @LeoMessi",
+   "topics": [
+    "barca",
+    "legends"
+   ]
   },
   {
    "id": "xa-t2AxuaRo",
-   "title": "الروبوت ليڤا 🦾 @RobertLewandowskiOfficial"
+   "title": "الروبوت ليڤا 🦾 @RobertLewandowskiOfficial",
+   "topics": [
+    "barca"
+   ]
   },
   {
    "id": "51omYe-TMWg",
-   "title": "Barca… Barca - قلبي كان ينبض"
+   "title": "Barca… Barca - قلبي كان ينبض",
+   "topics": [
+    "barca"
+   ]
   },
   {
    "id": "PDKSsoEk-zU",
-   "title": "@realmadrid   تعالي وانا أعلمك تكسب ازاي ♥️... ."
+   "title": "@realmadrid   تعالي وانا أعلمك تكسب ازاي ♥️... .",
+   "topics": [
+    "madrid"
+   ]
   },
   {
    "id": "JRn6BmXlmxc",
-   "title": "اشياء لا نراها الا في برشلونة 💙❤️"
+   "title": "اشياء لا نراها الا في برشلونة 💙❤️",
+   "topics": [
+    "barca"
+   ]
   },
   {
    "id": "tXJxQsPcLA4",
-   "title": "بطولة تاريخية للاعب تاريخي 💚"
+   "title": "بطولة تاريخية للاعب تاريخي 💚",
+   "topics": [
+    "misc"
+   ]
   },
   {
    "id": "gWbr8xko7RI",
-   "title": "بابا الشغلانة"
+   "title": "بابا الشغلانة",
+   "topics": [
+    "misc"
+   ]
   },
   {
    "id": "ELMSXmUD7mI",
-   "title": "بعد كل كلاسيكو عامتا 💙♥️"
+   "title": "بعد كل كلاسيكو عامتا 💙♥️",
+   "topics": [
+    "barca",
+    "madrid"
+   ]
   },
   {
    "id": "dJsLav8epJo",
-   "title": "TIC … TAC"
+   "title": "TIC … TAC",
+   "topics": [
+    "misc"
+   ]
   }
  ]
 }
