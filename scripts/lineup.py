@@ -9,7 +9,7 @@ def team(t,side):
     for r in rows:
         h+='<div class="r">'+"".join(f'<div class="p"><i></i><span>{html.escape(n)}</span></div>' for n in r)+'</div>'
     return f'<div class="half {side}"><div class="tn">{html.escape(t["name"])}<small dir="ltr">{html.escape(t["formation"])}</small></div>{h}</div>'
-css="""*{box-sizing:border-box;margin:0}body{width:1080px;height:1350px;font-family:'Noto Sans Arabic','Noto Naskh Arabic','Noto Sans',sans-serif;color:#fff;background:#0b1730;position:relative;overflow:hidden}
+css="""*{box-sizing:border-box;margin:0}body{width:1080px;height:1350px;font-family:'Noto Sans Arabic','Noto Naskh Arabic','Noto Sans',sans-serif;color:#fff;background:#0b1220;position:relative;overflow:hidden}
 .top{height:200px;text-align:center;padding-top:18px}.comp{font-size:34px;color:#fbbf24;font-weight:700}.vs{font-size:44px;font-weight:900;margin-top:2px;line-height:1.3}.ko{font-size:28px;color:#b6c6e6;margin-top:2px}
 .pitch{position:absolute;left:30px;right:30px;top:210px;bottom:84px;background:linear-gradient(#14532d,#166534);border:4px solid #e5e7eb;border-radius:18px;display:flex;flex-direction:column}
 .mid{position:absolute;left:0;right:0;top:50%;border-top:4px solid #e5e7eb}.half{flex:1;display:flex;flex-direction:column;justify-content:space-around;padding:10px 0;position:relative}
