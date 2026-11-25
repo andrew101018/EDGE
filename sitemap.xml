@@ -6,23 +6,23 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://andrew101018.github.io/EDGE/articles/van-gaal-fa-cup.html</loc>
-    <lastmod>2026-11-24</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://andrew101018.github.io/EDGE/articles/choose-a-football.html</loc>
-    <lastmod>2026-11-24</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://andrew101018.github.io/EDGE/articles/city-100-united-81.html</loc>
-    <lastmod>2026-11-24</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://andrew101018.github.io/EDGE/articles/ucl-league-phase-36.html</loc>
-    <lastmod>2026-11-24</lastmod>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/articles/van-gaal-fa-cup.html</loc>
+    <lastmod>2026-11-25</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
@@ -36,17 +36,47 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://andrew101018.github.io/EDGE/teams/zamalek.html</loc>
-    <lastmod>2026-11-25</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://andrew101018.github.io/EDGE/teams/pyramids.html</loc>
-    <lastmod>2026-11-25</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://andrew101018.github.io/EDGE/teams/arsenal.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/teams/atletico-madrid.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/teams/barcelona.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/teams/bayern.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/teams/chelsea.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/teams/dortmund.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/teams/inter.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/teams/juventus.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/teams/liverpool.html</loc>
     <lastmod>2026-11-25</lastmod>
     <priority>0.7</priority>
   </url>
@@ -57,56 +87,6 @@
   </url>
   <url>
     <loc>https://andrew101018.github.io/EDGE/teams/man-united.html</loc>
-    <lastmod>2026-11-25</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://andrew101018.github.io/EDGE/teams/liverpool.html</loc>
-    <lastmod>2026-11-25</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://andrew101018.github.io/EDGE/teams/chelsea.html</loc>
-    <lastmod>2026-11-25</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://andrew101018.github.io/EDGE/teams/tottenham.html</loc>
-    <lastmod>2026-11-25</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://andrew101018.github.io/EDGE/teams/real-madrid.html</loc>
-    <lastmod>2026-11-25</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://andrew101018.github.io/EDGE/teams/barcelona.html</loc>
-    <lastmod>2026-11-25</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://andrew101018.github.io/EDGE/teams/atletico-madrid.html</loc>
-    <lastmod>2026-11-25</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://andrew101018.github.io/EDGE/teams/bayern.html</loc>
-    <lastmod>2026-11-25</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://andrew101018.github.io/EDGE/teams/dortmund.html</loc>
-    <lastmod>2026-11-25</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://andrew101018.github.io/EDGE/teams/juventus.html</loc>
-    <lastmod>2026-11-25</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://andrew101018.github.io/EDGE/teams/inter.html</loc>
     <lastmod>2026-11-25</lastmod>
     <priority>0.7</priority>
   </url>
@@ -122,6 +102,26 @@
   </url>
   <url>
     <loc>https://andrew101018.github.io/EDGE/teams/psg.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/teams/pyramids.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/teams/real-madrid.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/teams/tottenham.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://andrew101018.github.io/EDGE/teams/zamalek.html</loc>
     <lastmod>2026-11-25</lastmod>
     <priority>0.7</priority>
   </url>
