@@ -1,0 +1,52 @@
+name: FB capabilities and comments (read-only)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  caps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Read-only. Prints granted permission names and recent comment ids, times and lengths only (no text, no authors).
+        env:
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import os, json, urllib.request, urllib.parse, urllib.error
+          tok = os.environ["FB_PAGE_TOKEN"]
+          print("::add-mask::" + tok)
+          def get(path, params, t):
+              params = dict(params, access_token=t)
+              url = "https://graph.facebook.com/v21.0/" + path + "?" + urllib.parse.urlencode(params)
+              try:
+                  r = urllib.request.urlopen(url, timeout=60)
+                  return r.status, json.loads(r.read().decode())
+              except urllib.error.HTTPError as e:
+                  try:
+                      return e.code, json.loads(e.read().decode())
+                  except Exception:
+                      return e.code, {}
+          def err(d):
+              e = d.get("error") if isinstance(d, dict) else None
+              return {"code": e.get("code"), "subcode": e.get("error_subcode"), "type": e.get("type")} if isinstance(e, dict) else ""
+          c, d = get("me/permissions", {}, tok)
+          print("permissions http", c, json.dumps(err(d)))
+          for x in d.get("data", []) if c == 200 else []:
+              print("PERM", x.get("permission"), x.get("status"))
+          c, d = get("me/accounts", {"fields": "id,tasks,access_token"}, tok)
+          print("accounts http", c, json.dumps(err(d)))
+          for p in (d.get("data", []) if c == 200 else []):
+              ptok = p.get("access_token")
+              if not ptok:
+                  continue
+              print("::add-mask::" + ptok)
+              pid = p["id"]
+              print("PAGE", pid, "tasks", ",".join(p.get("tasks", [])))
+              for edge, label in (("published_posts", "POST"), ("video_reels", "REEL")):
+                  c2, d2 = get(pid + "/" + edge, {"fields": "id,created_time,comments.limit(10){id,created_time,message,parent}", "limit": "25"}, ptok)
+                  print(edge, c2, json.dumps(err(d2)))
+                  for x in d2.get("data", []):
+                      for cm in (x.get("comments") or {}).get("data", []):
+                          print("COMMENT", label, x.get("id"), cm.get("id"), cm.get("created_time"), "reply" if cm.get("parent") else "top", "len", len(cm.get("message") or ""))
+          PY
