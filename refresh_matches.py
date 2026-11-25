@@ -37,6 +37,11 @@ def fetch(slug):
 NAME_FIX = {"الشرقية إنبي": "إنبي", "السويس بتروجيت": "بتروجيت", "الجيش": "طلائع الجيش"}
 KOOORA_EGY = "https://www.kooora.com/%D9%83%D8%B1%D8%A9-%D8%A7%D9%84%D9%82%D8%AF%D9%85/%D9%85%D8%B3%D8%A7%D8%A8%D9%82%D8%A9/%D8%A7%D9%84%D8%AF%D9%88%D8%B1%D9%8A-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A-%D8%A7%D9%84%D9%85%D9%85%D8%AA%D8%A7%D8%B2/8k1xcsyvxapl4jlsluh3eomre"
 
+# 2026-11-25: paused. Kooora's terms of use (https://www.kooora.com/%D8%B3%D9%8A%D8%A7%D8%B3%D8%A9-%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AE%D8%AF%D8%A7%D9%85 clause 11) prohibit
+# automated scraping. While paused, egy.1 keeps its last verified snapshot and its per-source stamp
+# stays frozen at the last successful check (2026-11-25 11:47 PM). Set to False to resume.
+EGY_SOURCE_PAUSED = True
+
 def fetch_kooora(slug):
     """Egyptian league from kooora's public page (same source the old bot used)."""
     try:
@@ -103,6 +108,9 @@ all_ok = True
 for g in data.get("matches", []):
     slug = g.get("slug", "")
     if slug == "egy.1":
+        if EGY_SOURCE_PAUSED:
+            print("egy.1 source paused (source terms); keeping last verified items")
+            continue
         k = fetch_kooora(slug)
         if k is not None:
             checked["egy.1"] = now_str
