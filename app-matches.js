@@ -33,6 +33,11 @@ function matchState(m) {
   if (m.detail === 'FT') return 'post';        // انتهاء موثق من العدّاء
   return 'pre';                                // مجدولة/غير مؤكدة — لا نفترض البدء أو الانتهاء
 }
+/* نتيجة ماتش كان مباشر وانقطع تحديث مصدره: تُعرض كآخر نتيجة معروفة بتوقيت آخر فحص، مش كلحظة حالية */
+function lastKnownCheck(m) {
+  const mp = (typeof DATA !== 'undefined' && DATA.matches_checked_by_source) || {};
+  return mp[m.slug] || (typeof DATA !== 'undefined' && (DATA.matches_checked_at || DATA.matches_updated_at)) || '';
+}
 function statusNote(m) {
   if (m.state === 'in') return 'مباشر';
   if (m.detail === 'FT' || m.state === 'post') return 'انتهت';
@@ -147,6 +152,9 @@ function renderHomeMatches() {
       center = `<div class="edge-mscore edge-live">${m.hs != null ? m.hs + ' - ' + m.as : ''}</div><div class="edge-mstatus">🔴 مباشر ${m.detail || ''}</div>`;
     } else if (m.detail === 'FT' && m.hs != null) {
       center = `<div class="edge-mscore">${m.hs} - ${m.as}</div><div class="edge-mstatus">انتهت ${m.dateAr || ''}</div>`;
+    } else if (m._stale && m.hs != null && m.as != null) {
+      const ck = lastKnownCheck(m);
+      center = `<div class="edge-mscore edge-pre"><bdi dir="ltr">${m.hs} - ${m.as}</bdi></div><div class="edge-mstatus">⏳ في انتظار تحديث المصدر · آخر نتيجة معروفة${ck ? ' حتى ' + fmtStamp(ck) : ''}</div>`;
     } else {
       const tstr = fmtCairoTime(m);
       const note = statusNote(m);
@@ -229,9 +237,14 @@ function matchDateBadge(m) {
 
 function matchRow(m) {
   const timeStr = fmtCairoTime(m);
+  const staleKnown = m._stale && m.hs != null && m.as != null;
   const center = (m.detail === 'FT' && m.hs != null)
     ? `<span class="live-score">${m.hs} - ${m.as}</span>`
-    : `<span class="live-score" style="color:#94a3b8;font-size:1.05em;">${timeStr}</span>`;
+    : (staleKnown
+      ? `<span class="live-score" style="color:#94a3b8;"><bdi dir="ltr">${m.hs} - ${m.as}</bdi></span>`
+      : `<span class="live-score" style="color:#94a3b8;font-size:1.05em;">${timeStr}</span>`);
+  const ck = staleKnown ? lastKnownCheck(m) : '';
+  const meta = staleKnown ? `⏳ في انتظار تحديث المصدر · آخر نتيجة معروفة${ck ? ' حتى ' + fmtStamp(ck) : ''}` : `${statusNote(m)}${m.dateAr ? ' — ' + m.dateAr : ''}`;
   const shareTxt = (m.detail === 'FT' && m.hs != null) ? `النتيجة: ${m.home} ${m.hs} - ${m.as} ${m.away}` : `${m.home} × ${m.away} — ${statusNote(m)}`;
-  return `<div class="live-card"><div class="live-teams"><span class="team-link" data-team="${m.slug}|${m.homeId}|${m.home}">${teamLogo(m.homeLogo)} ${m.home}</span>${center}<span class="team-link" data-team="${m.slug}|${m.awayId}|${m.away}">${m.away} ${teamLogo(m.awayLogo)}</span></div><div class="live-meta">${statusNote(m)}${m.dateAr ? ' — ' + m.dateAr : ''} ${edgeShareBtn(shareTxt, shareTxt, 'https://andrew101018.github.io/EDGE/')}</div></div>`;
+  return `<div class="live-card"><div class="live-teams"><span class="team-link" data-team="${m.slug}|${m.homeId}|${m.home}">${teamLogo(m.homeLogo)} ${m.home}</span>${center}<span class="team-link" data-team="${m.slug}|${m.awayId}|${m.away}">${m.away} ${teamLogo(m.awayLogo)}</span></div><div class="live-meta">${meta} ${edgeShareBtn(shareTxt, shareTxt, 'https://andrew101018.github.io/EDGE/')}</div></div>`;
 }
