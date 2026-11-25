@@ -513,7 +513,8 @@ function matchShareButton(slug, eid, title) {
     if (m) { t1 = m.home || t1; t2 = m.away || t2; }
     if (!t1 || !t2) return '';
     const hasScore = m && (m.state === 'post' || m.state === 'in');
-    const st = m ? (m.state === 'in' ? 'جارية الآن' : (m.state === 'post' ? 'انتهت' : m.time)) : 'مباراة';
+    const t24 = m && m.date ? (String(m.date).match(/T(\d{2}:\d{2})/) || [])[1] : null;
+    const st = m ? (m.state === 'in' ? 'جارية الآن' : (m.state === 'post' ? 'انتهت' : (t24 || m.time))) : 'مباراة';
     const p = new URLSearchParams();
     p.set('t1', t1);
     p.set('t2', t2);
