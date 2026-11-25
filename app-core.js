@@ -151,3 +151,12 @@ function edgeToast(msg) {
 function edgeShareBtn(title, text, url) {
   return `<button type="button" class="edge-share" onclick="event.stopPropagation();edgeShare(this.dataset.t,this.dataset.x,this.dataset.u)" data-t="${esc(title||'')}" data-x="${esc(text||'')}" data-u="${esc(url||location.href)}" style="background:none;border:1px solid #334155;border-radius:8px;color:#fbbf24;font-size:.78em;padding:2px 8px;cursor:pointer;font-family:inherit;">📤 شارك</button>`;
 }
+
+/* ===== تنسيق طابع زمني "YYYY-MM-DD HH:MM AM/PM" (بتوقيت القاهرة) بصيغة عربية واضحة ===== */
+function fmtStamp(s) {
+  const p = (s || '').match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}) (AM|PM)$/);
+  if (!p) return esc(s || '');
+  const hh = (+p[4]) % 12 + (p[6] === 'PM' ? 12 : 0);
+  const d = new Date(Date.UTC(+p[1], +p[2] - 1, +p[3], hh - 2, +p[5]));
+  return new Intl.DateTimeFormat('ar-EG', { timeZone: 'Africa/Cairo', day: 'numeric', month: 'long', hour: 'numeric', minute: '2-digit' }).format(d);
+}
