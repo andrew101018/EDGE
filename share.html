@@ -55,6 +55,8 @@ var data = {
   l2: q.get("l2")
 };
 var hasScore = data.s1 !== null && data.s1 !== "" && data.s2 !== null && data.s2 !== "";
+var CARD_TYPE = (q.get("type") === "table" || q.get("type") === "scorer") ? q.get("type") : "match";
+var altData = null; // {kind:"table"|"scorer"|"err", lg, rows/items, cat, updated}
 
 document.getElementById("hint").textContent = data.t1 + " × " + data.t2 + " — " + data.lg;
 
@@ -196,6 +198,62 @@ function statusPill(text, y, size) {
   ctx.fillText(text, W / 2, y + 2);
 }
 
+/* ---------- عناصر مشتركة للكروت ---------- */
+function drawBackground() {
+  var g = ctx.createLinearGradient(0, 0, W, H);
+  g.addColorStop(0, "#7f1d1d");
+  g.addColorStop(1, "#0b1220");
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.globalAlpha = 0.06;
+  ctx.fillStyle = "#fbbf24";
+  ctx.beginPath();
+  ctx.arc(W * 0.14, H * 0.22, W * 0.4, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(W * 0.9, H * 0.7, W * 0.45, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.globalAlpha = 1;
+
+  var g2 = ctx.createLinearGradient(0, H * 0.62, 0, H);
+  g2.addColorStop(0, "rgba(4,8,16,0)");
+  g2.addColorStop(1, "rgba(4,8,16,0.55)");
+  ctx.fillStyle = g2;
+  ctx.fillRect(0, H * 0.62, W, H * 0.38);
+}
+
+function drawBrandBlock(L) {
+  drawBrand(W / 2, L.brandY, L.brandSize);
+  ctx.fillStyle = "#fbbf24";
+  ctx.font = fontStr("bold", L.brandTextSize);
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText("EDGE FOOTBALL", W / 2, L.brandTextY);
+  ctx.fillStyle = "#e2e8f0";
+  ctx.font = fontStr("bold", L.tagSize);
+  ctx.fillText("الكورة بتبدأ من هنا ⚡", W / 2, L.tagY);
+}
+
+function drawFooter(L) {
+  ctx.strokeStyle = "rgba(251,191,36,0.45)";
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(W * 0.22, L.lineY);
+  ctx.lineTo(W * 0.78, L.lineY);
+  ctx.stroke();
+  ctx.textAlign = "center";
+  ctx.fillStyle = "#fbbf24";
+  ctx.font = fontStr("bold", L.footSize);
+  ctx.fillText("EDGE FOOTBALL", W / 2, L.footY);
+  ctx.fillStyle = "#94a3b8";
+  ctx.font = fontStr("bold", L.urlSize);
+  ctx.fillText("andrew101018.github.io/EDGE", W / 2, L.urlY);
+  ctx.fillStyle = "#fbbf24";
+  ctx.font = fontStr("bold", L.tgSize);
+  ctx.fillText("تيليجرام: @edgefootballplatform", W / 2, L.tgY);
+}
+
 /* ---------- مقاسات الرسم (ستوري / مربع) ---------- */
 function layout() {
   if (H === 1920) {
@@ -229,38 +287,8 @@ function draw() {
   var L = layout();
   ctx.clearRect(0, 0, W, H);
   try { ctx.direction = "rtl"; } catch (e) {}
-
-  var g = ctx.createLinearGradient(0, 0, W, H);
-  g.addColorStop(0, "#7f1d1d");
-  g.addColorStop(1, "#0b1220");
-  ctx.fillStyle = g;
-  ctx.fillRect(0, 0, W, H);
-
-  ctx.globalAlpha = 0.06;
-  ctx.fillStyle = "#fbbf24";
-  ctx.beginPath();
-  ctx.arc(W * 0.14, H * 0.22, W * 0.4, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.beginPath();
-  ctx.arc(W * 0.9, H * 0.7, W * 0.45, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.globalAlpha = 1;
-
-  var g2 = ctx.createLinearGradient(0, H * 0.62, 0, H);
-  g2.addColorStop(0, "rgba(4,8,16,0)");
-  g2.addColorStop(1, "rgba(4,8,16,0.55)");
-  ctx.fillStyle = g2;
-  ctx.fillRect(0, H * 0.62, W, H * 0.38);
-
-  drawBrand(W / 2, L.brandY, L.brandSize);
-  ctx.fillStyle = "#fbbf24";
-  ctx.font = fontStr("bold", L.brandTextSize);
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.fillText("EDGE FOOTBALL", W / 2, L.brandTextY);
-  ctx.fillStyle = "#e2e8f0";
-  ctx.font = fontStr("bold", L.tagSize);
-  ctx.fillText("الكورة بتبدأ من هنا ⚡", W / 2, L.tagY);
+  drawBackground();
+  drawBrandBlock(L);
 
   goldPill(data.lg, L.pillY, L.pillSize);
 
@@ -301,22 +329,135 @@ function draw() {
   ctx.fill();
   ctx.globalAlpha = 1;
 
-  ctx.strokeStyle = "rgba(251,191,36,0.45)";
-  ctx.lineWidth = 3;
-  ctx.beginPath();
-  ctx.moveTo(W * 0.22, L.lineY);
-  ctx.lineTo(W * 0.78, L.lineY);
-  ctx.stroke();
+  drawFooter(L);
+}
+
+/* ---------- كروت الترتيب والهدافين ---------- */
+function altLayout() {
+  if (H === 1920) {
+    return { pillY: 480, pillSize: 36, updY: 548, updSize: 27,
+      hdrY: 665, hdrSize: 30, hdrH: 85, rowH: 98, rowSize: 36, subSize: 25, maxRows: 10 };
+  }
+  return { pillY: 335, pillSize: 27, updY: 386, updSize: 21,
+    hdrY: 450, hdrSize: 23, hdrH: 50, rowH: 62, rowSize: 27, subSize: 19, maxRows: 6 };
+}
+
+function fmtAr(s) {
+  var m = (s || "").match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}) ([AP]M)$/);
+  if (!m) return s || "";
+  var h = parseInt(m[4], 10) % 12 + (m[6] === "PM" ? 12 : 0);
+  var d = new Date(Date.UTC(parseInt(m[1], 10), parseInt(m[2], 10) - 1, parseInt(m[3], 10), h - 2, parseInt(m[5], 10)));
+  try {
+    return new Intl.DateTimeFormat("ar-EG", { timeZone: "Africa/Cairo", day: "numeric", month: "long", hour: "numeric", minute: "2-digit" }).format(d);
+  } catch (e) {
+    return s;
+  }
+}
+
+function drawAltHeader(pill, updated, A) {
+  goldPill(pill, A.pillY, A.pillSize);
+  if (updated) {
+    ctx.fillStyle = "#94a3b8";
+    ctx.font = fontStr("bold", A.updSize);
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("آخر تحديث: " + fmtAr(updated), W / 2, A.updY);
+  }
+}
+
+function drawTableBody(d, A) {
+  drawAltHeader("📊 ترتيب " + d.lg, d.updated, A);
+  var y = A.hdrY;
+  ctx.font = fontStr("bold", A.hdrSize);
+  ctx.fillStyle = "#fbbf24";
+  ctx.textBaseline = "middle";
+  ctx.textAlign = "right";
+  ctx.fillText("#", 1000, y);
+  ctx.fillText("الفريق", 905, y);
   ctx.textAlign = "center";
-  ctx.fillStyle = "#fbbf24";
-  ctx.font = fontStr("bold", L.footSize);
-  ctx.fillText("EDGE FOOTBALL", W / 2, L.footY);
-  ctx.fillStyle = "#94a3b8";
-  ctx.font = fontStr("bold", L.urlSize);
-  ctx.fillText("andrew101018.github.io/EDGE", W / 2, L.urlY);
-  ctx.fillStyle = "#fbbf24";
-  ctx.font = fontStr("bold", L.tgSize);
-  ctx.fillText("تيليجرام: @edgefootballplatform", W / 2, L.tgY);
+  ctx.fillText("لعب", 330, y);
+  ctx.fillText("نقاط", 150, y);
+  var rows = d.rows.slice(0, A.maxRows);
+  for (var i = 0; i < rows.length; i++) {
+    var r = rows[i];
+    var ry = y + A.hdrH + i * A.rowH + A.rowH / 2;
+    if (i % 2 === 0) {
+      ctx.fillStyle = "rgba(255,255,255,0.05)";
+      ctx.fillRect(60, ry - A.rowH / 2 + 4, W - 120, A.rowH - 8);
+    }
+    var isTop = (Number(r.rank) === 1);
+    ctx.textBaseline = "middle";
+    ctx.font = fontStr("bold", A.rowSize);
+    ctx.fillStyle = isTop ? "#fbbf24" : "#e2e8f0";
+    ctx.textAlign = "right";
+    ctx.fillText(String(r.rank), 1000, ry);
+    fitText(String(r.team), 520, A.rowSize, 18, "bold");
+    ctx.fillStyle = isTop ? "#fbbf24" : "#ffffff";
+    ctx.fillText(String(r.team), 905, ry);
+    ctx.font = fontStr("bold", A.rowSize);
+    ctx.fillStyle = "#94a3b8";
+    ctx.textAlign = "center";
+    ctx.fillText(String(r.gp), 330, ry);
+    ctx.fillStyle = "#fbbf24";
+    ctx.fillText(String(r.pts), 150, ry);
+  }
+}
+
+function drawScorerBody(d, A) {
+  drawAltHeader("👟 " + (d.cat || "الهدافون") + " — " + d.lg, d.updated, A);
+  var y = A.hdrY;
+  var items = d.items.slice(0, A.maxRows);
+  for (var i = 0; i < items.length; i++) {
+    var p = items[i];
+    var ry = y + A.hdrH + i * A.rowH + A.rowH / 2;
+    if (i % 2 === 0) {
+      ctx.fillStyle = "rgba(255,255,255,0.05)";
+      ctx.fillRect(60, ry - A.rowH / 2 + 4, W - 120, A.rowH - 8);
+    }
+    ctx.textBaseline = "middle";
+    ctx.font = fontStr("bold", A.rowSize);
+    ctx.fillStyle = i === 0 ? "#fbbf24" : "#e2e8f0";
+    ctx.textAlign = "right";
+    ctx.fillText(String(i + 1), 1000, ry);
+    fitText(String(p.name), 520, A.rowSize, 18, "bold");
+    ctx.fillStyle = i === 0 ? "#fbbf24" : "#ffffff";
+    ctx.fillText(String(p.name), 905, ry - A.rowSize * 0.35);
+    ctx.font = fontStr("normal", A.subSize);
+    ctx.fillStyle = "#94a3b8";
+    ctx.fillText(String(p.team || ""), 905, ry + A.subSize * 0.9);
+    ctx.font = fontStr("bold", A.rowSize);
+    ctx.fillStyle = "#fbbf24";
+    ctx.textAlign = "center";
+    ctx.fillText(String(p.value), 150, ry);
+  }
+}
+
+function drawErrBody(d) {
+  ctx.fillStyle = "#e2e8f0";
+  ctx.font = fontStr("bold", 44);
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(d.msg, W / 2, H / 2);
+}
+
+function drawAlt() {
+  var L = layout();
+  ctx.clearRect(0, 0, W, H);
+  try { ctx.direction = "rtl"; } catch (e) {}
+  drawBackground();
+  drawBrandBlock(L);
+  if (altData) {
+    var A = altLayout();
+    if (altData.kind === "table") drawTableBody(altData, A);
+    else if (altData.kind === "scorer") drawScorerBody(altData, A);
+    else drawErrBody(altData);
+  }
+  drawFooter(L);
+}
+
+function drawAll() {
+  if (CARD_TYPE === "match") { draw(); return; }
+  drawAlt();
 }
 
 /* ---------- المقاسات ---------- */
@@ -334,7 +475,7 @@ function setMode(m) {
     btnSquare.classList.add("active");
     btnStory.classList.remove("active");
   }
-  draw();
+  drawAll();
 }
 
 btnStory.addEventListener("click", function () { setMode("story"); });
@@ -342,11 +483,22 @@ btnSquare.addEventListener("click", function () { setMode("square"); });
 
 /* ---------- تحميل ومشاركة ---------- */
 function shareText() {
+  if (CARD_TYPE !== "match" && altData) {
+    if (altData.kind === "table") {
+      return "📊 ترتيب " + altData.lg + "\nالكورة بتبدأ من هنا ⚡ Edge Football";
+    }
+    if (altData.kind === "scorer") {
+      return "👟 " + (altData.cat || "الهدافون") + " — " + altData.lg + "\nالكورة بتبدأ من هنا ⚡ Edge Football";
+    }
+  }
   var score = hasScore ? (" | " + data.s1 + " - " + data.s2) : "";
   return "⚽ " + data.t1 + " × " + data.t2 + score + "\n🏆 " + data.lg + " — " + data.st + "\nالكورة بتبدأ من هنا ⚡ Edge Football";
 }
 
-document.getElementById("btnWa").href = "https://wa.me/?text=" + encodeURIComponent(shareText());
+function refreshWa() {
+  document.getElementById("btnWa").href = "https://wa.me/?text=" + encodeURIComponent(shareText());
+}
+refreshWa();
 
 function getBlob(cb) {
   try {
@@ -381,16 +533,59 @@ document.getElementById("btnShare").addEventListener("click", function () {
   });
 });
 
+/* ---------- كروت الترتيب/الهدافين: تحميل البيانات ---------- */
+function showErr(msg) {
+  document.getElementById("hint").textContent = msg;
+  altData = { kind: "err", msg: msg };
+  drawAll();
+}
+
+function loadAlt() {
+  var lg = q.get("lg") || "";
+  document.getElementById("hint").textContent = "جاري تحميل البيانات...";
+  fetch("site/data.json?t=" + Date.now(), { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (D) {
+    var updated = D.matches_updated_at || D.updated_at || "";
+    if (CARD_TYPE === "table") {
+      var rows = ((D.tables || {})[lg] || []).filter(function (r) { return r && typeof r !== "string"; });
+      rows.sort(function (a, b) { return (Number(a.rank) || 999) - (Number(b.rank) || 999); });
+      if (!rows.length) { showErr("مفيش بيانات ترتيب لـ «" + lg + "» دلوقتي 🙏"); return; }
+      altData = { kind: "table", lg: lg, rows: rows, updated: updated };
+      document.title = "Edge Football — كارت الترتيب";
+      document.querySelector("h1").textContent = "🔥 كارت الترتيب القابل للمشاركة";
+      document.getElementById("hint").textContent = lg + " — اختار المقاس، حمّل الصورة وابعتها ⚡";
+    } else {
+      var cats = (D.leaders || {})[lg] || {};
+      var cat = Object.keys(cats).filter(function (k) { return k.indexOf("الهداف") !== -1; })[0] || Object.keys(cats)[0];
+      var items = (cat && cats[cat]) ? cats[cat] : [];
+      if (!items.length) { showErr("مفيش بيانات هدافين لـ «" + lg + "» دلوقتي 🙏"); return; }
+      altData = { kind: "scorer", lg: lg, cat: cat, items: items, updated: updated };
+      document.title = "Edge Football — كارت الهدافين";
+      document.querySelector("h1").textContent = "🔥 كارت الهدافين القابل للمشاركة";
+      document.getElementById("hint").textContent = (cat || "الهدافون") + " — " + lg + " ⚡";
+    }
+    refreshWa();
+    drawAll();
+    loadImg(LOGO_URL).then(function (img) { brandImg = img; drawAll(); });
+  }).catch(function () {
+    showErr("مش قادرين نجيب البيانات دلوقتي 🙏");
+  });
+}
+
 /* ---------- تشغيل ---------- */
-draw();
-Promise.all([loadImg(LOGO_URL), loadImg(data.l1), loadImg(data.l2)]).then(function (r) {
-  brandImg = r[0];
-  l1Img = r[1];
-  l2Img = r[2];
+if (CARD_TYPE === "match") {
   draw();
-});
+  Promise.all([loadImg(LOGO_URL), loadImg(data.l1), loadImg(data.l2)]).then(function (r) {
+    brandImg = r[0];
+    l1Img = r[1];
+    l2Img = r[2];
+    draw();
+  });
+} else {
+  loadAlt();
+}
 
 })();
 </script>
 </body>
 </html>
+
