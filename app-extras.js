@@ -314,6 +314,7 @@ async function loadData() {
     renderArchive();
     renderPlayers();
     fillTeamSelects();
+    fillPlayerSelects();
     renderStats();
     renderFeaturedMatch();
     renderHomeMatches();
