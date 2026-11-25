@@ -594,6 +594,25 @@
      "date": "2026-11-23T22:00:00+02:00",
      "detail": "FT",
      "state": "post"
+    },
+    {
+     "home": "Nottm Forest",
+     "away": "Chelsea",
+     "eid": "401879225",
+     "slug": "eng.1",
+     "homeId": "393",
+     "awayId": "363",
+     "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/393.png",
+     "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/363.png",
+     "tv": "",
+     "hs": "0",
+     "as": "0",
+     "time": "10:00",
+     "day": "Friday",
+     "dateAr": "27/11",
+     "date": "2026-11-27T22:00:00+02:00",
+     "detail": "Scheduled",
+     "state": "pre"
     }
    ],
    "big": true
@@ -692,6 +711,25 @@
      "date": "2026-11-23T22:00:00+02:00",
      "detail": "FT",
      "state": "post"
+    },
+    {
+     "home": "Levante",
+     "away": "Racing",
+     "eid": "401882791",
+     "slug": "esp.1",
+     "homeId": "1538",
+     "awayId": "87",
+     "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/1538.png",
+     "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/87.png",
+     "tv": "",
+     "hs": "0",
+     "as": "0",
+     "time": "10:00",
+     "day": "Friday",
+     "dateAr": "27/11",
+     "date": "2026-11-27T22:00:00+02:00",
+     "detail": "Scheduled",
+     "state": "pre"
     }
    ],
    "big": true
@@ -808,6 +846,25 @@
      "date": "2026-11-23T21:45:00+02:00",
      "detail": "FT",
      "state": "post"
+    },
+    {
+     "home": "Venezia",
+     "away": "Bologna",
+     "eid": "401875004",
+     "slug": "ita.1",
+     "homeId": "17530",
+     "awayId": "107",
+     "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/17530.png",
+     "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/107.png",
+     "tv": "",
+     "hs": "0",
+     "as": "0",
+     "time": "09:45",
+     "day": "Friday",
+     "dateAr": "27/11",
+     "date": "2026-11-27T21:45:00+02:00",
+     "detail": "Scheduled",
+     "state": "pre"
     }
    ],
    "big": true
@@ -851,6 +908,25 @@
      "dateAr": "22/11",
      "date": "2026-11-22T18:30:00+02:00",
      "detail": "FT"
+    },
+    {
+     "home": "Bremen",
+     "away": "Gladbach",
+     "eid": "401884720",
+     "slug": "ger.1",
+     "homeId": "137",
+     "awayId": "268",
+     "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/137.png",
+     "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/268.png",
+     "tv": "",
+     "hs": "0",
+     "as": "0",
+     "time": "09:30",
+     "day": "Friday",
+     "dateAr": "27/11",
+     "date": "2026-11-27T21:30:00+02:00",
+     "detail": "Scheduled",
+     "state": "pre"
     }
    ],
    "big": true
@@ -912,6 +988,25 @@
      "dateAr": "22/11",
      "date": "2026-11-22T21:45:00+02:00",
      "detail": "FT"
+    },
+    {
+     "home": "Brest",
+     "away": "Paris FC",
+     "eid": "401876392",
+     "slug": "fra.1",
+     "homeId": "6997",
+     "awayId": "6851",
+     "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6997.png",
+     "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6851.png",
+     "tv": "",
+     "hs": "0",
+     "as": "0",
+     "time": "09:45",
+     "day": "Friday",
+     "dateAr": "27/11",
+     "date": "2026-11-27T21:45:00+02:00",
+     "detail": "Scheduled",
+     "state": "pre"
     }
    ],
    "big": true
@@ -936,6 +1031,44 @@
      "day": "Monday",
      "dateAr": "23/11",
      "date": "2026-11-23T19:00:00+02:00",
+     "detail": "FT",
+     "state": "post"
+    },
+    {
+     "home": "Azam",
+     "away": "Al Ahli Tripoli",
+     "eid": "401932108",
+     "slug": "caf.confed",
+     "homeId": "131551",
+     "awayId": "18827",
+     "homeLogo": "",
+     "awayLogo": "",
+     "tv": "",
+     "hs": "0",
+     "as": "0",
+     "time": "03:00",
+     "day": "Friday",
+     "dateAr": "27/11",
+     "date": "2026-11-27T15:00:00+02:00",
+     "detail": "Scheduled",
+     "state": "pre"
+    },
+    {
+     "home": "Belouizdad",
+     "away": "Douanes",
+     "eid": "401912490",
+     "slug": "caf.confed",
+     "homeId": "20853",
+     "awayId": "133116",
+     "homeLogo": "",
+     "awayLogo": "",
+     "tv": "",
+     "hs": "0",
+     "as": "0",
+     "time": "09:00",
+     "day": "Friday",
+     "dateAr": "27/11",
+     "date": "2026-11-27T21:00:00+02:00",
      "detail": "FT",
      "state": "post"
     }
@@ -1029,12 +1162,50 @@
      "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/191.png",
      "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6077.png",
      "tv": "",
-     "hs": "0",
+     "hs": "1",
      "as": "0",
      "time": "05:00",
      "day": "Wednesday",
      "dateAr": "25/11",
      "date": "2026-11-25T05:00:00+02:00",
+     "detail": "22'",
+     "state": "in"
+    },
+    {
+     "home": "Columbus",
+     "away": "Miami",
+     "eid": "401933727",
+     "slug": "usa.1",
+     "homeId": "183",
+     "awayId": "20232",
+     "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/183.png",
+     "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/20232.png",
+     "tv": "",
+     "hs": "0",
+     "as": "0",
+     "time": "03:00",
+     "day": "Saturday",
+     "dateAr": "28/11",
+     "date": "2026-11-28T03:00:00+02:00",
+     "detail": "Scheduled",
+     "state": "pre"
+    },
+    {
+     "home": "Salt Lake",
+     "away": "Vancouver",
+     "eid": "401933725",
+     "slug": "usa.1",
+     "homeId": "4771",
+     "awayId": "9727",
+     "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/4771.png",
+     "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9727.png",
+     "tv": "",
+     "hs": "0",
+     "as": "0",
+     "time": "05:00",
+     "day": "Saturday",
+     "dateAr": "28/11",
+     "date": "2026-11-28T05:00:00+02:00",
      "detail": "Scheduled",
      "state": "pre"
     }
@@ -1235,6 +1406,25 @@
      "dateAr": "22/11",
      "date": "2026-11-22T17:45:00+02:00",
      "detail": "FT"
+    },
+    {
+     "home": "FC Groningen",
+     "away": "Willem II",
+     "eid": "401875536",
+     "slug": "ned.1",
+     "homeId": "145",
+     "awayId": "156",
+     "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/145.png",
+     "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/156.png",
+     "tv": "",
+     "hs": "0",
+     "as": "0",
+     "time": "09:00",
+     "day": "Friday",
+     "dateAr": "27/11",
+     "date": "2026-11-27T21:00:00+02:00",
+     "detail": "Scheduled",
+     "state": "pre"
     }
    ],
    "big": true
@@ -1333,6 +1523,44 @@
      "date": "2026-11-23T19:00:00+02:00",
      "detail": "FT",
      "state": "post"
+    },
+    {
+     "home": "Alanyaspor",
+     "away": "Konyaspor",
+     "eid": "401888241",
+     "slug": "tur.1",
+     "homeId": "9078",
+     "awayId": "7648",
+     "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/9078.png",
+     "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7648.png",
+     "tv": "",
+     "hs": "0",
+     "as": "0",
+     "time": "07:00",
+     "day": "Friday",
+     "dateAr": "27/11",
+     "date": "2026-11-27T19:00:00+02:00",
+     "detail": "Scheduled",
+     "state": "pre"
+    },
+    {
+     "home": "Caykur Rizespor",
+     "away": "Kasimpasa",
+     "eid": "401888240",
+     "slug": "tur.1",
+     "homeId": "7656",
+     "awayId": "6870",
+     "homeLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/7656.png",
+     "awayLogo": "https://a.espncdn.com/i/teamlogos/soccer/500/6870.png",
+     "tv": "",
+     "hs": "0",
+     "as": "0",
+     "time": "07:00",
+     "day": "Friday",
+     "dateAr": "27/11",
+     "date": "2026-11-27T19:00:00+02:00",
+     "detail": "Scheduled",
+     "state": "pre"
     }
    ],
    "big": true
@@ -5999,5 +6227,5 @@
  ],
  "highlights": [],
  "squads": {},
- "matches_updated_at": "2026-11-25 01:00 AM"
+ "matches_updated_at": "2026-11-25 05:52 AM"
 }
