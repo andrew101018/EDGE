@@ -191,6 +191,27 @@ function matchRow(m, isUs) {
     ? up.slice(0, 8).map(m => matchRow(m, isMine)).join('')
     : '<p class="empty">مفيش ماتشات قادمة مسجلة لفرق اللاعب في البيانات الحالية.</p>';
 
+  // structured data: SportsEvent JSON-LD for the matches rendered on this page (facts visible here only)
+  const evs = all.filter(m => m.date && !isNaN(new Date(m.date).getTime())).map(m => {
+    const e = {
+      '@type': 'SportsEvent',
+      name: m.home + ' × ' + m.away,
+      sport: 'Soccer',
+      startDate: m.date,
+      homeTeam: { '@type': 'SportsTeam', name: m.home },
+      awayTeam: { '@type': 'SportsTeam', name: m.away },
+      eventStatus: m.state === 'post' ? 'https://schema.org/EventCompleted' : 'https://schema.org/EventScheduled'
+    };
+    if (m.league) e.isPartOf = { '@type': 'SportsLeague', name: m.league };
+    return e;
+  });
+  if (evs.length) {
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': evs });
+    document.head.appendChild(s);
+  }
+
   // news mentions: exact name only, no guessing
   const needle = (PLAYER.name || '').toLowerCase();
   const hits = (d.news || []).filter(n => ((n.title || '') + ' ' + (n.desc || '')).toLowerCase().includes(needle)).slice(0, 5);
