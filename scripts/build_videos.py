@@ -6,6 +6,7 @@ Run:  python3 scripts/build_videos.py   (from repo root)
 Manual inventory updates: add the new video to videos/videos.json, rerun, commit.
 """
 import json, os
+from html import escape as _esc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, 'videos', 'videos.json')
@@ -57,6 +58,53 @@ TOPICS = {
 }
 TOPIC_ORDER = ['ucl', 'egy', 'epl', 'united', 'barca', 'madrid', 'legends', 'nt', 'misc']
 
+HUB_CSS = """
+.vd-topic { color:#fbbf24; text-decoration:none; font-weight:bold; }
+.vd-h2 { color:#fbbf24; font-size:1.1em; margin:22px 0 8px; }
+.vd-rels { display:flex; flex-direction:column; gap:8px; }
+.vd-rel { background:#16213a; border:1px solid #24344f; border-radius:10px; padding:10px 14px; color:#e2e8f0; text-decoration:none; font-size:.9em; line-height:1.6; }
+"""
+
+TOPIC_BLURB = {
+    'ucl': 'مراجعات ونتائج وتوقعات دوري أبطال أوروبا من قناة EDGE.',
+    'egy': 'ملخصات وتحليلات الدوري المصري من قناة EDGE.',
+    'epl': 'توقعات ونتائج الدوري الإنجليزي من قناة EDGE.',
+    'united': 'فيديوهات مانشستر يونايتد من قناة EDGE.',
+    'barca': 'فيديوهات برشلونة من قناة EDGE.',
+    'madrid': 'فيديوهات ريال مدريد من قناة EDGE.',
+    'legends': 'فيديوهات الأساطير وتاريخ الكورة من قناة EDGE.',
+    'nt': 'فيديوهات المنتخبات وكأس العالم وأمم أفريقيا من قناة EDGE.',
+    'misc': 'فيديوهات متنوعة من قناة EDGE.',
+}
+
+def hub_page(t, items, reviewed):
+    cards = ''.join(f'''<a class="vd-card" href="{v['id']}.html">
+<img src="https://i.ytimg.com/vi/{v['id']}/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+<div><div class="vd-title">{esc(v['title'])}</div><div class="vd-meta">{v.get('published') or ('شورت' if v.get('_short') else 'فيديو')}</div></div>
+</a>''' for v in items)
+    desc = f"{TOPIC_BLURB[t]} {len(items)} فيديو في القسم."
+    return HEAD + f"""<title>فيديوهات {TOPICS[t]} | EDGE</title>
+<meta name="description" content="{esc(desc)}">
+<link rel="canonical" href="{BASE}videos/topic-{t}.html">
+<meta property="og:site_name" content="Edge Football">
+<meta property="og:type" content="website">
+<meta property="og:title" content="فيديوهات {esc(TOPICS[t])} | EDGE">
+<meta property="og:description" content="{esc(desc)}">
+<meta property="og:url" content="{BASE}videos/topic-{t}.html">
+<style>{STYLE}{CHIP_CSS}{HUB_CSS}</style>
+</head>
+<body>
+<nav><a class="vd-back" href="index.html">🎬 كل الفيديوهات</a><a class="vd-back" href="{BASE}">⚽ الصفحة الرئيسية</a></nav>
+<div class="wrap">
+<h1>🏷️ {TOPICS[t]}</h1>
+<div class="sub">{TOPIC_BLURB[t]} ({len(items)})</div>
+{cards}
+<div class="sub" style="margin-top:16px;">المصدر: قناة EDGE - ايدج على يوتيوب · آخر مراجعة {reviewed}</div>
+</div>
+</body>
+</html>
+"""
+
 CHIP_CSS = """
 .vd-chips { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 18px; }
 .vd-chip { background:#16213a; border:1px solid #24344f; border-radius:20px; padding:7px 15px; color:#94a3b8; font-size:.82em; font-weight:bold; cursor:pointer; font-family:inherit; }
@@ -79,7 +127,40 @@ def dur_ar(d):
 def is_short(d):
     return int(d.replace('PT', '').replace('M', ' ').replace('S', '').split()[0]) == 0
 
-def video_page(v, reviewed, vertical=False):
+def esc(x):
+    return _esc(str(x), quote=True)
+
+def topic_of(v):
+    return (v.get('topics') or ['misc'])[0]
+
+def kind_ar(v, vertical):
+    return 'شورت' if vertical else 'فيديو'
+
+def describe(v, vertical):
+    """Unique description: own title + kind + primary topic + date/duration when verified + companion article."""
+    t = topic_of(v)
+    parts = [f"{kind_ar(v, vertical)} من قناة EDGE في قسم {TOPICS[t]}: {v['title']}."]
+    if v.get('published'):
+        parts.append(f"نُشر في {ar_date(v['published'])}.")
+    if v.get('duration') and not vertical:
+        parts.append(f"المدة {dur_ar(v['duration'])} دقيقة.")
+    if v.get('article'):
+        parts.append('معاه مقال مكتوب على الموقع.')
+    return ' '.join(parts)
+
+def related_block(v, allv):
+    t = topic_of(v)
+    same = [x for x in allv if t in x.get('topics', []) and x['id'] != v['id']]
+    if not same:
+        return ''
+    # rotate so each page links to its own neighbours (not the same 4 everywhere)
+    ids = [x['id'] for x in allv]
+    i = ids.index(v['id'])
+    same.sort(key=lambda x: (ids.index(x['id']) - i) % len(ids))
+    links = ''.join(f'<a class="vd-rel" href="{x["id"]}.html">{esc(x["title"])}</a>' for x in same[:4])
+    return f'<h2 class="vd-h2">كمان في {TOPICS[t]}</h2><div class="vd-rels">{links}</div>'
+
+def video_page(v, reviewed, vertical=False, allv=None):
     if v.get('published') and v.get('duration'):
         meta = f"نُشر {v['published']} · المدة {dur_ar(v['duration'])} · قناة EDGE - ايدج على يوتيوب"
     elif v.get('_kind') == 'video':
@@ -87,21 +168,30 @@ def video_page(v, reviewed, vertical=False):
     else:
         meta = 'شورت من قناة EDGE - ايدج على يوتيوب'
     article_btn = (f'<a class="vd-btn alt" href="../articles/{v["article"]}">📄 المقال المصاحب</a>' if v.get('article') else '')
-    return HEAD + f"""<title>{v['title']} | EDGE</title>
-<meta name="description" content="{v['title']} — فيديو من قناة EDGE - ايدج على يوتيوب">
-<style>{STYLE}</style>
+    return HEAD + f"""<title>{esc(v['title'])} | EDGE</title>
+<meta name="description" content="{esc(describe(v, vertical))}">
+<link rel="canonical" href="{BASE}videos/{v['id']}.html">
+<meta property="og:site_name" content="Edge Football">
+<meta property="og:type" content="video.other">
+<meta property="og:title" content="{esc(v['title'])}">
+<meta property="og:description" content="{esc(describe(v, vertical))}">
+<meta property="og:url" content="{BASE}videos/{v['id']}.html">
+<meta property="og:image" content="https://i.ytimg.com/vi/{v['id']}/hqdefault.jpg">
+<style>{STYLE}{HUB_CSS}</style>
 </head>
 <body>
 <nav><a class="vd-back" href="index.html">🎬 كل الفيديوهات</a><a class="vd-back" href="{BASE}">⚽ الصفحة الرئيسية</a></nav>
 <div class="wrap">
 <h1>{v['title']}</h1>
 <div class="sub">{meta}</div>
+<div class="sub"><a class="vd-topic" href="topic-{topic_of(v)}.html">🏷️ {TOPICS[topic_of(v)]}</a></div>
 {socials()}
 <div class="vd-embed{' short' if vertical else ''}"><iframe src="https://www.youtube-nocookie.com/embed/{v['id']}" title="{v['title']}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
 <div class="vd-actions">
 <a class="vd-btn" href="https://www.youtube.com/watch?v={v['id']}" target="_blank" rel="noopener">▶️ شاهد على يوتيوب</a>
 <a class="vd-btn alt" href="index.html">🎬 باقي الفيديوهات</a>{article_btn}
 </div>
+{related_block(v, allv or [])}
 <div class="sub">المصدر: قناة EDGE - ايدج على يوتيوب · من مكتبة القناة · آخر مراجعة {reviewed}</div>
 </div>
 </body>
@@ -121,7 +211,7 @@ def index_page(videos, shorts, reviewed):
     allv = videos + shorts
     counts = {t: sum(1 for v in allv if t in v.get('topics', [])) for t in TOPIC_ORDER}
     chips = [f'<button class="vd-chip on" data-t="">الكل <span class="n">{len(allv)}</span></button>']
-    chips += [f'<button class="vd-chip" data-t="{t}">{TOPICS[t]} <span class="n">{counts[t]}</span></button>' for t in TOPIC_ORDER if counts[t]]
+    chips += [f'<a class="vd-chip" style="text-decoration:none;" href="topic-{t}.html">{TOPICS[t]} <span class="n">{counts[t]}</span></a>' for t in TOPIC_ORDER if counts[t]]
     chips_html = '<div class="vd-chips">' + ''.join(chips) + '</div>'
     body = [f'<div class="sub">{sub}</div>', socials(), chips_html] + [card(v) for v in videos]
     if shorts:
@@ -139,7 +229,7 @@ def index_page(videos, shorts, reviewed):
 <div class="sub" style="margin-top:16px;">المصدر: <a style="color:#94a3b8;" href="https://www.youtube.com/@andygamall" target="_blank" rel="noopener">قناة EDGE - ايدج على يوتيوب</a> · آخر مراجعة {reviewed}</div>
 </div>
 <script>
-document.querySelectorAll('.vd-chip').forEach(function(c){{
+document.querySelectorAll('button.vd-chip').forEach(function(c){{
   c.addEventListener('click',function(){{
     document.querySelectorAll('.vd-chip').forEach(function(x){{x.classList.remove('on');}});
     c.classList.add('on');
@@ -177,12 +267,19 @@ def main():
     videos = data.get('videos', [])
     shorts = data.get('shorts', [])
     os.makedirs(OUT, exist_ok=True)
+    allv = videos + shorts
+    for v in shorts:
+        v['_short'] = True
     for v in videos:
         v['_kind'] = 'video'
-        open(os.path.join(OUT, v['id'] + '.html'), 'w', encoding='utf-8').write(video_page(v, reviewed, vertical=bool(v.get('duration')) and is_short(v['duration'])))
+        open(os.path.join(OUT, v['id'] + '.html'), 'w', encoding='utf-8').write(video_page(v, reviewed, vertical=bool(v.get('duration')) and is_short(v['duration']), allv=allv))
     for v in shorts:
-        open(os.path.join(OUT, v['id'] + '.html'), 'w', encoding='utf-8').write(video_page(v, reviewed, vertical=True))
+        open(os.path.join(OUT, v['id'] + '.html'), 'w', encoding='utf-8').write(video_page(v, reviewed, vertical=True, allv=allv))
     open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(index_page(videos, shorts, reviewed))
+    for t in TOPIC_ORDER:
+        items = [v for v in allv if t in v.get('topics', [])]
+        if items:
+            open(os.path.join(OUT, f'topic-{t}.html'), 'w', encoding='utf-8').write(hub_page(t, items, reviewed))
     print(f"built {len(videos) + len(shorts)} video pages + index (reviewed {reviewed})")
 
 
