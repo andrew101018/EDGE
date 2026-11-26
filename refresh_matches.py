@@ -42,6 +42,13 @@ KOOORA_EGY = "https://www.kooora.com/%D9%83%D8%B1%D8%A9-%D8%A7%D9%84%D9%82%D8%AF
 # stays frozen at the last successful check (2026-11-25 11:47 PM). Set to False to resume.
 EGY_SOURCE_PAUSED = True
 
+# 2026-11-26: paused. Disney/ESPN terms (https://disneytermsofuse.com/english/ clause x; Arabic:
+# https://disneytermsofuse.com/arabic/) prohibit automated access/extraction and restrict use to
+# personal noncommercial; no endpoint-specific permission exists for site.api.espn.com. While paused,
+# every ESPN league keeps its last verified items and its per-source stamp stays frozen at the last
+# successful check (2026-11-25 11:55 PM). Set to False to resume only with a permitted source.
+ESPN_SOURCES_PAUSED = True
+
 def fetch_kooora(slug):
     """Egyptian league from kooora's public page (same source the old bot used)."""
     try:
@@ -105,12 +112,14 @@ def build(ev, slug, old):
 now_str = dt.datetime.now(CAIRO).strftime("%Y-%m-%d %I:%M %p")
 checked = dict(data.get("matches_checked_by_source", {}))
 all_ok = True
+fetched_any = False
 for g in data.get("matches", []):
     slug = g.get("slug", "")
     if slug == "egy.1":
         if EGY_SOURCE_PAUSED:
             print("egy.1 source paused (source terms); keeping last verified items")
             continue
+        fetched_any = True
         k = fetch_kooora(slug)
         if k is not None:
             checked["egy.1"] = now_str
@@ -125,6 +134,10 @@ for g in data.get("matches", []):
         continue
     if not slug:
         continue
+    if ESPN_SOURCES_PAUSED:
+        print(slug, "source paused (source terms); keeping last verified items")
+        continue
+    fetched_any = True
     res = fetch(slug)
     if not res:
         all_ok = False
@@ -151,7 +164,7 @@ for g in data.get("matches", []):
 # matches_checked_at = last run where EVERY source fetched successfully.
 # matches_updated_at = last content change only. File changes every run -> workflow commits every run.
 data["matches_checked_by_source"] = checked
-if all_ok:
+if all_ok and fetched_any:
     data["matches_checked_at"] = now_str
 if changed:
     data["matches_updated_at"] = now_str
