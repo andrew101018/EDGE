@@ -82,6 +82,16 @@
 - Score display rule: never render bare "hs - as" in the RTL page — bidi reorders it against the teams. Scores render per-team (each team's score next to its own name, wrapped in `<bdi dir="ltr">`): home stacked cards, featured card, live-block, and matchRow all follow this.
 - Failure semantics: overlay fetch failure is silent and falls back to snapshot + stale-guard behavior. No false live claims; no fabricated states.
 
+## 2026-11-26: ESPN automated routes paused over source terms
+- Disney/ESPN terms (https://disneytermsofuse.com/english/ clause x; Arabic version https://disneytermsofuse.com/arabic/) prohibit automated access/extraction and restrict use to personal noncommercial use. ESPN support points to those terms (https://support.espn.com/hc/en-us/articles/360035445091-Terms-of-Use); no endpoint-specific permission exists for site.api.espn.com.
+- Paused, all narrow and reversible:
+  - `refresh_matches.py`: `ESPN_SOURCES_PAUSED = True` — server ingestion skips all ESPN slugs, keeps last verified items; per-source stamps stay frozen at 2026-11-25 11:55 PM. `matches_checked_at` now only advances when at least one source was actually fetched and all fetched succeeded (`fetched_any` guard). With all sources paused the run writes no changes.
+  - `app-matches.js`: `ESPN_LIVE_PAUSED = true` — the 60s client overlay poller returns immediately (index.html bump to ?v=21).
+  - `egypt.html`: `NT_ESPN_PAUSED = true` — the national-team schedule no longer fetches ESPN on page open; shows the last reviewed fixtures card (reviewed 25 Nov 2026, self-expiring 28 Mar 2027) with an honest "auto update paused" stamp.
+- Honest UI state: no item carries a live state after the freeze; the freshness footer shows the frozen stamps plus "تحديث المباريات متأخر" (stale >30 min) — nothing promises live/minute updates. User predictions resolve only on state==='post' from verified snapshots, so frozen data cannot silently resolve them; they stay open until a permitted source resumes.
+- Remaining ESPN touchpoint (user-triggered, not automated): the match-details modal in `app-sections.js` (openMatch) still fetches the ESPN summary endpoint per click. Decision pending owner review.
+- Resume: set the three flags back only with a permitted source (see continuity notes for the replacement-source review).
+
 ## 2026-11-25 (late 2): Egyptian source paused over source terms
 - `refresh_matches.py` gained `EGY_SOURCE_PAUSED = True`: Kooora's terms of use (https://www.kooora.com/سياسة-الاستخدام clause 11: "No text or data mining, or web scraping") prohibit automated fetching, so the egy.1 fetch is paused pending a permitted source. egy.1 keeps its last verified snapshot (all FT, stamp frozen at 2026-11-25 11:47 PM) and is excluded from the all-sources-OK stamp; ESPN and other sources are unaffected. Set the flag back to False to resume.
 - Egyptian live-route research (2026-11-25): ESPN does not carry the league (egy.1 scoreboard returns HTTP 400); FotMob and 365scores serve no CORS header (no client route); Sofascore is unofficial and blocks datacenter IPs. Licensed free option under evaluation: API-Football free plan (https://www.api-football.com/pricing - $0, 100 req/day, all competitions); current-season Egyptian eligibility unverified, and signup is an owner decision.
