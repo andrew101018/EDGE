@@ -111,8 +111,20 @@
       '<span class="eg-team">' + esc(hn) + sb.h + '</span>' + mid + '<span class="eg-team">' + sb.a + esc(an) + '</span></div>' +
       '<div class="eg-meta">' + esc(comp) + ' · ' + esc(fmtDayCairo(ev.date)) + '</div></div>';
   }
+  /* 2026-11-26: paused. Disney/ESPN terms prohibit automated extraction; no endpoint permission
+     found. Show the last reviewed fixtures card honestly instead of fetching on page open.
+     Set to false to resume only with a permitted route. */
+  var NT_ESPN_PAUSED = true;
   function loadNT() {
     var box = document.getElementById('ntBox');
+    if (NT_ESPN_PAUSED) {
+      if (Date.now() < Date.UTC(2027, 2, 29)) {
+        box.innerHTML = '<div class="eg-mcard" style="border-right-color:#f59e0b;"><div class="eg-meta" style="margin-top:0;line-height:1.9;">أقرب ماتشات جاية للمنتخب حسب آخر بيانات ESPN المتاحة: أنجولا × مصر (24 مارس 2027) ومصر × جنوب السودان (28 مارس 2027) — المواعيد بالتوقيت لسه متحددة.<br>آخر مراجعة 25 نوفمبر 2026 · التحديث التلقائي متوقف مؤقتًا</div></div>';
+      } else {
+        box.innerHTML = '<div class="eg-empty">مفيش بيانات مباريات متاحة للمنتخب حاليًا.</div>';
+      }
+      return;
+    }
     Promise.all(NT_APIS.map(function (a) {
       return fetch(a[1], { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; })
         .then(function (j) { return { comp: a[0], events: (j && j.events) || [] }; })
