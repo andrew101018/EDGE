@@ -40,12 +40,12 @@ jobs:
         if: contains(inputs.targets, 'tg')
         run: |
           printf '%b' "$CAPTION" > cap.txt
-          code=$(curl -s -o r.json -w "%{http_code}" -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendVideo" \
-            -F "chat_id=${TELEGRAM_CHANNEL_ID}" -F "video=@video.mp4" -F "supports_streaming=true" -F "caption=<cap.txt")
+          code=$(curl -sS -o r.json -w "%{http_code}" -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendVideo" \
+            -F "chat_id=${TELEGRAM_CHANNEL_ID}" -F "video=@video.mp4" -F "supports_streaming=true" --form-string "caption=$(cat cap.txt)") || true
           echo "http=$code"
           python3 -c "import json;r=json.load(open('r.json'));print('ok=',r.get('ok'),'message_id=',(r.get('result') or {}).get('message_id'),'err=',r.get('description'))"
       - name: Facebook Reel
-        if: contains(inputs.targets, 'fb')
+        if: ${{ always() && contains(inputs.targets, 'fb') }}
         run: |
           python3 - <<'PY'
           import os, json, urllib.request, urllib.parse, urllib.error
