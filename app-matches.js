@@ -179,8 +179,13 @@ function renderHomeMatches() {
   }).join('');
 }
 
-/* ===== 🔴 النتايج اللايف — تحديث مباشر من ESPN كل دقيقة ===== */
+/* ===== النتايج اللايف — التحديث المباشر من ESPN متوقف مؤقتًا =====
+   2026-11-26: paused. Disney/ESPN terms (https://disneytermsofuse.com/english/ clause x) prohibit
+   automated extraction; no endpoint-specific permission found. Last verified snapshot stays with
+   honest stamps. Set to false to resume only with a permitted route. */
+const ESPN_LIVE_PAUSED = true;
 function refreshLiveScores() {
+  if (ESPN_LIVE_PAUSED) return; // التحديث المباشر متوقف مؤقتًا - شروط استخدام المصدر
   const _rlNow = Date.now();
   if (_rlNow - (window._liveFetchAt || 0) < 45000) return; // ٤٥ ثانية على الأقل بين طلبات المصدر - نداءات مؤقت العد التنازلي كل ثانية تبقى بلا تكلفة شبكة
   const liveSlugs = {};
