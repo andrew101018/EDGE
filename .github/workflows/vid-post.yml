@@ -32,7 +32,7 @@ jobs:
       - name: Download video
         run: |
           set -e
-          ASSET_API=$(gh api "repos/$GITHUB_REPOSITORY/releases" | jq -r --arg n "$REL" '.[] | select(.name==$n) | .assets[] | select(.name=="video.mp4") | .url' | head -1)
+          ASSET_API=$(gh api "repos/$GITHUB_REPOSITORY/releases" | jq -r --arg n "$REL" '.[] | select(.name==$n) | .assets[] | select(.name|test("video\\.mp4$")) | .url' | head -1)
           test -n "$ASSET_API"
           curl -sSL -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/octet-stream" -o video.mp4 "$ASSET_API"
           stat -c 'size=%s' video.mp4
