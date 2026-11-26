@@ -1,0 +1,93 @@
+name: Publish video to Telegram and Facebook Reels
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: draft release NAME holding video.mp4
+        required: true
+      targets:
+        description: tg, fb or tg,fb
+        required: true
+      caption:
+        description: caption (use \n for new lines)
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+      REL: ${{ inputs.release_tag }}
+      TARGETS: ${{ inputs.targets }}
+      CAPTION: ${{ inputs.caption }}
+    steps:
+      - name: Download video
+        run: |
+          set -e
+          ASSET_API=$(gh api "repos/$GITHUB_REPOSITORY/releases" | jq -r --arg n "$REL" '.[] | select(.name==$n) | .assets[] | select(.name=="video.mp4") | .url' | head -1)
+          test -n "$ASSET_API"
+          curl -sSL -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/octet-stream" -o video.mp4 "$ASSET_API"
+          stat -c 'size=%s' video.mp4
+      - name: Telegram
+        if: contains(inputs.targets, 'tg')
+        run: |
+          printf '%b' "$CAPTION" > cap.txt
+          code=$(curl -s -o r.json -w "%{http_code}" -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendVideo" \
+            -F "chat_id=${TELEGRAM_CHANNEL_ID}" -F "video=@video.mp4" -F "supports_streaming=true" -F "caption=<cap.txt")
+          echo "http=$code"
+          python3 -c "import json;r=json.load(open('r.json'));print('ok=',r.get('ok'),'message_id=',(r.get('result') or {}).get('message_id'),'err=',r.get('description'))"
+      - name: Facebook Reel
+        if: contains(inputs.targets, 'fb')
+        run: |
+          python3 - <<'PY'
+          import os, json, urllib.request, urllib.parse, urllib.error
+          tok = os.environ["FB_PAGE_TOKEN"]
+          cap = os.environ["CAPTION"].replace("\\n", "\n")
+          G = "https://graph.facebook.com/v21.0"
+          def safe(t):
+              try: d = json.loads(t)
+              except Exception: return {"raw": "non-json"}
+              out = {k: d[k] for k in ("id","video_id","post_id","success","message") if isinstance(d, dict) and isinstance(d.get(k),(str,int,bool))}
+              e = d.get("error") if isinstance(d, dict) else None
+              if isinstance(e, dict): out["error"] = {"code": e.get("code"), "subcode": e.get("error_subcode"), "type": e.get("type"), "msg": (e.get("message") or "")[:140]}
+              return out
+          def call(url, params=None, data=None, headers=None, method="POST"):
+              body = urllib.parse.urlencode(params).encode() if params is not None else data
+              req = urllib.request.Request(url, data=body, headers=headers or {}, method=method)
+              try: t = urllib.request.urlopen(req, timeout=180).read().decode()
+              except urllib.error.HTTPError as e: t = e.read().decode()
+              try: raw = json.loads(t)
+              except Exception: raw = {}
+              s = safe(t); print(url.split("?")[0][:80], "->", json.dumps(s)); return s, raw
+          def get(path, params):
+              url = G + "/" + path + "?" + urllib.parse.urlencode(params)
+              try: return json.loads(urllib.request.urlopen(url, timeout=60).read().decode())
+              except urllib.error.HTTPError as e: print("GET error", e.code); return {}
+          pages = get("me/accounts", {"fields": "id,access_token", "access_token": tok}).get("data", [])
+          assert pages, "no page"
+          pid = pages[0]["id"]; ptok = pages[0]["access_token"]
+          print("::add-mask::" + ptok)
+          s, raw = call(G + "/" + pid + "/video_reels", params={"upload_phase": "start", "access_token": ptok})
+          vid = raw.get("video_id"); up = raw.get("upload_url")
+          assert vid and up, "reel start failed"
+          data = open("video.mp4", "rb").read()
+          s2, _ = call(up, data=data, headers={"Authorization": "OAuth " + ptok, "offset": "0", "file_size": str(len(data))})
+          assert s2.get("success"), "reel upload failed"
+          s3, _ = call(G + "/" + pid + "/video_reels", params={"upload_phase": "finish", "video_id": vid, "video_state": "PUBLISHED", "description": cap, "access_token": ptok})
+          assert s3.get("success"), "reel finish failed"
+          import time
+          for i in range(12):
+              time.sleep(10)
+              st = get(vid, {"fields": "status,permalink_url", "access_token": ptok})
+              print("status", json.dumps((st.get("status") or {}).get("video_status")), st.get("permalink_url"))
+              if (st.get("status") or {}).get("video_status") in ("ready", "error"): break
+          print("DONE reel", vid)
+          PY
