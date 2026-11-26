@@ -704,6 +704,10 @@ function downloadIcs(eid) {
   } catch (e) {}
 }
 
+/* 2026-11-26: paused. Disney/ESPN terms (https://disneytermsofuse.com/english/ clause x) prohibit automated
+   extraction; a per-click API request is still our code hitting an uncovered endpoint. The modal stays usable
+   with stored match data plus an honest note. Set to false to resume only with a permitted route. */
+const ESPN_DETAILS_PAUSED = true;
 async function showMatch(slug, eid, title) {
   const box = document.getElementById('matchModal');
   box.style.cssText = 'display:block;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;overflow:auto;';
@@ -711,6 +715,23 @@ async function showMatch(slug, eid, title) {
   document.getElementById('matchModalTitle').textContent = '⚽ ' + title;
   document.getElementById('matchModalBody').innerHTML = 'جاري تحميل التفاصيل...';
   const shareHtml = matchShareButton(slug, eid, title) + icsButton(eid);
+  if (ESPN_DETAILS_PAUSED) {
+    let m = null;
+    (DATA.matches || []).forEach(g => (g.items || []).forEach(x => { if (String(x.eid) === String(eid)) m = Object.assign({}, x, { league: g.league }); }));
+    let html = shareHtml;
+    if (m) {
+      const played = m.detail === 'FT' || m.state === 'post';
+      const hasScore = m.hs != null && m.as != null && m.hs !== '' && (played || m.state === 'in');
+      const when = (m.dateAr || '') + (m.time ? ' · الساعة ' + m.time : '');
+      html += '<div class="pos-box" style="text-align:center;line-height:2;">' +
+        '<div style="color:#93c5fd;">' + esc(m.league || '') + '</div>' +
+        (hasScore ? '<bdi dir="ltr" style="font-size:1.6em;font-weight:800;">' + esc(String(m.hs)) + ' - ' + esc(String(m.as)) + '</bdi><br>' : '') +
+        '<small>' + (played ? 'انتهت' : (hasScore ? 'آخر نتيجة معروفة قبل توقف التحديث' : esc(when))) + '</small></div>';
+    }
+    html += '<div class="pos-box" style="line-height:1.9;">تفاصيل الماتش (الأهداف والإحصائيات) مش متاحة حاليًا — تحديث المصدر متوقف مؤقتًا. البيانات المعروضة فوق هي آخر بيانات مؤكدة وصلتنا.</div>';
+    document.getElementById('matchModalBody').innerHTML = html;
+    return;
+  }
   try {
     const r = await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${slug}/summary?event=${eid}`);
     const d = await r.json();
