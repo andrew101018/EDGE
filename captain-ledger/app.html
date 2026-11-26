@@ -126,6 +126,28 @@ const DK={
     for(const s of Array.isArray(o.sessions)?o.sessions:[]){if(s&&/^\d{4}-\d{2}-\d{2}$/.test(s.date)&&Array.isArray(s.present))st.sessions.push({id:String(s.id||DK.uid()),date:s.date,group:String(s.group||""),present:s.present.filter(i=>ids.has(i))})}
     return st;
   },
+  parseImport(text,defFee,defStart){
+    const rows=[],errors=[],seen=new Set();
+    String(text||"").split(/\r?\n/).forEach((line,i)=>{
+      line=line.trim();if(!line)return;
+      const c=line.split(/\t|,|،|;/).map(x=>x.trim());
+      if(i===0&&/^(الاسم|اسم|name)/i.test(c[0]))return;
+      const name=c[0],ph=c[1]||"",group=c[2]||"";
+      let fee=c[3]?DK.num(c[3]):defFee;
+      let start=c[4]?DK.toWestern(c[4]).slice(0,7):defStart;
+      if(!name){errors.push((i+1)+": الاسم فاضي");return}
+      if(ph&&!DK.normPhone(ph)){errors.push((i+1)+": رقم غير صحيح ("+name+")");return}
+      if(!(fee>0)){errors.push((i+1)+": اشتراك غير صحيح ("+name+")");return}
+      if(!/^\d{4}-\d{2}$/.test(start)||+start.slice(5)<1||+start.slice(5)>12){errors.push((i+1)+": شهر البداية لازم يبقى مثل 2026-11 ("+name+")");return}
+      const key=name+"|"+DK.normPhone(ph);if(seen.has(key)){errors.push((i+1)+": مكرر ("+name+")");return}seen.add(key);
+      rows.push({name,phone:ph,group,fee,start});
+    });
+    return{rows,errors};
+  },
+  lateListText(st,month){
+    const L=st.players.filter(p=>p.active).map(p=>({p,a:DK.arrears(st,p,month)})).filter(x=>x.a.total>0).sort((a,b)=>b.a.total-a.a.total);
+    return (st.academy.name||"الأكاديمية")+" - المتأخرون حتى "+DK.monthLabel(month)+"\n"+L.map((x,i)=>(i+1)+". "+x.p.name+" ("+x.p.group+"): "+x.a.total+" جنيه").join("\n")+"\nالإجمالي: "+L.reduce((s,x)=>s+x.a.total,0)+" جنيه";
+  },
   uid(){return Math.random().toString(36).slice(2,10)+Date.now().toString(36).slice(-4)},
   today(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
 };
@@ -155,12 +177,12 @@ function home(){
   const s=DK.summary(state,month);
   const late=state.players.map(p=>({p,a:DK.arrears(state,p,month)})).filter(x=>x.a.total>0&&x.p.active).sort((a,b)=>b.a.total-a.a.total);
   return monthBar()+`<div class="card"><div class="stats"><div class="stat"><b>${egp(s.expected)}</b><span>المطلوب</span></div><div class="stat"><b>${egp(s.collected)}</b><span>تم تحصيله</span></div><div class="stat red"><b>${egp(s.outstanding)}</b><span>متبقي هذا الشهر</span></div></div><p class="note">${s.paidN} دفعوا، ${s.lateN} لم يكملوا، من ${s.active} لاعب نشط.</p></div>
-  <div class="card"><h2>المتأخرون (يشمل الشهور السابقة)</h2>${late.length?late.map(({p,a})=>`<div class="pl"><div><div class="n">${esc(p.name)}</div><div class="s">${esc(p.group||"بدون مجموعة")} · متأخر ${egp(a.total)} عن ${a.months.length} شهر</div></div><div class="row"><button class="btn sm" data-pay="${p.id}">دفع</button><button class="btn wa sm" data-wa="${p.id}">واتساب</button></div></div>`).join(""):`<div class="empty">${state.players.length?"لا يوجد متأخرون. ممتاز.":"ابدأ بإضافة اللاعبين من تبويب اللاعبين."}</div>`}</div>`;
+  <div class="card"><h2>المتأخرون (يشمل الشهور السابقة)</h2>${late.length?`<button class="btn alt sm" id="copyLate" style="margin-bottom:8px">نسخ قائمة المتأخرين</button>`:""}${late.length?late.map(({p,a})=>`<div class="pl"><div><div class="n">${esc(p.name)}</div><div class="s">${esc(p.group||"بدون مجموعة")} · متأخر ${egp(a.total)} عن ${a.months.length} شهر</div></div><div class="row"><button class="btn sm" data-pay="${p.id}">دفع</button><button class="btn wa sm" data-wa="${p.id}">واتساب</button></div></div>`).join(""):`<div class="empty">${state.players.length?"لا يوجد متأخرون. ممتاز.":"ابدأ بإضافة اللاعبين من تبويب اللاعبين."}</div>`}</div>`;
 }
 function players(){
   const gs=groups();
   const list=state.players.filter(p=>!filterGroup||p.group===filterGroup);
-  return monthBar()+`<div class="row card noprint"><button class="btn grow" id="addP">+ إضافة لاعب</button>${gs.length?`<select id="fg" style="width:auto"><option value="">كل المجموعات</option>${gs.map(g=>`<option ${g===filterGroup?"selected":""}>${esc(g)}</option>`).join("")}</select>`:""}</div>
+  return monthBar()+`<div class="row card noprint"><button class="btn grow" id="addP">+ إضافة لاعب</button><button class="btn alt" id="impP">استيراد من Excel</button>${gs.length?`<select id="fg" style="width:auto"><option value="">كل المجموعات</option>${gs.map(g=>`<option ${g===filterGroup?"selected":""}>${esc(g)}</option>`).join("")}</select>`:""}</div>
   <div class="card">${list.length?list.map(p=>{const s=DK.monthStatus(state,p,month);return `<div class="pl"><div><div class="n">${esc(p.name)}${p.active?"":" (متوقف)"}</div><div class="s">${esc(p.group||"بدون مجموعة")} · ${egp(p.fee)} شهريًا</div></div><div class="row"><span class="pill ${s.status}">${lab[s.status]}</span><button class="btn alt sm" data-pay="${p.id}">دفع</button><button class="btn alt sm" data-edit="${p.id}">تعديل</button></div></div>`}).join(""):`<div class="empty">لا يوجد لاعبون.</div>`}</div>`;
 }
 function att(){
@@ -190,6 +212,13 @@ function playerForm(id){
     if(id)state.players=state.players.map(x=>x.id===id?obj:x);else state.players.push(obj);
     save();close();render();toast("تم الحفظ")};
 }
+function importForm(){
+  open(`<h2>استيراد لاعبين</h2><p class="note">الصق من Excel أو واتساب: سطر لكل لاعب، الأعمدة بالترتيب: الاسم، الهاتف، المجموعة، الاشتراك، أول شهر (مثال 2026-11). الاشتراك وأول شهر اختياريين.</p><form id="if"><textarea name="t" rows="8" placeholder="يوسف أحمد, 01012345678, تحت 10, 250&#10;عمر خالد, 01112345678, تحت 12"></textarea><p class="note" id="ierr" style="color:var(--r);white-space:pre-line"></p><div class="row"><button class="btn grow" type="submit">استيراد</button><button class="btn alt" type="button" data-close>إلغاء</button></div></form>`);
+  $("#if").onsubmit=e=>{e.preventDefault();const r=DK.parseImport(new FormData(e.target).get("t"),state.academy.fee||200,month);
+    if(r.errors.length){$("#ierr").textContent="صحح الأسطر دي وجرب تاني (لم يتم استيراد شيء):\n"+r.errors.slice(0,8).join("\n");return}
+    if(!r.rows.length){$("#ierr").textContent="مفيش لاعبين في النص";return}
+    r.rows.forEach(x=>state.players.push({id:DK.uid(),...x,active:true}));save();close();render();toast("تم استيراد "+r.rows.length+" لاعب")};
+}
 function payForm(id){
   const p=state.players.find(x=>x.id===id);if(!p)return;
   const a=DK.arrears(state,p,month),first=a.months[0]||month,s=DK.monthStatus(state,p,first);
@@ -212,6 +241,8 @@ document.addEventListener("click",e=>{
   if(d.t){tab=d.t;render();window.scrollTo(0,0)}
   else if(d.m){month=DK.addMonths(month,+d.m);render()}
   else if(t.id==="addP")playerForm();
+  else if(t.id==="impP")importForm();
+  else if(t.id==="copyLate"){const tx=DK.lateListText(state,month);(navigator.clipboard?navigator.clipboard.writeText(tx):Promise.reject()).then(()=>toast("تم النسخ")).catch(()=>{window.prompt("انسخ القائمة:",tx)})}
   else if(d.edit)playerForm(d.edit);
   else if(d.pay)payForm(d.pay);
   else if(d.wa){const p=state.players.find(x=>x.id===d.wa);if(p)openWA(p.phone,DK.reminderText(state,p,month))}
