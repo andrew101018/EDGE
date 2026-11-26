@@ -1,8 +1,15 @@
 {
- "reviewed": "2026-11-25",
+ "reviewed": "2026-11-26",
  "channel": "https://www.youtube.com/@andygamall",
  "note": "14 videos (full /videos tab) + 44 shorts (full /shorts tab, yt-dlp flat-playlist 25 Nov 2026); short pages carry no publish date (not grounded cheaply) — add when verified · topics: title-grounded tags for library topic filtering (item 32)",
  "videos": [
+  {
+   "id": "W5JhPUo_P1Q",
+   "title": "ليلة دوري الأبطال كاملة | الجولة الخامسة",
+   "topics": [
+    "ucl"
+   ]
+  },
   {
    "id": "w1xbPtrLdhw",
    "title": "دوري الأبطال: مراجعة الجولة 4 وتوقعات الجولة 5",
