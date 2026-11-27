@@ -1,1 +1,300 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b5d3b">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADABAMAAACg8nE0AAAAMFBMVEX////S3s7ytwXnsgfKpw6coEGHjR1hiExKeDcybTUUYTkMXToLXTsLXToKXToKXDqLFFNoAAALJklEQVR42u1cX4wVVxn/zZm7C7EVZmG7qdbG4V5Y9AEd9gLGJy64oH0SEZq0fSgsuBATI0Ft1CI2JpK0YkOUGqXLnxhfGgyuGtMWFtwX04Sy22v7Uhd2GdMYEwrd2diasntnxoczc+acuWfO/LvbB8N5uXd2Z87vnO/P7/vON+dc7RoWtxHcA/i/B6jkubm2XJuFMbd8chEA6v6cv6wZXOif7nGMiU4C1H23yV26MwCpz85keVS7lqV7rylT3/osEOkAunXHTrIQS4qcz4qIOZHUP7xJ3Sw7g7rbTJnfRJkZ6NWU/uE2a1YJAHMmVcbuNCkOMDCdxRAnawUB9FUZPXZ6pVXODxaJi2ofb7ZZpePZIKZWixun/vnJ3ABx+2xdmZl0wmnXqqsbgqb/XpsuJ6IbY6z3EGNwK0pwkf4w777ui1ck96x+lNetvq5ZdAb+pTE5WZDB7zoFZzDAkVjrxb8mPt37aCONNFJncPs5W+VGB7aUJLup42opkO1D+f2As9CrI1z/2ipiAvDs96I/eq9iSCkk9QymjnB2Wd0QWo17eYaz2q8MFRbR/Y87zGA2iHzjXmampX1zc0EA9wdhH9sH2yOXNzYSon+/GNl5vx4POhiWO+2NU8EAKsfMIgAvn5V5LGQe3ncymfSHExX8PP3sf8FItNH6sjcAAB/8Z33ugOMGEu4/qXAE7cuBBV1s5gYI5Nt3Uulo2iPUk72RvABvUwKqpNGZf4Cy0a2j+QC8M/S/T6UmVuQAvWXKzgVw1QYA7aCVHlH0YwY3pBQAPdQwvXttI1NYP0ynEOrZUgA8HE7AAYDKT7IlDp9pAIB3Orh8UwEQyNE9CwDaU1lTkwMGANwKpuCl64BOYK2VFUA/DAD+6axK9s4CQOUX2bOrzzYA4JadAhB+n3IAYLuTHcDfDwB+aEhmAoDH+0D3njwJIr079AVbLaJbNgBtf74UdLvBZJuqgwsA0NfIB1DZCwDXswDMjwPQ9uXNojcZAFrnMgBcA4A+Ky+AvhcAJhQAwTdvFAC+nn8hsBEA3rXjdkTiNjRvA+hu5Aeo7AHgjcftKAIIhHIGAAaLrGUGAWBMZE0eoBksS8PB5G7dDQALQTeJSr7uAFhdbDm2FYB/IUnJgVquANB2FgNYYwC4EeuXiEztjgPosooB6DsAtJoiZxMxli0UVjF7sCnGtRDAjyREGkUBKmZkR04M4HMUZjy8rVAjDQAtmgi+EwOggAt2GQnRRykVhCJhAFTH0wC0RnGAigHgD4KWifBxE4BuFgcgFoA7gpYJT0TaOIC1ZUofOyMlNAUAM1LB5jIAvZESiIQqWqWMlBnquIQqbOYFFZRqjcBUmJYJ78fjxYmOV8ICr2VeRK4dDKFEex+AUK2lAOsYiZMd5QB0kxnQW9LEizjlADRTkXhNltcxr2UOQG8y16iWBaiygOlaDMCPbLVRFqASWajDADRmRJpVFoAYzIyMmA5cALpRGsCKeIgBrIuMCKVbZEZvMQBqmjMAVpYHWA9gNoo5hAkLNoCe8gA9LCRoMR3YscVPUSWIC00SxYaOA7jhJeVSv4MAvsP4lAhWSjoBYAaDla0POvLq1BQc4SN53et3fgY2IyPCqAjCtxLNEL4RVsTxOwngsMIOYZA3AazoBMAqAO8xgRDBkY1OAGhc6htXq9kp2/GFAOSU7c79QlQjiI+ZxMtpnWz+4jmaJ8zAWCwv1nBv60nGPClb+2AzAGivB5e/OwEAnxrt3Ay6i4vIKeSiuf0gjSa6olVQHtXmULIh1CDyiMjIRhd7AADncnix6Gip/mzl9OG4iIy0+a8CWChRzcRvA3BigUhNzcKVbERRaAyt6B1JIEp0hHml1ENQgxWhorSFpAHoqfOJAMyEtMVLWxxFWaHT9oDWZoqGwEWCRyx8EQAwIljOnhMA0DQRlQtUyRckgmEDopKWLgkF85FpRExPIhERAF44PVoWWyo+SasM7/I9+6NtMF47gMvSbiY/OsyVMu+ZZ7YodwcvWgY0Q8lbsaQVC1SFh6R+NMoVzOh83uBDiycWiYgsKw5VIF/2/5wf+bzNniLSdQa3jDWDpSxTQUKI+dAG7oYu7B8C3BO8n8wwgPgythqZER3fAwlc8wRwnl39q4kP6bcVkRFVI51VxNKRl4Uq7240ZiO4b3AXYUSiOl7XbJdWywYA1+ECgGwOs7KLZyIrNWM6oJ6mG6G+PN7uM4cAi+lY2yEt52hWGHLni6ynApNoAdCdWDmH1qZgRWZUIE95IDIiak+0jsZT3EAwAI6/c7RnIh3XEhIvAsAzWGqip+VEgqMvoVLQ4gUJgsjxdQSVbUeeBcRyDu1rEgkt2Ix61nEAgdBMdWLVFC+X3scNQRuNdEysthkEka8B+h7snNwNYsz5Hfwxungo+OTq601eB1RqW0MtS1tLTCGW7MB9TAtLRjk/Xs33TOK5vJcoo7tCgqb9FMBj4cUL4SBsxGqvwvsDtRICI3q2BwB6nm4A0F82AKDnZ6HU7werr3vCAoR4AKCZNnsZ2d4oKaN+yb1A6oEldo2dn+/uijjleQCVgP3teBgCsGUcWLDliXxrNCQQfTf3591CuGyKtM3pgHZaQ/A2MFkFSgJpOQEhRB0TIbfuMgFclj/81QyLurFIBVoM4M0oCi/YMrMP8gBl6dYbRfA2MNpJRMS8bzDRUF8SOU3a5h2wV6FGDCDwZd0AcHEPl2GFEziB5GQvbGe4VKQZZ1OqZd2KwO7y3PNI6LKqpcM42KvQpFfu2ALAD3rmdrb9JaSJXQqA62A80f7KPWxrAOCf9Pu/2Q6Dv/04VNWhFAlha+KClgq30og07h/bdh4AFrZ9m1G0SsV2+DwfrCpxtt/J29Dss88Z4euGgKLVThC+LHaTl+R9hhDM/NnZWYGik734HADtSdkCRFAL2aFYM39PMYHXGRVAvnkmbIPJKZFqAnRv3qCqnBMoprsBaEbuCVx1EO26saQAoWK2JsnowdQJrGlPDyTZVb8pT7q0k4oJXHQAkL3qilcYpodYYUJoTysqSq2z4dCA1I18WGPItPBJVbJ9CgC0IUmGJpOFvhfAihjCJ/6k6H9qHAD6zKxFwU0mgBVCaHn8zyoaHQEAsi+96hiYlz4EAD0bGUTPkcOqSHnRBoB+S1Y0qUizz37TBnDnsScvYP7cMLrUa52ps8w22isw8hhOho4CwMXqbuCJtIVBawS8CWUrzNLtxN4pO33hEdyUtP81AUDbbwBA63hqqVD7zTgAaMNOLgB0U4ne+lYawGt0i3l/A/kAsIk+8Y/T6v6v0j3+lX3IC0CGqXRePaLq/5XjVE7DZm4AVAKzmzqSWE31Xwm2EScKSHXAAQ8FxyXvvPaxVdIbbv+WVmXQ+6OlRQC0+m2K8N+JuWp7D/6lX74dzPXogworUx2TiY6xrNgQO8fijV0Oq2rKQywpB31aP2SeRqrCQZ+Z6B8HGygMwCPIjyql9Z962Ep9mCvDca60ikfvr0zl4wfTjovJAbhiwPvHFF30cvLRrUIiAuCN/V7uatq2XalcmO1U441LslN7vbuynGvMdmzSuzYZP9e4uvYlE2UA4gc/b8wIBz+r4uiTjyknz6De9kjy0VXJzflEVKIpjw9n7aRuFQJwbw5k7H+iWdCT1Wenw1abKE4V0wNWWvd6fbqUH1R71Mfkq5gpR3YzTaWY6l7arxmkvtN3p2tuEmMTK/0nHzJsGpiuk2UyM9EtTHSKiwYcLz4LYmqZTvFn2/YwiboO7icw6r7mTGdzkjxUUXd8Y275nG/MTWd/KM8e34kOc9Gik909gI8I4H8QPDJiynCW5wAAAABJRU5ErkJggg==">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="دفتر السنتر">
+<title>دفتر السنتر | مصاريف وحضور السنتر</title>
+<style>
+:root{--g:#0b5d3b;--g2:#e7f4ec;--y:#f2b705;--r:#c0392b;--t:#14201a;--m:#5d6b63;--b:#d9e2dc;--bg:#f6f8f6}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;background:var(--bg);color:var(--t);font-size:16px;line-height:1.5;padding-bottom:78px}
+header{background:var(--g);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px}
+header h1{font-size:19px;margin:0;flex:1}
+header .logo{width:34px;height:34px;border-radius:50%;background:var(--y);color:var(--g);display:grid;place-items:center;font-weight:800}
+main{max-width:720px;margin:0 auto;padding:14px}
+.card{background:#fff;border:1px solid var(--b);border-radius:14px;padding:14px;margin-bottom:12px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.grow{flex:1}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--g2);border-radius:12px;padding:10px;text-align:center}
+.stat b{display:block;font-size:16px;white-space:nowrap}
+.stat span{font-size:12px;color:var(--m)}
+.stat.red{background:#fdeceb}.stat.red b{color:var(--r)}
+button,select,input,textarea{font:inherit}
+input,select,textarea{width:100%;padding:10px;border:1px solid var(--b);border-radius:10px;background:#fff}
+label{display:block;font-size:13px;color:var(--m);margin:8px 0 3px}
+.btn{border:0;border-radius:10px;padding:10px 14px;background:var(--g);color:#fff;font-weight:700;cursor:pointer}
+.btn.alt{background:var(--g2);color:var(--g)}
+.btn.wa{background:#25d366;color:#073b1a}
+.btn.warn{background:#fdeceb;color:var(--r)}
+.btn.sm{padding:6px 10px;font-size:14px}
+.btn:disabled{opacity:.5}
+.pill{display:inline-block;border-radius:99px;padding:2px 10px;font-size:12px;font-weight:700}
+.pill.paid{background:#d6f0de;color:#0b5d3b}.pill.unpaid{background:#fdeceb;color:var(--r)}.pill.partial{background:#fff3cd;color:#8a6500}.pill.na{background:#eee;color:#666}
+nav{position:fixed;bottom:0;inset-inline:0;background:#fff;border-top:1px solid var(--b);display:flex;z-index:5}
+nav button{flex:1;border:0;background:none;padding:10px 4px 12px;font-size:13px;color:var(--m);cursor:pointer}
+nav button.on{color:var(--g);font-weight:800;border-top:3px solid var(--g);padding-top:7px}
+.pl{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--b);flex-wrap:wrap}
+.pl>div:first-child,.pl>span:first-child{flex:1 1 150px;min-width:0;overflow-wrap:anywhere}
+.pl:last-child{border:0}
+.pl .n{font-weight:700}.pl .s{font-size:13px;color:var(--m)}
+.att{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--b)}
+.att input{width:24px;height:24px}
+dialog{border:0;border-radius:16px;padding:16px;width:min(94vw,460px);max-height:90vh;overflow:auto}
+dialog::backdrop{background:#0008}
+.empty{color:var(--m);text-align:center;padding:18px}
+.toast{position:fixed;bottom:84px;inset-inline:16px;margin:auto;max-width:380px;background:#14201a;color:#fff;padding:10px 14px;border-radius:10px;text-align:center;z-index:9}
+h2{font-size:17px;margin:0 0 8px}
+table{width:100%;border-collapse:collapse;font-size:14px;table-layout:fixed}
+td:first-child,th:first-child{width:34%;overflow-wrap:anywhere}th{font-size:12.5px;white-space:nowrap}
+.card{overflow-wrap:anywhere}
+.att{flex-wrap:wrap}.att .grow{min-width:0;flex:1 1 120px;overflow-wrap:anywhere}
+th,td{padding:6px 4px;border-bottom:1px solid var(--b);text-align:right}
+.note{font-size:12px;color:var(--m)}
+.search{margin-bottom:8px}.gt td,.gt th{font-size:13px}.warnbox{background:#fff3cd;border:1px solid #f2d27a;color:#6b4e00}.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--y);outline-offset:1px}.btn,nav button{min-height:44px}.sm{min-height:36px}
+@media print{header,nav,.noprint{display:none!important}body{background:#fff;padding:0}.card{border:0}}
+</style>
+</head>
+<body>
+<header><div class="logo">س</div><h1 id="title">دفتر السنتر</h1><button class="btn alt sm noprint" id="setBtn">الإعدادات</button></header>
+<main id="app"></main>
+<nav id="nav"></nav>
+<dialog id="dlg"></dialog>
+<script>
+"use strict";
+/* ============ المنطق (دوال نقية قابلة للاختبار) ============ */
+const AR_MONTHS=["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];
+const DK={
+  toWestern(s){return String(s==null?"":s).replace(/[\u0660-\u0669]/g,d=>d.charCodeAt(0)-0x660).replace(/[\u06F0-\u06F9]/g,d=>d.charCodeAt(0)-0x6F0)},
+  normPhone(s){
+    let d=DK.toWestern(s).replace(/[^\d]/g,"");
+    if(d.startsWith("0020"))d=d.slice(4);else if(d.startsWith("020")&&d.length===13)d=d.slice(3);else if(d.startsWith("20")&&d.length===12)d=d.slice(2);else if(d.startsWith("0"))d=d.slice(1);
+    return /^1[0125]\d{8}$/.test(d)?"20"+d:null;
+  },
+  num(s){const n=parseFloat(DK.toWestern(s).replace(",","."));return isFinite(n)?n:NaN},
+  monthKey(d){d=d||new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")},
+  monthLabel(k){const [y,m]=k.split("-");return AR_MONTHS[+m-1]+" "+y},
+  addMonths(k,n){let [y,m]=k.split("-").map(Number);m+=n-1;y+=Math.floor(m/12);m=((m%12)+12)%12;return y+"-"+String(m+1).padStart(2,"0")},
+  monthsBetween(a,b){const out=[];let k=a;while(k<=b&&out.length<240){out.push(k);k=DK.addMonths(k,1)}return out},
+  due(p,month){return p.active&&month>=p.start?p.fee:0},
+  paid(st,pid,month){return st.payments.filter(x=>x.pid===pid&&x.month===month).reduce((s,x)=>s+x.amount,0)},
+  monthStatus(st,p,month){
+    const due=DK.due(p,month);if(!due)return{due:0,paid:0,remaining:0,status:"na"};
+    const paid=DK.paid(st,p.id,month),remaining=Math.max(0,due-paid);
+    return{due,paid,remaining,status:remaining===0?"paid":paid>0?"partial":"unpaid"};
+  },
+  arrears(st,p,upto){ // كل الشهور من البداية حتى الشهر المحدد
+    if(!p.active||upto<p.start)return{total:0,months:[]};
+    const months=[];let total=0;
+    for(const m of DK.monthsBetween(p.start,upto)){const r=DK.monthStatus(st,p,m).remaining;if(r>0){months.push(m);total+=r}}
+    return{total,months};
+  },
+  summary(st,month){
+    let expected=0,collected=0,paidN=0,lateN=0;
+    for(const p of st.players){const s=DK.monthStatus(st,p,month);if(s.status==="na")continue;expected+=s.due;collected+=Math.min(s.paid,s.due);if(s.status==="paid")paidN++;else lateN++}
+    return{expected,collected,outstanding:expected-collected,paidN,lateN,active:st.players.filter(p=>p.active).length};
+  },
+  attendanceRate(st,pid,month,group){
+    const ss=st.sessions.filter(s=>s.date.startsWith(month)&&(!group||s.group===group));
+    const pg=DK.playerGroup(st,pid);const mine=ss.filter(s=>s.group===""||s.group===pg);
+    if(!mine.length)return null;
+    return Math.round(100*mine.filter(s=>s.present.includes(pid)).length/mine.length);
+  },
+  groupNames(st){const a=(st.academy.groups||[]).map(g=>g.name);for(const p of st.players)if(p.group&&!a.includes(p.group))a.push(p.group);return a},
+  groupFee(st,name){const g=(st.academy.groups||[]).find(x=>x.name===name);return g&&g.fee>0?g.fee:0},
+  parseGroups(text){const out=[],errors=[],seen=new Set();String(text||"").split(/\r?\n/).forEach((line,i)=>{line=line.trim();if(!line)return;const c=line.split(/\t|,|،|;/).map(x=>x.trim());const name=c[0];let fee=0;if(c[1]){fee=DK.num(c[1]);if(!(fee>0)){errors.push((i+1)+": مصاريف غير صحيح ("+name+")");return}}if(!name){errors.push((i+1)+": اسم المجموعة فاضي");return}if(seen.has(name)){errors.push((i+1)+": مكرر ("+name+")");return}seen.add(name);out.push({name,fee})});return{groups:out,errors}},
+  groupSummary(st,month){const names=DK.groupNames(st).concat([""]);const rows=[];for(const g of names){let n=0,expected=0,collected=0,late=0;for(const p of st.players){if((p.group||"")!==g||!p.active)continue;n++;const m=DK.monthStatus(st,p,month);if(m.status==="na")continue;expected+=m.due;collected+=Math.min(m.paid,m.due);if(m.status!=="paid")late++}if(n)rows.push({group:g,n,expected,collected,outstanding:expected-collected,late})}return rows},
+  groupAttendance(st,month){const out=[];for(const g of DK.groupNames(st)){const ids=st.players.filter(p=>p.active&&p.group===g).map(p=>p.id);const ss=st.sessions.filter(x=>x.date.startsWith(month)&&(x.group===""||x.group===g));if(!ids.length||!ss.length)continue;let pres=0;for(const x of ss)pres+=x.present.filter(i=>ids.includes(i)).length;out.push({group:g,sessions:ss.length,members:ids.length,rate:Math.round(100*pres/(ss.length*ids.length))})}return out},
+  playerGroup(st,pid){const p=st.players.find(x=>x.id===pid);return p?p.group:""},
+  reminderText(st,p,month){
+    const a=DK.arrears(st,p,month),acad=st.academy.name||"السنتر";
+    const ms=a.months.map(DK.monthLabel).join("، ");
+    return "السلام عليكم ولي أمر "+p.name+"،\nتذكير ودّي من "+acad+": المتبقي من المصاريف "+a.total+" جنيه عن شهر "+ms+".\nلو تم السداد تجاهل الرسالة، وشكرًا لتعاونك."+(st.academy.pay?"\nطريقة الدفع: "+st.academy.pay:"");
+  },
+  receiptText(st,p,pay){
+    return "إيصال استلام من "+(st.academy.name||"السنتر")+"\nالطالب: "+p.name+"\nالمبلغ: "+pay.amount+" جنيه\nعن شهر: "+DK.monthLabel(pay.month)+"\nالتاريخ: "+pay.date+"\nشكرًا لكم.";
+  },
+  waLink(phone,text){const n=DK.normPhone(phone);return n?"https://wa.me/"+n+"?text="+encodeURIComponent(text):null},
+  csv(st,month){
+    const q=v=>'"'+String(v).replace(/"/g,'""')+'"';
+    const rows=[["الطالب","المجموعة","الهاتف","المصاريف","المدفوع","المتبقي","الحالة","المتأخرات حتى الشهر"]];
+    const lab={paid:"مدفوع",unpaid:"غير مدفوع",partial:"جزئي",na:"غير مشترك"};
+    for(const p of st.players){const s=DK.monthStatus(st,p,month);rows.push([p.name,p.group,p.phone,s.due,s.paid,s.remaining,lab[s.status],DK.arrears(st,p,month).total])}
+    return "\ufeff"+rows.map(r=>r.map(q).join(",")).join("\r\n");
+  },
+  validate(o){
+    if(!o||typeof o!=="object")return null;
+    const st={academy:{name:"",fee:200,pay:"",...(o.academy||{})},players:[],payments:[],sessions:[]};
+    st.academy.groups=(Array.isArray(st.academy.groups)?st.academy.groups:[]).filter(g=>g&&typeof g.name==="string"&&g.name.trim()).map(g=>({name:g.name.trim(),fee:isFinite(g.fee)&&+g.fee>0?+g.fee:0}));
+    for(const p of Array.isArray(o.players)?o.players:[]){if(p&&typeof p.id==="string"&&typeof p.name==="string"&&/^\d{4}-\d{2}$/.test(p.start)&&isFinite(p.fee))st.players.push({id:p.id,name:p.name,phone:String(p.phone||""),group:String(p.group||""),fee:+p.fee,start:p.start,active:p.active!==false})}
+    const ids=new Set(st.players.map(p=>p.id));
+    for(const x of Array.isArray(o.payments)?o.payments:[]){if(x&&ids.has(x.pid)&&isFinite(x.amount)&&x.amount>0&&/^\d{4}-\d{2}$/.test(x.month))st.payments.push({id:String(x.id||DK.uid()),pid:x.pid,month:x.month,amount:+x.amount,date:String(x.date||"")})}
+    for(const s of Array.isArray(o.sessions)?o.sessions:[]){if(s&&/^\d{4}-\d{2}-\d{2}$/.test(s.date)&&Array.isArray(s.present))st.sessions.push({id:String(s.id||DK.uid()),date:s.date,group:String(s.group||""),present:s.present.filter(i=>ids.has(i))})}
+    return st;
+  },
+  parseImport(text,defFee,defStart){
+    const rows=[],errors=[],seen=new Set();
+    String(text||"").split(/\r?\n/).forEach((line,i)=>{
+      line=line.trim();if(!line)return;
+      const c=line.split(/\t|,|،|;/).map(x=>x.trim());
+      if(i===0&&/^(الاسم|اسم|name)/i.test(c[0]))return;
+      const name=c[0],ph=c[1]||"",group=c[2]||"";
+      let fee=c[3]?DK.num(c[3]):defFee;
+      let start=c[4]?DK.toWestern(c[4]).slice(0,7):defStart;
+      if(!name){errors.push((i+1)+": الاسم فاضي");return}
+      if(ph&&!DK.normPhone(ph)){errors.push((i+1)+": رقم غير صحيح ("+name+")");return}
+      if(!(fee>0)){errors.push((i+1)+": مصاريف غير صحيح ("+name+")");return}
+      if(!/^\d{4}-\d{2}$/.test(start)||+start.slice(5)<1||+start.slice(5)>12){errors.push((i+1)+": شهر البداية لازم يبقى مثل 2026-11 ("+name+")");return}
+      const key=name+"|"+DK.normPhone(ph);if(seen.has(key)){errors.push((i+1)+": مكرر ("+name+")");return}seen.add(key);
+      rows.push({name,phone:ph,group,fee,start});
+    });
+    return{rows,errors};
+  },
+  lateListText(st,month){
+    const L=st.players.filter(p=>p.active).map(p=>({p,a:DK.arrears(st,p,month)})).filter(x=>x.a.total>0).sort((a,b)=>b.a.total-a.a.total);
+    return (st.academy.name||"السنتر")+" - المتأخرون حتى "+DK.monthLabel(month)+"\n"+L.map((x,i)=>(i+1)+". "+x.p.name+" ("+x.p.group+"): "+x.a.total+" جنيه").join("\n")+"\nالإجمالي: "+L.reduce((s,x)=>s+x.a.total,0)+" جنيه";
+  },
+  uid(){return Math.random().toString(36).slice(2,10)+Date.now().toString(36).slice(-4)},
+  today(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+};
+if(typeof window!=="undefined")window.DK=DK;
 
+/* ============ الحالة والتخزين ============ */
+const KEY="dafter-center-v1";
+let state=load();
+function load(){try{const s=DK.validate(JSON.parse(localStorage.getItem(KEY)));if(s)return s}catch(e){}return DK.validate({academy:{name:"",fee:200,pay:""}})}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){toast("تعذر الحفظ: مساحة المتصفح ممتلئة أو التخزين مقفول")}}
+let tab="home",month=DK.monthKey(),filterGroup="",attDate=DK.today(),attGroup="";
+
+/* ============ واجهة ============ */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const egp=n=>n.toLocaleString("en-US")+" ج";
+function toast(m){const t=document.createElement("div");t.className="toast";t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),2600)}
+const groups=()=>DK.groupNames(state);
+let q="";const LB="dafter-center-lastbackup";
+const daysSinceBackup=()=>{const t=+localStorage.getItem(LB);return t?Math.floor((Date.now()-t)/864e5):null};
+const lab={paid:"مدفوع",unpaid:"غير مدفوع",partial:"جزئي",na:"غير مشترك"};
+function monthBar(){return `<div class="row card noprint"><button class="btn alt sm" data-m="-1" aria-label="الشهر السابق">▶</button><b class="grow" style="text-align:center">${DK.monthLabel(month)}</b><button class="btn alt sm" data-m="1" aria-label="الشهر التالي">◀</button></div>`}
+function render(){
+  $("#title").textContent=state.academy.name||"دفتر السنتر";
+  $("#nav").innerHTML=[["home","الرئيسية"],["players","الطلاب"],["att","الحضور"],["rep","التقارير"]].map(([k,l])=>`<button data-t="${k}" class="${tab===k?"on":""}">${l}</button>`).join("");
+  const v={home,players,att,rep}[tab]();$("#app").innerHTML=v;
+}
+function home(){
+  const s=DK.summary(state,month);
+  const late=state.players.filter(p=>!filterGroup||p.group===filterGroup).map(p=>({p,a:DK.arrears(state,p,month)})).filter(x=>x.a.total>0&&x.p.active).sort((a,b)=>b.a.total-a.a.total);
+  const bd=daysSinceBackup();const bk=state.players.length&&(bd===null||bd>=7)?`<div class="card warnbox noprint"><b>خد نسخة احتياطية</b><p class="note" style="color:inherit">${bd===null?"لسه ما أخدتش نسخة احتياطية.":"آخر نسخة من "+bd+" يوم."} مسح بيانات المتصفح يمسح الدفتر. <button class="btn sm" id="bak">خد نسخة الآن</button></p></div>`:"";
+  return monthBar()+bk+`<div class="card"><div class="stats"><div class="stat"><b>${egp(s.expected)}</b><span>المطلوب</span></div><div class="stat"><b>${egp(s.collected)}</b><span>تم تحصيله</span></div><div class="stat red"><b>${egp(s.outstanding)}</b><span>متبقي هذا الشهر</span></div></div><p class="note">${s.paidN} دفعوا، ${s.lateN} لم يكملوا، من ${s.active} طالب نشط.</p></div>
+  <div class="card"><h2>المتأخرون (يشمل الشهور السابقة)</h2>${groups().length?`<select id="fg" style="margin-bottom:8px"><option value="">كل المجموعات</option>${groups().map(g=>`<option ${g===filterGroup?"selected":""}>${esc(g)}</option>`).join("")}</select>`:""}${late.length?`<button class="btn alt sm" id="copyLate" style="margin-bottom:8px">نسخ قائمة المتأخرين</button>`:""}${late.length?late.map(({p,a})=>`<div class="pl"><div><div class="n">${esc(p.name)}</div><div class="s">${esc(p.group||"بدون مجموعة")} · متأخر ${egp(a.total)} عن ${a.months.length} شهر</div></div><div class="row"><button class="btn sm" data-pay="${p.id}">دفع</button><button class="btn wa sm" data-wa="${p.id}">واتساب</button></div></div>`).join(""):`<div class="empty">${state.players.length?"لا يوجد متأخرون. ممتاز.":"ابدأ بإضافة الطلاب من تبويب الطلاب."}</div>`}</div>`;
+}
+function players(){
+  const gs=groups();
+  const qq=DK.toWestern(q).trim().toLowerCase();const list=state.players.filter(p=>(!filterGroup||p.group===filterGroup)&&(!qq||p.name.toLowerCase().includes(qq)||DK.toWestern(p.phone).includes(qq)));
+  return monthBar()+`<div class="row card noprint"><button class="btn grow" id="addP">+ إضافة طالب</button><button class="btn alt" id="impP">استيراد من Excel</button>${gs.length?`<select id="fg" style="width:auto"><option value="">كل المجموعات</option>${gs.map(g=>`<option ${g===filterGroup?"selected":""}>${esc(g)}</option>`).join("")}</select>`:""}</div>
+  ${state.players.length>6?`<input class="search noprint" id="q" type="search" placeholder="ابحث بالاسم أو الرقم" value="${esc(q)}">`:""}<div class="card">${list.length?list.map(p=>{const s=DK.monthStatus(state,p,month);return `<div class="pl"><div><div class="n">${esc(p.name)}${p.active?"":" (متوقف)"}</div><div class="s">${esc(p.group||"بدون مجموعة")} · ${egp(p.fee)} شهريًا</div></div><div class="row"><span class="pill ${s.status}">${lab[s.status]}</span><button class="btn alt sm" data-pay="${p.id}">دفع</button><button class="btn alt sm" data-edit="${p.id}">تعديل</button></div></div>`}).join(""):`<div class="empty">لا يوجد طالبون.</div>`}</div>`;
+}
+function att(){
+  const gs=groups();if(attGroup&&!gs.includes(attGroup))attGroup="";
+  const list=state.players.filter(p=>p.active&&(!attGroup||p.group===attGroup));
+  const sess=state.sessions.find(s=>s.date===attDate&&s.group===attGroup);
+  return `<div class="card"><div class="row"><div class="grow"><label>التاريخ</label><input type="date" id="ad" value="${attDate}"></div>${gs.length?`<div class="grow"><label>المجموعة</label><select id="ag"><option value="">كل الطلاب</option>${gs.map(g=>`<option ${g===attGroup?"selected":""}>${esc(g)}</option>`).join("")}</select></div>`:""}</div></div>
+  <div class="card">${list.length?list.map(p=>`<label class="att" style="color:inherit;margin:0;font-size:16px"><input type="checkbox" data-att="${p.id}" ${sess&&sess.present.includes(p.id)?"checked":""}><span class="grow">${esc(p.name)}</span><span class="note">${(()=>{const r=DK.attendanceRate(state,p.id,attDate.slice(0,7));return r==null?"":"حضور الشهر "+r+"%"})()}</span></label>`).join("")+`<p class="note">يتم الحفظ تلقائيًا عند الضغط.</p>`:`<div class="empty">أضف طلاب أولًا.</div>`}</div>`;
+}
+function rep(){
+  const rows=state.players.map(p=>({p,s:DK.monthStatus(state,p,month),a:DK.arrears(state,p,month)}));
+  const s=DK.summary(state,month);
+  return monthBar()+`<div class="card"><h2>تقرير ${DK.monthLabel(month)} ${esc(state.academy.name)}</h2><p>المطلوب ${egp(s.expected)} · المحصّل ${egp(s.collected)} · المتبقي ${egp(s.outstanding)}</p>${rows.length?`<table><tr><th>الطالب</th><th>المدفوع</th><th>المتبقي</th><th>الحالة</th></tr>${rows.map(({p,s})=>`<tr><td>${esc(p.name)}</td><td>${s.paid}</td><td>${s.remaining}</td><td>${lab[s.status]}</td></tr>`).join("")}</table>`:`<div class="empty">لا بيانات.</div>`}</div>
+  ${(()=>{const gs=DK.groupSummary(state,month);return gs.length>1||(gs.length===1&&gs[0].group)?`<div class="card"><h2>حسب المجموعة</h2><table class="gt"><tr><th>المجموعة</th><th>طلاب</th><th>المحصّل</th><th>المتبقي</th></tr>${gs.map(r=>`<tr><td>${esc(r.group||"بدون مجموعة")}</td><td>${r.n}</td><td>${r.collected}</td><td>${r.outstanding}</td></tr>`).join("")}</table></div>`:""})()}${(()=>{const ga=DK.groupAttendance(state,month);return ga.length?`<div class="card"><h2>الحضور حسب المجموعة</h2><table class="gt"><tr><th>المجموعة</th><th>حصص</th><th>طلاب</th><th>نسبة الحضور</th></tr>${ga.map(r=>`<tr><td>${esc(r.group)}</td><td>${r.sessions}</td><td>${r.members}</td><td>${r.rate}%</td></tr>`).join("")}</table></div>`:""})()}<div class="card noprint"><h2>تصدير ونسخ احتياطي</h2><div class="row"><button class="btn" id="prt">طباعة / PDF</button><button class="btn alt" id="csv">ملف Excel (CSV)</button></div><div class="row" style="margin-top:8px"><button class="btn alt" id="bak">نسخة احتياطية</button><button class="btn alt" id="rst">استرجاع نسخة</button></div><input type="file" id="file" accept="application/json,.json" hidden><p class="note">بياناتك محفوظة على هذا الجهاز فقط ولا تُرسل لأي سيرفر. خد نسخة احتياطية كل أسبوع، لأن مسح بيانات المتصفح يمسح الدفتر.</p></div>`;
+}
+/* ============ نوافذ ============ */
+function open(html){const d=$("#dlg");d.innerHTML=html;if(!d.open)d.showModal()}
+function close(){const d=$("#dlg");if(d.open)d.close()}
+function playerForm(id){
+  const p=state.players.find(x=>x.id===id)||{name:"",phone:"",group:"",fee:state.academy.fee||200,start:month,active:true};
+  open(`<h2>${id?"تعديل طالب":"طالب جديد"}</h2><form id="pf"><label>الاسم</label><input name="name" required value="${esc(p.name)}"><label>رقم ولي الأمر (واتساب)</label><input name="phone" inputmode="tel" value="${esc(p.phone)}" placeholder="01012345678"><label>المجموعة (مثال: أولى ثانوي فيزياء)</label><input name="group" list="gl" value="${esc(p.group)}"><datalist id="gl">${groups().map(g=>`<option value="${esc(g)}">`).join("")}</datalist><label>مصاريف الشهر (جنيه)</label><input name="fee" inputmode="decimal" required value="${p.fee}"><label>أول شهر</label><input type="month" name="start" required value="${p.start}"><label class="row" style="color:inherit"><input type="checkbox" name="active" style="width:22px" ${p.active?"checked":""}> نشط</label><p class="note" id="perr" style="color:var(--r)"></p><div class="row"><button class="btn grow" type="submit">حفظ</button><button class="btn alt" type="button" data-close>إلغاء</button>${id?`<button class="btn warn" type="button" data-del="${id}">حذف</button>`:""}</div></form>`);
+  if(!id){const gi=$("#pf").elements.group,fi=$("#pf").elements.fee;gi.addEventListener("input",()=>{const f=DK.groupFee(state,gi.value.trim());if(f)fi.value=f})}
+  $("#pf").onsubmit=e=>{e.preventDefault();const f=new FormData(e.target),fee=DK.num(f.get("fee")),ph=String(f.get("phone")).trim();
+    if(!(fee>0)){$("#perr").textContent="اكتب مصاريف صحيح أكبر من صفر";return}
+    if(ph&&!DK.normPhone(ph)){$("#perr").textContent="رقم الموبايل غير صحيح (مثال: 01012345678)";return}
+    const nm=String(f.get("name")).trim();if(!nm){$("#perr").textContent="اكتب الاسم";return}
+    const obj={id:id||DK.uid(),name:nm,phone:ph,group:String(f.get("group")).trim(),fee,start:f.get("start"),active:!!f.get("active")};
+    if(id)state.players=state.players.map(x=>x.id===id?obj:x);else state.players.push(obj);
+    save();close();render();toast("تم الحفظ")};
+}
+function importForm(){
+  open(`<h2>استيراد طلاب</h2><p class="note">الصق من Excel أو واتساب: سطر لكل طالب، الأعمدة بالترتيب: الاسم، الهاتف، المجموعة، المصاريف، أول شهر (مثال 2026-11). المصاريف وأول شهر اختياريين.</p><form id="if"><textarea name="t" rows="8" placeholder="يوسف أحمد, 01012345678, أولى ثانوي فيزياء, 250&#10;عمر خالد, 01112345678, ثالثة ثانوي كيمياء"></textarea><p class="note" id="ierr" style="color:var(--r);white-space:pre-line"></p><div class="row"><button class="btn grow" type="submit">استيراد</button><button class="btn alt" type="button" data-close>إلغاء</button></div></form>`);
+  $("#if").onsubmit=e=>{e.preventDefault();const r=DK.parseImport(new FormData(e.target).get("t"),state.academy.fee||200,month);
+    if(r.errors.length){$("#ierr").textContent="صحح الأسطر دي وجرب تاني (لم يتم استيراد شيء):\n"+r.errors.slice(0,8).join("\n");return}
+    if(!r.rows.length){$("#ierr").textContent="مفيش طلاب في النص";return}
+    r.rows.forEach(x=>state.players.push({id:DK.uid(),...x,active:true}));save();close();render();toast("تم استيراد "+r.rows.length+" طالب")};
+}
+function payForm(id){
+  const p=state.players.find(x=>x.id===id);if(!p)return;
+  const a=DK.arrears(state,p,month),first=a.months[0]||month,s=DK.monthStatus(state,p,first);
+  const hist=state.payments.filter(x=>x.pid===id).sort((a,b)=>b.date.localeCompare(a.date)).slice(0,5);
+  open(`<h2>دفعة: ${esc(p.name)}</h2><p class="note">المتأخر حتى ${DK.monthLabel(month)}: ${egp(a.total)}</p><form id="yf"><label>عن شهر</label><input type="month" name="month" value="${first}" required><label>المبلغ (جنيه)</label><input name="amount" inputmode="decimal" required value="${s.remaining||p.fee}"><label>التاريخ</label><input type="date" name="date" value="${DK.today()}" required><p class="note" id="yerr" style="color:var(--r)"></p><div class="row"><button class="btn grow" type="submit">تسجيل الدفعة</button><button class="btn alt" type="button" data-close>إغلاق</button></div></form>${hist.length?`<h2 style="margin-top:14px">آخر الدفعات</h2>${hist.map(x=>`<div class="pl"><span>${DK.monthLabel(x.month)} · ${egp(x.amount)} · ${x.date}</span><span class="row"><button class="btn wa sm" data-rc="${x.id}">إيصال</button><button class="btn warn sm" data-undo="${x.id}">إلغاء</button></span></div>`).join("")}`:""}`);
+  $("#yf").onsubmit=e=>{e.preventDefault();const f=new FormData(e.target),amt=DK.num(f.get("amount"));
+    if(!(amt>0)){$("#yerr").textContent="اكتب مبلغ صحيح";return}
+    const pay={id:DK.uid(),pid:id,month:f.get("month"),amount:amt,date:f.get("date")};
+    state.payments.push(pay);save();render();payForm(id);toast("تم تسجيل الدفعة")};
+}
+function openWA(phone,text){const l=DK.waLink(phone,text);if(!l){toast("رقم ولي الأمر غير مسجل أو غير صحيح");return}window.open(l,"_blank","noopener")}
+function settings(){
+  open(`<h2>إعدادات السنتر</h2><form id="sf"><label>اسم السنتر</label><input name="name" value="${esc(state.academy.name)}"><label>المصاريف الافتراضي (جنيه)</label><input name="fee" inputmode="decimal" value="${state.academy.fee}"><label>طريقة الدفع تظهر في التذكير (اختياري)</label><input name="pay" value="${esc(state.academy.pay||"")}" placeholder="مثال: انستاباي أو فودافون كاش على رقم..."><label>المجموعات ومصاريفها (سطر لكل مجموعة: الاسم, المصاريف)</label><textarea name="groups" rows="4" placeholder="أولى ثانوي فيزياء, 250&#10;ثالثة ثانوي كيمياء, 300">${esc((state.academy.groups||[]).map(g=>g.name+(g.fee?", "+g.fee:"")).join("\n"))}</textarea><p class="note">الطالب الجديد يأخذ مصاريف مجموعته تلقائيًا.</p><p class="note" id="serr" style="color:var(--r);white-space:pre-line"></p><div class="row" style="margin-top:12px"><button class="btn grow" type="submit">حفظ</button><button class="btn alt" type="button" data-close>إلغاء</button></div></form><hr style="border:0;border-top:1px solid var(--b);margin:14px 0"><div class="row"><button class="btn alt sm" id="privB">الخصوصية وبياناتك</button>${deferredInstall?`<button class="btn alt sm" id="instB">تثبيت التطبيق</button>`:""}</div><p class="note">للتثبيت على الموبايل: من قائمة المتصفح اختر "إضافة إلى الشاشة الرئيسية".</p>`);
+  $("#sf").onsubmit=e=>{e.preventDefault();const f=new FormData(e.target),fee=DK.num(f.get("fee")),gp=DK.parseGroups(f.get("groups"));if(gp.errors.length){$("#serr").textContent="صحح:\n"+gp.errors.join("\n");return}state.academy={name:String(f.get("name")).trim(),fee:fee>0?fee:200,pay:String(f.get("pay")).trim(),groups:gp.groups};save();close();render()};
+}
+function privacy(){open(`<h2>الخصوصية وبياناتك</h2><ul style="padding-inline-start:18px;line-height:1.9"><li>كل بيانات الطلاب محفوظة على جهازك فقط، ولا تُرسل لأي سيرفر ولا نجمع أي بيانات عنك.</li><li>رسائل واتساب بتفتح تطبيق واتساب عندك برسالة جاهزة، وإنت اللي بتضغط إرسال.</li><li>لو مسحت بيانات المتصفح أو غيرت الموبايل، البيانات بتضيع. خد نسخة احتياطية كل أسبوع واحفظها في مكان آمن.</li><li>ملف النسخة الاحتياطية فيه أسماء وأرقام ولي الأمر، فمتبعتوش لحد غريب.</li><li>الأرقام والأسماء حساسة، خصوصًا الأطفال. سجّل اللي محتاجه بس.</li></ul><div class="row"><button class="btn grow" data-close>تمام</button></div>`)}
+let deferredInstall=null;
+window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstall=e});
+function download(name,type,text){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
+/* ============ أحداث ============ */
+document.addEventListener("click",e=>{
+  const t=e.target.closest("button,[data-t]");if(!t)return;const d=t.dataset;
+  if(d.t){tab=d.t;render();window.scrollTo(0,0)}
+  else if(d.m){month=DK.addMonths(month,+d.m);render()}
+  else if(t.id==="addP")playerForm();
+  else if(t.id==="impP")importForm();
+  else if(t.id==="copyLate"){const tx=DK.lateListText(state,month);(navigator.clipboard?navigator.clipboard.writeText(tx):Promise.reject()).then(()=>toast("تم النسخ")).catch(()=>{window.prompt("انسخ القائمة:",tx)})}
+  else if(d.edit)playerForm(d.edit);
+  else if(d.pay)payForm(d.pay);
+  else if(d.wa){const p=state.players.find(x=>x.id===d.wa);if(p)openWA(p.phone,DK.reminderText(state,p,month))}
+  else if(d.rc){const x=state.payments.find(y=>y.id===d.rc),p=x&&state.players.find(y=>y.id===x.pid);if(p)openWA(p.phone,DK.receiptText(state,p,x))}
+  else if(d.undo){const x=state.payments.find(y=>y.id===d.undo);if(x&&confirm("إلغاء هذه الدفعة؟")){state.payments=state.payments.filter(y=>y.id!==d.undo);save();render();payForm(x.pid)}}
+  else if(d.del){if(confirm("حذف الطالب وكل دفعاته وحضوره؟ لا يمكن التراجع.")){state.players=state.players.filter(p=>p.id!==d.del);state.payments=state.payments.filter(p=>p.pid!==d.del);state.sessions.forEach(s=>s.present=s.present.filter(i=>i!==d.del));save();close();render()}}
+  else if(t.hasAttribute("data-close"))close();
+  else if(t.id==="setBtn")settings();
+  else if(t.id==="privB")privacy();
+  else if(t.id==="instB"&&deferredInstall){deferredInstall.prompt();deferredInstall=null;close()}
+  else if(t.id==="prt")window.print();
+  else if(t.id==="csv")download("تقرير-"+month+".csv","text/csv;charset=utf-8",DK.csv(state,month));
+  else if(t.id==="bak"){localStorage.setItem(LB,String(Date.now()));download("نسخة-دفتر-السنتر-"+DK.today()+".json","application/json",JSON.stringify(state));render()}
+  else if(t.id==="rst")$("#file").click();
+});
+document.addEventListener("input",e=>{if(e.target.id==="q"){q=e.target.value;const pos=e.target.selectionStart;render();const n=$("#q");if(n){n.focus();try{n.setSelectionRange(pos,pos)}catch(x){}}}});
+document.addEventListener("change",e=>{
+  const t=e.target;
+  if(t.id==="fg"){filterGroup=t.value;render()}
+  else if(t.id==="ad"){if(t.value){attDate=t.value;render()}}
+  else if(t.id==="ag"){attGroup=t.value;render()}
+  else if(t.dataset&&t.dataset.att){
+    let s=state.sessions.find(x=>x.date===attDate&&x.group===attGroup);
+    if(!s){s={id:DK.uid(),date:attDate,group:attGroup,present:[]};state.sessions.push(s)}
+    s.present=s.present.filter(i=>i!==t.dataset.att);if(t.checked)s.present.push(t.dataset.att);
+    save();
+  }else if(t.id==="file"&&t.files[0]){
+    const r=new FileReader();r.onload=()=>{try{const s=DK.validate(JSON.parse(r.result));if(!s||!Array.isArray(JSON.parse(r.result).players))throw 0;if(confirm("سيتم استبدال البيانات الحالية بالنسخة ("+s.players.length+" طالب). متابعة؟")){state=s;save();render();toast("تم الاسترجاع")}}catch(x){toast("الملف غير صالح")}};r.readAsText(t.files[0]);t.value="";
+  }
+});
+render();
+try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}catch(e){}
+if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol))window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+</script>
+</body>
+</html>
