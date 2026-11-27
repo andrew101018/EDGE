@@ -10,7 +10,7 @@ browser reads from our own domain.
 
 Terms applied (thesportsdb.com/docs_terms_of_use.php, checked 2026-11-26):
   - official API endpoints only, never scrape HTML pages
-  - free tier: 30 requests/minute -> calls paced at ~3.5s (17/min, well under)
+  - free tier: 30 requests/minute -> calls paced at ~5s (12/min; the shared free key 429s well below 30/min)
   - free tier has no livescore -> only upcoming fixtures and FINISHED results
   - artwork: a player photo is stored only when strCreativeCommons == "Yes",
     together with its attribution string; team badges are not stored at all
@@ -39,8 +39,8 @@ SECTIONS = os.path.join(ROOT, "app-sections.js")
 
 KEY = (os.environ.get("TSDB_KEY") or "123").strip()
 BASE = "https://www.thesportsdb.com/api/v1/json/%s/" % KEY
-BUDGET = int(os.environ.get("TSDB_BUDGET", "200"))
-PACE = float(os.environ.get("TSDB_PACE", "3.5"))
+BUDGET = int(os.environ.get("TSDB_BUDGET", "300"))
+PACE = float(os.environ.get("TSDB_PACE", "5.0"))
 
 FIXTURE_MAX_AGE = timedelta(hours=12)
 SQUAD_MAX_AGE = timedelta(days=7)
@@ -61,6 +61,9 @@ SQUAD_TEAMS = {
     "Spain", "Portugal", "France", "England", "Germany", "Italy", "Brazil",
     "Argentina", "Mexico", "United States",
 }
+
+# TheSportsDB returns backroom staff in player lists; they are not squad members.
+STAFF = {"manager", "coach", "assistant manager", "goalkeeping coach", "fitness coach", "physiotherapist", "doctor", "scout", "director"}
 
 POSITION_ORDER = {
     "Goalkeeper": 0, "Defender": 1, "Midfielder": 2,
@@ -190,7 +193,7 @@ def refresh_squad(entry):
     rows = []
     for p in ps:
         name = (p.get("strPlayer") or "").strip()
-        if not name:
+        if not name or (p.get("strPosition") or "").strip().lower() in STAFF:
             continue
         cc = (p.get("strCreativeCommons") or "").strip().lower()
         img, credit = "", ""
