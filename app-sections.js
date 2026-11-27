@@ -541,6 +541,46 @@ function e2aMap() {
   return m;
 }
 
+/* ===== TheSportsDB cache (built server-side by scripts/build_tsdb_cache.py) =====
+   Visitors never call thesportsdb.com: the free tier is 30 requests/minute per
+   key and has no livescore, so the site reads a static cache built on a schedule.
+   Player photos are shown only when the API marks them CC ("Yes"), with credit. */
+let __TSDB_CACHE = null;
+async function tsdbCache() {
+  if (__TSDB_CACHE) return __TSDB_CACHE;
+  try {
+    const r = await fetch('site/tsdb-cache.json?t=' + Date.now(), { cache: 'no-store' });
+    __TSDB_CACHE = await r.json();
+  } catch (e) {
+    __TSDB_CACHE = { teams: {} };
+  }
+  return __TSDB_CACHE;
+}
+function tsdbTeam(cache, name) {
+  if (!cache || !cache.teams || !name) return null;
+  if (cache.teams[name]) return cache.teams[name];
+  const want = String(name).toLowerCase();
+  for (const k in cache.teams) if (k.toLowerCase() === want) return cache.teams[k];
+  return null;
+}
+function tsdbImg(src, credit) {
+  if (!src) return '';
+  const t = credit ? ' title="' + String(credit).replace(/"/g, '&quot;') + '"' : '';
+  return `<img loading="lazy" class="p-face" style="width:24px;height:24px;vertical-align:middle;margin-left:5px;" src="${src}"${t} onerror="this.style.display='none'">`;
+}
+function tsdbCredit(squad) {
+  const n = (squad || []).filter(p => p.credit).length;
+  if (!n) return '';
+  return '<div style="opacity:.6;font-size:.72em;margin-top:8px;">صور اللاعبين بترخيص CC من ويكيميديا (عبر TheSportsDB)</div>';
+}
+function tsdbDate(d, t) {
+  try {
+    const dt = new Date(d + 'T12:00:00');
+    const s = dt.toLocaleDateString('ar-EG', { day: 'numeric', month: 'long' });
+    return t ? s + ' · ' + t : s;
+  } catch (e) { return d || ''; }
+}
+
 async function showTeam(slug, teamId, teamName) {
   const box = document.getElementById('teamModal');
   if (!box) return;
@@ -580,24 +620,18 @@ async function showTeam(slug, teamId, teamName) {
     return;
   }
   try {
-    const teams = ((await get('https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=' + encodeURIComponent(q))).teams || []).filter(t => (t.strGender || 'Male') !== 'Female');
-    const team = teams.find(t => (t.strTeam || '').toLowerCase() === q.toLowerCase()) || teams[0];
-    if (team) {
-      let players = ((await get('https://www.thesportsdb.com/api/v1/json/3/lookup_all_players.php?id=' + team.idTeam)).player || []).filter(p => p.strPlayer);
-      if (!players.length) players = ((await get('https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?t=' + encodeURIComponent(team.strTeam))).player || []).filter(p => p.strPlayer);
-      if (players.length) {
-        players.sort((a, b) => (order[a.strPosition] ?? 5) - (order[b.strPosition] ?? 5));
-        let gp = 0;
-        Object.values(DATA.tables || {}).forEach(rows => (rows || []).forEach(r => {
-          if (r && typeof r === 'object' && (r.team === arName || r.team === teamName)) { const g = Number(r.gp) || 0; if (g > gp) gp = g; }
-        }));
-        document.getElementById('teamModalBody').innerHTML = `<div style="text-align:center;margin-bottom:12px;">${team.strBadge ? `<img loading="lazy" src="${team.strBadge}" style="width:64px;height:64px;object-fit:contain;">` : ''}<div style="font-weight:bold;font-size:1.25em;">${team.strTeam}</div><div style="opacity:.7;">${team.strLeague || ''}</div></div><div style="overflow-x:auto;"><table class="stand">${headRow}` +
-          players.map(p => {
-            const s = statsOf(p.strPlayer);
-            return `<tr><td style="text-align:right;">${p.strCutout || p.strThumb ? `<img loading="lazy" class="p-face" style="width:24px;height:24px;vertical-align:middle;margin-left:5px;" src="${p.strCutout || p.strThumb}" onerror="this.style.display='none'">` : '👤'} ${p.strPlayer}</td><td>${ageFrom(p.dateBorn)}</td><td>${p.strNationality || '-'}</td><td>${p.strPosition || '-'}</td><td>${gp || '-'}</td><td class="pts">${s ? s[0] : '-'}</td><td>${s ? s[1] : '-'}</td><td style="color:#fbbf24;font-weight:bold;">${s ? s[2] : '-'}</td></tr>`;
-          }).join('') + `</table></div>`;
-        return;
-      }
+    const team = tsdbTeam(await tsdbCache(), q) || tsdbTeam(await tsdbCache(), teamName);
+    if (team && (team.squad || []).length) {
+      let gp = 0;
+      Object.values(DATA.tables || {}).forEach(rows => (rows || []).forEach(r => {
+        if (r && typeof r === 'object' && (r.team === arName || r.team === teamName)) { const g = Number(r.gp) || 0; if (g > gp) gp = g; }
+      }));
+      const rows = team.squad.map(p => {
+        const s = statsOf(p.n);
+        return `<tr><td style="text-align:right;">${tsdbImg(p.img, p.credit) || '👤'} ${p.n}</td><td>${ageFrom(p.born)}</td><td>${p.nat || '-'}</td><td>${p.pos || '-'}</td><td>${gp || '-'}</td><td class="pts">${s ? s[0] : '-'}</td><td>${s ? s[1] : '-'}</td><td style="color:#fbbf24;font-weight:bold;">${s ? s[2] : '-'}</td></tr>`;
+      }).join('');
+      document.getElementById('teamModalBody').innerHTML = `<div style="text-align:center;margin-bottom:12px;"><div style="font-size:2.6em;">⚽</div><div style="font-weight:bold;font-size:1.25em;">${teamName}</div><div style="opacity:.7;">${team.name || ''}</div></div><div style="overflow-x:auto;"><table class="stand">${headRow}${rows}</table></div>${tsdbCredit(team.squad)}`;
+      return;
     }
   } catch (e) {}
   const stars = pool.filter(p => p.team === arName || p.team === teamName);
