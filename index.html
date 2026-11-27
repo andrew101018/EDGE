@@ -64,6 +64,35 @@
   ]
 }
 </script>
+<style id="edge-nav-css">
+/* ===== شريط تنقل مختصر (نوفمبر ٢٧) — ٧ عناصر رئيسية + قوائم منسدلة ===== */
+.top-nav { align-items: center; gap: 6px; }
+.nav-dd { position: relative; flex: 0 0 auto; }
+.nav-dd-toggle { display: inline-flex; align-items: center; gap: 6px; background: #16213a; border: 1px solid #24344f; color: #94a3b8; border-radius: 20px; padding: 8px 16px; cursor: pointer; font-weight: bold; font-size: 0.9em; font-family: inherit; white-space: nowrap; touch-action: manipulation; transition: background .15s, color .15s, border-color .15s, transform .15s; }
+.nav-dd-toggle:hover { color: #fff; border-color: #f59e0b; transform: translateY(-1px); }
+.nav-dd.open .nav-dd-toggle, .nav-dd.has-active .nav-dd-toggle { background: #dc2626; border-color: #dc2626; color: #fff; }
+.nav-caret { font-size: .75em; opacity: .85; }
+.nav-dd-menu { position: absolute; top: calc(100% + 8px); right: 0; min-width: 215px; background: #0f172a; border: 1px solid #24344f; border-radius: 14px; padding: 8px; display: none; flex-direction: column; gap: 4px; box-shadow: 0 18px 40px rgba(0,0,0,.45); z-index: 95; }
+.nav-dd.open .nav-dd-menu { display: flex; }
+.nav-dd-item { display: block; width: 100%; text-align: right; background: transparent; border: 0; color: #cbd5e1; padding: 10px 12px; border-radius: 10px; cursor: pointer; font-weight: bold; font-size: 0.92em; font-family: inherit; white-space: nowrap; }
+.nav-dd-item:hover { background: #16213a; color: #fff; }
+.nav-dd-item.active { background: #dc2626; color: #fff; }
+.nav-btn.nav-shop { background: linear-gradient(135deg, #ff8a1f, #ffb454); border-color: #ff8a1f; color: #111; }
+.nav-btn.nav-shop:hover { color: #111; border-color: #ffb454; }
+[data-theme="light"] .nav-dd-toggle { background: #fff; color: #334155; border-color: #cbd5e1; }
+[data-theme="light"] .nav-dd-menu { background: #f8fafc; border-color: #cbd5e1; }
+[data-theme="light"] .nav-dd-item { color: #334155; }
+[data-theme="light"] .nav-dd-item:hover { background: #e2e8f0; color: #0f172a; }
+@media (max-width: 768px) {
+  .nav-dd { width: 100%; }
+  .nav-dd-toggle { width: 100%; min-height: 48px; font-size: 1em; padding: 12px 16px; border-radius: 12px; justify-content: center; }
+  .nav-dd-menu { position: static; display: none; margin-top: 6px; min-width: 0; background: #0b1220; box-shadow: none; padding: 6px; }
+  .nav-dd.open .nav-dd-menu { display: flex; }
+  .nav-dd-item { min-height: 44px; font-size: 0.98em; }
+  .nav-btn.nav-shop { width: 100%; min-height: 48px; font-size: 1em; }
+  [data-theme="light"] .nav-dd-menu { background: #eef2f7; }
+}
+</style>
 </head>
 <body>
 <header>
@@ -95,41 +124,54 @@
 
 <nav class="top-nav">
   <button class="nav-btn active" onclick="go('home', this)">🏠 الرئيسية</button>
-
-  <span class="nav-sep"></span>
-  <span class="nav-group-title">المباريات والدوريات</span>
-  <button class="nav-btn" onclick="goMulti(['matches','tv'], this)">⚽ المباريات</button>
-  <button class="nav-btn" onclick="window.location.href='round.html'">📅 الجولة</button>
-  <button class="nav-btn" onclick="go('tables', this)">🏆 الترتيب</button>
-  <button class="nav-btn" onclick="goMulti(['leaders','players'], this)">👑 الهدافين</button>
-  <button class="nav-btn" onclick="go('stats', this)">📊 إحصائيات</button>
-
-  <span class="nav-sep"></span>
-  <span class="nav-group-title">الأخبار</span>
-  <button class="nav-btn" onclick="go('world', this)">📰 عالمية</button>
-  <button class="nav-btn" onclick="go('transfers', this)">💸 الانتقالات</button>
-  <button class="nav-btn" onclick="go('archive', this)">📚 الأرشيف</button>
-  <button class="nav-btn" onclick="go('articles', this)">📖 مقالات</button>
-
-  <span class="nav-sep"></span>
-  <span class="nav-group-title">الألعاب</span>
-  <button class="nav-btn" onclick="go('predict', this)">🎯 التوقعات</button>
-  <button class="nav-btn" onclick="go('fantasy', this)">🧩 الفانتازي</button>
-  <button class="nav-btn" onclick="go('board', this)">🏅 الصدارة</button>
-  <button class="nav-btn" onclick="go('badges', this)">🎖️ الإنجازات</button>
-
-  <span class="nav-sep"></span>
-  <span class="nav-group-title">المراجع</span>
-  <button class="nav-btn" onclick="go('nationals', this)">🌍 المنتخبات</button>
-  <button class="nav-btn" onclick="go('champions', this)">🥇 سجل الأبطال</button>
-  <button class="nav-btn" onclick="go('compare', this)">⚖️ مقارنة</button>
-
-  <span class="nav-sep"></span>
-  <span class="nav-group-title">إضافات</span>
-  <button class="nav-btn" onclick="location.href='egypt.html'">🇪🇬 مصر</button>
-  <button class="nav-btn" onclick="location.href='videos/'">🎬 فيديوهات</button>
-  <button class="nav-btn" onclick="location.href='fpl/'">🔮 فانتازي</button>
-  <button class="nav-btn" onclick="go('shop', this)">🛒 المتجر</button>
+  <div class="nav-dd">
+    <button class="nav-dd-toggle" type="button" onclick="edgeNavToggle(this)" aria-expanded="false">⚽ المباريات <span class="nav-caret">▾</span></button>
+    <div class="nav-dd-menu">
+      <button class="nav-dd-item" onclick="goMulti(['matches','tv'], this)">⚽ المباريات والجدول</button>
+      <button class="nav-dd-item" onclick="location.href='round.html'">📅 الجولة</button>
+      <button class="nav-dd-item" onclick="go('tables', this)">🏆 الترتيب</button>
+      <button class="nav-dd-item" onclick="goMulti(['leaders','players'], this)">👑 الهدافين</button>
+      <button class="nav-dd-item" onclick="go('stats', this)">📊 إحصائيات</button>
+    </div>
+  </div>
+  <div class="nav-dd">
+    <button class="nav-dd-toggle" type="button" onclick="edgeNavToggle(this)" aria-expanded="false">📰 الأخبار <span class="nav-caret">▾</span></button>
+    <div class="nav-dd-menu">
+      <button class="nav-dd-item" onclick="go('world', this)">📰 الصحافة العالمية</button>
+      <button class="nav-dd-item" onclick="go('transfers', this)">💸 الانتقالات</button>
+      <button class="nav-dd-item" onclick="go('articles', this)">📖 مقالات</button>
+      <button class="nav-dd-item" onclick="go('archive', this)">📚 الأرشيف</button>
+    </div>
+  </div>
+  <div class="nav-dd">
+    <button class="nav-dd-toggle" type="button" onclick="edgeNavToggle(this)" aria-expanded="false">🎮 الألعاب <span class="nav-caret">▾</span></button>
+    <div class="nav-dd-menu">
+      <button class="nav-dd-item" onclick="go('predict', this)">🎯 التوقعات</button>
+      <button class="nav-dd-item" onclick="go('fantasy', this)">🧩 الفانتازي</button>
+      <button class="nav-dd-item" onclick="location.href='fpl/'">🔮 فانتازي FPL</button>
+      <button class="nav-dd-item" onclick="go('board', this)">🏅 الصدارة</button>
+      <button class="nav-dd-item" onclick="go('badges', this)">🎖️ الإنجازات</button>
+    </div>
+  </div>
+  <div class="nav-dd">
+    <button class="nav-dd-toggle" type="button" onclick="edgeNavToggle(this)" aria-expanded="false">🌍 المنتخبات <span class="nav-caret">▾</span></button>
+    <div class="nav-dd-menu">
+      <button class="nav-dd-item" onclick="go('nationals', this)">🌍 المنتخبات</button>
+      <button class="nav-dd-item" onclick="go('champions', this)">🥇 سجل الأبطال</button>
+      <button class="nav-dd-item" onclick="go('compare', this)">⚖️ مقارنة</button>
+      <button class="nav-dd-item" onclick="location.href='egypt.html'">🇪🇬 مصر</button>
+    </div>
+  </div>
+  <button class="nav-btn nav-shop" onclick="location.href='store/'">🛒 المتجر</button>
+  <div class="nav-dd">
+    <button class="nav-dd-toggle" type="button" onclick="edgeNavToggle(this)" aria-expanded="false">⋯ المزيد <span class="nav-caret">▾</span></button>
+    <div class="nav-dd-menu">
+      <button class="nav-dd-item" onclick="location.href='videos/'">🎬 فيديوهات</button>
+      <button class="nav-dd-item" onclick="go('shop', this)">🛍️ منتجات مختارة</button>
+      <button class="nav-dd-item" onclick="location.href='links.html'">🧵 روابط إيدج</button>
+      <button class="nav-dd-item" onclick="location.href='learn.html'">🎓 تعلّم الإحصائيات</button>
+    </div>
+  </div>
   <button id="installBtn" class="nav-btn install-btn" onclick="installApp()">📲 ثبّت التطبيق</button>
 </nav>
 
@@ -476,6 +518,27 @@ document.addEventListener('click', function (e) {
 });
 </script>
 <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');</script>
+<script>
+/* شريط التنقل المختصر: فتح/غلق القوائم المنسدلة */
+function edgeNavCloseAll(){ document.querySelectorAll('.nav-dd.open').forEach(function(d){ d.classList.remove('open'); var b=d.querySelector('.nav-dd-toggle'); if(b) b.setAttribute('aria-expanded','false'); }); }
+function edgeNavToggle(btn){
+  var dd = btn.parentElement;
+  var wasOpen = dd.classList.contains('open');
+  edgeNavCloseAll();
+  if(!wasOpen){ dd.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+}
+document.addEventListener('click', function(e){
+  if(!e.target.closest || !e.target.closest('.nav-dd')){ edgeNavCloseAll(); }
+  var item = e.target.closest && e.target.closest('.nav-dd-item');
+  if(item){
+    var dd = item.closest('.nav-dd');
+    document.querySelectorAll('.nav-dd').forEach(function(d){ d.classList.toggle('has-active', d === dd); });
+    edgeNavCloseAll();
+    document.body.classList.remove('menu-open');
+  }
+});
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ edgeNavCloseAll(); } });
+</script>
 </body>
 </html>
 
