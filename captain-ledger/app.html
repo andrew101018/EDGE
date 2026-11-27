@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0b5d3b">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="دفتر الكابتن">
 <title>دفتر الكابتن | حسابات وحضور الأكاديمية</title>
 <style>
 :root{--g:#0b5d3b;--g2:#e7f4ec;--y:#f2b705;--r:#c0392b;--t:#14201a;--m:#5d6b63;--b:#d9e2dc;--bg:#f6f8f6}
@@ -18,7 +23,7 @@ main{max-width:720px;margin:0 auto;padding:14px}
 .grow{flex:1}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .stat{background:var(--g2);border-radius:12px;padding:10px;text-align:center}
-.stat b{display:block;font-size:19px}
+.stat b{display:block;font-size:16px;white-space:nowrap}
 .stat span{font-size:12px;color:var(--m)}
 .stat.red{background:#fdeceb}.stat.red b{color:var(--r)}
 button,select,input,textarea{font:inherit}
@@ -52,6 +57,7 @@ td:first-child,th:first-child{width:40%;overflow-wrap:anywhere}
 .att{flex-wrap:wrap}.att .grow{min-width:0;flex:1 1 120px;overflow-wrap:anywhere}
 th,td{padding:6px 4px;border-bottom:1px solid var(--b);text-align:right}
 .note{font-size:12px;color:var(--m)}
+.search{margin-bottom:8px}.gt td,.gt th{font-size:13px}.warnbox{background:#fff3cd;border:1px solid #f2d27a;color:#6b4e00}.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--y);outline-offset:1px}.btn,nav button{min-height:44px}.sm{min-height:36px}
 @media print{header,nav,.noprint{display:none!important}body{background:#fff;padding:0}.card{border:0}}
 </style>
 </head>
@@ -100,6 +106,10 @@ const DK={
     if(!mine.length)return null;
     return Math.round(100*mine.filter(s=>s.present.includes(pid)).length/mine.length);
   },
+  groupNames(st){const a=(st.academy.groups||[]).map(g=>g.name);for(const p of st.players)if(p.group&&!a.includes(p.group))a.push(p.group);return a},
+  groupFee(st,name){const g=(st.academy.groups||[]).find(x=>x.name===name);return g&&g.fee>0?g.fee:0},
+  parseGroups(text){const out=[],errors=[],seen=new Set();String(text||"").split(/\r?\n/).forEach((line,i)=>{line=line.trim();if(!line)return;const c=line.split(/\t|,|،|;/).map(x=>x.trim());const name=c[0];let fee=0;if(c[1]){fee=DK.num(c[1]);if(!(fee>0)){errors.push((i+1)+": اشتراك غير صحيح ("+name+")");return}}if(!name){errors.push((i+1)+": اسم المجموعة فاضي");return}if(seen.has(name)){errors.push((i+1)+": مكرر ("+name+")");return}seen.add(name);out.push({name,fee})});return{groups:out,errors}},
+  groupSummary(st,month){const names=DK.groupNames(st).concat([""]);const rows=[];for(const g of names){let n=0,expected=0,collected=0,late=0;for(const p of st.players){if((p.group||"")!==g||!p.active)continue;n++;const m=DK.monthStatus(st,p,month);if(m.status==="na")continue;expected+=m.due;collected+=Math.min(m.paid,m.due);if(m.status!=="paid")late++}if(n)rows.push({group:g,n,expected,collected,outstanding:expected-collected,late})}return rows},
   playerGroup(st,pid){const p=st.players.find(x=>x.id===pid);return p?p.group:""},
   reminderText(st,p,month){
     const a=DK.arrears(st,p,month),acad=st.academy.name||"الأكاديمية";
@@ -120,6 +130,7 @@ const DK={
   validate(o){
     if(!o||typeof o!=="object")return null;
     const st={academy:{name:"",fee:200,pay:"",...(o.academy||{})},players:[],payments:[],sessions:[]};
+    st.academy.groups=(Array.isArray(st.academy.groups)?st.academy.groups:[]).filter(g=>g&&typeof g.name==="string"&&g.name.trim()).map(g=>({name:g.name.trim(),fee:isFinite(g.fee)&&+g.fee>0?+g.fee:0}));
     for(const p of Array.isArray(o.players)?o.players:[]){if(p&&typeof p.id==="string"&&typeof p.name==="string"&&/^\d{4}-\d{2}$/.test(p.start)&&isFinite(p.fee))st.players.push({id:p.id,name:p.name,phone:String(p.phone||""),group:String(p.group||""),fee:+p.fee,start:p.start,active:p.active!==false})}
     const ids=new Set(st.players.map(p=>p.id));
     for(const x of Array.isArray(o.payments)?o.payments:[]){if(x&&ids.has(x.pid)&&isFinite(x.amount)&&x.amount>0&&/^\d{4}-\d{2}$/.test(x.month))st.payments.push({id:String(x.id||DK.uid()),pid:x.pid,month:x.month,amount:+x.amount,date:String(x.date||"")})}
@@ -165,7 +176,9 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const egp=n=>n.toLocaleString("en-US")+" ج";
 function toast(m){const t=document.createElement("div");t.className="toast";t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),2600)}
-const groups=()=>[...new Set(state.players.map(p=>p.group).filter(Boolean))];
+const groups=()=>DK.groupNames(state);
+let q="";const LB="dafter-alcaptain-lastbackup";
+const daysSinceBackup=()=>{const t=+localStorage.getItem(LB);return t?Math.floor((Date.now()-t)/864e5):null};
 const lab={paid:"مدفوع",unpaid:"غير مدفوع",partial:"جزئي",na:"غير مشترك"};
 function monthBar(){return `<div class="row card noprint"><button class="btn alt sm" data-m="-1" aria-label="الشهر السابق">▶</button><b class="grow" style="text-align:center">${DK.monthLabel(month)}</b><button class="btn alt sm" data-m="1" aria-label="الشهر التالي">◀</button></div>`}
 function render(){
@@ -175,15 +188,16 @@ function render(){
 }
 function home(){
   const s=DK.summary(state,month);
-  const late=state.players.map(p=>({p,a:DK.arrears(state,p,month)})).filter(x=>x.a.total>0&&x.p.active).sort((a,b)=>b.a.total-a.a.total);
-  return monthBar()+`<div class="card"><div class="stats"><div class="stat"><b>${egp(s.expected)}</b><span>المطلوب</span></div><div class="stat"><b>${egp(s.collected)}</b><span>تم تحصيله</span></div><div class="stat red"><b>${egp(s.outstanding)}</b><span>متبقي هذا الشهر</span></div></div><p class="note">${s.paidN} دفعوا، ${s.lateN} لم يكملوا، من ${s.active} لاعب نشط.</p></div>
-  <div class="card"><h2>المتأخرون (يشمل الشهور السابقة)</h2>${late.length?`<button class="btn alt sm" id="copyLate" style="margin-bottom:8px">نسخ قائمة المتأخرين</button>`:""}${late.length?late.map(({p,a})=>`<div class="pl"><div><div class="n">${esc(p.name)}</div><div class="s">${esc(p.group||"بدون مجموعة")} · متأخر ${egp(a.total)} عن ${a.months.length} شهر</div></div><div class="row"><button class="btn sm" data-pay="${p.id}">دفع</button><button class="btn wa sm" data-wa="${p.id}">واتساب</button></div></div>`).join(""):`<div class="empty">${state.players.length?"لا يوجد متأخرون. ممتاز.":"ابدأ بإضافة اللاعبين من تبويب اللاعبين."}</div>`}</div>`;
+  const late=state.players.filter(p=>!filterGroup||p.group===filterGroup).map(p=>({p,a:DK.arrears(state,p,month)})).filter(x=>x.a.total>0&&x.p.active).sort((a,b)=>b.a.total-a.a.total);
+  const bd=daysSinceBackup();const bk=state.players.length&&(bd===null||bd>=7)?`<div class="card warnbox noprint"><b>خد نسخة احتياطية</b><p class="note" style="color:inherit">${bd===null?"لسه ما أخدتش نسخة احتياطية.":"آخر نسخة من "+bd+" يوم."} مسح بيانات المتصفح يمسح الدفتر. <button class="btn sm" id="bak">خد نسخة الآن</button></p></div>`:"";
+  return monthBar()+bk+`<div class="card"><div class="stats"><div class="stat"><b>${egp(s.expected)}</b><span>المطلوب</span></div><div class="stat"><b>${egp(s.collected)}</b><span>تم تحصيله</span></div><div class="stat red"><b>${egp(s.outstanding)}</b><span>متبقي هذا الشهر</span></div></div><p class="note">${s.paidN} دفعوا، ${s.lateN} لم يكملوا، من ${s.active} لاعب نشط.</p></div>
+  <div class="card"><h2>المتأخرون (يشمل الشهور السابقة)</h2>${groups().length?`<select id="fg" style="margin-bottom:8px"><option value="">كل المجموعات</option>${groups().map(g=>`<option ${g===filterGroup?"selected":""}>${esc(g)}</option>`).join("")}</select>`:""}${late.length?`<button class="btn alt sm" id="copyLate" style="margin-bottom:8px">نسخ قائمة المتأخرين</button>`:""}${late.length?late.map(({p,a})=>`<div class="pl"><div><div class="n">${esc(p.name)}</div><div class="s">${esc(p.group||"بدون مجموعة")} · متأخر ${egp(a.total)} عن ${a.months.length} شهر</div></div><div class="row"><button class="btn sm" data-pay="${p.id}">دفع</button><button class="btn wa sm" data-wa="${p.id}">واتساب</button></div></div>`).join(""):`<div class="empty">${state.players.length?"لا يوجد متأخرون. ممتاز.":"ابدأ بإضافة اللاعبين من تبويب اللاعبين."}</div>`}</div>`;
 }
 function players(){
   const gs=groups();
-  const list=state.players.filter(p=>!filterGroup||p.group===filterGroup);
+  const qq=DK.toWestern(q).trim().toLowerCase();const list=state.players.filter(p=>(!filterGroup||p.group===filterGroup)&&(!qq||p.name.toLowerCase().includes(qq)||DK.toWestern(p.phone).includes(qq)));
   return monthBar()+`<div class="row card noprint"><button class="btn grow" id="addP">+ إضافة لاعب</button><button class="btn alt" id="impP">استيراد من Excel</button>${gs.length?`<select id="fg" style="width:auto"><option value="">كل المجموعات</option>${gs.map(g=>`<option ${g===filterGroup?"selected":""}>${esc(g)}</option>`).join("")}</select>`:""}</div>
-  <div class="card">${list.length?list.map(p=>{const s=DK.monthStatus(state,p,month);return `<div class="pl"><div><div class="n">${esc(p.name)}${p.active?"":" (متوقف)"}</div><div class="s">${esc(p.group||"بدون مجموعة")} · ${egp(p.fee)} شهريًا</div></div><div class="row"><span class="pill ${s.status}">${lab[s.status]}</span><button class="btn alt sm" data-pay="${p.id}">دفع</button><button class="btn alt sm" data-edit="${p.id}">تعديل</button></div></div>`}).join(""):`<div class="empty">لا يوجد لاعبون.</div>`}</div>`;
+  ${state.players.length>6?`<input class="search noprint" id="q" type="search" placeholder="ابحث بالاسم أو الرقم" value="${esc(q)}">`:""}<div class="card">${list.length?list.map(p=>{const s=DK.monthStatus(state,p,month);return `<div class="pl"><div><div class="n">${esc(p.name)}${p.active?"":" (متوقف)"}</div><div class="s">${esc(p.group||"بدون مجموعة")} · ${egp(p.fee)} شهريًا</div></div><div class="row"><span class="pill ${s.status}">${lab[s.status]}</span><button class="btn alt sm" data-pay="${p.id}">دفع</button><button class="btn alt sm" data-edit="${p.id}">تعديل</button></div></div>`}).join(""):`<div class="empty">لا يوجد لاعبون.</div>`}</div>`;
 }
 function att(){
   const gs=groups();if(attGroup&&!gs.includes(attGroup))attGroup="";
@@ -196,7 +210,7 @@ function rep(){
   const rows=state.players.map(p=>({p,s:DK.monthStatus(state,p,month),a:DK.arrears(state,p,month)}));
   const s=DK.summary(state,month);
   return monthBar()+`<div class="card"><h2>تقرير ${DK.monthLabel(month)} ${esc(state.academy.name)}</h2><p>المطلوب ${egp(s.expected)} · المحصّل ${egp(s.collected)} · المتبقي ${egp(s.outstanding)}</p>${rows.length?`<table><tr><th>اللاعب</th><th>المدفوع</th><th>المتبقي</th><th>الحالة</th></tr>${rows.map(({p,s})=>`<tr><td>${esc(p.name)}</td><td>${s.paid}</td><td>${s.remaining}</td><td>${lab[s.status]}</td></tr>`).join("")}</table>`:`<div class="empty">لا بيانات.</div>`}</div>
-  <div class="card noprint"><h2>تصدير ونسخ احتياطي</h2><div class="row"><button class="btn" id="prt">طباعة / PDF</button><button class="btn alt" id="csv">ملف Excel (CSV)</button></div><div class="row" style="margin-top:8px"><button class="btn alt" id="bak">نسخة احتياطية</button><button class="btn alt" id="rst">استرجاع نسخة</button></div><input type="file" id="file" accept="application/json,.json" hidden><p class="note">بياناتك محفوظة على هذا الجهاز فقط ولا تُرسل لأي سيرفر. خد نسخة احتياطية كل أسبوع، لأن مسح بيانات المتصفح يمسح الدفتر.</p></div>`;
+  ${(()=>{const gs=DK.groupSummary(state,month);return gs.length>1||(gs.length===1&&gs[0].group)?`<div class="card"><h2>حسب المجموعة</h2><table class="gt"><tr><th>المجموعة</th><th>لاعبين</th><th>المحصّل</th><th>المتبقي</th></tr>${gs.map(r=>`<tr><td>${esc(r.group||"بدون مجموعة")}</td><td>${r.n}</td><td>${r.collected}</td><td>${r.outstanding}</td></tr>`).join("")}</table></div>`:""})()}<div class="card noprint"><h2>تصدير ونسخ احتياطي</h2><div class="row"><button class="btn" id="prt">طباعة / PDF</button><button class="btn alt" id="csv">ملف Excel (CSV)</button></div><div class="row" style="margin-top:8px"><button class="btn alt" id="bak">نسخة احتياطية</button><button class="btn alt" id="rst">استرجاع نسخة</button></div><input type="file" id="file" accept="application/json,.json" hidden><p class="note">بياناتك محفوظة على هذا الجهاز فقط ولا تُرسل لأي سيرفر. خد نسخة احتياطية كل أسبوع، لأن مسح بيانات المتصفح يمسح الدفتر.</p></div>`;
 }
 /* ============ نوافذ ============ */
 function open(html){const d=$("#dlg");d.innerHTML=html;if(!d.open)d.showModal()}
@@ -204,6 +218,7 @@ function close(){const d=$("#dlg");if(d.open)d.close()}
 function playerForm(id){
   const p=state.players.find(x=>x.id===id)||{name:"",phone:"",group:"",fee:state.academy.fee||200,start:month,active:true};
   open(`<h2>${id?"تعديل لاعب":"لاعب جديد"}</h2><form id="pf"><label>الاسم</label><input name="name" required value="${esc(p.name)}"><label>رقم ولي الأمر (واتساب)</label><input name="phone" inputmode="tel" value="${esc(p.phone)}" placeholder="01012345678"><label>المجموعة (مثال: تحت 10)</label><input name="group" list="gl" value="${esc(p.group)}"><datalist id="gl">${groups().map(g=>`<option value="${esc(g)}">`).join("")}</datalist><label>الاشتراك الشهري (جنيه)</label><input name="fee" inputmode="decimal" required value="${p.fee}"><label>أول شهر اشتراك</label><input type="month" name="start" required value="${p.start}"><label class="row" style="color:inherit"><input type="checkbox" name="active" style="width:22px" ${p.active?"checked":""}> نشط</label><p class="note" id="perr" style="color:var(--r)"></p><div class="row"><button class="btn grow" type="submit">حفظ</button><button class="btn alt" type="button" data-close>إلغاء</button>${id?`<button class="btn warn" type="button" data-del="${id}">حذف</button>`:""}</div></form>`);
+  if(!id){const gi=$("#pf").elements.group,fi=$("#pf").elements.fee;gi.addEventListener("input",()=>{const f=DK.groupFee(state,gi.value.trim());if(f)fi.value=f})}
   $("#pf").onsubmit=e=>{e.preventDefault();const f=new FormData(e.target),fee=DK.num(f.get("fee")),ph=String(f.get("phone")).trim();
     if(!(fee>0)){$("#perr").textContent="اكتب اشتراك صحيح أكبر من صفر";return}
     if(ph&&!DK.normPhone(ph)){$("#perr").textContent="رقم الموبايل غير صحيح (مثال: 01012345678)";return}
@@ -231,9 +246,12 @@ function payForm(id){
 }
 function openWA(phone,text){const l=DK.waLink(phone,text);if(!l){toast("رقم ولي الأمر غير مسجل أو غير صحيح");return}window.open(l,"_blank","noopener")}
 function settings(){
-  open(`<h2>إعدادات الأكاديمية</h2><form id="sf"><label>اسم الأكاديمية</label><input name="name" value="${esc(state.academy.name)}"><label>الاشتراك الافتراضي (جنيه)</label><input name="fee" inputmode="decimal" value="${state.academy.fee}"><label>طريقة الدفع تظهر في التذكير (اختياري)</label><input name="pay" value="${esc(state.academy.pay||"")}" placeholder="مثال: انستاباي أو فودافون كاش على رقم..."><div class="row" style="margin-top:12px"><button class="btn grow" type="submit">حفظ</button><button class="btn alt" type="button" data-close>إلغاء</button></div></form>`);
-  $("#sf").onsubmit=e=>{e.preventDefault();const f=new FormData(e.target),fee=DK.num(f.get("fee"));state.academy={name:String(f.get("name")).trim(),fee:fee>0?fee:200,pay:String(f.get("pay")).trim()};save();close();render()};
+  open(`<h2>إعدادات الأكاديمية</h2><form id="sf"><label>اسم الأكاديمية</label><input name="name" value="${esc(state.academy.name)}"><label>الاشتراك الافتراضي (جنيه)</label><input name="fee" inputmode="decimal" value="${state.academy.fee}"><label>طريقة الدفع تظهر في التذكير (اختياري)</label><input name="pay" value="${esc(state.academy.pay||"")}" placeholder="مثال: انستاباي أو فودافون كاش على رقم..."><label>المجموعات واشتراكها (سطر لكل مجموعة: الاسم, الاشتراك)</label><textarea name="groups" rows="4" placeholder="تحت 10, 250&#10;تحت 12, 300">${esc((state.academy.groups||[]).map(g=>g.name+(g.fee?", "+g.fee:"")).join("\n"))}</textarea><p class="note">اللاعب الجديد يأخذ اشتراك مجموعته تلقائيًا.</p><p class="note" id="serr" style="color:var(--r);white-space:pre-line"></p><div class="row" style="margin-top:12px"><button class="btn grow" type="submit">حفظ</button><button class="btn alt" type="button" data-close>إلغاء</button></div></form><hr style="border:0;border-top:1px solid var(--b);margin:14px 0"><div class="row"><button class="btn alt sm" id="privB">الخصوصية وبياناتك</button>${deferredInstall?`<button class="btn alt sm" id="instB">تثبيت التطبيق</button>`:""}</div><p class="note">للتثبيت على الموبايل: من قائمة المتصفح اختر "إضافة إلى الشاشة الرئيسية".</p>`);
+  $("#sf").onsubmit=e=>{e.preventDefault();const f=new FormData(e.target),fee=DK.num(f.get("fee")),gp=DK.parseGroups(f.get("groups"));if(gp.errors.length){$("#serr").textContent="صحح:\n"+gp.errors.join("\n");return}state.academy={name:String(f.get("name")).trim(),fee:fee>0?fee:200,pay:String(f.get("pay")).trim(),groups:gp.groups};save();close();render()};
 }
+function privacy(){open(`<h2>الخصوصية وبياناتك</h2><ul style="padding-inline-start:18px;line-height:1.9"><li>كل بيانات اللاعبين محفوظة على جهازك فقط، ولا تُرسل لأي سيرفر ولا نجمع أي بيانات عنك.</li><li>رسائل واتساب بتفتح تطبيق واتساب عندك برسالة جاهزة، وإنت اللي بتضغط إرسال.</li><li>لو مسحت بيانات المتصفح أو غيرت الموبايل، البيانات بتضيع. خد نسخة احتياطية كل أسبوع واحفظها في مكان آمن.</li><li>ملف النسخة الاحتياطية فيه أسماء وأرقام ولي الأمر، فمتبعتوش لحد غريب.</li><li>الأرقام والأسماء حساسة، خصوصًا الأطفال. سجّل اللي محتاجه بس.</li></ul><div class="row"><button class="btn grow" data-close>تمام</button></div>`)}
+let deferredInstall=null;
+window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstall=e});
 function download(name,type,text){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
 /* ============ أحداث ============ */
 document.addEventListener("click",e=>{
@@ -251,11 +269,14 @@ document.addEventListener("click",e=>{
   else if(d.del){if(confirm("حذف اللاعب وكل دفعاته وحضوره؟ لا يمكن التراجع.")){state.players=state.players.filter(p=>p.id!==d.del);state.payments=state.payments.filter(p=>p.pid!==d.del);state.sessions.forEach(s=>s.present=s.present.filter(i=>i!==d.del));save();close();render()}}
   else if(t.hasAttribute("data-close"))close();
   else if(t.id==="setBtn")settings();
+  else if(t.id==="privB")privacy();
+  else if(t.id==="instB"&&deferredInstall){deferredInstall.prompt();deferredInstall=null;close()}
   else if(t.id==="prt")window.print();
   else if(t.id==="csv")download("تقرير-"+month+".csv","text/csv;charset=utf-8",DK.csv(state,month));
-  else if(t.id==="bak")download("نسخة-دفتر-الكابتن-"+DK.today()+".json","application/json",JSON.stringify(state));
+  else if(t.id==="bak"){localStorage.setItem(LB,String(Date.now()));download("نسخة-دفتر-الكابتن-"+DK.today()+".json","application/json",JSON.stringify(state));render()}
   else if(t.id==="rst")$("#file").click();
 });
+document.addEventListener("input",e=>{if(e.target.id==="q"){q=e.target.value;const pos=e.target.selectionStart;render();const n=$("#q");if(n){n.focus();try{n.setSelectionRange(pos,pos)}catch(x){}}}});
 document.addEventListener("change",e=>{
   const t=e.target;
   if(t.id==="fg"){filterGroup=t.value;render()}
@@ -271,6 +292,8 @@ document.addEventListener("change",e=>{
   }
 });
 render();
+try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}catch(e){}
+if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol))window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 </script>
 </body>
 </html>
