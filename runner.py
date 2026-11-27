@@ -23,6 +23,13 @@ FB_PAGE_TOKEN = ""  # INCIDENT GATE (Nov 23 2026): Facebook calls disabled until
 STATE_FILE = "posted.json"
 MAX_PER_RUN = 4
 FRESH_HOURS = 8
+
+# ===== Source pause (Andrew approved 2026-11-27) =====
+# ESPN/Disney terms grant no permission for automated access, and Kooora's terms
+# forbid scraping. Both are off. The bot keeps working from the free RSS news
+# feeds and from site/tsdb-cache.json (TheSportsDB, built server-side on a schedule).
+ESPN_PAUSED = True
+KOOORA_PAUSED = True
 CAIRO = ZoneInfo("Africa/Cairo")
 SITE = "https://andrew101018.github.io/EDGE"
 
@@ -531,6 +538,8 @@ def fetch_article(url):
 
 def fetch_scoreboard(slug, days=(-1, 0, 1)):
     """يجيب مباريات 3 أيام: امبارح + النهاردة + بكره (صريح بالتواريخ)"""
+    if ESPN_PAUSED:
+        return None
     try:
         base = "https://site.api.espn.com/apis/site/v2/sports/soccer/" + slug + "/scoreboard"
         results = []
@@ -553,6 +562,8 @@ def fetch_scoreboard(slug, days=(-1, 0, 1)):
         print("scoreboard error:", slug, e)
     return None
 def fetch_standings(slug):
+    if ESPN_PAUSED:
+        return None
     try:
         r = requests.get(f"https://site.api.espn.com/apis/v2/sports/soccer/{slug}/standings", timeout=8)
         if not r.ok: return None
@@ -565,6 +576,8 @@ def fetch_standings(slug):
     return None
 
 def fetch_lineups(slug, event_id):
+    if ESPN_PAUSED:
+        return None
     try:
         r = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/summary?event={event_id}", timeout=8)
         if not r.ok: return None
@@ -628,6 +641,8 @@ KOOORA_COMPS = {
 
 def fetch_kooora_matches(url, slug):
     """يجيب مباريات من صفحة مسابقة كوره ويحوّلها لنفس شكل عناصر ESPN"""
+    if KOOORA_PAUSED:
+        return []
     try:
         r = requests.get(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}, timeout=15)
         if not r.ok:
@@ -834,6 +849,8 @@ def post_engagement(state):
         print("✅ نُشر منشور تفاعل")
 
 def fetch_world():
+    if ESPN_PAUSED:
+        return []
     out = []
     for slug in PRIORITY:
         try:
@@ -860,6 +877,14 @@ def fetch_world():
     
 def build_site_data(state, today):
     now = datetime.now(CAIRO)
+    # Never overwrite the site's last good data with an empty build: while the
+    # ESPN/Kooora pulls are paused nothing new arrives, so keep what is there.
+    prev = {}
+    try:
+        with open("site/data.json", encoding="utf-8") as f:
+            prev = json.load(f)
+    except Exception:
+        prev = {}
     matches = []
     scorer_agg = {}
     for slug in PRIORITY:
@@ -920,6 +945,8 @@ def build_site_data(state, today):
 
     # ===== 👑 الهدافين — تجميع الموسم كامل من نفس مصدر المباريات =====
     def season_scorers(slug, n=15):
+        if ESPN_PAUSED:
+            return []
         try:
             y = now.year if now.month >= 8 else now.year - 1
             start = f"{y}0801"
@@ -998,6 +1025,15 @@ def build_site_data(state, today):
         "matches": matches, "tables": tables, "leaders": leaders,
         "world": fetch_world(), "highlights": [], "squads": state.get("squads", {}),
     }
+    kept = []
+    for key in ("matches", "tables", "leaders", "world"):
+        if not site_data.get(key) and prev.get(key):
+            site_data[key] = prev[key]
+            kept.append(key)
+    if "matches" in kept and prev.get("updated_at"):
+        site_data["updated_at"] = prev["updated_at"]
+    if kept:
+        print("⏸️ بيانات محفوظة من آخر تحديث:", ", ".join(kept))
     os.makedirs("site", exist_ok=True)
     with open("site/data.json", "w", encoding="utf-8") as f:
         json.dump(site_data, f, ensure_ascii=False, indent=2)
@@ -1248,6 +1284,8 @@ def main():
     save_state(state)
 
     report.append(f"📁 data.json: ✅ {os.path.getsize('site/data.json')} بايت")
+    if ESPN_PAUSED or KOOORA_PAUSED:
+        report.append("⏸️ ESPN/كوره متوقفين (شروط الاستخدام) — مفيش لايف أو نتائج من المصدر ده")
     report.append(f"🕐 تحديث: {datetime.now(CAIRO).strftime('%I:%M %p')}")
     report.append("🏁 انتهت الجولة")
     msg = "\n".join(report)
