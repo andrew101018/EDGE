@@ -52,6 +52,17 @@ SITE_HAS_ADS = False
 CAIRO = timezone(timedelta(hours=2))
 TERMS_URL = "https://www.thesportsdb.com/docs_terms_of_use.php"
 
+# Key leagues for the bot's fixture/result posts (site slug -> TheSportsDB league id).
+# One call each for upcoming fixtures and one for recent results.
+LEAGUES = {
+    "egy.1": ("4829", "الدوري المصري"),
+    "eng.1": ("4328", "الدوري الإنجليزي"),
+    "esp.1": ("4335", "الدوري الإسباني"),
+    "ita.1": ("4332", "الدوري الإيطالي"),
+    "ger.1": ("4331", "الدوري الألماني"),
+    "fra.1": ("4334", "الدوري الفرنسي"),
+}
+
 # National teams that get a squad table (bounded on purpose: one extra call each).
 SQUAD_TEAMS = {
     "Egypt", "Saudi Arabia", "Morocco", "Algeria", "Tunisia", "Libya", "Sudan",
@@ -188,6 +199,47 @@ def refresh_fixtures(entry, today):
     entry["last"] = lasts
 
 
+def refresh_league(entry, today):
+    """Upcoming fixtures + recent results for one league (2 calls)."""
+    lid = entry["id"]
+    nx = api("eventsnextleague.php", id=lid).get("events") or []
+    ls = api("eventspastleague.php", id=lid)
+    ls = ls.get("results") or ls.get("events") or []
+
+    nexts = []
+    for e in sorted(nx, key=lambda x: x.get("dateEvent") or ""):
+        d = e.get("dateEvent") or ""
+        if not d or d < today:
+            continue
+        nexts.append({
+            "d": d, "t": (e.get("strTime") or "")[:5],
+            "h": e.get("strHomeTeam") or "", "a": e.get("strAwayTeam") or "",
+            "lg": entry.get("name_ar") or e.get("strLeague") or "",
+        })
+        if len(nexts) >= 12:
+            break
+
+    lasts = []
+    for e in sorted(ls, key=lambda x: x.get("dateEvent") or "", reverse=True):
+        d = e.get("dateEvent") or ""
+        hs, as_ = e.get("intHomeScore"), e.get("intAwayScore")
+        if not d or d > today or hs is None or as_ is None:
+            continue
+        try:
+            hs, as_ = int(hs), int(as_)
+        except Exception:
+            continue
+        lasts.append({
+            "d": d, "h": e.get("strHomeTeam") or "", "a": e.get("strAwayTeam") or "",
+            "hs": hs, "as": as_, "lg": entry.get("name_ar") or e.get("strLeague") or "",
+        })
+        if len(lasts) >= 12:
+            break
+
+    entry["next"] = nexts
+    entry["last"] = lasts
+
+
 def refresh_squad(entry):
     ps = api("lookup_all_players.php", id=entry["id"]).get("player") or []
     rows = []
@@ -226,6 +278,22 @@ def main():
     else:
         cache = {}
     teams = cache.get("teams") or {}
+
+    # Leagues first: the bot's fixture and result posts depend on them, and a
+    # capped run must always refresh these before the national-team pages.
+    leagues = cache.get("leagues") or {}
+    try:
+        for slug, (lid, name_ar) in LEAGUES.items():
+            entry = leagues.setdefault(slug, {"id": lid, "name_ar": name_ar})
+            entry["id"] = lid
+            entry["name_ar"] = name_ar
+            if age_of(entry.get("fixtures_at"), now) > FIXTURE_MAX_AGE:
+                refresh_league(entry, today)
+                entry["fixtures_at"] = stamp
+                print("league %s refreshed" % slug, flush=True)
+    except Budget:
+        print("budget reached during leagues", flush=True)
+    cache["leagues"] = leagues
 
     wanted = nationals()
     # staleness order: least recently refreshed first, so a capped run rotates
@@ -273,9 +341,11 @@ def main():
         f.write("\n")
 
     have_fx = sum(1 for t in teams.values() if t.get("next") or t.get("last"))
+    lg = cache.get("leagues") or {}
+    have_lg = sum(1 for v in lg.values() if v.get("next") or v.get("last"))
     have_sq = sum(1 for t in teams.values() if t.get("squad"))
-    print("requests=%d teams=%d fixtures=%d squads=%d size=%dKB" % (
-        calls, len(teams), have_fx, have_sq,
+    print("requests=%d teams=%d fixtures=%d squads=%d leagues=%d/%d size=%dKB" % (
+        calls, len(teams), have_fx, have_sq, have_lg, len(lg),
         os.path.getsize(OUT) // 1024))
     print("this run: fixtures=%d squads=%d" % (done_fx, done_sq))
 
