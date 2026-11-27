@@ -38,6 +38,11 @@ OUT = os.path.join(ROOT, "site", "tsdb-cache.json")
 SECTIONS = os.path.join(ROOT, "app-sections.js")
 
 KEY = (os.environ.get("TSDB_KEY") or "123").strip()
+# football-data.org free tier: 12 competitions, fixtures/results/tables, 10 calls/min,
+# private token, attribution required ("Football data provided by the Football-Data.org API").
+FD_KEY = (os.environ.get("FD_KEY") or "").strip()
+FD_BASE = "https://api.football-data.org/v4"
+FD_COMPETITIONS = {"eng.1": "PL", "esp.1": "PD", "ita.1": "SA", "ger.1": "BL1", "fra.1": "FL1"}
 BASE = "https://www.thesportsdb.com/api/v1/json/%s/" % KEY
 BUDGET = int(os.environ.get("TSDB_BUDGET", "300"))
 PACE = float(os.environ.get("TSDB_PACE", "5.0"))
@@ -199,6 +204,43 @@ def refresh_fixtures(entry, today):
     entry["last"] = lasts
 
 
+def fd_api(path):
+    """One call to football-data.org with the private token (never in the repo)."""
+    global calls
+    req = urllib.request.Request(FD_BASE + path, headers={"X-Auth-Token": FD_KEY})
+    with urllib.request.urlopen(req, timeout=25) as r:
+        calls += 1
+        time.sleep(PACE)
+        return json.loads(r.read().decode("utf-8", "replace") or "{}")
+
+
+def refresh_fd_league(entry, code, now):
+    """Fixtures + finished results for one competition, times converted to Cairo."""
+    d1 = (now - timedelta(days=3)).strftime("%Y-%m-%d")
+    d2 = (now + timedelta(days=14)).strftime("%Y-%m-%d")
+    data = fd_api("/competitions/%s/matches?dateFrom=%s&dateTo=%s" % (code, d1, d2))
+    nexts, lasts = [], []
+    for m in (data.get("matches") or []):
+        try:
+            dtu = datetime.fromisoformat((m.get("utcDate") or "").replace("Z", "+00:00")).astimezone(CAIRO)
+        except Exception:
+            continue
+        h = ((m.get("homeTeam") or {}).get("shortName") or (m.get("homeTeam") or {}).get("name") or "")
+        a = ((m.get("awayTeam") or {}).get("shortName") or (m.get("awayTeam") or {}).get("name") or "")
+        ft = ((m.get("score") or {}).get("fullTime") or {})
+        st = m.get("status")
+        if st == "FINISHED" and ft.get("home") is not None:
+            lasts.append({"d": dtu.strftime("%Y-%m-%d"), "h": h, "a": a,
+                          "hs": ft.get("home"), "as": ft.get("away"), "lg": entry.get("name_ar")})
+        elif st in ("SCHEDULED", "TIMED"):
+            nexts.append({"d": dtu.strftime("%Y-%m-%d"), "t": dtu.strftime("%H:%M"),
+                          "h": h, "a": a, "lg": entry.get("name_ar")})
+    nexts.sort(key=lambda x: (x["d"], x["t"]))
+    lasts.sort(key=lambda x: x["d"], reverse=True)
+    entry["next"] = nexts[:12]
+    entry["last"] = lasts[:12]
+
+
 def refresh_league(entry, today):
     """Upcoming fixtures + recent results for one league (2 calls)."""
     lid = entry["id"]
@@ -287,6 +329,13 @@ def main():
             entry = leagues.setdefault(slug, {"id": lid, "name_ar": name_ar})
             entry["id"] = lid
             entry["name_ar"] = name_ar
+            if slug in FD_COMPETITIONS and FD_KEY:
+                if age_of(entry.get("fixtures_at"), now) > FIXTURE_MAX_AGE:
+                    refresh_fd_league(entry, FD_COMPETITIONS[slug], now)
+                    entry["fixtures_at"] = stamp
+                    entry["source"] = "football-data.org"
+                    print("fd league %s refreshed" % slug, flush=True)
+                continue
             if age_of(entry.get("fixtures_at"), now) > FIXTURE_MAX_AGE:
                 refresh_league(entry, today)
                 entry["fixtures_at"] = stamp
