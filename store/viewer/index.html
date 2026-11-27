@@ -12,9 +12,9 @@ const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});r.s
 const s=new THREE.Scene();s.background=new THREE.Color(0x0a0a0a);const c=new THREE.PerspectiveCamera(35,innerWidth/innerHeight,.1,100);c.position.set(0,0,12.5);
 s.add(new THREE.HemisphereLight(0xffffff,0x332211,1.1));const dl=new THREE.DirectionalLight(0xffb070,1.6);dl.position.set(3,4,6);s.add(dl);const dl2=new THREE.DirectionalLight(0xffffff,.8);dl2.position.set(-4,2,-6);s.add(dl2);
 // tee outline
-const sh=new THREE.Shape(),P=[[-1.1,2.1],[-.45,2.1],[-.3,1.8],[.3,1.8],[.45,2.1],[1.1,2.1],[2.3,1.2],[1.8,.35],[1.15,.7],[1.15,-2.2],[-1.15,-2.2],[-1.15,.7],[-1.8,.35],[-2.3,1.2]];
+const H=kind==='hoodie';const sh=new THREE.Shape(),P=H?[[-1.2,2.0],[-.5,2.05],[-.3,1.8],[.3,1.8],[.5,2.05],[1.2,2.0],[2.2,.9],[2.5,-1.5],[1.9,-1.55],[1.3,-.2],[1.3,-2.3],[-1.3,-2.3],[-1.3,-.2],[-1.9,-1.55],[-2.5,-1.5],[-2.2,.9]]:[[-1.1,2.1],[-.45,2.1],[-.3,1.8],[.3,1.8],[.45,2.1],[1.1,2.1],[2.3,1.2],[1.8,.35],[1.15,.7],[1.15,-2.2],[-1.15,-2.2],[-1.15,.7],[-1.8,.35],[-2.3,1.2]];
 sh.moveTo(...P[0]);P.slice(1).forEach(p=>sh.lineTo(...p));sh.closePath();
-if(kind==='hoodie'){}
+
 const g=new THREE.ExtrudeGeometry(sh,{depth:.5,bevelEnabled:true,bevelSize:.12,bevelThickness:.14,bevelSegments:6,curveSegments:8});g.translate(0,0,-.25);
 const mat=new THREE.MeshStandardMaterial({color:0x111111,roughness:.9});const body=new THREE.Mesh(g,mat);
 const grp=new THREE.Group();grp.add(body);
@@ -23,6 +23,7 @@ const pm=new THREE.MeshBasicMaterial({map:tex,transparent:true});
 const back=new THREE.Mesh(new THREE.PlaneGeometry(1.9,2.28),pm);back.position.set(0,-.15,-.42);back.rotation.y=Math.PI;grp.add(back);
 // neck hole ring
 const neck=new THREE.Mesh(new THREE.TorusGeometry(.4,.05,8,24,Math.PI),new THREE.MeshStandardMaterial({color:0x080808}));neck.rotation.z=Math.PI;neck.position.set(0,1.8,.3);grp.add(neck);
+if(H){const hood=new THREE.Mesh(new THREE.SphereGeometry(.85,24,16,0,Math.PI*2,0,Math.PI*.6),mat);hood.scale.set(1,.9,.8);hood.position.set(0,2.0,-.35);hood.rotation.x=-.5;grp.add(hood);const pk=new THREE.Mesh(new THREE.BoxGeometry(1.5,.5,.12),mat);pk.position.set(0,-1.4,.42);grp.add(pk);}
 s.add(grp);grp.rotation.y=Math.PI*0.88;
 const cols={Black:0x111111,Blue:0x12318f,Green:0x0f4d2c};
 const ui=document.getElementById('ui');Object.entries(cols).forEach(([n,h],i)=>{const e=document.createElement('span');e.className='sw'+(i?'':' on');e.style.background='#'+h.toString(16).padStart(6,'0');e.title=n;e.onclick=()=>{mat.color.setHex(h);document.querySelectorAll('.sw').forEach(x=>x.classList.remove('on'));e.classList.add('on')};ui.appendChild(e)});
