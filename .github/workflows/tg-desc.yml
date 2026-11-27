@@ -5,7 +5,7 @@ jobs:
   tg-desc:
     runs-on: ubuntu-latest
     steps:
-      - name: Replace only the mistaken YouTube handle in the channel description
+      - name: Fix handle and append shop line
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
@@ -19,10 +19,11 @@ jobs:
               return json.load(urllib.request.urlopen(urllib.request.Request(base + m, data=data), timeout=30))
           cur = (call("getChat").get("result") or {}).get("description") or ""
           print("before:", repr(cur))
-          bad, good = "@andygmall", "@andygamall"
-          if bad not in cur:
-              raise SystemExit("typo not present, nothing changed")
-          new = cur.replace(bad, good)
+          new = cur.replace("@andygmall", "@andygamall")
+          shop = "https://andrew101018.github.io/EDGE/store/"
+          if shop in new:
+              raise SystemExit("shop line already present")
+          new = new.rstrip() + "\n\nShop now | تسوق دلوقتي: " + shop
           print("setChatDescription ok:", call("setChatDescription", description=new).get("ok"))
           print("after:", repr((call("getChat").get("result") or {}).get("description")))
           PY
