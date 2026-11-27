@@ -4,7 +4,7 @@ from edge_editorial import valid_news_time, rank_news, parse_rewrite, format_new
 import base64
 from pywebpush import webpush, WebPushException
 from bs4 import BeautifulSoup
-from datetime import datetime
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 from difflib import SequenceMatcher
 from xml.etree import ElementTree
@@ -30,6 +30,21 @@ FRESH_HOURS = 8
 # feeds and from site/tsdb-cache.json (TheSportsDB, built server-side on a schedule).
 ESPN_PAUSED = True
 KOOORA_PAUSED = True
+
+TSDB_CACHE_FILE = "site/tsdb-cache.json"
+
+
+def load_tsdb_cache():
+    """Fixtures/results cached server-side by scripts/build_tsdb_cache.py.
+
+    Free tier: ~45 min delayed, no livescore, so this feeds schedules and
+    finished results only - never a live score.
+    """
+    try:
+        with open(TSDB_CACHE_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
 CAIRO = ZoneInfo("Africa/Cairo")
 SITE = "https://andrew101018.github.io/EDGE"
 
@@ -687,6 +702,23 @@ def fetch_kooora_matches(url, slug):
 def collect_finished(state, now):
     reported = set(state.get("reported_matches", []))
     found = []
+    if ESPN_PAUSED:
+        cache = load_tsdb_cache()
+        yday = (now - timedelta(days=1)).strftime("%Y-%m-%d")
+        for slug, entry in (cache.get("leagues") or {}).items():
+            name = entry.get("name_ar") or ""
+            for e in (entry.get("last") or []):
+                d = e.get("d") or ""
+                if d < yday:
+                    continue
+                key = "tsdb:%s:%s:%s-%s" % (slug, d, e.get("h"), e.get("a"))
+                if key in reported:
+                    continue
+                home, away = ar_team(e.get("h", "")), ar_team(e.get("a", ""))
+                short = f"{home} {e.get('hs')} - {e.get('as')} {away}"
+                full = f"🏁 نتيجة | {name}\n{short}\n{d}\n\n⚽ Edge Football"
+                found.append((key, full, short))
+        return found, reported
     for slug, name in LEAGUES.items():
         data = fetch_scoreboard(slug)
         if not data: continue
@@ -821,6 +853,19 @@ def build_digest(state, today):
 def build_schedule(today):
     lines = ["📅 مواعيد مباريات اليوم ⚽", ""]
     total = 0
+    if ESPN_PAUSED:
+        cache = load_tsdb_cache()
+        for slug, entry in (cache.get("leagues") or {}).items():
+            for e in (entry.get("next") or []):
+                if e.get("d") != today:
+                    continue
+                lg = entry.get("name_ar") or e.get("lg") or ""
+                t = e.get("t") or ""
+                lines.append(f"⏰ {t} | {e.get('h')} × {e.get('a')} ({lg})")
+                total += 1
+        if total == 0:
+            return None
+        return "\n".join(lines) + "\n\n⚽ Edge Football"
     for slug, name in LEAGUES.items():
         data = fetch_scoreboard(slug)
         if not data: continue
