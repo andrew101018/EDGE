@@ -9,14 +9,14 @@ import * as THREE from 'three';import {OrbitControls} from './OrbitControls.js';
 const q=new URLSearchParams(location.search),id=q.get('d')||'dragon',kind=q.get('k')||'tee';
 document.getElementById('t').textContent=(q.get('n')||'EDGE STORE');
 const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});r.setSize(innerWidth,innerHeight);r.setPixelRatio(Math.min(devicePixelRatio,2));document.body.appendChild(r.domElement);
-const s=new THREE.Scene();s.background=new THREE.Color(0x0a0a0a);const c=new THREE.PerspectiveCamera(35,innerWidth/innerHeight,.1,100);c.position.set(0,0,12.5);
-s.add(new THREE.HemisphereLight(0xffffff,0x332211,1.1));const dl=new THREE.DirectionalLight(0xffb070,1.6);dl.position.set(3,4,6);s.add(dl);const dl2=new THREE.DirectionalLight(0xffffff,.8);dl2.position.set(-4,2,-6);s.add(dl2);
+const s=new THREE.Scene();s.background=new THREE.Color(0x0a0a0a);const c=new THREE.PerspectiveCamera(35,innerWidth/innerHeight,.1,100);c.position.set(0,0,12.5);function fit(){const a=innerWidth/innerHeight;const d=Math.max(11,(5.4/Math.tan(c.fov*Math.PI/360))/Math.min(1,a*1.0)*0.5);c.position.setLength(d);o&&(o.minDistance=d*.6,o.maxDistance=d*1.5)};
+s.add(new THREE.HemisphereLight(0xffffff,0x665544,2.2));const dl=new THREE.DirectionalLight(0xffb070,1.6);dl.position.set(3,4,6);s.add(dl);const dl2=new THREE.DirectionalLight(0xffffff,1.6);dl2.position.set(-4,2,-6);s.add(dl2);
 // tee outline
 const H=kind==='hoodie';const sh=new THREE.Shape(),P=H?[[-1.2,2.0],[-.5,2.05],[-.3,1.8],[.3,1.8],[.5,2.05],[1.2,2.0],[2.2,.9],[2.5,-1.5],[1.9,-1.55],[1.3,-.2],[1.3,-2.3],[-1.3,-2.3],[-1.3,-.2],[-1.9,-1.55],[-2.5,-1.5],[-2.2,.9]]:[[-1.1,2.1],[-.45,2.1],[-.3,1.8],[.3,1.8],[.45,2.1],[1.1,2.1],[2.3,1.2],[1.8,.35],[1.15,.7],[1.15,-2.2],[-1.15,-2.2],[-1.15,.7],[-1.8,.35],[-2.3,1.2]];
 sh.moveTo(...P[0]);P.slice(1).forEach(p=>sh.lineTo(...p));sh.closePath();
 
 const g=new THREE.ExtrudeGeometry(sh,{depth:.5,bevelEnabled:true,bevelSize:.12,bevelThickness:.14,bevelSegments:6,curveSegments:8});g.translate(0,0,-.25);
-const mat=new THREE.MeshStandardMaterial({color:0x111111,roughness:.9});const body=new THREE.Mesh(g,mat);
+const mat=new THREE.MeshStandardMaterial({color:0x1e1e1e,roughness:.85});const body=new THREE.Mesh(g,mat);
 const grp=new THREE.Group();grp.add(body);
 const tex=new THREE.TextureLoader().load('tex/'+id+'.png');tex.colorSpace=THREE.SRGBColorSpace;tex.anisotropy=8;
 const pm=new THREE.MeshBasicMaterial({map:tex,transparent:true});
@@ -24,11 +24,12 @@ const back=new THREE.Mesh(new THREE.PlaneGeometry(1.9,2.28),pm);back.position.se
 // neck hole ring
 const neck=new THREE.Mesh(new THREE.TorusGeometry(.4,.05,8,24,Math.PI),new THREE.MeshStandardMaterial({color:0x080808}));neck.rotation.z=Math.PI;neck.position.set(0,1.8,.3);grp.add(neck);
 if(H){const hood=new THREE.Mesh(new THREE.SphereGeometry(.85,24,16,0,Math.PI*2,0,Math.PI*.6),mat);hood.scale.set(1,.9,.8);hood.position.set(0,2.0,-.35);hood.rotation.x=-.5;grp.add(hood);const pk=new THREE.Mesh(new THREE.BoxGeometry(1.5,.5,.12),mat);pk.position.set(0,-1.4,.42);grp.add(pk);}
-s.add(grp);grp.rotation.y=Math.PI*0.88;
-const cols={Black:0x111111,Blue:0x12318f,Green:0x0f4d2c};
+s.add(grp);grp.rotation.y=Math.PI;
+const fl=new THREE.TextureLoader().load('tex/_chest.png');fl.colorSpace=THREE.SRGBColorSpace;const front=new THREE.Mesh(new THREE.PlaneGeometry(.9,.54),new THREE.MeshBasicMaterial({map:fl,transparent:true}));front.position.set(.55,1.0,.43);grp.add(front);
+const cols={Black:0x1e1e1e,Blue:0x1c3fb0,Green:0x13683c};
 const ui=document.getElementById('ui');Object.entries(cols).forEach(([n,h],i)=>{const e=document.createElement('span');e.className='sw'+(i?'':' on');e.style.background='#'+h.toString(16).padStart(6,'0');e.title=n;e.onclick=()=>{mat.color.setHex(h);document.querySelectorAll('.sw').forEach(x=>x.classList.remove('on'));e.classList.add('on')};ui.appendChild(e)});
-const o=new OrbitControls(c,r.domElement);o.enableDamping=true;o.enablePan=false;o.minDistance=8;o.maxDistance=18;o.autoRotate=!q.get('still');o.autoRotateSpeed=2;
-addEventListener('pointerdown',()=>o.autoRotate=false);
-addEventListener('resize',()=>{r.setSize(innerWidth,innerHeight);c.aspect=innerWidth/innerHeight;c.updateProjectionMatrix()});
+const o=new OrbitControls(c,r.domElement);o.enableDamping=true;o.enablePan=false;o.minDistance=8;o.maxDistance=18;o.autoRotate=false;o.minPolarAngle=Math.PI*.35;o.maxPolarAngle=Math.PI*.65;
+fit();c.lookAt(0,0,0);o.update();const b=document.createElement('div');b.style.cssText='position:fixed;top:68px;left:0;right:0;text-align:center';b.innerHTML='<button id=bb>Back</button> <button id=bf>Front</button>';document.body.appendChild(b);b.querySelectorAll('button').forEach(x=>x.style.cssText='background:#222;color:#fff;border:1px solid #ff8a1f;border-radius:14px;padding:6px 16px;font-size:14px');const go=(z)=>{c.position.set(0,0,z*c.position.length());o.update()};bb.onclick=()=>go(1);bf.onclick=()=>go(-1);if(q.get("front"))go(-1);
+addEventListener('resize',()=>{fit();r.setSize(innerWidth,innerHeight);c.aspect=innerWidth/innerHeight;c.updateProjectionMatrix()});
 (function a(){requestAnimationFrame(a);o.update();r.render(s,c)})();
 </script></body></html>
