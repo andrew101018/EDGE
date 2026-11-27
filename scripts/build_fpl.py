@@ -57,7 +57,7 @@ def fmt(dt):
     h12 = h % 12 or 12
     return f"{DAYS_AR[dt.weekday()]} {dt.day} {MONTHS_AR[f'{dt.month:02d}']} · {h12}:{dt.minute:02d} {suffix}"
 
-def gw_page(gw, deadline, fixtures, updated):
+def gw_page(gw, deadline, fixtures, updated, locked=False):
     rows = '\n'.join(
         f"""<div class="fpl-match"><div class="fpl-when">{fmt(k)}</div><div class="fpl-teams">{h} × {a}</div></div>"""
         for k, h, a in fixtures)
@@ -71,7 +71,7 @@ def gw_page(gw, deadline, fixtures, updated):
 <h1>🔮 الجولة {gw}</h1>
 <div class="sub">فانتازي الدوري الإنجليزي · المواعيد بتوقيت القاهرة</div>
 {socials()}
-<div class="fpl-deadline"><div class="t">⏰ قفل التعديلات: {fmt(deadline)}</div><div class="d">بعد المعاد ده التشكيلة والتبديلات بتتقفل للجولة دي</div></div>
+<div class="fpl-deadline"><div class="t">{'🔒 اتقفلت' if locked else '⏰ قفل التعديلات'}: {fmt(deadline)}</div><div class="d">{'التشكيلة والتبديلات اتقفلت للجولة دي' if locked else 'بعد المعاد ده التشكيلة والتبديلات بتتقفل للجولة دي'}</div></div>
 <h1 style="font-size:1.15em;">📅 ماتشات الجولة</h1>
 {rows}
 <div class="sub" style="margin-top:16px;">المصدر: الموقع الرسمي لفانتازي الدوري الإنجليزي · آخر تحديث {updated}</div>
@@ -104,10 +104,14 @@ def index_page(gws, updated):
 def main():
     boot = fetch('/bootstrap-static/')
     teams = {t['id']: t['name'] for t in boot['teams']}
-    upcoming = [e for e in boot['events'] if e['is_next'] or e['is_current'] and not e['finished']]
-    targets = sorted({e['id'] for e in boot['events'] if e['is_next']})
-    cur = [e for e in boot['events'] if e['is_current'] and not e['finished']]
-    targets = sorted(set(targets) | {e['id'] for e in cur})
+    now_utc = datetime.now(timezone.utc)
+    def dl(e):
+        return datetime.fromisoformat(e['deadline_time'].replace('Z', '+00:00'))
+    # Pages for: every unfinished gameweek whose deadline has passed (locked, still being played),
+    # plus the next open gameweek, so the next page is live before its deadline.
+    open_gws = sorted((e for e in boot['events'] if not e['finished'] and dl(e) > now_utc), key=lambda e: e['id'])
+    locked = [e['id'] for e in boot['events'] if not e['finished'] and dl(e) <= now_utc]
+    targets = sorted(set(locked) | {e['id'] for e in open_gws[:1]})
     events = {e['id']: e for e in boot['events']}
     updated = fmt(datetime.now(timezone.utc).astimezone(CAIRO))
     os.makedirs(OUT, exist_ok=True)
@@ -121,9 +125,21 @@ def main():
              for x in fetch(f'/fixtures/?event={n}') if x['kickoff_time']),
             key=lambda t: t[0])
         open(os.path.join(OUT, f'gw{n}.html'), 'w', encoding='utf-8').write(
-            gw_page(n, deadline, fixtures, updated))
+            gw_page(n, deadline, fixtures, updated, locked=deadline <= now_utc))
         gws.append((n, fmt(deadline)))
-    open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(index_page(gws, updated))
+    # keep archive links: older pages already on disk stay listed (newest first)
+    import re
+    built = {n for n, _ in gws}
+    old = []
+    for fn in os.listdir(OUT):
+        m = re.fullmatch(r'gw(\d+)\.html', fn)
+        if m and int(m.group(1)) not in built:
+            n = int(m.group(1))
+            d = events[n]['deadline_time'] if n in events else None
+            label = fmt(datetime.fromisoformat(d.replace('Z', '+00:00')).astimezone(CAIRO)) if d else ''
+            old.append((n, label))
+    allg = sorted(gws + old, key=lambda t: -t[0])
+    open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(index_page(allg, updated))
     print(f"built fpl pages for gameweeks {[n for n, _ in gws]} (updated {updated})")
 
 if __name__ == '__main__':
