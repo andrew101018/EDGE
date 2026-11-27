@@ -54,27 +54,28 @@ async function showNational(en, ar, flag) {
   const get = async u => { try { return JSON.parse(await (await fetch(u)).text()); } catch (e) { return {}; } };
   let html = `<div style="text-align:center;margin-bottom:14px;"><div style="font-size:3em;">${flag}</div><div style="font-weight:bold;font-size:1.3em;">منتخب ${ar}</div></div>`;
   try {
-    const teams = ((await get('https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=' + encodeURIComponent(en))).teams || []);
-    const team = teams.find(t => (t.strTeam || '').toLowerCase() === en.toLowerCase()) || teams[0];
+    const team = tsdbTeam(await tsdbCache(), en);
     if (team) {
-      const next = ((await get('https://www.thesportsdb.com/api/v1/json/3/eventsnext.php?id=' + team.idTeam)).events || []);
-      const last = ((await get('https://www.thesportsdb.com/api/v1/json/3/eventslast.php?id=' + team.idTeam)).events || []);
+      const next = team.next || [], last = team.last || [], squad = team.squad || [];
       if (next.length) {
         html += '<h3 style="color:#fbbf24;margin:12px 0 8px;">🕐 المباريات القادمة</h3>';
-        html += next.slice(0, 6).map(e => {
-          const d = e.dateEvent ? new Date(e.dateEvent) : null;
-          return `<div class="live-card" style="margin-bottom:8px;"><div class="live-teams"><span>${e.strHomeTeam}</span><span class="live-score" style="color:#94a3b8;">${d ? d.toLocaleDateString('ar-EG', { day: 'numeric', month: 'long' }) : '🕐'}</span><span>${e.strAwayTeam}</span></div><div class="live-meta">🏆 ${e.strLeague || 'مباراة دولية'}</div></div>`;
-        }).join('');
+        html += next.slice(0, 6).map(e => `<div class="live-card" style="margin-bottom:8px;"><div class="live-teams"><span>${e.h}</span><span class="live-score" style="color:#94a3b8;">${tsdbDate(e.d, e.t)}</span><span>${e.a}</span></div><div class="live-meta">🏆 ${e.lg || 'مباراة دولية'}</div></div>`).join('');
       }
       if (last.length) {
         html += '<h3 style="color:#fbbf24;margin:14px 0 8px;">🏁 آخر النتائج</h3>';
-        html += last.slice(0, 6).map(e => `<div class="result-item">🏁 ${e.strHomeTeam} ${e.intHomeScore ?? '-'} - ${e.intAwayScore ?? '-'} ${e.strAwayTeam}</div>`).join('');
+        html += last.slice(0, 6).map(e => `<div class="result-item">🏁 ${e.h} ${e.hs} - ${e.as} ${e.a}</div>`).join('');
       }
-      const squad = ((await get('https://www.thesportsdb.com/api/v1/json/3/lookup_all_players.php?id=' + team.idTeam)).player || []).filter(p => p.strPlayer);
       if (squad.length) {
         html += '<h3 style="color:#fbbf24;margin:14px 0 8px;">👥 القائمة</h3><div style="overflow-x:auto;"><table class="stand"><tr><th style="text-align:right;">اللاعب</th><th>المركز</th><th>الجنسية</th></tr>' +
-          squad.slice(0, 30).map(p => `<tr><td style="text-align:right;">${p.strCutout || p.strThumb ? `<img loading="lazy" class="p-face" style="width:24px;height:24px;vertical-align:middle;margin-left:5px;" src="${p.strCutout || p.strThumb}" onerror="this.style.display='none'">` : '👤'} ${p.strPlayer}</td><td>${p.strPosition || '-'}</td><td>${p.strNationality || '-'}</td></tr>`).join('') + '</table></div>';
+          squad.slice(0, 30).map(p => `<tr><td style="text-align:right;">${tsdbImg(p.img, p.credit) || '👤'} ${p.n}</td><td>${p.pos || '-'}</td><td>${p.nat || '-'}</td></tr>`).join('') + '</table></div>' + tsdbCredit(squad);
       }
+      if (next.length || last.length || squad.length) {
+        html += '<div style="opacity:.6;font-size:.72em;margin-top:10px;text-align:center;">المصدر: TheSportsDB (الخطة المجانية)</div>';
+      } else {
+        html += '<div class="card">مفيش بيانات متاحة للمنتخب ده دلوقتي 🙏</div>';
+      }
+    } else {
+      html += '<div class="card">مفيش بيانات متاحة للمنتخب ده دلوقتي 🙏</div>';
     }
   } catch (e) {}
   document.getElementById('teamModalBody').innerHTML = html;
