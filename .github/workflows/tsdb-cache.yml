@@ -1,11 +1,13 @@
 name: tsdb-cache
-# Builds site/tsdb-cache.json from TheSportsDB's free API, server-side.
+# Builds site/tsdb-cache.json from permitted sources, server-side.
+# football-data.org (private free token) for the big leagues; TheSportsDB free for
+# national teams, which fills a slice per run because the free key is rate limited.
 # The browser never calls the API (free tier: 30 requests/minute, no livescore).
 # Terms applied: official endpoints only, paced calls, finished results only,
 # artwork only where the API marks it CC.
 on:
   schedule:
-    - cron: '37 2 * * *'
+    - cron: '37 */3 * * *'
   workflow_dispatch:
     inputs:
       budget:
