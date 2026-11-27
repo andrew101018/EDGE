@@ -32,6 +32,7 @@ jobs:
       - name: Build cache (one paced pass over the API)
         env:
           TSDB_KEY: ${{ secrets.TSDB_KEY }}
+          FD_KEY: ${{ secrets.FD_KEY }}
           TSDB_BUDGET: ${{ github.event.inputs.budget || '200' }}
         run: python3 scripts/build_tsdb_cache.py
       - name: Commit cache if changed
