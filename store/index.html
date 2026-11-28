@@ -126,7 +126,9 @@ footer a{border:1px solid var(--line);border-radius:999px;padding:7px 13px;color
 <details><summary>أختار أنهي مقاس؟</summary><p>لو مقاسك بين مقاسين، خد المقاس الأكبر. ولو محتاج تتأكد، ابعتلنا في الرسايل ونساعدك تختار.</p></details>
 <details><summary>الشحن بكام؟</summary><p>الشحن بيتحسب لكل طلب في الرسايل، وبنقولك السعر قبل ما تأكد.</p></details>
 <details><summary>أدفع إزاي؟</summary><p>فودافون كاش أو إنستاباي. بنبعتلك الرقم في الرسايل بعد ما تأكد الطلب، وبنبدأ الطباعة بعد تأكيد التحويل.</p></details>
-<details><summary>الطلب بيوصل في قد إيه؟</summary><p>التجهيز لحد ٣ أيام، والتوصيل ١-٥ أيام عمل بعدها.</p></details></section>
+<details><summary>الطلب بيوصل في قد إيه؟</summary><p>التجهيز لحد ٣ أيام، والتوصيل ١-٥ أيام عمل بعدها.</p></details></section><section class="how reviews" id="reviews"><h2>آراء العملاء</h2>
+<div id="reviews-list"><p class="rv-empty">لسه مفيش آراء منشورة. هننشر هنا آراء عملائنا الحقيقيين أول ما توصلنا.</p></div>
+<p class="rv-note">اشتريت منا؟ ابعتلنا رأيك على <a href="https://ig.me/m/edge_footballl" target="_blank" rel="noopener">إنستجرام</a>.</p></section>
 
 </div>
 <footer class="wrap"><span>© EDGE — كل الحقوق محفوظة.</span>
@@ -180,7 +182,7 @@ document.getElementById('ch-x').onclick=function(){document.getElementById('choo
 document.getElementById('chooser').onclick=function(e){if(e.target===this||e.target.tagName==='A')this.hidden=true};
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';setTimeout(function(){t.style.display='none'},5000);}
 </script><script>
-(function(){var V="26",L={};
+(function(){var V="27",L={};
 function load(c){if(L[c])return L[c];return L[c]=fetch("c/"+c+".json?v="+V).then(function(r){return r.json()}).then(function(m){document.querySelectorAll("img[data-k]").forEach(function(i){var u=m[i.dataset.k];if(u&&i.src!==u)i.src=u;});}).catch(function(){L[c]=null;});}
 load("top");
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);load(e.target.id);}});},{rootMargin:"1500px 0px"});
