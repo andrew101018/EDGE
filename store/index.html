@@ -74,7 +74,6 @@ h2.sec{font-size:clamp(1.3em,3.4vw,1.9em);margin:34px 0 6px;font-weight:900}
 .how p{margin:6px 0;color:var(--muted)}
 footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.85em;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
 footer a{border:1px solid var(--line);border-radius:999px;padding:7px 13px;color:#cbd5e1}
-.offer{background:#2a1a08;border-bottom:1px solid var(--o);color:#ffd9a8;text-align:center;padding:10px 14px;font-size:.92em;display:flex;flex-direction:column;gap:2px}.offer b{color:var(--o);font-size:1.05em}.offer span{font-size:.85em;color:#d9b88c}
 .media{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.media>*{flex:1 1 30%;min-width:0}.media .vbtn,.media .vlink{flex:1;text-align:center;padding:8px 6px;border-radius:10px;background:#1b2027;border:1px solid var(--line);color:#fff;text-decoration:none;font:inherit;font-size:.82em;cursor:pointer}.media .vbtn:hover,.media .vlink:hover{border-color:var(--o)}#vmodal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:flex;align-items:center;justify-content:center;z-index:60}#vmodal[hidden]{display:none}.vbox{width:min(420px,94%);background:#14181d;border:1px solid var(--line);border-radius:16px;padding:12px;text-align:center}.vbox video{width:100%;max-height:70vh;border-radius:10px;background:#000}.vbox h3{margin:0 0 8px;color:#fff;font-size:1em}.vbox button{margin-top:10px;padding:10px 18px;border-radius:10px;background:#1b2027;border:1px solid var(--line);color:#fff;font:inherit;cursor:pointer}
 #chooser{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:50}#chooser[hidden]{display:none}.chbox{background:#14181d;border:1px solid var(--line);border-radius:16px;padding:20px;width:min(320px,90%);display:flex;flex-direction:column;gap:10px;text-align:center}.chbox h3{margin:0 0 4px;color:#fff}.chbox a,.chbox button{display:block;padding:12px;border-radius:10px;background:#1b2027;border:1px solid var(--line);color:#fff;text-decoration:none;font:inherit;cursor:pointer}.chbox a:hover{border-color:var(--o)}
 #toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#1b2027;border:1px solid var(--line);color:#fff;padding:11px 16px;border-radius:12px;display:none;max-width:90%;text-align:center;z-index:99;font-size:.9em}
@@ -89,7 +88,6 @@ footer a{border:1px solid var(--line);border-radius:999px;padding:7px 13px;color
   <a class="small" href="#all">كل التصميمات</a>
 </div></div>
 
-<div class="offer"><b>🎁 خصم 10% لأول 10 طلبات</b><span>الأسعار المعروضة زي ما هي، والخصم بيتحسب لما نأكد طلبك في الرسايل.</span></div>
 <div class="wrap"><section class="hero">
   <div class="hero-txt">
     <span class="kicker">وصل حديثاً</span>
@@ -118,8 +116,7 @@ footer a{border:1px solid var(--line);border-radius:999px;padding:7px 13px;color
   <p>٢. هيتنسخ نص الطلب، اختار واتساب أو إنستجرام أو فيسبوك وابعته.</p>
   <p>٣. هنرد عليك بالسعر الكلي مع الشحن وطرق الدفع.</p>
   <p>٤. بعد تأكيد التحويل بنبدأ الطباعة. التجهيز لحد ٣ أيام، والتوصيل ١-٥ أيام عمل بعدها.</p>
-  <p>الأسعار بالجنيه المصري ومش شاملة الشحن.</p>
-  <p>عرض الافتتاح: خصم 10% لأول 10 طلبات، بيتطبق وقت تأكيد الطلب في الرسايل.</p></section>
+  <p>الأسعار بالجنيه المصري ومش شاملة الشحن.</p></section>
   <div class="how" id="policy"><h2>الاستبدال والاسترجاع</h2>
 • تقدر تستبدل أو ترجّع القطعة خلال ١٤ يوم من يوم ما تستلمها، من غير ما تقول السبب، بشرط إنها متلبستش ومتغسلتش وبحالتها زي ما وصلتك.<br>
 • لو القطعة فيها عيب أو مش زي اللي اتفقنا عليه (مقاس أو لون غلط من عندنا، عيب طباعة أو خامة): بنبدّلها أو نرجّع فلوسك خلال ٣٠ يوم من الاستلام.<br>
@@ -173,7 +170,7 @@ document.getElementById('ch-x').onclick=function(){document.getElementById('choo
 document.getElementById('chooser').onclick=function(e){if(e.target===this||e.target.tagName==='A')this.hidden=true};
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';setTimeout(function(){t.style.display='none'},5000);}
 </script><script>
-(function(){var V="17",L={};
+(function(){var V="16",L={};
 function load(c){if(L[c])return L[c];return L[c]=fetch("c/"+c+".json?v="+V).then(function(r){return r.json()}).then(function(m){document.querySelectorAll("img[data-k]").forEach(function(i){var u=m[i.dataset.k];if(u&&i.src!==u)i.src=u;});}).catch(function(){L[c]=null;});}
 load("top");
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);load(e.target.id);}});},{rootMargin:"1500px 0px"});
