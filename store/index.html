@@ -92,9 +92,9 @@ footer a{border:1px solid var(--line);border-radius:999px;padding:7px 13px;color
 <div class="offer"><b>🎁 خصم 10% عند طلب قطعتين أو أكتر</b><span>الأسعار المعروضة زي ما هي، والخصم بيتحسب لما نأكد طلبك في الرسايل.</span></div>
 <div class="wrap"><section class="hero">
   <div class="hero-txt">
-    <span class="kicker">وصل حديثاً</span>
-    <h1>تصميمات كورة على تيشيرتات وهوديز، <em>كل لون لوحده</em></h1>
-    <p>لبس الكورة اللي بتحبه. تصميمات أصلية من EDGE، توصلك لحد باب بيتك. 442 قطعة جاهزة للطلب. تتطبع بعد طلبك وتوصلك لحد باب البيت. الطلب في الرسايل، من غير تسجيل.</p>
+    <span class="kicker">EDGE · لبس الكورة</span>
+    <h1>الكورة مش بتتشاف بس. <em>بتتلبس.</em></h1>
+    <p>تصميمات لناس عايشة الماتش بجد. مش متفرج، إنت جزء من اللعبة.</p>
     <div class="cta"><a class="btn" href="#new">شوف الجديد</a><a class="btn ghost" href="#all">اتفرج على كل حاجة</a></div>
     <div class="thumbs"><a class="thumb" href="#d46"><img data-k="5856a6d363" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="SEASON TICKET"><span>SEASON TICKET</span></a><a class="thumb" href="#d45"><img data-k="0098957e11" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="FIRST WHISTLE"><span>FIRST WHISTLE</span></a><a class="thumb" href="#d44"><img data-k="f6f3540701" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="ATHLETIC DEPT."><span>ATHLETIC DEPT.</span></a><a class="thumb" href="#d43"><img data-k="5a7c562214" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="SAFE HANDS"><span>SAFE HANDS</span></a></div>
   </div>
@@ -173,7 +173,7 @@ document.getElementById('ch-x').onclick=function(){document.getElementById('choo
 document.getElementById('chooser').onclick=function(e){if(e.target===this||e.target.tagName==='A')this.hidden=true};
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';setTimeout(function(){t.style.display='none'},5000);}
 </script><script>
-(function(){var V="18",L={};
+(function(){var V="19",L={};
 function load(c){if(L[c])return L[c];return L[c]=fetch("c/"+c+".json?v="+V).then(function(r){return r.json()}).then(function(m){document.querySelectorAll("img[data-k]").forEach(function(i){var u=m[i.dataset.k];if(u&&i.src!==u)i.src=u;});}).catch(function(){L[c]=null;});}
 load("top");
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);load(e.target.id);}});},{rootMargin:"1500px 0px"});
